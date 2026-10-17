@@ -1,0 +1,770 @@
+{
+ "title": "Skinny arms but a soft belly? That's skinny fat",
+ "progressBar": true,
+ "captions": {
+  "mode": "word",
+  "keywords": [
+   "skinny",
+   "fat",
+   "belly",
+   "neither",
+   "maintenance",
+   "protein",
+   "push-ups",
+   "squats",
+   "rows",
+   "rep",
+   "three",
+   "arms"
+  ],
+  "bottom": [
+   [
+    "Dieting makes you",
+    "Send this to"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "none",
+   "shakes": [
+    {
+     "at": "but a soft belly"
+    }
+   ],
+   "layers": [
+    {
+     "type": "speed",
+     "at": "start"
+    },
+    {
+     "type": "pulse",
+     "kind": "edge",
+     "color": "#2FD94E",
+     "at": "start+0.6"
+    },
+    {
+     "type": "speed",
+     "at": "start+1.0"
+    },
+    {
+     "type": "video",
+     "asset": "clip_pushup",
+     "width": 1.0,
+     "y": 0.58,
+     "rate": 1.3,
+     "enter": "cut",
+     "at": "start",
+     "until": "but a soft belly"
+    },
+    {
+     "type": "text",
+     "text": "SKINNY FAT",
+     "look": "marquee",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.28,
+     "size": 230,
+     "color": "#111111",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "speed": 400,
+     "at": "start",
+     "until": "but a soft belly"
+    },
+    {
+     "type": "image",
+     "asset": "hero_beginner",
+     "shadow": true,
+     "enter": "whip",
+     "at": "but a soft belly",
+     "until": "That's skinny fat"
+    },
+    {
+     "type": "text",
+     "text": "SOFT BELLY",
+     "look": "echo",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.27,
+     "size": 200,
+     "color": "#E3262E",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "but a soft belly",
+     "until": "That's skinny fat"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "but a soft belly",
+     "duration": 0.2
+    },
+    {
+     "type": "image",
+     "asset": "hero_measuring_waist",
+     "shadow": true,
+     "enter": "whip",
+     "at": "That's skinny fat",
+     "width": 0.8,
+     "y": 0.66
+    },
+    {
+     "type": "text",
+     "text": "SKINNY FAT",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.19,
+     "size": 165,
+     "color": "#E3262E",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "letters",
+     "untype": false,
+     "tilt": 0,
+     "at": "That's skinny fat"
+    }
+   ]
+  },
+  {
+   "id": "myth",
+   "start": "Dieting makes you-0.1",
+   "transition": {
+    "type": "whip",
+    "duration": 0.32
+   },
+   "backdrop": "spotlight",
+   "backdropColor": "#E3262E",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_beginner_v2",
+     "shadow": true,
+     "enter": "whip",
+     "at": "Dieting makes you",
+     "until": "Bulking makes you",
+     "width": 0.8,
+     "y": 0.66
+    },
+    {
+     "type": "text",
+     "text": "SKINNIER",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.19,
+     "size": 190,
+     "color": "#E3262E",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "letters",
+     "untype": false,
+     "tilt": 0,
+     "at": "Dieting makes you",
+     "until": "Bulking makes you"
+    },
+    {
+     "type": "image",
+     "asset": "hero_eating",
+     "shadow": true,
+     "enter": "whip",
+     "at": "Bulking makes you",
+     "until": "Do neither",
+     "width": 0.8,
+     "y": 0.66
+    },
+    {
+     "type": "text",
+     "text": "FATTER",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.19,
+     "size": 210,
+     "color": "#E3262E",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "letters",
+     "untype": false,
+     "tilt": 0,
+     "at": "Bulking makes you",
+     "until": "Do neither"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "Bulking makes you",
+     "duration": 0.2
+    },
+    {
+     "type": "image",
+     "asset": "hero_stop_palm",
+     "shadow": true,
+     "enter": "whip",
+     "at": "Do neither"
+    },
+    {
+     "type": "text",
+     "text": "NEITHER",
+     "look": "echo",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.27,
+     "size": 210,
+     "color": "#2FD94E",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Do neither"
+    }
+   ]
+  },
+  {
+   "id": "eat",
+   "start": "Eat at maintenance-0.1",
+   "transition": {
+    "type": "whip",
+    "duration": 0.32
+   },
+   "backdrop": "spotlight",
+   "backdropColor": "#2FD94E",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_cooking",
+     "shadow": true,
+     "enter": "whip",
+     "at": "Eat at maintenance",
+     "until": "with protein in every meal",
+     "width": 0.8,
+     "y": 0.66
+    },
+    {
+     "type": "text",
+     "text": "MAINTENANCE",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.19,
+     "size": 150,
+     "color": "#111111",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "letters",
+     "untype": false,
+     "tilt": 0,
+     "at": "Eat at maintenance",
+     "until": "with protein in every meal"
+    },
+    {
+     "type": "image",
+     "asset": "hero_eating_v2",
+     "shadow": true,
+     "enter": "whip",
+     "at": "with protein in every meal",
+     "until": "eggs, dal or chicken",
+     "width": 0.8,
+     "y": 0.66
+    },
+    {
+     "type": "text",
+     "text": "PROTEIN",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.19,
+     "size": 210,
+     "color": "#2FD94E",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "letters",
+     "untype": false,
+     "tilt": 0,
+     "at": "with protein in every meal",
+     "until": "eggs, dal or chicken"
+    },
+    {
+     "type": "image",
+     "asset": "prop_protein_food",
+     "x": 0.8,
+     "y": 0.4,
+     "width": 0.2,
+     "motion": {
+      "type": "pulse"
+     },
+     "at": "with protein in every meal",
+     "until": "eggs, dal or chicken"
+    },
+    {
+     "type": "image",
+     "asset": "hero_cooking",
+     "shadow": true,
+     "enter": "whip",
+     "at": "eggs, dal or chicken"
+    },
+    {
+     "type": "text",
+     "text": "EGGS • DAL",
+     "look": "echo",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.27,
+     "size": 170,
+     "color": "#2FD94E",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "eggs, dal or chicken"
+    },
+    {
+     "type": "image",
+     "asset": "prop_eggs",
+     "x": 0.8,
+     "y": 0.4,
+     "width": 0.2,
+     "motion": {
+      "type": "pulse"
+     },
+     "at": "eggs, dal or chicken"
+    }
+   ]
+  },
+  {
+   "id": "do",
+   "start": "Train full body-0.1",
+   "transition": {
+    "type": "whip",
+    "duration": 0.32
+   },
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "clip_pushup",
+     "width": 1.0,
+     "y": 0.58,
+     "rate": 1.0,
+     "enter": "whip",
+     "at": "Train full body",
+     "until": "push-ups, squats"
+    },
+    {
+     "type": "text",
+     "text": "3X A WEEK",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.28,
+     "size": 190,
+     "color": "#111111",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "letters",
+     "untype": false,
+     "tilt": 0,
+     "at": "Train full body",
+     "until": "push-ups, squats"
+    },
+    {
+     "type": "video",
+     "asset": "clip_pushup",
+     "width": 1.0,
+     "y": 0.58,
+     "rate": 1.3,
+     "enter": "whip",
+     "at": "push-ups, squats",
+     "until": "squats and rows"
+    },
+    {
+     "type": "text",
+     "text": "PUSH-UPS",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.28,
+     "size": 190,
+     "color": "#111111",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "letters",
+     "untype": false,
+     "tilt": 0,
+     "at": "push-ups, squats",
+     "until": "squats and rows"
+    },
+    {
+     "type": "video",
+     "asset": "clip_squat",
+     "width": 0.66,
+     "y": 0.62,
+     "rate": 1.3,
+     "enter": "whip",
+     "at": "squats and rows",
+     "until": "rows"
+    },
+    {
+     "type": "text",
+     "text": "SQUATS",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.19,
+     "size": 210,
+     "color": "#2FD94E",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "letters",
+     "untype": false,
+     "tilt": 0,
+     "at": "squats and rows",
+     "until": "rows"
+    },
+    {
+     "type": "video",
+     "asset": "clip_inverted_row",
+     "width": 1.0,
+     "y": 0.64,
+     "rate": 1.2,
+     "enter": "whip",
+     "at": "rows"
+    },
+    {
+     "type": "text",
+     "text": "ROWS",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.17,
+     "size": 230,
+     "color": "#111111",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "letters",
+     "untype": false,
+     "tilt": 0,
+     "at": "rows",
+     "until": "three sets of eight"
+    },
+    {
+     "type": "text",
+     "text": "8-12",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.17,
+     "size": 240,
+     "color": "#111111",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "letters",
+     "untype": false,
+     "tilt": 0,
+     "at": "three sets of eight"
+    }
+   ]
+  },
+  {
+   "id": "plan",
+   "start": "Add one rep-0.1",
+   "transition": {
+    "type": "zoomBlur",
+    "duration": 0.45
+   },
+   "backdrop": "grid",
+   "backdropColor": "#B0B6BE",
+   "backdropOpacity": 0.6,
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_clipboard",
+     "shadow": true,
+     "enter": "whip",
+     "at": "Add one rep",
+     "until": "In three months"
+    },
+    {
+     "type": "text",
+     "text": "+1 REP",
+     "look": "echo",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.27,
+     "size": 230,
+     "color": "#2FD94E",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Add one rep",
+     "until": "In three months"
+    },
+    {
+     "type": "image",
+     "asset": "hero_counting_fingers",
+     "shadow": true,
+     "enter": "whip",
+     "at": "In three months",
+     "until": "your belly shrinks",
+     "width": 0.8,
+     "y": 0.66
+    },
+    {
+     "type": "text",
+     "text": "3 MONTHS",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.19,
+     "size": 190,
+     "color": "#111111",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "letters",
+     "untype": false,
+     "tilt": 0,
+     "at": "In three months",
+     "until": "your belly shrinks"
+    },
+    {
+     "type": "image",
+     "asset": "hero_measuring_waist",
+     "shadow": true,
+     "enter": "whip",
+     "at": "your belly shrinks",
+     "until": "while your arms grow",
+     "width": 0.8,
+     "y": 0.66
+    },
+    {
+     "type": "text",
+     "text": "BELLY DOWN",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.19,
+     "size": 165,
+     "color": "#2FD94E",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "letters",
+     "untype": false,
+     "tilt": 0,
+     "at": "your belly shrinks",
+     "until": "while your arms grow"
+    },
+    {
+     "type": "image",
+     "asset": "hero_double_biceps",
+     "shadow": true,
+     "enter": "whip",
+     "at": "while your arms grow",
+     "width": 0.8,
+     "y": 0.66
+    },
+    {
+     "type": "text",
+     "text": "ARMS UP",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.19,
+     "size": 210,
+     "color": "#2FD94E",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "letters",
+     "untype": false,
+     "tilt": 0,
+     "at": "while your arms grow"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "while your arms grow",
+     "duration": 0.2
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "start": "Send this to-0.1",
+   "transition": {
+    "type": "whip",
+    "duration": 0.32
+   },
+   "backdrop": "rays",
+   "backdropColor": "#FFD23F",
+   "layers": [
+    {
+     "type": "text",
+     "text": "SEND THIS",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.19,
+     "size": 190,
+     "color": "#111111",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "letters",
+     "untype": false,
+     "tilt": 0,
+     "at": "Send this to",
+     "until": "skinny friend with a belly"
+    },
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": "whip",
+     "at": "Send this to",
+     "until": "skinny friend with a belly"
+    },
+    {
+     "type": "image",
+     "asset": "prop_phone",
+     "at": "Send this to",
+     "until": "skinny friend with a belly",
+     "x": 0.8,
+     "y": 0.4,
+     "width": 0.18,
+     "motion": {
+      "type": "pulse"
+     }
+    },
+    {
+     "type": "image",
+     "asset": "hero_beginner",
+     "shadow": true,
+     "enter": "whip",
+     "at": "skinny friend with a belly",
+     "until": "Because skinny fat"
+    },
+    {
+     "type": "text",
+     "text": "SKINNY + BELLY",
+     "look": "tape",
+     "boxColor": "#E3262E",
+     "y": 0.72,
+     "size": 84,
+     "tilt": -8,
+     "speed": 240,
+     "behind": false,
+     "at": "skinny friend with a belly",
+     "until": "Because skinny fat"
+    },
+    {
+     "type": "text",
+     "text": "SKINNY FAT...",
+     "look": "echo",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.27,
+     "size": 150,
+     "color": "#E3262E",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Because skinny fat"
+    },
+    {
+     "type": "image",
+     "asset": "hero_what",
+     "shadow": true,
+     "enter": "whip",
+     "at": "Because skinny fat"
+    }
+   ]
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_big"
+  },
+  {
+   "at": "Dieting makes you-0.1",
+   "src": "sfx_whoosh_swipe"
+  },
+  {
+   "at": "Eat at maintenance-0.1",
+   "src": "sfx_whoosh_fast"
+  },
+  {
+   "at": "Train full body-0.1",
+   "src": "sfx_level_start"
+  },
+  {
+   "at": "Add one rep-0.1",
+   "src": "sfx_swish"
+  },
+  {
+   "at": "Send this to-0.1",
+   "src": "sfx_whoosh_big"
+  },
+  {
+   "at": "but a soft belly",
+   "src": "sfx_hammer"
+  },
+  {
+   "at": "Bulking makes you",
+   "src": "sfx_bruh"
+  },
+  {
+   "at": "Do neither",
+   "src": "sfx_get_out"
+  },
+  {
+   "at": "with protein in every meal",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "push-ups, squats",
+   "src": "sfx_whip"
+  },
+  {
+   "at": "rows",
+   "src": "sfx_click"
+  },
+  {
+   "at": "eight to twelve",
+   "src": "sfx_counter"
+  },
+  {
+   "at": "every week",
+   "src": "sfx_coin"
+  },
+  {
+   "at": "In three months",
+   "src": "sfx_few_moments_later"
+  },
+  {
+   "at": "while your arms grow",
+   "src": "sfx_fahhh_pump"
+  },
+  {
+   "at": "skinny friend with a belly",
+   "src": "sfx_crying_laugh"
+  },
+  {
+   "at": "Because skinny fat",
+   "src": "sfx_gold_bell"
+  }
+ ]
+}
