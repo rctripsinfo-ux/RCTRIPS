@@ -1,0 +1,518 @@
+{
+ "title": "Noodle arms fix",
+ "progressBar": false,
+ "captions": {
+  "mode": "phrase",
+  "bottom": [
+   [
+    "start",
+    "end"
+   ]
+  ],
+  "hide": [
+   [
+    "Here's what nobody",
+    "Biceps don't make"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "speed",
+     "at": "start"
+    },
+    {
+     "type": "image",
+     "asset": "hero_curl_up",
+     "shadow": true,
+     "enter": "zoom",
+     "at": "start",
+     "motion": {
+      "type": "shake",
+      "amount": 0.6
+     },
+     "width": 0.8,
+     "y": 0.6,
+     "until": "but your arms"
+    },
+    {
+     "type": "image",
+     "asset": "hero_curl_down",
+     "shadow": false,
+     "enter": "fade",
+     "at": "start+0.5",
+     "opacity": 0.28,
+     "width": 0.8,
+     "y": 0.6,
+     "until": "but your arms"
+    },
+    {
+     "type": "image",
+     "asset": "hero_beginner",
+     "shadow": true,
+     "enter": "punch",
+     "at": "but your arms",
+     "motion": {
+      "type": "zoomIn"
+     },
+     "width": 0.8,
+     "y": 0.6
+    },
+    {
+     "type": "image",
+     "asset": "prop_red_x",
+     "shadow": true,
+     "enter": "pop",
+     "at": "two dry noodles",
+     "x": 0.78,
+     "y": 0.42,
+     "width": 0.2
+    }
+   ],
+   "camera": [
+    {
+     "at": "start",
+     "zoom": 1
+    },
+    {
+     "at": "two dry noodles",
+     "zoom": 1.3
+    },
+    {
+     "at": "two dry noodles+0.7",
+     "zoom": 1
+    }
+   ]
+  },
+  {
+   "id": "secret",
+   "start": "Here's what nobody-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_whisper",
+     "shadow": true,
+     "enter": "punch",
+     "at": "Here's what nobody",
+     "width": 0.78,
+     "y": 0.64
+    },
+    {
+     "type": "text",
+     "text": "NOBODY TELLS YOU",
+     "x": 0.5,
+     "y": 0.2,
+     "size": 120,
+     "align": "center",
+     "color": "#9AA4AD",
+     "animation": "words",
+     "untype": false,
+     "behind": true,
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "what nobody",
+     "until": "end"
+    }
+   ]
+  },
+  {
+   "id": "truth",
+   "start": "Biceps don't make-0.1",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_double_biceps",
+     "shadow": true,
+     "enter": "punch",
+     "at": "Biceps don't make",
+     "width": 0.8,
+     "y": 0.6,
+     "until": "Triceps do"
+    },
+    {
+     "type": "glow",
+     "anchor": "arms",
+     "color": "#E3262E",
+     "at": "Biceps don't make",
+     "until": "Triceps do"
+    },
+    {
+     "type": "image",
+     "asset": "hero_back_double_biceps",
+     "shadow": true,
+     "enter": "punch",
+     "at": "Triceps do",
+     "width": 0.8,
+     "y": 0.6,
+     "until": "Here are three moves"
+    },
+    {
+     "type": "glow",
+     "anchor": "arms",
+     "color": "#2FD94E",
+     "at": "Triceps do+0.15",
+     "until": "Here are three moves"
+    },
+    {
+     "type": "callout",
+     "text": "2/3",
+     "anchor": "left_arm",
+     "x": 0.2,
+     "y": 0.3,
+     "at": "two thirds",
+     "until": "Here are three moves",
+     "color": "#2FD94E"
+    },
+    {
+     "type": "image",
+     "asset": "hero_count_3",
+     "shadow": true,
+     "enter": "punch",
+     "at": "Here are three moves",
+     "width": 0.8,
+     "y": 0.6
+    }
+   ],
+   "transition": {
+    "type": "whip",
+    "duration": 0.28
+   }
+  },
+  {
+   "id": "one",
+   "start": "First, diamond push-ups-0.1",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "1",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.36,
+     "size": 400,
+     "color": "#E3E7EB",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "First, diamond push-ups",
+     "until": "end",
+     "enter": "pop"
+    },
+    {
+     "type": "video",
+     "asset": "clip_diamond_pushup",
+     "at": "First, diamond push-ups",
+     "rate": 0.85,
+     "enter": "punch",
+     "width": 1.0,
+     "y": 0.6,
+     "from": 1.2
+    }
+   ],
+   "transition": {
+    "type": "whip",
+    "duration": 0.28
+   },
+   "camera": [
+    {
+     "at": "First, diamond push-ups",
+     "zoom": 1
+    },
+    {
+     "at": "elbows tight to your ribs",
+     "zoom": 1.25
+    },
+    {
+     "at": "chest down to your thumbs",
+     "zoom": 1.1
+    },
+    {
+     "at": "chest down to your thumbs+1.0",
+     "zoom": 1
+    }
+   ]
+  },
+  {
+   "id": "two",
+   "start": "Second, chair dips-0.1",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "2",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.36,
+     "size": 400,
+     "color": "#E3E7EB",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Second, chair dips",
+     "until": "end",
+     "enter": "pop"
+    },
+    {
+     "type": "video",
+     "asset": "clip_chair_dip",
+     "at": "Second, chair dips",
+     "rate": 0.85,
+     "enter": "punch",
+     "width": 0.72,
+     "y": 0.6
+    }
+   ],
+   "transition": {
+    "type": "whip",
+    "duration": 0.28
+   },
+   "camera": [
+    {
+     "at": "Second, chair dips",
+     "zoom": 1
+    },
+    {
+     "at": "Hands behind you",
+     "zoom": 1.2
+    },
+    {
+     "at": "elbows point straight back",
+     "zoom": 1
+    },
+    {
+     "at": "ninety degrees",
+     "zoom": 1.3
+    },
+    {
+     "at": "ninety degrees+0.9",
+     "zoom": 1
+    }
+   ]
+  },
+  {
+   "id": "three",
+   "start": "Third, pike push-ups-0.1",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "3",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.36,
+     "size": 400,
+     "color": "#E3E7EB",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Third, pike push-ups",
+     "until": "end",
+     "enter": "pop"
+    },
+    {
+     "type": "video",
+     "asset": "clip_pike_pushup",
+     "at": "Third, pike push-ups",
+     "rate": 0.85,
+     "enter": "punch",
+     "width": 1.0,
+     "y": 0.6
+    }
+   ],
+   "transition": {
+    "type": "whip",
+    "duration": 0.28
+   },
+   "camera": [
+    {
+     "at": "Third, pike push-ups",
+     "zoom": 1
+    },
+    {
+     "at": "Hips high",
+     "zoom": 1.2
+    },
+    {
+     "at": "head down between",
+     "zoom": 1
+    },
+    {
+     "at": "then press back up",
+     "zoom": 1.15
+    },
+    {
+     "at": "then press back up+0.8",
+     "zoom": 1
+    }
+   ]
+  },
+  {
+   "id": "plan",
+   "start": "Three sets of ten-0.1",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_clipboard",
+     "shadow": true,
+     "enter": "punch",
+     "at": "Three sets of ten",
+     "width": 0.8,
+     "y": 0.6,
+     "until": "three times a week"
+    },
+    {
+     "type": "image",
+     "asset": "hero_count_3",
+     "shadow": true,
+     "enter": "punch",
+     "at": "three times a week",
+     "width": 0.8,
+     "y": 0.6
+    }
+   ],
+   "transition": {
+    "type": "whip",
+    "duration": 0.28
+   }
+  },
+  {
+   "id": "close",
+   "start": "No more noodles-0.1",
+   "backdrop": "rays",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_beginner",
+     "shadow": true,
+     "enter": "punch",
+     "at": "No more noodles",
+     "width": 0.8,
+     "y": 0.6,
+     "until": "Just arms"
+    },
+    {
+     "type": "image",
+     "asset": "prop_red_x",
+     "shadow": true,
+     "enter": "pop",
+     "at": "No more noodles+0.2",
+     "x": 0.78,
+     "y": 0.42,
+     "width": 0.2,
+     "until": "Just arms"
+    },
+    {
+     "type": "image",
+     "asset": "hero_double_biceps",
+     "shadow": true,
+     "enter": "zoom",
+     "at": "Just arms",
+     "width": 0.8,
+     "y": 0.6
+    }
+   ],
+   "transition": {
+    "type": "whip",
+    "duration": 0.28
+   },
+   "backdropColor": "#B0B6BE"
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_swoosh_up"
+  },
+  {
+   "at": "but your arms",
+   "src": "sfx_whistle_down"
+  },
+  {
+   "at": "two dry noodles",
+   "src": "sfx_boing"
+  },
+  {
+   "at": "Here's what nobody",
+   "src": "sfx_sparkle"
+  },
+  {
+   "at": "Biceps don't make",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Triceps do",
+   "src": "sfx_whistle_up"
+  },
+  {
+   "at": "two thirds",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Here are three moves",
+   "src": "sfx_whoosh_short"
+  },
+  {
+   "at": "First, diamond push-ups",
+   "src": "sfx_whistle_tweet"
+  },
+  {
+   "at": "elbows tight to your ribs",
+   "src": "sfx_swoosh_up"
+  },
+  {
+   "at": "Second, chair dips",
+   "src": "sfx_whistle_tweet"
+  },
+  {
+   "at": "Hands behind you",
+   "src": "sfx_swoosh_up"
+  },
+  {
+   "at": "ninety degrees",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Third, pike push-ups",
+   "src": "sfx_whistle_tweet"
+  },
+  {
+   "at": "Hips high",
+   "src": "sfx_swoosh_up"
+  },
+  {
+   "at": "Three sets of ten",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "No more noodles",
+   "src": "sfx_whistle_down"
+  },
+  {
+   "at": "Just arms",
+   "src": "sfx_whistle_up"
+  },
+  {
+   "at": "Just arms+0.6",
+   "src": "sfx_chime"
+  }
+ ]
+}
