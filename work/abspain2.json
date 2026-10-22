@@ -1,0 +1,996 @@
+{
+ "title": "Leg raises hurt your back (option 2)",
+ "captions": {
+  "mode": "word",
+  "keywords": [
+   "leg",
+   "abs",
+   "pain",
+   "chiropractor",
+   "burn",
+   "hip",
+   "flexors",
+   "back",
+   "fix",
+   "floor",
+   "knees",
+   "slowly",
+   "controlled"
+  ],
+  "bottom": [
+   [
+    "You swing your legs",
+    "Send this to"
+   ]
+  ],
+  "hide": [
+   [
+    "Here's what's",
+    "You swing your legs"
+   ],
+   [
+    "Want to fix",
+    "Press your lower back"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "speed",
+     "at": "start"
+    },
+    {
+     "type": "poses",
+     "shadow": true,
+     "crossfade": 0,
+     "enter": "cut",
+     "at": "start",
+     "frames": [
+      {
+       "asset": "hero_leg_raise_down",
+       "at": "start"
+      },
+      {
+       "asset": "hero_leg_raise_up",
+       "at": "start+0.35"
+      },
+      {
+       "asset": "hero_leg_raise_down",
+       "at": "start+0.7"
+      },
+      {
+       "asset": "hero_leg_raise_up",
+       "at": "start+1.05"
+      },
+      {
+       "asset": "hero_leg_raise_down",
+       "at": "like that"
+      },
+      {
+       "asset": "hero_leg_raise_up",
+       "at": "like that+0.35"
+      }
+     ],
+     "width": 0.82,
+     "y": 0.56,
+     "until": "zero abs"
+    },
+    {
+     "type": "text",
+     "text": "LEG RAISES *LIKE THIS?*",
+     "look": "box",
+     "boxColor": "#111111",
+     "x": 0.5,
+     "y": 0.36,
+     "size": 104,
+     "align": "center",
+     "at": "start",
+     "animation": "words",
+     "until": "zero abs"
+    },
+    {
+     "type": "image",
+     "asset": "hero_this_small",
+     "shadow": true,
+     "enter": "punch",
+     "at": "zero abs",
+     "until": "back pain"
+    },
+    {
+     "type": "text",
+     "text": "*0* ABS",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "zero abs",
+     "animation": "words",
+     "until": "back pain"
+    },
+    {
+     "type": "image",
+     "asset": "hero_sore_back",
+     "shadow": true,
+     "enter": "punch",
+     "at": "back pain",
+     "until": "maybe a new"
+    },
+    {
+     "type": "glow",
+     "anchor": "back",
+     "color": "#FF4D3D",
+     "at": "back pain+0.1",
+     "until": "maybe a new"
+    },
+    {
+     "type": "text",
+     "text": "BACK *PAIN*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "back pain",
+     "animation": "words",
+     "until": "maybe a new"
+    },
+    {
+     "type": "pulse",
+     "kind": "edge",
+     "color": "#FF4D3D",
+     "at": "back pain"
+    },
+    {
+     "type": "image",
+     "asset": "hero_facepalm",
+     "shadow": true,
+     "enter": "punch",
+     "at": "maybe a new",
+     "until": "Here's what's"
+    },
+    {
+     "type": "text",
+     "text": "NEW *CHIROPRACTOR*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 92,
+     "align": "center",
+     "at": "new chiropractor",
+     "animation": "words",
+     "until": "Here's what's"
+    }
+   ],
+   "backdropColor": "#FF8A80",
+   "shakes": [
+    {
+     "at": "new chiropractor"
+    }
+   ]
+  },
+  {
+   "id": "line1",
+   "start": "Here's what's-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "HERE'S |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's what's",
+     "until": "what's actually"
+    },
+    {
+     "type": "text",
+     "text": "HERE'S WHAT'S\n |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "what's actually",
+     "until": "actually happening"
+    },
+    {
+     "type": "text",
+     "text": "HERE'S WHAT'S\nACTUALLY |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "actually happening",
+     "until": "happening"
+    },
+    {
+     "type": "text",
+     "text": "HERE'S WHAT'S\nACTUALLY HAPPENING |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "happening",
+     "until": "You swing your legs"
+    }
+   ]
+  },
+  {
+   "id": "burn",
+   "start": "You swing your legs-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "poses",
+     "shadow": true,
+     "crossfade": 0,
+     "enter": "punch",
+     "at": "You swing your legs",
+     "frames": [
+      {
+       "asset": "hero_leg_raise_down",
+       "at": "You swing your legs"
+      },
+      {
+       "asset": "hero_leg_raise_up",
+       "at": "You swing your legs+0.25"
+      },
+      {
+       "asset": "hero_leg_raise_down",
+       "at": "You swing your legs+0.5"
+      },
+      {
+       "asset": "hero_leg_raise_up",
+       "at": "up fast"
+      }
+     ],
+     "width": 0.82,
+     "y": 0.56,
+     "until": "and feel a burn"
+    },
+    {
+     "type": "text",
+     "text": "*SWINGING* FAST",
+     "look": "box",
+     "boxColor": "#111111",
+     "x": 0.5,
+     "y": 0.36,
+     "size": 104,
+     "align": "center",
+     "at": "You swing your legs",
+     "animation": "words",
+     "until": "and feel a burn"
+    },
+    {
+     "type": "image",
+     "asset": "prop_fire",
+     "shadow": false,
+     "enter": "pop",
+     "at": "and feel a burn",
+     "motion": {
+      "type": "pulse"
+     },
+     "x": 0.5,
+     "y": 0.5,
+     "width": 0.62,
+     "behind": true,
+     "until": "That burn is not"
+    },
+    {
+     "type": "image",
+     "asset": "hero_leg_raise_up",
+     "shadow": true,
+     "enter": "punch",
+     "at": "and feel a burn",
+     "motion": {
+      "type": "shake",
+      "amount": 0.4
+     },
+     "id": "up",
+     "width": 0.82,
+     "y": 0.56,
+     "until": "pulling on your"
+    },
+    {
+     "type": "image",
+     "asset": "hero_leg_raise_down",
+     "shadow": false,
+     "enter": "fade",
+     "at": "That burn is not",
+     "opacity": 0.3,
+     "width": 0.82,
+     "y": 0.56,
+     "until": "pulling on your"
+    },
+    {
+     "type": "text",
+     "text": "BURN?",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.2,
+     "size": 104,
+     "align": "center",
+     "at": "and feel a burn",
+     "animation": "words",
+     "until": "That burn is not"
+    },
+    {
+     "type": "text",
+     "text": "NOT YOUR *ABS*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.2,
+     "size": 104,
+     "align": "center",
+     "at": "That burn is not",
+     "animation": "words",
+     "until": "hip flexors"
+    },
+    {
+     "type": "glow",
+     "anchor": "hips",
+     "color": "#FF4D3D",
+     "at": "hip flexors",
+     "until": "pulling on your",
+     "target": "up"
+    },
+    {
+     "type": "text",
+     "text": "*HIP* FLEXORS",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.2,
+     "size": 104,
+     "align": "center",
+     "at": "hip flexors",
+     "animation": "words",
+     "until": "pulling on your"
+    },
+    {
+     "type": "image",
+     "asset": "hero_sore_back",
+     "shadow": true,
+     "enter": "punch",
+     "at": "pulling on your"
+    },
+    {
+     "type": "glow",
+     "anchor": "back",
+     "color": "#FF4D3D",
+     "at": "your lower back#1"
+    },
+    {
+     "type": "text",
+     "text": "PULLS YOUR *BACK*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "pulling on your",
+     "animation": "words"
+    },
+    {
+     "type": "pulse",
+     "kind": "edge",
+     "color": "#FF4D3D",
+     "at": "your lower back#1"
+    }
+   ],
+   "backdropColor": "#7FB2FF",
+   "transition": {
+    "type": "circle",
+    "duration": 0.6
+   }
+  },
+  {
+   "id": "line2",
+   "start": "Want to fix-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "WANT |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Want to fix",
+     "until": "to fix it"
+    },
+    {
+     "type": "text",
+     "text": "WANT TO |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "to fix it",
+     "until": "fix it"
+    },
+    {
+     "type": "text",
+     "text": "WANT TO FIX |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "fix it",
+     "until": "fix it+0.2"
+    },
+    {
+     "type": "text",
+     "text": "WANT TO FIX IT? |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "fix it+0.2",
+     "until": "Press your lower back"
+    }
+   ]
+  },
+  {
+   "id": "fix",
+   "start": "Press your lower back-0.05",
+   "backdrop": "rays",
+   "layers": [
+    {
+     "type": "text",
+     "text": "1",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.3,
+     "size": 400,
+     "color": "#D5DAE0",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Press your lower back",
+     "until": "Bend your knees",
+     "enter": "pop"
+    },
+    {
+     "type": "image",
+     "asset": "hero_glute_bridge_down",
+     "shadow": true,
+     "enter": "punch",
+     "at": "Press your lower back",
+     "id": "flat",
+     "width": 0.82,
+     "y": 0.56,
+     "until": "Lower your legs slowly"
+    },
+    {
+     "type": "glow",
+     "anchor": "hips",
+     "color": "#3DDC84",
+     "at": "into the floor",
+     "until": "Bend your knees",
+     "target": "flat"
+    },
+    {
+     "type": "text",
+     "text": "BACK *FLAT*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.74,
+     "size": 104,
+     "align": "center",
+     "at": "Press your lower back",
+     "animation": "words",
+     "until": "Bend your knees"
+    },
+    {
+     "type": "text",
+     "text": "2",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.3,
+     "size": 400,
+     "color": "#D5DAE0",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Bend your knees",
+     "until": "Lower your legs slowly",
+     "enter": "pop"
+    },
+    {
+     "type": "glow",
+     "anchor": "knees",
+     "color": "#3DDC84",
+     "at": "Bend your knees+0.1",
+     "until": "Lower your legs slowly",
+     "target": "flat"
+    },
+    {
+     "type": "text",
+     "text": "KNEES *BENT*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.74,
+     "size": 104,
+     "align": "center",
+     "at": "Bend your knees",
+     "animation": "words",
+     "until": "Lower your legs slowly"
+    },
+    {
+     "type": "text",
+     "text": "3",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.3,
+     "size": 400,
+     "color": "#D5DAE0",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Lower your legs slowly",
+     "until": "Three sets of ten",
+     "enter": "pop"
+    },
+    {
+     "type": "poses",
+     "shadow": true,
+     "crossfade": 0,
+     "enter": "punch",
+     "at": "Lower your legs slowly",
+     "frames": [
+      {
+       "asset": "hero_leg_raise_up",
+       "at": "Lower your legs slowly"
+      },
+      {
+       "asset": "hero_leg_raise_down",
+       "at": "and stop before"
+      }
+     ],
+     "width": 0.82,
+     "y": 0.56,
+     "until": "Three sets of ten"
+    },
+    {
+     "type": "image",
+     "asset": "hero_leg_raise_down",
+     "shadow": false,
+     "enter": "fade",
+     "at": "Lower your legs slowly",
+     "opacity": 0.3,
+     "width": 0.82,
+     "y": 0.56,
+     "until": "and stop before"
+    },
+    {
+     "type": "text",
+     "text": "*SLOWLY* DOWN",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 104,
+     "align": "center",
+     "at": "Lower your legs slowly",
+     "animation": "words",
+     "until": "and stop before"
+    },
+    {
+     "type": "chip",
+     "text": "STOP HERE",
+     "icon": "warning",
+     "color": "#FF4D3D",
+     "x": 0.24,
+     "y": 0.3,
+     "at": "and stop before",
+     "until": "Three sets of ten"
+    },
+    {
+     "type": "text",
+     "text": "BACK STAYS *DOWN*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 96,
+     "align": "center",
+     "at": "and stop before",
+     "animation": "words",
+     "until": "Three sets of ten"
+    }
+   ],
+   "backdropColor": "#3DDC84",
+   "transition": {
+    "type": "circle",
+    "duration": 0.6
+   },
+   "camera": [
+    {
+     "at": "Press your lower back",
+     "zoom": 1
+    },
+    {
+     "at": "into the floor",
+     "zoom": 1.12,
+     "focus": "hips"
+    },
+    {
+     "at": "Bend your knees",
+     "zoom": 1.12,
+     "focus": "knees"
+    },
+    {
+     "at": "Lower your legs slowly",
+     "zoom": 1
+    }
+   ]
+  },
+  {
+   "id": "plan",
+   "start": "Three sets of ten-0.1",
+   "backdrop": "grid",
+   "layers": [
+    {
+     "type": "text",
+     "text": "THE PLAN",
+     "until": "slow and controlled"
+    },
+    {
+     "type": "image",
+     "asset": "hero_count_3",
+     "shadow": true,
+     "enter": "punch",
+     "at": "Three sets of ten",
+     "until": "slow and controlled"
+    },
+    {
+     "type": "text",
+     "text": "*3* X 10",
+     "look": "box",
+     "boxColor": "#3DA5FF",
+     "x": 0.5,
+     "y": 0.58,
+     "size": 120,
+     "align": "center",
+     "at": "Three sets of ten",
+     "animation": "words",
+     "until": "slow and controlled"
+    },
+    {
+     "type": "image",
+     "asset": "hero_clipboard",
+     "shadow": true,
+     "enter": "punch",
+     "at": "slow and controlled"
+    },
+    {
+     "type": "chip",
+     "text": "SLOW",
+     "icon": "timer",
+     "color": "#3DDC84",
+     "x": 0.24,
+     "y": 0.34,
+     "at": "slow and controlled"
+    },
+    {
+     "type": "text",
+     "text": "*CONTROLLED*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.58,
+     "size": 104,
+     "align": "center",
+     "at": "slow and controlled",
+     "animation": "words"
+    }
+   ],
+   "backdropColor": "#B0B6BE",
+   "transition": {
+    "type": "zoomBlur",
+    "duration": 0.45
+   },
+   "backdropOpacity": 0.6
+  },
+  {
+   "id": "cta",
+   "start": "Send this to-0.1",
+   "backdrop": "rays",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": "punch",
+     "at": "Send this to",
+     "until": "swings his legs"
+    },
+    {
+     "type": "image",
+     "asset": "prop_phone",
+     "shadow": true,
+     "enter": "pop",
+     "at": "Send this to",
+     "x": 0.8,
+     "y": 0.4,
+     "width": 0.18,
+     "motion": {
+      "type": "pulse"
+     },
+     "until": "swings his legs"
+    },
+    {
+     "type": "text",
+     "text": "*SEND* THIS",
+     "look": "box",
+     "boxColor": "#111111",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "Send this to",
+     "animation": "words",
+     "until": "swings his legs"
+    },
+    {
+     "type": "poses",
+     "shadow": true,
+     "crossfade": 0,
+     "enter": "punch",
+     "at": "swings his legs",
+     "frames": [
+      {
+       "asset": "hero_leg_raise_down",
+       "at": "swings his legs"
+      },
+      {
+       "asset": "hero_leg_raise_up",
+       "at": "swings his legs+0.3"
+      },
+      {
+       "asset": "hero_leg_raise_down",
+       "at": "swings his legs+0.6"
+      },
+      {
+       "asset": "hero_leg_raise_up",
+       "at": "swings his legs+0.9"
+      }
+     ],
+     "width": 0.82,
+     "y": 0.56
+    },
+    {
+     "type": "text",
+     "text": "SWINGS HIS *LEGS*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.36,
+     "size": 104,
+     "align": "center",
+     "at": "swings his legs",
+     "animation": "words"
+    }
+   ],
+   "backdropColor": "#FFD23F",
+   "transition": {
+    "type": "circle",
+    "duration": 0.6
+   }
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_big"
+  },
+  {
+   "at": "zero abs",
+   "src": "sfx_whistle_down"
+  },
+  {
+   "at": "back pain",
+   "src": "sfx_bone_crack"
+  },
+  {
+   "at": "new chiropractor",
+   "src": "sfx_boing"
+  },
+  {
+   "at": "Here's what's",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "what's actually",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "actually happening",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "happening",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "You swing your legs",
+   "src": "sfx_swoosh_up"
+  },
+  {
+   "at": "and feel a burn",
+   "src": "sfx_whoosh_fire"
+  },
+  {
+   "at": "That burn is not",
+   "src": "sfx_shocked_2"
+  },
+  {
+   "at": "hip flexors",
+   "src": "sfx_pop"
+  },
+  {
+   "at": "your lower back#1",
+   "src": "sfx_hammer"
+  },
+  {
+   "at": "Want to fix",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "to fix it",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "fix it",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "Press your lower back",
+   "src": "sfx_whistle_up"
+  },
+  {
+   "at": "into the floor",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Bend your knees",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Lower your legs slowly",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "and stop before",
+   "src": "sfx_whistle_tweet"
+  },
+  {
+   "at": "Three sets of ten",
+   "src": "sfx_whoosh_swipe"
+  },
+  {
+   "at": "slow and controlled",
+   "src": "sfx_chime"
+  },
+  {
+   "at": "Send this to",
+   "src": "sfx_whoosh_big"
+  },
+  {
+   "at": "swings his legs",
+   "src": "sfx_crying_laugh"
+  }
+ ]
+}
