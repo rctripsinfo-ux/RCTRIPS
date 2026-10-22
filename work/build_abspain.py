@@ -38,9 +38,9 @@ def typed(words, until):
     # empty-screen line typed WORD BY WORD in sync with the voice, thin cursor at the end
     L = []
     for i, (w, at) in enumerate(words):
-        txt = " ".join(x for x, _ in words[:i + 1]) + "\u00a0|"
-        L.append({"type": "text", "text": txt, "x": 0.5, "y": 0.4, "size": 140, "align": "center", "color": GREY,
-                  "maxWidth": 1, "animation": "none", "untype": False, "enter": "cut", "exit": "cut",
+        txt = (" ".join(x for x, _ in words[:i + 1]) + "\u00a0|").replace("\n ", "\n")
+        L.append({"type": "text", "text": txt, "x": 0.5, "y": 0.4, "size": 190, "align": "center", "color": GREY,
+                  "font": "pop", "maxWidth": 1, "animation": "none", "untype": False, "enter": "cut", "exit": "cut",
                   "stroke": {"color": "#FFFFFF", "width": 0}, "at": at,
                   "until": words[i + 1][1] if i + 1 < len(words) else until})
     return L
@@ -62,22 +62,29 @@ scenes = [
         peek("hero_facepalm", "maybe a new", "Here's what's"),
     ], camera=[{"at": "start", "zoom": 1}, {"at": "zero abs", "zoom": 1.05}, {"at": "back pain", "zoom": 1.1},
                {"at": "new chiropractor", "zoom": 1.15}]),
-    sc("line1", "Here's what's-0.05", typed([("HERE'S", "Here's what's"), ("WHAT'S", "what's actually"),
+    sc("line1", "Here's what's-0.05", typed([("HERE'S", "Here's what's"), ("WHAT'S\n", "what's actually"),
                                              ("ACTUALLY", "actually happening"), ("HAPPENING", "happening")],
                                             "You swing your legs") + [peek("hero_thinking", "Here's what's+0.2", "You swing your legs")]),
     sc("swing", "You swing your legs-0.05", [
-        img("prop_fire", "and feel a burn", "That burn is not", enter="pop", motion={"type": "pulse"}, x=0.6, y=0.6, width=0.75),
-        clip("clip_leg_raise", "You swing your legs", "That burn is not", rate=1.9, enter=RISE),
-    ], camera=[{"at": "You swing your legs", "zoom": 1}, {"at": "and feel a burn", "zoom": 1.2}]),
+        img("prop_fire", "and feel a burn", "That burn is not", enter="pop", motion={"type": "pulse"}, x=0.6, y=0.7, width=0.5,
+            behind=True, shadow=False),
+        clip("clip_leg_raise", "You swing your legs", "and feel a burn", rate=1.9, enter=RISE),
+        # over the fire: transparent poses (a clip is multiplied, so the fire would show through H)
+        {"type": "poses", "at": "and feel a burn", "until": "That burn is not", "width": 0.82, "y": 0.6, "shadow": True,
+         "crossfade": 0, "enter": "cut", "frames": [{"asset": "hero_leg_raise_up", "at": "and feel a burn"},
+                                                  {"asset": "hero_leg_raise_down", "at": "and feel a burn+0.3"},
+                                                  {"asset": "hero_leg_raise_up", "at": "and feel a burn+0.6"},
+                                                  {"asset": "hero_leg_raise_down", "at": "and feel a burn+0.9"}]},
+    ], camera=[{"at": "You swing your legs", "zoom": 1}]),
     sc("truth", "That burn is not-0.05", [
         img("hero_leg_raise_up", "That burn is not", "pulling on your", enter=RISE, width=0.82, y=0.58),
         img("hero_leg_raise_down", "That burn is not+0.3", "pulling on your", enter="fade", motion=None, width=0.82, y=0.58,
             opacity=0.3, shadow=False),
-        {"type": "glow", "anchor": "hips", "color": R, "at": "hip flexors", "until": "pulling on your"},
-        {"type": "callout", "text": "hip flexors", "anchor": "left_hip", "x": 0.3, "y": 0.3, "at": "hip flexors",
-         "until": "pulling on your", "color": "#FFFFFF"},
+        {"type": "glow", "style": "paint", "anchor": "hips", "color": R, "at": "hip flexors", "until": "pulling on your"},
+        {"type": "callout", "look": "tag", "text": "hip flexors", "size": 96, "anchor": "left_hip", "x": 0.3, "y": 0.3,
+         "at": "hip flexors", "until": "pulling on your"},
         img("hero_sore_back", "pulling on your", enter="cut"),
-        {"type": "glow", "anchor": "back", "color": R, "at": "your lower back#1"},
+        {"type": "glow", "style": "paint", "anchor": "back", "color": R, "at": "your lower back#1"},
         {"type": "pulse", "kind": "impact", "at": "your lower back#1", "duration": 0.2},
     ], camera=[{"at": "That burn is not", "zoom": 1}, {"at": "hip flexors", "zoom": 1.12, "focus": "hips"},
                {"at": "pulling on your", "zoom": 1}, {"at": "your lower back#1", "zoom": 1.15, "focus": "back"}]),
@@ -85,9 +92,9 @@ scenes = [
                                            ("IT?", "fix it+0.2")], "Press your lower back")),
     sc("fix", "Press your lower back-0.05", [
         img("hero_leg_raise_down", "Press your lower back", "Bend your knees", enter=RISE, width=0.82, y=0.58),
-        {"type": "glow", "anchor": "back", "color": G, "at": "into the floor", "until": "Bend your knees"},
+        {"type": "glow", "style": "paint", "anchor": "back", "color": G, "at": "into the floor", "until": "Bend your knees"},
         img("hero_reverse_crunch", "Bend your knees", "Lower your legs slowly", width=0.82, y=0.58),
-        {"type": "glow", "anchor": "knees", "color": G, "at": "Bend your knees+0.2", "until": "Lower your legs slowly"},
+        {"type": "glow", "style": "paint", "anchor": "knees", "color": G, "at": "Bend your knees+0.2", "until": "Lower your legs slowly"},
         clip("clip_leg_raise", "Lower your legs slowly", rate=0.55),
         peek("hero_stop_palm", "stop before your back", "Slow and controlled", side="right"),
         img("prop_stopwatch", "Slow and controlled", "Master this first", enter=RISE, motion={"type": "pulse"},
@@ -111,7 +118,7 @@ sfx = [("start", "sfx_whoosh_big"), ("zero abs", "sfx_pop_soft"), ("back pain", 
        ("Lower your legs slowly", "sfx_whoosh_soft"), ("stop before your back", "sfx_whistle_tweet"),
        ("Slow and controlled", "sfx_pop_soft"), ("Master this first", "sfx_whistle_up"), ("then level up", "sfx_level_start")]
 plan = {"title": "Leg raises hurt your back", "progressBar": False,
-        "captions": {"mode": "phrase", "bottom": [["start", "end"]],
+        "captions": {"mode": "phrase", "look": "clean", "size": 58, "y": 0.74,
                      "hide": [["Here's what's", "You swing your legs"], ["Want to fix", "Press your lower back"]]},
         "scenes": scenes, "sfx": [{"at": a, "src": s} for a, s in sfx]}
 json.dump(plan, open("abspain.json", "w"), indent=1, ensure_ascii=False)

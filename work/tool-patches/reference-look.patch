@@ -1,0 +1,163 @@
+diff -ru src-backup/Captions.jsx /root/reel-engine-tool/src/Captions.jsx
+--- src-backup/Captions.jsx	2026-10-22 07:36:53.698383861 +0000
++++ /root/reel-engine-tool/src/Captions.jsx	2026-10-22 07:37:46.576199230 +0000
+@@ -18,6 +18,7 @@
+   const {t, W, H} = ctx;
+   if (captions.mode === 'none' || !words.length) return null;
+   if (captions.hide.some(([a, b]) => t >= a && t < b)) return null;
++  if (captions.look === 'clean') return <CleanCaptions ctx={ctx} captions={captions} words={words}/>;
+   // during step titles: smaller phrase captions at the bottom instead of the big top ones
+   const low = titleOn || captions.bottom.some(([a, b]) => t >= a && t < b);
+   if (low) captions = {...captions, mode: 'phrase', size: Math.round(captions.size * 0.72), maxWords: 4};
+@@ -74,3 +75,22 @@
+     {content}
+   </div>;
+ }
++
++// reference look: small white words with a thin dark outline, 3 at a time, low on the screen (above the Shorts buttons),
++// the whole phrase swaps with no pop
++function CleanCaptions({ctx, captions, words}) {
++  const {t, W, H} = ctx;
++  const groups = phrases(words, Math.min(3, captions.maxWords));
++  const g = groups.find((grp, i) => {
++    const nextStart = groups[i + 1]?.[0].start ?? Infinity;
++    return t >= grp[0].start && t < Math.min(nextStart, grp[grp.length - 1].end + 0.4);
++  });
++  if (!g) return null;
++  const s = safeZoneOf(W, H);
++  const y = Math.min(captions.y, s ? s.y1 - 0.06 : 0.8);
++  const size = captions.size;
++  const text = g.map((w) => w.text.replace(/[,;:.!?]+$/, '')).join(' ').toLowerCase();
++  return <div style={{position: 'absolute', left: 0, width: W, top: y * H, transform: 'translateY(-50%)', zIndex: 100, textAlign: 'center',
++    fontFamily: '"Rubik", sans-serif', fontWeight: 800, fontSize: size, lineHeight: 1.1, color: '#FFFFFF', padding: '0 90px', boxSizing: 'border-box',
++    WebkitTextStroke: `${Math.round(size * 0.16)}px #1A1A1A`, paintOrder: 'stroke fill', textShadow: '0 3px 6px rgba(0,0,0,0.25)'}}>{text}</div>;
++}
+diff -ru src-backup/Video.jsx /root/reel-engine-tool/src/Video.jsx
+--- src-backup/Video.jsx	2026-10-22 07:36:53.697971208 +0000
++++ /root/reel-engine-tool/src/Video.jsx	2026-10-22 07:53:32.118437661 +0000
+@@ -159,7 +159,7 @@
+   });
+   // props (prop_* images) keep clear of the character on screen when they appear
+   layers.forEach((l) => {
+-    if (l.type !== 'image' || !/^prop_/.test(l.asset || '') || l.x === undefined) return;
++    if (l.type !== 'image' || !/^prop_/.test(l.asset || '') || l.x === undefined || l.behind) return;
+     l._avoid = layers.find((o) => o !== l && isChar(o) && !/^prop_/.test(o.asset || '') && o._at <= l._at && l._at < o._until);
+   });
+   // camera focus may name a body part of the character on screen at that moment
+@@ -182,7 +182,7 @@
+   layers.forEach((l) => {
+     if (l.type === 'glow') l._faces = facesCanvas;
+     if (['icon', 'accent', 'callout', 'chip'].includes(l.type)) l._faces = l.type === 'callout' ? facesCanvas : facesScreen;
+-    if (l.type === 'image' && /^prop_/.test(l.asset || '')) l._faces = facesCanvas;
++    if (l.type === 'image' && /^prop_/.test(l.asset || '') && !l.behind) l._faces = facesCanvas;
+   });
+   layers._camKeys = camKeys;
+   return layers;
+diff -ru src-backup/fx.jsx /root/reel-engine-tool/src/fx.jsx
+--- src-backup/fx.jsx	2026-10-22 07:36:53.698609569 +0000
++++ /root/reel-engine-tool/src/fx.jsx	2026-10-22 07:37:33.525335639 +0000
+@@ -49,6 +49,15 @@
+   </div>;
+ }
+ 
++// paint: the muscle filled with solid colour (reference look): a soft-edged oval multiplied onto the body, no sparkles
++function PaintBlobs({a, layer, d0, color, opacity, index}) {
++  const room = (px, py) => Math.min(Infinity, ...(layer._faces || []).map((f) => Math.hypot(Math.max(f.x0 - px, 0, px - f.x1), Math.max(f.y0 - py, 0, py - f.y1))));
++  return <>{a.points.map(([px, py]) => ({px, py, d: Math.min(d0, room(px, py) * 1.6)})).filter((g) => g.d >= 60).map(({px, py, d}, n) =>
++    <div key={n} style={{position: 'absolute', left: px, top: py, zIndex: 31 + index, pointerEvents: 'none', opacity,
++      width: d * 0.78, height: d * 0.56, translate: '-50% -50%', borderRadius: '50%', background: hexA(color, 0.82),
++      mixBlendMode: 'multiply', filter: `blur(${Math.max(2, d * 0.03)}px)`}}/>)}</>;
++}
++
+ function GlowLayer({ctx, layer, index}) {
+   const {t} = ctx;
+   const a = layer.anchor && layer._target ? canvasAnchor(ctx, layer._target, layer.anchor, t) : null;
+@@ -58,6 +67,7 @@
+   const k = t - layer._at;
+   const pulse = 0.78 + 0.22 * Math.sin(k * 6);
+   const d0 = Math.max(90, a.size * layer.size);
++  if (layer.style === 'paint') return <PaintBlobs a={a} layer={layer} d0={d0} color={color} opacity={fx.opacity} index={index}/>;
+   // never on the face: the glow shrinks to stay clear of it (or is left out when the part is at the face)
+   const room = (px, py) => Math.min(Infinity, ...(layer._faces || []).map((f) => Math.hypot(Math.max(f.x0 - px, 0, px - f.x1), Math.max(f.y0 - py, 0, py - f.y1))));
+   return <>{a.points.map(([px, py], n) => ({px, py, d: Math.min(d0, room(px, py) * 1.6)})).filter((g) => g.d >= 70).map(({px, py, d}, n) => <div key={n} style={{position: 'absolute', left: px, top: py, zIndex: 31 + index, pointerEvents: 'none', opacity: fx.opacity}}>
+diff -ru src-backup/graphics.jsx /root/reel-engine-tool/src/graphics.jsx
+--- src-backup/graphics.jsx	2026-10-22 07:36:53.697841725 +0000
++++ /root/reel-engine-tool/src/graphics.jsx	2026-10-22 07:37:33.525899962 +0000
+@@ -252,6 +252,19 @@
+   const ey = Math.abs(px - cx) < tw / 2 ? (py < cy ? cy - tht / 2 : cy + tht / 2) : cy;
+   const color = layer.color ?? th(ctx).main;
+   const pulse = 1 + 0.25 * Math.sin((t - layer._at) * 7);
++  if (layer.look === 'tag') {
++    // reference look: thin black line from the body part, small white tag with a thin black border, text as written
++    const k = ease((t - layer._at) / 0.25);
++    return <div style={{position: 'absolute', inset: 0, zIndex: 58 + index, opacity: out * k}}>
++      <svg width={W} height={H} style={{position: 'absolute', inset: 0, overflow: 'visible'}}>
++        <line x1={px} y1={py} x2={px + (ex - px) * line} y2={py + (ey - py) * line} stroke="#111111" strokeWidth={4} strokeLinecap="round"/>
++        <circle cx={px} cy={py} r={7 * dot} fill="#111111"/>
++      </svg>
++      <div style={{position: 'absolute', left: cx, top: cy + 14 * (1 - k), translate: '-50% -50%', fontFamily: '"Rubik", sans-serif', fontWeight: 800,
++        fontSize: size * 0.62, color: '#111111', background: '#FFFFFF', border: '4px solid #111111', borderRadius: 6,
++        padding: `${size * 0.08}px ${size * 0.28}px`, whiteSpace: 'nowrap', boxShadow: '0 4px 0 rgba(0,0,0,0.18)'}}>{layer.text}</div>
++    </div>;
++  }
+   return <div style={{position: 'absolute', inset: 0, zIndex: 58 + index, opacity: out}}>
+     <svg width={W} height={H} style={{position: 'absolute', inset: 0, overflow: 'visible'}}>
+       <circle cx={px} cy={py} r={size * 0.55 * pulse * dot} fill="none" stroke={color} strokeWidth={8} opacity={0.6}/>
+diff -ru src-backup/layers.jsx /root/reel-engine-tool/src/layers.jsx
+--- src-backup/layers.jsx	2026-10-22 07:36:53.698514082 +0000
++++ /root/reel-engine-tool/src/layers.jsx	2026-10-22 07:37:33.524244734 +0000
+@@ -295,8 +295,8 @@
+   const tilt = layer.tilt ?? (layer.look === 'box' ? -2 : layer.look === 'thumb' ? -1 : 0);
+   return <div style={{position: 'absolute', left: layer.x * W, top: (layer._y ?? layer.y) * H, zIndex: layer.behind ? -100 + index : 50 + index, transform: `translate(${anchor},-50%) rotate(${tilt}deg)${lean}`, width: fit.boxW, textAlign: layer.align}}>
+     <div style={{
+-      ...fxStyle(fx), position: 'relative', display: 'inline-block', fontFamily: FONT_DISPLAY, fontSize: fit.size, lineHeight: look?.lineHeight ?? (look ? 1.12 : 1.08),
+-      fontWeight: layer.font === 'display' ? W_DISPLAY : 600, fontStyle: layer.italic && !look ? 'italic' : 'normal',
++      ...fxStyle(fx), position: 'relative', display: 'inline-block', fontFamily: layer.font === 'pop' ? FONT_POP : FONT_DISPLAY, fontSize: fit.size, lineHeight: look?.lineHeight ?? (look ? 1.12 : 1.08),
++      fontWeight: layer.font === 'pop' ? W_POP : layer.font === 'display' ? W_DISPLAY : 600, fontStyle: layer.italic && !look ? 'italic' : 'normal',
+       color, textAlign: layer.align, letterSpacing: layer.font === 'display' ? -0.5 : 0, whiteSpace: 'pre-wrap',
+       WebkitTextStroke: layer.stroke ? `${layer.stroke.width}px ${layer.stroke.color}` : undefined,
+       paintOrder: 'stroke fill',
+diff -ru src-backup/schema.js /root/reel-engine-tool/src/schema.js
+--- src-backup/schema.js	2026-10-22 07:36:53.698640079 +0000
++++ /root/reel-engine-tool/src/schema.js	2026-10-22 07:37:33.523101326 +0000
+@@ -48,6 +48,7 @@
+ const ImageLayer = z.object({
+   type: z.literal('image'), ...base, ...placed,
+   asset: z.string(),
++  behind: z.boolean().optional(), // a prop meant to sit behind the character (fire, rays): it is not moved away from him
+   shadow: z.boolean().optional(), // soft ground shadow under the figure
+   frame: z.enum(['none', 'circle']).default('none'), // circle: round inset with a dark border (scene / place / detail)
+   life: z.boolean().optional(), // H breathes and bounces on key words (default: on for hero_ drawings)
+@@ -84,7 +85,7 @@
+   size: z.number().min(10).max(400).default(84),
+   maxWidth: z.number().min(0.1).max(1).default(0.86),
+   align: z.enum(['left', 'center', 'right']).default('left'),
+-  font: z.enum(['display', 'body']).default('display'),
++  font: z.enum(['display', 'body', 'pop']).default('display'), // pop = the condensed headline font (Anton)
+   italic: z.boolean().default(false),
+   uppercase: z.boolean().default(true),
+   color: color.optional(),
+@@ -229,6 +230,7 @@
+   x: norm.optional(), y: norm.optional(), // where the label sits (default: beside the point, toward the middle)
+   size: z.number().min(24).max(120).default(72),
+   color: color.optional(),
++  look: z.enum(['chip', 'tag']).default('chip'), // tag = small white label, thin black border and line, text as written
+ });
+ 
+ const AccentLayer = z.object({
+@@ -381,6 +383,7 @@
+   type: z.literal('glow'), ...base, ...anchorFields,
+   color: color.optional(),
+   size: z.number().min(0.5).max(4).default(1.2), // glow diameter, times the body part's size (kept off the face)
++  style: z.enum(['glow', 'paint']).default('glow'), // paint = the muscle filled with solid colour (no sparkles)
+ });
+ const PathLayer = z.object({
+   type: z.literal('path'), ...base, target: z.string().optional(),
+@@ -476,6 +479,7 @@
+   scenes: z.array(SceneSchema).min(1),
+   captions: z.object({
+     mode: z.enum(['none', 'word', 'phrase']).default('none'),
++    look: z.enum(['default', 'clean']).default('default'), // clean = small white words with a dark outline, 3 at a time, low on the screen
+     y: norm.default(0.14),
+     size: z.number().min(20).max(300).default(86),
+     maxWords: z.number().int().min(1).max(8).default(3), // phrase mode

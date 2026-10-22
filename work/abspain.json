@@ -3,12 +3,9 @@
  "progressBar": false,
  "captions": {
   "mode": "phrase",
-  "bottom": [
-   [
-    "start",
-    "end"
-   ]
-  ],
+  "look": "clean",
+  "size": 58,
+  "y": 0.74,
   "hide": [
    [
     "Here's what's",
@@ -142,9 +139,10 @@
      "text": "HERE'S |",
      "x": 0.5,
      "y": 0.4,
-     "size": 140,
+     "size": 190,
      "align": "center",
      "color": "#9AA4AD",
+     "font": "pop",
      "maxWidth": 1,
      "animation": "none",
      "untype": false,
@@ -159,12 +157,13 @@
     },
     {
      "type": "text",
-     "text": "HERE'S WHAT'S |",
+     "text": "HERE'S WHAT'S\n |",
      "x": 0.5,
      "y": 0.4,
-     "size": 140,
+     "size": 190,
      "align": "center",
      "color": "#9AA4AD",
+     "font": "pop",
      "maxWidth": 1,
      "animation": "none",
      "untype": false,
@@ -179,12 +178,13 @@
     },
     {
      "type": "text",
-     "text": "HERE'S WHAT'S ACTUALLY |",
+     "text": "HERE'S WHAT'S\nACTUALLY |",
      "x": 0.5,
      "y": 0.4,
-     "size": 140,
+     "size": 190,
      "align": "center",
      "color": "#9AA4AD",
+     "font": "pop",
      "maxWidth": 1,
      "animation": "none",
      "untype": false,
@@ -199,12 +199,13 @@
     },
     {
      "type": "text",
-     "text": "HERE'S WHAT'S ACTUALLY HAPPENING |",
+     "text": "HERE'S WHAT'S\nACTUALLY HAPPENING |",
      "x": 0.5,
      "y": 0.4,
-     "size": 140,
+     "size": 190,
      "align": "center",
      "color": "#9AA4AD",
+     "font": "pop",
      "maxWidth": 1,
      "animation": "none",
      "untype": false,
@@ -242,12 +243,13 @@
     {
      "type": "image",
      "asset": "prop_fire",
-     "shadow": true,
+     "shadow": false,
      "enter": "pop",
      "at": "and feel a burn",
      "x": 0.6,
-     "y": 0.6,
-     "width": 0.75,
+     "y": 0.7,
+     "width": 0.5,
+     "behind": true,
      "motion": {
       "type": "pulse"
      },
@@ -264,17 +266,41 @@
      },
      "width": 1.0,
      "y": 0.62,
-     "until": "That burn is not"
+     "until": "and feel a burn"
+    },
+    {
+     "type": "poses",
+     "at": "and feel a burn",
+     "until": "That burn is not",
+     "width": 0.82,
+     "y": 0.6,
+     "shadow": true,
+     "crossfade": 0,
+     "enter": "cut",
+     "frames": [
+      {
+       "asset": "hero_leg_raise_up",
+       "at": "and feel a burn"
+      },
+      {
+       "asset": "hero_leg_raise_down",
+       "at": "and feel a burn+0.3"
+      },
+      {
+       "asset": "hero_leg_raise_up",
+       "at": "and feel a burn+0.6"
+      },
+      {
+       "asset": "hero_leg_raise_down",
+       "at": "and feel a burn+0.9"
+      }
+     ]
     }
    ],
    "camera": [
     {
      "at": "You swing your legs",
      "zoom": 1
-    },
-    {
-     "at": "and feel a burn",
-     "zoom": 1.2
     }
    ]
   },
@@ -312,6 +338,7 @@
     },
     {
      "type": "glow",
+     "style": "paint",
      "anchor": "hips",
      "color": "#E3262E",
      "at": "hip flexors",
@@ -319,13 +346,14 @@
     },
     {
      "type": "callout",
+     "look": "tag",
      "text": "hip flexors",
+     "size": 96,
      "anchor": "left_hip",
      "x": 0.3,
      "y": 0.3,
      "at": "hip flexors",
-     "until": "pulling on your",
-     "color": "#FFFFFF"
+     "until": "pulling on your"
     },
     {
      "type": "image",
@@ -339,6 +367,7 @@
     },
     {
      "type": "glow",
+     "style": "paint",
      "anchor": "back",
      "color": "#E3262E",
      "at": "your lower back#1"
@@ -381,9 +410,10 @@
      "text": "WANT |",
      "x": 0.5,
      "y": 0.4,
-     "size": 140,
+     "size": 190,
      "align": "center",
      "color": "#9AA4AD",
+     "font": "pop",
      "maxWidth": 1,
      "animation": "none",
      "untype": false,
@@ -401,9 +431,10 @@
      "text": "WANT TO |",
      "x": 0.5,
      "y": 0.4,
-     "size": 140,
+     "size": 190,
      "align": "center",
      "color": "#9AA4AD",
+     "font": "pop",
      "maxWidth": 1,
      "animation": "none",
      "untype": false,
@@ -421,9 +452,10 @@
      "text": "WANT TO FIX |",
      "x": 0.5,
      "y": 0.4,
-     "size": 140,
+     "size": 190,
      "align": "center",
      "color": "#9AA4AD",
+     "font": "pop",
      "maxWidth": 1,
      "animation": "none",
      "untype": false,
@@ -441,9 +473,10 @@
      "text": "WANT TO FIX IT? |",
      "x": 0.5,
      "y": 0.4,
-     "size": 140,
+     "size": 190,
      "align": "center",
      "color": "#9AA4AD",
+     "font": "pop",
      "maxWidth": 1,
      "animation": "none",
      "untype": false,
@@ -481,6 +514,7 @@
     },
     {
      "type": "glow",
+     "style": "paint",
      "anchor": "back",
      "color": "#2FD94E",
      "at": "into the floor",
@@ -501,6 +535,7 @@
     },
     {
      "type": "glow",
+     "style": "paint",
      "anchor": "knees",
      "color": "#2FD94E",
      "at": "Bend your knees+0.2",
