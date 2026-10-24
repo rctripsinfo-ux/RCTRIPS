@@ -164,7 +164,7 @@ save("armsmall", "Why Your Arms Still Look Small",
         box("ONLY *CURLS*", "only does curls", None, RED),
     ], bd="rays", color=YEL),
 ], [("start", "sfx_whoosh_big"), ("every day", "sfx_whoosh_short"), ("for a year", "sfx_counter"),
-    ("and your sleeves", "sfx_whistle_down"), ("fit the same", "sfx_boing")]
+    ("and your sleeves", "sfx_whistle_down"), ("fit the same", "sfx_pop_soft")]
    + typing_sfx(["Here's what nobody", "what nobody tells", "nobody tells you", "tells you", "tells you+0.25"])
    + [("Your biceps are only", "sfx_swoosh_up"), ("one third", "sfx_pop_soft"), ("The other two thirds", "sfx_whoosh_short"),
       ("are triceps", "sfx_whistle_up"), ("So train them", "sfx_level_start"),
@@ -172,7 +172,7 @@ save("armsmall", "Why Your Arms Still Look Small",
       ("Number two", "sfx_whistle_tweet"), ("Elbows straight back", "sfx_pop"), ("lower to ninety", "sfx_pop_soft"),
       ("Number three", "sfx_whistle_tweet"), ("Hips high", "sfx_pop"), ("head between", "sfx_pop_soft"),
       ("Three sets of ten", "sfx_whoosh_swipe"), ("three times a week", "sfx_chime"),
-      ("Send this to", "sfx_whoosh_big"), ("only does curls", "sfx_crying_laugh")])
+      ("Send this to", "sfx_whoosh_big"), ("only does curls", "sfx_whoosh_soft")])
 
 # ------------------------------------------------------------------ 2. Why your abs workout hurts your back
 save("situpback", "Why your abs workout hurts your back",
@@ -254,7 +254,7 @@ save("situpback", "Why your abs workout hurts your back",
    + [("First, flatten", "sfx_whistle_tweet"), ("Lie down", "sfx_pop_soft"), ("and press your back", "sfx_ding"),
       ("Hold that every rep", "sfx_pop"),
       ("Second, swap", "sfx_whistle_tweet"), ("Squeeze your glutes", "sfx_pop_soft"), ("keep one straight line", "sfx_chime"),
-      ("Third, reverse crunches", "sfx_whistle_tweet"), ("Curl your hips up", "sfx_swoosh_up"), ("don't swing", "sfx_boing"),
+      ("Third, reverse crunches", "sfx_whistle_tweet"), ("Curl your hips up", "sfx_swoosh_up"), ("don't swing", "sfx_pop"),
       ("Three sets", "sfx_whoosh_swipe"), ("three times a week", "sfx_chime"),
-      ("Send this to", "sfx_whoosh_big"), ("a hundred sit-ups", "sfx_crying_laugh")])
+      ("Send this to", "sfx_whoosh_big"), ("a hundred sit-ups", "sfx_whoosh_soft")])
 print("ok")

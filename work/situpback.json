@@ -921,7 +921,7 @@
   },
   {
    "at": "don't swing",
-   "src": "sfx_boing"
+   "src": "sfx_pop"
   },
   {
    "at": "Three sets",
@@ -937,7 +937,7 @@
   },
   {
    "at": "a hundred sit-ups",
-   "src": "sfx_crying_laugh"
+   "src": "sfx_whoosh_soft"
   }
  ]
 }
