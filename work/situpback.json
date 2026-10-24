@@ -1,0 +1,943 @@
+{
+ "title": "Why your abs workout hurts your back",
+ "captions": {
+  "mode": "word",
+  "keywords": [
+   "sit-up",
+   "back",
+   "abs",
+   "hip",
+   "flexors",
+   "arches",
+   "fix",
+   "flatten",
+   "floor",
+   "planks",
+   "glutes",
+   "reverse",
+   "slowly"
+  ],
+  "bottom": [
+   [
+    "When you sit all",
+    "Send this to"
+   ]
+  ],
+  "hide": [
+   [
+    "start",
+    "is pulling"
+   ],
+   [
+    "Here's what's",
+    "When you sit all"
+   ],
+   [
+    "Want to fix",
+    "First, flatten"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "thumb_open",
+     "shadow": false,
+     "enter": "cut",
+     "at": "start",
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5,
+     "motion": {
+      "type": "zoomIn"
+     },
+     "until": "is pulling"
+    },
+    {
+     "type": "image",
+     "asset": "hero_sore_back",
+     "shadow": true,
+     "enter": "punch",
+     "at": "is pulling",
+     "until": "not building"
+    },
+    {
+     "type": "glow",
+     "anchor": "back",
+     "color": "#FF4D3D",
+     "at": "your lower back#1",
+     "until": "not building"
+    },
+    {
+     "type": "text",
+     "text": "LOWER *BACK*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "your lower back#1",
+     "animation": "words",
+     "until": "not building"
+    },
+    {
+     "type": "pulse",
+     "kind": "edge",
+     "color": "#FF4D3D",
+     "at": "your lower back#1"
+    },
+    {
+     "type": "image",
+     "asset": "hero_what",
+     "shadow": true,
+     "enter": "punch",
+     "at": "not building"
+    },
+    {
+     "type": "text",
+     "text": "NOT YOUR *ABS*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "not building",
+     "animation": "words",
+     "until": "Here's what's"
+    }
+   ],
+   "backdropColor": "#FF8A80",
+   "shakes": [
+    {
+     "at": "your lower back#1"
+    }
+   ]
+  },
+  {
+   "id": "line1",
+   "start": "Here's what's-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "HERE'S |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's what's",
+     "until": "what's actually"
+    },
+    {
+     "type": "text",
+     "text": "HERE'S WHAT'S\n |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "what's actually",
+     "until": "actually happening"
+    },
+    {
+     "type": "text",
+     "text": "HERE'S WHAT'S\nACTUALLY |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "actually happening",
+     "until": "happening"
+    },
+    {
+     "type": "text",
+     "text": "HERE'S WHAT'S\nACTUALLY HAPPENING |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "happening",
+     "until": "When you sit all"
+    }
+   ]
+  },
+  {
+   "id": "why",
+   "start": "When you sit all-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_sit_floor_explain",
+     "shadow": true,
+     "enter": "punch",
+     "at": "When you sit all",
+     "id": "sit",
+     "until": "and your lower back"
+    },
+    {
+     "type": "text",
+     "text": "SIT ALL THE WAY *UP*",
+     "look": "box",
+     "boxColor": "#111111",
+     "x": 0.5,
+     "y": 0.3,
+     "size": 96,
+     "align": "center",
+     "at": "When you sit all",
+     "animation": "words",
+     "until": "your hip flexors"
+    },
+    {
+     "type": "glow",
+     "anchor": "hips",
+     "color": "#FF4D3D",
+     "at": "your hip flexors",
+     "until": "and your lower back",
+     "target": "sit"
+    },
+    {
+     "type": "text",
+     "text": "*HIP FLEXORS* LIFT",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.3,
+     "size": 104,
+     "align": "center",
+     "at": "your hip flexors",
+     "animation": "words",
+     "until": "and your lower back"
+    },
+    {
+     "type": "image",
+     "asset": "hero_sore_back",
+     "shadow": true,
+     "enter": "punch",
+     "at": "and your lower back"
+    },
+    {
+     "type": "glow",
+     "anchor": "back",
+     "color": "#FF4D3D",
+     "at": "arches off"
+    },
+    {
+     "type": "text",
+     "text": "BACK *ARCHES*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "arches off",
+     "animation": "words"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "arches off",
+     "duration": 0.2
+    }
+   ],
+   "backdropColor": "#7FB2FF",
+   "transition": {
+    "type": "circle",
+    "duration": 0.6
+   }
+  },
+  {
+   "id": "line2",
+   "start": "Want to fix-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "WANT |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Want to fix",
+     "until": "to fix it"
+    },
+    {
+     "type": "text",
+     "text": "WANT TO |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "to fix it",
+     "until": "fix it"
+    },
+    {
+     "type": "text",
+     "text": "WANT TO FIX |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "fix it",
+     "until": "fix it+0.2"
+    },
+    {
+     "type": "text",
+     "text": "WANT TO FIX IT? |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "fix it+0.2",
+     "until": "First, flatten"
+    }
+   ]
+  },
+  {
+   "id": "one",
+   "start": "First, flatten-0.05",
+   "backdrop": "rays",
+   "layers": [
+    {
+     "type": "text",
+     "text": "1",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.3,
+     "size": 400,
+     "color": "#D5DAE0",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "First, flatten",
+     "enter": "pop"
+    },
+    {
+     "type": "image",
+     "asset": "hero_glute_bridge_down",
+     "shadow": true,
+     "enter": "punch",
+     "at": "First, flatten",
+     "id": "flat",
+     "width": 0.82,
+     "y": 0.56
+    },
+    {
+     "type": "text",
+     "text": "BACK *FLAT*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.74,
+     "size": 104,
+     "align": "center",
+     "at": "First, flatten",
+     "animation": "words",
+     "until": "Lie down"
+    },
+    {
+     "type": "text",
+     "text": "KNEES *BENT*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.74,
+     "size": 104,
+     "align": "center",
+     "at": "Lie down",
+     "animation": "words",
+     "until": "and press your back"
+    },
+    {
+     "type": "glow",
+     "anchor": "hips",
+     "color": "#3DDC84",
+     "at": "and press your back",
+     "target": "flat"
+    },
+    {
+     "type": "text",
+     "text": "PRESS INTO *FLOOR*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.74,
+     "size": 96,
+     "align": "center",
+     "at": "and press your back",
+     "animation": "words",
+     "until": "Hold that every rep"
+    },
+    {
+     "type": "chip",
+     "text": "EVERY REP",
+     "icon": "check",
+     "color": "#3DDC84",
+     "x": 0.24,
+     "y": 0.3,
+     "at": "Hold that every rep"
+    },
+    {
+     "type": "text",
+     "text": "*HOLD* IT",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.74,
+     "size": 104,
+     "align": "center",
+     "at": "Hold that every rep",
+     "animation": "words"
+    }
+   ],
+   "backdropColor": "#3DDC84",
+   "transition": {
+    "type": "circle",
+    "duration": 0.6
+   },
+   "camera": [
+    {
+     "at": "First, flatten",
+     "zoom": 1
+    },
+    {
+     "at": "and press your back",
+     "zoom": 1.15,
+     "focus": "hips"
+    },
+    {
+     "at": "Hold that every rep",
+     "zoom": 1
+    }
+   ]
+  },
+  {
+   "id": "two",
+   "start": "Second, swap-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "2",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.3,
+     "size": 400,
+     "color": "#D5DAE0",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Second, swap",
+     "enter": "pop"
+    },
+    {
+     "type": "video",
+     "asset": "clip_plank",
+     "at": "Second, swap",
+     "rate": 1.0,
+     "enter": "punch",
+     "width": 1.0,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "SWAP FOR *PLANKS*",
+     "look": "box",
+     "boxColor": "#111111",
+     "x": 0.5,
+     "y": 0.76,
+     "size": 104,
+     "align": "center",
+     "at": "Second, swap",
+     "animation": "words",
+     "until": "Squeeze your glutes"
+    },
+    {
+     "type": "text",
+     "text": "SQUEEZE *GLUTES*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.76,
+     "size": 104,
+     "align": "center",
+     "at": "Squeeze your glutes",
+     "animation": "words",
+     "until": "keep one straight line"
+    },
+    {
+     "type": "text",
+     "text": "ONE *STRAIGHT* LINE",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.76,
+     "size": 104,
+     "align": "center",
+     "at": "keep one straight line",
+     "animation": "words"
+    }
+   ],
+   "transition": {
+    "type": "circle",
+    "duration": 0.6
+   },
+   "camera": [
+    {
+     "at": "Second, swap",
+     "zoom": 1
+    },
+    {
+     "at": "Squeeze your glutes",
+     "zoom": 1.12
+    },
+    {
+     "at": "keep one straight line",
+     "zoom": 1
+    }
+   ]
+  },
+  {
+   "id": "three",
+   "start": "Third, reverse crunches-0.05",
+   "backdrop": "rays",
+   "layers": [
+    {
+     "type": "text",
+     "text": "3",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.3,
+     "size": 400,
+     "color": "#D5DAE0",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Third, reverse crunches",
+     "enter": "pop"
+    },
+    {
+     "type": "poses",
+     "shadow": true,
+     "crossfade": 0,
+     "enter": "punch",
+     "at": "Third, reverse crunches",
+     "frames": [
+      {
+       "asset": "hero_glute_bridge_down",
+       "at": "Third, reverse crunches"
+      },
+      {
+       "asset": "hero_reverse_crunch",
+       "at": "Curl your hips up"
+      },
+      {
+       "asset": "hero_glute_bridge_down",
+       "at": "slowly"
+      },
+      {
+       "asset": "hero_reverse_crunch",
+       "at": "don't swing"
+      }
+     ],
+     "width": 0.82,
+     "y": 0.56
+    },
+    {
+     "type": "text",
+     "text": "*REVERSE* CRUNCH",
+     "look": "box",
+     "boxColor": "#111111",
+     "x": 0.5,
+     "y": 0.74,
+     "size": 104,
+     "align": "center",
+     "at": "Third, reverse crunches",
+     "animation": "words",
+     "until": "Curl your hips up"
+    },
+    {
+     "type": "text",
+     "text": "HIPS UP *SLOWLY*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.74,
+     "size": 104,
+     "align": "center",
+     "at": "Curl your hips up",
+     "animation": "words",
+     "until": "don't swing"
+    },
+    {
+     "type": "text",
+     "text": "*NO* SWINGING",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.74,
+     "size": 104,
+     "align": "center",
+     "at": "don't swing",
+     "animation": "words"
+    }
+   ],
+   "backdropColor": "#3DDC84",
+   "transition": {
+    "type": "circle",
+    "duration": 0.6
+   }
+  },
+  {
+   "id": "plan",
+   "start": "Three sets-0.1",
+   "backdrop": "grid",
+   "layers": [
+    {
+     "type": "text",
+     "text": "THE PLAN",
+     "until": "three times a week"
+    },
+    {
+     "type": "image",
+     "asset": "hero_count_3",
+     "shadow": true,
+     "enter": "punch",
+     "at": "Three sets",
+     "until": "three times a week"
+    },
+    {
+     "type": "text",
+     "text": "*3* SETS",
+     "look": "box",
+     "boxColor": "#3DA5FF",
+     "x": 0.5,
+     "y": 0.58,
+     "size": 120,
+     "align": "center",
+     "at": "Three sets",
+     "animation": "words",
+     "until": "three times a week"
+    },
+    {
+     "type": "image",
+     "asset": "hero_clipboard",
+     "shadow": true,
+     "enter": "punch",
+     "at": "three times a week"
+    },
+    {
+     "type": "chip",
+     "text": "MON WED FRI",
+     "icon": "calendar",
+     "color": "#3DDC84",
+     "x": 0.24,
+     "y": 0.34,
+     "at": "three times a week"
+    },
+    {
+     "type": "text",
+     "text": "*3X* A WEEK",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.58,
+     "size": 120,
+     "align": "center",
+     "at": "three times a week",
+     "animation": "words"
+    }
+   ],
+   "backdropColor": "#B0B6BE",
+   "backdropOpacity": 0.6,
+   "transition": {
+    "type": "zoomBlur",
+    "duration": 0.45
+   }
+  },
+  {
+   "id": "cta",
+   "start": "Send this to-0.1",
+   "backdrop": "rays",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": "punch",
+     "at": "Send this to",
+     "until": "a hundred sit-ups"
+    },
+    {
+     "type": "image",
+     "asset": "prop_phone",
+     "shadow": true,
+     "enter": "pop",
+     "at": "Send this to",
+     "x": 0.8,
+     "y": 0.4,
+     "width": 0.18,
+     "motion": {
+      "type": "pulse"
+     },
+     "until": "a hundred sit-ups"
+    },
+    {
+     "type": "text",
+     "text": "*SEND* THIS",
+     "look": "box",
+     "boxColor": "#111111",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "Send this to",
+     "animation": "words",
+     "until": "a hundred sit-ups"
+    },
+    {
+     "type": "image",
+     "asset": "hero_tired_sweating",
+     "shadow": true,
+     "enter": "punch",
+     "at": "a hundred sit-ups"
+    },
+    {
+     "type": "text",
+     "text": "100 *SIT-UPS* A DAY",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 96,
+     "align": "center",
+     "at": "a hundred sit-ups",
+     "animation": "words"
+    }
+   ],
+   "backdropColor": "#FFD23F",
+   "transition": {
+    "type": "circle",
+    "duration": 0.6
+   }
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_big"
+  },
+  {
+   "at": "is pulling",
+   "src": "sfx_whoosh_short"
+  },
+  {
+   "at": "your lower back#1",
+   "src": "sfx_bone_crack"
+  },
+  {
+   "at": "not building",
+   "src": "sfx_whistle_down"
+  },
+  {
+   "at": "Here's what's",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "what's actually",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "actually happening",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "happening",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "When you sit all",
+   "src": "sfx_swoosh_up"
+  },
+  {
+   "at": "your hip flexors",
+   "src": "sfx_pop"
+  },
+  {
+   "at": "arches off",
+   "src": "sfx_hammer"
+  },
+  {
+   "at": "Want to fix",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "to fix it",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "fix it",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "First, flatten",
+   "src": "sfx_whistle_tweet"
+  },
+  {
+   "at": "Lie down",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "and press your back",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Hold that every rep",
+   "src": "sfx_pop"
+  },
+  {
+   "at": "Second, swap",
+   "src": "sfx_whistle_tweet"
+  },
+  {
+   "at": "Squeeze your glutes",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "keep one straight line",
+   "src": "sfx_chime"
+  },
+  {
+   "at": "Third, reverse crunches",
+   "src": "sfx_whistle_tweet"
+  },
+  {
+   "at": "Curl your hips up",
+   "src": "sfx_swoosh_up"
+  },
+  {
+   "at": "don't swing",
+   "src": "sfx_boing"
+  },
+  {
+   "at": "Three sets",
+   "src": "sfx_whoosh_swipe"
+  },
+  {
+   "at": "three times a week",
+   "src": "sfx_chime"
+  },
+  {
+   "at": "Send this to",
+   "src": "sfx_whoosh_big"
+  },
+  {
+   "at": "a hundred sit-ups",
+   "src": "sfx_crying_laugh"
+  }
+ ]
+}

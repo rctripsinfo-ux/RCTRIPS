@@ -1,0 +1,888 @@
+{
+ "title": "Why Your Arms Still Look Small",
+ "captions": {
+  "mode": "word",
+  "keywords": [
+   "curls",
+   "sleeves",
+   "biceps",
+   "third",
+   "triceps",
+   "train",
+   "diamond",
+   "chair",
+   "pike",
+   "ninety",
+   "curls"
+  ],
+  "bottom": [
+   [
+    "Your biceps are only",
+    "Send this to"
+   ]
+  ],
+  "hide": [
+   [
+    "start",
+    "every day"
+   ],
+   [
+    "Here's what nobody",
+    "Your biceps are only"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "thumb_open",
+     "shadow": false,
+     "enter": "cut",
+     "at": "start",
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5,
+     "motion": {
+      "type": "zoomIn"
+     },
+     "until": "every day"
+    },
+    {
+     "type": "poses",
+     "shadow": true,
+     "crossfade": 0,
+     "enter": "punch",
+     "at": "every day",
+     "frames": [
+      {
+       "asset": "hero_curl_down",
+       "at": "every day"
+      },
+      {
+       "asset": "hero_curl_up",
+       "at": "every day+0.3"
+      },
+      {
+       "asset": "hero_curl_down",
+       "at": "for a year"
+      },
+      {
+       "asset": "hero_curl_up",
+       "at": "for a year+0.3"
+      }
+     ],
+     "width": 0.8,
+     "y": 0.62,
+     "until": "and your sleeves"
+    },
+    {
+     "type": "text",
+     "text": "CURLS *EVERY DAY*",
+     "look": "box",
+     "boxColor": "#111111",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "every day",
+     "animation": "words",
+     "until": "and your sleeves"
+    },
+    {
+     "type": "chip",
+     "text": "365 DAYS",
+     "icon": "calendar",
+     "color": "#3DA5FF",
+     "x": 0.24,
+     "y": 0.32,
+     "at": "for a year",
+     "until": "and your sleeves"
+    },
+    {
+     "type": "image",
+     "asset": "hero_this_small",
+     "shadow": true,
+     "enter": "punch",
+     "at": "and your sleeves"
+    },
+    {
+     "type": "text",
+     "text": "SAME *SLEEVES*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "and your sleeves",
+     "animation": "words",
+     "until": "Here's what nobody"
+    },
+    {
+     "type": "pulse",
+     "kind": "edge",
+     "color": "#FF4D3D",
+     "at": "fit the same"
+    }
+   ],
+   "backdropColor": "#FF8A80",
+   "shakes": [
+    {
+     "at": "fit the same"
+    }
+   ]
+  },
+  {
+   "id": "line",
+   "start": "Here's what nobody-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "HERE'S |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's what nobody",
+     "until": "what nobody tells"
+    },
+    {
+     "type": "text",
+     "text": "HERE'S WHAT |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "what nobody tells",
+     "until": "nobody tells you"
+    },
+    {
+     "type": "text",
+     "text": "HERE'S WHAT NOBODY\n |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "nobody tells you",
+     "until": "tells you"
+    },
+    {
+     "type": "text",
+     "text": "HERE'S WHAT NOBODY\nTELLS |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "tells you",
+     "until": "tells you+0.25"
+    },
+    {
+     "type": "text",
+     "text": "HERE'S WHAT NOBODY\nTELLS YOU |",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 180,
+     "align": "center",
+     "color": "#6E7881",
+     "font": "pop",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "tells you+0.25",
+     "until": "Your biceps are only"
+    }
+   ]
+  },
+  {
+   "id": "truth",
+   "start": "Your biceps are only-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_double_biceps",
+     "shadow": true,
+     "enter": "punch",
+     "at": "Your biceps are only",
+     "id": "front",
+     "until": "The other two thirds"
+    },
+    {
+     "type": "glow",
+     "anchor": "arms",
+     "color": "#FF4D3D",
+     "at": "Your biceps are only+0.2",
+     "until": "The other two thirds",
+     "target": "front"
+    },
+    {
+     "type": "text",
+     "text": "BICEPS = *1/3*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "one third",
+     "animation": "words",
+     "until": "The other two thirds"
+    },
+    {
+     "type": "image",
+     "asset": "hero_back_double_biceps",
+     "shadow": true,
+     "enter": "punch",
+     "at": "The other two thirds",
+     "id": "back",
+     "until": "So train them"
+    },
+    {
+     "type": "image",
+     "asset": "hero_double_biceps",
+     "shadow": false,
+     "enter": "fade",
+     "at": "The other two thirds",
+     "opacity": 0.3,
+     "until": "are triceps"
+    },
+    {
+     "type": "glow",
+     "anchor": "arms",
+     "color": "#3DDC84",
+     "at": "are triceps",
+     "until": "So train them",
+     "target": "back"
+    },
+    {
+     "type": "text",
+     "text": "TRICEPS = *2/3*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "are triceps",
+     "animation": "words",
+     "until": "So train them"
+    },
+    {
+     "type": "image",
+     "asset": "hero_crack_knuckles",
+     "shadow": true,
+     "enter": "punch",
+     "at": "So train them"
+    },
+    {
+     "type": "text",
+     "text": "TRAIN *THEM*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "So train them",
+     "animation": "words"
+    }
+   ],
+   "backdropColor": "#7FB2FF",
+   "transition": {
+    "type": "circle",
+    "duration": 0.6
+   }
+  },
+  {
+   "id": "one",
+   "start": "Number one-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "1",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.3,
+     "size": 400,
+     "color": "#D5DAE0",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Number one",
+     "enter": "pop"
+    },
+    {
+     "type": "video",
+     "asset": "clip_diamond_pushup",
+     "at": "Number one",
+     "rate": 1.0,
+     "enter": "punch",
+     "width": 1.0,
+     "y": 0.6,
+     "from": 1.2
+    },
+    {
+     "type": "text",
+     "text": "*DIAMOND* PUSH-UPS",
+     "look": "box",
+     "boxColor": "#111111",
+     "x": 0.5,
+     "y": 0.76,
+     "size": 104,
+     "align": "center",
+     "at": "diamond push-ups",
+     "animation": "words",
+     "until": "Hands close"
+    },
+    {
+     "type": "text",
+     "text": "HANDS *CLOSE*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.76,
+     "size": 104,
+     "align": "center",
+     "at": "Hands close",
+     "animation": "words",
+     "until": "elbows tight"
+    },
+    {
+     "type": "text",
+     "text": "ELBOWS *TIGHT*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.76,
+     "size": 104,
+     "align": "center",
+     "at": "elbows tight",
+     "animation": "words"
+    }
+   ],
+   "transition": {
+    "type": "circle",
+    "duration": 0.6
+   },
+   "camera": [
+    {
+     "at": "Number one",
+     "zoom": 1
+    },
+    {
+     "at": "elbows tight",
+     "zoom": 1.15
+    },
+    {
+     "at": "to your ribs|end",
+     "zoom": 1
+    }
+   ]
+  },
+  {
+   "id": "two",
+   "start": "Number two-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "2",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.2,
+     "size": 400,
+     "color": "#D5DAE0",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Number two",
+     "enter": "pop"
+    },
+    {
+     "type": "video",
+     "asset": "clip_chair_dip",
+     "at": "Number two",
+     "rate": 1.0,
+     "enter": "punch",
+     "width": 0.72,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "CHAIR *DIPS*",
+     "look": "box",
+     "boxColor": "#111111",
+     "x": 0.5,
+     "y": 0.2,
+     "size": 104,
+     "align": "center",
+     "at": "chair dips",
+     "animation": "words",
+     "until": "Elbows straight back"
+    },
+    {
+     "type": "text",
+     "text": "ELBOWS *BACK*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.2,
+     "size": 104,
+     "align": "center",
+     "at": "Elbows straight back",
+     "animation": "words",
+     "until": "lower to ninety"
+    },
+    {
+     "type": "text",
+     "text": "DOWN TO *90°*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.2,
+     "size": 104,
+     "align": "center",
+     "at": "lower to ninety",
+     "animation": "words"
+    }
+   ],
+   "transition": {
+    "type": "circle",
+    "duration": 0.6
+   },
+   "camera": [
+    {
+     "at": "Number two",
+     "zoom": 1
+    },
+    {
+     "at": "lower to ninety",
+     "zoom": 1.15
+    },
+    {
+     "at": "ninety degrees|end",
+     "zoom": 1
+    }
+   ]
+  },
+  {
+   "id": "three",
+   "start": "Number three-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "3",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.3,
+     "size": 400,
+     "color": "#D5DAE0",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Number three",
+     "enter": "pop"
+    },
+    {
+     "type": "video",
+     "asset": "clip_pike_pushup",
+     "at": "Number three",
+     "rate": 1.0,
+     "enter": "punch",
+     "width": 1.0,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "*PIKE* PUSH-UPS",
+     "look": "box",
+     "boxColor": "#111111",
+     "x": 0.5,
+     "y": 0.76,
+     "size": 104,
+     "align": "center",
+     "at": "pike push-ups",
+     "animation": "words",
+     "until": "Hips high"
+    },
+    {
+     "type": "text",
+     "text": "HIPS *HIGH*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.76,
+     "size": 104,
+     "align": "center",
+     "at": "Hips high",
+     "animation": "words",
+     "until": "head between"
+    },
+    {
+     "type": "text",
+     "text": "HEAD *BETWEEN HANDS*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.76,
+     "size": 92,
+     "align": "center",
+     "at": "head between",
+     "animation": "words"
+    }
+   ],
+   "transition": {
+    "type": "circle",
+    "duration": 0.6
+   },
+   "camera": [
+    {
+     "at": "Number three",
+     "zoom": 1
+    },
+    {
+     "at": "head between",
+     "zoom": 1.15
+    },
+    {
+     "at": "your hands|end",
+     "zoom": 1
+    }
+   ]
+  },
+  {
+   "id": "plan",
+   "start": "Three sets of ten-0.1",
+   "backdrop": "grid",
+   "layers": [
+    {
+     "type": "text",
+     "text": "THE PLAN",
+     "until": "three times a week"
+    },
+    {
+     "type": "image",
+     "asset": "hero_count_3",
+     "shadow": true,
+     "enter": "punch",
+     "at": "Three sets of ten",
+     "until": "three times a week"
+    },
+    {
+     "type": "text",
+     "text": "*3* X 10",
+     "look": "box",
+     "boxColor": "#3DA5FF",
+     "x": 0.5,
+     "y": 0.58,
+     "size": 120,
+     "align": "center",
+     "at": "Three sets of ten",
+     "animation": "words",
+     "until": "three times a week"
+    },
+    {
+     "type": "image",
+     "asset": "hero_clipboard",
+     "shadow": true,
+     "enter": "punch",
+     "at": "three times a week"
+    },
+    {
+     "type": "chip",
+     "text": "MON WED FRI",
+     "icon": "calendar",
+     "color": "#3DDC84",
+     "x": 0.24,
+     "y": 0.34,
+     "at": "three times a week"
+    },
+    {
+     "type": "text",
+     "text": "*3X* A WEEK",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.58,
+     "size": 120,
+     "align": "center",
+     "at": "three times a week",
+     "animation": "words"
+    }
+   ],
+   "backdropColor": "#B0B6BE",
+   "backdropOpacity": 0.6,
+   "transition": {
+    "type": "zoomBlur",
+    "duration": 0.45
+   }
+  },
+  {
+   "id": "cta",
+   "start": "Send this to-0.1",
+   "backdrop": "rays",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": "punch",
+     "at": "Send this to",
+     "until": "only does curls"
+    },
+    {
+     "type": "image",
+     "asset": "prop_phone",
+     "shadow": true,
+     "enter": "pop",
+     "at": "Send this to",
+     "x": 0.8,
+     "y": 0.4,
+     "width": 0.18,
+     "motion": {
+      "type": "pulse"
+     },
+     "until": "only does curls"
+    },
+    {
+     "type": "text",
+     "text": "*SEND* THIS",
+     "look": "box",
+     "boxColor": "#111111",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "Send this to",
+     "animation": "words",
+     "until": "only does curls"
+    },
+    {
+     "type": "poses",
+     "shadow": true,
+     "crossfade": 0,
+     "enter": "punch",
+     "at": "only does curls",
+     "frames": [
+      {
+       "asset": "hero_curl_down",
+       "at": "only does curls"
+      },
+      {
+       "asset": "hero_curl_up",
+       "at": "only does curls+0.3"
+      },
+      {
+       "asset": "hero_curl_down",
+       "at": "only does curls+0.6"
+      },
+      {
+       "asset": "hero_curl_up",
+       "at": "only does curls+0.9"
+      }
+     ],
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "ONLY *CURLS*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.7,
+     "size": 104,
+     "align": "center",
+     "at": "only does curls",
+     "animation": "words"
+    }
+   ],
+   "backdropColor": "#FFD23F",
+   "transition": {
+    "type": "circle",
+    "duration": 0.6
+   }
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_big"
+  },
+  {
+   "at": "every day",
+   "src": "sfx_whoosh_short"
+  },
+  {
+   "at": "for a year",
+   "src": "sfx_counter"
+  },
+  {
+   "at": "and your sleeves",
+   "src": "sfx_whistle_down"
+  },
+  {
+   "at": "fit the same",
+   "src": "sfx_boing"
+  },
+  {
+   "at": "Here's what nobody",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "what nobody tells",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "nobody tells you",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "tells you",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "tells you+0.25",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "Your biceps are only",
+   "src": "sfx_swoosh_up"
+  },
+  {
+   "at": "one third",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "The other two thirds",
+   "src": "sfx_whoosh_short"
+  },
+  {
+   "at": "are triceps",
+   "src": "sfx_whistle_up"
+  },
+  {
+   "at": "So train them",
+   "src": "sfx_level_start"
+  },
+  {
+   "at": "Number one",
+   "src": "sfx_whistle_tweet"
+  },
+  {
+   "at": "Hands close",
+   "src": "sfx_pop"
+  },
+  {
+   "at": "elbows tight",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Number two",
+   "src": "sfx_whistle_tweet"
+  },
+  {
+   "at": "Elbows straight back",
+   "src": "sfx_pop"
+  },
+  {
+   "at": "lower to ninety",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Number three",
+   "src": "sfx_whistle_tweet"
+  },
+  {
+   "at": "Hips high",
+   "src": "sfx_pop"
+  },
+  {
+   "at": "head between",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Three sets of ten",
+   "src": "sfx_whoosh_swipe"
+  },
+  {
+   "at": "three times a week",
+   "src": "sfx_chime"
+  },
+  {
+   "at": "Send this to",
+   "src": "sfx_whoosh_big"
+  },
+  {
+   "at": "only does curls",
+   "src": "sfx_crying_laugh"
+  }
+ ]
+}
