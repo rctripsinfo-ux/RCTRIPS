@@ -1,0 +1,641 @@
+CREATE ALL IMAGES FOR THESE 20 THUMBNAILS. Make each one as a SEPARATE image (20 images total). Treat every prompt below as a completely separate, independent image request. Attach the same character reference image to every single one. Follow each prompt exactly as written.
+
+
+===== THUMBNAIL 1 OF 20: Abs workout hurts your back =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, OUCH!, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real lower back muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: OUCH!. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): pure side view, H lying on his back on the floor doing a sit-up, halfway up, knees bent, both feet flat on the floor, hands behind his head, his lower back visibly arching and straining. Face: teeth clenched, eyes squeezed, clear pain.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the lower back, with a thick DASHED red outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the lower spine and lower-back muscles, the spine bones glowing red-orange like inflammation, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A small bright orange-red pain glow with tiny sparks sits on the edge of the circle.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, hands off his head, legs straight.
+
+
+===== THUMBNAIL 2 OF 20: Leg raises hurting your back =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, STOP!, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real lower back where it lifts off the floor muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: STOP!. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): pure side view, H lying on his back doing a leg raise, propped on his forearms, both palms flat on the floor beside his hips. Exactly two legs: straight together, raised high toward the upper right at about 60 degrees. His lower back is visibly arched off the floor. Face: teeth clenched, clear pain. His raised feet stay below the headline.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the lower back where it lifts off the floor, with a thick DASHED red outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the lower spine and lower-back muscles, the spine bones glowing red-orange like inflammation, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A small bright orange-red pain glow with tiny sparks sits on the edge of the circle.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, more than two legs, legs bent.
+
+
+===== THUMBNAIL 3 OF 20: Always starting tomorrow =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, TODAY!, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real front thigh muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: TODAY!. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): pure side view, H bursting forward into a powerful sprint start, front knee high, rear leg pushing off the floor, arms pumping, fierce determined face, motion energy. Full body visible.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the front thigh, with a thick DASHED green outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the thigh muscles (quadriceps) firing, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A soft green glow surrounds the circle edge.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, sitting or lying pose.
+
+
+===== THUMBNAIL 4 OF 20: Crunches won't burn belly fat =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, MYTH!, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real belly muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: MYTH!. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): front view, H standing, looking down at his belly and pinching a small fold of belly fat with both hands, doubtful face. IMPORTANT BODY CHANGE: a slightly soft belly with a thin fat layer covering the six-pack; keep his face, the H, his arms and chest unchanged.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the belly, with a thick DASHED red outline. Inside the circle the skin is replaced by a realistic medical-illustration view of a layer of yellow belly fat under the skin sitting on top of the six-pack muscles, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A small bright orange-red pain glow with tiny sparks sits on the edge of the circle.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, visible sharp six-pack.
+
+
+===== THUMBNAIL 5 OF 20: Obliques make you look bigger =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle, the two waist arrows and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, WIDER?, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real side of the waist muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: WIDER?. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): front view, H standing straight, hands on his head, showing a thick blocky waist. Two short red horizontal double-headed arrows point outward from both sides of his waist.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the side of the waist (side abs), with a thick DASHED red outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the side ab muscles (obliques), thick and bulky, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A small bright orange-red pain glow with tiny sparks sits on the edge of the circle.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks.
+
+
+===== THUMBNAIL 6 OF 20: Muscle that makes arms thick =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, THICK!, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real back of the upper arm muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: THICK!. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): pure side view, upper body from the head down to the belt, H pressing his straight arm down and back to flex the back of the upper arm hard, confident face. The crop line at the belt sits above the bottom 18%.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the back of the upper arm, with a thick DASHED green outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the three-headed triceps muscle, big and full, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A soft green glow surrounds the circle edge.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks.
+
+
+===== THUMBNAIL 7 OF 20: Skinny wrists =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, SKINNY?, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real wrist muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: SKINNY?. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): upper body from the head down to the belt, H holding his forearm up in front of him, fist closed, looking at his own wrist with a worried face. NO wrist wraps on this arm so the wrist is visible. The wrist looks thin compared to his big arm. The crop line at the belt sits above the bottom 18%.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the wrist, with a thick DASHED red outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the wrist and lower forearm with thin tendons and small forearm muscles, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A small bright orange-red pain glow with tiny sparks sits on the edge of the circle.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, wrist wraps on the raised arm.
+
+
+===== THUMBNAIL 8 OF 20: Box body and V-taper =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, V-SHAPE!, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real side of the upper back muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: V-SHAPE!. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): back view, H doing a lat spread: elbows out, fists on his waist, the upper back wide and the waist narrow, a clear V shape. His head turned slightly to the side so the H on his forehead is visible.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the side of the upper back (lats), with a thick DASHED green outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the wide back muscles (lats) spreading like wings, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A soft green glow surrounds the circle edge.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, front view.
+
+
+===== THUMBNAIL 9 OF 20: 100 push-ups, flat chest =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, FLAT?, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real chest muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: FLAT?. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): pure side view, H at the top of a push-up, both palms flat on the floor under his shoulders, arms straight, body in one straight line, both feet on his toes, sweating and tired face.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the chest, with a thick DASHED red outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the chest muscle (pec), looking thin and flat, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A small bright orange-red pain glow with tiny sparks sits on the edge of the circle.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, hands off the floor, more than two legs, knees on the floor.
+
+
+===== THUMBNAIL 10 OF 20: Sweat versus fat loss =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle, the sweat drops and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, SWEAT?, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real belly muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: SWEAT?. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): front view, H standing, drenched in sweat, big sweat drops dripping off his head and body onto the floor, wiping his forehead with one forearm, doubtful face. IMPORTANT BODY CHANGE: a slightly soft belly with a thin fat layer; keep his face and the H unchanged.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the belly, with a thick DASHED red outline. Inside the circle the skin is replaced by a realistic medical-illustration view of a layer of yellow belly fat under the skin that has not changed, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A small bright orange-red pain glow with tiny sparks sits on the edge of the circle.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, sweat covering the H.
+
+
+===== THUMBNAIL 11 OF 20: Long stretches before workout =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, WAIT!, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real back of the thigh muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: WAIT!. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): pure side view, H sitting on the floor in a long hamstring stretch, both legs straight in front of him, reaching for his toes, strained face.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the back of the thigh, with a thick DASHED red outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the hamstring muscles, cold and overstretched, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A small bright orange-red pain glow with tiny sparks sits on the edge of the circle.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, standing pose.
+
+
+===== THUMBNAIL 12 OF 20: Boulder shoulders =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, BOULDERS!, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real shoulder muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: BOULDERS!. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): 3/4 front view, upper body from the head down to the belt, H in a front double-biceps pose showing huge round shoulders, proud face. The crop line at the belt sits above the bottom 18%.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the shoulder, with a thick DASHED green outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the round three-part shoulder muscle (deltoid), big like a boulder, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A soft green glow surrounds the circle edge.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks.
+
+
+===== THUMBNAIL 13 OF 20: Signs you're skinny fat =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, SKINNY FAT?, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real belly muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: SKINNY FAT?. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): front view, H standing, arms down, looking down at his body with a confused face. IMPORTANT BODY CHANGE: skinny-fat body: thin arms and narrow chest with a soft round belly and no visible abs; keep his face, the H and his outfit unchanged.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the belly, with a thick DASHED red outline. Inside the circle the skin is replaced by a realistic medical-illustration view of a soft layer of yellow fat over weak, thin ab muscles, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A small bright orange-red pain glow with tiny sparks sits on the edge of the circle.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, a muscular body, visible six-pack.
+
+
+===== THUMBNAIL 14 OF 20: Double your push-ups =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, DOUBLE!, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real chest and back of the upper arm muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: DOUBLE!. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): pure side view, H doing a powerful push-up halfway down, both palms flat on the floor under his shoulders, elbows at 45 degrees, body in one straight line, both feet on his toes, fierce strong face.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the chest and back of the upper arm, with a thick DASHED green outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the chest muscle (pec) and the triceps working hard, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A soft green glow surrounds the circle edge.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, hands off the floor, more than two legs, knees on the floor.
+
+
+===== THUMBNAIL 15 OF 20: Dead hang for forearms =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle, the pull-up bar and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, GRIP!, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real forearm muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: GRIP!. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): front view, H hanging from a black horizontal pull-up bar with both hands, arms straight, feet off the ground, legs straight together, focused strong face. NO wrist wraps so the forearms are visible. The bar sits below the headline, inside the safe area.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the forearm, with a thick DASHED green outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the forearm muscles and grip tendons, thick and strong, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A soft green glow surrounds the circle edge.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, wrist wraps, bar touching the headline.
+
+
+===== THUMBNAIL 16 OF 20: Sharp jawline =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, JAWLINE!, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real jaw and neck muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: JAWLINE!. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): pure side profile, head, neck and shoulders, H with his chin slightly raised, calm confident face, a sharp defined jaw. The crop line at the chest sits above the bottom 18%.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the jaw and neck, with a thick DASHED green outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the jaw muscle (masseter) and the side neck muscles, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A soft green glow surrounds the circle edge.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, front view.
+
+
+===== THUMBNAIL 17 OF 20: Abs exercise nobody does =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, ABS!, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real lower belly muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: ABS!. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): front view, H standing, hands on his hips, pulling his belly in tight, focused face.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the lower belly, with a thick DASHED green outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the deep inner ab muscle that wraps around the waist like a corset, under the six-pack, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A soft green glow surrounds the circle edge.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks.
+
+
+===== THUMBNAIL 18 OF 20: Push-up mistake =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, WRONG!, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real shoulder muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: WRONG!. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): pure side view, H at the top of a push-up, both palms flat on the floor, arms straight, both feet on his toes, BUT his shoulders are shrugged up toward his ears and rolled forward. Strained face.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the shoulder, with a thick DASHED red outline. Inside the circle the skin is replaced by a realistic medical-illustration view of the shoulder joint and upper shoulder muscles, strained and glowing red, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A small bright orange-red pain glow with tiny sparks sits on the edge of the circle.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, hands off the floor, more than two legs.
+
+
+===== THUMBNAIL 19 OF 20: Thicker wrists =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, THICKER!, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real forearm and wrist muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: THICKER!. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): upper body from the head down to the belt, H holding his forearm up in front of him, fist clenched hard, flexing his thick forearm, proud face. NO wrist wraps on this arm. The crop line at the belt sits above the bottom 18%.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the forearm and wrist, with a thick DASHED green outline. Inside the circle the skin is replaced by a realistic medical-illustration view of thick forearm muscles and wrist tendons, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A soft green glow surrounds the circle edge.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, wrist wraps on the raised arm.
+
+
+===== THUMBNAIL 20 OF 20: Running and belly fat =====
+
+IMAGE SIZE: 1080x1920, 9:16 vertical YouTube Shorts thumbnail.
+
+Use the attached character image as the main character and build this thumbnail from it. Keep his face, head shape, skin tone, body proportions and outfit 100% identical to the reference. Do not redesign or restyle him. Same art style as the reference. Only ONE character appears.
+
+Character details: bald muscular man, warm tan skin, white letter "H" on his forehead, olive military utility belt with pouches and a silver buckle, black shorts with olive harness straps, black wrist wraps, olive combat sneakers.
+
+CROP-SAFE SPACING (very important, follow strictly):
+- Leave a completely empty background margin at the TOP: about 15% of the image height. Nothing in it: no letters, no shapes. The headline starts only BELOW this band.
+- Leave a completely empty background margin at the BOTTOM: about 18% of the image height.
+- The headline word, the brush underline, the arrow, the circle, the treadmill and the whole character must all sit inside the central 67% of the image height.
+- Keep about 6% empty margin on the left and right.
+- No element, letter or body part touches or is cut off by any edge.
+
+CORE IDEA: one giant word, RUNNING?, tells the topic in one second, and the image proves it: a black arrow points into a circle on H's body that shows the real belly muscle.
+
+BACKGROUND: plain warm off-white (very light cream, almost white). Only a soft grey shadow on the floor under the character. No other colors, no gradients, no scenery.
+
+LAYOUT (top to bottom):
+1. HEADLINE (upper part of the safe area, centered): one giant word: RUNNING?. Write only this word and its punctuation mark; never write color names or quote marks.
+   FONT: Anton (or Impact), ultra-heavy bold condensed sans-serif, ALL CAPS, very thick strokes. The word is HUGE and fills about 90% of the image width. Solid bright red letters (#E00000) with a subtle darker red shade toward the bottom of each letter, no outline. Letters are slightly hand-cut with a gentle dynamic tilt, like a bold poster stamp. Never thin, never regular weight, never a different font.
+   Directly under the word: one red brush-stroke swoosh underline, thick in the middle with tapered pointed ends, about 70% of the word width.
+2. CHARACTER (lower part of the safe area, large, filling most of the safe width): pure side view, H running on a simple grey treadmill, mid-stride, sweating, doubtful face. IMPORTANT BODY CHANGE: a slightly soft belly with a thin fat layer; keep his face and the H unchanged. The whole treadmill sits inside the safe area.
+3. MUSCLE CIRCLE: a round circle drawn ON his body around the belly, with a thick DASHED red outline. Inside the circle the skin is replaced by a realistic medical-illustration view of a layer of yellow belly fat under the skin, with clear muscle fiber lines and realistic red-pink muscle color, like an anatomy cutaway. A small bright orange-red pain glow with tiny sparks sits on the edge of the circle.
+4. ARROW: one thick curved solid BLACK arrow with a thin white edge, starting just under the brush underline and curving down into the circle, the arrowhead touching the circle.
+
+STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
+
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, treadmill cut off.
