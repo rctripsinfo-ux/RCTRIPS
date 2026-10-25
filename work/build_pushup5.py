@@ -27,7 +27,7 @@ def clip(a, at, rate=1.0):
     return {"type": "video", "asset": a, "at": at, "rate": rate, "enter": "fade", "width": 1.0, "y": 0.55}
 
 
-def box(t, at, until, color=BLACK, y=0.75, size=100):
+def box(t, at, until, color=BLACK, y=0.67, size=96):
     d = {"type": "text", "text": t, "look": "box", "boxColor": color, "x": 0.5, "y": y, "size": size, "align": "center",
          "at": at, "animation": "words"}
     if until: d["until"] = until
@@ -65,7 +65,7 @@ def mistake(n, word, bad, fix):
 
 plan = {
     "title": "STOP These 5 Push Up Mistakes!",
-    "captions": {"mode": "phrase", "look": "clean", "size": 58, "y": 0.88, "maxWords": 3,
+    "captions": {"mode": "phrase", "look": "clean", "size": 56, "y": 0.8, "maxWords": 3,
                  "keywords": ["mistakes", "neck", "shoulders", "forty-five", "hips", "glutes", "chest", "forward"],
                  "hide": [["start", "but only if"]]},
     "scenes": [
@@ -104,7 +104,7 @@ plan = {
         ]),
     ],
     "sfx": [{"at": a, "src": s} for a, s in [
-        ("but only if", "sfx_whoosh_soft"), ("five mistakes", "sfx_pop_soft"),
+        ("start", "sfx_whoosh_soft"), ("but only if", "sfx_pop_soft"), ("five mistakes", "sfx_pop_soft"),
         ("Mistake one", "sfx_whoosh_soft"), ("Look at the floor", "sfx_ding"),
         ("Mistake two", "sfx_whoosh_soft"), ("Tuck them", "sfx_ding"),
         ("Mistake three", "sfx_whoosh_soft"), ("Squeeze your", "sfx_ding"),
