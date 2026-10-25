@@ -1,0 +1,559 @@
+{
+ "title": "I Did Dead Hangs Every Day for 30 Days",
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 56,
+  "y": 0.8,
+  "maxWords": 3,
+  "keywords": [
+   "thirty",
+   "fire",
+   "grip",
+   "minute",
+   "shoulders",
+   "forearms",
+   "pull-ups",
+   "five"
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hang",
+   "start": "start",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "clip_dead_hang",
+     "at": "start",
+     "enter": "cut",
+     "width": 0.78,
+     "y": 0.58
+    },
+    {
+     "type": "text",
+     "text": "30 DAYS",
+     "x": 0.5,
+     "y": 0.1,
+     "size": 150,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "Day one"
+    },
+    {
+     "type": "text",
+     "text": "OF DEAD HANGS",
+     "x": 0.5,
+     "y": 0.165,
+     "size": 64,
+     "align": "center",
+     "color": "#5B6670",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "Day one"
+    },
+    {
+     "type": "text",
+     "text": "DAY 1",
+     "x": 0.5,
+     "y": 0.1,
+     "size": 150,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Day one",
+     "until": "Day seven"
+    },
+    {
+     "type": "text",
+     "text": "20 SECONDS",
+     "x": 0.5,
+     "y": 0.165,
+     "size": 64,
+     "align": "center",
+     "color": "#5B6670",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "twenty seconds",
+     "until": "on fire"
+    },
+    {
+     "type": "text",
+     "text": "HANDS ON FIRE",
+     "x": 0.5,
+     "y": 0.165,
+     "size": 64,
+     "align": "center",
+     "color": "#5B6670",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "on fire",
+     "until": "Day seven"
+    },
+    {
+     "type": "text",
+     "text": "DAY 7",
+     "x": 0.5,
+     "y": 0.1,
+     "size": 150,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Day seven",
+     "until": "Day fourteen"
+    },
+    {
+     "type": "text",
+     "text": "40 SECONDS",
+     "x": 0.5,
+     "y": 0.165,
+     "size": 64,
+     "align": "center",
+     "color": "#5B6670",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "forty seconds",
+     "until": "stopped slipping"
+    },
+    {
+     "type": "text",
+     "text": "GRIP LOCKED IN",
+     "x": 0.5,
+     "y": 0.165,
+     "size": 64,
+     "align": "center",
+     "color": "#5B6670",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "stopped slipping",
+     "until": "Day fourteen"
+    },
+    {
+     "type": "text",
+     "text": "DAY 14",
+     "x": 0.5,
+     "y": 0.1,
+     "size": 150,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Day fourteen"
+    },
+    {
+     "type": "text",
+     "text": "1 MINUTE",
+     "x": 0.5,
+     "y": 0.165,
+     "size": 64,
+     "align": "center",
+     "color": "#5B6670",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "one full minute",
+     "until": "shoulders"
+    },
+    {
+     "type": "text",
+     "text": "SHOULDERS LOOSER",
+     "x": 0.5,
+     "y": 0.165,
+     "size": 64,
+     "align": "center",
+     "color": "#5B6670",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "shoulders"
+    }
+   ]
+  },
+  {
+   "id": "d30",
+   "start": "Day thirty-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_double_biceps",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Day thirty",
+     "id": "h",
+     "width": 0.7,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "DAY 30",
+     "x": 0.5,
+     "y": 0.1,
+     "size": 150,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Day thirty"
+    },
+    {
+     "type": "text",
+     "text": "2 MINUTES",
+     "x": 0.5,
+     "y": 0.165,
+     "size": 64,
+     "align": "center",
+     "color": "#5B6670",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "two minutes",
+     "until": "thicker forearms"
+    },
+    {
+     "type": "glow",
+     "anchor": "forearms",
+     "color": "#FF4D3D",
+     "at": "thicker forearms",
+     "target": "h"
+    },
+    {
+     "type": "text",
+     "text": "THICKER FOREARMS",
+     "x": 0.5,
+     "y": 0.165,
+     "size": 64,
+     "align": "center",
+     "color": "#5B6670",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "thicker forearms",
+     "until": "pull-ups felt"
+    },
+    {
+     "type": "text",
+     "text": "PULL-UPS FEEL EASY",
+     "x": 0.5,
+     "y": 0.165,
+     "size": 64,
+     "align": "center",
+     "color": "#5B6670",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "pull-ups felt"
+    }
+   ]
+  },
+  {
+   "id": "try",
+   "start": "Try it-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_look_up_bar",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Try it",
+     "width": 0.7,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "TRY IT",
+     "x": 0.5,
+     "y": 0.1,
+     "size": 150,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Try it"
+    },
+    {
+     "type": "text",
+     "text": "HANG EVERY DAY",
+     "x": 0.5,
+     "y": 0.165,
+     "size": 64,
+     "align": "center",
+     "color": "#5B6670",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Try it",
+     "until": "add five"
+    },
+    {
+     "type": "text",
+     "text": "+5 SECONDS EACH TIME",
+     "x": 0.5,
+     "y": 0.165,
+     "size": 64,
+     "align": "center",
+     "color": "#5B6670",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "add five"
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "start": "Send this to-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Send this to",
+     "width": 0.7,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "SEND THIS",
+     "x": 0.5,
+     "y": 0.1,
+     "size": 150,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Send this to"
+    },
+    {
+     "type": "text",
+     "text": "TO YOUR WEAKEST-GRIP FRIEND",
+     "x": 0.5,
+     "y": 0.165,
+     "size": 64,
+     "align": "center",
+     "color": "#5B6670",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Send this to"
+    }
+   ]
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Day one",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "on fire",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Day seven",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "stopped slipping",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Day fourteen",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "shoulders",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Day thirty",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "thicker forearms",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "pull-ups felt",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Try it",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "add five",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Send this to",
+   "src": "sfx_whoosh_soft"
+  }
+ ]
+}
