@@ -33,7 +33,7 @@ STYLE = ('STYLE: clean semi-realistic comic illustration, bold black outlines, s
          'crisp shadows, high contrast, reads instantly on a small phone screen.')
 
 AVOID = ('AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, '
-         'more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the '
+         'any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the '
          "character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks{more}.")
 
 PAIN = ' A small bright orange-red pain glow with tiny sparks sits on the edge of the circle.'

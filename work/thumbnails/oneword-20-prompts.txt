@@ -30,7 +30,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, hands off his head, legs straight.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, hands off his head, legs straight.
 
 
 ===== THUMBNAIL 2 OF 20: Leg raises hurting your back =====
@@ -62,7 +62,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, more than two legs, legs bent.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, more than two legs, legs bent.
 
 
 ===== THUMBNAIL 3 OF 20: Always starting tomorrow =====
@@ -94,7 +94,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, sitting or lying pose.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, sitting or lying pose.
 
 
 ===== THUMBNAIL 4 OF 20: Crunches won't burn belly fat =====
@@ -126,7 +126,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, visible sharp six-pack.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, visible sharp six-pack.
 
 
 ===== THUMBNAIL 5 OF 20: Obliques make you look bigger =====
@@ -158,7 +158,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks.
 
 
 ===== THUMBNAIL 6 OF 20: Muscle that makes arms thick =====
@@ -190,7 +190,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks.
 
 
 ===== THUMBNAIL 7 OF 20: Skinny wrists =====
@@ -222,7 +222,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, wrist wraps on the raised arm.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, wrist wraps on the raised arm.
 
 
 ===== THUMBNAIL 8 OF 20: Box body and V-taper =====
@@ -254,7 +254,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, front view.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, front view.
 
 
 ===== THUMBNAIL 9 OF 20: 100 push-ups, flat chest =====
@@ -286,7 +286,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, hands off the floor, more than two legs, knees on the floor.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, hands off the floor, more than two legs, knees on the floor.
 
 
 ===== THUMBNAIL 10 OF 20: Sweat versus fat loss =====
@@ -318,7 +318,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, sweat covering the H.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, sweat covering the H.
 
 
 ===== THUMBNAIL 11 OF 20: Long stretches before workout =====
@@ -350,7 +350,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, standing pose.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, standing pose.
 
 
 ===== THUMBNAIL 12 OF 20: Boulder shoulders =====
@@ -382,7 +382,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks.
 
 
 ===== THUMBNAIL 13 OF 20: Signs you're skinny fat =====
@@ -414,7 +414,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, a muscular body, visible six-pack.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, a muscular body, visible six-pack.
 
 
 ===== THUMBNAIL 14 OF 20: Double your push-ups =====
@@ -446,7 +446,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, hands off the floor, more than two legs, knees on the floor.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, hands off the floor, more than two legs, knees on the floor.
 
 
 ===== THUMBNAIL 15 OF 20: Dead hang for forearms =====
@@ -478,7 +478,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, wrist wraps, bar touching the headline.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, wrist wraps, bar touching the headline.
 
 
 ===== THUMBNAIL 16 OF 20: Sharp jawline =====
@@ -510,7 +510,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, front view.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, front view.
 
 
 ===== THUMBNAIL 17 OF 20: Abs exercise nobody does =====
@@ -542,7 +542,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks.
 
 
 ===== THUMBNAIL 18 OF 20: Push-up mistake =====
@@ -574,7 +574,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, hands off the floor, more than two legs.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, hands off the floor, more than two legs.
 
 
 ===== THUMBNAIL 19 OF 20: Thicker wrists =====
@@ -606,7 +606,7 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, wrist wraps on the raised arm.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, wrist wraps on the raised arm.
 
 
 ===== THUMBNAIL 20 OF 20: Running and belly fat =====
@@ -638,4 +638,4 @@ LAYOUT (top to bottom):
 
 STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast, reads instantly on a small phone screen.
 
-AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, more than one word of text, extra text, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, treadmill cut off.
+AVOID: any letter or element in the top 15% or bottom 18% of the image, anything touching or cut off by an edge, thin or light font, a different font, an outline on the headline, any text other than the headline, labels, numbers, badges, icons, fire, pure white or colored or dark background, gradients, scenery, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, treadmill cut off.
