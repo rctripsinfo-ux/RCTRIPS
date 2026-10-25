@@ -1,0 +1,683 @@
+{
+ "title": "STOP These 5 Push Up Mistakes!",
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 58,
+  "y": 0.88,
+  "maxWords": 3,
+  "keywords": [
+   "mistakes",
+   "neck",
+   "shoulders",
+   "forty-five",
+   "hips",
+   "glutes",
+   "chest",
+   "forward"
+  ],
+  "hide": [
+   [
+    "start",
+    "but only if"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "thumb_open",
+     "shadow": false,
+     "enter": "cut",
+     "at": "start",
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5,
+     "motion": {
+      "type": "zoomIn"
+     },
+     "until": "but only if"
+    },
+    {
+     "type": "image",
+     "asset": "hero_pushup_top",
+     "shadow": true,
+     "enter": "fade",
+     "at": "but only if",
+     "width": 0.95,
+     "y": 0.55,
+     "until": "Odds are"
+    },
+    {
+     "type": "text",
+     "text": "DO THEM *RIGHT*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "do them right",
+     "animation": "words",
+     "until": "Odds are"
+    },
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": "fade",
+     "at": "Odds are",
+     "width": 0.8,
+     "y": 0.5
+    },
+    {
+     "type": "text",
+     "text": "*5* MISTAKES",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "five mistakes",
+     "animation": "words"
+    }
+   ]
+  },
+  {
+   "id": "m1",
+   "start": "Mistake one-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "1",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.27,
+     "size": 400,
+     "color": "#D5DAE0",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Mistake one",
+     "enter": "fade"
+    },
+    {
+     "type": "image",
+     "asset": "hero_pushup_top",
+     "shadow": true,
+     "enter": "fade",
+     "at": "Mistake one",
+     "id": "p",
+     "width": 0.95,
+     "y": 0.55,
+     "until": "Look at the floor"
+    },
+    {
+     "type": "glow",
+     "anchor": "neck",
+     "color": "#FF4D3D",
+     "at": "looking up",
+     "target": "p",
+     "until": "Look at the floor"
+    },
+    {
+     "type": "text",
+     "text": "LOOKING *UP*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "looking up",
+     "animation": "words",
+     "until": "Look at the floor"
+    },
+    {
+     "type": "video",
+     "asset": "clip_pushup",
+     "at": "Look at the floor",
+     "rate": 1.0,
+     "enter": "fade",
+     "width": 1.0,
+     "y": 0.55
+    },
+    {
+     "type": "text",
+     "text": "LOOK *DOWN*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "Look at the floor",
+     "animation": "words"
+    }
+   ]
+  },
+  {
+   "id": "m2",
+   "start": "Mistake two-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "2",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.27,
+     "size": 400,
+     "color": "#D5DAE0",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Mistake two",
+     "enter": "fade"
+    },
+    {
+     "type": "image",
+     "asset": "hero_pushup_mid",
+     "shadow": true,
+     "enter": "fade",
+     "at": "Mistake two",
+     "id": "p",
+     "width": 0.95,
+     "y": 0.55,
+     "until": "Tuck them"
+    },
+    {
+     "type": "glow",
+     "anchor": "elbows",
+     "color": "#FF4D3D",
+     "at": "elbows flared",
+     "target": "p",
+     "until": "That puts your"
+    },
+    {
+     "type": "text",
+     "text": "ELBOWS *FLARED*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "elbows flared",
+     "animation": "words",
+     "until": "That puts your"
+    },
+    {
+     "type": "glow",
+     "anchor": "shoulders",
+     "color": "#FF4D3D",
+     "at": "That puts your",
+     "target": "p",
+     "until": "Tuck them"
+    },
+    {
+     "type": "text",
+     "text": "SHOULDERS *AT RISK*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "That puts your",
+     "animation": "words",
+     "until": "Tuck them"
+    },
+    {
+     "type": "video",
+     "asset": "clip_pushup",
+     "at": "Tuck them",
+     "rate": 1.0,
+     "enter": "fade",
+     "width": 1.0,
+     "y": 0.55
+    },
+    {
+     "type": "text",
+     "text": "TUCK TO *45°*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "Tuck them",
+     "animation": "words"
+    }
+   ]
+  },
+  {
+   "id": "m3",
+   "start": "Mistake three-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "3",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.27,
+     "size": 400,
+     "color": "#D5DAE0",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Mistake three",
+     "enter": "fade"
+    },
+    {
+     "type": "image",
+     "asset": "hero_pushup_top",
+     "shadow": true,
+     "enter": "fade",
+     "at": "Mistake three",
+     "id": "p",
+     "width": 0.95,
+     "y": 0.55,
+     "until": "Squeeze your"
+    },
+    {
+     "type": "glow",
+     "anchor": "hips",
+     "color": "#FF4D3D",
+     "at": "sagging hips",
+     "target": "p",
+     "until": "That crushes"
+    },
+    {
+     "type": "text",
+     "text": "HIPS *SAG*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "sagging hips",
+     "animation": "words",
+     "until": "That crushes"
+    },
+    {
+     "type": "glow",
+     "anchor": "back",
+     "color": "#FF4D3D",
+     "at": "That crushes",
+     "target": "p",
+     "until": "Squeeze your"
+    },
+    {
+     "type": "text",
+     "text": "LOWER BACK *PAIN*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "That crushes",
+     "animation": "words",
+     "until": "Squeeze your"
+    },
+    {
+     "type": "video",
+     "asset": "clip_pushup",
+     "at": "Squeeze your",
+     "rate": 1.0,
+     "enter": "fade",
+     "width": 1.0,
+     "y": 0.55
+    },
+    {
+     "type": "text",
+     "text": "SQUEEZE *GLUTES*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "Squeeze your",
+     "animation": "words",
+     "until": "one straight line"
+    },
+    {
+     "type": "text",
+     "text": "ONE *STRAIGHT* LINE",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "one straight line",
+     "animation": "words"
+    }
+   ]
+  },
+  {
+   "id": "m4",
+   "start": "Mistake four-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "4",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.27,
+     "size": 400,
+     "color": "#D5DAE0",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Mistake four",
+     "enter": "fade"
+    },
+    {
+     "type": "image",
+     "asset": "hero_pushup_top",
+     "shadow": true,
+     "enter": "fade",
+     "at": "Mistake four",
+     "id": "p",
+     "width": 0.95,
+     "y": 0.55,
+     "until": "Pull them back"
+    },
+    {
+     "type": "glow",
+     "anchor": "shoulders",
+     "color": "#FF4D3D",
+     "at": "shoulders rolled",
+     "target": "p",
+     "until": "Your chest"
+    },
+    {
+     "type": "text",
+     "text": "SHOULDERS *ROLLED*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "shoulders rolled",
+     "animation": "words",
+     "until": "Your chest"
+    },
+    {
+     "type": "glow",
+     "anchor": "chest",
+     "color": "#FF4D3D",
+     "at": "Your chest",
+     "target": "p",
+     "until": "Pull them back"
+    },
+    {
+     "type": "text",
+     "text": "CHEST *OFF*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "Your chest",
+     "animation": "words",
+     "until": "Pull them back"
+    },
+    {
+     "type": "video",
+     "asset": "clip_pushup",
+     "at": "Pull them back",
+     "rate": 1.0,
+     "enter": "fade",
+     "width": 1.0,
+     "y": 0.55
+    },
+    {
+     "type": "text",
+     "text": "SHOULDERS *BACK*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "Pull them back",
+     "animation": "words"
+    }
+   ]
+  },
+  {
+   "id": "m5",
+   "start": "Mistake five-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "5",
+     "look": "giant",
+     "behind": true,
+     "x": 0.5,
+     "y": 0.27,
+     "size": 400,
+     "color": "#D5DAE0",
+     "align": "center",
+     "maxWidth": 1,
+     "animation": "none",
+     "untype": false,
+     "tilt": 0,
+     "at": "Mistake five",
+     "enter": "fade"
+    },
+    {
+     "type": "poses",
+     "shadow": true,
+     "crossfade": 0,
+     "enter": "fade",
+     "at": "Mistake five",
+     "frames": [
+      {
+       "asset": "hero_pushup_top",
+       "at": "Mistake five"
+      },
+      {
+       "asset": "hero_pushup_mid",
+       "at": "straight up"
+      },
+      {
+       "asset": "hero_pushup_top",
+       "at": "and down"
+      },
+      {
+       "asset": "hero_pushup_mid",
+       "at": "and down+0.4"
+      }
+     ],
+     "width": 0.95,
+     "y": 0.55,
+     "until": "Push the floor"
+    },
+    {
+     "type": "text",
+     "text": "STRAIGHT *UP & DOWN*",
+     "look": "box",
+     "boxColor": "#FF4D3D",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 92,
+     "align": "center",
+     "at": "going straight",
+     "animation": "words",
+     "until": "Push the floor"
+    },
+    {
+     "type": "video",
+     "asset": "clip_pushup",
+     "at": "Push the floor",
+     "rate": 0.9,
+     "enter": "fade",
+     "width": 1.0,
+     "y": 0.55
+    },
+    {
+     "type": "text",
+     "text": "PUSH *FORWARD* + UP",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 92,
+     "align": "center",
+     "at": "Push the floor",
+     "animation": "words"
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "start": "Send this to-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": "fade",
+     "at": "Send this to",
+     "width": 0.8,
+     "y": 0.5,
+     "until": "whose push-ups"
+    },
+    {
+     "type": "image",
+     "asset": "prop_phone",
+     "shadow": true,
+     "enter": "fade",
+     "at": "Send this to",
+     "x": 0.8,
+     "y": 0.38,
+     "width": 0.18,
+     "until": "whose push-ups"
+    },
+    {
+     "type": "text",
+     "text": "*SEND* THIS",
+     "look": "box",
+     "boxColor": "#111111",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "Send this to",
+     "animation": "words",
+     "until": "whose push-ups"
+    },
+    {
+     "type": "image",
+     "asset": "hero_thumbs_up",
+     "shadow": true,
+     "enter": "fade",
+     "at": "whose push-ups",
+     "width": 0.8,
+     "y": 0.5
+    },
+    {
+     "type": "text",
+     "text": "FIX YOUR *PUSH-UPS*",
+     "look": "box",
+     "boxColor": "#3DDC84",
+     "x": 0.5,
+     "y": 0.75,
+     "size": 100,
+     "align": "center",
+     "at": "whose push-ups",
+     "animation": "words"
+    }
+   ]
+  }
+ ],
+ "sfx": [
+  {
+   "at": "but only if",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "five mistakes",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Mistake one",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Look at the floor",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Mistake two",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Tuck them",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Mistake three",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Squeeze your",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Mistake four",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Pull them back",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Mistake five",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Push the floor",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Send this to",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "whose push-ups",
+   "src": "sfx_pop_soft"
+  }
+ ]
+}
