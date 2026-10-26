@@ -52,3 +52,19 @@ No greetings, no filler. Every sentence earns its place.
   - H with a shaker
   - 6 back views from beginner to elite (for the tier format)
   - a few props: rice bucket, shaker, a red X, a green tick
+
+## Measured from the owner's analysis files (26 Oct; these beat the AI Studio guesses above)
+| Video | Length | Words/min | Hard cuts | Something moves every | Bumper at |
+|---|---|---|---|---|---|
+| Forearms | 39 s | 157 | 6 | 0.36 s | 12 s |
+| Plastic / testosterone | 37 s | 145 | 0 | 0.50 s | 5 s |
+| Stress / testosterone | 32 s | 138 | 5 | 1.0 s | 5 s |
+| Creatine | 66 s | 165 | 1 | 0.54 s | 4 s |
+| Back level | 20 s | 15 words only | 0 | one slow pan | none |
+
+- **Few hard cuts (0–6 per video).** Pace comes from constant small motion (pop-ins, zoom punches, prop moves), not from cutting. This matches the owner's "smooth, few transitions" rule.
+- **Background:** light grey-blue (brightness 146–174, not white 240). The character is dark grey with a white "W" mask.
+- **Captions:** small white text in the lower middle, under the character. There are no big top labels in these videos. Our top headings are our own choice.
+- **Bumper position:** "Let me fix that" comes right after the hook, at 4–5 s. In the forearms video it comes at 12 s, after a longer roast.
+- **Back level:** 15 spoken words in the first 5 s, then 15 s of music while the camera pans the 6 levels. The labels at the top do all the work.
+- **Ending:** a close-up punch-in on the face, or the "SUBSCRIBE" t-shirt.
