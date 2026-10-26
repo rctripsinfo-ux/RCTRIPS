@@ -1,0 +1,653 @@
+{
+ "title": "Lower Back Pain? It's Your Glutes",
+ "canvas": {
+  "background": "#C3CCD5"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 58,
+  "y": 0.8,
+  "maxWords": 3,
+  "keywords": [
+   "glutes",
+   "vacation",
+   "double",
+   "fix",
+   "fifteen",
+   "thirty",
+   "yanking",
+   "off",
+   "BACK"
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_sore_back",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "id": "h",
+     "width": 0.7,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "LOWER BACK PAIN?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "It's your glutes"
+    },
+    {
+     "type": "highlight",
+     "shape": "pain",
+     "x": 0.45,
+     "y": 0.5,
+     "w": 0.34,
+     "color": "#EF4444",
+     "at": "start",
+     "enter": "cut",
+     "until": "It's your glutes"
+    },
+    {
+     "type": "text",
+     "text": "IT'S YOUR GLUTES",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "It's your glutes"
+    },
+    {
+     "type": "highlight",
+     "shape": "pain",
+     "x": 0.46,
+     "y": 0.585,
+     "w": 0.34,
+     "color": "#EF4444",
+     "at": "It's your glutes",
+     "enter": "cut"
+    }
+   ],
+   "camera": [
+    {
+     "at": "It's your glutes",
+     "zoom": 1
+    },
+    {
+     "at": "It's your glutes+0.3",
+     "zoom": 1.15,
+     "focus": "glutes"
+    }
+   ]
+  },
+  {
+   "id": "why",
+   "start": "You sit all day#1-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_bad_posture_desk",
+     "shadow": true,
+     "enter": "cut",
+     "at": "You sit all day#1",
+     "id": "h",
+     "width": 0.7,
+     "y": 0.6,
+     "until": "double shift"
+    },
+    {
+     "type": "text",
+     "text": "YOU SIT ALL DAY",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "You sit all day#1"
+    },
+    {
+     "type": "text",
+     "text": "GLUTES: ON VACATION",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#3F4A55",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "vacation",
+     "until": "double shift"
+    },
+    {
+     "type": "glow",
+     "anchor": "glutes",
+     "color": "#7A8796",
+     "at": "vacation",
+     "target": "h",
+     "until": "double shift"
+    },
+    {
+     "type": "image",
+     "asset": "hero_tired_sweating",
+     "shadow": true,
+     "enter": "cut",
+     "at": "double shift",
+     "id": "h2",
+     "width": 0.7,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "BACK: DOUBLE SHIFT",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#3F4A55",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "double shift"
+    },
+    {
+     "type": "chip",
+     "text": "2X WORK",
+     "at": "double shift+0.3",
+     "x": 0.82,
+     "y": 0.56,
+     "color": "#EF4444",
+     "enter": "pop",
+     "icon": "warning"
+    }
+   ]
+  },
+  {
+   "id": "fix",
+   "start": "Here's the fix-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "HERE'S THE FIX",
+     "x": 0.5,
+     "y": 0.47,
+     "size": 170,
+     "align": "center",
+     "color": "#FFFFFF",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's the fix-0.05"
+    }
+   ],
+   "background": "#1E2228"
+  },
+  {
+   "id": "two",
+   "start": "Two moves-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_count_2",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Two moves",
+     "width": 0.7,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "2 MOVES",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two moves"
+    },
+    {
+     "type": "text",
+     "text": "NO GYM",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#3F4A55",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "no gym"
+    }
+   ]
+  },
+  {
+   "id": "m1",
+   "start": "First, glute bridges-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "clip_glute_bridge",
+     "at": "First, glute bridges",
+     "enter": "cut",
+     "width": 0.95,
+     "y": 0.58
+    },
+    {
+     "type": "text",
+     "text": "#1 GLUTE BRIDGE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 120,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "First, glute bridges"
+    },
+    {
+     "type": "text",
+     "text": "SQUEEZE 2 SEC AT THE TOP",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#3F4A55",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Squeeze",
+     "until": "fifteen reps"
+    },
+    {
+     "type": "counter",
+     "from": 0,
+     "to": 15,
+     "suffix": " REPS",
+     "duration": 1.2,
+     "x": 0.5,
+     "y": 0.34,
+     "size": 130,
+     "color": "#EF4444",
+     "at": "fifteen reps"
+    }
+   ]
+  },
+  {
+   "id": "m2",
+   "start": "Second, the hip-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_hip_flexor_stretch",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Second, the hip",
+     "id": "h",
+     "width": 0.7,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "#2 HIP FLEXOR STRETCH",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 110,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Second, the hip"
+    },
+    {
+     "type": "text",
+     "text": "30 SEC EACH SIDE",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#3F4A55",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Thirty seconds"
+    },
+    {
+     "type": "highlight",
+     "shape": "pain",
+     "x": 0.46,
+     "y": 0.6,
+     "w": 0.28,
+     "color": "#EF4444",
+     "at": "so your hips",
+     "enter": "cut"
+    }
+   ],
+   "camera": [
+    {
+     "at": "so your hips",
+     "zoom": 1
+    },
+    {
+     "at": "so your hips+0.3",
+     "zoom": 1.12,
+     "focus": [
+      0.46,
+      0.6
+     ]
+    }
+   ]
+  },
+  {
+   "id": "daily",
+   "start": "Do both every-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_thumbs_up",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Do both every",
+     "width": 0.7,
+     "y": 0.6,
+     "until": "day off"
+    },
+    {
+     "type": "text",
+     "text": "EVERY DAY",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Do both every",
+     "until": "day off"
+    },
+    {
+     "type": "text",
+     "text": "FOR 2 WEEKS",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#3F4A55",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "two weeks",
+     "until": "day off"
+    },
+    {
+     "type": "image",
+     "asset": "hero_victory",
+     "shadow": true,
+     "enter": "cut",
+     "at": "day off",
+     "width": 0.62,
+     "y": 0.64
+    },
+    {
+     "type": "text",
+     "text": "BACK: DAY OFF",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "day off"
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "start": "Comment BACK-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Comment BACK",
+     "id": "h",
+     "width": 0.7,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "COMMENT \"BACK\"",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Comment BACK"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Comment BACK",
+     "zoom": 1
+    },
+    {
+     "at": "if your lower",
+     "zoom": 1.35,
+     "focus": "face"
+    }
+   ]
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "It's your glutes",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "You sit all day#1",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "vacation",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "double shift",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Here's the fix-0.05",
+   "src": "sfx_typing"
+  },
+  {
+   "at": "Two moves",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "First, glute bridges",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "fifteen reps",
+   "src": "sfx_counter"
+  },
+  {
+   "at": "Second, the hip",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "so your hips",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Do both every",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "day off",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Comment BACK",
+   "src": "sfx_whoosh_soft"
+  }
+ ]
+}
