@@ -22,6 +22,12 @@
    "yanking",
    "off",
    "BACK"
+  ],
+  "hide": [
+   [
+    "Here's the fix-0.05",
+    "Two moves-0.05"
+   ]
   ]
  },
  "scenes": [
@@ -70,6 +76,17 @@
      "color": "#EF4444",
      "at": "start",
      "enter": "cut",
+     "until": "not your back"
+    },
+    {
+     "type": "highlight",
+     "shape": "pain",
+     "x": 0.45,
+     "y": 0.5,
+     "w": 0.3,
+     "color": "#8C8C8C",
+     "at": "not your back",
+     "enter": "cut",
      "until": "It's your glutes"
     },
     {
@@ -97,10 +114,17 @@
      "shape": "pain",
      "x": 0.46,
      "y": 0.585,
-     "w": 0.34,
+     "w": 0.4,
      "color": "#EF4444",
      "at": "It's your glutes",
      "enter": "cut"
+    },
+    {
+     "type": "pulse",
+     "kind": "edge",
+     "color": "#EF4444",
+     "at": "It's your glutes",
+     "duration": 0.5
     }
    ],
    "camera": [
@@ -109,9 +133,12 @@
      "zoom": 1
     },
     {
-     "at": "It's your glutes+0.3",
-     "zoom": 1.15,
-     "focus": "glutes"
+     "at": "It's your glutes+0.35",
+     "zoom": 1.35,
+     "focus": [
+      0.46,
+      0.585
+     ]
     }
    ],
    "backdropColor": "#FFF6E8",
@@ -629,7 +656,8 @@
   },
   {
    "at": "Here's the fix-0.05",
-   "src": "sfx_typing"
+   "src": "sfx_typing_loud",
+   "volume": 1.0
   },
   {
    "at": "Two moves",

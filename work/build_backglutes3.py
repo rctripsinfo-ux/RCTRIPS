@@ -66,8 +66,8 @@ def sc(id, start, layers, camera=None):
     return d
 
 
-def pain(x, y, at, until=None, w=0.34):
-    d = {"type": "highlight", "shape": "pain", "x": x, "y": y, "w": w, "color": RED, "at": at, "enter": "cut"}
+def pain(x, y, at, until=None, w=0.34, color=RED):
+    d = {"type": "highlight", "shape": "pain", "x": x, "y": y, "w": w, "color": color, "at": at, "enter": "cut"}
     if until: d["until"] = until
     return d
 
@@ -77,15 +77,19 @@ plan = {
     "canvas": {"background": BG},
     "style": {"accent": YEL},
     "captions": {"mode": "phrase", "look": "clean", "size": 58, "y": 0.8, "maxWords": 3,
-                 "keywords": ["glutes", "vacation", "double", "fix", "fifteen", "thirty", "yanking", "off", "BACK"]},
+                 "keywords": ["glutes", "vacation", "double", "fix", "fifteen", "thirty", "yanking", "off", "BACK"],
+                 "hide": [["Here's the fix-0.05", "Two moves-0.05"]]},
     "scenes": [
         sc("hook", "start", [
             img("hero_sore_back", "start", enter="cut", id="h", **BODY),
             title("LOWER BACK PAIN?", "start", "It's your glutes"),
-            pain(0.45, 0.5, "start", "It's your glutes"),
+            # back = where it hurts (red), then "not your back" = grey (not the cause), then the glutes: bigger red + push-in
+            pain(0.45, 0.5, "start", "not your back"),
+            pain(0.45, 0.5, "not your back", "It's your glutes", 0.3, "#8C8C8C"),
             title("IT'S YOUR GLUTES", "It's your glutes"),
-            pain(0.46, 0.585, "It's your glutes"),
-        ], camera=punch("It's your glutes", "glutes", 1.15)),
+            pain(0.46, 0.585, "It's your glutes", None, 0.4),
+            {"type": "pulse", "kind": "edge", "color": RED, "at": "It's your glutes", "duration": 0.5},
+        ], camera=[{"at": "It's your glutes", "zoom": 1}, {"at": "It's your glutes+0.35", "zoom": 1.35, "focus": [0.46, 0.585]}]),
         sc("why", "You sit all day#1-0.05", [
             img("hero_bad_posture_desk", "You sit all day#1", "double shift", enter="cut", id="h", **BODY),
             title("YOU SIT ALL DAY", "You sit all day#1"),
@@ -126,10 +130,10 @@ plan = {
             title('COMMENT "BACK"', "Comment BACK"),
         ], camera=[{"at": "Comment BACK", "zoom": 1}, {"at": "if your lower", "zoom": 1.35, "focus": "face"}]),
     ],
-    "sfx": [{"at": a, "src": s} for a, s in [
+    "sfx": [dict(zip(("at", "src", "volume"), e)) for e in [
         ("start", "sfx_whoosh_soft"), ("It's your glutes", "sfx_ding"),
         ("You sit all day#1", "sfx_whoosh_soft"), ("vacation", "sfx_pop_soft"), ("double shift", "sfx_pop_soft"),
-        ("Here's the fix-0.05", "sfx_typing"), ("Two moves", "sfx_pop_soft"),
+        ("Here's the fix-0.05", "sfx_typing_loud", 1.0), ("Two moves", "sfx_pop_soft"),
         ("First, glute bridges", "sfx_whoosh_soft"), ("fifteen reps", "sfx_counter"),
         ("Second, the hip", "sfx_whoosh_soft"), ("so your hips", "sfx_pop_soft"),
         ("Do both every", "sfx_whoosh_soft"), ("day off", "sfx_ding"),
