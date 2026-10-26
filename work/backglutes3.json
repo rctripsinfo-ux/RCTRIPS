@@ -1,7 +1,7 @@
 {
  "title": "Lower Back Pain? It's Your Glutes",
  "canvas": {
-  "background": "#C3CCD5"
+  "background": "#E2D3B9"
  },
  "style": {
   "accent": "#FACC15"
@@ -28,7 +28,7 @@
   {
    "id": "hook",
    "start": "start",
-   "backdrop": "none",
+   "backdrop": "spotlight",
    "layers": [
     {
      "type": "image",
@@ -113,12 +113,14 @@
      "zoom": 1.15,
      "focus": "glutes"
     }
-   ]
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
   },
   {
    "id": "why",
    "start": "You sit all day#1-0.05",
-   "backdrop": "none",
+   "backdrop": "spotlight",
    "layers": [
     {
      "type": "image",
@@ -158,7 +160,7 @@
      "y": 0.215,
      "size": 62,
      "align": "center",
-     "color": "#3F4A55",
+     "color": "#5A4A36",
      "font": "pop",
      "maxWidth": 0.9,
      "animation": "typewriter",
@@ -197,7 +199,7 @@
      "y": 0.215,
      "size": 62,
      "align": "center",
-     "color": "#3F4A55",
+     "color": "#5A4A36",
      "font": "pop",
      "maxWidth": 0.9,
      "animation": "typewriter",
@@ -220,7 +222,9 @@
      "enter": "pop",
      "icon": "warning"
     }
-   ]
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
   },
   {
    "id": "fix",
@@ -253,7 +257,7 @@
   {
    "id": "two",
    "start": "Two moves-0.05",
-   "backdrop": "none",
+   "backdrop": "spotlight",
    "layers": [
     {
      "type": "image",
@@ -291,7 +295,7 @@
      "y": 0.215,
      "size": 62,
      "align": "center",
-     "color": "#3F4A55",
+     "color": "#5A4A36",
      "font": "pop",
      "maxWidth": 0.9,
      "animation": "typewriter",
@@ -304,12 +308,14 @@
      },
      "at": "no gym"
     }
-   ]
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
   },
   {
    "id": "m1",
    "start": "First, glute bridges-0.05",
-   "backdrop": "none",
+   "backdrop": "spotlight",
    "layers": [
     {
      "type": "video",
@@ -346,7 +352,7 @@
      "y": 0.215,
      "size": 62,
      "align": "center",
-     "color": "#3F4A55",
+     "color": "#5A4A36",
      "font": "pop",
      "maxWidth": 0.9,
      "animation": "typewriter",
@@ -372,12 +378,14 @@
      "color": "#EF4444",
      "at": "fifteen reps"
     }
-   ]
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
   },
   {
    "id": "m2",
    "start": "Second, the hip-0.05",
-   "backdrop": "none",
+   "backdrop": "spotlight",
    "layers": [
     {
      "type": "image",
@@ -416,7 +424,7 @@
      "y": 0.215,
      "size": 62,
      "align": "center",
-     "color": "#3F4A55",
+     "color": "#5A4A36",
      "font": "pop",
      "maxWidth": 0.9,
      "animation": "typewriter",
@@ -453,12 +461,14 @@
       0.6
      ]
     }
-   ]
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
   },
   {
    "id": "daily",
    "start": "Do both every-0.05",
-   "backdrop": "none",
+   "backdrop": "spotlight",
    "layers": [
     {
      "type": "image",
@@ -498,7 +508,7 @@
      "y": 0.215,
      "size": 62,
      "align": "center",
-     "color": "#3F4A55",
+     "color": "#5A4A36",
      "font": "pop",
      "maxWidth": 0.9,
      "animation": "typewriter",
@@ -541,12 +551,14 @@
      },
      "at": "day off"
     }
-   ]
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
   },
   {
    "id": "cta",
    "start": "Comment BACK-0.05",
-   "backdrop": "none",
+   "backdrop": "spotlight",
    "layers": [
     {
      "type": "image",
@@ -589,7 +601,9 @@
      "zoom": 1.35,
      "focus": "face"
     }
-   ]
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
   }
  ],
  "sfx": [

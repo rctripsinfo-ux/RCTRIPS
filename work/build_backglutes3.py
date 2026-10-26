@@ -3,7 +3,7 @@
 # ~0.5-1 s (icons, chips, counter, pose swaps), red dashed ring on the problem, same bumper, yellow keywords,
 # slower voice (speed 1.0), face punch at the end and a last line that loops into the first.
 import json
-INK = "#16191D"; SUB = "#3F4A55"; RED = "#EF4444"; GREEN = "#22C55E"; YEL = "#FACC15"; BG = "#C3CCD5"
+INK = "#16191D"; SUB = "#5A4A36"; RED = "#EF4444"; GREEN = "#22C55E"; YEL = "#FACC15"; BG = "#E2D3B9"  # sand beige (owner pick 3, 26 Oct), lighter spotlight in the middle
 BODY = {"width": 0.7, "y": 0.6}
 CLIP = {"width": 0.95, "y": 0.58}
 
@@ -62,6 +62,7 @@ def sc(id, start, layers, camera=None):
     d = {"id": id, "start": start, "backdrop": "none", "layers": layers}
     if camera: d["camera"] = camera
     if id == "fix": d["background"] = "#1E2228"
+    else: d.update(backdrop="spotlight", backdropColor="#FFF6E8", backdropOpacity=1)
     return d
 
 
