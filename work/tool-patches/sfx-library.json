@@ -1,0 +1,931 @@
+{
+ "assets": [
+  {
+   "id": "sfx_pop",
+   "file": "pop.wav",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.965,
+   "duration": 0.3,
+   "description": "short pop \u2192 text, arrow, ring or prop appearing"
+  },
+  {
+   "id": "sfx_whoosh",
+   "file": "whoosh.wav",
+   "kind": "audio",
+   "category": "transition",
+   "volume": 1.0,
+   "duration": 0.5,
+   "description": "whoosh \u2192 scene change"
+  },
+  {
+   "id": "sfx_whoosh_fast",
+   "file": "whoosh_fast.mp3",
+   "kind": "audio",
+   "category": "transition",
+   "volume": 0.187,
+   "duration": 1.39,
+   "description": "fast airy whoosh \u2192 scene change, slideLeft, something flying in"
+  },
+  {
+   "id": "sfx_whoosh_soft",
+   "file": "whoosh_soft.mp3",
+   "kind": "audio",
+   "category": "transition",
+   "volume": 0.232,
+   "duration": 0.83,
+   "description": "soft quick whoosh \u2192 small movement, text sliding in"
+  },
+  {
+   "id": "sfx_whoosh_short",
+   "file": "whoosh_short.mp3",
+   "kind": "audio",
+   "category": "transition",
+   "volume": 0.237,
+   "duration": 0.27,
+   "description": "very short swipe \u2192 quick cut, pose change"
+  },
+  {
+   "id": "sfx_whoosh_fire",
+   "file": "whoosh_fire.mp3",
+   "kind": "audio",
+   "category": "transition",
+   "volume": 0.184,
+   "duration": 0.65,
+   "description": "fiery whoosh \u2192 intense / \"burn\" / fat-burning moments"
+  },
+  {
+   "id": "sfx_swish",
+   "file": "swish.mp3",
+   "kind": "audio",
+   "category": "transition",
+   "volume": 0.184,
+   "duration": 0.71,
+   "description": "jump swish \u2192 jumps, H popping in, arm swing"
+  },
+  {
+   "id": "sfx_whoosh_big",
+   "file": "whoosh_big.mp3",
+   "kind": "audio",
+   "category": "transition",
+   "volume": 0.185,
+   "duration": 2.37,
+   "description": "big heavy whoosh \u2192 hook start, big reveal, final scene"
+  },
+  {
+   "id": "sfx_whoosh_swipe",
+   "file": "whoosh_swipe.mp3",
+   "kind": "audio",
+   "category": "transition",
+   "volume": 0.187,
+   "duration": 0.65,
+   "description": "swipe whoosh \u2192 next tip / slide transition"
+  },
+  {
+   "id": "sfx_riser",
+   "file": "riser.mp3",
+   "kind": "audio",
+   "category": "transition",
+   "volume": 0.186,
+   "duration": 4.53,
+   "description": "rising tension build-up (5 s) \u2192 start it ~4 s before a big reveal"
+  },
+  {
+   "id": "sfx_flashbang",
+   "file": "flashbang.mp3",
+   "kind": "audio",
+   "category": "impact",
+   "volume": 0.187,
+   "duration": 4.2,
+   "description": "flashbang bang + ringing \u2192 \"flash\" transition, mind-blown, shocking fact"
+  },
+  {
+   "id": "sfx_pop_2",
+   "file": "pop_2.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.24,
+   "duration": 0.25,
+   "description": "bubbly pop \u2192 text, arrow, ring or prop appearing (alternative to sfx_pop)"
+  },
+  {
+   "id": "sfx_click",
+   "file": "click.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.385,
+   "duration": 0.18,
+   "description": "mouse click \u2192 checklist tick, button, number appearing"
+  },
+  {
+   "id": "sfx_click_soft",
+   "file": "click_soft.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.266,
+   "duration": 0.12,
+   "description": "tiny soft click \u2192 small captions/labels, subtle pops"
+  },
+  {
+   "id": "sfx_typing",
+   "file": "typing.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.37,
+   "duration": 2.9,
+   "description": "keyboard typing (3 s) \u2192 typewriter title text being typed"
+  },
+  {
+   "id": "sfx_camera",
+   "file": "camera.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.338,
+   "duration": 0.43,
+   "description": "camera shutter \u2192 before/after photo, freeze frame, \"look at this\""
+  },
+  {
+   "id": "sfx_notification",
+   "file": "notification.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.188,
+   "duration": 1.14,
+   "description": "phone notification \u2192 reminder, \"save this\", tip alert"
+  },
+  {
+   "id": "sfx_chime",
+   "file": "chime.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.198,
+   "duration": 0.84,
+   "description": "bright two-tone chime \u2192 correct answer, good form, tip unlocked"
+  },
+  {
+   "id": "sfx_ding",
+   "file": "ding.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.185,
+   "duration": 1.24,
+   "description": "clear ding \u2192 right way / good point / idea"
+  },
+  {
+   "id": "sfx_desk_bell",
+   "file": "desk_bell.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.368,
+   "duration": 1.2,
+   "description": "desk bell ding \u2192 \"number one/two/three\", rep done, next step"
+  },
+  {
+   "id": "sfx_coin",
+   "file": "coin.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.185,
+   "duration": 0.92,
+   "description": "game coin \u2192 reward, gains, bonus tip"
+  },
+  {
+   "id": "sfx_counter",
+   "file": "counter.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.199,
+   "duration": 1.91,
+   "description": "fast ticking counter \u2192 numbers counting up, reps or calories adding up"
+  },
+  {
+   "id": "sfx_magic",
+   "file": "magic.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.187,
+   "duration": 1.71,
+   "description": "magic sparkle \u2192 transformation, glow up, \"results\""
+  },
+  {
+   "id": "sfx_sparkle",
+   "file": "sparkle.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.184,
+   "duration": 1.04,
+   "description": "mysterious chime \u2192 secret, hidden trick, \"here's the truth\""
+  },
+  {
+   "id": "sfx_level_start",
+   "file": "level_start.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.186,
+   "duration": 1.51,
+   "description": "game boy start-up ding \u2192 start of the workout, \"let's go\""
+  },
+  {
+   "id": "sfx_gold_bell",
+   "file": "gold_bell.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 0.193,
+   "duration": 3.24,
+   "description": "golden bell \u2192 achievement, final result, ending"
+  },
+  {
+   "id": "sfx_hammer",
+   "file": "hammer.mp3",
+   "kind": "audio",
+   "category": "impact",
+   "volume": 0.191,
+   "duration": 0.67,
+   "description": "cartoon hammer hit \u2192 big point lands, stamp, \"WRONG\"/\"STOP\""
+  },
+  {
+   "id": "sfx_bone_crack",
+   "file": "bone_crack.mp3",
+   "kind": "audio",
+   "category": "impact",
+   "volume": 0.286,
+   "duration": 0.78,
+   "description": "bone crack \u2192 bad form, joint pain, injury warning"
+  },
+  {
+   "id": "sfx_concrete_break",
+   "file": "concrete_break.mp3",
+   "kind": "audio",
+   "category": "impact",
+   "volume": 0.184,
+   "duration": 1.08,
+   "description": "concrete breaking \u2192 breaking a plateau, breaking a myth"
+  },
+  {
+   "id": "sfx_crush",
+   "file": "crush.mp3",
+   "kind": "audio",
+   "category": "impact",
+   "volume": 0.301,
+   "duration": 0.69,
+   "description": "crunch/crush \u2192 crushing a workout, squeeze, crunches"
+  },
+  {
+   "id": "sfx_whip",
+   "file": "whip.mp3",
+   "kind": "audio",
+   "category": "impact",
+   "volume": 0.365,
+   "duration": 1.79,
+   "description": "whip crack \u2192 fast punchy word, \"snap\", explosive move"
+  },
+  {
+   "id": "sfx_thunder",
+   "file": "thunder.mp3",
+   "kind": "audio",
+   "category": "impact",
+   "volume": 0.213,
+   "duration": 3.35,
+   "description": "thunder crack \u2192 powerful moment, beast mode, dramatic hook"
+  },
+  {
+   "id": "sfx_electric",
+   "file": "electric.mp3",
+   "kind": "audio",
+   "category": "impact",
+   "volume": 0.344,
+   "duration": 1.43,
+   "description": "electric zap \u2192 muscle activation, \"feel the burn\", energy"
+  },
+  {
+   "id": "sfx_stretch",
+   "file": "stretch.mp3",
+   "kind": "audio",
+   "category": "impact",
+   "volume": 0.361,
+   "duration": 2,
+   "description": "rope tightening creak \u2192 muscle stretch, tension, holding a stretch"
+  },
+  {
+   "id": "sfx_pec_bounce",
+   "file": "pec_bounce.mp3",
+   "kind": "audio",
+   "category": "impact",
+   "volume": 0.225,
+   "duration": 0.8,
+   "description": "boing-boing twitch \u2192 pec bounce, chest flex, muscle twitch"
+  },
+  {
+   "id": "sfx_bruh",
+   "file": "bruh.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.296,
+   "duration": 0.58,
+   "description": "\"bruh\" voice \u2192 mistake, silly excuse, facepalm"
+  },
+  {
+   "id": "sfx_get_out",
+   "file": "get_out.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.296,
+   "duration": 0.97,
+   "description": "\"GET OUT!\" shout \u2192 reject a bad habit / myth"
+  },
+  {
+   "id": "sfx_oh_yeah",
+   "file": "oh_yeah.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.322,
+   "duration": 1.06,
+   "description": "\"oh yeah\" voice \u2192 satisfying result, flex"
+  },
+  {
+   "id": "sfx_yeah_boy",
+   "file": "yeah_boy.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.302,
+   "duration": 1.9,
+   "description": "\"yeahhh boy\" \u2192 hype, win, big result"
+  },
+  {
+   "id": "sfx_rizz",
+   "file": "rizz.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.184,
+   "duration": 1.44,
+   "description": "rizz \"vine boom\"-style sting \u2192 confident flex, cool moment"
+  },
+  {
+   "id": "sfx_fahhh",
+   "file": "fahhh.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.294,
+   "duration": 1.86,
+   "description": "loud \"FAHHH\" \u2192 shock, painful mistake, fail"
+  },
+  {
+   "id": "sfx_fahhh_pump",
+   "file": "fahhh_pump.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.307,
+   "duration": 1.98,
+   "description": "\"fahhh\" pump \u2192 huge pump, veins, swole"
+  },
+  {
+   "id": "sfx_scream",
+   "file": "scream.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.295,
+   "duration": 2,
+   "description": "short scream \u2192 panic, pain, burning muscles"
+  },
+  {
+   "id": "sfx_scream_long",
+   "file": "scream_long.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.291,
+   "duration": 2.4,
+   "description": "long dramatic \"ahhhh\" \u2192 fail, dramatic fall"
+  },
+  {
+   "id": "sfx_raaah",
+   "file": "raaah.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.306,
+   "duration": 1.24,
+   "description": "roaring \"RAAAH\" \u2192 beast mode, last rep, aggression"
+  },
+  {
+   "id": "sfx_shocked",
+   "file": "shocked.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.185,
+   "duration": 1.18,
+   "description": "shocked sting \u2192 surprising fact"
+  },
+  {
+   "id": "sfx_shocked_2",
+   "file": "shocked_2.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.185,
+   "duration": 1,
+   "description": "gasp/shock \u2192 \"wait, what?\", myth busted"
+  },
+  {
+   "id": "sfx_wow",
+   "file": "wow.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.295,
+   "duration": 3.68,
+   "description": "\"wow\" crowd \u2192 impressive result, transformation"
+  },
+  {
+   "id": "sfx_anime_wow",
+   "file": "anime_wow.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.294,
+   "duration": 3.78,
+   "description": "anime \"wow\" \u2192 cute surprise, amazed"
+  },
+  {
+   "id": "sfx_woo_hoo",
+   "file": "woo_hoo.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.294,
+   "duration": 0.84,
+   "description": "\"woo-hoo!\" \u2192 celebration, done, finished set"
+  },
+  {
+   "id": "sfx_ez",
+   "file": "ez.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.294,
+   "duration": 1.38,
+   "description": "\"EZ\" \u2192 easy move, simple trick"
+  },
+  {
+   "id": "sfx_few_moments_later",
+   "file": "few_moments_later.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.294,
+   "duration": 1.8,
+   "description": "\"a few moments later\" \u2192 time skip, results after weeks"
+  },
+  {
+   "id": "sfx_shush",
+   "file": "shush.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.328,
+   "duration": 1.39,
+   "description": "\"shhh\" \u2192 secret, \"nobody tells you this\""
+  },
+  {
+   "id": "sfx_aag_laga_di",
+   "file": "aag_laga_di.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.291,
+   "duration": 2.1,
+   "description": "\"aag laga di\" (Hindi) \u2192 on fire, amazing result, burning fat"
+  },
+  {
+   "id": "sfx_ammi_bacha_la",
+   "file": "ammi_bacha_la.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.294,
+   "duration": 11.37,
+   "description": "\"ammi bacha la re\" (Hindi, 11 s) \u2192 painful workout, leg day fear"
+  },
+  {
+   "id": "sfx_ghar_jaana_hai",
+   "file": "ghar_jaana_hai.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.293,
+   "duration": 5.43,
+   "description": "\"mujhe ghar jaana hai\" crying (Hindi) \u2192 want to quit, too hard"
+  },
+  {
+   "id": "sfx_dil_garden",
+   "file": "dil_garden.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.293,
+   "duration": 4.27,
+   "description": "\"dil garden garden ho riya hai\" (Hindi) \u2192 so happy, great result"
+  },
+  {
+   "id": "sfx_crying_laugh",
+   "file": "crying_laugh.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.303,
+   "duration": 3.97,
+   "description": "crying/laughing man \u2192 funny fail, embarrassing mistake"
+  },
+  {
+   "id": "sfx_shiver",
+   "file": "shiver.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.245,
+   "duration": 4.83,
+   "description": "cartoon shiver \u2192 scared, cold, fear of leg day"
+  },
+  {
+   "id": "sfx_teeth_chatter",
+   "file": "teeth_chatter.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.272,
+   "duration": 2.87,
+   "description": "teeth chattering \u2192 cold, cold shower, nervous"
+  },
+  {
+   "id": "sfx_snore",
+   "file": "snore.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.106,
+   "duration": 3.93,
+   "description": "snoring \u2192 sleep, recovery, boring workout"
+  },
+  {
+   "id": "sfx_ouch",
+   "file": "ouch.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.298,
+   "duration": 0.39,
+   "description": "\"ouch\" \u2192 pain, wrong form hurts"
+  },
+  {
+   "id": "sfx_dog_bark",
+   "file": "dog_bark.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.202,
+   "duration": 2.27,
+   "description": "dog barking \u2192 angry, aggressive, funny interruption"
+  },
+  {
+   "id": "sfx_dog_cry",
+   "file": "dog_cry.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.189,
+   "duration": 2.81,
+   "description": "dog whimper \u2192 sore muscles, sad, DOMS"
+  },
+  {
+   "id": "sfx_lion_roar",
+   "file": "lion_roar.mp3",
+   "kind": "audio",
+   "category": "meme",
+   "volume": 0.194,
+   "duration": 4.33,
+   "description": "lion roar \u2192 beast mode, alpha, strongest moment"
+  },
+  {
+   "id": "sfx_heavy_breathing",
+   "file": "heavy_breathing.mp3",
+   "kind": "audio",
+   "category": "body",
+   "volume": 0.156,
+   "duration": 5,
+   "description": "heavy breathing \u2192 tired, cardio, hard set"
+  },
+  {
+   "id": "sfx_out_of_breath",
+   "file": "out_of_breath.mp3",
+   "kind": "audio",
+   "category": "body",
+   "volume": 0.103,
+   "duration": 4.55,
+   "description": "out of breath panting \u2192 after running, exhausted"
+  },
+  {
+   "id": "sfx_running",
+   "file": "running.mp3",
+   "kind": "audio",
+   "category": "body",
+   "volume": 0.283,
+   "duration": 2.44,
+   "description": "running footsteps \u2192 running, cardio, jumping jacks"
+  },
+  {
+   "id": "sfx_gulp",
+   "file": "gulp.mp3",
+   "kind": "audio",
+   "category": "body",
+   "volume": 0.186,
+   "duration": 2.9,
+   "description": "gulping drink \u2192 drinking water, protein shake, hydration"
+  },
+  {
+   "id": "sfx_wind",
+   "file": "wind.mp3",
+   "kind": "audio",
+   "category": "ambience",
+   "volume": 0.106,
+   "duration": 8.95,
+   "description": "wind (9 s) \u2192 empty / lonely / cold moment, quiet scene"
+  },
+  {
+   "id": "sfx_night",
+   "file": "night.mp3",
+   "kind": "audio",
+   "category": "ambience",
+   "volume": 0.228,
+   "duration": 9.34,
+   "description": "night crickets (10 s) \u2192 night, sleep tips"
+  },
+  {
+   "id": "sfx_fire",
+   "file": "fire.mp3",
+   "kind": "audio",
+   "category": "ambience",
+   "volume": 0.104,
+   "duration": 5.93,
+   "description": "crackling fire (6 s) \u2192 burning fat, burn, intensity"
+  },
+  {
+   "id": "sfx_birds",
+   "file": "birds.mp3",
+   "kind": "audio",
+   "category": "ambience",
+   "volume": 0.148,
+   "duration": 5.89,
+   "description": "birds singing (6 s) \u2192 morning routine, fresh start"
+  },
+  {
+   "id": "sfx_whistle_up",
+   "file": "whistle_up.wav",
+   "kind": "audio",
+   "category": "cartoon",
+   "volume": 0.09,
+   "duration": 0.42,
+   "description": "slide whistle going up \u2192 entrance, reveal, \"here is the fix\""
+  },
+  {
+   "id": "sfx_whistle_down",
+   "file": "whistle_down.wav",
+   "kind": "audio",
+   "category": "cartoon",
+   "volume": 0.09,
+   "duration": 0.55,
+   "description": "slide whistle falling \u2192 fail, skinny / weak reveal"
+  },
+  {
+   "id": "sfx_whistle_tweet",
+   "file": "whistle_tweet.wav",
+   "kind": "audio",
+   "category": "cartoon",
+   "volume": 0.12,
+   "duration": 0.32,
+   "description": "short pea-whistle trill \u2192 number / next exercise"
+  },
+  {
+   "id": "sfx_boing",
+   "file": "boing.wav",
+   "kind": "audio",
+   "category": "cartoon",
+   "volume": 0.22,
+   "duration": 0.6,
+   "description": "cartoon spring boing \u2192 funny reveal, wobbly"
+  },
+  {
+   "id": "sfx_pop_soft",
+   "file": "pop_soft.wav",
+   "kind": "audio",
+   "category": "cartoon",
+   "volume": 0.3,
+   "duration": 0.09,
+   "description": "soft quick pop \u2192 label or number appearing"
+  },
+  {
+   "id": "sfx_swoosh_up",
+   "file": "swoosh_up.wav",
+   "kind": "audio",
+   "category": "cartoon",
+   "volume": 0.18,
+   "duration": 0.32,
+   "description": "short rising air swoosh \u2192 camera zoom, pose change"
+  },
+  {
+   "id": "sfx_typing_loud",
+   "file": "typing_loud.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 0.9,
+   "description": "keyboard typing, loud and short (0.9 s) -> bumper cards"
+  },
+  {
+   "id": "sfx_typing_03",
+   "file": "typing_03.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 0.3,
+   "description": "keyboard typing exactly 0.3 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_04",
+   "file": "typing_04.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 0.4,
+   "description": "keyboard typing exactly 0.4 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_05",
+   "file": "typing_05.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 0.5,
+   "description": "keyboard typing exactly 0.5 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_06",
+   "file": "typing_06.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 0.6,
+   "description": "keyboard typing exactly 0.6 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_07",
+   "file": "typing_07.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 0.7,
+   "description": "keyboard typing exactly 0.7 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_08",
+   "file": "typing_08.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 0.8,
+   "description": "keyboard typing exactly 0.8 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_09",
+   "file": "typing_09.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 0.9,
+   "description": "keyboard typing exactly 0.9 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_10",
+   "file": "typing_10.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 1.0,
+   "description": "keyboard typing exactly 1.0 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_11",
+   "file": "typing_11.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 1.1,
+   "description": "keyboard typing exactly 1.1 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_12",
+   "file": "typing_12.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 1.2,
+   "description": "keyboard typing exactly 1.2 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_13",
+   "file": "typing_13.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 1.3,
+   "description": "keyboard typing exactly 1.3 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_14",
+   "file": "typing_14.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 1.4,
+   "description": "keyboard typing exactly 1.4 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_15",
+   "file": "typing_15.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 1.5,
+   "description": "keyboard typing exactly 1.5 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_16",
+   "file": "typing_16.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 1.6,
+   "description": "keyboard typing exactly 1.6 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_17",
+   "file": "typing_17.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 1.7,
+   "description": "keyboard typing exactly 1.7 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_18",
+   "file": "typing_18.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 1.8,
+   "description": "keyboard typing exactly 1.8 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_19",
+   "file": "typing_19.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 1.9,
+   "description": "keyboard typing exactly 1.9 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_20",
+   "file": "typing_20.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 2.0,
+   "description": "keyboard typing exactly 2.0 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_21",
+   "file": "typing_21.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 2.1,
+   "description": "keyboard typing exactly 2.1 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_22",
+   "file": "typing_22.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 2.2,
+   "description": "keyboard typing exactly 2.2 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_23",
+   "file": "typing_23.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 2.3,
+   "description": "keyboard typing exactly 2.3 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_24",
+   "file": "typing_24.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 2.4,
+   "description": "keyboard typing exactly 2.4 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_typing_25",
+   "file": "typing_25.mp3",
+   "kind": "audio",
+   "category": "ui",
+   "volume": 1.0,
+   "duration": 2.5,
+   "description": "keyboard typing exactly 2.5 s (typed cards synced to the voice)"
+  }
+ ]
+}

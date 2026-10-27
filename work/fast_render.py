@@ -55,7 +55,35 @@ def api(path, body=None):
     return json.loads(urllib.request.urlopen(req).read() or b"{}")
 if len(sys.argv) > 5:
     cv = sys.argv[5]; api(f"/api/projects/{name}/cover?filename=cover{os.path.splitext(cv)[1]}", open(cv, "rb").read())
-res = api(f"/api/projects/{name}/timeline", open(plan, "rb").read())
+# typed cards in sync with the voice: a text layer with "sync": "<spoken words>" types its letters over exactly the
+# time those words are spoken, with a typing sound of the same length (sfx_typing_03 .. _25 = 0.3 .. 2.5 s).
+import re as _re
+def norm(t): return _re.sub(r"[^a-z0-9']", "", t.lower())
+toks = [norm(x["text"]) for x in words]
+def span(phrase):
+    q = [norm(t) for t in phrase.split()]
+    for i in range(len(toks) - len(q) + 1):
+        if toks[i:i + len(q)] == q: return words[i]["start"], words[i + len(q) - 1]["end"]
+    sys.exit(f"sync phrase not found: {phrase}")
+P = json.load(open(plan))
+for sc_ in P["scenes"]:
+    for L in sc_["layers"]:
+        ph = L.pop("sync", None)
+        if not ph: continue
+        if L.get("type") == "poses":
+            # style-D card flip-book: frame k shows k letters; each line types while its own words are spoken
+            cid, steps = L.pop("card"), L.pop("steps"); fr = []; k = 0
+            for phrase, nlet in zip(ph, steps):
+                a, b = span(phrase); dur = max(0.3, b - a)
+                for j in range(nlet):
+                    k += 1; fr.append({"asset": f"card_{cid}_{k:02d}", "at": round(a - 0.03 + 0.8 * dur * j / nlet, 3)})  # done typing at 80% so the full card is seen
+                P.setdefault("sfx", []).append({"at": round(a - 0.03, 3), "src": f"sfx_typing_{min(25, max(3, round(dur * 10))):02d}", "volume": 1.0})
+            L.update(frames=fr, at=fr[0]["at"])
+            continue
+        a, b = span(ph); dur = max(0.3, b - a)
+        L.update(at=round(a - 0.03, 3), animation="typewriter", cps=round(max(2, len(L["text"].replace(" ", "")) / dur), 2))
+        P.setdefault("sfx", []).append({"at": round(a - 0.03, 3), "src": f"sfx_typing_{min(25, max(3, round(dur * 10))):02d}", "volume": 1.0})
+res = api(f"/api/projects/{name}/timeline", json.dumps(P).encode())
 if not res.get("ok"): sys.exit(f"plan refused: {res}")
 api(f"/api/projects/{name}/render", b"{}")
 while True:

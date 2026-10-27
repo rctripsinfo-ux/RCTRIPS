@@ -1,0 +1,7 @@
+[
+ {"id": "real", "lines": [{"text": "HERE'S WHAT'S", "color": "#16191D", "size": 384}, {"text": "REALLY GOING ON", "color": "#EF4444", "size": 384}]},
+ {"id": "fix", "lines": [{"text": "HERE'S", "color": "#FFFFFF", "size": 384}, {"text": "THE FIX", "color": "#EF4444", "size": 384}]},
+ {"id": "m1", "lines": [{"text": "#1", "color": "#EF4444", "size": 600, "lh": 0.85}, {"text": "HIP FLEXOR STRETCH", "color": "#111111", "size": 256}]},
+ {"id": "m2", "lines": [{"text": "#2", "color": "#EF4444", "size": 600, "lh": 0.85}, {"text": "GLUTE BRIDGE", "color": "#111111", "size": 256}]},
+ {"id": "m3", "lines": [{"text": "#3", "color": "#EF4444", "size": 600, "lh": 0.85}, {"text": "DEAD BUG", "color": "#111111", "size": 256}]}
+]
