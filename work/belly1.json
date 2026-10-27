@@ -1,0 +1,714 @@
+{
+ "title": "Lower Belly Pooch? It's Your Hips",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 58,
+  "y": 0.82,
+  "maxWords": 3,
+  "keywords": [
+   "fat",
+   "hip",
+   "pelvis",
+   "gap",
+   "tilt",
+   "thirty",
+   "fifteen",
+   "ten",
+   "taller",
+   "HIPS"
+  ],
+  "hide": [
+   [
+    "Here's the fix-0.05",
+    "One: hip"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_measuring_waist",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "not always fat"
+    },
+    {
+     "type": "text",
+     "text": "LOWER BELLY POOCH?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 120,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "not always fat"
+    },
+    {
+     "type": "highlight",
+     "shape": "pain",
+     "x": 0.5,
+     "y": 0.55,
+     "w": 0.3,
+     "color": "#EF4444",
+     "at": "start",
+     "enter": "cut",
+     "until": "not always fat"
+    },
+    {
+     "type": "image",
+     "asset": "gag_scale_shock",
+     "shadow": false,
+     "enter": "cut",
+     "at": "not always fat",
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.6,
+     "autoPlace": false
+    },
+    {
+     "type": "text",
+     "text": "IT'S NOT ALWAYS FAT",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 115,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "not always fat"
+    }
+   ],
+   "camera": [
+    {
+     "at": "not always fat",
+     "zoom": 1
+    },
+    {
+     "at": "not always fat+0.3",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "why",
+   "start": "Sitting all day-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "gag_couch_potato",
+     "shadow": false,
+     "enter": "cut",
+     "at": "Sitting all day",
+     "width": 0.66,
+     "x": 0.5,
+     "y": 0.6,
+     "autoPlace": false,
+     "until": "your hip flexors"
+    },
+    {
+     "type": "text",
+     "text": "SITTING ALL DAY",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Sitting all day",
+     "until": "your hip flexors"
+    },
+    {
+     "type": "image",
+     "asset": "hero_bad_posture_desk",
+     "shadow": true,
+     "enter": "cut",
+     "at": "your hip flexors",
+     "id": "h",
+     "width": 0.7,
+     "y": 0.6,
+     "x": 0.36
+    },
+    {
+     "type": "text",
+     "text": "TIGHT HIP FLEXORS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "your hip flexors",
+     "until": "tip your pelvis"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_pain_tight_hip_flexor",
+     "zoom": 1,
+     "x": 0.74,
+     "y": 0.42,
+     "size": 0.38,
+     "at": "your hip flexors",
+     "enter": "pop",
+     "borderColor": "#FFFFFF",
+     "until": "tip your pelvis"
+    },
+    {
+     "type": "text",
+     "text": "PELVIS TIPS FORWARD",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 120,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "tip your pelvis",
+     "until": "pushed out"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_bone_pelvis_tilt",
+     "zoom": 1,
+     "x": 0.74,
+     "y": 0.42,
+     "size": 0.38,
+     "at": "tip your pelvis",
+     "enter": "pop",
+     "borderColor": "#FFFFFF"
+    },
+    {
+     "type": "text",
+     "text": "= BELLY POOCH",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "pushed out"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Sitting all day",
+     "zoom": 1
+    },
+    {
+     "at": "Sitting all day+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "fix",
+   "start": "Here's the fix-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "HERE'S THE FIX",
+     "x": 0.5,
+     "y": 0.47,
+     "size": 170,
+     "align": "center",
+     "color": "#FFFFFF",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's the fix-0.05"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Here's the fix-0.05",
+     "zoom": 1
+    },
+    {
+     "at": "the fix+0.25",
+     "zoom": 1.18
+    }
+   ],
+   "background": "#1E2228"
+  },
+  {
+   "id": "c_m1",
+   "start": "One: hip-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "clip_hip_flexor_stretch",
+     "at": "One: hip",
+     "enter": "cut",
+     "rate": 1.0,
+     "width": 1.0,
+     "y": 0.58
+    },
+    {
+     "type": "text",
+     "text": "#1 HIP FLEXOR STRETCH",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 110,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "One: hip"
+    },
+    {
+     "type": "text",
+     "text": "30 SEC EACH SIDE",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "thirty seconds"
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "c_m2",
+   "start": "Two: glute-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "clip_glute_bridge",
+     "at": "Two: glute",
+     "enter": "cut",
+     "rate": 1.4,
+     "width": 1.0,
+     "y": 0.58
+    },
+    {
+     "type": "text",
+     "text": "#2 GLUTE BRIDGE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two: glute"
+    },
+    {
+     "type": "counter",
+     "from": 0,
+     "to": 15,
+     "suffix": " REPS",
+     "duration": 1.0,
+     "x": 0.5,
+     "y": 0.3,
+     "size": 120,
+     "color": "#EF4444",
+     "at": "fifteen reps"
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "c_m3",
+   "start": "Three: dead-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "clip_dead_bug",
+     "at": "Three: dead",
+     "enter": "cut",
+     "rate": 1.3,
+     "width": 0.95,
+     "y": 0.52
+    },
+    {
+     "type": "text",
+     "text": "#3 DEAD BUG",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Three: dead"
+    },
+    {
+     "type": "text",
+     "text": "10 SLOW REPS",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "ten slow"
+    },
+    {
+     "type": "callout",
+     "text": "DEEP CORE",
+     "to": [
+      0.5,
+      0.6
+     ],
+     "x": 0.2,
+     "y": 0.36,
+     "size": 100,
+     "color": "#EF4444",
+     "look": "tag",
+     "at": "ten slow"
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "after",
+   "start": "Do it daily-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_stand",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Do it daily",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "flattens out"
+    },
+    {
+     "type": "text",
+     "text": "EVERY DAY",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Do it daily",
+     "until": "flattens out"
+    },
+    {
+     "type": "image",
+     "asset": "gag_sunglasses_thumbs",
+     "shadow": false,
+     "enter": "cut",
+     "at": "flattens out",
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.6,
+     "autoPlace": false
+    },
+    {
+     "type": "text",
+     "text": "BELLY: FLAT",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "flattens out"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Do it daily",
+     "zoom": 1
+    },
+    {
+     "at": "Do it daily+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "cta",
+   "start": "flattens out+0.55",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": "cut",
+     "at": "flattens out+0.55",
+     "id": "h",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "COMMENT \"HIPS\"",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Comment HIPS"
+    },
+    {
+     "type": "comment",
+     "text": "HIPS 😳",
+     "user": "you",
+     "ago": "now",
+     "likes": "1.8K",
+     "x": 0.5,
+     "y": 0.3,
+     "width": 0.7,
+     "size": 50,
+     "at": "Comment HIPS+0.3",
+     "enter": "pop"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Comment HIPS",
+     "zoom": 1
+    },
+    {
+     "at": "got exposed",
+     "zoom": 1.2,
+     "focus": "face"
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "not always fat",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Sitting all day",
+   "src": "sfx_boing"
+  },
+  {
+   "at": "your hip flexors",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "tip your pelvis",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "pushed out",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Here's the fix-0.05",
+   "src": "sfx_typing_loud",
+   "volume": 1.0
+  },
+  {
+   "at": "the fix+0.25",
+   "src": "sfx_whoosh_big"
+  },
+  {
+   "at": "One: hip",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "thirty seconds",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "Two: glute",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "fifteen reps",
+   "src": "sfx_counter"
+  },
+  {
+   "at": "Three: dead",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "ten slow",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "Do it daily",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "flattens out",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Comment HIPS",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Comment HIPS+0.3",
+   "src": "sfx_notification"
+  }
+ ]
+}
