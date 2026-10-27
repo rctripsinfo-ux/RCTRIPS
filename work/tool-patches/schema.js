@@ -486,7 +486,9 @@ export const TimelineSchema = z.object({
     maxWords: z.number().int().min(1).max(8).default(3), // phrase mode
     keywords: z.array(z.string()).default([]),          // emphasised (bigger, accent color)
     hide: z.array(z.tuple([sec, sec])).default([]),       // time ranges with no captions
-    bottom: z.array(z.tuple([sec, sec])).default([]),     // time ranges with small phrase captions at the bottom (e.g. while a step title is on screen)
+    bottom: z.array(z.tuple([sec, sec])).default([]),
+    high: z.array(z.tuple([sec, sec])).default([]),        // time ranges with the captions moved up to highY (exercise clips: never on H's head or body)
+    highY: norm.default(0.3),     // time ranges with small phrase captions at the bottom (e.g. while a step title is on screen)
   }).prefault({}),
   wordsFile: z.string().optional(),
   words: z.array(WordSchema).default([]),

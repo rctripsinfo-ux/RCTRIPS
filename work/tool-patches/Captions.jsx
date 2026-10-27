@@ -18,6 +18,7 @@ export function Captions({ctx, captions: cfg, words, titleOn = false, avoid = []
   const {t, W, H} = ctx;
   if (captions.mode === 'none' || !words.length) return null;
   if (captions.hide.some(([a, b]) => t >= a && t < b)) return null;
+  if ((captions.high || []).some(([a, b]) => t >= a && t < b)) captions = {...captions, y: captions.highY};
   if (captions.look === 'clean') return <CleanCaptions ctx={ctx} captions={captions} words={words}/>;
   // during step titles: smaller phrase captions at the bottom instead of the big top ones
   const low = titleOn || captions.bottom.some(([a, b]) => t >= a && t < b);

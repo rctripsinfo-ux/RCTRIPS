@@ -103,3 +103,9 @@ Copy that file for every new video. Rules it follows:
 - **Anatomy circles never on H's face** (owner, 28 Oct).
   - Place them in the lower half, beside the legs or hips (e.g. x 0.77, y 0.62–0.68), never next to the head.
   - The tool also pushes a circle off a known face box (`tool-patches/layers.jsx`, `Video.jsx`), but always check the frame.
+- **Clip scenes** (owner, 29 Oct): no text on H's head or body.
+  - No camera zoom on clips. Clip at y 0.62.
+  - Captions move up to y 0.27 with `captions.high` (tool patch).
+  - The key number as one red line at y 0.36. No small subs.
+- **Typed cards:** exact style D from `make_cards.py`, with no pop per letter (no shaking).
+- **Voice:** 1.3x with short holds (`belly6.pauses.json`), about 28 s.

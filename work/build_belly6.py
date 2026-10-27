@@ -87,7 +87,7 @@ def pain(x, y, at, until=None, w=0.34, color=RED):
     return d
 
 
-CLIPW = {"width": 1.0, "y": 0.58}
+CLIPW = {"width": 1.0, "y": 0.62}  # lower so heads stay clear of the headings
 
 
 def clip(a, at, rate=1.4):
@@ -161,6 +161,9 @@ plan = {
     "style": {"accent": YEL},
     "captions": {"mode": "phrase", "look": "clean", "size": 58, "y": 0.82, "maxWords": 3,
                  "keywords": ["fat", "pelvis", "gap", "tilt", "thirty", "fifteen", "ten", "taller", "HIPS"],
+                 "high": [["tip your pelvis-0.05", "Quick test-0.05"], ["thirty seconds-0.05", "Two: glute-0.05"],
+                          ["fifteen reps-0.05", "Three: dead-0.05"], ["ten slow-0.05", "Do it daily-0.05"]],  # clips: captions up, off H
+                 "highY": 0.27,
                  "hide": [["Here's what's-0.05", "Sitting all day-0.05"], ["Here's the fix-0.05", "thirty seconds-0.05"],
                           ["Two: glute-0.05", "fifteen reps-0.05"], ["Three: dead-0.05", "ten slow-0.05"]]},
     "scenes": [
@@ -181,10 +184,10 @@ plan = {
         ], camera=drift("Sitting all day", 1.16, (0.45, 0.5), (0.55, 0.55), 6), transition="whip"),
         scene("c_pelvis", "tip your pelvis-0.05", [
             clip("clip_wrong_posture_desk", "tip your pelvis-0.05", 1.0),
-            title("PELVIS TIPS FORWARD", "tip your pelvis-0.05", None, 120),
             bubble("anat_bone_pelvis_tilt", "tip your pelvis", None, None, x=0.77, y=0.64, size=0.36),
-            {**sub("= BELLY PUSHED OUT", "pushed out"), "color": RED},
-        ], camera=[{"at": "tip your pelvis-0.05", "zoom": 1}, {"at": "tip your pelvis+4", "zoom": 1.07, "focus": [0.5, 0.6]}]),
+            {**title("PELVIS TIPS FORWARD", "tip your pelvis-0.05", "pushed out", 120)},
+            {**title("= BELLY PUSHED OUT", "pushed out", None, 120), "color": RED},
+        ]),
         scene("test", "Quick test-0.05", [
             img("hero_lean_wall", "Quick test", "Big gap", enter="left", **BODY),
             title("WALL TEST", "Quick test", "Big gap"),
@@ -197,22 +200,22 @@ plan = {
         scene("c_m1", "One: hip-0.05", [
             dcard("m1", ["One", "hip flexor stretch"], "thirty seconds-0.05", "One: hip"),
             clip("clip_hip_flexor_stretch", "thirty seconds-0.05", 1.0),
-            title("#1 HIP FLEXOR STRETCH", "thirty seconds-0.05", size=110), sub("30 SEC EACH SIDE", "thirty seconds-0.05"),
-        ], camera=[{"at": "One: hip-0.05", "zoom": 1.15}, {"at": "thirty seconds-0.05", "zoom": 1}, {"at": "thirty seconds+4", "zoom": 1.07, "focus": [0.5, 0.6]}],
+            title("#1 HIP FLEXOR STRETCH", "thirty seconds-0.05", size=110), {**title("30 SEC EACH SIDE", "thirty seconds", None, 100), "y": 0.36, "color": RED},
+        ], camera=None,
            transition="zoomBlur"),
         scene("c_m2", "Two: glute-0.05", [
             dcard("m2", ["Two", "glute bridges"], "fifteen reps-0.05", "Two: glute"),
             clip("clip_glute_bridge", "fifteen reps-0.05", 1.3),
             title("#2 GLUTE BRIDGE", "fifteen reps-0.05"),
-            {"type": "counter", "from": 0, "to": 15, "suffix": " REPS", "duration": 1.2, "x": 0.5, "y": 0.3,
+            {"type": "counter", "from": 0, "to": 15, "suffix": " REPS", "duration": 1.2, "x": 0.5, "y": 0.4,
              "size": 120, "color": RED, "at": "fifteen reps"},
-        ], camera=[{"at": "Two: glute-0.05", "zoom": 1.15}, {"at": "fifteen reps-0.05", "zoom": 1}, {"at": "fifteen reps+3", "zoom": 1.06, "focus": [0.5, 0.6]}],
+        ], camera=None,
            transition="whip"),
         scene("c_m3", "Three: dead-0.05", [
             dcard("m3", ["Three", "dead bugs"], "ten slow-0.05", "Three: dead"),
             {**clip("clip_dead_bug", "ten slow-0.05", 1.2), "width": 0.95, "y": 0.52},
-            title("#3 DEAD BUG", "ten slow-0.05"), sub("10 SLOW REPS", "ten slow-0.05"),
-        ], camera=[{"at": "Three: dead-0.05", "zoom": 1.15}, {"at": "ten slow-0.05", "zoom": 1}, {"at": "ten slow+3", "zoom": 1.06, "focus": [0.5, 0.6]}],
+            title("#3 DEAD BUG", "ten slow-0.05"), {**title("10 SLOW REPS", "ten slow", None, 100), "y": 0.36, "color": RED},
+        ], camera=None,
            transition="whip"),
         scene("after", "Do it daily-0.05", [
             title("EVERY DAY", "Do it daily", "two weeks"),
