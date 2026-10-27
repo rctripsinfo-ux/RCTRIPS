@@ -28227,6 +28227,636 @@
    ],
    "area": 1.0,
    "description": "anatomy inset (realistic 3D, white bg, square): weak upper back"
+  },
+  {
+   "id": "gag_back_on_fire",
+   "file": "gag_back_on_fire.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H from the side holding his lower back, cartoon flames coming out of his lower back, eyes wide in pain",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    703,
+    1271
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_beach_chair",
+   "file": "gag_beach_chair.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H lies on a white beach lounge chair, sunglasses on, arms behind his head, totally relaxed and smug, a small drink beside him",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    704,
+    727
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_couch_potato",
+   "file": "gag_couch_potato.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H sinks deep into a grey couch, holding a TV remote and a bag of chips, belly relaxed, half-asleep eyes",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    696,
+    1063
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_crying_phone",
+   "file": "gag_crying_phone.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H sitting on the floor crying big cartoon tears while holding a smartphone, dramatic sad face",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    739,
+    941
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_dead_on_floor",
+   "file": "gag_dead_on_floor.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H lying flat on his back on the floor, arms and legs spread out, tongue out, completely exhausted, a little ghost-like cartoon soul floating up from h",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    756,
+    858
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_facepalm",
+   "file": "gag_facepalm.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H doing a big facepalm, one hand covering his face, shaking his head, disappointed",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    589,
+    1284
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_glowing_body",
+   "file": "gag_glowing_body.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H flexing double biceps with golden light rays shining out from behind him, sparkles around him",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    744,
+    1226
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_glutes_vacation",
+   "file": "gag_glutes_vacation.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H stands from behind, looking back over his shoulder, tiny sunglasses and a tiny straw hat sitting on his glutes, a small cocktail glass with an umbre",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    548,
+    1260
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_hand_in_cookie_jar",
+   "file": "gag_hand_in_cookie_jar.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H caught with his hand in a cookie jar, guilty face, crumbs on his chin",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    682,
+    1008
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_knees_creak",
+   "file": "gag_knees_creak.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H doing a squat, small cartoon crack lines and dust puffs coming from his knees, his face cringing",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    679,
+    991
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_laughing_pointing",
+   "file": "gag_laughing_pointing.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H laughing hard and pointing at the viewer, holding his stomach, tears of laughter",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    606,
+    1150
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_mind_blown",
+   "file": "gag_mind_blown.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H with cartoon smoke and a small explosion puff coming out of the top of his head, eyes wide, mind blown",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    508,
+    1240
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_mirror_flex",
+   "file": "gag_mirror_flex.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H flexing in front of a tall standing mirror, his reflection flexing even bigger, both admiring",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    731,
+    1126
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_noodle_legs",
+   "file": "gag_noodle_legs.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H tries to stand but his legs wobble like jelly, knees bending sideways, arms waving for balance, panicked face",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    707,
+    1216
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_old_man_back",
+   "file": "gag_old_man_back.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H bent over like a very old man, one hand on his lower back, leaning on a wooden walking cane, wincing, a few sweat drops",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    635,
+    1070
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_phone_crushing",
+   "file": "gag_phone_crushing.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H is tiny and a giant smartphone presses down on his upper back, bending him forward, he strains to hold it up",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    692,
+    1121
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_pizza_temptation",
+   "file": "gag_pizza_temptation.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H holding a big slice of pizza in one hand and a dumbbell in the other, torn, looking at both",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    734,
+    1290
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_question_neck",
+   "file": "gag_question_neck.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H with his head pushed far forward on a long bent neck shaped like a question mark, staring at a phone, his posture ridiculous",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    685,
+    1258
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_scale_shock",
+   "file": "gag_scale_shock.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H standing on a bathroom scale, looking down at it, jaw dropped in shock",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    556,
+    1232
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_shocked",
+   "file": "gag_shocked.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H with eyes popping out wide, jaw dropped to his chest, hands on his cheeks, totally shocked",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    506,
+    1287
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_skinny_legs",
+   "file": "gag_skinny_legs.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H with his huge muscular upper body but tiny skinny stick legs, looking down at his legs embarrassed",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    627,
+    1241
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_sleeping_desk",
+   "file": "gag_sleeping_desk.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H sleeps with his face on a small white desk, drooling a little, a laptop open, a big cartoon 'Zzz' cloud drawn as bubbles (no letters) above his head",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    761,
+    1136
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_snooze_alarm",
+   "file": "gag_snooze_alarm.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H in bed under a white blanket, only his head and one arm out, slapping a red alarm clock, grumpy face",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    768,
+    1097
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_spaghetti_arms",
+   "file": "gag_spaghetti_arms.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H stands flexing proudly but both arms are long, floppy, yellow cooked spaghetti noodles hanging down limp, his face shocked looking at them",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    754,
+    1294
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_sugar_monster",
+   "file": "gag_sugar_monster.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H running away scared from a big cute cartoon donut monster chasing him",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    735,
+    826
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_sunglasses_thumbs",
+   "file": "gag_sunglasses_thumbs.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H wearing black sunglasses, big confident smile, giving a thumbs up, one eyebrow raised",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    604,
+    1237
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_superhero_cape",
+   "file": "gag_superhero_cape.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H in a heroic pose, fists on his hips, a red cape flowing behind him, chest out",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    744,
+    1150
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_suspicious",
+   "file": "gag_suspicious.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H squinting suspiciously at the viewer, one eyebrow raised, hand on his chin, leaning in",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    599,
+    1223
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_sweating_bucket",
+   "file": "gag_sweating_bucket.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H standing exhausted, sweat pouring off him into a puddle at his feet, tongue out, eyes spinning",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    568,
+    1173
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
+  },
+  {
+   "id": "gag_tiny_dumbbell",
+   "file": "gag_tiny_dumbbell.webp",
+   "kind": "image",
+   "description": "H gag (transparent): H curling a giant heavy dumbbell easily with one finger, bored face",
+   "tags": [
+    "gag",
+    "hero"
+   ],
+   "size": [
+    639,
+    986
+   ],
+   "bbox": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "area": 1.0
   }
  ]
 }
