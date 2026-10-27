@@ -68,3 +68,27 @@ No greetings, no filler. Every sentence earns its place.
 - **Bumper position:** "Let me fix that" comes right after the hook, at 4–5 s. In the forearms video it comes at 12 s, after a longer roast.
 - **Back level:** 15 spoken words in the first 5 s, then 15 s of music while the camera pans the 6 levels. The labels at the top do all the work.
 - **Ending:** a close-up punch-in on the face, or the "SUBSCRIBE" t-shirt.
+
+## APPROVED TEMPLATE (owner, 27 Oct): `build_posture2.py` → `final/posture2.mp4`
+Copy that file for every new video. Rules it follows:
+- **Length and voice:** 25–30 s, about 70 words, voice speed 1.05, -16 LUFS. Music volume 0.025, sfx volume 0.35.
+- **Hook (0–3 s):**
+  - The first heading is shown in full from frame 1 (no typing).
+  - 2–3 pose swaps.
+  - A spinning dashed red pain circle on the problem area.
+  - A camera punch on the key word.
+- **Bumper:** "HERE'S THE FIX" on a dark card, with a loud typing sound and a punch-in. No captions during the bumper.
+- **Exercise scenes:** clips from `work/clips/library/` (77 clips), on a WHITE scene background. Speed them up (rate 1.3–1.5), with no camera zoom.
+- **Image scenes:**
+  - Sand beige (#E2D3B9) with a spotlight.
+  - H width 0.8.
+  - A slow push-in from 1.0 to 1.07.
+- **Anatomy circles** (`work/anatomy/images`, 60 images): only 1–2 per video.
+- **Headings and captions:**
+  - Headings at the top are typed. Captions are small and white, at the bottom.
+  - Keywords in yellow.
+  - Small subs under the heading.
+  - Rep counter.
+- **CTA:** "COMMENT <WORD>" heading, a pop-up comment bubble with a notification sound, and a punch-in on the face.
+- **Never use:** colored box labels, small icons on the character, green ticks or glows, red X on top of a circle, or meme sounds.
+- **Tool changes** (pain circle, bubble connector line, `sfx_typing_loud`, library snapshots) are in `work/tool-patches/`. Copy them back into `~/reel-engine-tool` in a fresh session.
