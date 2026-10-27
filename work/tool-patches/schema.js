@@ -480,7 +480,7 @@ export const TimelineSchema = z.object({
   scenes: z.array(SceneSchema).min(1),
   captions: z.object({
     mode: z.enum(['none', 'word', 'phrase']).default('none'),
-    look: z.enum(['default', 'clean']).default('default'), // clean = small white words with a dark outline, 3 at a time, low on the screen
+    look: z.enum(['default', 'clean', 'viral']).default('default'), // viral = ONE big bold italic word at a time, mid-screen (owner's old viral Shorts); clean = small white words with a dark outline, 3 at a time, low on the screen
     y: norm.default(0.14),
     size: z.number().min(20).max(300).default(86),
     maxWords: z.number().int().min(1).max(8).default(3), // phrase mode

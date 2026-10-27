@@ -8,22 +8,10 @@
   "accent": "#FACC15"
  },
  "captions": {
-  "mode": "phrase",
-  "look": "clean",
-  "size": 58,
-  "y": 0.82,
-  "maxWords": 3,
-  "keywords": [
-   "fat",
-   "pelvis",
-   "gap",
-   "tilt",
-   "thirty",
-   "fifteen",
-   "ten",
-   "taller",
-   "HIPS"
-  ],
+  "mode": "word",
+  "look": "viral",
+  "size": 112,
+  "y": 0.56,
   "high": [
    [
     "tip your pelvis-0.05",
@@ -42,7 +30,18 @@
     "Do it daily-0.05"
    ]
   ],
-  "highY": 0.27,
+  "highY": 0.41,
+  "keywords": [
+   "fat",
+   "pelvis",
+   "gap",
+   "tilt",
+   "thirty",
+   "fifteen",
+   "ten",
+   "taller",
+   "HIPS"
+  ],
   "hide": [
    [
     "Here's what's-0.05",
@@ -617,7 +616,7 @@
      "type": "text",
      "text": "30 SEC EACH SIDE",
      "x": 0.5,
-     "y": 0.36,
+     "y": 0.29,
      "size": 100,
      "align": "center",
      "color": "#EF4444",
@@ -709,7 +708,7 @@
      "suffix": " REPS",
      "duration": 1.2,
      "x": 0.5,
-     "y": 0.4,
+     "y": 0.29,
      "size": 120,
      "color": "#EF4444",
      "at": "fifteen reps"
@@ -787,7 +786,7 @@
      "type": "text",
      "text": "10 SLOW REPS",
      "x": 0.5,
-     "y": 0.36,
+     "y": 0.29,
      "size": 100,
      "align": "center",
      "color": "#EF4444",

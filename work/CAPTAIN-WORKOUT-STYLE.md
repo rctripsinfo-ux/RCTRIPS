@@ -109,3 +109,6 @@ Copy that file for every new video. Rules it follows:
   - The key number as one red line at y 0.36. No small subs.
 - **Typed cards:** exact style D from `make_cards.py`, with no pop per letter (no shaking).
 - **Voice:** 1.3x with short holds (`belly6.pauses.json`), about 28 s.
+- **Captions** (owner, 29 Oct): old-viral style, `captions.look = "viral"` (tool patch).
+  - One word at a time, bold italic white with a thick dark outline, keywords yellow.
+  - Mid-screen at y 0.56. During clips it goes to y 0.41 (`captions.high`) so it sits above H's head.

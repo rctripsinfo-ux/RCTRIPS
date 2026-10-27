@@ -159,11 +159,11 @@ plan = {
     "font": "sport",
     "canvas": {"background": BG},
     "style": {"accent": YEL},
-    "captions": {"mode": "phrase", "look": "clean", "size": 58, "y": 0.82, "maxWords": 3,
-                 "keywords": ["fat", "pelvis", "gap", "tilt", "thirty", "fifteen", "ten", "taller", "HIPS"],
+    "captions": {"mode": "word", "look": "viral", "size": 112, "y": 0.56,  # old viral style: one bold italic word mid-screen
                  "high": [["tip your pelvis-0.05", "Quick test-0.05"], ["thirty seconds-0.05", "Two: glute-0.05"],
-                          ["fifteen reps-0.05", "Three: dead-0.05"], ["ten slow-0.05", "Do it daily-0.05"]],  # clips: captions up, off H
-                 "highY": 0.27,
+                          ["fifteen reps-0.05", "Three: dead-0.05"], ["ten slow-0.05", "Do it daily-0.05"]],  # clips: the word sits above H's head
+                 "highY": 0.41,
+                 "keywords": ["fat", "pelvis", "gap", "tilt", "thirty", "fifteen", "ten", "taller", "HIPS"],
                  "hide": [["Here's what's-0.05", "Sitting all day-0.05"], ["Here's the fix-0.05", "thirty seconds-0.05"],
                           ["Two: glute-0.05", "fifteen reps-0.05"], ["Three: dead-0.05", "ten slow-0.05"]]},
     "scenes": [
@@ -200,21 +200,21 @@ plan = {
         scene("c_m1", "One: hip-0.05", [
             dcard("m1", ["One", "hip flexor stretch"], "thirty seconds-0.05", "One: hip"),
             clip("clip_hip_flexor_stretch", "thirty seconds-0.05", 1.0),
-            title("#1 HIP FLEXOR STRETCH", "thirty seconds-0.05", size=110), {**title("30 SEC EACH SIDE", "thirty seconds", None, 100), "y": 0.36, "color": RED},
+            title("#1 HIP FLEXOR STRETCH", "thirty seconds-0.05", size=110), {**title("30 SEC EACH SIDE", "thirty seconds", None, 100), "y": 0.29, "color": RED},
         ], camera=None,
            transition="zoomBlur"),
         scene("c_m2", "Two: glute-0.05", [
             dcard("m2", ["Two", "glute bridges"], "fifteen reps-0.05", "Two: glute"),
             clip("clip_glute_bridge", "fifteen reps-0.05", 1.3),
             title("#2 GLUTE BRIDGE", "fifteen reps-0.05"),
-            {"type": "counter", "from": 0, "to": 15, "suffix": " REPS", "duration": 1.2, "x": 0.5, "y": 0.4,
+            {"type": "counter", "from": 0, "to": 15, "suffix": " REPS", "duration": 1.2, "x": 0.5, "y": 0.29,
              "size": 120, "color": RED, "at": "fifteen reps"},
         ], camera=None,
            transition="whip"),
         scene("c_m3", "Three: dead-0.05", [
             dcard("m3", ["Three", "dead bugs"], "ten slow-0.05", "Three: dead"),
             {**clip("clip_dead_bug", "ten slow-0.05", 1.2), "width": 0.95, "y": 0.52},
-            title("#3 DEAD BUG", "ten slow-0.05"), {**title("10 SLOW REPS", "ten slow", None, 100), "y": 0.36, "color": RED},
+            title("#3 DEAD BUG", "ten slow-0.05"), {**title("10 SLOW REPS", "ten slow", None, 100), "y": 0.29, "color": RED},
         ], camera=None,
            transition="whip"),
         scene("after", "Do it daily-0.05", [

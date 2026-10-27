@@ -19,6 +19,7 @@ export function Captions({ctx, captions: cfg, words, titleOn = false, avoid = []
   if (captions.mode === 'none' || !words.length) return null;
   if (captions.hide.some(([a, b]) => t >= a && t < b)) return null;
   if ((captions.high || []).some(([a, b]) => t >= a && t < b)) captions = {...captions, y: captions.highY};
+  if (captions.look === 'viral') return <ViralCaptions ctx={ctx} captions={captions} words={words}/>;
   if (captions.look === 'clean') return <CleanCaptions ctx={ctx} captions={captions} words={words}/>;
   // during step titles: smaller phrase captions at the bottom instead of the big top ones
   const low = titleOn || captions.bottom.some(([a, b]) => t >= a && t < b);
@@ -95,4 +96,25 @@ function CleanCaptions({ctx, captions, words}) {
   return <div style={{position: 'absolute', left: 0, width: W, top: y * H, transform: 'translateY(-50%)', zIndex: 100, textAlign: 'center',
     fontFamily: '"Rubik", sans-serif', fontWeight: 800, fontSize: size, lineHeight: 1.1, color: '#FFFFFF', padding: '0 90px', boxSizing: 'border-box',
     WebkitTextStroke: `${Math.round(size * 0.16)}px #1A1A1A`, paintOrder: 'stroke fill', textShadow: '0 3px 6px rgba(0,0,0,0.25)'}}>{text}</div>;
+}
+
+// Owner's old viral Shorts: one word at a time, bold italic, white with a thick dark outline, in the middle of the
+// screen; keywords yellow; each word pops in. Always the same place (titles on screen don't move it).
+function ViralCaptions({ctx, captions, words}) {
+  const {t, W, H} = ctx;
+  let idx = -1;
+  for (let i = 0; i < words.length; i++) if (words[i].start <= t) idx = i;
+  if (idx < 0) return null;
+  const w = words[idx], next = words[idx + 1];
+  if (t > (next ? Math.max(w.end + 0.25, next.start) : w.end + 0.5)) return null;
+  const kws = new Set(captions.keywords.map(clean));
+  const kw = kws.has(clean(w.text));
+  const p = clamp01((t - w.start) / 0.12);
+  const scale = 0.7 + 0.3 * (1 - (1 - p) ** 3);
+  const size = captions.size * (kw ? 1.15 : 1);
+  const text = w.text.replace(/[,;:.!?]+$/, '').toLowerCase();
+  return <div style={{position: 'absolute', left: 0, width: W, top: captions.y * H, transform: `translateY(-50%) scale(${scale})`, zIndex: 100,
+    textAlign: 'center', fontFamily: '"Rubik", sans-serif', fontWeight: 800, fontStyle: 'italic', fontSize: size, lineHeight: 1,
+    color: kw ? '#FACC15' : '#FFFFFF', WebkitTextStroke: `${Math.round(size * 0.18)}px #111111`, paintOrder: 'stroke fill',
+    textShadow: '0 6px 10px rgba(0,0,0,0.35)'}}>{text}</div>;
 }
