@@ -1,7 +1,7 @@
 # Owner rule (28 Oct): voice at 1.3x and NO silences. The tool's TTS leaves ~0.3-0.5 s pauses between sentences,
 # so after `check` makes the voice, this cuts every gap between words down to GAP seconds (voice.wav, words.json and
 # segments shifted together), re-sends the plan so its word anchors use the new times, then renders and encodes.
-# Usage: python3 fast_render.py <name> <script.txt> <plan.json> [speed]
+# Usage: python3 fast_render.py <name> <script.txt> <plan.json> [speed] [cover.jpg]  (cover = thumbnail for the first 0.1 s)
 import json, os, subprocess, sys, time, urllib.request, wave
 MAKER = "/root/.claude/skills/synced/370a525f-40ff-4b1d-a196-a1258fe281e4_33be9e93-4a60-43f2-9228-8bfef809efb4/reel-video-maker/scripts/make_video.py"
 TOOL = os.path.expanduser("~/reel-engine-tool"); PORT = 3011; GAP = 0.05
@@ -41,6 +41,8 @@ def api(path, body=None):
     req = urllib.request.Request(f"http://127.0.0.1:{PORT}{path}", data=body, method="POST" if body is not None else "GET",
                                  headers={"Content-Type": "application/json"})
     return json.loads(urllib.request.urlopen(req).read() or b"{}")
+if len(sys.argv) > 5:
+    cv = sys.argv[5]; api(f"/api/projects/{name}/cover?filename=cover{os.path.splitext(cv)[1]}", open(cv, "rb").read())
 res = api(f"/api/projects/{name}/timeline", open(plan, "rb").read())
 if not res.get("ok"): sys.exit(f"plan refused: {res}")
 api(f"/api/projects/{name}/render", b"{}")

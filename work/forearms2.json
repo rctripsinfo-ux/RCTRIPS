@@ -1,0 +1,902 @@
+{
+ "title": "Weak Forearms? Do These 2 Moves",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 58,
+  "y": 0.82,
+  "maxWords": 3,
+  "keywords": [
+   "biceps",
+   "half",
+   "spaghetti",
+   "thirty",
+   "weak",
+   "heaviest",
+   "mercy",
+   "month",
+   "ARMS"
+  ],
+  "hide": [
+   [
+    "Here's what's-0.05",
+    "Your forearms are"
+   ],
+   [
+    "Here's the fix-0.05",
+    "One: dead+0.6"
+   ],
+   [
+    "Two: farmer's-0.05",
+    "Grab the heaviest"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_this_small",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "not your biceps"
+    },
+    {
+     "type": "text",
+     "text": "SMALL ARMS?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "not your biceps"
+    },
+    {
+     "type": "image",
+     "asset": "hero_double_biceps",
+     "shadow": true,
+     "enter": "cut",
+     "at": "not your biceps",
+     "id": "h",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "IT'S NOT YOUR BICEPS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 115,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "not your biceps"
+    },
+    {
+     "type": "highlight",
+     "shape": "pain",
+     "x": 0.2,
+     "y": 0.36,
+     "w": 0.24,
+     "color": "#EF4444",
+     "at": "not your biceps",
+     "enter": "cut"
+    },
+    {
+     "type": "highlight",
+     "shape": "pain",
+     "x": 0.8,
+     "y": 0.36,
+     "w": 0.24,
+     "color": "#EF4444",
+     "at": "not your biceps",
+     "enter": "cut"
+    }
+   ],
+   "camera": [
+    {
+     "at": "not your biceps",
+     "zoom": 1
+    },
+    {
+     "at": "not your biceps+0.3",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.42
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "c_real",
+   "start": "Here's what's-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "HERE'S WHAT'S REALLY GOING ON",
+     "x": 0.5,
+     "y": 0.42,
+     "size": 200,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.86,
+     "animation": "words",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's what's-0.05"
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "why",
+   "start": "Your forearms are-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_double_biceps",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Your forearms are",
+     "id": "h",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "cooked spaghetti"
+    },
+    {
+     "type": "text",
+     "text": "FOREARMS = HALF YOUR ARM",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 105,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Your forearms are",
+     "until": "cooked spaghetti"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_muscle_forearms",
+     "zoom": 1,
+     "x": 0.74,
+     "y": 0.62,
+     "size": 0.36,
+     "at": "half your arm",
+     "enter": "pop",
+     "borderColor": "#FFFFFF",
+     "from": [
+      0.8,
+      0.36
+     ],
+     "until": "cooked spaghetti"
+    },
+    {
+     "type": "image",
+     "asset": "gag_spaghetti_arms",
+     "shadow": false,
+     "enter": "pop",
+     "at": "cooked spaghetti",
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.6,
+     "autoPlace": false
+    },
+    {
+     "type": "text",
+     "text": "SPAGHETTI FOREARMS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 120,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "cooked spaghetti"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Your forearms are",
+     "zoom": 1
+    },
+    {
+     "at": "Your forearms are+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "c_test",
+   "start": "Quick test-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "clip_dead_hang",
+     "at": "Quick test",
+     "enter": "cut",
+     "rate": 1.0,
+     "width": 1.0,
+     "y": 0.58
+    },
+    {
+     "type": "text",
+     "text": "30 SEC TEST",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Quick test"
+    },
+    {
+     "type": "counter",
+     "from": 0,
+     "to": 30,
+     "suffix": " SEC",
+     "duration": 1.6,
+     "x": 0.5,
+     "y": 0.27,
+     "size": 120,
+     "color": "#EF4444",
+     "at": "thirty seconds",
+     "until": "If not"
+    },
+    {
+     "type": "image",
+     "asset": "gag_facepalm",
+     "shadow": false,
+     "enter": "pop",
+     "at": "If not",
+     "width": 0.36,
+     "x": 0.8,
+     "y": 0.72,
+     "autoPlace": false
+    },
+    {
+     "type": "text",
+     "text": "CAN'T? GRIP = WEAK",
+     "x": 0.5,
+     "y": 0.27,
+     "size": 110,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "If not"
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "fix",
+   "start": "Here's the fix-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "HERE'S THE FIX",
+     "x": 0.5,
+     "y": 0.47,
+     "size": 170,
+     "align": "center",
+     "color": "#FFFFFF",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's the fix-0.05"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Here's the fix-0.05",
+     "zoom": 1
+    },
+    {
+     "at": "the fix+0.25",
+     "zoom": 1.18
+    }
+   ],
+   "background": "#1E2228"
+  },
+  {
+   "id": "c_m1",
+   "start": "the fix+0.45",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "#1",
+     "x": 0.5,
+     "y": 0.4,
+     "size": 220,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.86,
+     "animation": "words",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "the fix+0.45",
+     "until": "One: dead+0.6"
+    },
+    {
+     "type": "text",
+     "text": "DEAD HANG",
+     "x": 0.5,
+     "y": 0.52,
+     "size": 150,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.86,
+     "animation": "words",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "One: dead",
+     "until": "One: dead+0.6"
+    },
+    {
+     "type": "video",
+     "asset": "clip_dead_hang",
+     "at": "One: dead+0.6",
+     "enter": "cut",
+     "rate": 1.3,
+     "width": 1.0,
+     "y": 0.58
+    },
+    {
+     "type": "text",
+     "text": "#1 DEAD HANG",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "One: dead+0.6"
+    },
+    {
+     "type": "text",
+     "text": "3 ROUNDS · MAX TIME",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Three rounds"
+    },
+    {
+     "type": "callout",
+     "text": "GRIP",
+     "to": [
+      0.36,
+      0.2
+     ],
+     "x": 0.2,
+     "y": 0.36,
+     "size": 100,
+     "color": "#EF4444",
+     "look": "tag",
+     "at": "Three rounds"
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "c_m2",
+   "start": "Two: farmer's-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "#2",
+     "x": 0.5,
+     "y": 0.4,
+     "size": 220,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.86,
+     "animation": "words",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two: farmer's-0.05",
+     "until": "Grab the heaviest"
+    },
+    {
+     "type": "text",
+     "text": "FARMER'S HOLD",
+     "x": 0.5,
+     "y": 0.52,
+     "size": 140,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.86,
+     "animation": "words",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two: farmer's",
+     "until": "Grab the heaviest"
+    },
+    {
+     "type": "video",
+     "asset": "clip_farmer_walk",
+     "at": "Grab the heaviest",
+     "enter": "cut",
+     "rate": 1.4,
+     "width": 1.0,
+     "y": 0.58
+    },
+    {
+     "type": "text",
+     "text": "#2 FARMER'S HOLD",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Grab the heaviest"
+    },
+    {
+     "type": "text",
+     "text": "HEAVIEST WEIGHTS",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Grab the heaviest",
+     "until": "begs for mercy"
+    },
+    {
+     "type": "text",
+     "text": "HOLD TILL GRIP GIVES UP",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "begs for mercy"
+    },
+    {
+     "type": "callout",
+     "text": "FOREARMS",
+     "to": [
+      0.33,
+      0.55
+     ],
+     "x": 0.18,
+     "y": 0.4,
+     "size": 100,
+     "color": "#EF4444",
+     "look": "tag",
+     "at": "hold until"
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "after",
+   "start": "Three times a-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "text",
+     "text": "3x A WEEK",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Three times a",
+     "until": "in a month"
+    },
+    {
+     "type": "image",
+     "asset": "hero_this_small",
+     "shadow": true,
+     "enter": "pop",
+     "at": "Three times a",
+     "width": 0.5,
+     "x": 0.26,
+     "y": 0.62,
+     "autoPlace": false
+    },
+    {
+     "type": "arrow",
+     "from": [
+      0.45,
+      0.55
+     ],
+     "to": [
+      0.57,
+      0.55
+     ],
+     "color": "#EF4444",
+     "thickness": 22,
+     "at": "in a month"
+    },
+    {
+     "type": "image",
+     "asset": "hero_double_biceps",
+     "shadow": true,
+     "enter": "pop",
+     "at": "in a month",
+     "width": 0.5,
+     "x": 0.75,
+     "y": 0.62,
+     "autoPlace": false
+    },
+    {
+     "type": "text",
+     "text": "1 MONTH LATER",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "in a month"
+    },
+    {
+     "type": "text",
+     "text": "SLEEVES GET TIGHT",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "sleeves get"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Three times a",
+     "zoom": 1
+    },
+    {
+     "at": "Three times a+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "cta",
+   "start": "Comment ARMS-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Comment ARMS",
+     "id": "h",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "COMMENT \"ARMS\"",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Comment ARMS"
+    },
+    {
+     "type": "comment",
+     "text": "ARMS 💪",
+     "user": "you",
+     "ago": "now",
+     "likes": "2.4K",
+     "x": 0.5,
+     "y": 0.3,
+     "width": 0.7,
+     "size": 50,
+     "at": "Comment ARMS+0.3",
+     "enter": "pop"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Comment ARMS",
+     "zoom": 1
+    },
+    {
+     "at": "still empty",
+     "zoom": 1.2,
+     "focus": "face"
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "not your biceps",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Here's what's-0.05",
+   "src": "sfx_typing_loud",
+   "volume": 1.0
+  },
+  {
+   "at": "half your arm",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "cooked spaghetti",
+   "src": "sfx_boing"
+  },
+  {
+   "at": "Quick test",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "thirty seconds",
+   "src": "sfx_counter"
+  },
+  {
+   "at": "If not",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Here's the fix-0.05",
+   "src": "sfx_typing_loud",
+   "volume": 1.0
+  },
+  {
+   "at": "the fix+0.25",
+   "src": "sfx_whoosh_big"
+  },
+  {
+   "at": "the fix+0.45",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "One: dead+0.6",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Three rounds",
+   "src": "sfx_click_soft"
+  },
+  {
+   "at": "Two: farmer's-0.05",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Grab the heaviest",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "begs for mercy",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Three times a",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "in a month",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Comment ARMS",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Comment ARMS+0.3",
+   "src": "sfx_notification"
+  }
+ ]
+}
