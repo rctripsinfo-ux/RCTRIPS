@@ -1,0 +1,631 @@
+{
+ "title": "Rounded Shoulders? It's Your Phone",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 58,
+  "y": 0.82,
+  "maxWords": 3,
+  "keywords": [
+   "phone",
+   "tight",
+   "asleep",
+   "fix",
+   "thirty",
+   "fifteen",
+   "three",
+   "POSTURE"
+  ],
+  "hide": [
+   [
+    "Here's the fix-0.05",
+    "Three moves-0.05"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_bad_posture_desk",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "id": "h",
+     "width": 0.7,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "ROUNDED SHOULDERS?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "It's your phone"
+    },
+    {
+     "type": "highlight",
+     "shape": "pain",
+     "x": 0.42,
+     "y": 0.42,
+     "w": 0.3,
+     "color": "#EF4444",
+     "at": "start",
+     "enter": "cut",
+     "until": "It's your phone"
+    },
+    {
+     "type": "text",
+     "text": "IT'S YOUR PHONE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "It's your phone"
+    }
+   ],
+   "camera": [
+    {
+     "at": "It's your phone",
+     "zoom": 1
+    },
+    {
+     "at": "It's your phone+0.3",
+     "zoom": 1.25,
+     "focus": [
+      0.58,
+      0.42
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "c_why",
+   "start": "Eight hours-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "clip_wrong_posture_desk",
+     "at": "Eight hours",
+     "enter": "cut",
+     "rate": 1.0,
+     "width": 1.0,
+     "y": 0.58
+    },
+    {
+     "type": "text",
+     "text": "8 HOURS HUNCHED",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Eight hours"
+    },
+    {
+     "type": "text",
+     "text": "CHEST: TIGHT",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "chest gets tight",
+     "until": "upper back falls"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_muscle_chest",
+     "zoom": 1,
+     "x": 0.78,
+     "y": 0.36,
+     "size": 0.34,
+     "at": "chest gets tight",
+     "enter": "pop",
+     "borderColor": "#FFFFFF",
+     "until": "upper back falls"
+    },
+    {
+     "type": "text",
+     "text": "UPPER BACK: ASLEEP",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "upper back falls"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_weak_upper_back",
+     "zoom": 1,
+     "x": 0.78,
+     "y": 0.36,
+     "size": 0.34,
+     "at": "upper back falls",
+     "enter": "pop",
+     "borderColor": "#FFFFFF"
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "fix",
+   "start": "Here's the fix-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "HERE'S THE FIX",
+     "x": 0.5,
+     "y": 0.47,
+     "size": 170,
+     "align": "center",
+     "color": "#FFFFFF",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's the fix-0.05"
+    }
+   ],
+   "background": "#1E2228"
+  },
+  {
+   "id": "three",
+   "start": "Three moves-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_count_3",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Three moves",
+     "width": 0.7,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "3 MOVES",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Three moves"
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "c_m1",
+   "start": "One: doorway-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "clip_doorway_chest_stretch",
+     "at": "One: doorway",
+     "enter": "cut",
+     "rate": 1.3,
+     "width": 1.0,
+     "y": 0.58
+    },
+    {
+     "type": "text",
+     "text": "#1 CHEST STRETCH",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "One: doorway"
+    },
+    {
+     "type": "text",
+     "text": "30 SECONDS",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "thirty seconds"
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "c_m2",
+   "start": "Two: band-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "clip_band_pull_apart",
+     "at": "Two: band",
+     "enter": "cut",
+     "rate": 1.5,
+     "width": 1.0,
+     "y": 0.58
+    },
+    {
+     "type": "text",
+     "text": "#2 BAND PULL-APARTS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 115,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two: band"
+    },
+    {
+     "type": "counter",
+     "from": 0,
+     "to": 15,
+     "suffix": " REPS",
+     "duration": 1.0,
+     "x": 0.5,
+     "y": 0.27,
+     "size": 120,
+     "color": "#EF4444",
+     "at": "fifteen reps"
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "c_m3",
+   "start": "Three: supermans-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "clip_superman",
+     "at": "Three: supermans",
+     "enter": "cut",
+     "rate": 1.4,
+     "width": 1.12,
+     "y": 0.5
+    },
+    {
+     "type": "text",
+     "text": "#3 SUPERMANS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Three: supermans"
+    },
+    {
+     "type": "text",
+     "text": "HOLD 3 SEC AT THE TOP",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "hold for three"
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "after",
+   "start": "Do this daily-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_good_posture_desk",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Do this daily",
+     "width": 0.7,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "EVERY DAY",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Do this daily",
+     "until": "roll back"
+    },
+    {
+     "type": "text",
+     "text": "SHOULDERS BACK",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "roll back"
+    }
+   ],
+   "camera": [
+    {
+     "at": "roll back",
+     "zoom": 1
+    },
+    {
+     "at": "roll back+0.3",
+     "zoom": 1.08,
+     "focus": [
+      0.5,
+      0.5
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "cta",
+   "start": "Comment POSTURE-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Comment POSTURE",
+     "id": "h",
+     "width": 0.7,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "COMMENT \"POSTURE\"",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 120,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Comment POSTURE"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Comment POSTURE",
+     "zoom": 1
+    },
+    {
+     "at": "hunched over#2",
+     "zoom": 1.35,
+     "focus": "face"
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "It's your phone",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Eight hours",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "chest gets tight",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "upper back falls",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Here's the fix-0.05",
+   "src": "sfx_typing_loud",
+   "volume": 1.0
+  },
+  {
+   "at": "Three moves",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "One: doorway",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Two: band",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "fifteen reps",
+   "src": "sfx_counter"
+  },
+  {
+   "at": "Three: supermans",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Do this daily",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "roll back",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Comment POSTURE",
+   "src": "sfx_whoosh_soft"
+  }
+ ]
+}
