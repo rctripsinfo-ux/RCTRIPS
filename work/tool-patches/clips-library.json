@@ -1,0 +1,1465 @@
+{
+ "assets": [
+  {
+   "id": "clip_plank",
+   "file": "clip_plank.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    1080,
+    608
+   ],
+   "description": "Forearm plank hold, side view, head on the left, steady breathing (8 s loop)",
+   "tags": [
+    "plank",
+    "core",
+    "abs",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_pike_pushup",
+   "file": "clip_pike_pushup.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    990,
+    924
+   ],
+   "description": "Pike push-up, side view: hips high, head lowers toward the floor and back up (8 s loop)",
+   "tags": [
+    "pike",
+    "shoulders",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_dead_hang",
+   "file": "clip_dead_hang.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    1080,
+    1910
+   ],
+   "description": "Dead hang from a black bar, front view, small swing (he does not pull up) (8 s loop)",
+   "tags": [
+    "hang",
+    "grip",
+    "bar",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_squat",
+   "file": "clip_squat.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    836,
+    1752
+   ],
+   "description": "Bodyweight squat, side view, arms forward, several reps (8 s loop)",
+   "tags": [
+    "squat",
+    "legs",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_chair_dip",
+   "file": "clip_chair_dip.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    1032,
+    1590
+   ],
+   "description": "Chair dip, side view, hands on a black chair behind him, lowers and presses up (8 s loop)",
+   "tags": [
+    "dip",
+    "triceps",
+    "chair",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_glute_bridge",
+   "file": "clip_glute_bridge.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    1080,
+    570
+   ],
+   "description": "Glute bridge, side view, lying on his back, hips up and down (8 s loop)",
+   "tags": [
+    "glutes",
+    "bridge",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_hammer_curl",
+   "file": "clip_hammer_curl.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    914,
+    1676
+   ],
+   "description": "Curls with a big water jug, front view, switching hands (8 s loop)",
+   "tags": [
+    "curl",
+    "biceps",
+    "water jug",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_pushup",
+   "file": "clip_pushup.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    1074,
+    816
+   ],
+   "description": "Push-ups, side view, head on the left, full reps (8 s loop)",
+   "tags": [
+    "pushup",
+    "chest",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_bulgarian_split_squat",
+   "file": "clip_bulgarian_split_squat.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    930,
+    1680
+   ],
+   "description": "Bulgarian split squat, side view, back foot on a black chair, reps (8 s loop)",
+   "tags": [
+    "split squat",
+    "legs",
+    "chair",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_decline_pushup",
+   "file": "clip_decline_pushup.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    1080,
+    770
+   ],
+   "description": "Decline push-up, side view, feet on a black chair, head on the left (8 s loop)",
+   "tags": [
+    "pushup",
+    "chest",
+    "chair",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_hammer_curl_dumbbells",
+   "file": "clip_hammer_curl_dumbbells.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    1058,
+    1754
+   ],
+   "description": "Hammer curls with two dumbbells, front view, both arms together (8 s loop)",
+   "tags": [
+    "curl",
+    "biceps",
+    "brachialis",
+    "dumbbell",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_leg_raise",
+   "file": "clip_leg_raise.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    1080,
+    854
+   ],
+   "description": "Lying leg raise, side view, legs up to vertical and slowly down (8 s loop)",
+   "tags": [
+    "abs",
+    "core",
+    "leg raise",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_mountain_climbers",
+   "file": "clip_mountain_climbers.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    1080,
+    782
+   ],
+   "description": "Mountain climbers, side view, knees drive to the chest (8 s loop)",
+   "tags": [
+    "cardio",
+    "core",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_diamond_pushup",
+   "file": "clip_diamond_pushup.mp4",
+   "kind": "video",
+   "duration": 6.8,
+   "size": [
+    1068,
+    990
+   ],
+   "description": "Close-grip (diamond) push-ups, side view, head on the left (starts 1.2 s in) (6.8 s loop)",
+   "tags": [
+    "pushup",
+    "triceps",
+    "chest",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_inverted_row",
+   "file": "clip_inverted_row.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    1080,
+    972
+   ],
+   "description": "Inverted row under a black bar, side view, chest pulls up to the bar (8 s loop)",
+   "tags": [
+    "row",
+    "back",
+    "lats",
+    "bar",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_lateral_raise",
+   "file": "clip_lateral_raise.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    1080,
+    1760
+   ],
+   "description": "Lateral raises with dumbbells, front view, arms out to shoulder height (8 s loop)",
+   "tags": [
+    "shoulders",
+    "side delts",
+    "dumbbell",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_side_plank",
+   "file": "clip_side_plank.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    948,
+    918
+   ],
+   "description": "Side plank on one forearm, front view, holding (8 s loop)",
+   "tags": [
+    "obliques",
+    "core",
+    "plank",
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_archer_pushup",
+   "file": "clip_archer_pushup.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Archer push-ups, shifting to one arm while the other arm stays straight out to the side (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_arm_circles",
+   "file": "clip_arm_circles.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Arm circles, arms straight out to the sides (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_band_pull_apart",
+   "file": "clip_band_pull_apart.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Band pull-aparts with a red resistance band at chest height (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_bear_crawl",
+   "file": "clip_bear_crawl.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Bear crawl in place, knees just above the floor, moving forward 2 steps and back 2 steps (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_bench_dip",
+   "file": "clip_bench_dip.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Bench dips with hands on a plain white box behind him, legs straight (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_bent_over_row",
+   "file": "clip_bent_over_row.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Bent-over row with a black barbell (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_biceps_curl",
+   "file": "clip_biceps_curl.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Standing dumbbell biceps curls with two black dumbbells (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_bicycle_crunch",
+   "file": "clip_bicycle_crunch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Bicycle crunches lying on the floor (from a three-quarter front angle) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_bird_dog",
+   "file": "clip_bird_dog.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Bird dog on hands and knees, opposite arm and leg reaching out (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_burpee",
+   "file": "clip_burpee.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Burpees: squat, jump the feet back, push-up, jump the feet in, jump up (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_butt_kicks",
+   "file": "clip_butt_kicks.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Butt kicks running in place (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_butterfly_stretch",
+   "file": "clip_butterfly_stretch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Seated butterfly stretch, soles of the feet together (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_calf_raise",
+   "file": "clip_calf_raise.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Standing calf raises on the floor (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_cat_cow",
+   "file": "clip_cat_cow.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Cat-cow on hands and knees, rounding and arching the back (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_childs_pose",
+   "file": "clip_childs_pose.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Child's pose on the floor, arms stretched forward (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_chinup",
+   "file": "clip_chinup.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Chin-ups on a simple black pull-up bar, palms facing him (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_cobra_stretch",
+   "file": "clip_cobra_stretch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Cobra stretch lying face down, pushing the chest up (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_crunch",
+   "file": "clip_crunch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Crunches lying on the floor, knees bent (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_dead_bug",
+   "file": "clip_dead_bug.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Dead bug lying on his back, opposite arm and leg lowering (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_deadlift",
+   "file": "clip_deadlift.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Conventional deadlift with a black barbell from the floor (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_deep_squat_hold",
+   "file": "clip_deep_squat_hold.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Deep squat hold, heels down, elbows pushing the knees out (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_donkey_kick",
+   "file": "clip_donkey_kick.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Donkey kicks on hands and knees, one leg kicking up behind (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_doorway_chest_stretch",
+   "file": "clip_doorway_chest_stretch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Chest stretch with forearm on a plain white door frame, leaning forward (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_dumbbell_bench_press",
+   "file": "clip_dumbbell_bench_press.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Dumbbell chest press lying on a plain white flat bench (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_dumbbell_row",
+   "file": "clip_dumbbell_row.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "One-arm dumbbell row with one knee and hand on a plain white bench (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_farmer_walk",
+   "file": "clip_farmer_walk.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Farmer's hold: standing tall holding two heavy black dumbbells at his sides, walking in place (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_fire_hydrant",
+   "file": "clip_fire_hydrant.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Fire hydrants on hands and knees, lifting one bent knee out to the side (from behind) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_flutter_kicks",
+   "file": "clip_flutter_kicks.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Flutter kicks lying on his back, legs straight and low (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_front_raise",
+   "file": "clip_front_raise.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Dumbbell front raises with two black dumbbells (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_hamstring_stretch",
+   "file": "clip_hamstring_stretch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Standing hamstring stretch, one heel forward, hinging over the straight leg (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_handstand_hold",
+   "file": "clip_handstand_hold.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Wall handstand hold, chest facing a plain white wall (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_hanging_knee_raise",
+   "file": "clip_hanging_knee_raise.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Hanging knee raises from a simple black pull-up bar (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_heel_touch",
+   "file": "clip_heel_touch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Heel touches lying on his back, knees bent, reaching side to side (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_high_knees",
+   "file": "clip_high_knees.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "High knees running in place (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_hip_flexor_stretch",
+   "file": "clip_hip_flexor_stretch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Kneeling hip flexor stretch, one knee down, pushing the hips forward gently (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_hip_thrust",
+   "file": "clip_hip_thrust.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Hip thrusts with the upper back on a plain white bench, knees bent (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_hollow_hold",
+   "file": "clip_hollow_hold.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Hollow body hold lying on his back, arms and legs lifted (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_incline_pushup",
+   "file": "clip_incline_pushup.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Incline push-ups with hands on a plain white box (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_jump_rope",
+   "file": "clip_jump_rope.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Jumping rope with a black jump rope (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_jump_squat",
+   "file": "clip_jump_squat.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Jump squats, landing softly (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_jumping_jacks",
+   "file": "clip_jumping_jacks.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Jumping jacks (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_kettlebell_swing",
+   "file": "clip_kettlebell_swing.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Kettlebell swings with one black kettlebell, hinging at the hips (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_knee_pushup",
+   "file": "clip_knee_pushup.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Knee push-ups (beginner push-ups) on the floor, knees down, body straight from knees to head (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_lunge",
+   "file": "clip_lunge.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Forward lunges, alternating legs (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_neck_stretch",
+   "file": "clip_neck_stretch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Seated neck stretch, ear toward the shoulder, hand gently helping (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_negative_pullup",
+   "file": "clip_negative_pullup.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Slow negative pull-ups: starting with chin over the bar and lowering very slowly (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_overhead_press",
+   "file": "clip_overhead_press.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Standing dumbbell overhead press with two black dumbbells (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_parallel_bar_dip",
+   "file": "clip_parallel_bar_dip.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Dips on simple black parallel bars (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_pigeon_stretch",
+   "file": "clip_pigeon_stretch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Pigeon stretch on the floor, front leg bent across (from a three-quarter front angle) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_pistol_squat",
+   "file": "clip_pistol_squat.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Pistol squat on one leg, the other leg straight out in front (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_plank_shoulder_tap",
+   "file": "clip_plank_shoulder_tap.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Plank shoulder taps, hips staying still (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_pseudo_planche_pushup",
+   "file": "clip_pseudo_planche_pushup.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Pseudo planche push-ups, hands by the hips, leaning forward (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_pullup",
+   "file": "clip_pullup.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Pull-ups on a simple black pull-up bar, chin over the bar (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_quad_stretch",
+   "file": "clip_quad_stretch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Standing quad stretch, holding one foot behind him (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_reverse_crunch",
+   "file": "clip_reverse_crunch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Reverse crunches lying on his back, knees pulled to the chest (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_reverse_lunge",
+   "file": "clip_reverse_lunge.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Reverse lunges, alternating legs (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_romanian_deadlift",
+   "file": "clip_romanian_deadlift.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Romanian deadlift with two black dumbbells, hinging at the hips with a flat back (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_russian_twist",
+   "file": "clip_russian_twist.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Russian twists sitting on the floor, feet off the ground (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_scapula_pullup",
+   "file": "clip_scapula_pullup.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Scapular pull-ups: hanging from a black bar and only squeezing the shoulder blades down, arms straight (from behind) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_shadow_boxing",
+   "file": "clip_shadow_boxing.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Shadow boxing: jab, cross, hook in a boxing stance (from a three-quarter front angle) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_shoulder_cross_stretch",
+   "file": "clip_shoulder_cross_stretch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Cross-body shoulder stretch, one arm pulled across the chest (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_side_lying_leg_raise",
+   "file": "clip_side_lying_leg_raise.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Side-lying leg raises lying on his side on the floor (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_single_leg_glute_bridge",
+   "file": "clip_single_leg_glute_bridge.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Single-leg glute bridge lying on the floor, one leg straight up (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_skater_jump",
+   "file": "clip_skater_jump.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Skater jumps side to side (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_spinal_twist",
+   "file": "clip_spinal_twist.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Lying spinal twist, knees dropping to one side, arms out (from a three-quarter front angle) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_step_up",
+   "file": "clip_step_up.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Step-ups onto a plain white box, alternating legs (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_sumo_squat",
+   "file": "clip_sumo_squat.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Sumo squats with a wide stance and toes out (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_superman",
+   "file": "clip_superman.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Superman back raises lying face down on the floor (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_tricep_extension",
+   "file": "clip_tricep_extension.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Overhead triceps extension holding one black dumbbell with both hands (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_v_up",
+   "file": "clip_v_up.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "V-ups lying on his back, hands and feet meeting in the middle (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_wall_sit",
+   "file": "clip_wall_sit.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Wall sit with the back against a plain white wall, thighs parallel to the floor (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_wide_pushup",
+   "file": "clip_wide_pushup.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Wide push-ups on the floor, hands wider than the shoulders (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_worlds_greatest_stretch",
+   "file": "clip_worlds_greatest_stretch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "World's greatest stretch: deep lunge, elbow to the instep, then rotating the arm up (from a three-quarter front angle) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_wrist_stretch",
+   "file": "clip_wrist_stretch.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Kneeling wrist stretch, palms on the floor with fingers pointing back toward the knees (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background"
+   ]
+  },
+  {
+   "id": "clip_wrong_posture_desk",
+   "file": "clip_wrong_posture_desk.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Sitting on a plain white stool with BAD posture: hunched over a phone, head forward, rounded back (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background",
+    "wrong form"
+   ]
+  },
+  {
+   "id": "clip_wrong_pushup_sagging",
+   "file": "clip_wrong_pushup_sagging.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Push-ups with BAD form: hips sagging toward the floor and elbows flared out wide (from the side (profile)) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background",
+    "wrong form"
+   ]
+  },
+  {
+   "id": "clip_wrong_squat_knees_in",
+   "file": "clip_wrong_squat_knees_in.mp4",
+   "kind": "video",
+   "duration": 8,
+   "size": [
+    720,
+    1280
+   ],
+   "description": "Squats with BAD form: knees caving inward and heels lifting off the floor (straight from the front) (8 s loop)",
+   "tags": [
+    "animation",
+    "white background",
+    "wrong form"
+   ]
+  }
+ ]
+}
