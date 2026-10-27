@@ -208,7 +208,7 @@ function PoseLayer({ctx, layer, index}) {
     return t < start && i !== 0 ? 0 : Math.min(fadeIn, fadeOut);
   };
   const popOf = (i) => {
-    if (i === 0 || cfAt(i) > 0.001) return 1;
+    if (i === 0 || cfAt(i) > 0.001 || frames[i].asset.startsWith('card_')) return 1; // typed cards: no pop per letter (it shook the text)
     const p = clamp01((ctx.t - frames[i].at) / 0.16);
     return 0.94 + 0.06 * (1 - (1 - p) ** 3);
   };
