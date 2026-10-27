@@ -11,29 +11,41 @@ r = subprocess.run(["python3", MAKER, "check", "--script", script, "--plan", pla
 if "ERROR" in r.stdout or r.returncode: sys.exit(r.stdout[-2000:])
 pdir = os.path.join(TOOL, "public/projects", name)
 
-# --- cut the gaps
+# --- re-time the gaps: never dead air, but a short natural breath at sentence ends, and longer holds where the
+# plan asks for them (<plan>.pauses.json, e.g. {"fix.": 0.7}) so bumper cards and their typing sound finish cleanly.
 wj = json.load(open(os.path.join(pdir, "words.json"))); words = wj["words"]
 w = wave.open(os.path.join(pdir, "voice.wav")); prm = w.getparams(); rate = w.getframerate()
 audio = w.readframes(w.getnframes()); w.close(); bpf = prm.sampwidth * prm.nchannels
-cuts = []  # (start, end) seconds to remove
-lead = words[0]["start"]
-if lead > GAP: cuts.append((0, lead - GAP))
-for a, b in zip(words, words[1:]):
-    if b["start"] - a["end"] > 2 * GAP: cuts.append((a["end"] + GAP, b["start"] - GAP))
-def shift(t): return t - sum(min(e, t) - s for s, e in cuts if t > s)
-out = bytearray(); pos = 0
-for s, e in cuts:
-    out += audio[int(pos * rate) * bpf:int(s * rate) * bpf]; pos = e
-out += audio[int(pos * rate) * bpf:]
+pp = os.path.splitext(plan)[0] + ".pauses.json"
+HOLD = json.load(open(pp)) if os.path.exists(pp) else {}
+def want(word):
+    t = word["text"]
+    if t in HOLD: return HOLD[t]
+    if t[-1:] in ".?!:": return 0.22
+    if t[-1:] in ",;": return 0.1
+    return 0.04
+def chunk(t0, t1): return audio[int(t0 * rate) * bpf:int(t1 * rate) * bpf]
+def silence(sec): return bytes(int(sec * rate) * bpf)
+out = bytearray(silence(0.05)); new = []; t = 0.05
+for i, x in enumerate(words):
+    s0, e0 = x["start"], x["end"]
+    out += chunk(s0, e0); new.append((t, t + e0 - s0)); t += e0 - s0
+    nxt = words[i + 1]["start"] if i + 1 < len(words) else e0 + 0.3
+    g = nxt - e0
+    gw = 0.3 if i + 1 == len(words) else (HOLD[x["text"]] if x["text"] in HOLD else min(g, want(x)))  # only holds add time
+    if gw <= g: out += chunk(e0, e0 + gw)
+    else: out += chunk(e0, nxt) + silence(gw - g)
+    t += gw
+old_len = len(audio) / bpf / rate
+for x, (s1, e1) in zip(words, new): x["start"], x["end"] = round(s1, 3), round(e1, 3)
 w = wave.open(os.path.join(pdir, "voice.wav"), "wb"); w.setparams(prm); w.writeframes(bytes(out)); w.close()
-for x in words: x["start"], x["end"] = round(shift(x["start"]), 3), round(shift(x["end"]), 3)
 json.dump(wj, open(os.path.join(pdir, "words.json"), "w"))
-sp = os.path.join(pdir, "voice.wav.segments.json"); sg = json.load(open(sp))
+# segments: rebuild from the words (one per sentence)
+sp = os.path.join(pdir, "voice.wav.segments.json"); sg = json.load(open(sp)); k = 0
 for x in sg["segments"]:
-    x["start"], x["end"] = round(shift(x["start"]), 3), round(shift(x["end"]), 3)
-    x["pauses"] = []
+    n = len(x["text"].split()); x["start"], x["end"] = words[k]["start"], words[min(k + n, len(words)) - 1]["end"]; x["pauses"] = []; k += n
 json.dump(sg, open(sp, "w"))
-print(f"cut {len(cuts)} gaps, {sum(e - s for s, e in cuts):.1f} s removed, voice now {len(out) / bpf / rate:.1f} s")
+print(f"voice {old_len:.1f} s -> {len(out) / bpf / rate:.1f} s (holds: {HOLD})")
 
 # --- volumes, plan again, render
 pj = os.path.join(pdir, "project.json"); d = json.load(open(pj)); d.update(musicVolume=0.025, sfxVolume=0.35); json.dump(d, open(pj, "w"), indent=1)

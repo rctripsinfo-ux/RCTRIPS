@@ -92,3 +92,11 @@ Copy that file for every new video. Rules it follows:
 - **CTA:** "COMMENT <WORD>" heading, a pop-up comment bubble with a notification sound, and a punch-in on the face.
 - **Never use:** colored box labels, small icons on the character, green ticks or glows, red X on top of a circle, or meme sounds.
 - **Tool changes** (pain circle, bubble connector line, `sfx_typing_loud`, library snapshots) are in `work/tool-patches/`. Copy them back into `~/reel-engine-tool` in a fresh session.
+
+## Owner rules, 28 Oct (override the voice speed above)
+- **Voice:** 1.2x. `fast_render.py` cuts dead air but keeps short natural breaths (≤0.22 s at sentence ends, ≤0.1 s at commas). It holds longer only where `<plan>.pauses.json` says, e.g. 0.7 s after "fix." so the bumper and its 0.9 s typing sound finish before the next scene.
+- **Flow:** systematic, not rushed.
+  - Every picture or heading stays on screen at least ~1.5 s, one idea per beat.
+  - At most 2 pictures per section (problem → cause → test → fix cards → result → CTA).
+  - No rapid pose swaps.
+- **Format:** "Day 2 V3" (`build_belly3.py`) is the reference.
