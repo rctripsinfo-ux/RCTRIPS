@@ -128,7 +128,7 @@ plan = {
             sub("= TIGHT HIP FLEXORS", "your hip flexors", "tip your pelvis"),
             img("hero_bad_posture_desk", "tip your pelvis", enter="cut", id="h", **LEFT),
             title("PELVIS TIPS FORWARD", "tip your pelvis", None, 120),
-            bubble("anat_bone_pelvis_tilt", "tip your pelvis", None, None, x=0.74, y=0.42, size=0.4),
+            bubble("anat_bone_pelvis_tilt", "tip your pelvis", None, None, x=0.77, y=0.66, size=0.38),
             {**sub("= BELLY PUSHED OUT", "pushed out"), "color": RED},
         ]),
         # 4. test: wall, then side view with the gap

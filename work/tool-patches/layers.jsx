@@ -470,6 +470,11 @@ function ZoomBubbleLayer({ctx, layer, index}) {
     y = y ?? Math.max(0.3, Math.min(0.72, py / H - 0.1));
   }
   x = x ?? 0.5; y = y ?? 0.3;
+  if (layer._faces?.length) {
+    // the whole circle (plus its border) must stay off every face: move it beside the face or below the chin
+    const [ax, ay] = avoidFaces({cx: x * W, cy: y * H, w: d * 1.08, h: d * 1.08}, layer._faces, ctx.safe, W, H);
+    x = ax / W; y = ay / H;
+  }
   let link = null;
   if (layer.from) {
     // Captain-style connector: dot on the body part, line drawing out to the circle's edge

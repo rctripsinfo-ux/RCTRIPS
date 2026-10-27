@@ -100,3 +100,6 @@ Copy that file for every new video. Rules it follows:
   - At most 2 pictures per section (problem → cause → test → fix cards → result → CTA).
   - No rapid pose swaps.
 - **Format:** "Day 2 V3" (`build_belly3.py`) is the reference.
+- **Anatomy circles never on H's face** (owner, 28 Oct).
+  - Place them in the lower half, beside the legs or hips (e.g. x 0.77, y 0.62–0.68), never next to the head.
+  - The tool also pushes a circle off a known face box (`tool-patches/layers.jsx`, `Video.jsx`), but always check the frame.

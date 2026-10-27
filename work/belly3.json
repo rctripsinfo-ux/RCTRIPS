@@ -257,9 +257,9 @@
      "type": "zoomBubble",
      "asset": "anat_bone_pelvis_tilt",
      "zoom": 1,
-     "x": 0.74,
-     "y": 0.42,
-     "size": 0.4,
+     "x": 0.77,
+     "y": 0.66,
+     "size": 0.38,
      "at": "tip your pelvis",
      "enter": "pop",
      "borderColor": "#FFFFFF"
