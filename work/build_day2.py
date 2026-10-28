@@ -132,7 +132,7 @@ plan = {
             text("HERE'S THE FIX", "Here's the fix-0.05", None, 0.47, 170, "#FFFFFF", "cut"),
         ], camera=[{"at": "Here's the fix-0.05", "zoom": 1}, {"at": "the fix+0.25", "zoom": 1.18}]),
         sc("c_m1", "One: hip-0.05", [
-            clip("clip_hip_flexor_stretch", "One: hip", 1.0),
+            {**clip("clip_hip_flexor_stretch", "One: hip", 1.0), "width": 1.0, "y": 0.49},  # higher: no empty gap under the heading (owner, 29 Oct)
             title("#1 HIP FLEXOR STRETCH", "One: hip", size=110), sub("30 SEC EACH SIDE", "thirty seconds"),
         ]),
         sc("c_m2", "Two: glute-0.05", [
