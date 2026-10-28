@@ -20,6 +20,7 @@ pp = os.path.splitext(plan)[0] + ".pauses.json"
 HOLD = json.load(open(pp)) if os.path.exists(pp) else {}
 def want(word):
     t = word["text"]
+    if "_gap" in HOLD: return HOLD["_gap"]  # Day-1 (forearms V1) format: every gap cut to the same tiny gap
     if t in HOLD: return HOLD[t]
     if t[-1:] in ".?!:": return 0.22
     if t[-1:] in ",;": return 0.1
