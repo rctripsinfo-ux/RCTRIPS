@@ -1,0 +1,909 @@
+{
+ "title": "Stop These 3 Push-Up Mistakes",
+ "font": "sport",
+ "canvas": {
+  "background": "#FFFFFF"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "captions": {
+  "mode": "word",
+  "look": "viral",
+  "size": 104,
+  "y": 0.75,
+  "keywords": [
+   "three",
+   "straight",
+   "wide",
+   "shoulders",
+   "half",
+   "floor",
+   "ten",
+   "fifty",
+   "PUSH"
+  ],
+  "hide": [
+   [
+    "Here's the fix-0.05",
+    "One: your-0.05"
+   ],
+   [
+    "One: your-0.05",
+    "Keep your body-0.05"
+   ],
+   [
+    "Two: your-0.05",
+    "Put them right-0.05"
+   ],
+   [
+    "Three: you-0.05",
+    "Bring your chest-0.05"
+   ],
+   [
+    "Comment PUSH+0.3",
+    "mistake.+1"
+   ],
+   [
+    "Ten good-0.05",
+    "Comment PUSH-0.05"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_facepalm",
+     "at": "start",
+     "until": "these three",
+     "width": 1.25,
+     "x": 0.5,
+     "y": 0.6,
+     "opacity": 0.12,
+     "behind": true,
+     "autoPlace": false,
+     "life": false,
+     "enter": "cut"
+    },
+    {
+     "type": "image",
+     "asset": "hero_tired_sweating",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "width": 0.66,
+     "y": 0.69,
+     "until": "these three"
+    },
+    {
+     "type": "text",
+     "text": "PUSH-UPS NOT WORKING?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 115,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "these three"
+    },
+    {
+     "type": "image",
+     "asset": "hero_count_3",
+     "shadow": true,
+     "enter": "up",
+     "at": "these three",
+     "width": 0.66,
+     "y": 0.69
+    },
+    {
+     "type": "text",
+     "text": "3 MISTAKES",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "these three"
+    }
+   ],
+   "camera": [
+    {
+     "at": "start",
+     "zoom": 1,
+     "focus": [
+      0.5,
+      0.5
+     ]
+    },
+    {
+     "at": "start+5.00",
+     "zoom": 1.06,
+     "focus": [
+      0.5,
+      0.52
+     ]
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "fix",
+   "start": "Here's the fix-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "card_fix_01",
+       "at": "Here's the fix"
+      }
+     ],
+     "sync": [
+      "Here's the",
+      "fix"
+     ],
+     "steps": [
+      6,
+      7
+     ],
+     "card": "fix",
+     "x": 0.5,
+     "y": 0.5,
+     "width": 1.0,
+     "autoAlign": false,
+     "life": false,
+     "shadow": false,
+     "autoPlace": false,
+     "enter": "cut",
+     "at": "Here's the fix"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Here's the fix",
+     "zoom": 1
+    },
+    {
+     "at": "Here's the fix+3",
+     "zoom": 1.07
+    }
+   ],
+   "background": "#1E2228"
+  },
+  {
+   "id": "m1",
+   "start": "One: your-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "card_pm1_01",
+       "at": "One: your"
+      }
+     ],
+     "sync": [
+      "One: your",
+      "hips drop"
+     ],
+     "steps": [
+      2,
+      9
+     ],
+     "card": "pm1",
+     "x": 0.5,
+     "y": 0.5,
+     "width": 1.0,
+     "autoAlign": false,
+     "life": false,
+     "shadow": false,
+     "autoPlace": false,
+     "enter": "cut",
+     "at": "One: your",
+     "until": "Keep your body-0.05"
+    },
+    {
+     "type": "image",
+     "asset": "hero_pushup_top",
+     "shadow": true,
+     "enter": "fade",
+     "at": "Keep your body-0.05",
+     "width": 0.95,
+     "x": 0.5,
+     "y": 0.55,
+     "autoPlace": false,
+     "life": false
+    },
+    {
+     "type": "text",
+     "text": "BODY STRAIGHT",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Keep your body-0.05"
+    },
+    {
+     "type": "text",
+     "text": "LIKE A PLANK OF WOOD",
+     "x": 0.5,
+     "y": 0.23,
+     "size": 90,
+     "align": "center",
+     "color": "#16A34A",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "plank of wood"
+    },
+    {
+     "type": "dash",
+     "from": [
+      0.05,
+      0.585
+     ],
+     "to": [
+      0.72,
+      0.452
+     ],
+     "at": "Keep your body",
+     "color": "#16A34A",
+     "bend": 0,
+     "arrow": false,
+     "thickness": 12
+    },
+    {
+     "type": "text",
+     "text": "CORE TIGHT",
+     "x": 0.24,
+     "y": 0.79,
+     "size": 100,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "plank of wood"
+    },
+    {
+     "type": "dash",
+     "from": [
+      0.3,
+      0.745
+     ],
+     "to": [
+      0.47,
+      0.56
+     ],
+     "at": "plank of wood",
+     "color": "#EF4444",
+     "bend": -0.4,
+     "arrow": true,
+     "thickness": 8
+    }
+   ],
+   "camera": [
+    {
+     "at": "One: your",
+     "zoom": 1
+    },
+    {
+     "at": "One: your+3",
+     "zoom": 1.07
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "m2",
+   "start": "Two: your-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "card_pm2_01",
+       "at": "Two: your"
+      }
+     ],
+     "sync": [
+      "Two: your",
+      "hands are too wide"
+     ],
+     "steps": [
+      2,
+      14
+     ],
+     "card": "pm2",
+     "x": 0.5,
+     "y": 0.5,
+     "width": 1.0,
+     "autoAlign": false,
+     "life": false,
+     "shadow": false,
+     "autoPlace": false,
+     "enter": "cut",
+     "at": "Two: your",
+     "until": "Put them right-0.05"
+    },
+    {
+     "type": "video",
+     "asset": "clip_archer_pushup",
+     "at": "Put them right-0.05",
+     "enter": "cut",
+     "rate": 0.3,
+     "width": 1.0,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "HANDS UNDER SHOULDERS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 105,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Put them right-0.05"
+    },
+    {
+     "type": "dash",
+     "from": [
+      0.31,
+      0.6
+     ],
+     "to": [
+      0.31,
+      0.9
+     ],
+     "at": "under your shoulders",
+     "color": "#16A34A",
+     "bend": 0,
+     "arrow": false,
+     "thickness": 12
+    },
+    {
+     "type": "dash",
+     "from": [
+      0.69,
+      0.6
+     ],
+     "to": [
+      0.69,
+      0.9
+     ],
+     "at": "under your shoulders",
+     "color": "#16A34A",
+     "bend": 0,
+     "arrow": false,
+     "thickness": 12
+    }
+   ],
+   "camera": [
+    {
+     "at": "Two: your",
+     "zoom": 1
+    },
+    {
+     "at": "Two: your+3",
+     "zoom": 1.07
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "m3",
+   "start": "Three: you-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "card_pm3_01",
+       "at": "Three: you"
+      }
+     ],
+     "sync": [
+      "Three: you",
+      "only go half way"
+     ],
+     "steps": [
+      2,
+      9
+     ],
+     "card": "pm3",
+     "x": 0.5,
+     "y": 0.5,
+     "width": 1.0,
+     "autoAlign": false,
+     "life": false,
+     "shadow": false,
+     "autoPlace": false,
+     "enter": "cut",
+     "at": "Three: you",
+     "until": "Bring your chest-0.05"
+    },
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_pushup_top",
+       "at": "Bring your chest-0.05"
+      },
+      {
+       "asset": "hero_pushup_mid",
+       "at": "Bring your chest+0.50"
+      },
+      {
+       "asset": "hero_pushup_top",
+       "at": "Bring your chest+1.05"
+      },
+      {
+       "asset": "hero_pushup_mid",
+       "at": "Bring your chest+1.60"
+      },
+      {
+       "asset": "hero_pushup_top",
+       "at": "Bring your chest+2.15"
+      },
+      {
+       "asset": "hero_pushup_mid",
+       "at": "Bring your chest+2.70"
+      },
+      {
+       "asset": "hero_pushup_top",
+       "at": "Bring your chest+3.25"
+      },
+      {
+       "asset": "hero_pushup_mid",
+       "at": "Bring your chest+3.80"
+      }
+     ],
+     "at": "Bring your chest-0.05",
+     "enter": "pop",
+     "shadow": true,
+     "width": 0.95,
+     "x": 0.5,
+     "y": 0.55,
+     "autoPlace": false,
+     "life": false
+    },
+    {
+     "type": "text",
+     "text": "CHEST TO THE FLOOR",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 115,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Bring your chest-0.05"
+    },
+    {
+     "type": "dash",
+     "from": [
+      0.86,
+      0.47
+     ],
+     "to": [
+      0.86,
+      0.66
+     ],
+     "at": "close to the",
+     "color": "#16A34A",
+     "bend": 0,
+     "arrow": true,
+     "thickness": 12
+    },
+    {
+     "type": "text",
+     "text": "ALL THE WAY",
+     "x": 0.62,
+     "y": 0.74,
+     "size": 70,
+     "align": "center",
+     "color": "#16A34A",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "close to the"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Three: you",
+     "zoom": 1
+    },
+    {
+     "at": "Three: you+3",
+     "zoom": 1.07
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "c_plan",
+   "start": "Do three sets-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "video",
+     "asset": "clip_wide_pushup",
+     "at": "Do three sets-0.05",
+     "enter": "cut",
+     "rate": 1.2,
+     "width": 1.0,
+     "y": 0.5
+    },
+    {
+     "type": "text",
+     "text": "3 SETS x 10 REPS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Do three sets-0.05"
+    },
+    {
+     "type": "text",
+     "text": "EVERY OTHER DAY",
+     "x": 0.5,
+     "y": 0.23,
+     "size": 90,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "every other day"
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "after",
+   "start": "Ten good-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "10 GOOD > 50 BAD",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Ten good-0.05"
+    },
+    {
+     "type": "image",
+     "asset": "hero_pushup_top",
+     "shadow": true,
+     "enter": "left",
+     "at": "Ten good-0.05",
+     "width": 0.5,
+     "x": 0.27,
+     "y": 0.55,
+     "autoPlace": false,
+     "life": false
+    },
+    {
+     "type": "text",
+     "text": "10 GOOD",
+     "x": 0.27,
+     "y": 0.66,
+     "size": 80,
+     "align": "center",
+     "color": "#16A34A",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Ten good"
+    },
+    {
+     "type": "image",
+     "asset": "hero_tired_sweating",
+     "shadow": true,
+     "enter": "right",
+     "at": "fifty bad",
+     "width": 0.36,
+     "x": 0.76,
+     "y": 0.55,
+     "autoPlace": false
+    },
+    {
+     "type": "text",
+     "text": "50 BAD",
+     "x": 0.76,
+     "y": 0.85,
+     "size": 80,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "fifty bad"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Ten good",
+     "zoom": 1
+    },
+    {
+     "at": "Ten good+3",
+     "zoom": 1.07
+    }
+   ],
+   "background": "#FFFFFF"
+  },
+  {
+   "id": "cta",
+   "start": "Comment PUSH-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_point_viewer",
+       "at": "Comment PUSH-0.05"
+      },
+      {
+       "asset": "hero_come_on",
+       "at": "Comment PUSH+0.40"
+      },
+      {
+       "asset": "hero_point_viewer",
+       "at": "Comment PUSH+0.85"
+      },
+      {
+       "asset": "hero_come_on_v2",
+       "at": "Comment PUSH+1.30"
+      },
+      {
+       "asset": "hero_point_viewer",
+       "at": "Comment PUSH+1.75"
+      },
+      {
+       "asset": "hero_come_on",
+       "at": "Comment PUSH+2.20"
+      },
+      {
+       "asset": "hero_point_viewer",
+       "at": "Comment PUSH+2.65"
+      },
+      {
+       "asset": "hero_come_on_v2",
+       "at": "Comment PUSH+3.10"
+      }
+     ],
+     "at": "Comment PUSH-0.05",
+     "enter": "pop",
+     "shadow": true,
+     "width": 0.66,
+     "y": 0.69
+    },
+    {
+     "type": "text",
+     "text": "COMMENT \"PUSH\"",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Comment PUSH"
+    },
+    {
+     "type": "comment",
+     "text": "PUSH 💪",
+     "user": "you",
+     "ago": "now",
+     "likes": "2.1K",
+     "x": 0.5,
+     "y": 0.3,
+     "width": 0.7,
+     "size": 50,
+     "at": "Comment PUSH+0.3",
+     "enter": "pop"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Comment PUSH",
+     "zoom": 1
+    },
+    {
+     "at": "Comment PUSH+3",
+     "zoom": 1.07
+    }
+   ],
+   "background": "#FFFFFF"
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "these three",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Keep your body",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "plank of wood",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Put them right",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "under your shoulders",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Bring your chest",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "close to the",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Do three sets",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Ten good",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "fifty bad",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Comment PUSH-0.05",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Comment PUSH+0.3",
+   "src": "sfx_notification"
+  }
+ ]
+}

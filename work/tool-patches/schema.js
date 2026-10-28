@@ -403,6 +403,15 @@ const PulseLayer = z.object({
   color: color.optional(),
   duration: z.number().min(0.1).max(2).default(0.6),
 });
+const DashLayer = z.object({
+  type: z.literal('dash'), ...base,
+  from: point, to: point, // canvas points 0..1
+  bend: z.number().min(-1).max(1).default(0), // 0 = straight line, +-1 = curved arrow
+  color: color.optional(),
+  thickness: z.number().min(3).max(30).default(10),
+  dash: z.number().min(4).max(80).default(26), // dash length in px (gap = 0.7x)
+  arrow: z.boolean().default(false), // arrow head at `to`
+});
 const SpeedLayer = z.object({
   type: z.literal('speed'), ...base,
   color: color.optional(),
@@ -414,7 +423,7 @@ export const LayerSchema = z.discriminatedUnion('type', [
   BurstLayer, CounterLayer, ProgressLayer,
   ChecklistLayer, BarsLayer, RingLayer, BannerLayer, VersusLayer, ChatLayer, CalloutLayer, AccentLayer,
   IconLayer, StatLayer, CommentLayer, TimelineLayer, SliderLayer, KineticLayer,
-  ChipLayer, GlowLayer, PathLayer, PulseLayer, SpeedLayer,
+  ChipLayer, GlowLayer, PathLayer, PulseLayer, SpeedLayer, DashLayer,
 ]);
 
 const CameraKey = z.object({

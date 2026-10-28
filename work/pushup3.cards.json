@@ -1,0 +1,6 @@
+[
+ {"id": "fix", "lines": [{"text": "HERE'S", "color": "#FFFFFF", "size": 384}, {"text": "THE FIX", "color": "#EF4444", "size": 384}]},
+ {"id": "pm1", "lines": [{"text": "#1", "color": "#EF4444", "size": 600, "lh": 0.85}, {"text": "HIPS DROP", "color": "#111111", "size": 256}]},
+ {"id": "pm2", "lines": [{"text": "#2", "color": "#EF4444", "size": 600, "lh": 0.85}, {"text": "HANDS TOO WIDE", "color": "#111111", "size": 256}]},
+ {"id": "pm3", "lines": [{"text": "#3", "color": "#EF4444", "size": 600, "lh": 0.85}, {"text": "HALF REPS", "color": "#111111", "size": 256}]}
+]
