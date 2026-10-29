@@ -1,0 +1,761 @@
+{
+ "title": "Weak Forearms? Do These 2 Moves",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 58,
+  "y": 0.82,
+  "maxWords": 3,
+  "keywords": [
+   "small",
+   "forearms",
+   "spaghetti",
+   "fix",
+   "three",
+   "heaviest",
+   "mercy",
+   "ARMS"
+  ],
+  "hide": [
+   [
+    "Here's the fix-0.05",
+    "Two moves"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_this_small",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "not your biceps"
+    },
+    {
+     "type": "text",
+     "text": "SMALL ARMS?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "It's your forearms"
+    },
+    {
+     "type": "image",
+     "asset": "hero_double_biceps",
+     "shadow": true,
+     "enter": "cut",
+     "at": "not your biceps",
+     "id": "h",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "IT'S YOUR FOREARMS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "It's your forearms"
+    },
+    {
+     "type": "highlight",
+     "shape": "pain",
+     "x": 0.2,
+     "y": 0.36,
+     "w": 0.24,
+     "color": "#EF4444",
+     "at": "It's your forearms",
+     "enter": "cut"
+    },
+    {
+     "type": "highlight",
+     "shape": "pain",
+     "x": 0.8,
+     "y": 0.36,
+     "w": 0.24,
+     "color": "#EF4444",
+     "at": "It's your forearms",
+     "enter": "cut"
+    }
+   ],
+   "camera": [
+    {
+     "at": "It's your forearms",
+     "zoom": 1
+    },
+    {
+     "at": "It's your forearms+0.3",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.42
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "curl",
+   "start": "You curl every-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_curl_down",
+       "at": "You curl every"
+      },
+      {
+       "asset": "hero_curl_up",
+       "at": "You curl every+0.4"
+      },
+      {
+       "asset": "hero_curl_down",
+       "at": "You curl every+0.8"
+      },
+      {
+       "asset": "hero_curl_up",
+       "at": "You curl every+1.2"
+      },
+      {
+       "asset": "hero_curl_down",
+       "at": "You curl every+1.6"
+      },
+      {
+       "asset": "hero_curl_up",
+       "at": "You curl every+2.0"
+      },
+      {
+       "asset": "hero_curl_down",
+       "at": "You curl every+2.4"
+      },
+      {
+       "asset": "hero_curl_up",
+       "at": "You curl every+2.8"
+      }
+     ],
+     "at": "You curl every",
+     "enter": "cut",
+     "shadow": true,
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "CURLS EVERY DAY",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "You curl every"
+    }
+   ],
+   "camera": [
+    {
+     "at": "You curl every",
+     "zoom": 1
+    },
+    {
+     "at": "You curl every+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "gag",
+   "start": "cooked spaghetti-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "gag_spaghetti_arms",
+     "shadow": false,
+     "enter": "pop",
+     "at": "cooked spaghetti",
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.6,
+     "autoPlace": false
+    },
+    {
+     "type": "text",
+     "text": "SPAGHETTI FOREARMS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 120,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "cooked spaghetti"
+    }
+   ],
+   "camera": [
+    {
+     "at": "cooked spaghetti",
+     "zoom": 1
+    },
+    {
+     "at": "cooked spaghetti+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "fix",
+   "start": "Here's the fix-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "HERE'S THE FIX",
+     "x": 0.5,
+     "y": 0.47,
+     "size": 170,
+     "align": "center",
+     "color": "#FFFFFF",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's the fix-0.05"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Here's the fix-0.05",
+     "zoom": 1
+    },
+    {
+     "at": "fix.+0.05",
+     "zoom": 1
+    },
+    {
+     "at": "fix.+0.2",
+     "zoom": 1.18
+    }
+   ],
+   "background": "#1E2228"
+  },
+  {
+   "id": "two",
+   "start": "the fix+0.45",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_count_2",
+     "shadow": true,
+     "enter": "cut",
+     "at": "the fix+0.45",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "2 MOVES",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two moves"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Two moves",
+     "zoom": 1
+    },
+    {
+     "at": "Two moves+2",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "m1",
+   "start": "One: dead hangs-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_look_up_bar",
+       "at": "One: dead hangs"
+      },
+      {
+       "asset": "hero_pullup_hang",
+       "at": "Hang from"
+      }
+     ],
+     "at": "One: dead hangs",
+     "enter": "cut",
+     "shadow": true,
+     "width": 0.66,
+     "y": 0.64,
+     "autoAlign": false
+    },
+    {
+     "type": "text",
+     "text": "#1 DEAD HANG",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "One: dead hangs"
+    },
+    {
+     "type": "text",
+     "text": "MAX TIME x3",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "as long as"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_muscle_forearm_grip",
+     "zoom": 1,
+     "x": 0.78,
+     "y": 0.62,
+     "size": 0.32,
+     "at": "as long as",
+     "enter": "pop",
+     "borderColor": "#FFFFFF"
+    }
+   ],
+   "camera": [
+    {
+     "at": "One: dead hangs",
+     "zoom": 1
+    },
+    {
+     "at": "One: dead hangs+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "m2",
+   "start": "Two: farmer's-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_curl_down",
+       "at": "Two: farmer's"
+      },
+      {
+       "asset": "hero_pick_dumbbell",
+       "at": "Grab the"
+      },
+      {
+       "asset": "hero_curl_down",
+       "at": "hold until"
+      }
+     ],
+     "at": "Two: farmer's",
+     "enter": "cut",
+     "shadow": true,
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "#2 FARMER'S HOLD",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two: farmer's"
+    },
+    {
+     "type": "text",
+     "text": "HEAVIEST WEIGHTS",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "heaviest weights",
+     "until": "begs for mercy"
+    },
+    {
+     "type": "text",
+     "text": "TILL YOUR GRIP GIVES UP",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "begs for mercy"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Two: farmer's",
+     "zoom": 1
+    },
+    {
+     "at": "Two: farmer's+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "after",
+   "start": "Do this three-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_double_biceps",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Do this three",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "look complete"
+    },
+    {
+     "type": "text",
+     "text": "3x A WEEK",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Do this three",
+     "until": "look complete"
+    },
+    {
+     "type": "image",
+     "asset": "gag_sunglasses_thumbs",
+     "shadow": false,
+     "enter": "cut",
+     "at": "look complete",
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.6,
+     "autoPlace": false
+    },
+    {
+     "type": "text",
+     "text": "ARMS: COMPLETE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "look complete"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Do this three",
+     "zoom": 1
+    },
+    {
+     "at": "Do this three+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "cta",
+   "start": "Comment ARMS-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Comment ARMS",
+     "id": "h",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "COMMENT \"ARMS\"",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Comment ARMS"
+    },
+    {
+     "type": "comment",
+     "text": "ARMS 💪",
+     "user": "you",
+     "ago": "now",
+     "likes": "2.4K",
+     "x": 0.5,
+     "y": 0.3,
+     "width": 0.7,
+     "size": 50,
+     "at": "Comment ARMS+0.3",
+     "enter": "pop"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Comment ARMS",
+     "zoom": 1
+    },
+    {
+     "at": "need help",
+     "zoom": 1.3,
+     "focus": "face"
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "not your biceps",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "It's your forearms",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "You curl every",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "cooked spaghetti",
+   "src": "sfx_boing"
+  },
+  {
+   "at": "Here's the fix-0.05",
+   "src": "sfx_typing_loud",
+   "volume": 1.0
+  },
+  {
+   "at": "fix.+0.15",
+   "src": "sfx_whoosh_big"
+  },
+  {
+   "at": "Two moves",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "One: dead hangs",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "as long as",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Two: farmer's",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "begs for mercy",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Do this three",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "look complete",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "Comment ARMS",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Comment ARMS+0.3",
+   "src": "sfx_notification"
+  }
+ ]
+}
