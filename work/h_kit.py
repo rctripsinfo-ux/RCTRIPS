@@ -354,3 +354,47 @@ def blank_frames(mp4, min_std=6.0):
                         "fps=30,scale=54:96,format=gray", "-f", "rawvideo", "-"], capture_output=True).stdout
     F = np.frombuffer(r, np.uint8).reshape(-1, 96, 54).astype(np.float32)
     return [round(i / 30, 2) for i, f in enumerate(F) if f[10:86].std() < min_std]
+
+
+# ---------- 12. reference techniques that close the gaps (PUSHDEMO-AUDIT.md) ----------
+WAIST = {"autoAlign": False, "width": 1.15, "y": 0.8}   # waist/knee-up crop: scale variety (refs)
+FULLBG = {"autoAlign": False, "width": 1.0, "y": 0.5, "shadow": False}  # full-screen background image (bg_sunburst, bg_impact)
+
+
+def bg(asset, at, until=None, enter="fade"):
+    """Full-screen background image (put it FIRST in the scene so it stays behind H)."""
+    d = {"type": "image", "asset": asset, "at": at, "enter": enter, **FULLBG}
+    if until: d["until"] = until
+    return d
+
+
+def section_card(n, name, at, until):
+    """Ref section card: a big faded '#n' with the section name in the middle of an empty screen (refs V06/V09/V10)."""
+    g = text(f"#{n}", at, until, 0.40, 380, "#CDBB9C", "pop"); g["animation"] = "none"  # ghost = a pale tint (opacity is not drawn on text)
+    t = text(name, at, until, 0.50, 150, INK, "pop"); t["animation"] = "none"  # readable at once (letters were too slow for a 1 s card)
+    return [g, t]
+
+
+def kinetic(words, at, until=None):
+    """Kinetic words (ref "LET ME FIX THAT"): words = [(text, y, size, color, at_offset)], each slams in letter by letter."""
+    out = []
+    for w, y, size, col, off in words:
+        a = off if isinstance(off, str) else (f"{at}+{off}" if off else at)  # off: seconds after `at`, or its own anchor
+        d = text(w, a, until, y, size, col, "punch"); d["animation"] = "letters"; out.append(d)
+    return out
+
+
+def tag(t, at, until=None, x=0.06, y=0.27):
+    """Small label at the top left (ref 'AGE - 10'): white letters on a dark box."""
+    d = {"type": "text", "text": t, "x": x, "y": y, "size": 54, "align": "left", "font": "pop", "look": "box", "boxColor": INK,
+         "color": WHITE, "animation": "none", "untype": False, "enter": "pop", "exit": "cut", "at": at, "stroke": {"color": WHITE, "width": 0}}
+    if until: d["until"] = until
+    return d
+
+
+def giant_behind(t, at, until=None, color="#F7C548"):
+    """Huge word behind H (ref 'LIKE SOLID PLANK' / tier words)."""
+    d = {"type": "text", "text": t, "x": 0.5, "y": 0.5, "size": 330, "align": "center", "font": "pop", "look": "giant", "behind": True,
+         "color": color, "animation": "letters", "untype": False, "enter": "punch", "exit": "cut", "at": at, "stroke": {"color": WHITE, "width": 0}}
+    if until: d["until"] = until
+    return d

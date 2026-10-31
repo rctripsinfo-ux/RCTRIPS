@@ -50,7 +50,7 @@ json.dump(sg, open(sp, "w"))
 print(f"voice {old_len:.1f} s -> {len(out) / bpf / rate:.1f} s (holds: {HOLD})")
 
 # --- volumes, plan again, render
-pj = os.path.join(pdir, "project.json"); d = json.load(open(pj)); d.update(musicVolume=0.025, sfxVolume=0.35); json.dump(d, open(pj, "w"), indent=1)
+pj = os.path.join(pdir, "project.json"); d = json.load(open(pj)); d.update(musicVolume=float(os.environ.get("MUSIC_VOL", 0.025)), sfxVolume=0.35)  # MUSIC_VOL: per-video override; json.dump(d, open(pj, "w"), indent=1)
 def api(path, body=None):
     req = urllib.request.Request(f"http://127.0.0.1:{PORT}{path}", data=body, method="POST" if body is not None else "GET",
                                  headers={"Content-Type": "application/json"})

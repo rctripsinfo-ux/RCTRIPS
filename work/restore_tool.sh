@@ -19,6 +19,7 @@ cp "$W/tool-patches/hero-library.json" "$L/hero/library.json"
 cp "$W/tool-patches/clips-library.json" "$L/clips/library.json"
 cp "$W/tool-patches/sfx-library.json" "$L/sfx/library.json"
 
+python3 "$W/make_assets.py"  # our generated backgrounds + sad sting
 pkill -f "node tools/server.mjs" || true
 cd "$T" && (PORT=3011 nohup node tools/server.mjs > /tmp/reel-server.log 2>&1 &)
 for i in $(seq 30); do curl -s localhost:3011 >/dev/null && echo "Reel Engine up on :3011" && exit 0; sleep 1; done

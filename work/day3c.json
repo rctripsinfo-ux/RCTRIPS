@@ -1,0 +1,1254 @@
+{
+ "title": "Can You Hold a Dead Hang for 60 Seconds?",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 54,
+  "y": 0.82,
+  "maxWords": 3,
+  "keywords": [
+   "sixty",
+   "thirty",
+   "twenty",
+   "ninety",
+   "grip",
+   "forearms",
+   "butter",
+   "five",
+   "strong",
+   "time",
+   "honest"
+  ],
+  "hide": [
+   [
+    "Here's the fix-0.05",
+    "One: dead"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_grip_closeup",
+     "shadow": true,
+     "enter": {
+      "type": "flyUp",
+      "duration": 0.35
+     },
+     "at": "start",
+     "autoAlign": false,
+     "width": 1.0,
+     "y": 0.62,
+     "until": "for sixty"
+    },
+    {
+     "type": "text",
+     "text": "60 SEC DEAD HANG?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "for sixty"
+    },
+    {
+     "type": "image",
+     "asset": "bg_impact",
+     "at": "for sixty",
+     "enter": "cut",
+     "autoAlign": false,
+     "width": 1.0,
+     "y": 0.5,
+     "shadow": false,
+     "until": "Most people"
+    },
+    {
+     "type": "image",
+     "asset": "hero_hang_struggle",
+     "shadow": true,
+     "enter": {
+      "type": "up",
+      "duration": 0.25
+     },
+     "at": "for sixty",
+     "autoAlign": false,
+     "width": 0.66,
+     "y": 0.64,
+     "until": "Most people",
+     "motion": {
+      "type": "shake",
+      "amount": 0.6
+     }
+    },
+    {
+     "type": "text",
+     "text": "60 SEC DEAD HANG?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "for sixty",
+     "until": "Most people"
+    },
+    {
+     "type": "image",
+     "asset": "hero_hang_slip",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Most people",
+     "autoAlign": false,
+     "width": 0.66,
+     "y": 0.64,
+     "until": "drop before",
+     "motion": {
+      "type": "shake",
+      "amount": 0.9
+     }
+    },
+    {
+     "type": "text",
+     "text": "MOST DROP AT 30",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Most people",
+     "until": "Let's test"
+    },
+    {
+     "type": "image",
+     "asset": "hero_drop_from_bar",
+     "shadow": true,
+     "enter": {
+      "type": "down",
+      "duration": 0.25
+     },
+     "at": "drop before",
+     "autoAlign": false,
+     "width": 0.66,
+     "y": 0.64,
+     "until": "Let's test",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.28
+     }
+    },
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.28
+     },
+     "at": "Let's test-0.28",
+     "autoAlign": false,
+     "width": 1.15,
+     "y": 0.8
+    },
+    {
+     "type": "text",
+     "text": "LET'S TEST YOU",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 130,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Let's test"
+    }
+   ],
+   "camera": [
+    {
+     "at": "drop before",
+     "zoom": 1
+    },
+    {
+     "at": "drop before+0.3",
+     "zoom": 1.1,
+     "focus": [
+      0.5,
+      0.5
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "levels",
+   "start": "Under twenty-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_sunburst",
+     "at": "Ninety plus",
+     "enter": "fade",
+     "autoAlign": false,
+     "width": 1.0,
+     "y": 0.5,
+     "shadow": false
+    },
+    {
+     "type": "image",
+     "asset": "hero_hang_slip",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Under twenty-0.05",
+     "autoAlign": false,
+     "width": 0.66,
+     "y": 0.64,
+     "until": "Thirty seconds",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.28
+     }
+    },
+    {
+     "type": "image",
+     "asset": "hero_hang_struggle",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.28
+     },
+     "at": "Thirty seconds-0.28",
+     "autoAlign": false,
+     "width": 0.66,
+     "y": 0.64,
+     "until": "Sixty seconds#2",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.28
+     }
+    },
+    {
+     "type": "image",
+     "asset": "hero_hang_perfect",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.28
+     },
+     "at": "Sixty seconds#2-0.28",
+     "autoAlign": false,
+     "width": 0.66,
+     "y": 0.64,
+     "until": "Ninety plus",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.28
+     }
+    },
+    {
+     "type": "image",
+     "asset": "gag_sunglasses_thumbs",
+     "shadow": false,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.28
+     },
+     "at": "Ninety plus-0.28",
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.6,
+     "autoPlace": false
+    },
+    {
+     "type": "text",
+     "text": "UNDER 20 SEC",
+     "x": 0.06,
+     "y": 0.27,
+     "size": 54,
+     "align": "left",
+     "font": "pop",
+     "look": "box",
+     "boxColor": "#16191D",
+     "color": "#FFFFFF",
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "at": "Under twenty-0.05",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "until": "Thirty seconds"
+    },
+    {
+     "type": "text",
+     "text": "WEAK GRIP",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Weak grip",
+     "until": "Thirty seconds"
+    },
+    {
+     "type": "text",
+     "text": "30 SEC",
+     "x": 0.06,
+     "y": 0.27,
+     "size": 54,
+     "align": "left",
+     "font": "pop",
+     "look": "box",
+     "boxColor": "#16191D",
+     "color": "#FFFFFF",
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "at": "Thirty seconds",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "until": "Sixty seconds#2"
+    },
+    {
+     "type": "text",
+     "text": "AVERAGE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Average",
+     "until": "Sixty seconds#2"
+    },
+    {
+     "type": "text",
+     "text": "60 SEC",
+     "x": 0.06,
+     "y": 0.27,
+     "size": 54,
+     "align": "left",
+     "font": "pop",
+     "look": "box",
+     "boxColor": "#16191D",
+     "color": "#FFFFFF",
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "at": "Sixty seconds#2",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "until": "Ninety plus"
+    },
+    {
+     "type": "text",
+     "text": "STRONG",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Sixty seconds#2+0.5",
+     "until": "Ninety plus"
+    },
+    {
+     "type": "text",
+     "text": "90+ SEC",
+     "x": 0.06,
+     "y": 0.27,
+     "size": 54,
+     "align": "left",
+     "font": "pop",
+     "look": "box",
+     "boxColor": "#16191D",
+     "color": "#FFFFFF",
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "at": "Ninety plus",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     }
+    },
+    {
+     "type": "text",
+     "text": "BEAST MODE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Beast mode"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Under twenty",
+     "zoom": 1
+    },
+    {
+     "at": "Under twenty+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "sad",
+   "start": "Dropped early-0.05",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_sad_floor",
+     "shadow": true,
+     "enter": "fade",
+     "at": "Dropped early-0.05",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "DROPPED EARLY?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 130,
+     "align": "center",
+     "color": "#FFFFFF",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Dropped early-0.05",
+     "until": "It's not your"
+    },
+    {
+     "type": "text",
+     "text": "NOT YOUR ARMS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#FFFFFF",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "It's not your"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Dropped early-0.05",
+     "zoom": 1
+    },
+    {
+     "at": "It's your grip",
+     "zoom": 0.8
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1,
+   "background": "#000000",
+   "backdrop": "none"
+  },
+  {
+   "id": "why",
+   "start": "It's your grip-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_point_right",
+     "shadow": true,
+     "enter": "cut",
+     "at": "It's your grip-0.05",
+     "width": 0.7,
+     "y": 0.6,
+     "x": 0.36,
+     "until": "Your forearms get",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.28
+     }
+    },
+    {
+     "type": "image",
+     "asset": "hero_forearm_burn",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.28
+     },
+     "at": "Your forearms get-0.28",
+     "autoAlign": false,
+     "width": 1.15,
+     "y": 0.8,
+     "until": "slide off",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.28
+     }
+    },
+    {
+     "type": "image",
+     "asset": "hero_hang_slip",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.28
+     },
+     "at": "slide off-0.28",
+     "autoAlign": false,
+     "width": 0.66,
+     "y": 0.64
+    },
+    {
+     "type": "text",
+     "text": "IT'S YOUR GRIP",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "It's your grip-0.05",
+     "until": "Your forearms get"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_muscle_forearm_grip",
+     "zoom": 1,
+     "x": 0.81,
+     "y": 0.62,
+     "size": 0.3,
+     "at": "It's your grip+0.2",
+     "enter": "pop",
+     "borderColor": "#FFFFFF",
+     "until": "Your forearms get"
+    },
+    {
+     "type": "text",
+     "text": "TIRED FOREARMS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Your forearms get",
+     "until": "slide off"
+    },
+    {
+     "type": "text",
+     "text": "SLIPS LIKE BUTTER",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "slide off"
+    }
+   ],
+   "camera": [
+    {
+     "at": "It's your grip",
+     "zoom": 1
+    },
+    {
+     "at": "It's your grip+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "bumper",
+   "start": "Here's the fix-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_count_1",
+     "shadow": true,
+     "enter": {
+      "type": "flyUp",
+      "duration": 0.35
+     },
+     "at": "Here's the fix-0.05",
+     "width": 0.72,
+     "y": 0.7
+    },
+    {
+     "type": "text",
+     "text": "HERE'S",
+     "x": 0.5,
+     "y": 0.17,
+     "size": 120,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "letters",
+     "untype": false,
+     "enter": "punch",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's the fix-0.05"
+    },
+    {
+     "type": "text",
+     "text": "THE FIX",
+     "x": 0.5,
+     "y": 0.27,
+     "size": 220,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "letters",
+     "untype": false,
+     "enter": "punch",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "the fix"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Here's the fix-0.05",
+     "zoom": 1
+    },
+    {
+     "at": "fix.+0.05",
+     "zoom": 1
+    },
+    {
+     "at": "fix.+0.2",
+     "zoom": 1.15
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "m1",
+   "start": "One: dead-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "text",
+     "text": "#1",
+     "x": 0.5,
+     "y": 0.4,
+     "size": 380,
+     "align": "center",
+     "color": "#CDBB9C",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "One: dead-0.05",
+     "until": "Hang as-0.3"
+    },
+    {
+     "type": "text",
+     "text": "DEAD HANGS",
+     "x": 0.5,
+     "y": 0.5,
+     "size": 150,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "One: dead-0.05",
+     "until": "Hang as-0.3"
+    },
+    {
+     "type": "image",
+     "asset": "hero_hang_perfect",
+     "shadow": true,
+     "enter": {
+      "type": "flyUp",
+      "duration": 0.35
+     },
+     "at": "Hang as-0.3",
+     "autoAlign": false,
+     "width": 0.66,
+     "y": 0.64
+    },
+    {
+     "type": "text",
+     "text": "#1 DEAD HANG",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Hang as"
+    },
+    {
+     "type": "text",
+     "text": "ARMS STRAIGHT",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Hang as",
+     "until": "three times"
+    },
+    {
+     "type": "text",
+     "text": "MAX TIME x3",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "three times"
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "m2",
+   "start": "Two: add-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "text",
+     "text": "#2",
+     "x": 0.5,
+     "y": 0.4,
+     "size": 380,
+     "align": "center",
+     "color": "#CDBB9C",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two: add-0.05",
+     "until": "every day-0.3"
+    },
+    {
+     "type": "text",
+     "text": "+5 SEC A DAY",
+     "x": 0.5,
+     "y": 0.5,
+     "size": 150,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two: add-0.05",
+     "until": "every day-0.3"
+    },
+    {
+     "type": "image",
+     "asset": "hero_stopwatch",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.3
+     },
+     "at": "every day-0.3",
+     "autoAlign": false,
+     "width": 1.15,
+     "y": 0.8
+    },
+    {
+     "type": "text",
+     "text": "#2 +5 SEC EVERY DAY",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 120,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "every day"
+    },
+    {
+     "type": "counter",
+     "from": 30,
+     "to": 60,
+     "suffix": " SEC",
+     "duration": 1.2,
+     "x": 0.5,
+     "y": 0.218,
+     "size": 70,
+     "color": "#EF4444",
+     "at": "Thirty becomes"
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "end",
+   "start": "Do this and-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_sunburst",
+     "at": "Do this and-0.05",
+     "enter": "fade",
+     "autoAlign": false,
+     "width": 1.0,
+     "y": 0.5,
+     "shadow": false,
+     "until": "Now comment"
+    },
+    {
+     "type": "image",
+     "asset": "hero_grip_crush",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Do this and-0.05",
+     "autoAlign": false,
+     "width": 1.15,
+     "y": 0.8,
+     "until": "Now comment",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.28
+     }
+    },
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.28
+     },
+     "at": "Now comment-0.28",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "GRIP: LOCKED",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "grip gets crazy",
+     "until": "Now comment"
+    },
+    {
+     "type": "text",
+     "text": "COMMENT YOUR TIME",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Now comment"
+    },
+    {
+     "type": "comment",
+     "text": "42 sec, be honest 😅",
+     "user": "you",
+     "ago": "now",
+     "likes": "2.1K",
+     "x": 0.5,
+     "y": 0.3,
+     "width": 0.7,
+     "size": 50,
+     "at": "Now comment+0.4",
+     "enter": "pop"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Do this and",
+     "zoom": 1
+    },
+    {
+     "at": "Now comment",
+     "zoom": 1.03
+    },
+    {
+     "at": "be honest",
+     "zoom": 1.18,
+     "focus": "face"
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "for sixty",
+   "src": "sfx_teeth_chatter",
+   "volume": 0.35
+  },
+  {
+   "at": "Most people",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "drop before",
+   "src": "sfx_swoosh_up",
+   "volume": 0.3
+  },
+  {
+   "at": "Let's test",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Under twenty",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Weak grip",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Thirty seconds",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Sixty seconds#2",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Ninety plus",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Beast mode",
+   "src": "sfx_ding",
+   "volume": 0.35
+  },
+  {
+   "at": "Dropped early",
+   "src": "sfx_sad_sting",
+   "volume": 0.4
+  },
+  {
+   "at": "It's your grip",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Your forearms get",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "slide off",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Here's the fix-0.05",
+   "src": "sfx_typing_loud",
+   "volume": 1.0
+  },
+  {
+   "at": "fix.+0.15",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "One: dead",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Hang as",
+   "src": "sfx_swoosh_up",
+   "volume": 0.3
+  },
+  {
+   "at": "three times",
+   "src": "sfx_click_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Two: add",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "every day",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Thirty becomes",
+   "src": "sfx_counter",
+   "volume": 0.35
+  },
+  {
+   "at": "Do this and",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "grip gets crazy",
+   "src": "sfx_ding",
+   "volume": 0.35
+  },
+  {
+   "at": "Now comment",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Now comment+0.4",
+   "src": "sfx_notification",
+   "volume": 0.35
+  }
+ ]
+}

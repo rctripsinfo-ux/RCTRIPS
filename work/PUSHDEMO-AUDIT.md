@@ -49,7 +49,7 @@ Times are in seconds. "Ref" = V06, "Ours" = pushdemo.mp4.
 ## 2. Audio (measured)
 | Item | Reference | Ours | Difference | Severity | Fix |
 |---|---|---|---|---|---|
-| Background music | Present the whole time: quiet floor = 0.20 of median loudness, steady tonal lines in the spectrogram | **None**: floor 0.14 (voice and room only) | Music bed missing | **CRITICAL** | Need `music_bed.mp3` (asset requested), at volume 0.025 under the voice |
+| Background music | Present the whole time: quiet floor = 0.20 of median loudness | **CORRECTION (31 Oct): present but very quiet.** The library track `above_planets.mp3` plays at 0.025 (fast_render default); floor 0.14 | Music too quiet, not missing | MAJOR | `MUSIC_VOL=0.06 python3 fast_render.py ...` (done in Day 3 V3) |
 | Loudness | −11.8 LUFS | −16.0 LUFS | Ours is 4.2 LU quieter; YouTube normalises to about −14, so the ref will play about 2 dB louder than ours | MINOR | Master at −14 LUFS |
 | Voice | Human male, energetic | TTS, 1.08x, ~174 words/min (154 words / 53 s) vs ref ~166 | Slightly faster per word but longer overall (more words: 154 vs 141) | MINOR | Trim to ~140 words |
 | SFX density | 36 onsets detected | 22 planned cues | Fewer accents | MINOR | Add whoosh on every section card, a pop on the kinetic words, a shiver sound on the flex |
@@ -98,7 +98,7 @@ Our wording was written to be original, so each line differs in words but keeps 
 18. Sad/aura sound.
 
 ## 5. Top 10 most serious mistakes
-1. **No background music** (CRITICAL).
+1. **Background music far too quiet** (0.025; first reported as missing, corrected) (MAJOR).
 2. **#1 hand placement shown in side view with one still pose for 12 s.** The width cue is impossible to see, and there is no wrong-vs-right (CRITICAL).
 3. **Push-up bottom never shown**, so "chest almost touches the floor" is not demonstrated (CRITICAL).
 4. **#3 uses a forearm plank instead of a straight-arm push-up** with sagging or piked hips (CRITICAL, fitness accuracy).

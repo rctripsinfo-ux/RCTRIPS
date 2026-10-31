@@ -48,7 +48,7 @@ THUMBNAIL 1 OF 1: skinnyfat
   AVOID: thin or light font, a different font, content in the top or bottom margins, anything touching the edges, colored or dark background, gradients, scenery, extra text, numbers outside the label, arrows, circles, badges, icons, fire, sparks, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, muscular arms, big biceps, six-pack abs.
 ```
 
-## Day 3: Dead hang 60 s (V2 `final/day3b.mp4` 19.5 s with the new H images; V1 `final/day3.mp4`)
+## Day 3: Dead hang 60 s (FINAL V3 `final/day3c.mp4` 30.9 s; older V2 `day3b.mp4`, V1 `day3.mp4`)
 **Title:** Can You Hold a Dead Hang for 60 Seconds? 😳 #shorts
 
 **Description:**
