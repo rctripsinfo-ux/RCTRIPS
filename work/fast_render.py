@@ -3,7 +3,7 @@
 # segments shifted together), re-sends the plan so its word anchors use the new times, then renders and encodes.
 # Usage: python3 fast_render.py <name> <script.txt> <plan.json> [speed] [cover.jpg]  (cover = thumbnail for the first 0.1 s)
 import json, os, subprocess, sys, time, urllib.request, wave
-MAKER = __import__("glob").glob("/root/.claude/skills/*/*/reel-video-maker/scripts/make_video.py")[0]  # any org/account
+MAKER = (__import__("glob").glob("/root/.claude/skills/*/*/reel-video-maker/scripts/make_video.py") + [__import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)), "reel-video-maker/scripts/make_video.py")])[0]  # any account, else work/reel-video-maker
 TOOL = os.path.expanduser("~/reel-engine-tool"); PORT = 3011; GAP = 0.05
 name, script, plan = sys.argv[1:4]; speed = sys.argv[4] if len(sys.argv) > 4 else "1.3"
 r = subprocess.run(["python3", MAKER, "check", "--script", script, "--plan", plan, "--name", name, "--speed", speed],
