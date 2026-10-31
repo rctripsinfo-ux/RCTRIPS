@@ -47,3 +47,14 @@ THUMBNAIL 1 OF 1: skinnyfat
 
   AVOID: thin or light font, a different font, content in the top or bottom margins, anything touching the edges, colored or dark background, gradients, scenery, extra text, numbers outside the label, arrows, circles, badges, icons, fire, sparks, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, muscular arms, big biceps, six-pack abs.
 ```
+
+## Day 3: Dead hang 60 s (`final/day3.mp4`, not rendered yet: Reel Engine skill missing in the 31 Oct session)
+**Title:** Can You Hold a Dead Hang for 60 Seconds? 😳 #shorts
+
+**Description:**
+Most people drop off the bar before 30 seconds. It's not your arms, it's your grip.
+The fix: dead hangs, as long as you can, 3 times. Add 5 seconds every day and 30 becomes 60 in a few weeks.
+Comment your time 👇
+#deadhang #gripstrength #forearms #homeworkout #fitness #shorts
+
+**Tags:** dead hang, dead hang 60 seconds, dead hang challenge, grip strength, forearm workout, how to dead hang, hang from a bar, pull up bar workout, grip strength test, stronger grip, home workout, fitness test, effortless exercise, shorts
