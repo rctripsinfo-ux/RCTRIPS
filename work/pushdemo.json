@@ -1,0 +1,1064 @@
+{
+ "title": "How Many Push-Ups Do You Really Need?",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 58,
+  "y": 0.82,
+  "maxWords": 3,
+  "keywords": [
+   "chest",
+   "three",
+   "hands",
+   "shoulders",
+   "half",
+   "floor",
+   "elbows",
+   "hips",
+   "straight",
+   "plank"
+  ],
+  "hide": [
+   [
+    "Here's the fix-0.05",
+    "You only need"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_arms_crossed",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "width": 0.66,
+     "y": 0.66,
+     "until": "look tough"
+    },
+    {
+     "type": "text",
+     "text": "NO CHEST?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 150,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "look tough"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "hero_pushup_top_v3",
+     "zoom": 1.6,
+     "x": 0.78,
+     "y": 0.33,
+     "size": 0.3,
+     "at": "hundreds",
+     "enter": "pop",
+     "borderColor": "#FFFFFF",
+     "until": "look tough"
+    }
+   ],
+   "camera": [
+    {
+     "at": "start",
+     "zoom": 2.8,
+     "focus": [
+      0.506,
+      0.52
+     ]
+    },
+    {
+     "at": "start+0.4",
+     "zoom": 1
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "tough",
+   "start": "look tough-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "speed",
+     "at": "look tough",
+     "until": "but your chest",
+     "color": "#FFFFFF",
+     "duration": 0.6
+    },
+    {
+     "type": "image",
+     "asset": "hero_double_biceps",
+     "shadow": true,
+     "enter": "punch",
+     "at": "look tough",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "but your chest"
+    },
+    {
+     "type": "text",
+     "text": "LOOKS TOUGH",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "look tough",
+     "until": "but your chest"
+    }
+   ],
+   "camera": [
+    {
+     "at": "look tough",
+     "zoom": 1
+    },
+    {
+     "at": "look tough+0.3",
+     "zoom": 1.1,
+     "focus": [
+      0.5,
+      0.5
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "flat",
+   "start": "but your chest-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_facepalm",
+     "shadow": true,
+     "enter": "cut",
+     "at": "but your chest",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "looks flat"
+    },
+    {
+     "type": "highlight",
+     "shape": "pain",
+     "w": 0.2,
+     "color": "#EF4444",
+     "at": "but your chest+0.2",
+     "enter": "cut",
+     "x": 0.502,
+     "y": 0.465
+    },
+    {
+     "type": "text",
+     "text": "STILL FLAT",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "but your chest"
+    },
+    {
+     "type": "image",
+     "asset": "hero_sad_crying",
+     "shadow": true,
+     "enter": "cut",
+     "at": "looks flat",
+     "width": 0.8,
+     "y": 0.62
+    }
+   ],
+   "camera": [
+    {
+     "at": "but your chest",
+     "zoom": 1
+    },
+    {
+     "at": "but your chest+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "fix",
+   "start": "Here's the fix-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "text",
+     "text": "HERE'S THE FIX",
+     "x": 0.5,
+     "y": 0.47,
+     "size": 170,
+     "align": "center",
+     "color": "#FFFFFF",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "cut",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's the fix-0.05"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Here's the fix-0.05",
+     "zoom": 1
+    },
+    {
+     "at": "fix.+0.05",
+     "zoom": 1
+    },
+    {
+     "at": "fix.+0.2",
+     "zoom": 1.18
+    }
+   ],
+   "background": "#1E2228"
+  },
+  {
+   "id": "three",
+   "start": "You only need-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_count_3",
+     "shadow": true,
+     "enter": "cut",
+     "at": "You only need",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "finally starts"
+    },
+    {
+     "type": "text",
+     "text": "ONLY 3 FIXES",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "three small form",
+     "until": "finally starts"
+    },
+    {
+     "type": "image",
+     "asset": "gag_sunglasses_thumbs",
+     "shadow": false,
+     "enter": "cut",
+     "at": "finally starts",
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.6,
+     "autoPlace": false
+    },
+    {
+     "type": "text",
+     "text": "CHEST: GROWING",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "finally starts"
+    }
+   ],
+   "camera": [
+    {
+     "at": "You only need",
+     "zoom": 1
+    },
+    {
+     "at": "You only need+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "m1",
+   "start": "Number one-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "text",
+     "text": "#1 HAND PLACEMENT",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 110,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Number one"
+    },
+    {
+     "type": "image",
+     "asset": "hero_pushup_top_v3",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Number one",
+     "autoAlign": false,
+     "width": 0.92,
+     "y": 0.55
+    },
+    {
+     "type": "text",
+     "text": "NOT TOO WIDE, NOT TOO CLOSE",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "too wide",
+     "until": "just outside"
+    },
+    {
+     "type": "dash",
+     "from": [
+      0.796,
+      0.496
+     ],
+     "to": [
+      0.78,
+      0.663
+     ],
+     "at": "just outside",
+     "color": "#FFFFFF",
+     "thickness": 8,
+     "dash": 22,
+     "arrow": true,
+     "bend": 0,
+     "until": "all work"
+    },
+    {
+     "type": "highlight",
+     "shape": "circle",
+     "x": 0.78,
+     "y": 0.653,
+     "w": 0.07,
+     "color": "#EF4444",
+     "at": "just outside",
+     "until": "all work"
+    },
+    {
+     "type": "text",
+     "text": "HANDS UNDER SHOULDERS",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "just outside",
+     "until": "all work"
+    },
+    {
+     "type": "text",
+     "text": "CHEST + SHOULDERS + TRICEPS",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "all work"
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "m2",
+   "start": "Number two-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "text",
+     "text": "#2 RANGE OF MOTION",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 110,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Number two",
+     "until": "keep your elbows"
+    },
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_pushup_top_v3",
+       "at": "Number two"
+      },
+      {
+       "asset": "hero_pushup_mid",
+       "at": "Number two+0.6"
+      },
+      {
+       "asset": "hero_pushup_top_v3",
+       "at": "Number two+1.2"
+      },
+      {
+       "asset": "hero_pushup_mid",
+       "at": "Number two+1.8"
+      },
+      {
+       "asset": "hero_pushup_top_v3",
+       "at": "Number two+2.4"
+      },
+      {
+       "asset": "hero_pushup_mid",
+       "at": "Number two+3.0"
+      },
+      {
+       "asset": "hero_pushup_top_v3",
+       "at": "Number two+3.6"
+      },
+      {
+       "asset": "hero_pushup_mid",
+       "at": "Number two+4.2"
+      },
+      {
+       "asset": "hero_pushup_top_v3",
+       "at": "Number two+4.8"
+      },
+      {
+       "asset": "hero_pushup_mid",
+       "at": "Number two+5.4"
+      },
+      {
+       "asset": "hero_pushup_top_v3",
+       "at": "Number two+6.0"
+      },
+      {
+       "asset": "hero_pushup_mid",
+       "at": "Number two+6.6"
+      },
+      {
+       "asset": "hero_pushup_top_v3",
+       "at": "Number two+7.2"
+      },
+      {
+       "asset": "hero_pushup_mid",
+       "at": "Number two+7.8"
+      }
+     ],
+     "at": "Number two",
+     "enter": "cut",
+     "shadow": true,
+     "width": 0.92,
+     "y": 0.55,
+     "autoAlign": false,
+     "until": "keep your elbows"
+    },
+    {
+     "type": "text",
+     "text": "HALF REPS = HALF RESULTS",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Half reps",
+     "until": "Go down"
+    },
+    {
+     "type": "text",
+     "text": "CHEST NEAR THE FLOOR",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Go down",
+     "until": "keep your elbows"
+    },
+    {
+     "type": "dash",
+     "from": [
+      0.784,
+      0.452
+     ],
+     "to": [
+      0.784,
+      0.663
+     ],
+     "at": "Go down",
+     "color": "#EF4444",
+     "thickness": 8,
+     "dash": 22,
+     "arrow": true,
+     "bend": 0,
+     "until": "keep your elbows"
+    },
+    {
+     "type": "image",
+     "asset": "hero_arms_crossed",
+     "shadow": true,
+     "enter": "cut",
+     "at": "keep your elbows",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "ELBOWS IN",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "keep your elbows"
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "m3",
+   "start": "Number three-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "text",
+     "text": "#3 CORE CONTROL",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 110,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Number three"
+    },
+    {
+     "type": "image",
+     "asset": "hero_plank",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Number three",
+     "autoAlign": false,
+     "width": 0.92,
+     "y": 0.55,
+     "until": "bad yoga"
+    },
+    {
+     "type": "highlight",
+     "shape": "circle",
+     "x": 0.511,
+     "y": 0.545,
+     "w": 0.09,
+     "color": "#EF4444",
+     "at": "hips sag",
+     "until": "bad yoga"
+    },
+    {
+     "type": "text",
+     "text": "HIPS DON'T SAG",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "hips sag",
+     "until": "bad yoga"
+    },
+    {
+     "type": "image",
+     "asset": "hero_count_1",
+     "shadow": true,
+     "enter": "cut",
+     "at": "bad yoga",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Keep one straight"
+    },
+    {
+     "type": "text",
+     "text": "NOT YOGA",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "bad yoga",
+     "until": "Keep one straight"
+    },
+    {
+     "type": "image",
+     "asset": "hero_plank",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Keep one straight",
+     "autoAlign": false,
+     "width": 0.92,
+     "y": 0.55
+    },
+    {
+     "type": "dash",
+     "from": [
+      0.157,
+      0.569
+     ],
+     "to": [
+      0.783,
+      0.531
+     ],
+     "at": "Keep one straight",
+     "color": "#FFFFFF",
+     "thickness": 8,
+     "dash": 22,
+     "arrow": false,
+     "bend": 0
+    },
+    {
+     "type": "text",
+     "text": "ONE STRAIGHT LINE",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Keep one straight",
+     "until": "like a plank"
+    },
+    {
+     "type": "text",
+     "text": "LIKE A MOVING PLANK",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "like a plank"
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "recap",
+   "start": "That's it-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_thumbs_up",
+     "shadow": true,
+     "enter": "cut",
+     "at": "That's it",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "No gym"
+    },
+    {
+     "type": "text",
+     "text": "3 FIXES = BIG DIFFERENCE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 105,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "That's it",
+     "until": "No gym"
+    },
+    {
+     "type": "image",
+     "asset": "hero_count_1",
+     "shadow": true,
+     "enter": "cut",
+     "at": "No gym",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Just clean"
+    },
+    {
+     "type": "text",
+     "text": "NO GYM. NO GEAR.",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "No gym",
+     "until": "Just clean"
+    },
+    {
+     "type": "image",
+     "asset": "gag_sunglasses_thumbs",
+     "shadow": false,
+     "enter": "cut",
+     "at": "Just clean",
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.6,
+     "autoPlace": false
+    },
+    {
+     "type": "text",
+     "text": "CLEAN REPS = REAL CHEST",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 105,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Just clean"
+    }
+   ],
+   "camera": [
+    {
+     "at": "That's it",
+     "zoom": 1
+    },
+    {
+     "at": "That's it+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "hundreds",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "look tough",
+   "src": "sfx_swoosh_up",
+   "volume": 0.3
+  },
+  {
+   "at": "but your chest",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "looks flat",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Here's the fix-0.05",
+   "src": "sfx_typing_loud",
+   "volume": 1.0
+  },
+  {
+   "at": "fix.+0.15",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "You only need",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "finally starts",
+   "src": "sfx_ding",
+   "volume": 0.35
+  },
+  {
+   "at": "Number one",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "just outside",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "all work",
+   "src": "sfx_click_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Number two",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Go down",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "keep your elbows",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Number three",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "hips sag",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "bad yoga",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Keep one straight",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "That's it",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "No gym",
+   "src": "sfx_click_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Just clean",
+   "src": "sfx_ding",
+   "volume": 0.35
+  }
+ ]
+}

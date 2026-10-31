@@ -259,9 +259,13 @@ def body_xy(asset, part, width, y, x=0.5):
     p = A["points"]; s = part[-1]
     seg = {"forearm": ("elbow", "wrist"), "upper_arm": ("shoulder", "elbow"), "thigh": ("hip", "knee"), "shin": ("knee", "ankle")}
     k = part[:-2]
-    if k in seg:
+    if part == "chest":  # a third of the way from the shoulders to the hips
+        sx, sy = (p["shoulder_l"][0] + p["shoulder_r"][0]) / 2, (p["shoulder_l"][1] + p["shoulder_r"][1]) / 2
+        hx, hy = (p["hip_l"][0] + p["hip_r"][0]) / 2, (p["hip_l"][1] + p["hip_r"][1]) / 2
+        px, py = sx + (hx - sx) / 3, sy + (hy - sy) / 3
+    elif k in seg:
         a, b = p[f"{seg[k][0]}_{s}"], p[f"{seg[k][1]}_{s}"]; px, py = (a[0] + b[0]) / 2, (a[1] + b[1]) / 2
-    else:
+    if part != "chest" and k not in seg:
         px, py = p[part]
     iw, ih = A["size"]
     h = width * 1080 * ih / iw / 1920  # image height as a share of the canvas height
