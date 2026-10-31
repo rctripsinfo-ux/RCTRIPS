@@ -45,6 +45,18 @@ Older builds (`build_forearms.py`, `build_day2.py`) used clips. Do not copy thei
 - **Voice:** 1.3x. `fast_render.py` cuts silences. `<plan>.pauses.json` = `{"_gap": 0.05}` cuts every gap.
 - **Audio:** whoosh on every entrance and transition. Loudness -16 LUFS.
 
+**New (31 Oct): `h_kit.py`.** Import it in new build files (`from h_kit import *`; `build_day3.py` is the example). It has:
+- presets `beige` (approved) and `white_safe` (test only)
+- hook entrances `ENTER[...]`, `zoom_out()`
+- attitude poses `ATT[...]` / `count(n)`
+- form guides `guide()` / `joint()` / `move()`
+- `body_xy()` for exact one-side body points (two-sided anchors like "forearms" land on the chest!)
+- SFX `cues()` by category
+- `validate()`: run it before every render
+- `qa_sheet()` for chosen frames
+
+Findings behind it: `REFERENCE-ANALYSIS.md`.
+
 ## 3. Owner rules (never break)
 - **Layout:**
   - No overlaps: text, bars, labels and bubbles must never touch H or each other.

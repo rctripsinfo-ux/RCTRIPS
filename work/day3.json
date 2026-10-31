@@ -39,12 +39,26 @@
      "type": "image",
      "asset": "hero_look_up_bar",
      "shadow": true,
-     "enter": "cut",
+     "enter": {
+      "type": "flyUp",
+      "duration": 0.35
+     },
      "at": "start",
      "autoAlign": false,
      "width": 0.66,
      "y": 0.64,
-     "until": "drop before"
+     "until": "for sixty"
+    },
+    {
+     "type": "highlight",
+     "shape": "pain",
+     "w": 0.15,
+     "color": "#EF4444",
+     "at": "start+0.3",
+     "enter": "cut",
+     "x": 0.338,
+     "y": 0.603,
+     "until": "for sixty"
     },
     {
      "type": "text",
@@ -68,21 +82,27 @@
      "until": "drop before"
     },
     {
-     "type": "highlight",
-     "shape": "pain",
-     "x": 0.26,
-     "y": 0.6,
-     "w": 0.22,
-     "color": "#EF4444",
-     "at": "start",
-     "enter": "cut",
+     "type": "image",
+     "asset": "hero_pullup_hang_v2",
+     "shadow": true,
+     "enter": {
+      "type": "up",
+      "duration": 0.25
+     },
+     "at": "for sixty",
+     "autoAlign": false,
+     "width": 0.66,
+     "y": 0.64,
      "until": "drop before"
     },
     {
      "type": "image",
      "asset": "hero_drop_from_bar",
      "shadow": true,
-     "enter": "cut",
+     "enter": {
+      "type": "flyDown",
+      "duration": 0.3
+     },
      "at": "drop before",
      "autoAlign": false,
      "width": 0.66,
@@ -133,14 +153,13 @@
    "layers": [
     {
      "type": "image",
-     "asset": "hero_stand",
+     "asset": "hero_stop_palm",
      "shadow": true,
      "enter": "cut",
      "at": "not your arms",
-     "id": "h",
-     "width": 0.7,
-     "y": 0.6,
-     "x": 0.36
+     "width": 0.8,
+     "y": 0.62,
+     "until": "It's your grip"
     },
     {
      "type": "text",
@@ -161,7 +180,17 @@
       "width": 0
      },
      "at": "not your arms",
-     "until": "your grip"
+     "until": "It's your grip"
+    },
+    {
+     "type": "image",
+     "asset": "hero_point_right",
+     "shadow": true,
+     "enter": "cut",
+     "at": "It's your grip",
+     "width": 0.7,
+     "y": 0.6,
+     "x": 0.36
     },
     {
      "type": "text",
@@ -181,20 +210,18 @@
       "color": "#FFFFFF",
       "width": 0
      },
-     "at": "your grip",
-     "until": "forearms get tired"
+     "at": "It's your grip"
     },
     {
      "type": "zoomBubble",
      "asset": "anat_muscle_forearm_grip",
      "zoom": 1,
-     "x": 0.77,
+     "x": 0.81,
      "y": 0.62,
-     "size": 0.34,
-     "at": "your grip",
+     "size": 0.3,
+     "at": "It's your grip+0.2",
      "enter": "pop",
-     "borderColor": "#FFFFFF",
-     "until": "forearms get tired"
+     "borderColor": "#FFFFFF"
     }
    ],
    "camera": [
@@ -221,7 +248,7 @@
      "shadow": false,
      "enter": "cut",
      "at": "Your forearms get",
-     "width": 0.66,
+     "width": 0.62,
      "x": 0.5,
      "y": 0.6,
      "autoPlace": false
@@ -329,23 +356,14 @@
    "backdrop": "spotlight",
    "layers": [
     {
-     "type": "poses",
-     "frames": [
-      {
-       "asset": "hero_look_up_bar",
-       "at": "One: dead"
-      },
-      {
-       "asset": "hero_pullup_hang_v2",
-       "at": "Hang as"
-      }
-     ],
-     "at": "One: dead",
-     "enter": "cut",
+     "type": "image",
+     "asset": "hero_count_1",
      "shadow": true,
-     "width": 0.66,
-     "y": 0.64,
-     "autoAlign": false
+     "enter": "cut",
+     "at": "One: dead",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Hang as"
     },
     {
      "type": "text",
@@ -368,6 +386,40 @@
      "at": "One: dead"
     },
     {
+     "type": "image",
+     "asset": "hero_pullup_hang_v2",
+     "shadow": true,
+     "enter": {
+      "type": "up",
+      "duration": 0.25
+     },
+     "at": "Hang as",
+     "autoAlign": false,
+     "width": 0.66,
+     "y": 0.64
+    },
+    {
+     "type": "text",
+     "text": "ARMS STRAIGHT",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Hang as",
+     "until": "three times"
+    },
+    {
      "type": "text",
      "text": "MAX TIME x3",
      "x": 0.5,
@@ -385,7 +437,7 @@
       "color": "#FFFFFF",
       "width": 0
      },
-     "at": "as long as"
+     "at": "three times"
     }
    ],
    "camera": [
@@ -407,19 +459,14 @@
    "backdrop": "spotlight",
    "layers": [
     {
-     "type": "poses",
-     "frames": [
-      {
-       "asset": "hero_pullup_hang",
-       "at": "Two: add"
-      }
-     ],
-     "at": "Two: add",
-     "enter": "cut",
+     "type": "image",
+     "asset": "hero_count_2",
      "shadow": true,
-     "width": 0.66,
-     "y": 0.64,
-     "autoAlign": false
+     "enter": "cut",
+     "at": "Two: add",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Thirty becomes"
     },
     {
      "type": "text",
@@ -442,14 +489,24 @@
      "at": "Two: add"
     },
     {
+     "type": "image",
+     "asset": "hero_pullup_hang",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Thirty becomes",
+     "autoAlign": false,
+     "width": 0.66,
+     "y": 0.64
+    },
+    {
      "type": "counter",
      "from": 30,
      "to": 60,
      "suffix": " SEC",
      "duration": 1.2,
      "x": 0.5,
-     "y": 0.215,
-     "size": 90,
+     "y": 0.25,
+     "size": 80,
      "color": "#EF4444",
      "at": "Thirty becomes"
     }
@@ -474,7 +531,7 @@
    "layers": [
     {
      "type": "image",
-     "asset": "hero_stand",
+     "asset": "hero_double_biceps",
      "shadow": true,
      "enter": "cut",
      "at": "Do this and",
@@ -615,27 +672,38 @@
  "sfx": [
   {
    "at": "start",
-   "src": "sfx_whoosh_soft"
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "for sixty",
+   "src": "sfx_swoosh_up",
+   "volume": 0.3
   },
   {
    "at": "drop before",
-   "src": "sfx_pop_soft"
+   "src": "sfx_swoosh_up",
+   "volume": 0.3
   },
   {
    "at": "not your arms",
-   "src": "sfx_whoosh_soft"
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
   },
   {
-   "at": "your grip",
-   "src": "sfx_ding"
+   "at": "It's your grip",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
   },
   {
    "at": "Your forearms get",
-   "src": "sfx_whoosh_soft"
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
   },
   {
    "at": "slip off",
-   "src": "sfx_pop_soft"
+   "src": "sfx_pop_soft",
+   "volume": 0.35
   },
   {
    "at": "Here's the fix-0.05",
@@ -644,39 +712,53 @@
   },
   {
    "at": "fix.+0.15",
-   "src": "sfx_whoosh_big"
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
   },
   {
    "at": "One: dead",
-   "src": "sfx_whoosh_soft"
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
   },
   {
-   "at": "as long as",
-   "src": "sfx_click_soft"
+   "at": "Hang as",
+   "src": "sfx_click_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "three times",
+   "src": "sfx_click_soft",
+   "volume": 0.35
   },
   {
    "at": "Two: add",
-   "src": "sfx_whoosh_soft"
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
   },
   {
    "at": "Thirty becomes",
-   "src": "sfx_counter"
+   "src": "sfx_counter",
+   "volume": 0.35
   },
   {
    "at": "Do this and",
-   "src": "sfx_whoosh_soft"
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
   },
   {
    "at": "crazy strong",
-   "src": "sfx_ding"
+   "src": "sfx_ding",
+   "volume": 0.35
   },
   {
    "at": "Comment your",
-   "src": "sfx_whoosh_soft"
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
   },
   {
    "at": "Comment your+0.3",
-   "src": "sfx_notification"
+   "src": "sfx_notification",
+   "volume": 0.35
   }
  ]
 }
