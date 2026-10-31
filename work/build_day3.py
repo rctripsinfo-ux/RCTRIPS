@@ -121,7 +121,7 @@ plan = {
         sc("hook", "start", [
             img("hero_look_up_bar", "start", "drop before", enter="cut", **HANG),
             {**title("60 SEC DEAD HANG?", "start", "drop before", size=125), "animation": "none"},
-            pain(0.5, 0.5, "start", "drop before", 0.3),
+            pain(0.26, 0.6, "start", "drop before", 0.22),
             img("hero_drop_from_bar", "drop before", enter="cut", **HANG),
             {**title("MOST DROP AT 30", "drop before", size=125), "color": RED},
         ], camera=punch("drop before", (0.5, 0.5), 1.12)),
@@ -140,11 +140,11 @@ plan = {
             text("HERE'S THE FIX", "Here's the fix-0.05", None, 0.47, 170, "#FFFFFF", "cut"),
         ], camera=[{"at": "Here's the fix-0.05", "zoom": 1}, {"at": "fix.+0.05", "zoom": 1}, {"at": "fix.+0.2", "zoom": 1.18}]),
         sc("m1", "One: dead-0.05", [
-            poses(loop("hero_pullup_hang", "hero_pullup_hang_v2", "One: dead", 8, 0.6), **HANG),
+            poses([("hero_look_up_bar", "One: dead"), ("hero_pullup_hang_v2", "Hang as")], **HANG),
             title("#1 DEAD HANG", "One: dead"), sub("MAX TIME x3", "as long as"),
         ]),
         sc("m2", "Two: add-0.05", [
-            poses(loop("hero_pullup_hang", "hero_pullup_hang_v2", "Two: add", 10, 0.6), **HANG),
+            poses([("hero_pullup_hang", "Two: add")], **HANG),
             title("#2 +5 SEC EVERY DAY", "Two: add", size=120),
             {"type": "counter", "from": 30, "to": 60, "suffix": " SEC", "duration": 1.2, "x": 0.5, "y": 0.215,
              "size": 90, "color": RED, "at": "Thirty becomes"},

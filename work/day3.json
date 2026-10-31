@@ -70,9 +70,9 @@
     {
      "type": "highlight",
      "shape": "pain",
-     "x": 0.5,
-     "y": 0.5,
-     "w": 0.3,
+     "x": 0.26,
+     "y": 0.6,
+     "w": 0.22,
      "color": "#EF4444",
      "at": "start",
      "enter": "cut",
@@ -332,36 +332,12 @@
      "type": "poses",
      "frames": [
       {
-       "asset": "hero_pullup_hang",
+       "asset": "hero_look_up_bar",
        "at": "One: dead"
       },
       {
        "asset": "hero_pullup_hang_v2",
-       "at": "One: dead+0.6"
-      },
-      {
-       "asset": "hero_pullup_hang",
-       "at": "One: dead+1.2"
-      },
-      {
-       "asset": "hero_pullup_hang_v2",
-       "at": "One: dead+1.8"
-      },
-      {
-       "asset": "hero_pullup_hang",
-       "at": "One: dead+2.4"
-      },
-      {
-       "asset": "hero_pullup_hang_v2",
-       "at": "One: dead+3.0"
-      },
-      {
-       "asset": "hero_pullup_hang",
-       "at": "One: dead+3.6"
-      },
-      {
-       "asset": "hero_pullup_hang_v2",
-       "at": "One: dead+4.2"
+       "at": "Hang as"
       }
      ],
      "at": "One: dead",
@@ -436,42 +412,6 @@
       {
        "asset": "hero_pullup_hang",
        "at": "Two: add"
-      },
-      {
-       "asset": "hero_pullup_hang_v2",
-       "at": "Two: add+0.6"
-      },
-      {
-       "asset": "hero_pullup_hang",
-       "at": "Two: add+1.2"
-      },
-      {
-       "asset": "hero_pullup_hang_v2",
-       "at": "Two: add+1.8"
-      },
-      {
-       "asset": "hero_pullup_hang",
-       "at": "Two: add+2.4"
-      },
-      {
-       "asset": "hero_pullup_hang_v2",
-       "at": "Two: add+3.0"
-      },
-      {
-       "asset": "hero_pullup_hang",
-       "at": "Two: add+3.6"
-      },
-      {
-       "asset": "hero_pullup_hang_v2",
-       "at": "Two: add+4.2"
-      },
-      {
-       "asset": "hero_pullup_hang",
-       "at": "Two: add+4.8"
-      },
-      {
-       "asset": "hero_pullup_hang_v2",
-       "at": "Two: add+5.4"
       }
      ],
      "at": "Two: add",
