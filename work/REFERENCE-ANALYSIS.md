@@ -504,3 +504,20 @@ camera shake, simple words, one joke as a comparison.
 | 10 | 0.1 s cover frame | Unknown | 7/10 | Already supported (5th arg) | | Keep using it |
 
 **Conflict to confirm:** the brief asks for a pure white background with the top 16–20 % and bottom 12 % empty. The approved format is beige, with headings at y 0.15 and captions at y 0.82, so both sit inside those zones. I have **not** changed the approved format. If you want the white safe-zone layout, test it as a separate A/B video.
+
+## Pass B (31 Oct): measured at 30 fps on the chosen moments
+- **Black "sad" beat** (the screen goes black, then the char slowly shrinks back):
+
+  | Video | Time | Char height |
+  |---|---|---|
+  | V02 | 3.43–4.70 s | 153 → 137 px |
+  | V03 | 2.30–4.10 s | 176 → 146 px |
+  | V07 | 3.53–4.07 s | 140 → 76 px |
+  | V08 | 3.67–4.93 s | 118 → 83 px |
+  | V10 | 2.50–3.87 s | 144 → 138 px |
+
+  V04 and V05 use the black beat the other way: the char grows in for a flex.
+- **Shiver:** V06 1.6–2.9 s. The flex pose jitters a few px every frame over anime speed lines.
+- **Card-flip turn:** V10 4.85 s (the char squeezes thin and turns). Also V05 39 s and V07 0.9 s.
+- **Rise and fade-in from below:** V01 12 s (dead hang), V07 8 s, V09 10.6 s (bubble).
+- **Sounds:** I matched our `teeth_chatter` and `shiver` against all those windows: no match (score ≈ 0). Their exact sounds are not in our library. We will use our own `teeth_chatter` on shiver beats, plus a non-meme sad sting (asset requested).
