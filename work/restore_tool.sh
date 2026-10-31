@@ -5,7 +5,7 @@
 set -e
 W="$(cd "$(dirname "$0")" && pwd)"
 T="$HOME/reel-engine-tool"
-MAKER=$(ls /root/.claude/skills/synced/*/reel-video-maker/scripts/make_video.py | head -1)
+MAKER=$(ls /root/.claude/skills/*/*/reel-video-maker/scripts/make_video.py "$W"/reel-video-maker/scripts/make_video.py 2>/dev/null | head -1)
 [ -d "$T/node_modules" ] || python3 "$MAKER" setup
 
 cp "$W"/tool-patches/{Captions.jsx,Video.jsx,fx.jsx,layers.jsx,schema.js,timeRefs.js} "$T/src/"

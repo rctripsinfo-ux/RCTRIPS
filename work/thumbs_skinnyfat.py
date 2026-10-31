@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, "/root/.claude/skills/synced/370a525f-40ff-4b1d-a196-a1258fe281e4_33be9e93-4a60-43f2-9228-8bfef809efb4/reel-video-maker/scripts")
+sys.path.insert(0, __import__("glob").glob("/root/.claude/skills/*/*/reel-video-maker/scripts")[0])
 from thumb_prompts import build, stand, KNEES
 V = [("skinnyfat", "Skinny arms but a soft belly? That's skinny fat",
       "Dieting makes you skinnier, bulking makes you fatter. Eat at maintenance with protein in every meal and train full body.",
