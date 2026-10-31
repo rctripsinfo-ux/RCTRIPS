@@ -10,6 +10,14 @@
 - **Limits:** keep weekly and session usage low. No extra renders or long explanations, and don't spawn agents.
 - **Git:** commit and push every finished video to the branch above. Don't open a PR unless asked.
 
+## 1b. Skills (in this repo)
+`.claude/skills/` holds the 5 skills this work needs. Claude Code loads them automatically when this repo is opened, in any account:
+- `reel-video-maker`: Reel Engine tool (`tool.tar.gz`) plus `make_video.py`.
+- `reel-hero-images-1/2/3`: the H images.
+- `effortless-exercise-thumbnail-prompts`: thumbnail prompts.
+
+`work/restore_tool.sh` installs the tool from here.
+
 ## 2. Current approved format: "Day 1 V1, no clips"
 | Day | Build file | Plan / script | Final video |
 |---|---|---|---|

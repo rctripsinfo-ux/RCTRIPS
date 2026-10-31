@@ -5,7 +5,9 @@
 set -e
 W="$(cd "$(dirname "$0")" && pwd)"
 T="$HOME/reel-engine-tool"
-MAKER=$(ls /root/.claude/skills/synced/*/reel-video-maker/scripts/make_video.py | head -1)
+# the skill is in this repo (.claude/skills), so a new Claude account gets it from git; else use the synced copy
+MAKER="$W/../.claude/skills/reel-video-maker/scripts/make_video.py"
+[ -f "$MAKER" ] || MAKER=$(ls /root/.claude/skills/synced/*/reel-video-maker/scripts/make_video.py | head -1)
 [ -d "$T/node_modules" ] || python3 "$MAKER" setup
 
 cp "$W"/tool-patches/{Captions.jsx,Video.jsx,fx.jsx,layers.jsx,schema.js,timeRefs.js} "$T/src/"
