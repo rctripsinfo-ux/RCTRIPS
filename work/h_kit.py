@@ -270,3 +270,56 @@ def body_xy(asset, part, width, y, x=0.5):
     iw, ih = A["size"]
     h = width * 1080 * ih / iw / 1920  # image height as a share of the canvas height
     return round(x - width / 2 + px * width, 3), round(y - h / 2 + py * h, 3)
+
+
+# ---------- 10. pose changes that MOVE (owner, 31 Oct; refs V07/V09/V10): never swap in the same spot ----------
+PUSH_T = 0.28  # seconds of the push
+
+
+def chain(steps, until=None, t=PUSH_T, **place):
+    """Pose sequence where each new pose pushes the old one out: old exits one side, new enters from the other.
+    steps = [(asset, anchor), ...] or [(asset, anchor, how), ...]; how = 'push' (default, direction alternates:
+    old out left / new in from right, then the other way), 'up' (rise from below), 'down' (drop from above),
+    'flip' (squash turn), 'cut'. Returns image layers; the last one stays until `until` (None = scene end)."""
+    hows = [(s + ("push",))[2] for s in steps]
+    pushes = 0; dirs = []
+    for i, h in enumerate(hows):
+        if i > 0 and h == "push": pushes += 1
+        dirs.append(pushes % 2)  # 1: old leaves left, new comes from right; 0: the other way
+    out = []
+    for i, s in enumerate(steps):
+        a, at, how = s[0], s[1], hows[i]
+        if i == 0: enter = ENTER["rise"] if how == "up" else ("cut" if how in ("push", "cut") else ENTER.get(how, "cut"))
+        else:
+            enter = {"push": {"type": "flyRight" if dirs[i] else "flyLeft", "duration": t},
+                     "up": {"type": "flyUp", "duration": 0.35}, "down": {"type": "flyDown", "duration": 0.3},
+                     "flip": {"type": "squash", "duration": 0.25}, "cut": "cut"}[how]
+        L = img(a, f"{at}-{t}" if i > 0 and how == "push" else at, enter=enter, **place)
+        if i + 1 < len(steps):
+            nh = hows[i + 1]; L["until"] = steps[i + 1][1]
+            L["exit"] = ({"type": "flyLeft" if dirs[i + 1] else "flyRight", "duration": t} if nh == "push" else
+                         {"type": "squash", "duration": 0.2} if nh == "flip" else "cut")
+        elif until: L["until"] = until
+        out.append(L)
+    return out
+
+
+def shiver(layer, amount=0.5):
+    """Pose shivers (ref V06 1.6-2.9 s). Pair with speed_lines() and cues([(at, 'shiver')])."""
+    return {**layer, "motion": {"type": "shake", "amount": amount}}
+
+
+def speed_lines(at, until=None, color=WHITE):
+    d = {"type": "speed", "at": at, "color": color, "duration": 0.6}
+    if until: d["until"] = until
+    return d
+
+
+def sad_beat(id, start, layers, until_anchor):
+    """Black 'sad' beat (refs V02/V03/V07/V08/V10): black screen, the char slowly shrinks back (zoom 1 -> 0.8)."""
+    d = sc(id, start, layers, camera=[{"at": start, "zoom": 1}, {"at": until_anchor, "zoom": 0.8}])
+    d.pop("backdrop", None); d.update(background="#000000", backdrop="none")
+    return d
+
+
+CUE.update({"shiver": ("sfx_teeth_chatter", 0.35), "sad": ("sfx_sad_sting", 0.4)})  # sad_sting: asset requested
