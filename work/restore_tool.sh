@@ -11,7 +11,8 @@ MAKER=$(ls "$W"/../.claude/skills/reel-video-maker/scripts/make_video.py /root/.
 
 cp "$W"/tool-patches/{Captions.jsx,Video.jsx,fx.jsx,layers.jsx,schema.js,timeRefs.js} "$T/src/"
 L="$T/public/library"
-cp "$W"/anatomy/images/* "$W"/gags/images/* "$W"/cards/*.png "$L/hero/"
+cp "$W"/anatomy/images/* "$W"/gags/images/* "$W"/cards/*.png "$W"/character/new/*.webp "$L/hero/"  # character/new = owner-made H images
+cp "$W/tool-patches/body_points.py" "$T/tools/"  # mediapipe tasks API (needs: pip install mediapipe; apt-get install libegl1 libgles2; model in ~/.cache/mp)
 cp "$W"/clips/library/*.mp4 "$L/clips/"
 cp "$W"/tool-patches/sfx/*.{wav,mp3} "$W"/tool-patches/typing_loud.mp3 "$L/sfx/" 2>/dev/null || true
 cp "$W/tool-patches/hero-library.json" "$L/hero/library.json"

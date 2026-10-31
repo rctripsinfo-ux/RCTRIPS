@@ -186,8 +186,16 @@ CUE = {
 
 
 def cues(pairs):
-    """pairs = [(anchor, category)] -> plan sfx list. Rule: max one cue per ~1.5 s, none per rep."""
-    return [{"at": a, "src": CUE[k][0], "volume": CUE[k][1]} for a, k in pairs]
+    """pairs = [(anchor, category)] -> plan sfx list. Rule: max one cue per ~1.5 s, none per rep.
+    A category whose sound is not in the library yet falls back to a soft whoosh (reported)."""
+    have = {"sfx_" + f.rsplit(".", 1)[0] for f in os.listdir(f"{LIB}/sfx")}
+    out = []
+    for a, k in pairs:
+        src, vol = CUE[k]
+        if src not in have:
+            print(f"cue '{k}': {src} missing, using sfx_whoosh_soft"); src, vol = "sfx_whoosh_soft", 0.3
+        out.append({"at": a, "src": src, "volume": vol})
+    return out
 
 
 # ---------- 7. static validation (cheap, before any render) ----------
@@ -278,7 +286,7 @@ PUSH_T = 0.28  # seconds of the push
 
 def chain(steps, until=None, t=PUSH_T, **place):
     """Pose sequence where each new pose pushes the old one out: old exits one side, new enters from the other.
-    steps = [(asset, anchor), ...] or [(asset, anchor, how), ...]; how = 'push' (default, direction alternates:
+    steps = [(asset, anchor), ...] or [(asset, anchor, how[, placement dict]), ...]; how = 'push' (default, direction alternates:
     old out left / new in from right, then the other way), 'up' (rise from below), 'down' (drop from above),
     'flip' (squash turn), 'cut'. Returns image layers; the last one stays until `until` (None = scene end)."""
     hows = [(s + ("push",))[2] for s in steps]
@@ -294,7 +302,7 @@ def chain(steps, until=None, t=PUSH_T, **place):
             enter = {"push": {"type": "flyRight" if dirs[i] else "flyLeft", "duration": t},
                      "up": {"type": "flyUp", "duration": 0.35}, "down": {"type": "flyDown", "duration": 0.3},
                      "flip": {"type": "squash", "duration": 0.25}, "cut": "cut"}[how]
-        L = img(a, f"{at}-{t}" if i > 0 and how == "push" else at, enter=enter, **place)
+        L = img(a, f"{at}-{t}" if i > 0 and how == "push" else at, enter=enter, **(s[3] if len(s) > 3 else place))
         if i + 1 < len(steps):
             nh = hows[i + 1]; L["until"] = steps[i + 1][1]
             L["exit"] = ({"type": "flyLeft" if dirs[i + 1] else "flyRight", "duration": t} if nh == "push" else
@@ -323,3 +331,26 @@ def sad_beat(id, start, layers, until_anchor):
 
 
 CUE.update({"shiver": ("sfx_teeth_chatter", 0.35), "sad": ("sfx_sad_sting", 0.4)})  # sad_sting: asset requested
+
+
+# ---------- 11. no blank frames between scenes ----------
+def tidy(plan):
+    """A scene starts at '<anchor>-0.05' but its layers at '<anchor>': for those 1-2 frames the screen was empty.
+    Move every layer that starts at the scene's own anchor to the scene start."""
+    for s in plan["scenes"]:
+        st = s["start"]; base = st[:-5] if st.endswith("-0.05") else None
+        if not base: continue
+        for L in s["layers"]:
+            if L.get("at") == base: L["at"] = st
+            for f in L.get("frames", []):
+                if f["at"] == base: f["at"] = st
+    return plan
+
+
+def blank_frames(mp4, min_std=6.0):
+    """Times (s) of frames that are almost one flat colour (empty screen). Run after every render."""
+    import numpy as np
+    r = subprocess.run(["ffmpeg", "-nostdin", "-loglevel", "error", "-i", mp4, "-map", "0:v:0", "-vf",
+                        "fps=30,scale=54:96,format=gray", "-f", "rawvideo", "-"], capture_output=True).stdout
+    F = np.frombuffer(r, np.uint8).reshape(-1, 96, 54).astype(np.float32)
+    return [round(i / 30, 2) for i, f in enumerate(F) if f[10:86].std() < min_std]
