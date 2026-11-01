@@ -4,7 +4,7 @@
 ```
 CREATE ALL IMAGES FOR THESE 1 THUMBNAILS. Make each one as a SEPARATE image (1 images total). Treat every prompt below as a completely separate, independent image request. Attach the same character reference image to every single one. Follow each prompt exactly as written.
 
-THUMBNAIL 1 OF 1: skinnyfat
+THUMBNAIL 1 OF 1: neckpain
 
   IMAGE SIZE: 1080x1920, 9:16 vertical (YouTube Shorts thumbnail).
 
@@ -18,15 +18,15 @@ THUMBNAIL 1 OF 1: skinnyfat
   - Keep about 8% empty margin on the left and right.
   - No element, text or body part touches or is cut off by any edge.
 
-  CORE IDEA: The text says "SKINNY ARMS? / SOFT BELLY FIX". The image proves it: the character with an IMPORTANT BODY CHANGE to a skinny-fat body: thin skinny arms but a soft round belly, pinching his belly fat with one hand and looking down at it, worried.
+  CORE IDEA: The text says "STIFF NECK? / 3 EASY FIXES". The image proves it: H hunched over a phone, one hand rubbing his sore neck.
 
   BACKGROUND: plain pure white. No colors, gradients or scenery. Only a thin faint grey floor line and soft grey shadows where needed.
 
   LAYOUT:
-  1. TEXT: a white rectangular label box with a thick black border, centered at the top of the safe area (just below the empty top margin). The label shows exactly two lines of text and nothing else. Top line: SKINNY ARMS? (written in solid black letters). Bottom line: SOFT BELLY FIX (written in bold red letters). Write only these words; never write color names or quote marks in the label. FONT: Anton (or Impact), extra-heavy condensed bold sans-serif, ALL CAPS, very thick strokes, the same font and weight for both lines. Large and readable, filling most of the safe width. Never thin, never regular weight, never a different font.
-  2. CHARACTER: front view, standing, cropped at the knees (the crop line above the bottom 20% margin), IMPORTANT BODY CHANGE: skinny-fat body (thin skinny arms, narrow shoulders, soft round belly hanging slightly over the belt), same face and H, left hand pinching the belly fat, right arm hanging thin by his side, worried face looking down at his belly. A soft red glow on the belly only.
+  1. TEXT: a white rectangular label box with a thick black border, centered at the top of the safe area (just below the empty top margin). The label shows exactly two lines of text and nothing else. Top line: STIFF NECK? (written in solid black letters). Bottom line: 3 EASY FIXES (written in bold red letters). Write only these words; never write color names or quote marks in the label. FONT: Anton (or Impact), extra-heavy condensed bold sans-serif, ALL CAPS, very thick strokes, the same font and weight for both lines. Large and readable, filling most of the safe width. Never thin, never regular weight, never a different font.
+  2. CHARACTER: front view, standing, cropped at the knees (the crop line above the bottom 20% margin), hunched forward with his head pushed down toward a smartphone in his right hand, his left hand rubbing the back of his neck, pained face. the back of his neck and the tops of his shoulders glow red with a soft red pain glow
 
   STYLE: clean semi-realistic comic illustration, bold black outlines, smooth shading, highly detailed and anatomically accurate muscles, strong soft top lighting, crisp shadows, high contrast so it reads instantly on a small phone screen.
 
-  AVOID: thin or light font, a different font, content in the top or bottom margins, anything touching the edges, colored or dark background, gradients, scenery, extra text, numbers outside the label, arrows, circles, badges, icons, fire, sparks, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, muscular arms, big biceps, six-pack abs.
+  AVOID: thin or light font, a different font, content in the top or bottom margins, anything touching the edges, colored or dark background, gradients, scenery, extra text, numbers outside the label, arrows, circles, badges, icons, fire, sparks, extra characters, changing the character's face or design, realistic photo style, 3D render, spelling errors, extra limbs, extra fingers, watermarks, .
 ```
