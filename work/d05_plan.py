@@ -52,12 +52,35 @@ S = [
 PLAN = dict(dir=f"{HERE}/scenes_d05v", words=f"{HERE}/voice/day05_cut.words.json", voice=f"{HERE}/voice/day05_cut.wav",
             music=f"{HERE}/music/hyper_lillian_thorn.mp3", scenes=S, cap_y=0.5, lead=0.06, tail=0.6,
             keywords=[])  # owner 1 Nov: captions all white, in the middle
-# owner 1 Nov: never cut H's face or feet -> only a gentle zoom on the whole picture (1.0 <-> 1.04, centred),
-# alternating in / out; no close-ups, no pans
-for i, sc in enumerate(S):
+# CAMERA (owner 1 Nov, "like Day 4"): every scene starts WIDE (whole H), the camera travels to what the voice names
+# (knee, glutes, counter, chair...) and comes back out, so close-ups are short and the full body is always seen too.
+# Zoom <= 1.45 (no soft / pixelated look). Floor poses keep a small zoom.
+CAM = {
+ "v21.jpg": [(0, 1.0, .5, .5), ("squats", 1.22, .5, .48), ("fine", 1.38, .46, .3)],              # body -> confident face
+ "v20.jpg": [(0, 1.0, .5, .5), ("knees", 1.05, .5, .5), ("ache", 1.45, .38, .6)],                 # -> the painful knee
+ "v11.jpg": [(0, 1.0, .5, .5), ("slower", 1.35, .68, .3), ("lighter", 1.35, .27, .6), ("E", 1.05, .5, .5)],  # stopwatch -> crossed-out weight
+ "v15.jpg": [(0, 1.12, .5, .4), ("sore", 1.45, .48, .62)],                                        # face -> knee
+ "v04.jpg": [(0, 1.4, .46, .42), ("problem", 1.2, .5, .48), ("knees", 1.0, .5, .5), ("all", 1.12, .5, .5)],  # tiny H -> whole glass knee
+ "v12.jpg": [(0, 1.0, .5, .5), ("knees", 1.35, .5, .68), ("down", 1.0, .5, .5)],                  # knee alignment lines
+ "v03.jpg": [(0, 1.0, .5, .5), ("cave", 1.4, .5, .68), ("stress", 1.4, .5, .68), ("E", 1.05, .5, .5)],       # knees caving in
+ "v01.jpg": [(0, 1.0, .5, .5), ("three", 1.3, .5, .22), ("fix", 1.0, .5, .5)],                    # the big 3 -> all three moves
+ "v10.jpg": [(0, 1.2, .5, .66), ("squeeze", 1.3, .6, .42), ("lift", 1.2, .5, .42), ("up", 1.0, .5, .5)],     # down pose -> glutes -> top -> both
+ "v05.jpg": [(0, 1.0, .5, .5), ("fifteen", 1.3, .5, .3)],                                         # the 15 counter
+ "v08.jpg": [(0, 1.0, .5, .5), ("side#1", 1.2, .5, .55), ("open", 1.4, .64, .5), ("Do", 1.0, .5, .5)],       # -> top knee opening
+ "v14.jpg": [(0, 1.0, .5, .5), ("chair", 1.3, .4, .6)],                                           # sitting back to the chair
+ "v07.jpg": [(0, 1.0, .5, .5), ("knees", 1.35, .5, .66), ("toes", 1.3, .5, .84)],                 # knees out -> over the toes
+ "v17.jpg": [(0, 1.25, .5, .62), ("up", 1.0, .5, .5)],                                            # rises with him
+ "v02.jpg": [(0, 1.0, .5, .5), ("ten", 1.4, .74, .14)],                                           # 10 REPS badge
+ "v19.jpg": [(0, 1.0, .5, .5), ("three", 1.35, .62, .12), ("week", 1.22, .38, .36)],              # 3x/WEEK -> the ticks
+ "v22.jpg": [(0, 1.0, .5, .5), ("sharp", 1.3, .45, .5), ("doctor", 1.15, .32, .36)],              # knee model -> the doctor
+}
+for sc in S:
     sc.pop("shake", None)
-    if sc.get("img") in ("v05.jpg", "v10.jpg", "v08.jpg") and not sc.get("card"): sc["keys"] = [(0, 1.0, .5, .5)]; continue  # floor poses touch the edges: no zoom
-    if not sc.get("card"): sc["keys"] = [(0, 1.0, .5, .5), ("E", 1.04, .5, .5)] if i % 2 == 0 else [(0, 1.04, .5, .5), ("E", 1.0, .5, .5)]
+    if sc.get("card"): continue
+    if sc["img"] == "v06.jpg":  # used twice: glutes (H from behind), then the mirror check
+        sc["keys"] = ([(0, 1.0, .5, .5), ("glutes", 1.4, .68, .66), ("butt", 1.45, .68, .72)] if "glutes" in sc["text"]
+                      else [(0, 1.0, .5, .5), ("knees", 1.4, .26, .62), ("squat", 1.0, .5, .5)])
+    else: sc["keys"] = CAM[sc["img"]]
 if __name__ == "__main__":
     a = sys.argv[1:]
     render(PLAN, f"{HERE}/final/day05{'-preview' if a else ''}.mp4", **({"t0": float(a[0]), "t1": float(a[1])} if a else {}))
