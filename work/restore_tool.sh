@@ -20,6 +20,7 @@ cp "$W/tool-patches/clips-library.json" "$L/clips/library.json"
 cp "$W/tool-patches/sfx-library.json" "$L/sfx/library.json"
 
 python3 "$W/make_assets.py"  # our generated backgrounds + sad sting
+python3 "$W/clean_cutout.py" hero_double_biceps hero_drop_from_bar hero_sad_crying_v2 hero_shrug hero_thumbs_up hero_teacher_pointer hero_point_viewer hero_count_1  # remove white fringe/holes (owner, 1 Nov)
 pkill -f "node tools/server.mjs" || true
 cd "$T" && (PORT=3011 nohup node tools/server.mjs > /tmp/reel-server.log 2>&1 &)
 for i in $(seq 30); do curl -s localhost:3011 >/dev/null && echo "Reel Engine up on :3011" && exit 0; sleep 1; done

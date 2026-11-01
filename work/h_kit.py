@@ -285,7 +285,8 @@ PUSH_T = 0.28  # seconds of the push
 
 
 def chain(steps, until=None, t=PUSH_T, **place):
-    """Pose sequence where each new pose pushes the old one out: old exits one side, new enters from the other.
+    """Pose sequence: the old pose slides out one side during the t s BEFORE the anchor, the new one slides in from the
+    other side right AT the anchor, so two H's are never on screen together (owner, 1 Nov).
     steps = [(asset, anchor), ...] or [(asset, anchor, how[, placement dict]), ...]; how = 'push' (default, direction alternates:
     old out left / new in from right, then the other way), 'up' (rise from below), 'down' (drop from above),
     'flip' (squash turn), 'cut'. Returns image layers; the last one stays until `until` (None = scene end)."""
@@ -302,7 +303,7 @@ def chain(steps, until=None, t=PUSH_T, **place):
             enter = {"push": {"type": "flyRight" if dirs[i] else "flyLeft", "duration": t},
                      "up": {"type": "flyUp", "duration": 0.35}, "down": {"type": "flyDown", "duration": 0.3},
                      "flip": {"type": "squash", "duration": 0.25}, "cut": "cut"}[how]
-        L = img(a, f"{at}-{t}" if i > 0 and how == "push" else at, enter=enter, **(s[3] if len(s) > 3 else place))
+        L = img(a, at, enter=enter, **(s[3] if len(s) > 3 else place))  # sequential: the old pose has fully left at `at`
         if i + 1 < len(steps):
             nh = hows[i + 1]; L["until"] = steps[i + 1][1]
             L["exit"] = ({"type": "flyLeft" if dirs[i + 1] else "flyRight", "duration": t} if nh == "push" else
@@ -358,7 +359,7 @@ def blank_frames(mp4, min_std=6.0):
 
 # ---------- 12. reference techniques that close the gaps (PUSHDEMO-AUDIT.md) ----------
 WAIST = {"autoAlign": False, "width": 1.15, "y": 0.8}   # waist/knee-up crop: scale variety (refs)
-FULLBG = {"autoAlign": False, "width": 1.0, "y": 0.5, "shadow": False}  # full-screen background image (bg_sunburst, bg_impact)
+FULLBG = {"autoAlign": False, "width": 1.15, "y": 0.5, "shadow": False}  # overscan: covers the frame even with camera moves  # full-screen background image (bg_sunburst, bg_impact)
 
 
 def bg(asset, at, until=None, enter="fade"):
