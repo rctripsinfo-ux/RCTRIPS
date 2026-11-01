@@ -1,16 +1,18 @@
 # Voiceover with the owner's Google AI Studio voice (same logic as superhero-voiceover-ai/server.ts):
 # Gemini TTS, prebuilt voice + the same style instructions. Needs GEMINI_API_KEY in the environment (never in the repo).
-# usage: python3 gemini_voice.py day14.txt out.wav [--voice Fenrir] [--emotion heroic] [--pitch deep] [--texture clean] [--speed 1.0]
+# Owner defaults (1 Nov): Superhero (The Titan) = Fenrir, Heroic, Natural pitch, Standard texture, 1.2x, silence remover ON
+# (fast_render cuts the silences; render with speed 1.0 so the voice is not sped up twice).
+# usage: python3 gemini_voice.py day14.txt out.wav [--voice Fenrir] [--emotion heroic] [--pitch deep] [--texture clean] [--speed 1.2]
 #        voice "TheThinker" = Zephyr + the Thinker persona (the app's default)
 import argparse, base64, json, os, sys, urllib.request, wave
 
 p = argparse.ArgumentParser()
 p.add_argument("script"); p.add_argument("out")
-p.add_argument("--voice", default=os.environ.get("H_VOICE", "TheThinker"))
+p.add_argument("--voice", default=os.environ.get("H_VOICE", "Fenrir"))
 p.add_argument("--emotion", default=os.environ.get("H_EMOTION", "heroic"))
 p.add_argument("--pitch", default=os.environ.get("H_PITCH", "default"), choices=["default", "deep", "high"])
 p.add_argument("--texture", default=os.environ.get("H_TEXTURE", "default"), choices=["default", "clean", "gravelly", "robotic"])
-p.add_argument("--speed", type=float, default=float(os.environ.get("H_SPEED", "1.0")))
+p.add_argument("--speed", type=float, default=float(os.environ.get("H_SPEED", "1.2")))
 p.add_argument("--model", default="gemini-2.5-flash-preview-tts")
 a = p.parse_args()
 key = os.environ.get("GEMINI_API_KEY")
