@@ -1,0 +1,798 @@
+{
+ "title": "Day 4",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "audio": {
+  "autoSfx": false
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 54,
+  "y": 0.82,
+  "maxWords": 3,
+  "hide": [
+   [
+    "Here's the fix",
+    "One neck stretch"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s01",
+     "shadow": true,
+     "enter": {
+      "type": "flyUp",
+      "duration": 0.35
+     },
+     "at": "start",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Look down at",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "YOUR HEAD = 5 KG",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Your head weighs",
+     "until": "Look down at"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Your head weighs",
+     "zoom": 1
+    },
+    {
+     "at": "Your head weighs+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s2",
+   "start": "Look down at-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s02",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Look down at-0.05",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Do that all",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "LOOK DOWN = 27 KG",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Look down at-0.05",
+     "until": "Do that all"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Look down at",
+     "zoom": 1
+    },
+    {
+     "at": "Look down at+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s3",
+   "start": "Do that all-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s03",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Do that all-0.05",
+     "width": 0.7,
+     "y": 0.6,
+     "x": 0.36,
+     "until": "Here's the fix",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "NECK PAIN",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Do that all-0.05",
+     "until": "Here's the fix"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_bone_spine_bad",
+     "zoom": 1,
+     "x": 0.8,
+     "y": 0.66,
+     "size": 0.28,
+     "at": "Do that all+0.3",
+     "enter": "pop",
+     "borderColor": "#FFFFFF",
+     "until": "Here's the fix"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Do that all",
+     "zoom": 1
+    },
+    {
+     "at": "Do that all+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s4",
+   "start": "Here's the fix-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s04",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Here's the fix-0.05",
+     "width": 0.7,
+     "y": 0.72,
+     "until": "One neck stretch",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "HERE'S",
+     "x": 0.5,
+     "y": 0.17,
+     "size": 120,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "letters",
+     "untype": false,
+     "enter": "punch",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's the fix-0.05"
+    },
+    {
+     "type": "text",
+     "text": "THE FIX",
+     "x": 0.5,
+     "y": 0.27,
+     "size": 220,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "letters",
+     "untype": false,
+     "enter": "punch",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "the fix"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Here's the fix",
+     "zoom": 1
+    },
+    {
+     "at": "Here's the fix+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s5",
+   "start": "One neck stretch-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s05",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "One neck stretch-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Ear to shoulder",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#1 NECK STRETCH",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "One neck stretch-0.05",
+     "until": "Ear to shoulder"
+    }
+   ],
+   "camera": [
+    {
+     "at": "One neck stretch",
+     "zoom": 1
+    },
+    {
+     "at": "One neck stretch+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s6",
+   "start": "Ear to shoulder-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s06",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Ear to shoulder-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Two doorway stretch",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    }
+   ],
+   "camera": [
+    {
+     "at": "Ear to shoulder",
+     "zoom": 1
+    },
+    {
+     "at": "Ear to shoulder+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s7",
+   "start": "Two doorway stretch-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s07",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Two doorway stretch-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Arms on the",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#2 DOORWAY STRETCH",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two doorway stretch-0.05",
+     "until": "Arms on the"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Two doorway stretch",
+     "zoom": 1
+    },
+    {
+     "at": "Two doorway stretch+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s8",
+   "start": "Arms on the-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s08",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Arms on the-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Three band pull-aparts",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    }
+   ],
+   "camera": [
+    {
+     "at": "Arms on the",
+     "zoom": 1
+    },
+    {
+     "at": "Arms on the+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s9",
+   "start": "Three band pull-aparts-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s09",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Three band pull-aparts-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Pull the band",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#3 BAND PULL-APART",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Three band pull-aparts-0.05",
+     "until": "Pull the band"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Three band pull-aparts",
+     "zoom": 1
+    },
+    {
+     "at": "Three band pull-aparts+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s10",
+   "start": "Pull the band-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "sc_d04_s10a",
+       "at": "Pull the band-0.05"
+      },
+      {
+       "asset": "sc_d04_s10b",
+       "at": "Pull the band+0.5"
+      },
+      {
+       "asset": "sc_d04_s10a",
+       "at": "Pull the band+1.0"
+      },
+      {
+       "asset": "sc_d04_s10b",
+       "at": "Pull the band+1.5"
+      },
+      {
+       "asset": "sc_d04_s10a",
+       "at": "Pull the band+2.0"
+      },
+      {
+       "asset": "sc_d04_s10b",
+       "at": "Pull the band+2.5"
+      },
+      {
+       "asset": "sc_d04_s10a",
+       "at": "Pull the band+3.0"
+      },
+      {
+       "asset": "sc_d04_s10b",
+       "at": "Pull the band+3.5"
+      },
+      {
+       "asset": "sc_d04_s10a",
+       "at": "Pull the band+4.0"
+      },
+      {
+       "asset": "sc_d04_s10b",
+       "at": "Pull the band+4.5"
+      },
+      {
+       "asset": "sc_d04_s10a",
+       "at": "Pull the band+5.0"
+      },
+      {
+       "asset": "sc_d04_s10b",
+       "at": "Pull the band+5.5"
+      }
+     ],
+     "at": "Pull the band-0.05",
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "shadow": true,
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Do this every",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    }
+   ],
+   "camera": [
+    {
+     "at": "Pull the band",
+     "zoom": 1
+    },
+    {
+     "at": "Pull the band+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s11",
+   "start": "Do this every-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s11",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Do this every-0.05",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Comment NECK if",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "NECK: FREE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Do this every-0.05",
+     "until": "Comment NECK if"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Do this every",
+     "zoom": 1
+    },
+    {
+     "at": "Do this every+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s12",
+   "start": "Comment NECK if-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s12",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Comment NECK if-0.05",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "COMMENT \"NECK\"",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Comment NECK if-0.05"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Comment NECK if",
+     "zoom": 1
+    },
+    {
+     "at": "Comment NECK if+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "Your head weighs",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Look down at",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Do that all",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Here's the fix",
+   "src": "sfx_typing_loud",
+   "volume": 1.0
+  },
+  {
+   "at": "fix.+0.15",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "One neck stretch",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Ear to shoulder",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Two doorway stretch",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Arms on the",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Three band pull-aparts",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Pull the band",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Do this every",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Do this every",
+   "src": "sfx_ding",
+   "volume": 0.35
+  },
+  {
+   "at": "Comment NECK if",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  }
+ ]
+}
