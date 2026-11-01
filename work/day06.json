@@ -649,8 +649,10 @@
       "duration": 0.25
      },
      "at": "Hands close elbows-0.05",
-     "width": 0.95,
-     "y": 0.6,
+     "autoAlign": false,
+     "width": 0.955,
+     "x": 0.501,
+     "y": 0.297,
      "until": "Three overhead extensions",
      "exit": {
       "type": "flyRight",

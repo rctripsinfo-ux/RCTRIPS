@@ -119,8 +119,9 @@
       "duration": 0.3
      },
      "at": "Day one my-0.05",
-     "width": 0.95,
-     "y": 0.6,
+     "autoAlign": false,
+     "width": 0.98,
+     "y": 0.58,
      "until": "Day seven sets",
      "exit": {
       "type": "flyRight",
@@ -369,8 +370,9 @@
       "duration": 0.25
      },
      "shadow": true,
-     "width": 0.95,
-     "y": 0.6,
+     "width": 0.98,
+     "y": 0.58,
+     "autoAlign": false,
      "until": "Bigger chest stronger",
      "exit": {
       "type": "flyLeft",
