@@ -529,8 +529,10 @@
       "duration": 0.25
      },
      "at": "Three deep squat-0.05",
-     "width": 0.95,
-     "y": 0.6,
+     "autoAlign": false,
+     "width": 0.96,
+     "x": 0.506,
+     "y": 0.601,
      "until": "Do it daily",
      "exit": {
       "type": "flyRight",

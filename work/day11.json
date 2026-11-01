@@ -1,0 +1,749 @@
+{
+ "title": "Day 11",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "audio": {
+  "autoSfx": false
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 54,
+  "y": 0.82,
+  "maxWords": 3,
+  "hide": []
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d11_s01",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "autoAlign": false,
+     "width": 0.973,
+     "x": 0.477,
+     "y": 0.568,
+     "until": "Mistake one your",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "PUSH-UPS NOT WORKING?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": {
+      "type": "slam",
+      "duration": 0.3
+     },
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "Mistake one your"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "start+0.12",
+     "duration": 0.15
+    },
+    {
+     "type": "speed",
+     "at": "start",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "start+0.7"
+    }
+   ],
+   "camera": [
+    {
+     "at": "start",
+     "zoom": 1.7,
+     "focus": [
+      0.5,
+      0.42
+     ]
+    },
+    {
+     "at": "start+0.3",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+0.9",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+1.2",
+     "zoom": 1.1,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s2",
+   "start": "Mistake one your-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d11_s02",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Mistake one your-0.05",
+     "autoAlign": false,
+     "width": 0.953,
+     "x": 0.506,
+     "y": 0.6,
+     "until": "Squeeze your glutes",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "MISTAKE 1: SAGGING HIPS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Mistake one your-0.05",
+     "until": "Squeeze your glutes"
+    },
+    {
+     "type": "speed",
+     "at": "Mistake one your-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Mistake one your+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Mistake one your",
+     "zoom": 1.0
+    },
+    {
+     "at": "Mistake one your+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Mistake one your+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s3",
+   "start": "Squeeze your glutes-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d11_s03",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Squeeze your glutes-0.05",
+     "autoAlign": false,
+     "width": 0.953,
+     "x": 0.503,
+     "y": 0.584,
+     "until": "Mistake two half",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "FIX: STRAIGHT LINE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Squeeze your glutes-0.05",
+     "until": "Mistake two half"
+    },
+    {
+     "type": "speed",
+     "at": "Squeeze your glutes-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Squeeze your glutes+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Squeeze your glutes",
+     "zoom": 1.0
+    },
+    {
+     "at": "Squeeze your glutes+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Squeeze your glutes+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s4",
+   "start": "Mistake two half-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d11_s04",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Mistake two half-0.05",
+     "autoAlign": false,
+     "width": 0.948,
+     "x": 0.502,
+     "y": 0.577,
+     "until": "Go down until",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "MISTAKE 2: HALF REPS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Mistake two half-0.05",
+     "until": "Go down until"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Mistake two half",
+     "zoom": 1
+    },
+    {
+     "at": "Mistake two half+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s5",
+   "start": "Go down until-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d11_s05",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Go down until-0.05",
+     "autoAlign": false,
+     "width": 0.955,
+     "x": 0.509,
+     "y": 0.606,
+     "until": "Mistake three elbows",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "FIX: CHEST TO FLOOR",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Go down until-0.05",
+     "until": "Mistake three elbows"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Go down until",
+     "zoom": 1
+    },
+    {
+     "at": "Go down until+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s6",
+   "start": "Mistake three elbows-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d11_s06",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Mistake three elbows-0.05",
+     "autoAlign": false,
+     "width": 0.914,
+     "x": 0.499,
+     "y": 0.617,
+     "until": "Keep them close",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "MISTAKE 3: ELBOWS OUT",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Mistake three elbows-0.05",
+     "until": "Keep them close"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Mistake three elbows",
+     "zoom": 1
+    },
+    {
+     "at": "Mistake three elbows+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s7",
+   "start": "Keep them close-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d11_s07",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Keep them close-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Can't do it",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "FIX: ELBOWS IN",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Keep them close-0.05",
+     "until": "Can't do it"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Keep them close",
+     "zoom": 1
+    },
+    {
+     "at": "Keep them close+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s8",
+   "start": "Can't do it-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d11_s08",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Can't do it-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Start on your",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "START HERE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Can't do it-0.05",
+     "until": "Start on your"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Can't do it",
+     "zoom": 1
+    },
+    {
+     "at": "Can't do it+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s9",
+   "start": "Start on your-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "sc_d11_s09a",
+       "at": "Start on your-0.05"
+      },
+      {
+       "asset": "sc_d11_s09b",
+       "at": "Start on your+0.5"
+      },
+      {
+       "asset": "sc_d11_s09a",
+       "at": "Start on your+1.0"
+      },
+      {
+       "asset": "sc_d11_s09b",
+       "at": "Start on your+1.5"
+      },
+      {
+       "asset": "sc_d11_s09a",
+       "at": "Start on your+2.0"
+      },
+      {
+       "asset": "sc_d11_s09b",
+       "at": "Start on your+2.5"
+      },
+      {
+       "asset": "sc_d11_s09a",
+       "at": "Start on your+3.0"
+      },
+      {
+       "asset": "sc_d11_s09b",
+       "at": "Start on your+3.5"
+      },
+      {
+       "asset": "sc_d11_s09a",
+       "at": "Start on your+4.0"
+      },
+      {
+       "asset": "sc_d11_s09b",
+       "at": "Start on your+4.5"
+      },
+      {
+       "asset": "sc_d11_s09a",
+       "at": "Start on your+5.0"
+      },
+      {
+       "asset": "sc_d11_s09b",
+       "at": "Start on your+5.5"
+      }
+     ],
+     "at": "Start on your-0.05",
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "shadow": true,
+     "width": 0.938,
+     "y": 0.566,
+     "autoAlign": false,
+     "x": 0.503,
+     "until": "Comment which mistake",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    }
+   ],
+   "camera": [
+    {
+     "at": "Start on your",
+     "zoom": 1
+    },
+    {
+     "at": "Start on your+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s10",
+   "start": "Comment which mistake-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d11_s10",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Comment which mistake-0.05",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "WHICH ONE ARE YOU?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Comment which mistake-0.05"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Comment which mistake",
+     "zoom": 1
+    },
+    {
+     "at": "Comment which mistake+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "start+0.35",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Mistake one your",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Squeeze your glutes",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Mistake two half",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Go down until",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Mistake three elbows",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Keep them close",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Can't do it",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Start on your",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Start on your",
+   "src": "sfx_ding",
+   "volume": 0.35
+  },
+  {
+   "at": "Comment which mistake",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  }
+ ]
+}

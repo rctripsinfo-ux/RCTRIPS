@@ -209,8 +209,10 @@
       "duration": 0.3
      },
      "at": "Crunches barely touch-0.05",
-     "width": 0.95,
-     "y": 0.6,
+     "autoAlign": false,
+     "width": 0.923,
+     "x": 0.499,
+     "y": 0.332,
      "until": "Here's the fix",
      "exit": {
       "type": "flyLeft",
@@ -406,8 +408,10 @@
       "duration": 0.25
      },
      "shadow": true,
-     "width": 0.95,
-     "y": 0.6,
+     "width": 0.938,
+     "y": 0.446,
+     "autoAlign": false,
+     "x": 0.499,
      "until": "Two side plank",
      "exit": {
       "type": "flyLeft",
