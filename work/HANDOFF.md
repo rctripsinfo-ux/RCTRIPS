@@ -45,6 +45,8 @@
 - Day 4 NEW script is in `scripts_d4_30.py`: each tuple names its image (`sc_d04_sNN`, library id, or `a|b` loop). 9 new images needed: `FLOW-DAY4-NEW.md` (`d04_n05` … `d04_n16b`). Put them in `character/scenes/`, run `python3 import_scenes.py 4`, then `python3 build_scene_video.py 4` and `MUSIC_VOL=0.06 python3 fast_render.py day04 day04.txt day04.json 1.0`.
 - apt for image import: run `apt-get update` first, else libegl1/libgles2 are "not found".
 
+- **Day 4 v2 (1 Nov, master workflow):** made with `director.py` (own compositor: full-frame 9:16 images, overlapping transitions, camera keys/pans, white intro cards, one-word black/red captions per scene, SFX on words, -13 LUFS) + `d04_plan.py` (the per-scene plan). Images: `scenes_d04v2/01..31.jpg` (Gemini sparkle inpainted; originals in `flow_raw/d04v2`). Voice: `voice/day04_cut.wav` + words. Render: `python3 d04_plan.py` (~2.5 min), then `add_end_thumb.py`. Preview a part: `python3 d04_plan.py 0 6`. New videos: copy `d04_plan.py`, give each video its own concept (PRODUCTION-WORKFLOW.md).
+
 **Owner rules added 1 Nov:**
 - Every scene gets a unique, dynamic pose.
 - Only one H on screen at a time.
