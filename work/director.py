@@ -58,6 +58,16 @@ def view(img, z, fx, fy, dx=0.0, dy=0.0):
     cx = min(max(fx * iw + dx * cw, cw / 2), iw - cw / 2); cy = min(max(fy * ih + dy * ch, ch / 2), ih - ch / 2)
     return img.transform((W, H), Image.EXTENT, (cx - cw / 2, cy - ch / 2, cx + cw / 2, cy + ch / 2), Image.BILINEAR)
 
+_clip_cache = {}
+def clip_frames(path):
+    """all frames of a video clip at FPS (sound ignored), as PIL images at the clip's own size"""
+    if path not in _clip_cache:
+        pr = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0", path], capture_output=True, text=True).stdout.split(",")
+        w, h = int(pr[0]), int(pr[1])
+        raw = subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-i", path, "-an", "-vf", f"fps={FPS}", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True, check=True).stdout
+        n = len(raw) // (w * h * 3); _clip_cache[path] = [Image.frombuffer("RGB", (w, h), raw[i * w * h * 3:(i + 1) * w * h * 3]) for i in range(n)]
+    return _clip_cache[path]
+
 def keyval(keys, u, dur):
     ks = [((dur + float(k[0][1:] or 0)) if isinstance(k[0], str) else k[0], *k[1:]) for k in keys]
     if u <= ks[0][0]: return ks[0][1:]
@@ -111,7 +121,10 @@ class Renderer:
             if 0 <= t - ts < 0.35:
                 k = (1 - (t - ts) / 0.35) * amp; rnd = random.Random(int(t * FPS)); dx, dy = (rnd.random() - .5) * k, (rnd.random() - .5) * k
                 z = max(z, 1.06)
-        return view(load(f"{self.P['dir']}/{s['img']}", s.get("pad", False)), z, fx, fy, dx, dy)
+        if s.get("clip"):  # owner's animated version of the scene image (muted): frame at the scene's local time, held at the end
+            fr = clip_frames(f"{self.P['dir']}/{s['clip']}"); src = fr[min(len(fr) - 1, int(u * FPS))]
+        else: src = load(f"{self.P['dir']}/{s['img']}", s.get("pad", False))
+        return view(src, z, fx, fy, dx, dy)
 
     def card(self, s, u):
         num, title = s["card"]; c = Image.new("RGBA", (W, H), (255, 255, 255, 255))
@@ -124,8 +137,14 @@ class Renderer:
             if bar > 0: d.rectangle([W / 2 - 260 * bar, H * 0.625, W / 2 + 260 * bar, H * 0.625 + 16], fill=RED)
             return c.convert("RGB")
         if s.get("img"):
-            src = load(f"{self.P['dir']}/{s['img']}"); bw = int(W * 0.74); bh = int(bw * src.height / src.width)
-            bh = min(bh, int(H * 0.5)); bw = int(bh * src.width / src.height)
+            src = load(f"{self.P['dir']}/{s['img']}")
+            if "_trim" not in s:  # white-background picture: cut the empty white around it so the panel is filled
+                g = np.asarray(src.convert("L")) < 235; ys, xs = np.where(g)
+                if len(xs):
+                    m = 30; s["_trim"] = src.crop((max(0, xs.min() - m), max(0, ys.min() - m), min(src.width, xs.max() + m), min(src.height, ys.max() + m)))
+                else: s["_trim"] = src
+            src = s["_trim"]; bw = int(W * 0.86); bh = int(bw * src.height / src.width)
+            if bh > H * 0.5: bh = int(H * 0.5); bw = int(bh * src.width / src.height)
             panel = rounded(src.resize((bw, bh), Image.BILINEAR)); p = back(u / 0.3, 1.2)
             sh = Image.new("RGBA", (bw + 80, bh + 80), (0, 0, 0, 0)); ImageDraw.Draw(sh).rounded_rectangle([40, 50, bw + 40, bh + 40], 36, fill=(0, 0, 0, 70))
             paste_center(c, sh.filter(ImageFilter.GaussianBlur(18)), W / 2, H * 0.33 + 10, 0.85 + 0.15 * p, min(1, u / 0.15))
