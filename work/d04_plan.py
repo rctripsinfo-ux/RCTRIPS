@@ -9,7 +9,8 @@ from director import render, HERE
 
 S = [  # text (exact script words), img, transition in, camera keys (t, zoom, fx, fy), caption y, shake, sfx
  dict(text="You finish a long day on your phone or laptop,", img="01.jpg",
-      keys=[(0, 1.5, .55, .33), (0.35, 1.0, .5, .5), ("E", 1.07, .55, .42)], sfx=[(0, "whoosh_big", .5), (0.12, "hammer", .45)]),
+      keys=[(0, 1.75, .32, .42), ("long", 1.8, .32, .41), ("day+0.08", 1.65, .76, .22), ("phone+0.1", 1.65, .76, .22), ("laptop+0.15", 1.0, .5, .5)],
+      sfx=[(0.05, "whoosh_soft", .12), ("long", "whoosh_short", .15)]),  # stressed face -> the clock (long day) -> pull out to the desk
  dict(text="and your neck feels stiff and heavy.", img="02.jpg", tr="smash", d=0.34,
       keys=[(0, 1.0, .5, .5), ("E", 1.1, .42, .42)], shake=[("heavy", .05)], sfx=[(0, "whoosh_fast", .4), ("heavy", "concrete_break", .5)]),
  dict(text="Your shoulders are tight,", img="03.jpg", tr="zoom",
@@ -37,7 +38,7 @@ S = [  # text (exact script words), img, transition in, camera keys (t, zoom, fx
       keys=[(0, 1.0, .5, .5), ("E", 1.2, .42, .3)], sfx=[(0, "whoosh_short", .3)]),
  dict(text="Here are three easy moves to fix it.", img="14.jpg", tr="smash",
       keys=[(0, 1.0, .5, .5), ("E", 1.07, .5, .4)], shake=[("three", .05)], sfx=[(0, "whoosh_fire", .45), ("three", "hammer", .45)]),
- dict(text="First, chin tucks.", img="15.jpg", card=("01", "CHIN TUCKS"), tr="push_l", sfx=[(0, "whoosh_swipe", .4), (0.1, "pop", .45)]),
+ dict(text="First, chin tucks.", card=("01", "CHIN TUCKS"), tr="push_l", sfx=[(0, "whoosh_swipe", .4), (0.1, "pop", .45)]),
  dict(text="Sit tall and gently", img="16.jpg", tr="push_l", keys=[(0, 1.15, .55, .4), ("E", 1.22, .58, .3)], cap_y=0.84),
  dict(text="slide your chin straight back,", img="17.jpg", tr="push_l",
       keys=[(0, 1.75, .28, .45), (0.25, 1.75, .28, .45), ("E-0.1", 1.75, .72, .45)], sfx=[(0.25, "swish", .35)]),  # pan: neutral -> tucked
@@ -45,25 +46,25 @@ S = [  # text (exact script words), img, transition in, camera keys (t, zoom, fx
       keys=[(0, 1.0, .5, .5), ("E", 1.15, .5, .6)], cap_y=0.87),
  dict(text="Hold for three seconds and do ten.", img="19.jpg", tr="push_l",
       keys=[(0, 1.0, .5, .5), ("E", 1.06, .55, .45)], sfx=[("three", "click", .45), ("ten", "click", .45)]),
- dict(text="Second, the doorway stretch.", img="20.jpg", card=("02", "DOORWAY STRETCH"), tr="push_r", sfx=[(0, "whoosh_swipe", .4), (0.1, "pop", .45)]),
+ dict(text="Second, the doorway stretch.", card=("02", "DOORWAY STRETCH"), tr="push_r", sfx=[(0, "whoosh_swipe", .4), (0.1, "pop", .45)]),
  dict(text="Put your forearms on a door frame", img="21.jpg", tr="push_r", keys=[(0, 1.0, .5, .5), ("E", 1.12, .5, .38)]),
  dict(text="and step forward slowly until you feel your chest open.", img="22.jpg", tr="push_r",
       keys=[(0, 1.0, .5, .5), ("E", 1.18, .5, .38)], sfx=[("open", "stretch", .35)]),
  dict(text="Hold for twenty seconds.", img="23.jpg", tr="push_r",
       keys=[(0, 1.0, .5, .5), ("twenty", 1.35, .68, .52)], sfx=[("twenty", "click", .45)]),
- dict(text="Third, wall angels.", img="24.jpg", card=("03", "WALL ANGELS"), tr="push_u", sfx=[(0, "whoosh_swipe", .4), (0.1, "pop", .45)]),
+ dict(text="Third, wall angels.", card=("03", "WALL ANGELS"), tr="push_u", sfx=[(0, "whoosh_swipe", .4), (0.1, "pop", .45)]),
  dict(text="Stand with your back against a wall", img="25.jpg", tr="push_u", keys=[(0, 1.0, .5, .5), ("E", 1.08, .5, .45)]),
  dict(text="and slowly slide your arms up and down,", img="26.jpg", tr="push_u",
       keys=[(0, 1.7, .3, .44), ("slide", 1.7, .3, .44), ("down", 1.7, .72, .44)], sfx=[("slide", "swoosh_up", .35)], cap_y=0.84),  # pan: position A -> B
  dict(text="ten times.", img="27.jpg", tr="flash", keys=[(0, 1.0, .5, .5), ("E", 1.08, .55, .55)], sfx=[("ten", "click", .45)]),
- dict(text="Do these every evening,", img="28.jpg", tr="zoom", keys=[(0, 1.5, .22, .5), ("E", 1.5, .78, .5)]),  # pan across the 3 evening panels
+ dict(text="Do these every evening,", img="28b.jpg", tr="zoom", keys=[(0, 1.0, .5, .5), ("E", 1.1, .5, .4)]),  # owner: the grey 3-panel image looked bad -> H relaxing on the sofa in the evening
  dict(text="and lift your phone to eye level during the day.", img="29.jpg", tr="push_l",
       keys=[(0, 1.75, .27, .45), ("lift", 1.75, .27, .45), ("eye", 1.75, .74, .45)], sfx=[("lift", "swish", .35)]),  # pan: bad -> good posture
  dict(text="Your neck will thank you.", img="30.jpg", tr="zoom", keys=[(0, 1.0, .5, .5), ("E", 1.08, .5, .4)], sfx=[("thank", "sparkle", .4)]),
  dict(text="If the pain is sharp or doesn't go away, see a doctor.", img="31.jpg", tr="fade", d=0.4, keys=[(0, 1.0, .5, .5), ("E", 1.06, .55, .45)]),
 ]
 PLAN = dict(dir=f"{HERE}/scenes_d04v2", words=f"{HERE}/voice/day04_cut.words.json", voice=f"{HERE}/voice/day04_cut.wav",
-            music=f"{HERE}/music/hyper_lillian_thorn.mp3", music_vol=0.06, scenes=S, cap_y=0.8, lead=0.06, tail=0.6,
+            music=f"{HERE}/music/hyper_lillian_thorn.mp3", music_vol=0.06, sfx_gain=0.6, scenes=S, cap_y=0.8, lead=0.06, tail=0.6,
             hook=dict(text=("STIFF ", "NECK?"), until="and", y=0.085),
             keywords=["stiff", "heavy", "tight", "relief", "alone", "five", "kilos", "harder", "many", "hours", "sore", "three", "fix",
                       "chin", "tucks", "double", "ten", "doorway", "stretch", "forearms", "chest", "twenty", "wall", "angels",

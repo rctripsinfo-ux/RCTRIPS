@@ -109,6 +109,14 @@ class Renderer:
 
     def card(self, s, u):
         num, title = s["card"]; c = Image.new("RGBA", (W, H), (255, 255, 255, 255))
+        if not s.get("img"):  # text-only card (owner 1 Nov: no shrunken pictures)
+            nb = text_img(num, F_BIG, 420, RED); tt = text_img(title, F_BIG, 170, INK, maxw=W * 0.88)
+            e0, e1 = back(u / 0.28, 1.4), ease((u - 0.1) / 0.25)
+            paste_center(c, nb, W / 2, H * 0.40, 0.7 + 0.3 * e0, min(1, max(0, u / 0.1)))
+            paste_center(c, tt, W / 2 + (1 - e1) * W * 0.6, H * 0.57, alpha=min(1, max(0, (u - 0.1) / 0.1)))
+            bar = ease((u - 0.22) / 0.3); d = ImageDraw.Draw(c)
+            if bar > 0: d.rectangle([W / 2 - 260 * bar, H * 0.625, W / 2 + 260 * bar, H * 0.625 + 16], fill=RED)
+            return c.convert("RGB")
         if s.get("img"):
             src = load(f"{self.P['dir']}/{s['img']}"); bw = int(W * 0.74); bh = int(bw * src.height / src.width)
             bh = min(bh, int(H * 0.5)); bw = int(bh * src.width / src.height)
@@ -171,7 +179,7 @@ class Renderer:
         txt = w["text"].strip(",.;:!?\"").upper(); kw = norm(w["text"]) in self.kw
         key = (txt, kw)
         if key not in self.cap_cache:
-            self.cap_cache[key] = text_img(txt, F_CAP, 132 if kw else 112, RED if kw else INK, stroke=13, maxw=W * 0.86)
+            self.cap_cache[key] = text_img(txt, F_CAP, 132 if kw else 118, RED if kw else (255, 255, 255), stroke=15, stroke_fill=(0, 0, 0), maxw=W * 0.86)  # owner ref: white bold italic, thick black outline
         p = (t - w["start"]) / 0.13; sc = 0.6 + 0.4 * back(p, 2.0) if p < 1 else 1.0
         y = self.tl.sc[j].get("cap_y", self.P.get("cap_y", 0.8))
         return self.cap_cache[key], y, sc
@@ -207,7 +215,7 @@ class Renderer:
             for a, name, vol in s.get("sfx", []):
                 f = glob.glob(f"{SFX_DIR}/{name}.*"); assert f, name
                 ms = int(max(0, self.tl.at(a, s)) * 1000); ins += ["-i", f[0]]
-                fl.append(f"[{k}:a]aresample=48000,aformat=channel_layouts=stereo,volume={vol},adelay={ms}|{ms}[s{k}]"); mixes.append(f"[s{k}]"); k += 1
+                fl.append(f"[{k}:a]aresample=48000,aformat=channel_layouts=stereo,volume={vol * P.get('sfx_gain', 1.0):.3f},adelay={ms}|{ms}[s{k}]"); mixes.append(f"[s{k}]"); k += 1
         fl.append("".join(mixes) + f"amix=inputs={len(mixes)}:normalize=0:duration=first,atrim=0:{dur}[out]")
         subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y", *ins, "-filter_complex", ";".join(fl), "-map", "[out]", "-ar", "48000", out], check=True)
 
