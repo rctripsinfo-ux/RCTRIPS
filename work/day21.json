@@ -24,19 +24,10 @@
    "backdrop": "spotlight",
    "layers": [
     {
-     "type": "pulse",
-     "kind": "impact",
-     "at": "start",
-     "duration": 0.15
-    },
-    {
      "type": "image",
      "asset": "sc_d21_s01",
      "shadow": true,
-     "enter": {
-      "type": "flyUp",
-      "duration": 0.35
-     },
+     "enter": "cut",
      "at": "start",
      "autoAlign": false,
      "width": 0.84,
@@ -70,6 +61,12 @@
      },
      "at": "start",
      "until": "Day one I"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "start+0.12",
+     "duration": 0.15
     },
     {
      "type": "speed",
@@ -118,8 +115,8 @@
      "asset": "sc_d21_s02",
      "shadow": true,
      "enter": {
-      "type": "flyLeft",
-      "duration": 0.25
+      "type": "whip",
+      "duration": 0.3
      },
      "at": "Day one I-0.05",
      "autoAlign": false,
@@ -151,16 +148,31 @@
      },
      "at": "Day one I-0.05",
      "until": "Day seven no"
+    },
+    {
+     "type": "speed",
+     "at": "Day one I-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Day one I+0.4"
     }
    ],
    "camera": [
     {
      "at": "Day one I",
-     "zoom": 1
+     "zoom": 1.0
     },
     {
-     "at": "Day one I+3",
-     "zoom": 1.07
+     "at": "Day one I+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Day one I+1.5",
+     "zoom": 1.05
     }
    ],
    "backdropColor": "#FFF6E8",
@@ -176,8 +188,8 @@
      "asset": "sc_d21_s03",
      "shadow": true,
      "enter": {
-      "type": "flyRight",
-      "duration": 0.25
+      "type": "whip",
+      "duration": 0.3
      },
      "at": "Day seven no-0.05",
      "width": 0.8,
@@ -208,16 +220,31 @@
      },
      "at": "Day seven no-0.05",
      "until": "Day fourteen I"
+    },
+    {
+     "type": "speed",
+     "at": "Day seven no-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Day seven no+0.4"
     }
    ],
    "camera": [
     {
      "at": "Day seven no",
-     "zoom": 1
+     "zoom": 1.0
     },
     {
-     "at": "Day seven no+3",
-     "zoom": 1.07
+     "at": "Day seven no+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Day seven no+1.5",
+     "zoom": 1.05
     }
    ],
    "backdropColor": "#FFF6E8",

@@ -1,0 +1,1013 @@
+{
+ "title": "Day 6",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "audio": {
+  "autoSfx": false
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 54,
+  "y": 0.82,
+  "maxWords": 3,
+  "hide": [
+   [
+    "Here's the fix",
+    "One bench dips"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d06_s01",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Seventy percent of",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "STOP CURLING",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": {
+      "type": "slam",
+      "duration": 0.3
+     },
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "Seventy percent of"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "start+0.12",
+     "duration": 0.15
+    },
+    {
+     "type": "speed",
+     "at": "start",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "start+0.7"
+    }
+   ],
+   "camera": [
+    {
+     "at": "start",
+     "zoom": 1.7,
+     "focus": [
+      0.5,
+      0.42
+     ]
+    },
+    {
+     "at": "start+0.3",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+0.9",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+1.2",
+     "zoom": 1.1,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s2",
+   "start": "Seventy percent of-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d06_s02",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Seventy percent of-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Biceps are the",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "speed",
+     "at": "Seventy percent of-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Seventy percent of+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Seventy percent of",
+     "zoom": 1.0
+    },
+    {
+     "at": "Seventy percent of+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Seventy percent of+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s3",
+   "start": "Biceps are the-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d06_s03",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Biceps are the-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Triceps are the",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "BICEPS = 1/3",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Biceps are the-0.05",
+     "until": "Triceps are the"
+    },
+    {
+     "type": "speed",
+     "at": "Biceps are the-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Biceps are the+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Biceps are the",
+     "zoom": 1.0
+    },
+    {
+     "at": "Biceps are the+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Biceps are the+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s4",
+   "start": "Triceps are the-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d06_s04",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Triceps are the-0.05",
+     "width": 0.7,
+     "y": 0.6,
+     "x": 0.36,
+     "until": "Curls only and",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "TRICEPS = 2/3",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Triceps are the-0.05",
+     "until": "Curls only and"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_muscle_triceps",
+     "zoom": 1,
+     "x": 0.8,
+     "y": 0.66,
+     "size": 0.28,
+     "at": "Triceps are the+0.3",
+     "enter": "pop",
+     "borderColor": "#FFFFFF",
+     "until": "Curls only and"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Triceps are the",
+     "zoom": 1
+    },
+    {
+     "at": "Triceps are the+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s5",
+   "start": "Curls only and-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d06_s05",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Curls only and-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Here's the fix",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "SMALL ARMS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Curls only and-0.05",
+     "until": "Here's the fix"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Curls only and",
+     "zoom": 1
+    },
+    {
+     "at": "Curls only and+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s6",
+   "start": "Here's the fix-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d06_s06",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Here's the fix-0.05",
+     "width": 0.7,
+     "y": 0.72,
+     "until": "One bench dips",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "HERE'S",
+     "x": 0.5,
+     "y": 0.17,
+     "size": 120,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "letters",
+     "untype": false,
+     "enter": "punch",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's the fix-0.05"
+    },
+    {
+     "type": "text",
+     "text": "THE FIX",
+     "x": 0.5,
+     "y": 0.27,
+     "size": 220,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "letters",
+     "untype": false,
+     "enter": "punch",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "the fix"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Here's the fix",
+     "zoom": 1
+    },
+    {
+     "at": "Here's the fix+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s7",
+   "start": "One bench dips-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d06_s07",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "One bench dips-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Hands on a",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#1 BENCH DIPS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "One bench dips-0.05",
+     "until": "Hands on a"
+    }
+   ],
+   "camera": [
+    {
+     "at": "One bench dips",
+     "zoom": 1
+    },
+    {
+     "at": "One bench dips+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s8",
+   "start": "Hands on a-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "sc_d06_s08a",
+       "at": "Hands on a-0.05"
+      },
+      {
+       "asset": "sc_d06_s08b",
+       "at": "Hands on a+0.5"
+      },
+      {
+       "asset": "sc_d06_s08a",
+       "at": "Hands on a+1.0"
+      },
+      {
+       "asset": "sc_d06_s08b",
+       "at": "Hands on a+1.5"
+      },
+      {
+       "asset": "sc_d06_s08a",
+       "at": "Hands on a+2.0"
+      },
+      {
+       "asset": "sc_d06_s08b",
+       "at": "Hands on a+2.5"
+      },
+      {
+       "asset": "sc_d06_s08a",
+       "at": "Hands on a+3.0"
+      },
+      {
+       "asset": "sc_d06_s08b",
+       "at": "Hands on a+3.5"
+      },
+      {
+       "asset": "sc_d06_s08a",
+       "at": "Hands on a+4.0"
+      },
+      {
+       "asset": "sc_d06_s08b",
+       "at": "Hands on a+4.5"
+      },
+      {
+       "asset": "sc_d06_s08a",
+       "at": "Hands on a+5.0"
+      },
+      {
+       "asset": "sc_d06_s08b",
+       "at": "Hands on a+5.5"
+      }
+     ],
+     "at": "Hands on a-0.05",
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "shadow": true,
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Two diamond push-ups",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    }
+   ],
+   "camera": [
+    {
+     "at": "Hands on a",
+     "zoom": 1
+    },
+    {
+     "at": "Hands on a+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s9",
+   "start": "Two diamond push-ups-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d06_s09",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Two diamond push-ups-0.05",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Hands close elbows",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#2 DIAMOND PUSH-UPS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two diamond push-ups-0.05",
+     "until": "Hands close elbows"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Two diamond push-ups",
+     "zoom": 1
+    },
+    {
+     "at": "Two diamond push-ups+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s10",
+   "start": "Hands close elbows-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d06_s10b",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Hands close elbows-0.05",
+     "width": 0.95,
+     "y": 0.6,
+     "until": "Three overhead extensions",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    }
+   ],
+   "camera": [
+    {
+     "at": "Hands close elbows",
+     "zoom": 1
+    },
+    {
+     "at": "Hands close elbows+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s11",
+   "start": "Three overhead extensions-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d06_s11",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Three overhead extensions-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Lower the weight",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#3 OVERHEAD EXTENSION",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Three overhead extensions-0.05",
+     "until": "Lower the weight"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Three overhead extensions",
+     "zoom": 1
+    },
+    {
+     "at": "Three overhead extensions+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s12",
+   "start": "Lower the weight-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "sc_d06_s12a",
+       "at": "Lower the weight-0.05"
+      },
+      {
+       "asset": "sc_d06_s12b",
+       "at": "Lower the weight+0.5"
+      },
+      {
+       "asset": "sc_d06_s12a",
+       "at": "Lower the weight+1.0"
+      },
+      {
+       "asset": "sc_d06_s12b",
+       "at": "Lower the weight+1.5"
+      },
+      {
+       "asset": "sc_d06_s12a",
+       "at": "Lower the weight+2.0"
+      },
+      {
+       "asset": "sc_d06_s12b",
+       "at": "Lower the weight+2.5"
+      },
+      {
+       "asset": "sc_d06_s12a",
+       "at": "Lower the weight+3.0"
+      },
+      {
+       "asset": "sc_d06_s12b",
+       "at": "Lower the weight+3.5"
+      },
+      {
+       "asset": "sc_d06_s12a",
+       "at": "Lower the weight+4.0"
+      },
+      {
+       "asset": "sc_d06_s12b",
+       "at": "Lower the weight+4.5"
+      },
+      {
+       "asset": "sc_d06_s12a",
+       "at": "Lower the weight+5.0"
+      },
+      {
+       "asset": "sc_d06_s12b",
+       "at": "Lower the weight+5.5"
+      }
+     ],
+     "at": "Lower the weight-0.05",
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "shadow": true,
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Train these twice",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    }
+   ],
+   "camera": [
+    {
+     "at": "Lower the weight",
+     "zoom": 1
+    },
+    {
+     "at": "Lower the weight+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s13",
+   "start": "Train these twice-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d06_s13",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Train these twice-0.05",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Comment ARMS if",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "ARMS: BIGGER",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Train these twice-0.05",
+     "until": "Comment ARMS if"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Train these twice",
+     "zoom": 1
+    },
+    {
+     "at": "Train these twice+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s14",
+   "start": "Comment ARMS if-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d06_s14",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Comment ARMS if-0.05",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "COMMENT \"ARMS\"",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Comment ARMS if-0.05"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Comment ARMS if",
+     "zoom": 1
+    },
+    {
+     "at": "Comment ARMS if+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "start+0.35",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Seventy percent of",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Biceps are the",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Triceps are the",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Curls only and",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Here's the fix",
+   "src": "sfx_typing_loud",
+   "volume": 1.0
+  },
+  {
+   "at": "fix.+0.15",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "One bench dips",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Hands on a",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Two diamond push-ups",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Hands close elbows",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Three overhead extensions",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Lower the weight",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Train these twice",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Train these twice",
+   "src": "sfx_ding",
+   "volume": 0.35
+  },
+  {
+   "at": "Comment ARMS if",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  }
+ ]
+}

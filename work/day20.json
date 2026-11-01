@@ -24,19 +24,10 @@
    "backdrop": "spotlight",
    "layers": [
     {
-     "type": "pulse",
-     "kind": "impact",
-     "at": "start",
-     "duration": 0.15
-    },
-    {
      "type": "image",
      "asset": "sc_d20_s01",
      "shadow": true,
-     "enter": {
-      "type": "flyUp",
-      "duration": 0.35
-     },
+     "enter": "cut",
      "at": "start",
      "width": 0.8,
      "y": 0.62,
@@ -69,6 +60,12 @@
      },
      "at": "start",
      "until": "Most people quit"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "start+0.12",
+     "duration": 0.15
     },
     {
      "type": "speed",
@@ -117,8 +114,8 @@
      "asset": "sc_d20_s02",
      "shadow": true,
      "enter": {
-      "type": "flyLeft",
-      "duration": 0.25
+      "type": "whip",
+      "duration": 0.3
      },
      "at": "Most people quit-0.05",
      "width": 0.8,
@@ -128,16 +125,31 @@
       "type": "flyRight",
       "duration": 0.25
      }
+    },
+    {
+     "type": "speed",
+     "at": "Most people quit-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Most people quit+0.4"
     }
    ],
    "camera": [
     {
      "at": "Most people quit",
-     "zoom": 1
+     "zoom": 1.0
     },
     {
-     "at": "Most people quit+3",
-     "zoom": 1.07
+     "at": "Most people quit+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Most people quit+1.5",
+     "zoom": 1.05
     }
    ],
    "backdropColor": "#FFF6E8",
@@ -153,8 +165,8 @@
      "asset": "sc_d20_s03",
      "shadow": true,
      "enter": {
-      "type": "flyRight",
-      "duration": 0.25
+      "type": "whip",
+      "duration": 0.3
      },
      "at": "Back on the-0.05",
      "autoAlign": false,
@@ -186,16 +198,31 @@
      },
      "at": "Back on the-0.05",
      "until": "Under thirty seconds"
+    },
+    {
+     "type": "speed",
+     "at": "Back on the-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Back on the+0.4"
     }
    ],
    "camera": [
     {
      "at": "Back on the",
-     "zoom": 1
+     "zoom": 1.0
     },
     {
-     "at": "Back on the+3",
-     "zoom": 1.07
+     "at": "Back on the+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Back on the+1.5",
+     "zoom": 1.05
     }
    ],
    "backdropColor": "#FFF6E8",

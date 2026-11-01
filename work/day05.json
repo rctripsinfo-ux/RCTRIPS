@@ -507,8 +507,9 @@
       "duration": 0.25
      },
      "at": "On all fours-0.05",
-     "width": 0.95,
-     "y": 0.6,
+     "autoAlign": false,
+     "width": 0.98,
+     "y": 0.58,
      "until": "Two side leg",
      "exit": {
       "type": "flyRight",
@@ -543,8 +544,9 @@
       "duration": 0.25
      },
      "at": "Two side leg-0.05",
-     "width": 0.95,
-     "y": 0.6,
+     "autoAlign": false,
+     "width": 0.98,
+     "y": 0.58,
      "until": "Lift your top",
      "exit": {
       "type": "flyLeft",
@@ -649,8 +651,9 @@
       "duration": 0.25
      },
      "shadow": true,
-     "width": 0.95,
-     "y": 0.6,
+     "width": 0.98,
+     "y": 0.58,
+     "autoAlign": false,
      "until": "Then squat again",
      "exit": {
       "type": "flyRight",

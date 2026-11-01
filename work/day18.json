@@ -29,19 +29,10 @@
    "backdrop": "spotlight",
    "layers": [
     {
-     "type": "pulse",
-     "kind": "impact",
-     "at": "start",
-     "duration": 0.15
-    },
-    {
      "type": "image",
      "asset": "sc_d18_s01",
      "shadow": true,
-     "enter": {
-      "type": "flyUp",
-      "duration": 0.35
-     },
+     "enter": "cut",
      "at": "start",
      "width": 0.95,
      "y": 0.6,
@@ -74,6 +65,12 @@
      },
      "at": "start",
      "until": "Your chest has"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "start+0.12",
+     "duration": 0.15
     },
     {
      "type": "speed",
@@ -122,8 +119,8 @@
      "asset": "sc_d18_s02",
      "shadow": true,
      "enter": {
-      "type": "flyLeft",
-      "duration": 0.25
+      "type": "whip",
+      "duration": 0.3
      },
      "at": "Your chest has-0.05",
      "width": 0.7,
@@ -167,16 +164,31 @@
      "enter": "pop",
      "borderColor": "#FFFFFF",
      "until": "Here's the fix"
+    },
+    {
+     "type": "speed",
+     "at": "Your chest has-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Your chest has+0.4"
     }
    ],
    "camera": [
     {
      "at": "Your chest has",
-     "zoom": 1
+     "zoom": 1.0
     },
     {
-     "at": "Your chest has+3",
-     "zoom": 1.07
+     "at": "Your chest has+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Your chest has+1.5",
+     "zoom": 1.05
     }
    ],
    "backdropColor": "#FFF6E8",
@@ -192,8 +204,8 @@
      "asset": "sc_d18_s03",
      "shadow": true,
      "enter": {
-      "type": "flyRight",
-      "duration": 0.25
+      "type": "whip",
+      "duration": 0.3
      },
      "at": "Here's the fix-0.05",
      "width": 0.7,
@@ -243,16 +255,31 @@
       "width": 0
      },
      "at": "the fix"
+    },
+    {
+     "type": "speed",
+     "at": "Here's the fix-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Here's the fix+0.4"
     }
    ],
    "camera": [
     {
      "at": "Here's the fix",
-     "zoom": 1
+     "zoom": 1.0
     },
     {
-     "at": "Here's the fix+3",
-     "zoom": 1.07
+     "at": "Here's the fix+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Here's the fix+1.5",
+     "zoom": 1.05
     }
    ],
    "backdropColor": "#FFF6E8",

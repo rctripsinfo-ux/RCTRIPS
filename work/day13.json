@@ -32,10 +32,7 @@
      "type": "image",
      "asset": "sc_d13_s01",
      "shadow": true,
-     "enter": {
-      "type": "flyUp",
-      "duration": 0.35
-     },
+     "enter": "cut",
      "at": "start",
      "autoAlign": false,
      "width": 0.84,
@@ -53,29 +50,61 @@
      "y": 0.15,
      "size": 125,
      "align": "center",
-     "color": "#16191D",
+     "color": "#EF4444",
      "font": "pop",
      "maxWidth": 0.9,
-     "animation": "typewriter",
+     "animation": "none",
      "untype": false,
-     "enter": "pop",
+     "enter": {
+      "type": "slam",
+      "duration": 0.3
+     },
      "exit": "cut",
      "stroke": {
       "color": "#FFFFFF",
       "width": 0
      },
-     "at": "Sitting eight hours",
+     "at": "start",
      "until": "Your hip flexors"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "start+0.12",
+     "duration": 0.15
+    },
+    {
+     "type": "speed",
+     "at": "start",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "start+0.7"
     }
    ],
    "camera": [
     {
-     "at": "Sitting eight hours",
-     "zoom": 1
+     "at": "start",
+     "zoom": 1.7,
+     "focus": [
+      0.5,
+      0.42
+     ]
     },
     {
-     "at": "Sitting eight hours+3",
-     "zoom": 1.07
+     "at": "start+0.3",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+0.9",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+1.2",
+     "zoom": 1.1,
+     "focus": [
+      0.5,
+      0.45
+     ]
     }
    ],
    "backdropColor": "#FFF6E8",
@@ -91,8 +120,8 @@
      "asset": "sc_d13_s02",
      "shadow": true,
      "enter": {
-      "type": "flyLeft",
-      "duration": 0.25
+      "type": "whip",
+      "duration": 0.3
      },
      "at": "Your hip flexors-0.05",
      "width": 0.7,
@@ -136,16 +165,31 @@
      "enter": "pop",
      "borderColor": "#FFFFFF",
      "until": "Even standing up"
+    },
+    {
+     "type": "speed",
+     "at": "Your hip flexors-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Your hip flexors+0.4"
     }
    ],
    "camera": [
     {
      "at": "Your hip flexors",
-     "zoom": 1
+     "zoom": 1.0
     },
     {
-     "at": "Your hip flexors+3",
-     "zoom": 1.07
+     "at": "Your hip flexors+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Your hip flexors+1.5",
+     "zoom": 1.05
     }
    ],
    "backdropColor": "#FFF6E8",
@@ -161,8 +205,8 @@
      "asset": "sc_d13_s03",
      "shadow": true,
      "enter": {
-      "type": "flyRight",
-      "duration": 0.25
+      "type": "whip",
+      "duration": 0.3
      },
      "at": "Even standing up-0.05",
      "width": 0.8,
@@ -193,16 +237,31 @@
      },
      "at": "Even standing up-0.05",
      "until": "Here's the fix"
+    },
+    {
+     "type": "speed",
+     "at": "Even standing up-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Even standing up+0.4"
     }
    ],
    "camera": [
     {
      "at": "Even standing up",
-     "zoom": 1
+     "zoom": 1.0
     },
     {
-     "at": "Even standing up+3",
-     "zoom": 1.07
+     "at": "Even standing up+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Even standing up+1.5",
+     "zoom": 1.05
     }
    ],
    "backdropColor": "#FFF6E8",
@@ -567,8 +626,13 @@
  ],
  "sfx": [
   {
-   "at": "Sitting eight hours",
-   "src": "sfx_whoosh_soft",
+   "at": "start",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "start+0.35",
+   "src": "sfx_pop_soft",
    "volume": 0.35
   },
   {
