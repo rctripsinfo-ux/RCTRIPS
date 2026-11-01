@@ -44,7 +44,7 @@ def place(aid, left=False):
     a = H_[aid]
     if "scene" in a.get("tags", []): return {"autoAlign": False, "width": 0.84, "y": 0.62, "shadow": True}, True  # photo card under the heading
     bx = a.get("bbox", [0, 0, 1, 1]); wide = (bx[2] - bx[0]) * a["size"][0] > (bx[3] - bx[1]) * a["size"][1] * 0.9
-    if wide: return {"width": 0.95, "y": 0.6}, False
+    if wide: return {"autoAlign": False, "width": 0.98, "y": 0.58}, False  # floor poses: full image width so the body is big
     return (LEFT if left else BODY), False
 
 anc = [anchor(s) for s in sc_list]
