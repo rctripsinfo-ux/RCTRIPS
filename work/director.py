@@ -247,7 +247,7 @@ class Renderer:
                 return self.mix(self.scene(j - 1, t), self.scene(j, t if s.get("card") else max(t, s["T"])), kind, (t - (s["T"] - d / 2)) / d), j
         en = sc[0].get("enter") if i == 0 else None
         if en and t < en[1]:  # first scene flies in from a side (already ~45% in on frame 1, small overshoot)
-            p = t / en[1]; e = back(p, 1.4); off = (1 - e) * 0.6
+            p = t / en[1]; e = back(p, 1.4); off = (1 - e) * (en[2] if len(en) > 2 else 0.6)
             img = self.scene(0, t); c = Image.new("RGB", (W, H), (255, 255, 255))
             if p < 0.4: img = img.resize((max(2, int(W / (4 + 30 * p))), H)).resize((W, H)) if en[0] in ("left", "right") else img
             dx = {"left": -1, "right": 1}.get(en[0], 0) * off * W; dy = {"bottom": 1, "top": -1}.get(en[0], 0) * off * H
