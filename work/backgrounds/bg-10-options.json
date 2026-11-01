@@ -1,0 +1,42 @@
+{
+ "1": {
+  "name": "Sand beige (now)",
+  "css": "#E2D3B9"
+ },
+ "2": {
+  "name": "Slate blue-grey",
+  "css": "linear-gradient(#9AA6B2,#B0BAC3)"
+ },
+ "3": {
+  "name": "Clean white",
+  "css": "#FFFFFF"
+ },
+ "4": {
+  "name": "Studio light grey",
+  "css": "#D9DCE0"
+ },
+ "5": {
+  "name": "Charcoal spotlight",
+  "css": "#1E2228"
+ },
+ "6": {
+  "name": "Night navy",
+  "css": "linear-gradient(#1E2A44,#2F4A7A)"
+ },
+ "7": {
+  "name": "Sunset orange",
+  "css": "linear-gradient(#F6A04D,#F7D08A)"
+ },
+ "8": {
+  "name": "Soft mint",
+  "css": "linear-gradient(#BFE3D8,#E6F4EF)"
+ },
+ "9": {
+  "name": "Power red",
+  "css": "linear-gradient(#7F1D1D,#DC2626)"
+ },
+ "10": {
+  "name": "Concrete gym wall",
+  "css": "#8E9196"
+ }
+}
