@@ -4,6 +4,8 @@
 
 
 ## 0. LATEST STATE (1 Nov 2026), read this first
+**NEW MASTER WORKFLOW (owner, 1 Nov): read `PRODUCTION-WORKFLOW.md` before every video. It overrides the older format rules below where they clash.**
+
 **Day 1–13 are done** (`final/dayNN.mp4`). Day 1–3 used the old builds; Day 4–13 come from the scene-image pipeline below.
 
 **Pipeline for Days 4–30** (one new image per script sentence):
