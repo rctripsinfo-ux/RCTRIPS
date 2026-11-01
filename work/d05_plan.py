@@ -84,7 +84,7 @@ for sc in S:
 # HIGHLIGHTS (owner 1 Nov): what the camera zooms to gets a rolling white dashed ring (+ soft green glow) and an arrow
 # (arrow = the side it sits on), with a soft tick-wheel sound. x, y, r in image units (r = share of the image width).
 MARKS = {
- "v20.jpg": [dict(at="knees", x=.29, y=.64, r=.12, arrow="ur")],
+ "v20.jpg": [dict(at="knees", x=.25, y=.565, r=.12, arrow="ur")],
  "v11.jpg": [dict(at="slower", until="lighter", x=.68, y=.25, r=.14)],
  "v15.jpg": [dict(at="sore", x=.48, y=.62, r=.12, arrow="ul")],
  "v12.jpg": [dict(at="knees", until="down", x=.37, y=.63, r=.1, arrow="left")],
