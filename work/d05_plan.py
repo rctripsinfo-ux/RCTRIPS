@@ -57,7 +57,7 @@ PLAN = dict(dir=f"{HERE}/scenes_d05v", words=f"{HERE}/voice/day05_cut.words.json
 # Zoom <= 1.45 (no soft / pixelated look). Floor poses keep a small zoom.
 CAM = {
  "v21.jpg": [(0, 1.0, .5, .5), ("squats", 1.22, .5, .48), ("fine", 1.38, .46, .3)],              # body -> confident face
- "v20.jpg": [(0, 1.0, .5, .5), ("knees", 1.05, .5, .5), ("ache", 1.45, .38, .6)],                 # -> the painful knee
+ "v20.jpg": [(0, 1.0, .5, .5), ("tenth", 1.0, .5, .5), ("knees", 1.45, .38, .6)],                 # -> the painful knee
  "v11.jpg": [(0, 1.0, .5, .5), ("slower", 1.35, .68, .3), ("lighter", 1.35, .27, .6), ("E", 1.05, .5, .5)],  # stopwatch -> crossed-out weight
  "v15.jpg": [(0, 1.12, .5, .4), ("sore", 1.45, .48, .62)],                                        # face -> knee
  "v04.jpg": [(0, 1.4, .46, .42), ("problem", 1.2, .5, .48), ("knees", 1.0, .5, .5), ("all", 1.12, .5, .5)],  # tiny H -> whole glass knee
@@ -67,7 +67,7 @@ CAM = {
  "v10.jpg": [(0, 1.2, .5, .66), ("squeeze", 1.3, .6, .42), ("lift", 1.2, .5, .42), ("up", 1.0, .5, .5)],     # down pose -> glutes -> top -> both
  "v05.jpg": [(0, 1.0, .5, .5), ("fifteen", 1.3, .5, .3)],                                         # the 15 counter
  "v08.jpg": [(0, 1.0, .5, .5), ("side#1", 1.2, .5, .55), ("open", 1.4, .64, .5), ("Do", 1.0, .5, .5)],       # -> top knee opening
- "v14.jpg": [(0, 1.0, .5, .5), ("chair", 1.3, .4, .6)],                                           # sitting back to the chair
+ "v14.jpg": [(0, 1.0, .5, .5), ("back", 1.3, .4, .6)],                                           # sitting back to the chair
  "v07.jpg": [(0, 1.0, .5, .5), ("knees", 1.35, .5, .66), ("toes", 1.3, .5, .84)],                 # knees out -> over the toes
  "v17.jpg": [(0, 1.25, .5, .62), ("up", 1.0, .5, .5)],                                            # rises with him
  "v02.jpg": [(0, 1.0, .5, .5), ("ten", 1.4, .74, .14)],                                           # 10 REPS badge
@@ -81,6 +81,26 @@ for sc in S:
         sc["keys"] = ([(0, 1.0, .5, .5), ("glutes", 1.4, .68, .66), ("butt", 1.45, .68, .72)] if "glutes" in sc["text"]
                       else [(0, 1.0, .5, .5), ("knees", 1.4, .26, .62), ("squat", 1.0, .5, .5)])
     else: sc["keys"] = CAM[sc["img"]]
+# HIGHLIGHTS (owner 1 Nov): what the camera zooms to gets a rolling white dashed ring (+ soft green glow) and an arrow
+# (arrow = the side it sits on), with a soft tick-wheel sound. x, y, r in image units (r = share of the image width).
+MARKS = {
+ "v20.jpg": [dict(at="knees", x=.29, y=.64, r=.12, arrow="ur")],
+ "v11.jpg": [dict(at="slower", until="lighter", x=.68, y=.25, r=.14)],
+ "v15.jpg": [dict(at="sore", x=.48, y=.62, r=.12, arrow="ul")],
+ "v12.jpg": [dict(at="knees", until="down", x=.37, y=.63, r=.1, arrow="left")],
+ "v03.jpg": [dict(at="cave", x=.5, y=.67, r=.2, arrow="down")],
+ "v10.jpg": [dict(at="squeeze", until="up", x=.6, y=.4, r=.12, arrow="ur")],
+ "v05.jpg": [dict(at="fifteen", x=.5, y=.27, r=.22, glow=False, sound=False)],
+ "v08.jpg": [dict(at="open", until="Do", x=.66, y=.48, r=.1, arrow="up")],
+ "v14.jpg": [dict(at="back", x=.38, y=.6, r=.15, arrow="dl")],
+ "v07.jpg": [dict(at="knees", until="toes", x=.33, y=.68, r=.1, arrow="left"), dict(at="knees", until="toes", x=.67, y=.68, r=.1, arrow="right", sound=False)],
+ "v22.jpg": [dict(at="sharp", until="doctor", x=.45, y=.5, r=.1, arrow="ur")],
+}
+for sc in S:
+    if sc.get("card"): continue
+    if sc["img"] == "v06.jpg":
+        sc["marks"] = ([dict(at="glutes", x=.7, y=.68, r=.14, arrow="ul")] if "glutes" in sc["text"] else [dict(at="knees", until="squat", x=.26, y=.62, r=.12, arrow="right")])
+    else: sc["marks"] = MARKS.get(sc["img"], [])
 if __name__ == "__main__":
     a = sys.argv[1:]
     render(PLAN, f"{HERE}/final/day05{'-preview' if a else ''}.mp4", **({"t0": float(a[0]), "t1": float(a[1])} if a else {}))

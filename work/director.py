@@ -52,10 +52,14 @@ def load(path, pad=False):
         _img_cache[(path, pad)] = im
     return _img_cache[(path, pad)]
 
+def view_box(size, z, fx, fy, dx=0.0, dy=0.0):
+    iw, ih = size; cw = min(iw, ih * W / H) / z; ch = cw * H / W
+    cx = min(max(fx * iw + dx * cw, cw / 2), iw - cw / 2); cy = min(max(fy * ih + dy * ch, ch / 2), ih - ch / 2)
+    return cx - cw / 2, cy - ch / 2, cw, ch
+
 def view(img, z, fx, fy, dx=0.0, dy=0.0):
     """cover-fit crop of the source at zoom z, centred on focus (fx, fy) (0..1 of the image), clamped inside it"""
-    iw, ih = img.size; cw = min(iw, ih * W / H) / z; ch = cw * H / W
-    cx = min(max(fx * iw + dx * cw, cw / 2), iw - cw / 2); cy = min(max(fy * ih + dy * ch, ch / 2), ih - ch / 2)
+    x0, y0, cw, ch = view_box(img.size, z, fx, fy, dx, dy); cx, cy = x0 + cw / 2, y0 + ch / 2
     return img.transform((W, H), Image.EXTENT, (cx - cw / 2, cy - ch / 2, cx + cw / 2, cy + ch / 2), Image.BILINEAR)
 
 _clip_cache = {}
@@ -102,7 +106,7 @@ def rounded(im, r=36):
 
 class Renderer:
     def __init__(self, plan):
-        self.P = plan; self.tl = Timeline(plan); self.cap_cache = {}
+        self.P = plan; self.tl = Timeline(plan); self.cap_cache = {}; self.cam = {}; self.mark_y = None
         self.kw = {norm(k) for k in plan.get("keywords", [])}
         self.shakes = [(self.tl.at(a, s), amp) for s in self.tl.sc for a, amp in s.get("shake", [])]
         self.flashes = [s["T"] for s in self.tl.sc if s.get("tr") == "flash"] + [self.tl.at(a) for a in plan.get("flash", [])]
@@ -121,6 +125,7 @@ class Renderer:
             if 0 <= t - ts < 0.35:
                 k = (1 - (t - ts) / 0.35) * amp; rnd = random.Random(int(t * FPS)); dx, dy = (rnd.random() - .5) * k, (rnd.random() - .5) * k
                 z = max(z, 1.06)
+        self.cam[i] = (z, fx, fy, dx, dy)
         if s.get("clip"):  # owner's animated version of the scene image (muted): frame at the scene's local time, held at the end
             fr = clip_frames(f"{self.P['dir']}/{s['clip']}"); src = fr[min(len(fr) - 1, int(u * FPS))]
         else: src = load(f"{self.P['dir']}/{s['img']}", s.get("pad", False))
@@ -254,11 +259,51 @@ class Renderer:
                 for part, dx in ((a, 0), (b, a.width - 30)): im.alpha_composite(part, (x0 + dx, y0))
                 s_["_bim"] = im
             u = t - s_["T"]; paste_center(c, s_["_bim"], W / 2, H * 0.085 - (1 - back(u / 0.3, 1.3)) * 260, 1.0, min(1, max(0, u / 0.12)))
+        self.mark_y = None
+        if not (sc_ := self.tl.sc[j]).get("card") and not (sc_.get("enter") and j == 0 and t < sc_["enter"][1]):
+            for m in sc_.get("marks", []): self.draw_mark(c, sc_, j, m, t)
         cap = self.caption(t, j)
-        if cap: paste_center(c, cap[0], W / 2, H * cap[1], cap[2])
+        if cap:
+            y = cap[1]
+            if self.mark_y and any(abs(y * H - my) < r + 110 for my, r in self.mark_y):  # never on the highlight
+                y = 0.84 if all(my < H * 0.62 for my, _ in self.mark_y) else 0.2
+            paste_center(c, cap[0], W / 2, H * y, cap[2])
         for ft in self.flashes:
             if 0 <= t - ft < 0.15: c = Image.blend(c, Image.new("RGBA", (W, H), (255, 255, 255, 255)), 0.75 * (1 - (t - ft) / 0.15))
         return c.convert("RGB")
+
+    # ---------- highlight marks: rolling white dashed ring (+ soft green glow) and a pointing arrow ----------
+    def draw_mark(self, c, s, j, m, t):
+        a = self.tl.at(m["at"], s); b = self.tl.at(m["until"], s) if m.get("until") else s["E"] - 0.05
+        if not (a <= t < b) or j not in self.cam: return
+        src = load(f"{self.P['dir']}/{s['img']}", s.get("pad", False)); x0, y0, cw, ch = view_box(src.size, *self.cam[j])
+        X = (m["x"] * src.width - x0) / cw * W; Y = (m["y"] * src.height - y0) / ch * H; R = m.get("r", 0.12) * src.width / cw * W
+        u = t - a; p = back(u / 0.25, 1.6); fade = min(1, (b - t) / 0.15)
+        R *= 0.6 + 0.4 * p; o = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(o)
+        if m.get("glow", True):
+            g = Image.new("RGBA", (W, H), (0, 0, 0, 0)); ImageDraw.Draw(g).ellipse([X - R, Y - R, X + R, Y + R], fill=(34, 197, 94, int(70 * fade)))
+            o.alpha_composite(g.filter(ImageFilter.GaussianBlur(R * 0.25)))
+        rot = u * 120; n = 16
+        for k in range(n):  # dashes, rolling
+            a0 = rot + k * 360 / n; a1 = a0 + 360 / n * 0.55
+            d.arc([X - R, Y - R, X + R, Y + R], a0, a1, fill=(0, 0, 0, int(150 * fade)), width=20)
+            d.arc([X - R, Y - R, X + R, Y + R], a0, a1, fill=(255, 255, 255, int(255 * fade)), width=12)
+        ar = m.get("arrow")
+        if ar:  # arrow flies in toward the ring and keeps nudging it
+            vx, vy = {"left": (-1, 0), "right": (1, 0), "up": (0, -1), "down": (0, 1), "ul": (-.7, -.7), "ur": (.7, -.7), "dl": (-.7, .7), "dr": (.7, .7)}[ar]
+            e = ease((u - 0.1) / 0.3); bob = 14 * math.sin(u * 9)
+            gap = R + 25 + bob + (1 - e) * 300; L = 170
+            tipx, tipy = X + vx * gap, Y + vy * gap; tx, ty = tipx + vx * L, tipy + vy * L
+            px, py = -vy, vx; hw = 34
+            head = [(tipx, tipy), (tipx + vx * 60 + px * hw, tipy + vy * 60 + py * hw), (tipx + vx * 60 - px * hw, tipy + vy * 60 - py * hw)]
+            al = int(255 * fade * min(1, max(0, (u - 0.1) / 0.1)))
+            for col, wd, grow in (((0, 0, 0, int(al * 0.6)), 30, 6), ((255, 255, 255, al), 18, 0)):
+                d.line([(tipx + vx * 50, tipy + vy * 50), (tx, ty)], fill=col, width=wd)
+                hh = [(x + (x - tipx) * 0 + (vx * -grow if i == 0 else 0), y + (vy * -grow if i == 0 else 0)) for i, (x, y) in enumerate(head)]
+                d.polygon(hh, fill=col)
+        c.alpha_composite(o)
+        if self.mark_y is None: self.mark_y = []
+        self.mark_y.append((Y, R))
 
     # ---------- audio + encode ----------
     # Owner rule (1 Nov): VOICE loudest; SFX clearly lower (peaks SFX_DB under the voice peaks); MUSIC lowest
@@ -278,6 +323,8 @@ class Renderer:
         fl.append(f"[1:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{dur},volume={music_gain:.4f},afade=t=in:d=0.3,afade=t=out:st={dur - 1.2}:d=1.2[m]")
         k = 2
         for s in self.tl.sc:
+            for m in s.get("marks", []):
+                if m.get("sound", True): s.setdefault("sfx", []).append((m["at"], m.get("sfx", "counter"), 0.3))
             for a, name, vol in s.get("sfx", []):
                 f = glob.glob(f"{SFX_DIR}/{name}.*"); assert f, name
                 ms = int(max(0, self.tl.at(a, s)) * 1000); ins += ["-i", f[0]]
