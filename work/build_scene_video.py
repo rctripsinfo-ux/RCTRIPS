@@ -76,7 +76,7 @@ for n, sent in enumerate(sc_list, 1):
                   **({"exit": {"type": out, "duration": 0.25}} if nxt else {})})
     if head == "HERE'S THE FIX":
         L[0].update(width=0.7, y=0.72) if not full else None
-        L += kinetic([("HERE'S", 0.17, 120, INK, 0), ("THE FIX", 0.27, 220, RED, "the fix")], a)
+        L += kinetic([("HERE'S", 0.17, 120, INK, 0), ("THE FIX", 0.27, 220, RED, "the fix" if "the fix" in sent.lower() else ("fix" if " fix" in sent.lower() else 0.6))], a)
         cues_ += [(a, "bumper"), (f"{a}+1.0", "big")]
     else:
         if head: L.append(title(head, a, nxt, size=125 if len(head) > 14 else 140))
