@@ -23,3 +23,13 @@ Owner's master prompt, short form. Every new video follows it.
 - Beige background: white images must go on white; full scenes were shown as small cards and must go full screen.
 - Only one exercise had a pose loop. No intro cards for #1/#2/#3.
 - Keep: frame-1 close-up with smash zoom, red slam heading, kinetic HERE'S THE FIX, -13 LUFS, owner voice.
+
+## Owner rules added 1 Nov (after Day 5/6)
+- WHITE background always. Build each video as a MIX: H library poses animated by swapping real poses on the words
+  (rep loops, reaction changes) wherever poses can show it, and the owner's scene images only where poses can't.
+  The owner's images are material, not the whole video.
+- Highlights must change with the meaning: red pain circle, spotlight, red label tag, red arrow, white ring (no single
+  green circle every time, no ring sound). Captions: one word, white, middle, dodge the highlight.
+- Audio: voice loudest, SFX clearly lower, music lowest (director.py measures every stem).
+- Never cut H's head/feet with zooms (zoom <= ~1.18, focus not above the middle). Day 4 exercise cards.
+- Template: d06_plan.py (director.py). Library landmark points are unreliable for marks: give x/y by hand and check a still.
