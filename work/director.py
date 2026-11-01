@@ -266,7 +266,7 @@ class Renderer:
         if cap:
             y = cap[1]
             if self.mark_y and any(abs(y * H - my) < r + 110 for my, r in self.mark_y):  # never on the highlight
-                y = 0.84 if all(my < H * 0.62 for my, _ in self.mark_y) else 0.2
+                y = next((cy for cy in (0.84, 0.2) if not any(abs(cy * H - my) < r + 110 for my, r in self.mark_y)), 0.84)
             paste_center(c, cap[0], W / 2, H * y, cap[2])
         for ft in self.flashes:
             if 0 <= t - ft < 0.15: c = Image.blend(c, Image.new("RGBA", (W, H), (255, 255, 255, 255)), 0.75 * (1 - (t - ft) / 0.15))
