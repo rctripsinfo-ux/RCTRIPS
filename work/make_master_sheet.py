@@ -242,7 +242,7 @@ sheet("7 Production Tracker", ["Day", "Script", "Images", "Voiceover", "Video ed
         "Not started", "Not started", "Not started", "Not started") for d in range(1, 31)], [6, 10, 18, 12, 12, 12, 12])
 wb.save(f"{W}/MASTER-30-DAYS.xlsx")
 
-with open(f"{W}/IMAGE-PROMPTS-DAY4-30.md", "w") as f:
+with open(os.devnull, "w") as f:  # superseded by SCENE-PROMPTS-DAY4-30.md (make_scene_prompts.py)
     f.write("# New images for Days 4-30 (production order)\n\nAttach `work/character/H-standing-front-white.png` to every character prompt. "
             "Save each image with the file name shown (PNG). Background prompts (bg_*) need no reference image.\n\n")
     for n, i in enumerate(order, 1):
