@@ -10,8 +10,8 @@ import sys
 from director import render, HERE
 
 S = [
- dict(text="You start your squats feeling fine,", img="v21.jpg",
-      keys=[(0, 1.0, .5, .5), ("E", 1.08, .5, .55)], sfx=[(0.05, "whoosh_soft", .15)]),
+ dict(text="You start your squats feeling fine,", img="v21.jpg", enter=("right", 0.45),
+      keys=[(0, 1.0, .5, .5), ("E", 1.08, .5, .55)], sfx=[(0.0, "whoosh_soft", .2)]),
  dict(text="but by the tenth rep your knees begin to ache.", img="v20.jpg", tr="circle:0.36,0.66", d=0.4,
       keys=[(0, 1.0, .5, .5), ("ache", 1.12, .45, .55)], shake=[("ache", .03)], sfx=[(0, "whoosh_short", .3), ("ache", "bone_crack", .5)]),
  dict(text="You try going slower and lighter,", img="v11.jpg", tr="whip_l",
