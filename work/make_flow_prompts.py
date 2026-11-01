@@ -47,7 +47,7 @@ for d, n, line, fid, kind, st, base in S.rows:
     pair = fid[-1] in "ab" and fid[-2].isdigit()
     action = action if action.endswith((".", "!", "?")) else action + "."
     p = " ".join(["Use the attached reference image of H.", "SCENE ACTION: " + action, CHAR, STYLE,
-                  SCENE if full else WHITE, EXR if pair or "view:" in action[:40].lower() or re.match(r"^[A-Z][a-z ]+(START|TOP|BOTTOM|END|,)", action) else DYN, camera(action), FRAME_S if full else FRAME_W, PAIR if pair else "", NEG])
+                  SCENE if full else WHITE, EXR if pair or re.search(r"\b(START|TOP|BOTTOM|END)\b|^(Push-up|Knee push-up|Wide push-up|Diamond|Archer|Incline|Decline|Knuckle|Overhead|Dumbbell|Resistance band|Doorway|Scapula|Russian|Side plank|Bicycle|World's|Pigeon|Lying|Plank|Dead bug|Bird dog|Hollow|Calf|Wall sit|Jump squat|Flutter|Cat pose|Cow pose|Wrist stretch|Jumping|Skater|Pistol|Fire hydrant|Side-lying|Bodyweight squat|Sumo|Child's|Cobra|Deep squat|Kneeling hip|Pike|Lunge|Glute bridge|Burpee|Mountain|High knees|Classic crunch|Reverse crunch|Dead hang|Standing hamstring|Neck stretch|Sitting cross|Halfway standing)", action) else DYN, camera(action), FRAME_S if full else FRAME_W, PAIR if pair else "", NEG])
     p = re.sub(r"\s+", " ", p).strip()
     by_day.setdefault(d, []).append((fid, p)); allrows.append((d, n, fid, "SCENE" if full else "WHITE", line, p))
 for d, items in by_day.items():
