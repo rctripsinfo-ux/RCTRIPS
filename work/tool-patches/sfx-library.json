@@ -926,6 +926,24 @@
    "volume": 1.0,
    "duration": 2.5,
    "description": "keyboard typing exactly 2.5 s (typed cards synced to the voice)"
+  },
+  {
+   "id": "sfx_sad_sting",
+   "file": "sad_sting.wav",
+   "kind": "audio",
+   "category": "emotion",
+   "volume": 0.9,
+   "duration": 1.4,
+   "description": "soft sad two-note sting (black sad beat)"
+  },
+  {
+   "id": "sfx_teeth_chatter_day3d",
+   "file": "teeth_chatter_day3d.wav",
+   "kind": "audio",
+   "category": "fx",
+   "volume": 0.9,
+   "duration": 1.13,
+   "description": "teeth_chatter trimmed to one scene"
   }
  ]
 }

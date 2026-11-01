@@ -1233,6 +1233,11 @@
    "at": "Now comment",
    "src": "sfx_whoosh_soft",
    "volume": 0.35
+  },
+  {
+   "at": "for sixty",
+   "src": "sfx_teeth_chatter_day3d",
+   "volume": 0.45
   }
  ]
 }

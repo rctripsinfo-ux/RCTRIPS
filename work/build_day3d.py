@@ -103,7 +103,9 @@ plan = {
         ("Here's the fix-0.05", "bumper"), ("fix.+0.15", "big"),
         ("One: dead", "info"), ("Hang as", "drop"), ("three times", "tick"),
         ("Two: add", "info"), ("every day", "enter"), ("Thirty becomes", "count"),
-        ("Do this and", "enter"), ("grip gets crazy", "reveal"), ("Now comment", "enter")]),
+        ("Do this and", "enter"), ("grip gets crazy", "reveal"), ("Now comment", "enter")])
+        # teeth chatter only while the dark speed-line (impact) scene is on screen, stops when it leaves
+        + [span_sfx("teeth_chatter", "for sixty", "Most people", "day3d")],
 }
 tidy(plan)
 validate(plan, S)

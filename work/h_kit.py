@@ -399,3 +399,28 @@ def giant_behind(t, at, until=None, color="#F7C548"):
          "color": color, "animation": "letters", "untype": False, "enter": "punch", "exit": "cut", "at": at, "stroke": {"color": WHITE, "width": 0}}
     if until: d["until"] = until
     return d
+
+
+# ---------- 13. a sound that lasts exactly one scene (owner, 1 Nov) ----------
+def span_sfx(src, a, b, project, name=None, fade=0.05, volume=0.45):
+    """Trims library sound `src` (e.g. 'teeth_chatter') to the time between anchors a and b of the last voice of
+    `project` (words.json), with a short fade-out, so it stops exactly when the scene changes. Returns a cue dict.
+    Anchors here are plain spoken phrases (first match). Re-run the build after a voice change."""
+    import glob
+    W = json.load(open(os.path.expanduser(f"~/reel-engine-tool/public/projects/{project}/words.json")))["words"]
+    toks = [re.sub(r"[^a-z0-9']", "", w["text"].lower()) for w in W]
+    def t(ph):
+        q = [re.sub(r"[^a-z0-9']", "", x.lower()) for x in ph.split()]
+        for i in range(len(toks) - len(q) + 1):
+            if toks[i:i + len(q)] == q: return W[i]["start"]
+        raise SystemExit(f"span_sfx: phrase not found: {ph}")
+    dur = round(t(b) - t(a), 3); name = name or f"{src}_{project}"
+    inp = glob.glob(f"{LIB}/sfx/{src}.*")[0]
+    subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-i", inp, "-t", str(dur), "-af",
+                    f"afade=t=out:st={max(0, dur - fade)}:d={fade}", f"{LIB}/sfx/{name}.wav"], check=True)
+    sl = json.load(open(f"{LIB}/sfx/library.json"))
+    sl["assets"] = [x for x in sl["assets"] if x["id"] != f"sfx_{name}"] + [{"id": f"sfx_{name}", "file": f"{name}.wav", "kind": "audio",
+        "category": "fx", "volume": 0.9, "duration": dur, "description": f"{src} trimmed to one scene"}]
+    json.dump(sl, open(f"{LIB}/sfx/library.json", "w"), indent=1)
+    print(f"span_sfx: {src} {dur}s ({a} -> {b})")
+    return {"at": a, "src": f"sfx_{name}", "volume": volume}
