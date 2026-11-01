@@ -62,6 +62,22 @@ def view(img, z, fx, fy, dx=0.0, dy=0.0):
     x0, y0, cw, ch = view_box(img.size, z, fx, fy, dx, dy); cx, cy = x0 + cw / 2, y0 + ch / 2
     return img.transform((W, H), Image.EXTENT, (cx - cw / 2, cy - ch / 2, cx + cw / 2, cy + ch / 2), Image.BILINEAR)
 
+_hero_cache = {}
+HERO_DIR = os.path.expanduser("~/reel-engine-tool/public/library/hero")
+def hero(asset):
+    if asset not in _hero_cache: _hero_cache[asset] = Image.open(glob.glob(f"{HERO_DIR}/{asset}.*")[0]).convert("RGBA")
+    return _hero_cache[asset]
+_hero_lib = None
+def part_xy(asset, part, place):
+    """canvas (0..1) point of a body landmark ('knee_l', 'elbow_r', or a segment mid 'upper_arm_l', 'shin_r') of a pose"""
+    global _hero_lib
+    if _hero_lib is None: _hero_lib = {a["id"]: a for a in json.load(open(f"{HERO_DIR}/library.json"))["assets"]}
+    A = _hero_lib[asset]; p = A["points"]; seg = {"forearm": ("elbow", "wrist"), "upper_arm": ("shoulder", "elbow"), "thigh": ("hip", "knee"), "shin": ("knee", "ankle")}
+    k, sd = part[:-2], part[-1]
+    px, py = (((p[f"{seg[k][0]}_{sd}"][0] + p[f"{seg[k][1]}_{sd}"][0]) / 2, (p[f"{seg[k][0]}_{sd}"][1] + p[f"{seg[k][1]}_{sd}"][1]) / 2) if k in seg else p[part])
+    iw, ih = A["size"]; w = place.get("width", 0.8); h = w * W * ih / iw / H
+    return place.get("x", 0.5) - w / 2 + px * w, place.get("y", 0.6) - h / 2 + py * h
+
 _clip_cache = {}
 def clip_frames(path):
     """all frames of a video clip at FPS (sound ignored), as PIL images at the clip's own size"""
@@ -126,10 +142,33 @@ class Renderer:
                 k = (1 - (t - ts) / 0.35) * amp; rnd = random.Random(int(t * FPS)); dx, dy = (rnd.random() - .5) * k, (rnd.random() - .5) * k
                 z = max(z, 1.06)
         self.cam[i] = (z, fx, fy, dx, dy)
+        if s.get("poses") is not None:  # white set + H library poses (swapped at word anchors = pose animation) + extras
+            return view(self.pose_canvas(s, t), z, fx, fy, dx, dy)
         if s.get("clip"):  # owner's animated version of the scene image (muted): frame at the scene's local time, held at the end
             fr = clip_frames(f"{self.P['dir']}/{s['clip']}"); src = fr[min(len(fr) - 1, int(u * FPS))]
         else: src = load(f"{self.P['dir']}/{s['img']}", s.get("pad", False))
         return view(src, z, fx, fy, dx, dy)
+
+    def pose_canvas(self, s, t):
+        c = Image.new("RGBA", (W, H), (255, 255, 255, 255))
+        if s.get("poses"):
+            fr = [(a, self.tl.at(k, s)) for a, k in s["poses"]]; cur = fr[0][0]
+            for a, k in fr:
+                if k <= t: cur = a
+            pl = s.get("place", {}); im = hero(cur)
+            w = int(W * pl.get("width", 0.8)); im = im.resize((w, int(w * im.height / im.width)), Image.LANCZOS)
+            c.alpha_composite(im, (int(W * pl.get("x", 0.5) - w / 2), int(H * pl.get("y", 0.6) - im.height / 2)))
+        for e in s.get("extras", []):  # anatomy bubbles / props that pop in
+            a = self.tl.at(e["at"], s)
+            if t < a or (e.get("until") and t >= self.tl.at(e["until"], s)): continue
+            im = hero(e["asset"]); w = int(W * e.get("w", 0.3)); im = im.resize((w, int(w * im.height / im.width)), Image.LANCZOS)
+            sc_ = 0.5 + 0.5 * back((t - a) / 0.25, 1.8); paste_center(c, im, W * e["x"], H * e["y"], sc_)
+        for tx in s.get("texts", []):  # kinetic headline words (black / red), slam in
+            a = self.tl.at(tx["at"], s)
+            if t < a or (tx.get("until") and t >= self.tl.at(tx["until"], s)): continue
+            if "_im" not in tx: tx["_im"] = text_img(tx["text"], F_BIG, tx.get("size", 170), tx.get("color", INK), stroke=8, maxw=W * 0.9)
+            p = (t - a) / 0.2; paste_center(c, tx["_im"], W / 2, H * tx.get("y", 0.15), 1.6 - 0.6 * back(p, 1.4) if p < 1 else 1.0, min(1, p * 2))
+        return c.convert("RGB")
 
     def card(self, s, u):
         num, title = s["card"]; c = Image.new("RGBA", (W, H), (255, 255, 255, 255))
@@ -276,14 +315,37 @@ class Renderer:
     def draw_mark(self, c, s, j, m, t):
         a = self.tl.at(m["at"], s); b = self.tl.at(m["until"], s) if m.get("until") else s["E"] - 0.05
         if not (a <= t < b) or j not in self.cam: return
-        src = load(f"{self.P['dir']}/{s['img']}", s.get("pad", False)); x0, y0, cw, ch = view_box(src.size, *self.cam[j])
-        X = (m["x"] * src.width - x0) / cw * W; Y = (m["y"] * src.height - y0) / ch * H; R = m.get("r", 0.12) * src.width / cw * W
+        if s.get("poses") is not None:  # pose scene: the canvas is the source; points may come from the pose's landmarks
+            size = (W, H); mx, my = (part_xy(m["pose"], m["part"], s.get("place", {})) if m.get("part") else (m["x"], m["y"]))
+        else:
+            size = load(f"{self.P['dir']}/{s['img']}", s.get("pad", False)).size; mx, my = m["x"], m["y"]
+        x0, y0, cw, ch = view_box(size, *self.cam[j])
+        X = (mx * size[0] - x0) / cw * W; Y = (my * size[1] - y0) / ch * H; R = m.get("r", 0.12) * size[0] / cw * W
         u = t - a; p = back(u / 0.25, 1.6); fade = min(1, (b - t) / 0.15)
         R *= 0.6 + 0.4 * p; o = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(o)
-        if m.get("glow", True):
+        st = m.get("style", "ring")
+        if st == "spot":  # spotlight: everything else dims
+            k = min(1, u / 0.25) * fade; mk = Image.new("L", (W, H), int(150 * k)); ImageDraw.Draw(mk).ellipse([X - R, Y - R, X + R, Y + R], fill=0)
+            c.alpha_composite(Image.merge("RGBA", (*[Image.new("L", (W, H), 0)] * 3, mk.filter(ImageFilter.GaussianBlur(18)))))
+            d.ellipse([X - R, Y - R, X + R, Y + R], outline=(255, 255, 255, int(230 * fade)), width=6)
+            c.alpha_composite(o); self.mark_y = (self.mark_y or []) + [(Y, R)]; return
+        if st == "tag":  # label pill with a leader line to the point
+            lab = text_img(m["text"], F_BIG, 70, (255, 255, 255), shadow=False); tw_, th_ = lab.width + 30, lab.height
+            side = 1 if X < W * 0.55 else -1; bx = X + side * (R + 170); bx = min(max(bx, tw_ / 2 + 30), W - tw_ / 2 - 30); by = Y - R - 60
+            e = ease(u / 0.25); al = int(255 * fade)
+            d.line([(X, Y), (bx, by)], fill=(225, 29, 46, al), width=8); d.ellipse([X - 14, Y - 14, X + 14, Y + 14], fill=(225, 29, 46, al))
+            d.rounded_rectangle([bx - tw_ / 2 * e, by - th_ / 2, bx + tw_ / 2 * e, by + th_ / 2], 18, fill=(225, 29, 46, al))
+            if e > 0.9: o.alpha_composite(lab, (int(bx - lab.width / 2), int(by - lab.height / 2)))
+            c.alpha_composite(o); self.mark_y = (self.mark_y or []) + [(by, th_)]; return
+        if st == "pain":  # red spinning dashed circle with a heartbeat pulse
+            Rp = R * (1 + 0.06 * math.sin(u * 12)); rot = u * 200
+            for k_ in range(14):
+                a0 = rot + k_ * 360 / 14; d.arc([X - Rp, Y - Rp, X + Rp, Y + Rp], a0, a0 + 15, fill=(225, 29, 46, int(255 * fade)), width=14)
+            c.alpha_composite(o); self.mark_y = (self.mark_y or []) + [(Y, R)]; return
+        if m.get("glow", False):
             g = Image.new("RGBA", (W, H), (0, 0, 0, 0)); ImageDraw.Draw(g).ellipse([X - R, Y - R, X + R, Y + R], fill=(34, 197, 94, int(70 * fade)))
             o.alpha_composite(g.filter(ImageFilter.GaussianBlur(R * 0.25)))
-        rot = u * 120; n = 16
+        rot = u * 120; n = 16 if st == "ring" else 0
         for k in range(n):  # dashes, rolling
             a0 = rot + k * 360 / n; a1 = a0 + 360 / n * 0.55
             d.arc([X - R, Y - R, X + R, Y + R], a0, a1, fill=(0, 0, 0, int(150 * fade)), width=20)
@@ -297,7 +359,8 @@ class Renderer:
             px, py = -vy, vx; hw = 34
             head = [(tipx, tipy), (tipx + vx * 60 + px * hw, tipy + vy * 60 + py * hw), (tipx + vx * 60 - px * hw, tipy + vy * 60 - py * hw)]
             al = int(255 * fade * min(1, max(0, (u - 0.1) / 0.1)))
-            for col, wd, grow in (((0, 0, 0, int(al * 0.6)), 30, 6), ((255, 255, 255, al), 18, 0)):
+            fg = (225, 29, 46, al) if st == "arrow" else (255, 255, 255, al)
+            for col, wd, grow in (((0, 0, 0, int(al * 0.6)), 30, 6), (fg, 18, 0)):
                 d.line([(tipx + vx * 50, tipy + vy * 50), (tx, ty)], fill=col, width=wd)
                 hh = [(x + (x - tipx) * 0 + (vx * -grow if i == 0 else 0), y + (vy * -grow if i == 0 else 0)) for i, (x, y) in enumerate(head)]
                 d.polygon(hh, fill=col)
