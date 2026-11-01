@@ -324,7 +324,7 @@ class Renderer:
         k = 2
         for s in self.tl.sc:
             for m in s.get("marks", []):
-                if m.get("sound", True): s.setdefault("sfx", []).append((m["at"], m.get("sfx", "counter"), 0.3))
+                if m.get("sound", False): s.setdefault("sfx", []).append((m["at"], m.get("sfx", "counter"), 0.3))
             for a, name, vol in s.get("sfx", []):
                 f = glob.glob(f"{SFX_DIR}/{name}.*"); assert f, name
                 ms = int(max(0, self.tl.at(a, s)) * 1000); ins += ["-i", f[0]]
