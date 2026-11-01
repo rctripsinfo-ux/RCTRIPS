@@ -101,6 +101,42 @@ for sc in S:
     if sc["img"] == "v06.jpg":
         sc["marks"] = ([dict(at="glutes", x=.7, y=.68, r=.14, arrow="ul")] if "glutes" in sc["text"] else [dict(at="knees", until="squat", x=.26, y=.62, r=.12, arrow="right")])
     else: sc["marks"] = MARKS.get(sc["img"], [])
+# ===== v5 (owner 1 Nov: "Day 4 looked good, Day 5 not"): Day 4's camera language back. Gentle push-ins / pans
+# (zoom <= 1.18, focus never higher than the middle, so H's head stays in), Day 4's transition mix (smash, zoom,
+# swing, flash reveal, pendulum pushes for the moves, fade at the end), shakes on the impact words, rings kept.
+D4 = {  # img: (transition, camera keys)
+ "v21.jpg": (None, [(0, 1.0, .5, .5), ("E", 1.08, .5, .45)]),
+ "v20.jpg": ("smash", [(0, 1.0, .5, .5), ("knees", 1.18, .38, .5)]),
+ "v11.jpg": ("zoom", [(0, 1.0, .5, .5), ("slower", 1.12, .6, .42), ("E", 1.12, .42, .5)]),
+ "v15.jpg": ("swing", [(0, 1.0, .5, .5), ("sore", 1.15, .48, .5)]),
+ "v04.jpg": ("flash", [(0, 1.3, .47, .42), ("knees", 1.0, .5, .5), ("E", 1.04, .5, .5)]),  # reveal: tiny H -> the whole knee
+ "v12.jpg": ("zoom", [(0, 1.0, .5, .5), ("knees", 1.12, .45, .5)]),
+ "v03.jpg": ("push_u", [(0, 1.0, .5, .5), ("cave", 1.12, .5, .5), ("E", 1.02, .5, .5)]),
+ "v01.jpg": ("smash", [(0, 1.0, .5, .5), ("E", 1.08, .5, .44)]),
+ "v10.jpg": ("push_l", [(0, 1.0, .5, .5), ("lift", 1.1, .5, .44)]),
+ "v05.jpg": ("push_l", [(0, 1.0, .5, .5), ("E", 1.05, .5, .45)]),
+ "v08.jpg": ("push_r", [(0, 1.0, .5, .5), ("open", 1.12, .6, .5), ("Do", 1.0, .5, .5)]),
+ "v14.jpg": ("push_u", [(0, 1.0, .5, .5), ("back", 1.1, .42, .5)]),
+ "v07.jpg": ("push_u", [(0, 1.0, .5, .5), ("knees", 1.12, .5, .5)]),
+ "v17.jpg": ("push_u", [(0, 1.1, .5, .5), ("up", 1.0, .5, .5)]),
+ "v02.jpg": ("flash", [(0, 1.0, .5, .5), ("E", 1.1, .6, .42)]),
+ "v19.jpg": ("zoom", [(0, 1.0, .5, .5), ("E", 1.08, .5, .46)]),
+ "v22.jpg": ("fade", [(0, 1.0, .5, .5), ("E", 1.06, .5, .5)]),
+}
+SHAKE = {"v20.jpg": [("ache", .04)], "v01.jpg": [("three", .04)]}
+for sc in S:
+    if sc.get("card"): continue
+    if sc["img"] == "v06.jpg":
+        g = "glutes" in sc["text"]; sc["tr"] = "push_l"
+        sc["keys"] = [(0, 1.0, .5, .5), ("glutes", 1.15, .62, .5)] if g else [(0, 1.0, .5, .5), ("mirror", 1.12, .45, .5)]
+    else:
+        tr, sc["keys"] = D4[sc["img"]]
+        if tr: sc["tr"] = tr
+        sc.pop("d", None)
+        if tr == "circle": sc["d"] = 0.4
+    if sc["img"] in SHAKE: sc["shake"] = SHAKE[sc["img"]]
+    if sc["img"] == "v03.jpg":  # one ring on EACH knee (not between them)
+        sc["marks"] = [dict(at="cave", x=.25, y=.68, r=.09, arrow="left"), dict(at="cave", x=.75, y=.68, r=.09, arrow="right", sound=False)]
 if __name__ == "__main__":
     a = sys.argv[1:]
     render(PLAN, f"{HERE}/final/day05{'-preview' if a else ''}.mp4", **({"t0": float(a[0]), "t1": float(a[1])} if a else {}))
