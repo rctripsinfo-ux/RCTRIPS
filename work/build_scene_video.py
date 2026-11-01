@@ -74,17 +74,24 @@ for n, sent in enumerate(sc_list, 1):
         cues_.append((a, "enter"))
     if bubble_on: L.append(bubble(t[2], f"{a}+0.3", nxt, x=0.8, y=0.66, size=0.28))
     plan_scenes.append(sc(f"s{n}", a if n == 1 else f"{a}-0.05", L))
-plan_scenes[0]["start"] = "start"; plan_scenes[0]["layers"][0].update(at="start", enter=ENTER["rise"])
+plan_scenes[0]["start"] = "start"; plan_scenes[0]["layers"][0].update(at="start", enter="cut")  # visible from frame 1 (the zoom gives the motion)
 # HOOK PACK (first 2 s, owner 1 Nov): impact frame + heavy whoosh, smash zoom-out 1.7 -> 1.0 in 0.3 s, red heading slams in
 # at frame 1 (no typing), speed lines 0-0.7 s, pop at 0.35 s, camera punch-in at ~1 s
 h0 = plan_scenes[0]["layers"]
 for L in h0:
     if L.get("type") == "text": L.update(color=RED, animation="none", enter={"type": "slam", "duration": 0.3}, at="start")
-h0[:0] = [{"type": "pulse", "kind": "impact", "at": "start", "duration": 0.15}]
+h0.append({"type": "pulse", "kind": "impact", "at": "start+0.12", "duration": 0.15})  # never on frame 1 (frame 1 = the scroll-stopper)
 h0.append(speed_lines("start", "start+0.7"))
 plan_scenes[0]["camera"] = [{"at": "start", "zoom": 1.7, "focus": [0.5, 0.42]}, {"at": "start+0.3", "zoom": 1.0},
                             {"at": "start+0.9", "zoom": 1.0}, {"at": "start+1.2", "zoom": 1.1, "focus": [0.5, 0.45]}]
 cues_[0:1] = [("start", "big"), ("start+0.35", "info")]
+# FAST FIRST 5 s: scenes 2-3 whip in (fast slide with ghost copies), speed lines, punch-in zoom inside each
+for k in (1, 2):
+    if k >= len(plan_scenes): break
+    scn = plan_scenes[k]; a = anc[k]
+    scn["layers"][0]["enter"] = {"type": "whip", "duration": 0.3}
+    scn["layers"].append(speed_lines(a, f"{a}+0.4"))
+    scn["camera"] = [{"at": a, "zoom": 1.0}, {"at": f"{a}+0.35", "zoom": 1.12, "focus": [0.5, 0.45]}, {"at": f"{a}+1.5", "zoom": 1.05}]
 cues_.insert(len(cues_) - 1, (anc[-2], "reveal"))
 bump = next((anc[i] for i, s in enumerate(sc_list) if s.startswith("Here's the fix")), None)
 plan = {
