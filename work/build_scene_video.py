@@ -53,7 +53,7 @@ for n, sent in enumerate(sc_list, 1):
     a = anc[n - 1]; nxt = anc[n] if n < len(sc_list) else None
     t = tuple_of(sent); head = t[1] if t and t[1] not in seen else None
     if t: seen.add(t[1])
-    ids = imgs.get(n, [])
+    ids = imgs.get(n, [])  # if one loop frame is still missing, the other frame is shown alone
     if not ids: raise SystemExit(f"day {d} scene {n}: no image yet ({sent})")
     bubble_on = bool(t and t[2].startswith("anat_") and head)
     lay, full = place(ids[0], left=bubble_on)

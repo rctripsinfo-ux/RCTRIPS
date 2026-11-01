@@ -32,10 +32,7 @@
      "type": "image",
      "asset": "sc_d09_s01",
      "shadow": true,
-     "enter": {
-      "type": "flyUp",
-      "duration": 0.35
-     },
+     "enter": "cut",
      "at": "start",
      "autoAlign": false,
      "width": 0.84,
@@ -53,29 +50,61 @@
      "y": 0.15,
      "size": 140,
      "align": "center",
-     "color": "#16191D",
+     "color": "#EF4444",
      "font": "pop",
      "maxWidth": 0.9,
-     "animation": "typewriter",
+     "animation": "none",
      "untype": false,
-     "enter": "pop",
+     "enter": {
+      "type": "slam",
+      "duration": 0.3
+     },
      "exit": "cut",
      "stroke": {
       "color": "#FFFFFF",
       "width": 0
      },
-     "at": "Want a waist",
+     "at": "start",
      "until": "Those are your"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "start+0.12",
+     "duration": 0.15
+    },
+    {
+     "type": "speed",
+     "at": "start",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "start+0.7"
     }
    ],
    "camera": [
     {
-     "at": "Want a waist",
-     "zoom": 1
+     "at": "start",
+     "zoom": 1.7,
+     "focus": [
+      0.5,
+      0.42
+     ]
     },
     {
-     "at": "Want a waist+3",
-     "zoom": 1.07
+     "at": "start+0.3",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+0.9",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+1.2",
+     "zoom": 1.1,
+     "focus": [
+      0.5,
+      0.45
+     ]
     }
    ],
    "backdropColor": "#FFF6E8",
@@ -91,8 +120,8 @@
      "asset": "sc_d09_s02",
      "shadow": true,
      "enter": {
-      "type": "flyLeft",
-      "duration": 0.25
+      "type": "whip",
+      "duration": 0.3
      },
      "at": "Those are your-0.05",
      "width": 0.7,
@@ -136,16 +165,31 @@
      "enter": "pop",
      "borderColor": "#FFFFFF",
      "until": "Crunches barely touch"
+    },
+    {
+     "type": "speed",
+     "at": "Those are your-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Those are your+0.4"
     }
    ],
    "camera": [
     {
      "at": "Those are your",
-     "zoom": 1
+     "zoom": 1.0
     },
     {
-     "at": "Those are your+3",
-     "zoom": 1.07
+     "at": "Those are your+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Those are your+1.5",
+     "zoom": 1.05
     }
    ],
    "backdropColor": "#FFF6E8",
@@ -161,8 +205,8 @@
      "asset": "sc_d09_s03",
      "shadow": true,
      "enter": {
-      "type": "flyRight",
-      "duration": 0.25
+      "type": "whip",
+      "duration": 0.3
      },
      "at": "Crunches barely touch-0.05",
      "width": 0.95,
@@ -193,16 +237,31 @@
      },
      "at": "Crunches barely touch-0.05",
      "until": "Here's the fix"
+    },
+    {
+     "type": "speed",
+     "at": "Crunches barely touch-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Crunches barely touch+0.4"
     }
    ],
    "camera": [
     {
      "at": "Crunches barely touch",
-     "zoom": 1
+     "zoom": 1.0
     },
     {
-     "at": "Crunches barely touch+3",
-     "zoom": 1.07
+     "at": "Crunches barely touch+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Crunches barely touch+1.5",
+     "zoom": 1.05
     }
    ],
    "backdropColor": "#FFF6E8",
@@ -665,8 +724,13 @@
  ],
  "sfx": [
   {
-   "at": "Want a waist",
-   "src": "sfx_whoosh_soft",
+   "at": "start",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "start+0.35",
+   "src": "sfx_pop_soft",
    "volume": 0.35
   },
   {

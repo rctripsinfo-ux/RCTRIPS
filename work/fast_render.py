@@ -94,11 +94,12 @@ while True:
     time.sleep(8)
 if s["state"] != "done": sys.exit(f"render failed: {s.get('error')}")
 final = os.path.abspath(f"final/{name}.mp4")
+LUFS = os.environ.get("LUFS", "-13")  # owner 1 Nov: louder than -16 (YouTube plays at about -14)
 raw = os.path.join(TOOL, "out", f"{name}.mp4")
-J = subprocess.run(["ffmpeg", "-nostdin", "-hide_banner", "-i", raw, "-af", "loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-"],
+J = subprocess.run(["ffmpeg", "-nostdin", "-hide_banner", "-i", raw, "-af", f"loudnorm=I={LUFS}:TP=-1.0:LRA=11:print_format=json", "-f", "null", "-"],
                    capture_output=True, text=True).stderr
 j = json.loads(J[J.rindex("{"):J.rindex("}") + 1])
-af = (f"loudnorm=I=-16:TP=-1.5:LRA=11:measured_I={j['input_i']}:measured_TP={j['input_tp']}:measured_LRA={j['input_lra']}"
+af = (f"loudnorm=I={LUFS}:TP=-1.0:LRA=11:measured_I={j['input_i']}:measured_TP={j['input_tp']}:measured_LRA={j['input_lra']}"
       f":measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true")
 subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-i", raw, "-c:v", "libx264", "-crf", "23", "-preset", "fast", "-af", af,
                 "-ar", "48000", "-c:a", "aac", "-b:a", "192k", final], check=True)
