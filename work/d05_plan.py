@@ -18,18 +18,14 @@ S = [
       keys=[(0, 1.0, .5, .5), ("E", 1.08, .5, .55)], sfx=[(0, "whoosh_fast", .3)]),
  dict(text="and they still feel sore.", img="v15.jpg", tr="whip_r",
       keys=[(0, 1.0, .5, .5), ("E", 1.1, .48, .6)], sfx=[(0, "whoosh_fast", .3)]),
- dict(text="If that sounds like you,", img="v00.jpg", tr="zoom",
-      keys=[(0, 1.0, .5, .5), ("E", 1.08, .45, .45)], sfx=[(0, "whoosh_soft", .3)]),
- dict(text="the problem might not be your knees at all.", img="v04.jpg", tr="circle:0.5,0.5", d=0.4,
+ dict(text="If that sounds like you, the problem might not be your knees at all.", img="v04.jpg", tr="circle:0.5,0.5", d=0.4,
       keys=[(0, 1.0, .5, .5), ("E", 1.15, .5, .48)], sfx=[(0, "whoosh_short", .3)]),
  dict(text="Your glutes are the big muscles in your butt.", img="v06.jpg", tr="whip_l",
       keys=[(0, 1.25, .66, .62), ("E", 1.25, .66, .58)], sfx=[(0, "whoosh_fast", .3)]),  # H from behind: his glutes
  dict(text="Part of their job is to keep your knees steady when you bend down.", img="v12.jpg", tr="zoom",
       keys=[(0, 1.0, .5, .5), ("E", 1.1, .5, .58)]),
- dict(text="When they're weak, your knees often cave in toward each other as you squat,", img="v03.jpg", tr="circle:0.5,0.66", d=0.4,
-      keys=[(0, 1.0, .5, .5), ("cave", 1.0, .5, .5), ("squat", 1.15, .5, .62)], sfx=[("cave", "whoosh_short", .3)]),
- dict(text="and that puts extra stress on them.", img="v16.jpg", tr="whip_r",
-      keys=[(0, 1.0, .5, .5), ("E", 1.12, .48, .58)], shake=[("stress", .02)], sfx=[("stress", "hammer", .3)]),
+ dict(text="When they're weak, your knees often cave in toward each other as you squat, and that puts extra stress on them.", img="v03.jpg", tr="circle:0.5,0.66", d=0.4,
+      keys=[(0, 1.0, .5, .5), ("cave", 1.0, .5, .5), ("squat", 1.15, .5, .62)], sfx=[("cave", "whoosh_short", .3), ("stress", "hammer", .3)]),
  dict(text="Here are three easy moves to fix it.", img="v01.jpg", tr="zoom",
       keys=[(0, 1.0, .5, .48), ("E", 1.06, .5, .45)], sfx=[(0, "whoosh_fire", .35)]),
  # --- the fix: Day 4 format (card = picture on top, 01 + name under it -> demonstration), pushes like Day 4
@@ -54,10 +50,14 @@ S = [
  dict(text="If the pain is sharp or doesn't go away, see a doctor.", img="v22.jpg", tr="fade", d=0.4, keys=[(0, 1.0, .5, .5), ("E", 1.06, .55, .5)]),
 ]
 PLAN = dict(dir=f"{HERE}/scenes_d05v", words=f"{HERE}/voice/day05_cut.words.json", voice=f"{HERE}/voice/day05_cut.wav",
-            music=f"{HERE}/music/hyper_lillian_thorn.mp3", scenes=S, cap_y=0.8, lead=0.06, tail=0.6,
-            hook=dict(text=("KNEES ", "HURT?"), until="fine+0.3", y=0.085, bg=(225, 29, 46, 255), colors=((255, 255, 255), (255, 255, 255))),
-            keywords=["fine", "tenth", "ache", "slower", "lighter", "sore", "glutes", "butt", "steady", "weak", "cave", "stress",
-                      "three", "fix", "squeeze", "hips", "fifteen", "book", "side", "chair", "out", "toes", "ten", "week", "mirror", "sharp", "doctor"])
+            music=f"{HERE}/music/hyper_lillian_thorn.mp3", scenes=S, cap_y=0.5, lead=0.06, tail=0.6,
+            keywords=[])  # owner 1 Nov: captions all white, in the middle
+# owner 1 Nov: never cut H's face or feet -> only a gentle zoom on the whole picture (1.0 <-> 1.04, centred),
+# alternating in / out; no close-ups, no pans
+for i, sc in enumerate(S):
+    sc.pop("shake", None)
+    if sc.get("img") in ("v05.jpg", "v10.jpg", "v08.jpg") and not sc.get("card"): sc["keys"] = [(0, 1.0, .5, .5)]; continue  # floor poses touch the edges: no zoom
+    if not sc.get("card"): sc["keys"] = [(0, 1.0, .5, .5), ("E", 1.04, .5, .5)] if i % 2 == 0 else [(0, 1.04, .5, .5), ("E", 1.0, .5, .5)]
 if __name__ == "__main__":
     a = sys.argv[1:]
     render(PLAN, f"{HERE}/final/day05{'-preview' if a else ''}.mp4", **({"t0": float(a[0]), "t1": float(a[1])} if a else {}))
