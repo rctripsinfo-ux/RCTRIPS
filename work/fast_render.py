@@ -1,16 +1,43 @@
 # Owner rule (28 Oct): voice at 1.3x and NO silences. The tool's TTS leaves ~0.3-0.5 s pauses between sentences,
 # so after `check` makes the voice, this cuts every gap between words down to GAP seconds (voice.wav, words.json and
 # segments shifted together), re-sends the plan so its word anchors use the new times, then renders and encodes.
-# Usage: python3 fast_render.py <name> <script.txt> <plan.json> [speed] [cover.jpg]  (cover = thumbnail for the first 0.1 s)
+# Usage: [VOICE_FILE=vo.m4a] python3 fast_render.py <name> <script.txt> <plan.json> [speed] [cover.jpg]  (cover = thumbnail for the first 0.1 s)
 import json, os, subprocess, sys, time, urllib.request, wave
 _W = os.path.dirname(os.path.abspath(__file__))  # repo copy first (.claude/skills), then any account, then work/reel-video-maker
 MAKER = ([p for p in [os.path.join(_W, "../.claude/skills/reel-video-maker/scripts/make_video.py")] if os.path.exists(p)] + __import__("glob").glob("/root/.claude/skills/*/*/reel-video-maker/scripts/make_video.py") + [os.path.join(_W, "reel-video-maker/scripts/make_video.py")])[0]
 TOOL = os.path.expanduser("~/reel-engine-tool"); PORT = 3011; GAP = 0.05
 name, script, plan = sys.argv[1:4]; speed = sys.argv[4] if len(sys.argv) > 4 else "1.3"
-r = subprocess.run(["python3", MAKER, "check", "--script", script, "--plan", plan, "--name", name, "--speed", speed],
-                   capture_output=True, text=True)
-if "ERROR" in r.stdout or r.returncode: sys.exit(r.stdout[-2000:])
 pdir = os.path.join(TOOL, "public/projects", name)
+def api(path, body=None):
+    req = urllib.request.Request(f"http://127.0.0.1:{PORT}{path}", data=body, method="POST" if body is not None else "GET",
+                                 headers={"Content-Type": "application/json"})
+    return json.loads(urllib.request.urlopen(req, timeout=600).read() or b"{}")
+# Voice source (owner 1 Nov): VOICE_FILE=<audio> = owner's ready voiceover; otherwise the owner's Gemini voice
+# (gemini_voice.py: Fenrir, Heroic, 1.2x; cached in voice/<name>.wav, delete it to re-make). VOICE=tool = old tool TTS.
+# The own voice is uploaded and word-aligned from the audio (pocketsphinx) and kept at speed 1.0 (no double speed-up).
+VOICE_FILE = os.environ.get("VOICE_FILE")
+if os.environ.get("VOICE") == "tool" and not VOICE_FILE:
+    r = subprocess.run(["python3", MAKER, "check", "--script", script, "--plan", plan, "--name", name, "--speed", speed],
+                       capture_output=True, text=True)
+    if "ERROR" in r.stdout or r.returncode: sys.exit(r.stdout[-2000:])
+else:
+    if not VOICE_FILE:
+        VOICE_FILE = os.path.join(_W, "voice", f"{name}.wav"); os.makedirs(os.path.dirname(VOICE_FILE), exist_ok=True)
+        if not os.path.exists(VOICE_FILE):
+            subprocess.run(["python3", os.path.join(_W, "gemini_voice.py"), script, VOICE_FILE], check=True)
+    os.makedirs(pdir, exist_ok=True)
+    vw = os.path.join(pdir, "voice.wav")  # always a wav (fast_render cuts it with the wave module)
+    subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-i", VOICE_FILE, "-ac", "1", "-ar", "44100", "-sample_fmt", "s16", vw + ".tmp.wav"], check=True)
+    api(f"/api/projects/{name}/voice?filename=voice.wav", open(vw + ".tmp.wav", "rb").read()); os.remove(vw + ".tmp.wav")
+    txt = open(script, encoding="utf-8-sig").read().strip()
+    sres = api(f"/api/projects/{name}/sync", json.dumps({"script": txt}).encode())
+    if sres.get("error"): sys.exit(f"voice sync: {sres['error']}")
+    print(f"own voice {VOICE_FILE}: {sres}")
+    sents = [x for x in __import__("re").split(r"(?<=[.!?])\s+", txt) if x.strip()]  # segments (one per sentence)
+    json.dump({"segments": [{"text": x, "start": 0, "end": 0, "pauses": []} for x in sents]},
+              open(os.path.join(pdir, "voice.wav.segments.json"), "w"))
+    res0 = api(f"/api/projects/{name}/timeline", open(plan, encoding="utf-8-sig").read().encode())
+    if not res0.get("ok"): sys.exit(f"plan refused: {res0}")
 
 # --- re-time the gaps: never dead air, but a short natural breath at sentence ends, and longer holds where the
 # plan asks for them (<plan>.pauses.json, e.g. {"fix.": 0.7}) so bumper cards and their typing sound finish cleanly.
@@ -50,11 +77,8 @@ json.dump(sg, open(sp, "w"))
 print(f"voice {old_len:.1f} s -> {len(out) / bpf / rate:.1f} s (holds: {HOLD})")
 
 # --- volumes, plan again, render
-pj = os.path.join(pdir, "project.json"); d = json.load(open(pj)); d.update(musicVolume=float(os.environ.get("MUSIC_VOL", 0.025)), sfxVolume=0.35)  # MUSIC_VOL: per-video override; json.dump(d, open(pj, "w"), indent=1)
-def api(path, body=None):
-    req = urllib.request.Request(f"http://127.0.0.1:{PORT}{path}", data=body, method="POST" if body is not None else "GET",
-                                 headers={"Content-Type": "application/json"})
-    return json.loads(urllib.request.urlopen(req).read() or b"{}")
+pj = os.path.join(pdir, "project.json")  # MUSIC_VOL: per-video override (owner 1 Nov: 0.06)
+d = json.load(open(pj)) if os.path.exists(pj) else {}; d.update(musicVolume=float(os.environ.get("MUSIC_VOL", 0.06)), sfxVolume=0.35); json.dump(d, open(pj, "w"), indent=1)
 if len(sys.argv) > 5:
     cv = sys.argv[5]; api(f"/api/projects/{name}/cover?filename=cover{os.path.splitext(cv)[1]}", open(cv, "rb").read())
 # typed cards in sync with the voice: a text layer with "sync": "<spoken words>" types its letters over exactly the

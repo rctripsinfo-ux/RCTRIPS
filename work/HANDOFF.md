@@ -36,6 +36,13 @@
 - `gemini_voice.py` makes the wav. `GEMINI_API_KEY` must be in the environment.
 - **TO DO:** wire `gemini_voice.py` into `fast_render.py` (use the uploaded voice instead of the tool TTS, keep word alignment, render speed 1.0 so the voice is not sped up twice). Then rebuild Day 4 with the owner's NEW script, which the owner will give in the new session.
 
+
+**DONE 1 Nov (session 2):**
+- `fast_render.py` now uses the owner's voice by default: Gemini (`gemini_voice.py`, cached in `voice/<name>.wav`; delete it to re-make) or `VOICE_FILE=<audio>` for a ready voiceover. It is uploaded + word-aligned (pocketsphinx), silence-cut, -13 LUFS. Pass speed `1.0`. `VOICE=tool` = old tool TTS. `MUSIC_VOL` default 0.06 (it was never saved before: bug fixed).
+- Music: `music/hyper_lillian_thorn.mp3` (already starts 10 s in, 20 s, loops) is the library default at 0.06; `restore_tool.sh` installs it.
+- Day 4 NEW script is in `scripts_d4_30.py`: each tuple names its image (`sc_d04_sNN`, library id, or `a|b` loop). 9 new images needed: `FLOW-DAY4-NEW.md` (`d04_n05` … `d04_n16b`). Put them in `character/scenes/`, run `python3 import_scenes.py 4`, then `python3 build_scene_video.py 4` and `MUSIC_VOL=0.06 python3 fast_render.py day04 day04.txt day04.json 1.0`.
+- apt for image import: run `apt-get update` first, else libegl1/libgles2 are "not found".
+
 **Owner rules added 1 Nov:**
 - Every scene gets a unique, dynamic pose.
 - Only one H on screen at a time.

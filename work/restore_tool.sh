@@ -21,6 +21,11 @@ cp "$W/tool-patches/sfx-library.json" "$L/sfx/library.json"
 
 python3 "$W/make_assets.py"  # our generated backgrounds + sad sting
 python3 "$W/clean_cutout.py" hero_double_biceps hero_drop_from_bar hero_sad_crying_v2 hero_shrug hero_thumbs_up hero_teacher_pointer hero_point_viewer hero_count_1  # remove white fringe/holes (owner, 1 Nov)
+# owner's background music (1 Nov): work/music/*.mp3 (already cut to start 10 s in) -> library, default track, volume 0.06
+mkdir -p "$T/public/library/music" && cp "$W"/music/*.mp3 "$T/public/library/music/" 2>/dev/null
+python3 - "$T/public/library/music/music.json" <<'PY'
+import json, sys; p = sys.argv[1]; d = json.load(open(p)); d.update(current="hyper_lillian_thorn.mp3", volume=0.06); json.dump(d, open(p, "w"), indent=2)
+PY
 pkill -f "node tools/server.mjs" || true
 cd "$T" && (PORT=3011 nohup node tools/server.mjs > /tmp/reel-server.log 2>&1 &)
 for i in $(seq 30); do curl -s localhost:3011 >/dev/null && echo "Reel Engine up on :3011" && exit 0; sleep 1; done

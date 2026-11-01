@@ -13,7 +13,8 @@ use_preset("beige")
 tuples = [t for t in SCR[d] if t[0]]
 script = " ".join(t[0] for t in tuples)
 open(f"{name}.txt", "w").write(script + "\n")
-json.dump({"_gap": 0.05, "fix.": 0.35}, open(f"{name}.pauses.json", "w"))
+_fx = next((t[0].split()[-1] for t in tuples if t[1] == "HERE'S THE FIX"), "fix.")  # hold after the bumper sentence
+json.dump({"_gap": 0.05, _fx: 0.35}, open(f"{name}.pauses.json", "w"))
 H_ = {a["id"]: a for a in json.load(open(f"{LIB}/hero/library.json"))["assets"]}
 words = " ".join(re.sub(r"[^a-z0-9'\- ]", " ", script.lower()).split())
 
@@ -51,6 +52,7 @@ def place(aid, left=False):
                 "y": round(0.6 - ((bx[1] + bx[3]) / 2 - 0.5) * h, 3)}, False
     return (LEFT if left else BODY), False
 
+EXPLICIT = any(t[2].startswith("sc_") for t in tuples)  # images named in the script instead of found by scene number
 anc = [anchor(s) for s in sc_list]
 plan_scenes, cues_, seen = [], [], set()
 for n, sent in enumerate(sc_list, 1):
@@ -58,6 +60,9 @@ for n, sent in enumerate(sc_list, 1):
     t = tuple_of(sent); head = t[1] if t and t[1] not in seen else None
     if t: seen.add(t[1])
     ids = imgs.get(n, [])  # if one loop frame is still missing, the other frame is shown alone
+    if EXPLICIT and t:  # the script names the image(s) itself (Day 4 remake): library ids, "a|b" = loop frames
+        ids = [x for x in t[2].split("|") if x in H_]
+        if not ids: raise SystemExit(f"day {d} scene {n}: no image yet {t[2]} ({sent})")
     if not ids: raise SystemExit(f"day {d} scene {n}: no image yet ({sent})")
     bubble_on = bool(t and t[2].startswith("anat_") and head)
     lay, full = place(ids[0], left=bubble_on)
@@ -72,7 +77,7 @@ for n, sent in enumerate(sc_list, 1):
     if head == "HERE'S THE FIX":
         L[0].update(width=0.7, y=0.72) if not full else None
         L += kinetic([("HERE'S", 0.17, 120, INK, 0), ("THE FIX", 0.27, 220, RED, "the fix")], a)
-        cues_ += [(a, "bumper"), ("fix.+0.15", "big")]
+        cues_ += [(a, "bumper"), (f"{a}+1.0", "big")]
     else:
         if head: L.append(title(head, a, nxt, size=125 if len(head) > 14 else 140))
         cues_.append((a, "enter"))
@@ -97,11 +102,12 @@ for k in (1, 2):
     scn["layers"].append(speed_lines(a, f"{a}+0.4"))
     scn["camera"] = [{"at": a, "zoom": 1.0}, {"at": f"{a}+0.35", "zoom": 1.12, "focus": [0.5, 0.45]}, {"at": f"{a}+1.5", "zoom": 1.05}]
 cues_.insert(len(cues_) - 1, (anc[-2], "reveal"))
-bump = next((anc[i] for i, s in enumerate(sc_list) if s.startswith("Here's the fix")), None)
+bi = next((i for i, s in enumerate(sc_list) if (tuple_of(s) or ("", ""))[1] == "HERE'S THE FIX"), None)
+bump = anc[bi] if bi is not None else None
 plan = {
     "title": f"Day {d}", "canvas": {"background": P["bg"]}, "style": {"accent": YEL}, "audio": {"autoSfx": False},
     "captions": {"mode": "phrase", "look": "clean", "size": 54, "y": P["cap_y"], "maxWords": 3,
-                 "hide": [[bump, anc[sc_list.index(next(s for s in sc_list if s.startswith("Here's the fix"))) + 1]]] if bump else []},
+                 "hide": [[bump, anc[bi + 1]]] if bump else []},
     "scenes": plan_scenes,
     "sfx": cues([c for c in cues_ if c[1] != "reveal" or c[0] != anc[-1]]),
 }
