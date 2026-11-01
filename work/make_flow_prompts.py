@@ -22,6 +22,9 @@ FRAME_S = ("FRAMING: vertical 9:16 (1080x1920). Keep the top 20% of the image ca
            "part, whole body visible unless the description says close-up.")
 PAIR = ("LOOP PAIR: this is one of two frames of the same exercise. Use exactly the same camera angle, distance, body size and position in "
         "both frames; only the moving body parts change.")
+DYN = ("POSE: dynamic and unique, like a key frame from an animated film: body turned and in motion, weight shifted, clear action and emotion, "
+       "interesting camera angle. NOT a stiff straight standing pose; it must look clearly different from the plain standing reference image.")
+EXR = ("POSE: correct exercise form, clearly readable start/end position, natural muscle tension and effort on the face.")
 NEG = ("AVOID: any text, letters or numbers (except the H on his forehead), logos, watermarks, extra people, a different face, hair, "
        "a shirt (unless described), extra or missing fingers or limbs, twisted joints, wrong or unsafe exercise form (unless the description "
        "says WRONG form), cut-off hands or feet, blurry or low-detail output.")
@@ -44,7 +47,7 @@ for d, n, line, fid, kind, st, base in S.rows:
     pair = fid[-1] in "ab" and fid[-2].isdigit()
     action = action if action.endswith((".", "!", "?")) else action + "."
     p = " ".join(["Use the attached reference image of H.", "SCENE ACTION: " + action, CHAR, STYLE,
-                  SCENE if full else WHITE, camera(action), FRAME_S if full else FRAME_W, PAIR if pair else "", NEG])
+                  SCENE if full else WHITE, EXR if pair or "view:" in action[:40].lower() or re.match(r"^[A-Z][a-z ]+(START|TOP|BOTTOM|END|,)", action) else DYN, camera(action), FRAME_S if full else FRAME_W, PAIR if pair else "", NEG])
     p = re.sub(r"\s+", " ", p).strip()
     by_day.setdefault(d, []).append((fid, p)); allrows.append((d, n, fid, "SCENE" if full else "WHITE", line, p))
 for d, items in by_day.items():
