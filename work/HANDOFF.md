@@ -2,6 +2,47 @@
 
 **Repo:** `rctripsinfo-ux/RCTRIPS` · **Branch:** `claude/intelligent-euler-6jm4o0` · everything lives in `work/`.
 
+
+## 0. LATEST STATE (1 Nov 2026), read this first
+**Day 1–13 are done** (`final/dayNN.mp4`). Day 1–3 used the old builds; Day 4–13 come from the scene-image pipeline below.
+
+**Pipeline for Days 4–30** (one new image per script sentence):
+
+- **Script and scenes:**
+  - `scripts_d4_30.py` holds the DRAFT scripts and headings.
+  - `scene_split.py` gives one scene per sentence.
+- **Images:**
+  - Images are in `character/scenes/dNN_sMM[a|b].webp`. They are the owner's Flow images, verified and renamed by `match_flow_images.py`.
+  - The map is `character/scenes/flow-map.json`.
+  - 25 images are still missing. The prompts for them are in `FLOW-REGENERATE.md`.
+  - Day 10 s09 and Day 11 s03 use existing push-up images as fallbacks.
+- **Build one day, step by step:**
+  1. `python3 import_scenes.py N`: cutout plus body points for white images, and full scenes as photo cards.
+  2. `python3 build_scene_video.py N`: hook pack (frame-1 close-up, smash zoom-out, impact at 0.12 s, red slam heading, speed lines, whip entries in the first 5 s), side-push transitions, kinetic HERE'S THE FIX, anatomy bubble, cues, `tidy()`, `validate()`.
+  3. `MUSIC_VOL=0.06 python3 fast_render.py dayNN dayNN.txt dayNN.json 1.2`. It masters to −13 LUFS by default (`LUFS` env).
+  4. `python3 add_end_thumb.py dayNN thumbnails/dayNN.jpg`. The owner's thumbnail is the LAST 0.1 s.
+- **QA after every render:**
+  - `h_kit.blank_frames()` and `h_kit.qa_sheet()`.
+  - Check overlaps, small floor poses, and the frame-1 look.
+- **Re-master without re-rendering:** `LUFS=-13 python3 relouden.py dayNN`. Never interrupt it, because it rewrites `final/` in place.
+
+**New container setup:**
+1. Run `./restore_tool.sh`. It also runs `make_assets.py` (sunburst, impact background, sad sting) and `clean_cutout.py`.
+2. Images imported in an earlier container are not in the new tool library. Re-run `python3 import_scenes.py N` for each day before rebuilding it.
+3. Image import needs: `pip install mediapipe`, `apt-get install -y libegl1 libgles2`, and the pose model at `~/.cache/mp/pose_heavy.task`. The download URL is in `tool-patches/body_points.py`.
+
+**Owner's voice (NEXT TASK):**
+- The voice is Google AI Studio "Superhero (The Titan)": Gemini TTS `Fenrir`, Heroic, Natural pitch, Standard texture, 1.2x, silence remover on.
+- `gemini_voice.py` makes the wav. `GEMINI_API_KEY` must be in the environment.
+- **TO DO:** wire `gemini_voice.py` into `fast_render.py` (use the uploaded voice instead of the tool TTS, keep word alignment, render speed 1.0 so the voice is not sped up twice). Then rebuild Day 4 with the owner's NEW script, which the owner will give in the new session.
+
+**Owner rules added 1 Nov:**
+- Every scene gets a unique, dynamic pose.
+- Only one H on screen at a time.
+- Teeth-chatter sound only on the shiver scene.
+- No ringtone on the CTA.
+- Music is the library track `above_planets.mp3` at 0.06. Its licence is unknown; the owner may supply a track.
+
 ## 1. The job
 - **Channel:** YouTube Shorts channel **Effortless Exercise**.
 - **Character:** **H**, a bald, muscular, tan cartoon man with a white "H" on his forehead.
