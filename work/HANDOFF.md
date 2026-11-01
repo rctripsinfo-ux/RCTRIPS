@@ -41,7 +41,10 @@
 - Only one H on screen at a time.
 - Teeth-chatter sound only on the shiver scene.
 - No ringtone on the CTA.
-- Music is the library track `above_planets.mp3` at 0.06. Its licence is unknown; the owner may supply a track.
+- Music: until now the library track `above_planets.mp3` at 0.06 (licence unknown).
+- **NEW (owner, 1 Nov):** the next videos use a NEW background music track that the owner will supply. It must start from **10 s into the track** (skip the first 10 s).
+  - **How:** `ffmpeg -ss 10 -i track.mp3 -c:a libmp3lame -q:a 2 ~/reel-engine-tool/public/library/music/<name>.mp3`, then set `"current"` in `public/library/music/music.json`.
+  - Keep a copy in `work/music/` so `restore_tool.sh` can restore it.
 
 ## 1. The job
 - **Channel:** YouTube Shorts channel **Effortless Exercise**.
