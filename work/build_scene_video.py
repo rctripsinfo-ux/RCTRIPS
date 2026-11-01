@@ -75,6 +75,16 @@ for n, sent in enumerate(sc_list, 1):
     if bubble_on: L.append(bubble(t[2], f"{a}+0.3", nxt, x=0.8, y=0.66, size=0.28))
     plan_scenes.append(sc(f"s{n}", a if n == 1 else f"{a}-0.05", L))
 plan_scenes[0]["start"] = "start"; plan_scenes[0]["layers"][0].update(at="start", enter=ENTER["rise"])
+# HOOK PACK (first 2 s, owner 1 Nov): impact frame + heavy whoosh, smash zoom-out 1.7 -> 1.0 in 0.3 s, red heading slams in
+# at frame 1 (no typing), speed lines 0-0.7 s, pop at 0.35 s, camera punch-in at ~1 s
+h0 = plan_scenes[0]["layers"]
+for L in h0:
+    if L.get("type") == "text": L.update(color=RED, animation="none", enter={"type": "slam", "duration": 0.3}, at="start")
+h0[:0] = [{"type": "pulse", "kind": "impact", "at": "start", "duration": 0.15}]
+h0.append(speed_lines("start", "start+0.7"))
+plan_scenes[0]["camera"] = [{"at": "start", "zoom": 1.7, "focus": [0.5, 0.42]}, {"at": "start+0.3", "zoom": 1.0},
+                            {"at": "start+0.9", "zoom": 1.0}, {"at": "start+1.2", "zoom": 1.1, "focus": [0.5, 0.45]}]
+cues_[0:1] = [("start", "big"), ("start+0.35", "info")]
 cues_.insert(len(cues_) - 1, (anc[-2], "reveal"))
 bump = next((anc[i] for i, s in enumerate(sc_list) if s.startswith("Here's the fix")), None)
 plan = {

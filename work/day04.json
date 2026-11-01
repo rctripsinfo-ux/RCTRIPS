@@ -29,6 +29,12 @@
    "backdrop": "spotlight",
    "layers": [
     {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "start",
+     "duration": 0.15
+    },
+    {
      "type": "image",
      "asset": "sc_d04_s01",
      "shadow": true,
@@ -53,29 +59,55 @@
      "y": 0.15,
      "size": 125,
      "align": "center",
-     "color": "#16191D",
+     "color": "#EF4444",
      "font": "pop",
      "maxWidth": 0.9,
-     "animation": "typewriter",
+     "animation": "none",
      "untype": false,
-     "enter": "pop",
+     "enter": {
+      "type": "slam",
+      "duration": 0.3
+     },
      "exit": "cut",
      "stroke": {
       "color": "#FFFFFF",
       "width": 0
      },
-     "at": "Your head weighs",
+     "at": "start",
      "until": "Look down at"
+    },
+    {
+     "type": "speed",
+     "at": "start",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "start+0.7"
     }
    ],
    "camera": [
     {
-     "at": "Your head weighs",
-     "zoom": 1
+     "at": "start",
+     "zoom": 1.7,
+     "focus": [
+      0.5,
+      0.42
+     ]
     },
     {
-     "at": "Your head weighs+3",
-     "zoom": 1.07
+     "at": "start+0.3",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+0.9",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+1.2",
+     "zoom": 1.1,
+     "focus": [
+      0.5,
+      0.45
+     ]
     }
    ],
    "backdropColor": "#FFF6E8",
@@ -725,8 +757,13 @@
  ],
  "sfx": [
   {
-   "at": "Your head weighs",
-   "src": "sfx_whoosh_soft",
+   "at": "start",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "start+0.35",
+   "src": "sfx_pop_soft",
    "volume": 0.35
   },
   {
