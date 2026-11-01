@@ -42,9 +42,15 @@ class Timeline:
         return hits[nth - 1]["start"] + off
 
 _img_cache = {}
-def load(path):
-    if path not in _img_cache: _img_cache[path] = Image.open(path).convert("RGB")
-    return _img_cache[path]
+def load(path, pad=False):
+    """pad=True: a 16:9 (white-background) image is placed in the middle of a white 9:16 canvas, so the camera keys
+    can zoom / pan it without stretching (floor exercises read well wide)"""
+    if (path, pad) not in _img_cache:
+        im = Image.open(path).convert("RGB")
+        if pad:
+            c = Image.new("RGB", (im.width, int(im.width * H / W)), (255, 255, 255)); c.paste(im, (0, (c.height - im.height) // 2)); im = c
+        _img_cache[(path, pad)] = im
+    return _img_cache[(path, pad)]
 
 def view(img, z, fx, fy, dx=0.0, dy=0.0):
     """cover-fit crop of the source at zoom z, centred on focus (fx, fy) (0..1 of the image), clamped inside it"""
@@ -105,7 +111,7 @@ class Renderer:
             if 0 <= t - ts < 0.35:
                 k = (1 - (t - ts) / 0.35) * amp; rnd = random.Random(int(t * FPS)); dx, dy = (rnd.random() - .5) * k, (rnd.random() - .5) * k
                 z = max(z, 1.06)
-        return view(load(f"{self.P['dir']}/{s['img']}"), z, fx, fy, dx, dy)
+        return view(load(f"{self.P['dir']}/{s['img']}", s.get("pad", False)), z, fx, fy, dx, dy)
 
     def card(self, s, u):
         num, title = s["card"]; c = Image.new("RGBA", (W, H), (255, 255, 255, 255))
@@ -154,6 +160,15 @@ class Renderer:
             n = new.rotate(ang, center=(W // 2, -H // 3), fillcolor=(255, 255, 255)).transform((W, H), Image.AFFINE, (1, 0, -W * (1 - e), 0, 1, 0), fillcolor=(255, 255, 255))
             m = Image.new("L", (W, H), 0); ImageDraw.Draw(m).rectangle([int(W * (1 - e)), 0, W, H], fill=255)
             c.paste(o); c.paste(n, (0, 0), m.rotate(ang, center=(W // 2, -H // 3))); return c
+        if kind in ("whip_l", "whip_r"):  # fast push with motion blur in the middle of the move
+            sgn = 1 if kind == "whip_l" else -1
+            if 0.12 < p < 0.88:
+                k = max(2, int(W / (6 + 30 * abs(p - 0.5)))); old = old.resize((k, H)).resize((W, H)); new = new.resize((k, H)).resize((W, H))
+            c.paste(old, (int(-sgn * W * e), 0)); c.paste(new, (int(sgn * W * (1 - e)), 0)); return c
+        if kind.startswith("circle"):  # iris reveal from a point of the new picture (e.g. the knee)
+            cx, cy = (float(v) for v in (kind.split(":")[1].split(",") if ":" in kind else (0.5, 0.5)))
+            r = e * 1.25 * H; m = Image.new("L", (W, H), 0); ImageDraw.Draw(m).ellipse([cx * W - r, cy * H - r, cx * W + r, cy * H + r], fill=255)
+            c.paste(old); c.paste(new, (0, 0), m); ImageDraw.Draw(c).ellipse([cx * W - r, cy * H - r, cx * W + r, cy * H + r], outline=RED, width=14 if p < 0.95 else 0); return c
         return Image.blend(old, new, e)  # fade / flash
 
     def base(self, t):
@@ -174,6 +189,7 @@ class Renderer:
         if any(a <= t < b for a, b in self.hide): return None
         ws = self.tl.words; idx = max((k for k, w in enumerate(ws) if w["start"] <= t), default=-1)
         if idx < 0: return None
+        if idx < self.tl.sc[j]["w0"]: return None  # never show the last word of the previous scene on the new picture
         w = ws[idx]; nx = ws[idx + 1] if idx + 1 < len(ws) else None
         if t > (max(w["end"] + 0.25, nx["start"]) if nx else w["end"] + 0.5): return None
         txt = w["text"].strip(",.;:!?\"").upper(); kw = norm(w["text"]) in self.kw
@@ -189,16 +205,29 @@ class Renderer:
         hk = self.P.get("hook")
         if hk and t < self.tl.at(hk["until"]):
             if "_im" not in hk:
-                a = text_img(hk["text"][0], F_BIG, 170, INK, shadow=False); b = text_img(hk["text"][1], F_BIG, 170, RED, shadow=False)
+                ca, cb = hk.get("colors", (INK, RED)); a = text_img(hk["text"][0], F_BIG, 170, ca, shadow=False); b = text_img(hk["text"][1], F_BIG, 170, cb, shadow=False)
                 tw, th = a.width + b.width - 30, max(a.height, b.height)  # heading on its own white banner: never on the picture
-                im = Image.new("RGBA", (W - 40, th + 30), (0, 0, 0, 0)); sh = Image.new("RGBA", im.size, (0, 0, 0, 0))
+                im = Image.new("RGBA", (W - 40, th + 30), (0, 0, 0, 0)); sh = Image.new("RGBA", im.size, (0, 0, 0, 0)); bgc = hk.get("bg", (255, 255, 255, 255))
                 ImageDraw.Draw(sh).rounded_rectangle([14, 20, im.width - 14, im.height - 4], 34, fill=(0, 0, 0, 90)); im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(10)))
-                ImageDraw.Draw(im).rounded_rectangle([10, 8, im.width - 10, im.height - 14], 34, fill=(255, 255, 255, 255))
+                ImageDraw.Draw(im).rounded_rectangle([10, 8, im.width - 10, im.height - 14], 34, fill=bgc)
                 x0 = (im.width - tw) // 2; y0 = (im.height - th) // 2 - 4
                 for part, dx in ((a, 0), (b, a.width - 30)): im.alpha_composite(part, (x0 + dx, y0))
                 hk["_im"] = im
             pk = 1.0 + 0.06 * math.sin(min(1, max(0, (t - 0.12) / 0.2)) * math.pi)  # punch with the impact at 0.12 s
             paste_center(c, hk["_im"], W / 2, H * hk.get("y", 0.12), pk)
+        sb = self.tl.sc[j].get("banner")  # title banner on a scene (e.g. "01 GLUTE BRIDGES" over the number art)
+        if sb:
+            s_ = self.tl.sc[j]
+            if "_bim" not in s_:
+                a = text_img(sb[0], F_BIG, 150, RED, shadow=False); b = text_img(sb[1], F_BIG, 150, INK, shadow=False, maxw=W * 0.7)
+                th = max(a.height, b.height); tw = a.width + b.width - 30
+                im = Image.new("RGBA", (W - 40, th + 30), (0, 0, 0, 0)); sh = Image.new("RGBA", im.size, (0, 0, 0, 0))
+                ImageDraw.Draw(sh).rounded_rectangle([14, 20, im.width - 14, im.height - 4], 34, fill=(0, 0, 0, 90)); im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(10)))
+                ImageDraw.Draw(im).rounded_rectangle([10, 8, im.width - 10, im.height - 14], 34, fill=(255, 255, 255, 255))
+                x0 = (im.width - tw) // 2; y0 = (im.height - th) // 2 - 4
+                for part, dx in ((a, 0), (b, a.width - 30)): im.alpha_composite(part, (x0 + dx, y0))
+                s_["_bim"] = im
+            u = t - s_["T"]; paste_center(c, s_["_bim"], W / 2, H * 0.085 - (1 - back(u / 0.3, 1.3)) * 260, 1.0, min(1, max(0, u / 0.12)))
         cap = self.caption(t, j)
         if cap: paste_center(c, cap[0], W / 2, H * cap[1], cap[2])
         for ft in self.flashes:
@@ -206,16 +235,28 @@ class Renderer:
         return c.convert("RGB")
 
     # ---------- audio + encode ----------
+    # Owner rule (1 Nov): VOICE loudest; SFX clearly lower (peaks SFX_DB under the voice peaks); MUSIC lowest
+    # (MUSIC_DB under the voice loudness). Every stem is measured, so a loud sound file can never cover the voice.
+    @staticmethod
+    def measure(path):
+        r = subprocess.run(["ffmpeg", "-nostdin", "-hide_banner", "-i", path, "-af", "ebur128=peak=sample", "-f", "null", "-"], capture_output=True, text=True).stderr
+        lufs = float(r[r.rindex("I:"):].split()[1]); pk = float(r[r.rindex("Peak:"):].split()[1])
+        return lufs, pk
     def audio(self, out):
         P = self.P; dur = self.tl.end; ins = ["-i", P["voice"], "-stream_loop", "-1", "-i", P["music"]]; fl = []; mixes = ["[v]", "[m]"]
+        v_lufs, v_pk = self.measure(P["voice"]); m_lufs, _ = self.measure(P["music"])
+        music_gain = 10 ** ((v_lufs - P.get("music_db", 22) - m_lufs) / 20)
+        self.sfx_ref = v_pk - P.get("sfx_db", 12)  # target peak of a full-volume sound effect
+        print(f"audio: voice {v_lufs:.1f} LUFS / peak {v_pk:.1f} dB, music gain {music_gain:.3f} (-{P.get('music_db', 22)} dB), sfx peaks <= {self.sfx_ref:.1f} dB")
         fl.append(f"[0:a]aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur={dur}[v]")
-        fl.append(f"[1:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{dur},volume={P.get('music_vol', 0.06)},afade=t=in:d=0.3,afade=t=out:st={dur - 1.2}:d=1.2[m]")
+        fl.append(f"[1:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{dur},volume={music_gain:.4f},afade=t=in:d=0.3,afade=t=out:st={dur - 1.2}:d=1.2[m]")
         k = 2
         for s in self.tl.sc:
             for a, name, vol in s.get("sfx", []):
                 f = glob.glob(f"{SFX_DIR}/{name}.*"); assert f, name
                 ms = int(max(0, self.tl.at(a, s)) * 1000); ins += ["-i", f[0]]
-                fl.append(f"[{k}:a]aresample=48000,aformat=channel_layouts=stereo,volume={vol * P.get('sfx_gain', 1.0):.3f},adelay={ms}|{ms}[s{k}]"); mixes.append(f"[s{k}]"); k += 1
+                _, pk = self.measure(f[0]); g = 10 ** ((self.sfx_ref - pk) / 20) * min(1.0, vol / 0.5)  # vol 0.5 = full level
+                fl.append(f"[{k}:a]aresample=48000,aformat=channel_layouts=stereo,volume={g:.4f},adelay={ms}|{ms}[s{k}]"); mixes.append(f"[s{k}]"); k += 1
         fl.append("".join(mixes) + f"amix=inputs={len(mixes)}:normalize=0:duration=first,atrim=0:{dur}[out]")
         subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y", *ins, "-filter_complex", ";".join(fl), "-map", "[out]", "-ar", "48000", out], check=True)
 
@@ -234,5 +275,15 @@ class Renderer:
             ff.stdin.write(self.frame(t0 + f / FPS).tobytes())
         ff.stdin.close(); ff.wait(); os.remove(tmp_a)
         print("DONE", out, f"{t1 - t0:.2f} s, {n} frames")
+
+def remix(plan, video, out):
+    """new audio mix onto an already rendered video (no frame render)"""
+    r = Renderer(plan); a = out + ".mix.wav"; r.audio(a); L = os.environ.get("LUFS", "-13")
+    J = subprocess.run(["ffmpeg", "-nostdin", "-hide_banner", "-i", a, "-af", f"loudnorm=I={L}:TP=-1.0:LRA=11:print_format=json", "-f", "null", "-"], capture_output=True, text=True).stderr
+    j = json.loads(J[J.rindex("{"):J.rindex("}") + 1])
+    af = (f"loudnorm=I={L}:TP=-1.0:LRA=11:measured_I={j['input_i']}:measured_TP={j['input_tp']}:measured_LRA={j['input_lra']}"
+          f":measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true")
+    subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-i", video, "-i", a, "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-af", af,
+                    "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest", "-movflags", "+faststart", out], check=True); os.remove(a)
 
 def render(plan, out, **kw): Renderer(plan).render(out, **kw)
