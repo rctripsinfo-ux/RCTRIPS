@@ -9,7 +9,7 @@
 4. **Phase 8.** Patch the Reel Engine:
    - a `rise` entrance (ease-out between sine and quad, ~0.25–0.3 s, travel ≥0.3 H, fade-in over 2 frames)
    - a word-pop heading
-   - a pastel theme
+   - a white theme (owner, 2 Nov)
    Then rebuild ~8 s of R07's structure with H and our own words. Stills first, then the preview.
 5. **Phase 9.** Compare reference vs ours with the same `analyze.py` metrics (event durations, velocity curves, holds, cut rate).
 6. ~~Owner decisions~~ Done 2 Nov: white background, channel = Zenox (complete coverage).
