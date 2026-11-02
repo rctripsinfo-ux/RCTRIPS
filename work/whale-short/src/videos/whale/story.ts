@@ -70,7 +70,7 @@ export const SHOTS: ShotDef[] = [
   { id: 18, a: 1822, b: TOTAL, light: "golden", scene: "car", tau: T0 },
 ];
 /** crossfades (frames) at place / time changes; a white 4-frame flash after the hook */
-export const XFADE: Record<number, number> = { 15: 8, 17: 8, 18: 6 };
+export const XFADE: Record<number, number> = { 5: 6, 6: 6, 15: 8, 17: 8, 18: 6 };
 export const FLASH_AT = 124;
 /** frames that start a 4-frame white flash (reference: most hard changes are 4-frame flashes, not plain cuts) */
 export const FLASHES = [66, 124];
@@ -118,6 +118,8 @@ const rolled = (s: (f: number) => Shot, roll: number) => (f: number): Shot => ({
 const at = (x: number, z: number, dy: number): V3 => [x, H(x, z) + dy, z];
 
 const C = UMEN, L = LUCKY;
+const S2b = (f: number) => dolly([12, 5.0, 17], [0, 1.2, 1], pushK(f, 225, 0.0022), { fov: 42 });
+const S3b = (f: number) => dolly([-2.6, 1.55, -7.2], [-1.6, 1.45, -2.4], pushK(f, 300, 0.003), { fov: 40, roll: -0.04 });
 const CAMS: Record<number, Key[]> = {
   // 1 hook: the crowd under the falling sky, low from the beach side; closer on "rain whale" (roll)
   1: [
@@ -127,15 +129,18 @@ const CAMS: Record<number, Key[]> = {
   // 2 arrive: high over the sea, then glide down to the whale on the sand ("washes up on the beach at Florence")
   2: [
     { f: 120, s: (f) => zoom([22, 15, 34], [0, 0.5, -4], 44, pushK(f, 120, 0.0018)) },
-    { f: 205, dur: 40, s: (f) => dolly([12, 5.0, 17], [0, 1.2, 1], pushK(f, 225, 0.0022), { fov: 42 }) },
+    { f: 205, dur: 40, s: S2b },
   ],
   // 3 whale CU ("Eight tons", punch) -> the man beside it ("And it stinks", roll)
+  // (reference grammar: no hard cut inside a place; the camera travels from the aerial into the whale's head, then
+  //  slides along the body to the man and on to the worker)
   3: [
-    { f: 270, s: (f) => dolly([12.5, 1.7, -5.5], [5.5, 1.5, 2], pushK(f, 270, 0.0025, 0.006, 20), { fov: 40 }) },
-    { f: 292, cut: true, s: (f) => dolly([-2.6, 1.55, -7.2], [-1.6, 1.45, -2.4], pushK(f, 292, 0.003), { fov: 40, roll: -0.04 }) },
+    { f: 262, s: S2b },
+    { f: 262, dur: 30, s: (f) => dolly([12.5, 1.7, -5.5], [5.5, 1.5, 2], pushK(f, 280, 0.0025, 0.006, 20), { fov: 40 }) },
+    { f: 288, dur: 22, s: S3b },
   ],
   // 4 bury: worker with a shovel, the tide behind him
-  4: [{ f: 317, s: (f) => dolly([6.5, 1.4, -6.5], [4.2, 1.2, 1.5], pushK(f, 317, 0.0025), { fov: 44 }) }],
+  4: [{ f: 310, s: S3b }, { f: 310, dur: 16, s: () => ({ pos: [1.4, 2.0, -10.5], look: [1.4, 1.3, 0], fov: 44 }) }, { f: 322, dur: 18, s: (f) => dolly([6.5, 1.4, -6.5], [4.2, 1.2, 1.5], pushK(f, 330, 0.0025), { fov: 44 }) }],
   // 5 tow: the truck straining at the tail
   5: [{ f: 379, s: (f) => dolly([-15.5, 2.2, -8.5], [-11, 1.0, 2.5], pushK(f, 379, 0.003), { fov: 44, roll: 0.03 }) }],
   // 6 engineer: MS, then closer on "blow it up" (punch + roll)
@@ -246,9 +251,9 @@ export type Dof = { f: number; dur?: number; cInf: number; focus?: (f: number) =
 export const DOF: Dof[] = [
   { f: 0, cInf: 5, focus: () => [UMEN[0], UMEN[1] + 1.8, UMEN[2]] }, { f: 66, cInf: 14 },
   { f: 124, cInf: 0 },
-  { f: 270, cInf: 10 }, { f: 292, cInf: 13 },
-  { f: 317, cInf: 8 }, { f: 379, cInf: 0 },
-  { f: 420, cInf: 12 }, { f: 476, dur: 20, cInf: 14 },
+  { f: 262, dur: 30, cInf: 7 }, { f: 288, dur: 22, cInf: 8 },
+  { f: 312, dur: 26, cInf: 6 }, { f: 379, cInf: 0 },
+  { f: 420, cInf: 7 }, { f: 476, dur: 20, cInf: 8 },
   { f: 508, cInf: 10 },
   { f: 592, cInf: 12, focus: () => [UMEN[0], UMEN[1] + 1.75, UMEN[2]] }, { f: 700, dur: 24, cInf: 14, focus: () => [UMEN[0], UMEN[1] + 1.75, UMEN[2]] },
   { f: 754, cInf: 6 }, { f: 790, cInf: 14 },
