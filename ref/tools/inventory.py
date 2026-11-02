@@ -31,6 +31,11 @@ for k, fn in enumerate(sorted(f for f in os.listdir(raw) if f.endswith(".mp4")))
            "size_mb": round(os.path.getsize(p) / 1e6, 2), "srt": " | ".join(srt)}
     cache[fn] = {"sha1": h, "ver": TOOL_VER, "row": row}; rows.append(row)
 rows.sort(key=lambda r: r["id"])
+# view counts from `yt-dlp --flat-playlist -J <channel>/shorts > channel_shorts.json` (optional)
+chp = os.path.join(out, "channel_shorts.json")
+if os.path.exists(chp):
+    views = {e["title"][:25].lower(): e.get("view_count") for e in json.load(open(chp)).get("entries", [])}
+    for r in rows: r["views"] = views.get(r["file"][:-4].replace("_", "?")[:25].lower(), "")
 with open(os.path.join(out, "REFERENCE_INVENTORY.csv"), "w", newline="") as f:
     w = csv.DictWriter(f, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
 json.dump(cache, open(cache_p, "w"), indent=1)
