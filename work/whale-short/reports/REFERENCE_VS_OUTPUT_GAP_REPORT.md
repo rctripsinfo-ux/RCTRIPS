@@ -40,3 +40,27 @@ reference overview sheets (60 tiles ~1 s apart per video) vs 60 tiles 1.1 s apar
 | G10 | Integration | Faces fine now; feet contact OK; golden shadows hard | crowd shots | minor | card shadows on | keep blobs by day, soft shadows golden | P3 | medium |
 | G11 | Explanation readability | Night whale reads as a dark shape | physics shot | the "up" idea is the core of the story | night shade on a dark whale | lamp/rim light on the whale, brighter belly, diagram arrows larger | P2 | high |
 | G12 | Audio | Music now ~25 dB under voice (user wish) vs reference 5-10 dB | mix | intentional deviation | user request | keep; revisit only if the user asks | — | — |
+
+## 3. Addendum: camera motion measured on our v4 (`analysis/camfit.py`, same classes as the skill's motion.md)
+3x3 tiles at 360x640 with the caption band excluded, sub-pixel phase correlation, translation + zoom fit, speed in 720p px/frame.
+
+| Measure | Reference (motion.md, UNVERIFIED) | v4 full video [M] | v6 test segment [M] |
+|---|---|---|---|
+| Hold (< 0.3 px/f) | 10 % | 1.6 % | 0.2 % |
+| Drift (0.3-2) | 24 % | 39.6 % | 32.1 % |
+| Move (≥ 2) | 65 % | 58.9 % | 67.7 % |
+| Median speed | 3.6 | 2.35 | 3.77 |
+| p90 speed | 16.9 | 13.0 | 26.8 |
+
+Reading: our camera was never "too static". The motion problem was the **editing** (cuts instead of travel) and,
+after the fix, the **near-field speed** of the travel moves (G13). G13 is new: travel moves passing < 8 m from big
+objects peak at 56-100 px/f.
+
+## 4. Final recommendation
+**Not ready for a full re-render yet.** The pacing fix (F8) is ready for the whole video. Before spending 2.4 h on the
+full render, three test-segment problems must pass their gates on a re-render of the same segment:
+1. D3: light direction, so the whale's flank is lit and readable;
+2. D1/F16: detail density, edge_frac ≥ 0.08;
+3. D2/D4: sharpness ≥ 0.006 and camera p90 ≤ 20 px/f.
+
+Then apply F7 (travel instead of cuts) to the remaining 13 shots and render the full video.

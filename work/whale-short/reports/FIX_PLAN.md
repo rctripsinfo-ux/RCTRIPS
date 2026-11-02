@@ -19,3 +19,14 @@ Priority P1 = largest measured gap. Difficulty S/M/L. "Done in test" = implement
 | F12 | Sharpness | DOF only on CU/MS beats; cInf ≤ 8 on MS; encode crf 15 | lap-var ↑ | — | S | P2 | not started |
 | F13 | Rendering | Keep 1080 native; render only changed shots (chunk by shot) and splice; measure after each | faster iterations | — | S | P2 | in use |
 | F14 | Audio | Keep user's low music level; ensure -14 LUFS two-pass loudnorm | consistent loudness | — | S | P3 | done (one pass) |
+
+## Status update (test segment v6, 2 Nov 17:30)
+| # | New status | Evidence |
+|---|---|---|
+| F3 | done in test, **partly effective** | lum 0.658 -> 0.522 (target 0.30-0.50); sat closed (0.482 vs 0.467) |
+| F7 | done in test (shots 2-6) | 0 hard changes inside the beach scene; travel peaks still 56-100 px/f (D4) |
+| F8 | **done for the whole video** (voice + time-warp + SFX warp) | 3.71 w/s, < 1 s of pauses, 63.1 s |
+| F12 | done in test, **not effective** | sharpness 0.005 -> 0.003; cause: haze + grade (D2) |
+| F15 (new) | Light direction per travelled group: lit side toward the camera | D3 |
+| F16 (new) | Detail density pass: ≥ 3 depth layers per shot, gate edge_frac ≥ 0.08 | D1 |
+| F17 (new) | Motion gate: `analysis/camfit.py`, p90 ≤ 20 px/f, no near-field paths < 8 m | D4 |
