@@ -36,7 +36,7 @@ Every rule says where its number comes from:
 ## Typography
 | Rule | Target | Source |
 |---|---|---|
-| Captions | **Conflicting evidence.** All 38 stills in the skill's `references/frames/` show one burned-in caption word (files and words listed in `EVIDENCE_INTEGRITY_AUDIT.md`). The user reports a separate set of 88 reference frames with no captions. That set isn't in this environment. **Decision: no captions** (the user didn't ask for them). | [M] for the 38-frame set only |
+| Captions | Present in 38/38 approved stills (`EVIDENCE_INTEGRITY_AUDIT.md`). **Not used: the user's decision.** | [M] |
 
 ## Audio
 | Rule | Target | Source |
