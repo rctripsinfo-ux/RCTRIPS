@@ -94,12 +94,11 @@ for a, b, g in sections:
 # tension roll before the boom
 t = T(int(1.8 * SR)); put(mus, 29.3, lp(noise(1.8), 400) * (t / 1.8) ** 2 * (0.6 + 0.4 * np.sin(2 * np.pi * 14 * t)), 0.25)
 # ---- voice + ducking
-v, vsr = sf.read("voice/voice.wav"); v = resample_poly(v, SR, vsr) if vsr != SR else v
+v, vsr = sf.read("voice/voice_proc.wav"); v = resample_poly(v, SR, vsr) if vsr != SR else v
 voice = np.zeros(N); voice[: min(N, len(v))] = v[:N]
 envv = np.abs(voice); envv = lp(envv, 4); envv /= envv.max() + 1e-9
-duck = 1 - 0.55 * np.clip(envv * 3, 0, 1)
-mix = voice * 1.0 + mus * duck * 0.55 + sfx * 0.7
-mix = np.tanh(mix / 0.95) * 0.95
+duck = 1 - 0.75 * np.clip(envv * 4, 0, 1)
+mix = voice * 1.0 + mus * duck * 0.4 + sfx * (1 - 0.35 * np.clip(envv * 4, 0, 1)) * 0.6
 fade = int(0.6 * SR); mix[-fade:] *= np.linspace(1, 0, fade)
 peak = np.abs(mix).max(); mix = mix / peak * 0.93
 sf.write("public/whale/mix.wav", mix.astype(np.float32), SR)
