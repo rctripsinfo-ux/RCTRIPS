@@ -50,28 +50,30 @@ export type Scene = "hook" | "arrive" | "whale" | "bury" | "tow" | "engineer" | 
 export type ShotDef = { id: number; a: number; b: number; light: Light; scene: Scene; tau: (t: number) => number; sunAz?: number; sunEl?: number };
 const T0 = (t: number) => t;
 export const SHOTS: ShotDef[] = [
-  { id: 1, a: 0, b: 124, light: "day", scene: "hook", tau: (t) => 35.6 + t },
-  { id: 2, a: 124, b: 270, light: "day", scene: "arrive", tau: T0, sunAz: 110 },
-  { id: 3, a: 270, b: 317, light: "day", scene: "whale", tau: T0 },
-  { id: 4, a: 317, b: 379, light: "day", scene: "bury", tau: T0 },
-  { id: 5, a: 379, b: 420, light: "day", scene: "tow", tau: T0 },
-  { id: 6, a: 420, b: 508, light: "day", scene: "engineer", tau: T0 },
-  { id: 7, a: 508, b: 592, light: "day", scene: "gulls", tau: T0 },
-  { id: 8, a: 592, b: 754, light: "day", scene: "umen", tau: T0 },
-  { id: 9, a: 754, b: 831, light: "day", scene: "cases", tau: T0 },
-  { id: 10, a: 831, b: 881, light: "day", scene: "gather", tau: T0 },
-  { id: 11, a: 881, b: 936, light: "day", scene: "count", tau: T0 },
-  { id: 12, a: 936, b: 1005, light: "day", scene: "boom", tau: T0 },
-  { id: 13, a: 1005, b: 1176, light: "day", scene: "fall", tau: T0 },
-  { id: 14, a: 1176, b: 1277, light: "day", scene: "lucky", tau: T0 },
+  { id: 1, a: 0, b: 124, light: "golden", scene: "hook", tau: (t) => 35.6 + t },
+  { id: 2, a: 124, b: 270, light: "golden", scene: "arrive", tau: T0, sunAz: 150, sunEl: 12 },
+  { id: 3, a: 270, b: 317, light: "golden", scene: "whale", tau: T0 },
+  { id: 4, a: 317, b: 379, light: "golden", scene: "bury", tau: T0 },
+  { id: 5, a: 379, b: 420, light: "golden", scene: "tow", tau: T0 },
+  { id: 6, a: 420, b: 508, light: "golden", scene: "engineer", tau: T0 },
+  { id: 7, a: 508, b: 592, light: "golden", scene: "gulls", tau: T0 },
+  { id: 8, a: 592, b: 754, light: "golden", scene: "umen", tau: T0 },
+  { id: 9, a: 754, b: 831, light: "golden", scene: "cases", tau: T0 },
+  { id: 10, a: 831, b: 881, light: "golden", scene: "gather", tau: T0 },
+  { id: 11, a: 881, b: 936, light: "golden", scene: "count", tau: T0 },
+  { id: 12, a: 936, b: 1005, light: "golden", scene: "boom", tau: T0 },
+  { id: 13, a: 1005, b: 1176, light: "golden", scene: "fall", tau: T0 },
+  { id: 14, a: 1176, b: 1277, light: "golden", scene: "lucky", tau: T0 },
   { id: 15, a: 1277, b: 1500, light: "night", scene: "ketchup", tau: T0, sunAz: 55, sunEl: 35 },
   { id: 16, a: 1500, b: 1645, light: "night", scene: "physics", tau: T0, sunAz: 120, sunEl: 30 },
-  { id: 17, a: 1645, b: 1822, light: "day", scene: "after", tau: T0 },
-  { id: 18, a: 1822, b: TOTAL, light: "day", scene: "car", tau: T0 },
+  { id: 17, a: 1645, b: 1822, light: "golden", scene: "after", tau: T0 },
+  { id: 18, a: 1822, b: TOTAL, light: "golden", scene: "car", tau: T0 },
 ];
 /** crossfades (frames) at place / time changes; a white 4-frame flash after the hook */
 export const XFADE: Record<number, number> = { 15: 8, 17: 8, 18: 6 };
 export const FLASH_AT = 124;
+/** frames that start a 4-frame white flash (reference: most hard changes are 4-frame flashes, not plain cuts) */
+export const FLASHES = [66, 124];
 
 export const shotAt = (f: number) => SHOTS.find((s) => f >= s.a && f < s.b) ?? SHOTS[SHOTS.length - 1];
 export const layersAt = (f: number): { id: number; alpha: number }[] => {

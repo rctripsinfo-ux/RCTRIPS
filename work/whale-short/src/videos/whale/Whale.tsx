@@ -17,7 +17,8 @@ import { InkPass, noInkFallback } from "./ink";
 import { LensBlur, GrainEffect } from "./lensblur";
 import { GradeEffect, GRADES, GRADE_STRENGTH, gradeFor } from "./grade";
 import { Kit } from "./build";
-import { TOTAL, FLASH_AT, SHOTS, layersAt, dofAt } from "./story";
+import { TOTAL, FLASHES, SHOTS, layersAt, dofAt, FPS } from "./story";
+import { WORDS } from "./words";
 
 export const WHALE_FRAMES = TOTAL;
 
@@ -109,16 +110,39 @@ const ShotView: React.FC<{ id: number; kit: Kit; alpha: number }> = ({ id, kit, 
   </AbsoluteFill>
 );
 
+/** Reference captions: one word at a time, white heavy sans with a thin black outline, centred at ~66 % of the height,
+ *  hard swap on every word (no pop / fade). Shown from the word onset to the next word's onset (no empty frames inside
+ *  a sentence); off between sentences longer than 0.35 s. Toggle with inputProps { captions: false }. */
+const Caption: React.FC = () => {
+  const f = useCurrentFrame(), t = f / FPS;
+  if ((getInputProps() as { captions?: boolean }).captions === false) return null;
+  let w: (typeof WORDS)[number] | null = null;
+  for (let i = 0; i < WORDS.length; i++) {
+    const nx = WORDS[i + 1];
+    const end = nx && nx.s - WORDS[i].e < 0.35 ? nx.s : WORDS[i].e + 0.12;
+    if (t >= WORDS[i].s - 0.03 && t < end) { w = WORDS[i]; break; }
+  }
+  if (!w) return null;
+  return (
+    <AbsoluteFill style={{ justifyContent: "flex-start", alignItems: "center" }}>
+      <div style={{ position: "absolute", top: "71%", width: "100%", textAlign: "center", fontFamily: "'DejaVu Sans', 'Arial Black', sans-serif",
+        fontWeight: 900, fontSize: 84, letterSpacing: -1, color: "#ffffff", WebkitTextStroke: "7px #0b0a0c", paintOrder: "stroke fill",
+        textShadow: "0 4px 0 rgba(0,0,0,0.35)", lineHeight: 1 }}>{w.w}</div>
+    </AbsoluteFill>
+  );
+};
+
 export const WhaleShort: React.FC = () => {
   const f = useCurrentFrame();
   const kit = useKit();
   if (!kit) return null;
-  const flash = f >= FLASH_AT && f < FLASH_AT + 4 ? [1, 0.75, 0.45, 0.2][f - FLASH_AT] : 0;
+  const fa = FLASHES.find((a) => f >= a && f < a + 4), flash = fa !== undefined ? [1, 0.75, 0.45, 0.2][f - fa] : 0;
   return (
     <AbsoluteFill style={{ background: "#cfe3f2" }}>
       <Audio src={staticFile("whale/mix.wav")} />
       {layersAt(f).map((l, i) => <ShotView key={i ? "over" : "base"} id={l.id} kit={kit} alpha={l.alpha} />)}
       {flash > 0 && <AbsoluteFill style={{ background: "#ffffff", opacity: flash }} />}
+      <Caption />
     </AbsoluteFill>
   );
 };

@@ -30,9 +30,15 @@ const sandHD = () => ctex("sandHD", 1024, 1024, (g, r) => {
     }
   }
   g.lineCap = "round";
-  for (let i = 0; i < 140; i++) { // wind ripples
+  for (let i = 0; i < 26; i++) { // footprints: pairs of dark ovals
+    const x = r() * S, y = r() * S, a = r() * 6.28;
+    for (let k = 0; k < 6; k++) { const px = x + Math.cos(a) * k * 26 + (k % 2 ? 7 : -7) * Math.sin(a), py = y + Math.sin(a) * k * 26 - (k % 2 ? 7 : -7) * Math.cos(a);
+      g.fillStyle = "rgba(150,118,80,0.38)"; g.beginPath(); g.ellipse(px, py, 6, 10, a + 1.57, 0, 6.3); g.fill(); }
+  }
+  for (let i = 0; i < 90; i++) { g.fillStyle = r() < 0.5 ? "rgba(255,246,232,0.9)" : "rgba(120,104,96,0.8)"; g.beginPath(); g.ellipse(r() * S, r() * S, 2.5 + r() * 3, 1.8 + r() * 2, r() * 3, 0, 6.3); g.fill(); }
+  for (let i = 0; i < 260; i++) { // wind ripples
     const x = r() * S, y = r() * S, l = 30 + r() * 70;
-    g.strokeStyle = "rgba(190,160,110,0.35)"; g.lineWidth = 2.2;
+    g.strokeStyle = r() < 0.6 ? "rgba(170,138,92,0.55)" : "rgba(255,244,220,0.55)"; g.lineWidth = 2.6;
     g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + l / 2, y - 6, x + l, y); g.stroke();
   }
   for (let i = 0; i < 2200; i++) { const x = r() * S, y = r() * S; g.fillStyle = r() < 0.5 ? "rgba(150,120,80,0.35)" : "rgba(255,250,235,0.5)"; g.fillRect(x, y, 2, 2); }
@@ -283,7 +289,7 @@ export class World {
     M.grass2 = lam("beachGrass2", () => ({ color: "#a7a85a" }));
     const blade = new THREE.ConeGeometry(0.05, 1, 4); blade.translate(0, 0.5, 0);
     const rr = rng(77);
-    for (let i = 0; i < 700; i++) {
+    for (let i = 0; i < 1300; i++) {
       const x = -90 + rr() * 180, z = -21 - rr() * 70;
       if (z < -57 && z > -86 && x > -30 && x < 26) continue;
       if (z > -33 && Math.abs(x) < 12) continue; // the crowd's patch stays clear
@@ -326,8 +332,8 @@ export class World {
       for (const [p0, p1] of [[a0, mid], [mid, a1]]) { const g = cyl(0.018, p0.distanceTo(p1), 5); g.rotateZ(Math.PI / 2); g.rotateZ(Math.atan2(p1.y - p0.y, p1.x - p0.x)); g.translate((p0.x + p1.x) / 2, (p0.y + p1.y) / 2, -21.5); b.add(g, lam("rope", () => ({ color: "#e8d8a8" }))); }
     }
     // kelp piles and beach rocks
-    M.kelp = lam("kelp", () => ({ color: "#4f5a2a" }));
-    for (let i = 0; i < 26; i++) { const x = -40 + rr() * 80, z = 4 + rr() * 6; const g = rockGeo(300 + i, 0.6 + rr() * 0.8, 0.12, 0.35 + rr() * 0.4); g.translate(x, 0.02, z); b.add(g, M.kelp); }
+    M.kelp = lam("kelp", () => ({ color: "#6b7a36" }));
+    for (let i = 0; i < 16; i++) { const x = -40 + rr() * 80, z = 6 + rr() * 4; const g = rockGeo(300 + i, 0.35 + rr() * 0.4, 0.08, 0.2 + rr() * 0.25); g.translate(x, 0.02, z); b.add(g, M.kelp); }
     for (let i = 0; i < 16; i++) { const x = -45 + rr() * 90, z = -18 + rr() * 26; if (Math.abs(x) < 9 && z > -6) continue; const g = rockGeo(400 + i, 0.3 + rr() * 0.5, 0.2 + rr() * 0.3, 0.3 + rr() * 0.5); g.translate(x, 0.05, z); b.add(g, M.rock); }
     b.build(R);
     for (const [x, z, col, yaw] of [[-24, -14, "#c94a3a", 0.4], [-29, -12, "#e6dcc0", 0.2], [22, -15, "#3f6fb5", -0.5], [27, -12.5, "#5d7a3a", -0.3], [33, -16, "#d9a640", -0.6]] as const) {

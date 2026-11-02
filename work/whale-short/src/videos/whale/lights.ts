@@ -23,13 +23,13 @@ export const LIGHTS: Record<LightName, LightPreset> = {
     sunCol: "#fff3e0", sunI: 2.8, sky: "#dcecff", ground: "#b49a78", hemiI: 0.55,
     bias: -0.00025, normalBias: 0.015,
   },
-  golden: {
-    az: 6, el: 7,
-    lit: [1.5, 0.68, 0.24], shade: [0.15, 0.15, 0.3], lift: [0.04, 0.06, 0.17], lambert: 0.35, sideK: 0.82, term: 0.07,
-    charTint: [1.0, 0.78, 0.56], charShade: 0.88, charGrad: 0.1, bodyGrad: 0.25, sideTint: [0.85, 0.80, 0.95],
-    blob: [0.75, 0.74, 0.9], actorShadow: true,
-    top: "#6a4f8c", hor: "#ffd08a", skyCurve: [0.05, 0.6, 1.0], fog: "#efb489", fogNear: 50, fogFar: 380, sunDisc: "#ffcf9e",
-    sunCol: "#ffab5e", sunI: 5.5, sky: "#d8b0b8", ground: "#8a6a60", hemiI: 0.5,
+  golden: { // late afternoon: warm key from the side-back, violet shade, colours kept (reference day/sunset blend)
+    az: 40, el: 20,
+    lit: [1.5, 1.24, 0.92], shade: [0.27, 0.26, 0.46], lift: [0.04, 0.05, 0.13], lambert: 0.35, sideK: 0.84, term: 0.12,
+    charTint: [1.0, 0.9, 0.8], charShade: 0.88, charGrad: 0.09, bodyGrad: 0.22, sideTint: [0.88, 0.84, 0.96],
+    blob: [0.7, 0.68, 0.86], actorShadow: true,
+    top: "#4f7fc8", hor: "#ffcf9a", skyCurve: [0.05, 0.6, 1.0], fog: "#f2c9a0", fogNear: 45, fogFar: 380, sunDisc: "#ffd9a8",
+    sunCol: "#ffcf9a", sunI: 4.0, sky: "#c9c8e0", ground: "#8a6a60", hemiI: 0.5,
     bias: -0.0006, normalBias: 0.03,
   },
   night: {
@@ -62,13 +62,11 @@ export const LOOK: Record<LightName, WorldLook> = {
     sat: 1.08,
   },
   golden: {
-    // sunset, not dusk: #ffd08a horizon, peach/orange through ~10 deg, warm rose at 20, muted warm mauve only near the top
-    // (the golden grade adds ~+11/255 blue to shadows/mids, so these lean warm)
-    sky: { c: ["#ffc47c", "#f7ae78", "#e8967c", "#c4848e", "#8a6f8a"], e: [0, 4, 10, 20, 40] },
-    water: { near: "#1e3a6e", mid: "#355f96", far: "#d4a48e", crest: "#d9a088", trough: "#16294f", glint: "#ffe2b0", shade: [0.42, 0.46, 0.72] },
-    cloud: { lit: "#ffd2a8", mid: "#f2a08f", shade: "#a98fc4" },
-    bounce: [0.04, 0.02, 0.0],
-    sat: 1.1,
+    sky: { c: ["#ffd3a0", "#f6c8a6", "#c9c3d6", "#88a6d8", "#4f7fc8"], e: [0, 4, 10, 20, 42] },
+    water: { near: "#2a6fa0", mid: "#3d82b0", far: "#e0b090", crest: "#ffd9b8", trough: "#173f6a", glint: "#fff0d0", shade: [0.45, 0.5, 0.75] },
+    cloud: { lit: "#ffe0bc", mid: "#f2b8a0", shade: "#a9a0cc" },
+    bounce: [0.03, 0.02, 0.0],
+    sat: 1.12,
   },
   night: {
     sky: { c: ["#3b5196", "#2e4386", "#22336f", "#18275a", "#0d1638"], e: [0, 3, 9, 18, 45] },

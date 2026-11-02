@@ -269,7 +269,7 @@ const crowd = (cam: CamInfo, t: number, tau: number, out: Stage, mode: Mode, nea
     const y = H(x, z);
     const view = viewOf(cam, x, z, dx, dz);
     const ph = walking ? q(((tau * 2.4 + hh(i, 5)) % 1), 60) : 0;
-    fo = { mode: walking ? "march" : "stand", phase: ph, expr, blink: lidAt(t, i + 10), look: 0, wave, lift: 80 };
+    fo = { mode: walking ? "march" : "stand", phase: ph, expr, blink: lidAt(t, i + 10), look: 0, wave, lift: 80, headTilt: walking ? 0 : Math.round(2.5 * Math.sin(t * 1.3 + i * 2.1)) };
     so = { mode: walking ? "march" : "stand", phase: ph, expr, blink: lidAt(t, i + 10), stomp: 1.3, stride: stride * view.fs };
     out.places.push(person(cam, who, x, y, z, view, fo, so, sc));
     blob(out, x, y, z, sc);
@@ -280,7 +280,8 @@ const crowd = (cam: CamInfo, t: number, tau: number, out: Stage, mode: Mode, nea
 const one = (cam: CamInfo, out: Stage, i: number, o: Outfit, okey: string, x: number, z: number, y: number, expr: Expr, t: number,
   opts: { dx?: number; dz?: number; wave?: number; prop?: FrontOpts["prop"]; walk?: number; headTilt?: number; scale?: number } = {}) => {
   const dx = opts.dx ?? 0, dz = opts.dz ?? 1, view = viewOf(cam, x, z, dx, dz), ph = opts.walk !== undefined ? q(opts.walk % 1, 60) : 0;
-  const fo: FrontOpts = { mode: opts.walk !== undefined ? "stroll" : "stand", phase: ph, expr, blink: lidAt(t, i), wave: opts.wave, prop: opts.prop ?? null, headTilt: opts.headTilt };
+  const sway = opts.headTilt ?? Math.round(2.5 * Math.sin(t * 1.4 + i * 1.7));
+  const fo: FrontOpts = { mode: opts.walk !== undefined ? "stroll" : "stand", phase: ph, expr, blink: lidAt(t, i), wave: opts.wave, prop: opts.prop ?? null, headTilt: sway };
   const so: SideOpts = { mode: opts.walk !== undefined ? "march" : "stand", phase: ph, expr, blink: lidAt(t, i), stomp: 0.55, stride: 0.875 * view.fs };
   out.places.push(person(cam, { i, o, okey }, x, y, z, view, fo, so, opts.scale ?? 1));
   blob(out, x, y, z, opts.scale ?? 1);
