@@ -19,8 +19,11 @@ import { GradeEffect, GRADES, GRADE_STRENGTH, gradeFor } from "./grade";
 import { Kit } from "./build";
 import { TOTAL, FLASHES, SHOTS, layersAt, dofAt, FPS } from "./story";
 import { WORDS } from "./words";
+import { oldFrame, NEW_TOTAL } from "./timewarp";
+/** the re-timed frame: the timeline is authored in the old clock (timewarp.ts) */
+const useStoryFrame = () => oldFrame(useCurrentFrame());
 
-export const WHALE_FRAMES = TOTAL;
+export const WHALE_FRAMES = NEW_TOTAL; void TOTAL;
 
 /** A/B switches for test stills only (Remotion inputProps `{ post: { ink: false, ... } }`); everything is on by default. */
 type PostToggles = { ink: boolean; lens: boolean; pre: boolean; bloom: boolean; grade: boolean; grain: boolean };
@@ -47,7 +50,7 @@ const useKit = () => {
 };
 
 const Inner: React.FC<{ id: number; kit: Kit }> = ({ id, kit }) => {
-  const f = useCurrentFrame();
+  const f = useStoryFrame();
   const { camera, scene } = useThree();
   const world = useMemo(() => new World(kit), [kit]);
   const target = useMemo(() => new THREE.Vector3(), []);
@@ -132,10 +135,10 @@ const Caption: React.FC = () => {
 };
 
 export const WhaleShort: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useStoryFrame();
   const kit = useKit();
   if (!kit) return null;
-  const fa = FLASHES.find((a) => f >= a && f < a + 4), flash = fa !== undefined ? [1, 0.75, 0.45, 0.2][f - fa] : 0;
+  const fa = FLASHES.find((a) => f >= a && f < a + 4), flash = fa !== undefined ? [1, 0.75, 0.45, 0.2][Math.min(3, Math.floor(f - fa))] : 0;
   return (
     <AbsoluteFill style={{ background: "#cfe3f2" }}>
       <Audio src={staticFile("whale/mix.wav")} />

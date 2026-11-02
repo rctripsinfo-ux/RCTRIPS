@@ -373,13 +373,16 @@ export const stage = (id: number, f: number, t: number, tau: number, cam: CamInf
       for (let i = 0; i < 4; i++) one(cam, out, 40 + i, FOLK[(i * 3 + 1) % 12], `f${(i * 3 + 1) % 12}`, -6 + i * 3.6, -7 - (i % 2) * 2.5, 0, (["smile", "neutral", "grin", "smile_closed"] as Expr[])[i], t);
       break;
     case "whale":
-      gulls(out, t, 4, undefined, 0.7);
+      gulls(out, t, 4, undefined, 0.7); gullsOnWhale(out, t);
+      for (let i = 0; i < 4; i++) one(cam, out, 40 + i, FOLK[(i * 3 + 1) % 12], `f${(i * 3 + 1) % 12}`, -6 + i * 3.6, -7 - (i % 2) * 2.5, 0, (["smile", "neutral", "grin", "smile_closed"] as Expr[])[i], t);
+      if (f >= 292) one(cam, out, 51, WORKER, "worker", 4.3, -1.2, 0, "grin", t, { prop: "shovel" });
       if (f >= 292) {
         one(cam, out, 50, FOLK[5], "f5", -1.6, -2.4, 0, "pained", t, { wave: 0.2 });
         for (let k = 0; k < 4; k++) { const u = q(((t * 0.5 + k * 0.25) % 1), 30); out.fx.push({ key: `stink${u}`, cw: 300, ch: 400, draw: (p) => fxStink(p, u), x: -3.2 + k * 1.6, y: 3.2 + k % 2 * 0.3, z: 1.0, w: 1.1, h: 1.47 }); }
       }
       break;
     case "bury": {
+      one(cam, out, 50, FOLK[5], "f5", -1.6, -2.4, 0, "pained", t, { wave: 0.2 });
       one(cam, out, 51, WORKER, "worker", 4.3, -1.2, 0, tau < 11.6 - LEAD ? "grin" : "nervous", t, { prop: "shovel" });
       out.fx.push({ key: "moundS", cw: 300, ch: 200, draw: (p) => fxSplat(p, 9), x: 5.4, y: 0.03, z: -1.4, w: 1.4, h: 0.9, flat: true });
       const u = (tau - 11.25) / 1.2;

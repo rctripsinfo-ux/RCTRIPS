@@ -1,7 +1,12 @@
 # Synthesised SFX + an original quirky march score, ducked under the voice -> public/whale/mix.wav (48 kHz)
 import json, numpy as np, soundfile as sf
 from scipy.signal import butter, sosfilt, resample_poly
-SR = 48000; DUR = 1975 / 30; N = int(DUR * SR); rng = np.random.default_rng(7)
+WARP = json.load(open("voice/warp.json"))
+def wp(o):  # old story time -> re-timed video time (voice/warp.json)
+    for (a, b), (c, d) in zip(WARP, WARP[1:]):
+        if o <= c: return b + (o - a) * (d - b) / (c - a)
+    return WARP[-1][1]
+SR = 48000; DUR = WARP[-1][1]; N = int(DUR * SR); rng = np.random.default_rng(7)
 def T(n): return np.arange(n) / SR
 def lp(x, f, o=2): return sosfilt(butter(o, f, "low", fs=SR, output="sos"), x)
 def hp(x, f, o=2): return sosfilt(butter(o, f, "high", fs=SR, output="sos"), x)
@@ -10,14 +15,14 @@ def env(n, a, d):  # attack, exponential decay (s)
     t = T(n); return np.minimum(1, t / max(a, 1e-4)) * np.exp(-t / d)
 sfx = np.zeros(N); mus = np.zeros(N)
 def put(buf, t0, x, g=1.0):
-    i = int(t0 * SR); j = min(N, i + len(x))
+    i = max(0, int(wp(t0) * SR)); j = min(N, i + len(x))
     if i < N and j > i: buf[i:j] += g * x[: j - i]
 noise = lambda d: rng.standard_normal(int(d * SR))
 # ---- ambience: surf swells + wind on beach shots (0-42.5, 50-61), softer on the lot
 amb = lp(noise(DUR), 900) * 0.6 + hp(lp(noise(DUR), 3000), 400) * 0.15
 sw = 0.55 + 0.45 * np.sin(2 * np.pi * T(N) / 7.5) ** 2
 mask = np.ones(N) * 0.5
-for a, b, g in [(42.6, 50.0, 0.18), (60.7, DUR, 0.22)]: mask[int(a * SR):int(b * SR)] = g
+for a, b, g in [(42.6, 50.0, 0.18), (60.7, DUR, 0.22)]: mask[int(wp(a) * SR):int(wp(b) * SR)] = g
 sfx += amb[:N] * sw * lp(mask, 3) * 0.05
 # ---- gulls
 def gull(d=0.45, f0=1700):
@@ -94,7 +99,7 @@ for a, b, g in sections:
 # tension roll before the boom
 t = T(int(1.8 * SR)); put(mus, 29.3, lp(noise(1.8), 400) * (t / 1.8) ** 2 * (0.6 + 0.4 * np.sin(2 * np.pi * 14 * t)), 0.25)
 # ---- voice + ducking
-v, vsr = sf.read("voice/voice_proc.wav"); v = resample_poly(v, SR, vsr) if vsr != SR else v
+v, vsr = sf.read("voice/voice_tight_proc.wav"); v = resample_poly(v, SR, vsr) if vsr != SR else v
 voice = np.zeros(N); voice[: min(N, len(v))] = v[:N]
 envv = np.abs(voice); envv = lp(envv, 4); envv /= envv.max() + 1e-9
 duck = 1 - 0.75 * np.clip(envv * 4, 0, 1)
