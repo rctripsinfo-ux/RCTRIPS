@@ -44,17 +44,15 @@ const asphaltHD = () => ctex("asphaltHD", 1024, 1024, (g, r) => {
   for (let i = 0; i < 6; i++) { let x = r() * 1024, y = r() * 1024; g.beginPath(); g.moveTo(x, y); for (let k = 0; k < 6; k++) { x += (r() - 0.5) * 120; y += (r() - 0.5) * 120; g.lineTo(x, y); } g.stroke(); }
 });
 /** sperm whale skin: dark slate with long wrinkles, a paler belly (u around the body, v along it) */
-const whaleTex = () => ctex("whaleSkin", 1024, 1024, (g, r) => {
-  const gr = g.createLinearGradient(0, 0, 1024, 0);
-  gr.addColorStop(0, "#9aa0ae"); gr.addColorStop(0.18, "#626a7e"); gr.addColorStop(0.5, "#545b6e"); gr.addColorStop(0.82, "#626a7e"); gr.addColorStop(1, "#9aa0ae");
-  g.fillStyle = gr; g.fillRect(0, 0, 1024, 1024);
+const whaleTex = () => ctex("whaleSkin2", 1024, 1024, (g, r) => {
+  g.fillStyle = "#ffffff"; g.fillRect(0, 0, 1024, 1024);
   g.lineCap = "round";
-  for (let i = 0; i < 260; i++) {
-    const x = r() * 1024, y = r() * 1024, l = 40 + r() * 160;
-    g.strokeStyle = r() < 0.6 ? "rgba(40,44,60,0.45)" : "rgba(170,176,192,0.35)"; g.lineWidth = 2 + r() * 2;
-    g.beginPath(); g.moveTo(x, y); g.bezierCurveTo(x + 10, y + l * 0.3, x - 10, y + l * 0.6, x + 4, y + l); g.stroke();
+  for (let i = 0; i < 320; i++) { // long sperm-whale skin wrinkles, along the body
+    const x = r() * 1024, y = r() * 1024, l = 60 + r() * 200;
+    g.strokeStyle = r() < 0.7 ? "rgba(40,46,70,0.22)" : "rgba(255,255,255,0.35)"; g.lineWidth = 2 + r() * 2.5;
+    g.beginPath(); g.moveTo(x, y); g.bezierCurveTo(x + 8, y + l * 0.3, x - 8, y + l * 0.6, x + 3, y + l); g.stroke();
   }
-  for (let i = 0; i < 40; i++) { g.fillStyle = "rgba(235,235,240,0.5)"; g.beginPath(); g.ellipse(r() * 1024, r() * 1024, 6 + r() * 10, 2 + r() * 3, r() * 3, 0, 6.3); g.fill(); }
+  for (let i = 0; i < 50; i++) { g.fillStyle = "rgba(255,255,255,0.45)"; g.beginPath(); g.ellipse(r() * 1024, r() * 1024, 7 + r() * 12, 2 + r() * 3, r() * 3, 0, 6.3); g.fill(); }
 });
 const crateTex = () => ctex("crate", 256, 256, (g) => {
   g.fillStyle = "#b8392c"; g.fillRect(0, 0, 256, 256);
@@ -93,26 +91,51 @@ const groundGeo = () => {
   g.computeVertexNormals();
   return g;
 };
-/** sperm whale lying on its side along x (tail at -x), base on the sand */
+/** sperm whale lying belly-down on the sand along x (tail at -x): blunt boxy head, tapering body, flat pale belly.
+ *  Vertex colours: dark slate back, blue-grey flanks, pale belly (the painted wrinkle map multiplies on top). */
 const whaleGeo = () => {
-  const pts: THREE.Vector2[] = [];
-  for (let i = 0; i <= 40; i++) {
-    const s = i / 40;
-    let r = s < 0.14 ? 0.22 + (s / 0.14) * 0.55 : s < 0.55 ? 0.77 + ((s - 0.14) / 0.41) * 0.68 : 1.45 + ((s - 0.55) / 0.4) * 0.12;
-    if (s > 0.95) r = 1.57 * Math.sqrt(Math.max(0, 1 - ((s - 0.95) / 0.05) ** 2));
-    if (i === 0) r = 0.05;
-    pts.push(new THREE.Vector2(Math.max(0.001, r), (s - 0.5) * WHALE_LEN));
+  const NS = 90, NA = 72, pos: number[] = [], col: number[] = [], uv: number[] = [], idx: number[] = [];
+  const back = new THREE.Color("#585e6d"), flank = new THREE.Color("#777e8d"), belly = new THREE.Color("#d9d9dd"), c = new THREE.Color();
+  const prof = (s: number) => {
+    let r = s < 0.12 ? 0.18 + (s / 0.12) * 0.42 : s < 0.5 ? 0.6 + ((s - 0.12) / 0.38) * 0.75 : 1.35 + ((s - 0.5) / 0.44) * 0.17;
+    if (s > 0.94) r = 1.52 * Math.sqrt(Math.max(0, 1 - ((s - 0.94) / 0.06) ** 2.2));
+    return Math.max(0.02, r);
+  };
+  for (let i = 0; i <= NS; i++) {
+    const s = i / NS, x = (s - 0.5) * WHALE_LEN, r = prof(s), boxy = 2 + 2.2 * Math.max(0, (s - 0.52) / 0.42); // superellipse: round body, boxy head
+    const hump = 0.16 * Math.exp(-(((s - 0.36) / 0.05) ** 2)); // the low dorsal hump
+    for (let j = 0; j <= NA; j++) {
+      const a = (j / NA) * Math.PI * 2, ca = Math.cos(a), sa = Math.sin(a);
+      const sx = Math.sign(ca) * Math.abs(ca) ** (2 / boxy), sy = Math.sign(sa) * Math.abs(sa) ** (2 / boxy);
+      let y = r * 0.9 * sy, z = r * 1.0 * sx;
+      if (y < -0.62 * r) y = -0.62 * r - 0.08 * r * (1 - Math.abs(sx)); // flat belly on the sand
+      if (sy > 0) y += hump * Math.max(0, sy) ** 6;
+      pos.push(x, y, z); uv.push(j / NA, s * 4);
+      const up = y / Math.max(0.01, r);
+      if (up < -0.35) c.copy(flank).lerp(belly, Math.min(1, (-0.35 - up) / 0.25)); else c.copy(flank).lerp(back, Math.min(1, Math.max(0, (up + 0.1) / 0.8)));
+      col.push(c.r, c.g, c.b);
+    }
   }
-  const g = new THREE.LatheGeometry(pts, 64);
-  g.rotateZ(-Math.PI / 2); // lathe axis y -> x, head at +x
-  g.scale(1, 0.82, 1);
+  for (let i = 0; i < NS; i++) for (let j = 0; j < NA; j++) { const a = i * (NA + 1) + j, b2 = a + NA + 1; idx.push(a, b2, a + 1, a + 1, b2, b2 + 1); }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute("color", new THREE.Float32BufferAttribute(col, 3));
+  g.setAttribute("uv", new THREE.Float32BufferAttribute(uv, 2)); g.setIndex(idx); g.computeVertexNormals();
   return g;
 };
+/** horizontal tail flukes (lying on the sand), notch at the middle */
 const flukeGeo = () => {
   const s = new THREE.Shape();
-  s.moveTo(0, 0); s.quadraticCurveTo(-0.9, 1.3, -2.0, 2.1); s.quadraticCurveTo(-1.2, 0.9, -1.0, 0); s.quadraticCurveTo(-1.2, -0.9, -2.0, -2.1); s.quadraticCurveTo(-0.9, -1.3, 0, 0);
-  const g = new THREE.ExtrudeGeometry(s, { depth: 0.14, bevelEnabled: true, bevelThickness: 0.05, bevelSize: 0.05, bevelSegments: 2 });
-  g.translate(0, 0, -0.07);
+  s.moveTo(0, 0); s.quadraticCurveTo(-0.5, 1.2, -1.7, 2.2); s.quadraticCurveTo(-1.5, 1.0, -1.05, 0.12); s.lineTo(-1.25, 0); s.lineTo(-1.05, -0.12);
+  s.quadraticCurveTo(-1.5, -1.0, -1.7, -2.2); s.quadraticCurveTo(-0.5, -1.2, 0, 0);
+  const g = new THREE.ExtrudeGeometry(s, { depth: 0.12, bevelEnabled: true, bevelThickness: 0.05, bevelSize: 0.05, bevelSegments: 3, curveSegments: 18 });
+  g.translate(0, 0, -0.06); g.rotateX(-Math.PI / 2);
+  return g;
+};
+/** flat paddle flipper */
+const finGeo = () => {
+  const s = new THREE.Shape(); s.moveTo(0, -0.25); s.quadraticCurveTo(-0.9, -0.3, -1.25, 0); s.quadraticCurveTo(-0.9, 0.35, 0, 0.25); s.lineTo(0, -0.25);
+  const g = new THREE.ExtrudeGeometry(s, { depth: 0.08, bevelEnabled: true, bevelThickness: 0.03, bevelSize: 0.03, bevelSegments: 2, curveSegments: 12 });
+  g.rotateX(-Math.PI / 2);
   return g;
 };
 /** a lumpy blubber chunk (3D): pink inside, grey skin on top (vertex colours) */
@@ -357,18 +380,25 @@ export class World {
     }
 
     // ---- the whale ----
-    const skin = lam("whaleSkin", () => ({ map: whaleTex() }));
+    const skinMap = whaleTex(); skinMap.repeat.set(1, 1);
+    const skin = twoTone(new THREE.MeshPhongMaterial({ map: skinMap, vertexColors: true, specular: "#9fb0d0", shininess: 38 }), 0.6); // wet sheen
     const body = new THREE.Mesh(whaleGeo(), skin); body.castShadow = true; body.receiveShadow = true; this.whale.add(body);
-    const fl = new THREE.Mesh(flukeGeo(), lam("fluke", () => ({ color: "#5a6174" }))); fl.position.set(-WHALE_LEN / 2 + 0.2, 0, 0); fl.rotation.x = 0.25; fl.castShadow = true; this.whale.add(fl);
-    const fin = new THREE.Mesh(rockGeo(9, 0.9, 0.15, 0.45), lam("fluke", () => ({}))); fin.position.set(3.0, 0.6, -0.95); fin.rotation.set(0.6, 0.4, 0.3); this.whale.add(fin);
-    const eye = new THREE.Mesh(new THREE.SphereGeometry(0.11, 12, 8), lam("whaleEye", () => ({ color: "#1d1a24" }))); eye.position.set(5.6, -0.15, -1.18); this.whale.add(eye);
-    const jaw = new THREE.Mesh(boxGeo(V(1.8, -0.06, -0.02), V(6.9, 0.06, 0.02)), lam("whaleEye", () => ({}))); jaw.position.set(0, -0.62, -1.12); jaw.rotation.y = -0.06; this.whale.add(jaw);
-    this.whale.position.set(WHALE[0], 1.12, WHALE[2]);
+    const finM = twoTone(new THREE.MeshPhongMaterial({ color: "#5d6372", specular: "#9fb0d0", shininess: 30 }), 0.6);
+    const fl = new THREE.Mesh(flukeGeo(), finM); fl.position.set(-WHALE_LEN / 2 + 0.25, -0.95, 0); fl.rotation.z = 0.06; fl.castShadow = true; this.whale.add(fl);
+    for (const sz of [-1, 1]) {
+      const fin = new THREE.Mesh(finGeo(), finM); fin.position.set(3.4, -0.98, sz * 1.25); fin.rotation.y = sz * 2.1; fin.castShadow = true; this.whale.add(fin);
+      // cartoon eye: white, dark pupil, an ink lid line; and the long jaw line toward the snout
+      const ew = new THREE.Mesh(new THREE.SphereGeometry(0.16, 16, 12), lam("eyeWhite", () => ({ color: "#f4f2ee" }))); ew.scale.set(1, 1, 0.35); ew.position.set(5.0, -0.1, sz * 1.52); this.whale.add(ew);
+      const pu = new THREE.Mesh(new THREE.SphereGeometry(0.075, 12, 10), lam("whaleEye", () => ({ color: "#1d1a24" }))); pu.scale.set(1, 1, 0.4); pu.position.set(5.03, -0.13, sz * 1.58); this.whale.add(pu);
+      const jaw = new THREE.Mesh(boxGeo(V(0, -0.045, -0.03), V(4.6, 0.045, 0.03)), lam("whaleEye", () => ({}))); jaw.position.set(2.4, -0.62, sz * 1.41); jaw.rotation.y = -sz * 0.07; this.whale.add(jaw);
+    }
+    const blow = new THREE.Mesh(new THREE.SphereGeometry(0.16, 12, 8), lam("whaleEye", () => ({}))); blow.scale.set(1.4, 0.3, 0.7); blow.position.set(6.25, 1.32, -0.35); this.whale.add(blow);
+    this.whale.position.set(WHALE[0], 1.02, WHALE[2]);
     R.add(this.whale);
     // what is left after the blast: the whale lower and torn, a raw crater, big hunks around
-    const rem = new THREE.Mesh(whaleGeo(), skin); rem.scale.set(0.95, 0.85, 0.97); rem.castShadow = true; rem.receiveShadow = true; this.remains.add(rem);
+    const rem = new THREE.Mesh(whaleGeo(), skin); rem.scale.set(0.95, 0.8, 0.97); const remF = new THREE.Mesh(flukeGeo(), finM); remF.position.set(-WHALE_LEN / 2 + 0.25, -0.95, 0); this.remains.add(remF); rem.castShadow = true; rem.receiveShadow = true; this.remains.add(rem);
     const raw = lam("blubber", () => ({ vertexColors: true }));
-    this.crater = new THREE.Mesh(chunkGeo(4, 1), raw); this.crater.scale.set(3.0, 0.75, 1.15); this.crater.position.set(-0.4, 0.95, -0.35); this.remains.add(this.crater);
+    this.crater = new THREE.Mesh(chunkGeo(4, 1), raw); this.crater.scale.set(2.6, 0.55, 1.05); this.crater.position.set(-0.4, 0.62, -0.35); this.remains.add(this.crater);
     const rr2 = rng(31);
     for (let i = 0; i < 14; i++) {
       const c = new THREE.Mesh(chunkGeo(100 + i, 0.3 + rr2() * 0.5), raw);
@@ -382,7 +412,7 @@ export class World {
     const cg = boxGeo(V(-0.3, 0, -0.18), V(0.3, 0.34, 0.18));
     for (let i = 0; i < 20; i++) {
       const layer = i < 12 ? 0 : 1, k = layer ? i - 12 : i;
-      const x = -2.6 + (k % (layer ? 8 : 12)) * (layer ? 0.66 : 0.46) + (layer ? 0.3 : 0), z = WHALE[2] - 1.35 - (layer ? 0 : (k % 2) * 0.05);
+      const x = -2.6 + (k % (layer ? 8 : 12)) * (layer ? 0.66 : 0.46) + (layer ? 0.3 : 0), z = WHALE[2] - 1.78 - (layer ? 0 : (k % 2) * 0.05);
       const m = new THREE.Mesh(cg, crate); m.position.set(x, layer * 0.34, z - (layer ? 0.08 : 0)); m.rotation.y = (rr2() - 0.5) * 0.2;
       m.castShadow = true; m.receiveShadow = true; this.cases.push(m); R.add(m);
     }

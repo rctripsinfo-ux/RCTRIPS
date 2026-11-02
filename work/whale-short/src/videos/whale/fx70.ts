@@ -41,20 +41,40 @@ export const fxSplat = (p: Pen, seed: number) => {
   p.poly(out, null, 10);
 };
 
-/** seagull (canvas 400 x 260), wings by flap phase 0..1 */
+/** seagull in flight (canvas 400 x 260), wings by flap phase 0..1: white head and belly, grey wings with black
+ *  white-spotted tips, yellow beak with the red spot, dark eye, tucked orange feet */
 export const fxGull = (p: Pen, flap: number) => {
   const w = Math.sin(flap * Math.PI * 2);
-  const tip = 70 - 85 * w, mid = 110 - 30 * w;
+  const tipY = 60 - 80 * w, midY = 118 - 32 * w;
   for (const s of [-1, 1]) {
-    const pts: P2[] = [[200, 140], [200 + s * 70, mid], [200 + s * 175, tip], [200 + s * 120, mid + 34], [200 + s * 40, 162]];
-    p.poly(pts, "#f4f4f6", 9);
-    p.poly([[200 + s * 150, tip + 12], [200 + s * 175, tip], [200 + s * 140, tip + 22]], "#2c2f3a", 0);
+    const wing: P2[] = [[200 - s * 4, 136], [200 + s * 60, midY - 6], [200 + s * 130, (midY + tipY) / 2 - 4], [200 + s * 185, tipY], [200 + s * 150, tipY + 26], [200 + s * 96, midY + 30], [200 + s * 36, 160]];
+    p.poly(wing, "#aab4c4", 8);
+    p.poly([[200 + s * 150, tipY + 8], [200 + s * 185, tipY], [200 + s * 158, tipY + 28], [200 + s * 132, (midY + tipY) / 2 + 12]], "#23242c", 0);
+    p.dot(200 + s * 166, tipY + 12, 4, "#ffffff");
+    p.poly([[200 + s * 10, 140], [200 + s * 60, midY + 4], [200 + s * 70, midY + 16], [200 + s * 20, 152]], "#d5dbe5", 0);
   }
-  p.ell(200, 150, 58, 30, "#ffffff", 9);
-  p.ell(248, 136, 26, 22, "#ffffff", 9);
-  p.poly([[270, 136], [302, 142], [270, 148]], "#f3b232", 6);
-  p.dot(254, 130, 5, INK);
-  p.poly([[150, 146], [118, 132], [124, 160]], "#c9ccd6", 8);
+  p.poly([[132, 150], [100, 136], [104, 166]], "#f4f5f8", 7); // tail
+  p.ell(196, 152, 62, 28, "#ffffff", 8);
+  p.ell(252, 134, 28, 24, "#ffffff", 8);
+  p.poly([[274, 132], [312, 140], [274, 148]], "#f3c232", 6);
+  p.dot(298, 143, 4, "#d8352f");
+  p.dot(258, 128, 5, "#1d1a24");
+  p.stroke([[176, 176], [166, 188]], 5, "#f08a3c"); p.stroke([[196, 178], [188, 190]], 5, "#f08a3c");
+};
+/** seagull standing (canvas 300 x 300), facing right; peck = 0..1 head dip */
+export const fxGullStand = (p: Pen, peck: number) => {
+  const hy = 92 + 40 * peck, hx = 196 + 14 * peck;
+  p.stroke([[136, 230], [132, 284]], 7, "#f08a3c"); p.stroke([[160, 232], [164, 284]], 7, "#f08a3c");
+  p.stroke([[122, 286], [142, 286]], 6, "#f08a3c"); p.stroke([[154, 286], [176, 286]], 6, "#f08a3c");
+  p.poly([[70, 196], [34, 182], [44, 212]], "#23242c", 6); // black tail tip
+  p.ell(146, 196, 82, 46, "#ffffff", 9);
+  p.poly([[78, 176], [130, 160], [196, 182], [178, 214], [96, 214]], "#aab4c4", 7); // folded wing
+  p.poly([[78, 176], [96, 214], [64, 202]], "#23242c", 0);
+  p.stroke([[190, 170], [hx - 6, hy + 18]], 34, "#ffffff");
+  p.ell(hx, hy, 34, 30, "#ffffff", 8);
+  p.poly([[hx + 28, hy - 2], [hx + 66, hy + 6], [hx + 28, hy + 14]], "#f3c232", 6);
+  p.dot(hx + 52, hy + 9, 4, "#d8352f");
+  p.dot(hx + 10, hy - 6, 5.5, "#1d1a24");
 };
 
 /** stink lines (canvas 300 x 400), t = 0..1 loop */

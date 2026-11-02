@@ -5,7 +5,7 @@
 // Cards, effects and blobs live on the NOINK layer so the world ink pass never outlines their quads.
 import * as THREE from "three";
 import { Pen, bodyFront, bodySide, KID, SKINS, INK, fxBurst, fxSplash, fxStars, fxPuff, fxShadow, fxContact, Outfit, Expr, FrontOpts, SideOpts } from "./toon";
-import { fxChunk, fxSplat, fxGull, fxStink, fxBoom, fxArrow, fxArrowBlocked, fxPacket, fxSquirt, fxKetchupHit, fxBubbleSticks, fxShockLines } from "./fx70";
+import { fxGullStand, fxChunk, fxSplat, fxGull, fxStink, fxBoom, fxArrow, fxArrowBlocked, fxPacket, fxSquirt, fxKetchupHit, fxBubbleSticks, fxShockLines } from "./fx70";
 import {
   FPS, SHOTS, V3, smooth, clamp01, H, LOT_Y, WHALE, ENG, TVCAM, TRUCK_HITCH, UMEN, UCAR, PACKET, LUCKY, BOOM, CRUSH, LUCKY_HIT, STEP, SQUIRT, SQUIRT_HIT, UP,
 } from "./story";
@@ -317,6 +317,13 @@ const boomCloud = (out: Stage, dt: number, scale = 1) => {
   out.fx.push({ key: `boom${u}`, cw: 800, ch: 800, draw: (p) => fxBoom(p, u), x: WHALE[0], y: w * 0.41 + 0.6 * dt * scale, z: WHALE[2], w, h: w });
   if (dt < 0.25) out.fx.push({ key: `burst${q(dt / 0.25, 30)}`, cw: 500, ch: 500, draw: (p) => fxBurst(p, q(dt / 0.25, 30), "#fff3b0", 14, 60, 245), x: WHALE[0], y: 3, z: WHALE[2] - 2, w: 14 * scale, h: 14 * scale });
 };
+/** seagulls standing on the whale's back, pecking */
+const gullsOnWhale = (out: Stage, t: number, n = 5) => {
+  for (let i = 0; i < n; i++) {
+    const x = WHALE[0] - 4.5 + i * 2.1, peck = q(Math.max(0, Math.sin(t * 3 + i * 1.7)) ** 3, 10), top = 1.02 + 1.3 * (1 - Math.abs(x) / 9);
+    out.fx.push({ key: `gullS${peck}`, cw: 300, ch: 300, draw: (p) => fxGullStand(p, peck), x, y: top + 0.42, z: WHALE[2] - 0.2 + (i % 2) * 0.5, w: (i % 2 ? -1 : 1) * 0.95, h: 0.95 });
+  }
+};
 /** seagulls: circling over the whale, or fleeing out to sea after `flee` */
 const gulls = (out: Stage, t: number, n: number, flee?: number, near = 1, low = 0) => {
   for (let i = 0; i < n; i++) {
@@ -327,7 +334,7 @@ const gulls = (out: Stage, t: number, n: number, flee?: number, near = 1, low = 
       const k = t - flee - 0.2 * hh(i, 66);
       if (k > 0) { x += (hh(i, 67) - 0.5) * 10 * k; y += 3.5 * k; z += 9 * k; flap = (t * 5 + hh(i, 65)) % 1; dir = hh(i, 67) > 0.5 ? 1 : -1; }
     }
-    const f = q(flap, 12), w = 1.2 + 0.4 * hh(i, 68);
+    const f = q(flap, 12), w = 1.7 + 0.5 * hh(i, 68);
     out.fx.push({ key: `gull${f}`, cw: 400, ch: 260, draw: (p) => fxGull(p, f), x, y, z, w: w * dir, h: w * 0.65 });
   }
 };
@@ -357,7 +364,7 @@ export const stage = (id: number, f: number, t: number, tau: number, cam: CamInf
       }
       break;
     case "arrive":
-      gulls(out, t, 9);
+      gulls(out, t, 9); gullsOnWhale(out, t);
       for (let i = 0; i < 4; i++) one(cam, out, 40 + i, FOLK[(i * 3 + 1) % 12], `f${(i * 3 + 1) % 12}`, -6 + i * 3.6, -7 - (i % 2) * 2.5, 0, (["smile", "neutral", "grin", "smile_closed"] as Expr[])[i], t);
       break;
     case "whale":
@@ -383,7 +390,7 @@ export const stage = (id: number, f: number, t: number, tau: number, cam: CamInf
       one(cam, out, 54, WORKER, "worker", ENG[0] - 2.4, ENG[2] - 1.5, H(ENG[0] - 2.4, ENG[2] - 1.5), "smile", t, { prop: "shovel" });
       break;
     case "gulls":
-      gulls(out, t, 10, undefined, 0.55, 1);
+      gulls(out, t, 6, undefined, 0.55, 1); gullsOnWhale(out, t, 5);
       break;
     case "umen": {
       crowd(cam, t, tau, out, "watch", [UMEN[0], UMEN[2], 6]);
