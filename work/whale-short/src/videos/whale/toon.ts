@@ -378,7 +378,7 @@ const hatOn = (p: Pen, o: Outfit, hp: P2[], H: Blob, cx: number, hc: number, lig
       p.ell(tx, ty, 7 * u, 7 * u, "#2b7a4b", 2.5 * u); // green tuft
     }
   } else if (o.hat === "cap" || o.hat === "hair") {
-    const cut = crown + (o.hat === "cap" ? 0.3 : 0.42) * HH;
+    const cut = crown + (o.hat === "cap" ? 0.25 : 0.42) * HH;
     const keep = (x: number, y: number) => y < cut || (side && o.hat === "hair" && x < cx - 6 * u && y < hc + 0.42 * H.b);
     // start the arc at the first kept point after a dropped one, so the kept run is contiguous and the cut closes it
     const n = hp.length, startIdx = Math.max(0, hp.findIndex(([x, y], i) => keep(x, y) && !keep(hp[(i + n - 1) % n][0], hp[(i + n - 1) % n][1])));
@@ -401,7 +401,7 @@ const hatOn = (p: Pen, o: Outfit, hp: P2[], H: Blob, cx: number, hc: number, lig
       if (side) p.poly(R([[cx + 40 * u, cut - 2 * u], [cx + 74 * u, cut + 4 * u], [cx + 40 * u, cut + 6 * u]]), shade(col, 0.8), ow);
       else {
         const s = facing || (rnd(seed, 21) < 0.5 ? -1 : 1), [px, py] = R([[cx + s * 4 * u, cut + 1.5 * u]])[0];
-        p.ell(px, py, 32 * u, 0.06 * HH, shade(col, 0.8), ow, 0, 180, deg);
+        p.ell(px, py - 1.5 * u, 30 * u, 0.04 * HH, shade(col, 0.8), ow * 0.8, 0, 180, deg);
       }
     }
   } else if (o.hat === "tophat") {

@@ -20,7 +20,7 @@ export const loadKit = () => Promise.resolve({} as Kit);
 // ---------------- painted textures ----------------
 const sandHD = () => ctex("sandHD", 1024, 1024, (g, r) => {
   const S = 1024;
-  g.fillStyle = "#ead6a6"; g.fillRect(0, 0, S, S);
+  g.fillStyle = "#e6d6b4"; g.fillRect(0, 0, S, S);
   for (let i = 0; i < 18; i++) {
     const x = r() * S, y = r() * S, rad = 120 + r() * 220, light = r() > 0.5;
     for (const ox of [-S, 0, S]) for (const oy of [-S, 0, S]) {
@@ -103,7 +103,7 @@ const whaleGeo = () => {
     if (i === 0) r = 0.05;
     pts.push(new THREE.Vector2(Math.max(0.001, r), (s - 0.5) * WHALE_LEN));
   }
-  const g = new THREE.LatheGeometry(pts, 36);
+  const g = new THREE.LatheGeometry(pts, 64);
   g.rotateZ(-Math.PI / 2); // lathe axis y -> x, head at +x
   g.scale(1, 0.82, 1);
   return g;
@@ -123,8 +123,8 @@ const chunkGeo = (seed: number, r = 1) => {
     const v = V(p.getX(i), p.getY(i), p.getZ(i)), n = v.clone().normalize();
     const d = 1 + 0.22 * Math.sin(n.x * 3 + k[0]) * Math.sin(n.y * 3 + k[1]) + 0.12 * Math.sin(n.z * 5 + k[2]);
     v.multiplyScalar(d); v.y *= 0.62; p.setXYZ(i, v.x, v.y, v.z);
-    const skin = n.x * 0.8 + n.y * 0.6 > 0.55 ? 1 : 0;
-    const c = new THREE.Color(skin ? "#5d6476" : "#f0c9bb");
+    const skin = n.y > 0.62 ? 1 : 0, streak = Math.abs(Math.sin(n.x * 5 + k[0]) * Math.cos(n.z * 4 + k[1])) > 0.82;
+    const c = new THREE.Color(skin ? "#5d6476" : streak ? "#d9737c" : "#f6b9a8");
     col.push(c.r, c.g, c.b);
   }
   g.setAttribute("color", new THREE.Float32BufferAttribute(col, 3));
@@ -151,11 +151,20 @@ const sedan = (col: string) => {
   add(boxGeo(V(-1.0, 0.3, 2.45), V(1.0, 0.5, 2.62)), chrome);
   add(boxGeo(V(-1.0, 0.3, -2.62), V(1.0, 0.5, -2.45)), chrome);
   const cabin = new THREE.Group(); cabin.position.y = 1.0; grp.add(cabin);
-  add(boxGeo(V(-0.86, 0, -1.25), V(0.86, 0.56, 1.0)), glass, cabin);
-  add(boxGeo(V(-0.9, 0.56, -1.3), V(0.9, 0.66, 1.05)), body, cabin);
-  for (const x of [-0.86, 0.86]) for (const z of [-1.2, 0.95]) add(boxGeo(V(x - 0.05, 0, z - 0.06), V(x + 0.05, 0.57, z + 0.06)), body, cabin);
-  for (const x of [-0.92, 0.92]) for (const z of [-1.55, 1.6]) { const w = add(cyl(0.34, 0.26), tyre); w.rotation.z = Math.PI / 2; w.position.set(x, 0.34, z); }
-  for (const x of [-0.6, 0.6]) { const l = add(cyl(0.12, 0.05), lam("lamp", () => ({ color: "#fff6d8" }))); l.rotation.x = Math.PI / 2; l.position.set(x, 0.75, 2.52); }
+  // cabin: a trapezoid prism (raked windscreen and rear glass), roof cap on top
+  const sh = new THREE.Shape(); sh.moveTo(-1.45, 0); sh.lineTo(1.2, 0); sh.lineTo(0.62, 0.58); sh.lineTo(-1.05, 0.58); sh.lineTo(-1.45, 0);
+  const cg = new THREE.ExtrudeGeometry(sh, { depth: 1.66, bevelEnabled: false }); cg.rotateY(-Math.PI / 2); cg.translate(-0.83, 0, 0);
+  add(cg, glass, cabin);
+  add(boxGeo(V(-0.87, 0.56, -1.1), V(0.87, 0.66, 0.66)), body, cabin);
+  for (const x of [-0.84, 0.84]) add(boxGeo(V(x - 0.04, 0, -0.25), V(x + 0.04, 0.57, -0.15)), body, cabin);
+  add(boxGeo(V(-0.97, 0.62, -2.45), V(0.97, 0.68, 2.45)), chrome);
+  add(boxGeo(V(-0.6, 0.55, 2.49), V(0.6, 0.85, 2.53)), lam("grille", () => ({ color: "#3a3a44" })));
+  for (const x of [-0.75, 0.75]) add(boxGeo(V(x - 0.14, 0.62, -2.53), V(x + 0.14, 0.82, -2.49)), lam("tailLight", () => ({ color: "#d8352f" })));
+  for (const x of [-0.92, 0.92]) for (const z of [-1.55, 1.6]) {
+    const w = add(cyl(0.34, 0.26, 18), tyre); w.rotation.z = Math.PI / 2; w.position.set(x, 0.34, z);
+    const hc = add(cyl(0.17, 0.28, 14), chrome); hc.rotation.z = Math.PI / 2; hc.position.set(x, 0.34, z);
+  }
+  for (const x of [-0.68, 0.68]) { const l = add(cyl(0.13, 0.06, 16), lam("lamp", () => ({ color: "#fff6d8" }))); l.rotation.x = Math.PI / 2; l.position.set(x, 0.72, 2.52); }
   return { grp, cabin };
 };
 
@@ -173,7 +182,7 @@ export class World {
   private WU: Record<string, THREE.IUniform>;
   private sunDisc: THREE.Sprite; private sunHalo: THREE.Sprite;
   private sunCache = new Map<number, THREE.Vector3>();
-  private cloudMaps: Record<"day" | "golden", THREE.Texture[]>;
+  private cloudMaps: Record<"day" | "golden" | "night", THREE.Texture[]>;
   private clouds: THREE.Mesh[] = [];
   private foam: THREE.Mesh[] = [];
   private whale = new THREE.Group(); private remains = new THREE.Group(); private crater: THREE.Mesh;
@@ -183,6 +192,7 @@ export class World {
   private dozer = new THREE.Group(); private mound: THREE.Mesh;
   private ucabin: THREE.Group; private ucar: THREE.Group;
   private bigChunk: THREE.Mesh;
+  private bulbs: THREE.Mesh[] = []; private pool2!: THREE.Mesh; private stars!: THREE.Points;
   private frustum = new THREE.Frustum();
   private m4 = new THREE.Matrix4(); private v = new THREE.Vector3(); private sph = new THREE.Sphere();
 
@@ -223,7 +233,7 @@ export class World {
     this.sun = new THREE.DirectionalLight("#fff0d6", 2.6);
     this.sun.castShadow = true; this.sun.shadow.mapSize.set(2048, 2048);
     R.add(this.hemi, this.sun, this.sun.target);
-    this.cloudMaps = { day: [0, 1, 2, 3].map((k) => cloudHD(k, LOOK.day.cloud)), golden: [0, 1, 2, 3].map((k) => cloudHD(k, LOOK.golden.cloud)) };
+    this.cloudMaps = { day: [0, 1, 2, 3].map((k) => cloudHD(k, LOOK.day.cloud)), golden: [0, 1, 2, 3].map((k) => cloudHD(k, LOOK.golden.cloud)), night: [0, 1, 2, 3].map((k) => cloudHD(k, LOOK.night.cloud)) };
     for (let i = 0; i < 10; i++) {
       const a = (i / 10) * Math.PI * 2 + 0.3, d = 600 + (i % 3) * 70;
       const m = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ map: this.cloudMaps.day[i % 4], color: new THREE.Color(1.1, 1.1, 1.1), transparent: true, depthWrite: false, fog: false }));
@@ -284,7 +294,43 @@ export class World {
     for (let i = 0; i < 18; i++) { const x = -150 + rr() * 50, z = 0 + rr() * 80; prop(b, {}, "tree_cone", x, 22 + rr() * 6, z, 9 + rr() * 6, rr() * 6); }
     for (const [x, z, s] of [[60, 120, 1], [95, 150, 0.7], [-60, 170, 1.3], [-95, 95, 0.8]] as const)
       b.add(rockGeo(x * 3 + z, 9 * s, 22 * s, 9 * s), M.rock, new THREE.Matrix4().makeTranslation(x, 4 * s, z));
+    // rope line on stakes in front of the crowd (z -21.5), a foreground frame for the crowd shots
+    M.stake = lam("stake", () => ({ color: "#9b7a52" }));
+    for (let x = -16; x <= 16; x += 2.6) b.add(boxGeo(V(x - 0.05, -0.1, -21.55), V(x + 0.05, 0.95, -21.45)), M.stake);
+    for (let x = -16; x < 16; x += 2.6) {
+      const a0 = V(x, 0.85, -21.5), a1 = V(x + 2.6, 0.85, -21.5), mid = a0.clone().add(a1).multiplyScalar(0.5).add(V(0, -0.12, 0));
+      for (const [p0, p1] of [[a0, mid], [mid, a1]]) { const g = cyl(0.018, p0.distanceTo(p1), 5); g.rotateZ(Math.PI / 2); g.rotateZ(Math.atan2(p1.y - p0.y, p1.x - p0.x)); g.translate((p0.x + p1.x) / 2, (p0.y + p1.y) / 2, -21.5); b.add(g, lam("rope", () => ({ color: "#e8d8a8" }))); }
+    }
+    // kelp piles and beach rocks
+    M.kelp = lam("kelp", () => ({ color: "#4f5a2a" }));
+    for (let i = 0; i < 26; i++) { const x = -40 + rr() * 80, z = 4 + rr() * 6; const g = rockGeo(300 + i, 0.6 + rr() * 0.8, 0.12, 0.35 + rr() * 0.4); g.translate(x, 0.02, z); b.add(g, M.kelp); }
+    for (let i = 0; i < 16; i++) { const x = -45 + rr() * 90, z = -18 + rr() * 26; if (Math.abs(x) < 9 && z > -6) continue; const g = rockGeo(400 + i, 0.3 + rr() * 0.5, 0.2 + rr() * 0.3, 0.3 + rr() * 0.5); g.translate(x, 0.05, z); b.add(g, M.rock); }
     b.build(R);
+    for (const [x, z, col, yaw] of [[-24, -14, "#c94a3a", 0.4], [-29, -12, "#e6dcc0", 0.2], [22, -15, "#3f6fb5", -0.5], [27, -12.5, "#5d7a3a", -0.3], [33, -16, "#d9a640", -0.6]] as const) {
+      const c = sedan(col); c.grp.position.set(x, 0, z); c.grp.rotation.y = yaw; R.add(c.grp);
+    }
+    // parking-lot street lamps (their bulbs glow at night) and a bin
+    const pole = lam("pole", () => ({ color: "#5a5f6a" }));
+    this.bulbs = [];
+    for (const [x, z] of [[19.5, -60.6], [-8, -60.6], [6, -80]] as const) {
+      const g = new THREE.Group();
+      const pm = new THREE.Mesh(cyl(0.07, 5.2, 10), pole); pm.position.y = 2.6; pm.castShadow = true; g.add(pm);
+      const arm = new THREE.Mesh(boxGeo(V(-0.05, 5.1, -0.05), V(0.05, 5.2, 1.1)), pole); g.add(arm);
+      const hood = new THREE.Mesh(boxGeo(V(-0.25, 4.95, 0.8), V(0.25, 5.15, 1.35)), pole); g.add(hood);
+      const bulb = new THREE.Mesh(new THREE.SphereGeometry(0.17, 14, 10), new THREE.MeshBasicMaterial({ color: new THREE.Color(1, 0.9, 0.7) }));
+      bulb.position.set(0, 4.88, 1.07); bulb.layers.set(NOINK); g.add(bulb); this.bulbs.push(bulb);
+      g.position.set(x, LOT_Y, z); g.rotation.y = z < -70 ? Math.PI : 0; R.add(g);
+    }
+    const bin = new THREE.Mesh(cyl(0.32, 0.9, 14), lam("bin", () => ({ color: "#2f6f5a" }))); bin.position.set(21, LOT_Y + 0.45, -61.2); bin.castShadow = true; R.add(bin);
+    // lamp light pool on the asphalt (night only)
+    this.pool2 = new THREE.Mesh(new THREE.CircleGeometry(4.2, 40), new THREE.MeshBasicMaterial({ map: ctex("lampPool", 256, 256, (g) => { const gr = g.createRadialGradient(128, 128, 0, 128, 128, 128); gr.addColorStop(0, "rgba(255,214,150,0.28)"); gr.addColorStop(0.6, "rgba(255,200,130,0.1)"); gr.addColorStop(1, "rgba(255,200,130,0)"); g.fillStyle = gr; g.fillRect(0, 0, 256, 256); }), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+    this.pool2.rotation.x = -Math.PI / 2; this.pool2.position.set(18.2, LOT_Y + 0.06, -62.0); this.pool2.layers.set(NOINK); R.add(this.pool2);
+    // stars (night only)
+    const sp: number[] = [];
+    for (let i = 0; i < 900; i++) { const a = rr() * Math.PI * 2, e = 0.08 + rr() * 1.3; sp.push(Math.cos(a) * Math.cos(e) * 900, Math.sin(e) * 900, Math.sin(a) * Math.cos(e) * 900); }
+    const sg = new THREE.BufferGeometry(); sg.setAttribute("position", new THREE.Float32BufferAttribute(sp, 3));
+    this.stars = new THREE.Points(sg, new THREE.PointsMaterial({ color: "#eef3ff", size: 2.2, sizeAttenuation: false, fog: false, depthWrite: false }));
+    this.stars.layers.set(NOINK); this.stars.frustumCulled = false; this.stars.renderOrder = -0.9; R.add(this.stars);
 
     // ---- sea (the river shader of the bridge short, on open water) ----
     const wNear = waterNear(), wFar = waterFar();
@@ -327,7 +373,7 @@ export class World {
     for (let i = 0; i < 14; i++) {
       const c = new THREE.Mesh(chunkGeo(100 + i, 0.3 + rr2() * 0.5), raw);
       const a = rr2() * Math.PI * 2, d = 3 + rr2() * 9;
-      c.position.set(Math.cos(a) * d * 1.3, -0.9, Math.sin(a) * d - 1.5); c.rotation.y = rr2() * 6; c.castShadow = true; this.remains.add(c);
+      c.position.set(Math.cos(a) * d * 1.3, -0.9, Math.sin(a) * d - 1.5); c.rotation.set(Math.PI, rr2() * 6, 0); c.castShadow = true; this.remains.add(c);
     }
     this.remains.position.copy(this.whale.position); this.remains.visible = false;
     R.add(this.remains);
@@ -429,6 +475,10 @@ export class World {
     this.sky.position.copy(cam.position);
     untone(L.fog, this.fog.color); this.fog.near = L.fogNear; this.fog.far = L.fogFar;
     scene.fog = this.fog; scene.background = null;
+    const night = s.light === "night";
+    this.stars.visible = night; this.pool2.visible = night;
+    this.stars.position.copy(cam.position);
+    for (const bl of this.bulbs) (bl.material as THREE.MeshBasicMaterial).color.setRGB(night ? 6 : 1.1, night ? 4.6 : 1.0, night ? 2.6 : 0.85);
     const showSun = s.light === "golden";
     this.sunDisc.visible = this.sunHalo.visible = showSun;
     if (showSun) {

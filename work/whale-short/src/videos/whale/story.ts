@@ -44,7 +44,7 @@ export const SQUIRT_HIT = 48.35;
 export const UP = 53.22;           // "Up."
 
 // ---------------- shots ----------------
-export type Light = "day" | "golden";
+export type Light = "day" | "golden" | "night";
 export type Scene = "hook" | "arrive" | "whale" | "bury" | "tow" | "engineer" | "gulls" | "umen" | "cases" | "gather" | "count" | "boom"
   | "fall" | "lucky" | "ketchup" | "physics" | "after" | "car";
 export type ShotDef = { id: number; a: number; b: number; light: Light; scene: Scene; tau: (t: number) => number; sunAz?: number; sunEl?: number };
@@ -64,8 +64,8 @@ export const SHOTS: ShotDef[] = [
   { id: 12, a: 936, b: 1005, light: "day", scene: "boom", tau: T0 },
   { id: 13, a: 1005, b: 1176, light: "day", scene: "fall", tau: T0 },
   { id: 14, a: 1176, b: 1277, light: "day", scene: "lucky", tau: T0 },
-  { id: 15, a: 1277, b: 1500, light: "golden", scene: "ketchup", tau: T0, sunAz: 28, sunEl: 9 },
-  { id: 16, a: 1500, b: 1645, light: "golden", scene: "physics", tau: T0, sunAz: 140, sunEl: 16 },
+  { id: 15, a: 1277, b: 1500, light: "night", scene: "ketchup", tau: T0, sunAz: 55, sunEl: 35 },
+  { id: 16, a: 1500, b: 1645, light: "night", scene: "physics", tau: T0, sunAz: 120, sunEl: 30 },
   { id: 17, a: 1645, b: 1822, light: "day", scene: "after", tau: T0 },
   { id: 18, a: 1822, b: TOTAL, light: "day", scene: "car", tau: T0 },
 ];
@@ -119,8 +119,8 @@ const C = UMEN, L = LUCKY;
 const CAMS: Record<number, Key[]> = {
   // 1 hook: the crowd under the falling sky, low from the beach side; closer on "rain whale" (roll)
   1: [
-    { f: 0, s: (f) => dolly(at(1.6, -19.2, 0.9), at(0, -25.5, 1.75), pushK(f, 0, 0.0025), { fov: 44 }) },
-    { f: 77, cut: true, s: (f) => dolly(at(0.6, -21.3, 1.25), at(0.2, -25.2, 1.95), pushK(f, 77, 0.002, 0.006, 30), { fov: 40, roll: 0.04 }) },
+    { f: 0, s: (f) => dolly([C[0] + 0.3, C[1] + 1.35, C[2] + 1.85], [C[0] + 0.02, C[1] + 1.78, C[2]], pushK(f, 0, 0.0028), { fov: 42, roll: 0.03 }) },
+    { f: 66, cut: true, s: (f) => dolly(at(1.6, -19.2, 0.9), at(0, -25.5, 1.75), pushK(f, 66, 0.0025, 0.006, 30), { fov: 44, roll: -0.03 }) },
   ],
   // 2 arrive: high over the sea, then glide down to the whale on the sand ("washes up on the beach at Florence")
   2: [
@@ -203,7 +203,7 @@ const CAMS: Record<number, Key[]> = {
   18: [
     { f: 1819, s: (f) => dolly([UCAR[0] + 5.2, LOT_Y + 1.8, UCAR[2] + 7.0], [UCAR[0] - 0.5, LOT_Y + 1.2, UCAR[2]], pushK(f, 1819, 0.0022), { fov: 42 }) },
     { f: 1887, cut: true, s: (f) => dolly([UCAR[0] + 3.4, LOT_Y + 0.9, UCAR[2] + 5.0], [UCAR[0], LOT_Y + 3.4, UCAR[2]], pushK(f, 1887, 0.0025), { fov: 46, roll: 0.04 }) },
-    { f: 1935, cut: true, s: (f) => dolly([UCAR[0] + 4.6, LOT_Y + 1.7, UCAR[2] + 5.4], [UCAR[0] + 0.6, LOT_Y + 1.25, UCAR[2]], pushK(f, 1935, 0.0018), { fov: 44, roll: -0.03 }) },
+    { f: 1935, cut: true, s: (f) => dolly([UCAR[0] + 3.4, LOT_Y + 1.75, UCAR[2] + 5.6], [UCAR[0] + 1.2, LOT_Y + 1.45, UCAR[2] + 1.0], pushK(f, 1935, 0.0018), { fov: 42, roll: -0.03 }) },
   ],
 };
 
@@ -229,23 +229,23 @@ export const camAt = (id: number, f: number): Cam => {
 // ---------------- lens ----------------
 export type Dof = { f: number; dur?: number; cInf: number; focus?: (f: number) => V3 };
 export const DOF: Dof[] = [
-  { f: 0, cInf: 14 }, { f: 77, cInf: 15 },
+  { f: 0, cInf: 12, focus: () => [UMEN[0], UMEN[1] + 1.86, UMEN[2]] }, { f: 66, cInf: 14 },
   { f: 124, cInf: 0 },
   { f: 270, cInf: 10 }, { f: 292, cInf: 13 },
   { f: 317, cInf: 8 }, { f: 379, cInf: 0 },
   { f: 420, cInf: 12 }, { f: 476, dur: 20, cInf: 14 },
   { f: 508, cInf: 10 },
-  { f: 592, cInf: 12 }, { f: 700, dur: 24, cInf: 14 },
+  { f: 592, cInf: 12, focus: () => [UMEN[0], UMEN[1] + 1.75, UMEN[2]] }, { f: 700, dur: 24, cInf: 14, focus: () => [UMEN[0], UMEN[1] + 1.75, UMEN[2]] },
   { f: 754, cInf: 6 }, { f: 790, cInf: 14 },
   { f: 831, cInf: 0 }, { f: 855, cInf: 12 },
   { f: 881, cInf: 14 }, { f: 897, cInf: 6 }, { f: 913, cInf: 14 },
   { f: 936, cInf: 0 },
   { f: 1005, cInf: 12 }, { f: 1045, cInf: 0 },
-  { f: 1176, cInf: 12 },
+  { f: 1176, cInf: 12, focus: () => [LUCKY[0], LUCKY[1] + 1.75, LUCKY[2]] },
   { f: 1277, cInf: 8 }, { f: 1347, cInf: 14 }, { f: 1434, cInf: 7 },
   { f: 1500, cInf: 0 },
   { f: 1645, cInf: 0 }, { f: 1725, cInf: 6 }, { f: 1774, cInf: 0 },
-  { f: 1822, cInf: 8 }, { f: 1887, cInf: 6 }, { f: 1935, cInf: 10 },
+  { f: 1822, cInf: 7, focus: () => [UCAR[0] + 2.4, LOT_Y + 1.75, UCAR[2] + 2.0] }, { f: 1887, cInf: 5 }, { f: 1935, cInf: 10, focus: () => [UCAR[0] + 1.9, LOT_Y + 1.75, UCAR[2] + 2.0] },
 ];
 export const dofAt = (f: number) => {
   let i = 0; while (i + 1 < DOF.length && f >= DOF[i + 1].f) i++;

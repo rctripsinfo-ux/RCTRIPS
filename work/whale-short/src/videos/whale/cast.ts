@@ -127,7 +127,7 @@ const tier = (d: number): [number, number, number] =>
 // ---------------- light ----------------
 const SUN = new THREE.Vector3(0.5, 0.75, -0.4).normalize();
 const tmp = new THREE.Vector3();
-let LNAME: "day" | "golden" = "day";
+let LNAME: "day" | "golden" | "night" = "day";
 const sunOf = (root: THREE.Object3D) => {
   let s: THREE.DirectionalLight | null = null;
   root.traverse((o) => { if (!s && o instanceof THREE.DirectionalLight && o.castShadow) s = o; });
@@ -180,8 +180,11 @@ const fkey = (o: object) => JSON.stringify(o, (_k, v) => (typeof v === "number" 
 
 type Who = { i: number; o: Outfit; okey: string };
 /** one character drawing in the 600 x 1000 design space, sized by distance, lit from the scene's sun */
-const person = (cam: CamInfo, who: Who, x: number, y: number, z: number, view: { side: boolean; mirror: boolean }, fo: FrontOpts, so: SideOpts, scale = 1): Place & { tierKey: string } => {
+const person = (cam: CamInfo, who: Who, x: number, y: number, z: number, view0: { side: boolean; mirror: boolean }, fo: FrontOpts, so: SideOpts, scale = 1): Place & { tierKey: string } => {
   const d = cam.pos.distanceTo(tmp.set(x, y + 1.2, z)) / scale;
+  const walkingSide = view0.side && (so.mode === "march") && so.phase !== undefined && so.phase !== 0;
+  const view = d < 9 && !walkingSide ? { side: false, mirror: false } : view0;
+  if (view !== view0 && fo.mode === "march") fo = { ...fo };
   const [w, h, k] = tier(d);
   const mirror = view.side && view.mirror, light = light2D(cam, mirror), seed = seedOf(who.i);
   const f2: FrontOpts = { ...fo, light, seed }, s2: SideOpts = { ...so, light, seed };
@@ -196,7 +199,7 @@ const person = (cam: CamInfo, who: Who, x: number, y: number, z: number, view: {
 /** ground shadow under a standing / sitting card (review rounds 2-4), multiply, blue-violet: a TIGHT contact pool right under
  *  the feet (~.5 on screen at the core) so nobody floats, plus by day (cards cast no real shadow) a lighter soft tail
  *  stretched AWAY from the sun, length ~1.6 m / tan(sun elevation), capped. Golden: world.ts casts real card shadows. */
-const CONTACT: Record<"day" | "golden", [number, number, number]> = { day: [0.2, 0.21, 0.33], golden: [0.24, 0.2, 0.33] };
+const CONTACT: Record<"day" | "golden" | "night", [number, number, number]> = { day: [0.2, 0.21, 0.33], golden: [0.24, 0.2, 0.33], night: [0.14, 0.16, 0.34] };
 const TAIL: [number, number, number] = [0.42, 0.44, 0.62];
 const toSrgb = (v: number) => { const c = clamp01(v); return c <= 0.0031308 ? 12.92 * c : 1.055 * c ** (1 / 2.4) - 0.055; };
 const hexOf = (c: [number, number, number], k: number) => "#" + c.map((v) => Math.round(255 * toSrgb(1 - (1 - v) * k)).toString(16).padStart(2, "0")).join("");
@@ -217,21 +220,23 @@ const blob = (out: Stage, x: number, y: number, z: number, sc = 1, k = 1) => {
 export type Stage = { places: Place[]; fx: FxPlace[] };
 
 // ---------------- our cast (Florence, Oregon, November 1970) ----------------
-const HAIRS = ["#5a3b2a", "#2a201a", "#d9a441", "#8a4a2a", "#3b2a20", "#c9b8a0"];
+const HAIRS = ["#5a3b2a", "#2a201a", "#d9a441", "#8a4a2a", "#3b2a20", "#7a5a3a"];
+const PALE = "#fbf8f4", CREAM = "#ffe7c9";
+const SKIN_OF = (v: number) => [PALE, PALE, CREAM, PALE, "#f5d2ae"][v % 5];
 const COATS = ["#d9a441", "#b5653f", "#2f6f73", "#7a5a3a", "#3f6fb5", "#8c3b4a", "#5d7a3a", "#c25a7a"];
 const folk = (v: number): Outfit => ({
-  jacket: COATS[v % 8], pants: ["#3b4a6b", "#5a4632", "#3b3f52"][v % 3], boots: "#4a3426", skin: SKINS[v % 4],
+  jacket: COATS[v % 8], pants: ["#3b4a6b", "#5a4632", "#3b3f52"][v % 3], boots: "#4a3426", skin: SKIN_OF(v),
   hat: v % 5 === 3 ? "cap" : "hair", hair: HAIRS[v % 6], cap: ["#c94a3a", "#2f5f6a", "#e6dcc0"][v % 3],
   dress: v % 4 === 1 ? ["#d9a441", "#c25a7a", "#5a8fc2"][v % 3] : undefined, moustache: v % 6 === 2 ? "#4a3426" : undefined,
 });
 const FOLK = Array.from({ length: 12 }, (_, v) => folk(v));
-const ENGINEER: Outfit = { jacket: "#e8742c", pants: "#3b4a6b", boots: "#4a3426", hat: "cap", cap: "#f2c230", sash: "#f4f1d0", skin: SKINS[0], moustache: "#5a3b2a", build: "stout" };
-const WORKER: Outfit = { jacket: "#e8742c", pants: "#3b4a6b", boots: "#4a3426", hat: "cap", cap: "#f2c230", sash: "#f4f1d0", skin: SKINS[2] };
-const UMENO: Outfit = { jacket: "#6b4a2f", pants: "#3d4440", boots: INK, hat: "cap", cap: "#38506a", moustache: "#4a3426", skin: SKINS[1] };
-const CAMMAN: Outfit = { jacket: "#3f6fb5", pants: "#3b3f52", boots: "#4a3426", hat: "hair", hair: "#2a201a", skin: SKINS[3] };
-const LUCKYO: Outfit = { jacket: "#2f6f73", pants: "#5a4632", boots: "#4a3426", hat: "cap", cap: "#c94a3a", skin: SKINS[0] };
-const FRIEND_A: Outfit = { jacket: "#c25a7a", pants: "#3b4a6b", boots: "#4a3426", hat: "hair", hair: "#8a4a2a", skin: SKINS[2] };
-const FRIEND_B: Outfit = { jacket: "#f1efe6", pants: "#5a4632", boots: "#4a3426", hat: "hair", hair: "#d9a441", skin: SKINS[0] };
+const ENGINEER: Outfit = { jacket: "#e8742c", pants: "#3b4a6b", boots: "#4a3426", hat: "cap", cap: "#f2c230", sash: "#f4f1d0", skin: PALE, moustache: "#5a3b2a", build: "stout" };
+const WORKER: Outfit = { jacket: "#e8742c", pants: "#3b4a6b", boots: "#4a3426", hat: "cap", cap: "#f2c230", sash: "#f4f1d0", skin: PALE };
+const UMENO: Outfit = { jacket: "#6b4a2f", pants: "#3d4440", boots: INK, hat: "cap", cap: "#38506a", moustache: "#4a3426", skin: CREAM };
+const CAMMAN: Outfit = { jacket: "#3f6fb5", pants: "#3b3f52", boots: "#4a3426", hat: "hair", hair: "#2a201a", skin: PALE };
+const LUCKYO: Outfit = { jacket: "#2f6f73", pants: "#5a4632", boots: "#4a3426", hat: "cap", cap: "#d8433a", skin: PALE };
+const FRIEND_A: Outfit = { jacket: "#c25a7a", pants: "#3b4a6b", boots: "#4a3426", hat: "hair", hair: "#8a4a2a", skin: PALE };
+const FRIEND_B: Outfit = { jacket: "#f1efe6", pants: "#5a4632", boots: "#4a3426", hat: "hair", hair: "#d9a441", skin: PALE };
 
 /** crowd on the foot of the dunes, everyone facing the whale (+z) */
 const CROWD: [number, number][] = [
@@ -343,7 +348,13 @@ export const stage = (id: number, f: number, t: number, tau: number, cam: CamInf
   switch (s.scene) {
     case "hook":
       crowd(cam, t, tau, out, "fall", [0, -25.5, 12]);
+      one(cam, out, 55, UMENO, "umen", UMEN[0], UMEN[2], UMEN[1], "shock", t);
+      boomCloud(out, tau - BOOM);
       rain(out, tau, 0, -25.5, 9, 35.4, 40.2, 30, 7);
+      if (f < 66) for (let k = 0; k < 5; k++) {
+        const ph = (tau * 0.55 + k * 0.23) % 1, x = UMEN[0] - 1.2 + k * 0.62, z = UMEN[2] - 0.6 - (k % 2) * 0.9;
+        chunkCard(out, x, UMEN[1] + 5.2 - 3.6 * ph, z, 0.55 + 0.15 * (k % 3), ph * 3 + k, k);
+      }
       break;
     case "arrive":
       gulls(out, t, 9);
@@ -434,7 +445,7 @@ export const stage = (id: number, f: number, t: number, tau: number, cam: CamInf
       one(cam, out, 60, FRIEND_A, "fa", xA, PACKET[2] + 0.05, LOT_Y, tau > SQUIRT_HIT ? "shock" : "grin", t, { dx: 1, dz: 0, walk: walk ? tau * 1.4 : undefined });
       const hitB = tau >= SQUIRT_HIT;
       one(cam, out, 61, FRIEND_B, "fb", PACKET[0] + 1.6, PACKET[2] - 0.05, LOT_Y, hitB ? "shock" : "smile", t, { dx: -1, dz: 0.3 });
-      out.fx.push({ key: `packet${tau >= STEP ? 1 : 0}`, cw: 300, ch: 200, draw: (p) => fxPacket(p, tau >= STEP ? 1 : 0), x: PACKET[0], y: LOT_Y + 0.05, z: PACKET[2], w: 0.6, h: 0.4, flat: true, rot: 0.1 });
+      out.fx.push({ key: `packet${tau >= STEP ? 1 : 0}`, cw: 300, ch: 200, draw: (p) => fxPacket(p, tau >= STEP ? 1 : 0), x: PACKET[0], y: LOT_Y + 0.05, z: PACKET[2], w: 0.75, h: 0.5, flat: true, rot: 0.1 });
       if (tau >= 46.1 && tau < 47.75) arrow(out, PACKET[0] + 0.45, LOT_Y + 0.3, PACKET[2] + 0.1, 0.17 + 0.01 * Math.sin(t * 12), 0, true);
       if (tau >= SQUIRT && tau < SQUIRT + 1.1) { const u = q(clamp01((tau - SQUIRT) / 0.5), 30); out.fx.push({ key: `squirt${u}`, cw: 600, ch: 300, draw: (p) => fxSquirt(p, u), x: PACKET[0] + 0.8, y: LOT_Y + 0.62, z: PACKET[2] - 0.05, w: -1.7, h: 0.85 }); }
       if (hitB) out.fx.push({ key: "khit", cw: 200, ch: 200, draw: fxKetchupHit, x: PACKET[0] + 1.6, y: LOT_Y + 1.15, z: PACKET[2] - 0.12, w: 0.4, h: 0.4 });
