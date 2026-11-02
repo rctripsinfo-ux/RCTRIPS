@@ -1,0 +1,21 @@
+{
+ "video": "R01",
+ "frames": 1514,
+ "cuts": 14,
+ "shots": 15,
+ "avg_shot_s": 3.36,
+ "camera_moving_frac": 0.204,
+ "zoom_in_frac": 0.122,
+ "zoom_out_frac": 0.056,
+ "changed_frac": 0.241,
+ "mean_diff": 3.36,
+ "bright_mean": 212.3,
+ "sat_mean": 104.8,
+ "contrast_mean": 47.1,
+ "edges_mean": 0.0611,
+ "lufs": -12.7,
+ "silence_total_s": 0,
+ "onsets": 47,
+ "wpm": null,
+ "words": null
+}

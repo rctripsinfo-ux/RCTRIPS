@@ -1,0 +1,21 @@
+{
+ "video": "R02",
+ "frames": 1344,
+ "cuts": 10,
+ "shots": 11,
+ "avg_shot_s": 4.07,
+ "camera_moving_frac": 0.214,
+ "zoom_in_frac": 0.107,
+ "zoom_out_frac": 0.043,
+ "changed_frac": 0.172,
+ "mean_diff": 2.19,
+ "bright_mean": 215.1,
+ "sat_mean": 51.7,
+ "contrast_mean": 47.5,
+ "edges_mean": 0.0405,
+ "lufs": -13.5,
+ "silence_total_s": 0.31,
+ "onsets": 39,
+ "wpm": 174.0,
+ "words": 135
+}

@@ -1,0 +1,100 @@
+{
+ "source": "motion_events.py over frames.csv (LK+RANSAC similarity at 270x480, 30 fps)",
+ "caveat": "first frame of a transition is often a cut frame (not tracked), so travel is a lower bound",
+ "events": {
+  "slide_down": {
+   "count": 5,
+   "dur_s_median": 0.133,
+   "dur_s_p25_p75": [
+    0.116,
+    0.249
+   ],
+   "travel_median": 0.021,
+   "peak_at_frac_median": 0.0,
+   "per_video": {
+    "R01": 1,
+    "R03": 1,
+    "R04": 1,
+    "R05": 1,
+    "R08": 1
+   }
+  },
+  "slide_left": {
+   "count": 19,
+   "dur_s_median": 0.2,
+   "dur_s_p25_p75": [
+    0.133,
+    0.467
+   ],
+   "travel_median": 0.261,
+   "peak_at_frac_median": 0.0,
+   "per_video": {
+    "R01": 1,
+    "R03": 8,
+    "R04": 8,
+    "R05": 2
+   }
+  },
+  "slide_right": {
+   "count": 6,
+   "dur_s_median": 0.1665,
+   "dur_s_p25_p75": [
+    0.125,
+    0.242
+   ],
+   "travel_median": 0.0605,
+   "peak_at_frac_median": 0.0,
+   "per_video": {
+    "R01": 2,
+    "R02": 1,
+    "R03": 1,
+    "R06": 1,
+    "R09": 1
+   }
+  },
+  "slide_up": {
+   "count": 58,
+   "dur_s_median": 0.233,
+   "dur_s_p25_p75": [
+    0.133,
+    0.575
+   ],
+   "travel_median": 0.286,
+   "peak_at_frac_median": 0.0,
+   "per_video": {
+    "R01": 2,
+    "R02": 11,
+    "R03": 3,
+    "R04": 5,
+    "R05": 9,
+    "R06": 5,
+    "R07": 7,
+    "R08": 1,
+    "R09": 8,
+    "R10": 7
+   }
+  },
+  "zoom": {
+   "count": 50,
+   "dur_s_median": 0.2,
+   "dur_s_p25_p75": [
+    0.1,
+    0.408
+   ],
+   "travel_median": 0.03854999999999997,
+   "peak_at_frac_median": 0.225,
+   "per_video": {
+    "R01": 6,
+    "R02": 4,
+    "R03": 1,
+    "R04": 3,
+    "R05": 5,
+    "R06": 6,
+    "R07": 1,
+    "R08": 1,
+    "R09": 10,
+    "R10": 13
+   }
+  }
+ }
+}

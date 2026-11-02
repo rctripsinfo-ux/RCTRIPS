@@ -1,0 +1,39 @@
+{
+ "status": "PROVISIONAL (measured, not yet validated by a reconstruction test)",
+ "measurement": "ref/tools/analyze.py + motion_events.py, LK+RANSAC similarity at 270x480, 30 fps, all 10 videos",
+ "caveat": "Backgrounds are flat colour, so tracked 'camera' motion = motion of the main content layer. A true camera move and a layer move look the same here.",
+ "rules": {
+  "element_rise_in": {
+   "what": "main subject (character / hand / prop) enters by sliding UP from below the frame while fading in; background stays still",
+   "verified": "visually on R07 9.37-9.67 s (9-frame strip) + 58 slide_up events in all 10 videos",
+   "duration_s_median": 0.233,
+   "duration_s_p25_p75": [
+    0.133,
+    0.575
+   ],
+   "travel_canvas_heights_median_lower_bound": 0.286,
+   "easing": "ease-out: fastest on the first tracked frame, decays to 0 (R07 9.47-9.70 per-frame velocity .093 .088 .075 .057 .037 .020 .006 of canvas height; between easeOutSine and easeOutQuad)",
+   "opacity": "~0.3 on the first frame, full by frame 2-3 (visual estimate)",
+   "confidence": "high"
+  },
+  "punch_zoom": {
+   "what": "short scale change of the content layer",
+   "count": 50,
+   "duration_s_median": 0.2,
+   "scale_change_median": 0.039,
+   "most_in": "R09 (10), R10 (13)",
+   "confidence": "medium (scale from similarity fit; small values near noise)"
+  },
+  "slide_left": {
+   "what": "horizontal slides, mostly in the AGE list videos R03/R04 (8 each)",
+   "count": 19,
+   "duration_s_median": 0.2,
+   "travel_median": 0.261,
+   "confidence": "medium"
+  },
+  "static_holds": {
+   "what": "between events the frame is still: camera_moving_frac 0.09-0.37 per video (summary.json)",
+   "confidence": "high"
+  }
+ }
+}

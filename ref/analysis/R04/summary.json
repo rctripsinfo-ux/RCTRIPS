@@ -1,0 +1,21 @@
+{
+ "video": "R04",
+ "frames": 1423,
+ "cuts": 16,
+ "shots": 17,
+ "avg_shot_s": 2.79,
+ "camera_moving_frac": 0.185,
+ "zoom_in_frac": 0.097,
+ "zoom_out_frac": 0.028,
+ "changed_frac": 0.294,
+ "mean_diff": 3.61,
+ "bright_mean": 203.2,
+ "sat_mean": 58.2,
+ "contrast_mean": 52.8,
+ "edges_mean": 0.053,
+ "lufs": -11.1,
+ "silence_total_s": 0.33,
+ "onsets": 43,
+ "wpm": 191.8,
+ "words": 157
+}

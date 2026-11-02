@@ -1,0 +1,21 @@
+{
+ "video": "R06",
+ "frames": 1472,
+ "cuts": 20,
+ "shots": 21,
+ "avg_shot_s": 2.34,
+ "camera_moving_frac": 0.219,
+ "zoom_in_frac": 0.08,
+ "zoom_out_frac": 0.106,
+ "changed_frac": 0.165,
+ "mean_diff": 2.61,
+ "bright_mean": 211.1,
+ "sat_mean": 49.2,
+ "contrast_mean": 46.3,
+ "edges_mean": 0.0437,
+ "lufs": -11.9,
+ "silence_total_s": 0.21,
+ "onsets": 48,
+ "wpm": 175.6,
+ "words": 149
+}

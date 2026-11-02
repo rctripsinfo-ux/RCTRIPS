@@ -1,0 +1,21 @@
+{
+ "video": "R10",
+ "frames": 1337,
+ "cuts": 13,
+ "shots": 14,
+ "avg_shot_s": 3.18,
+ "camera_moving_frac": 0.343,
+ "zoom_in_frac": 0.208,
+ "zoom_out_frac": 0.091,
+ "changed_frac": 0.221,
+ "mean_diff": 2.58,
+ "bright_mean": 206.2,
+ "sat_mean": 32.6,
+ "contrast_mean": 54.3,
+ "edges_mean": 0.0449,
+ "lufs": -12.6,
+ "silence_total_s": 0.36,
+ "onsets": 43,
+ "wpm": 176.6,
+ "words": 136
+}

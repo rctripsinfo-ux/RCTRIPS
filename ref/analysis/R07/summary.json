@@ -1,0 +1,21 @@
+{
+ "video": "R07",
+ "frames": 1031,
+ "cuts": 11,
+ "shots": 12,
+ "avg_shot_s": 2.86,
+ "camera_moving_frac": 0.157,
+ "zoom_in_frac": 0.037,
+ "zoom_out_frac": 0.025,
+ "changed_frac": 0.25,
+ "mean_diff": 2.76,
+ "bright_mean": 213.3,
+ "sat_mean": 57.9,
+ "contrast_mean": 59.1,
+ "edges_mean": 0.047,
+ "lufs": -11.6,
+ "silence_total_s": 0,
+ "onsets": 30,
+ "wpm": 177.9,
+ "words": 106
+}

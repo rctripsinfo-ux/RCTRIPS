@@ -1,0 +1,12 @@
+video,shot,start_f,end_f,start_s,end_s,dur_s,zoom_total,pan_x_total,pan_y_total,zoom_per_s,obj_motion_med_px,mean_diff,confidence
+R02,1,0,26,0.0,0.87,0.9,1.1344,-0.0051,-0.3263,0.2868,0.006,10.0,"measured (LK+RANSAC similarity, 270x480)"
+R02,2,27,105,0.9,3.5,2.63,1.1113,0.3107,-0.0614,0.0456,0.0,3.04,"measured (LK+RANSAC similarity, 270x480)"
+R02,3,106,121,3.53,4.03,0.53,0.546,-0.0004,0.0002,-0.7018,0.168,3.24,"measured (LK+RANSAC similarity, 270x480)"
+R02,4,122,239,4.07,7.97,3.93,1.0029,-0.0002,-0.0003,0.0008,0.0,0.85,"measured (LK+RANSAC similarity, 270x480)"
+R02,5,240,370,8.0,12.33,4.37,1.1317,-0.011,-0.567,0.0346,0.0,2.92,"measured (LK+RANSAC similarity, 270x480)"
+R02,6,371,644,12.37,21.47,9.13,1.6823,0.0189,-0.696,0.066,0.0,0.59,"measured (LK+RANSAC similarity, 270x480)"
+R02,7,645,677,21.5,22.57,1.1,1.0,-0.0,0.0,0.0,0.0,0.02,"measured (LK+RANSAC similarity, 270x480)"
+R02,8,678,773,22.6,25.77,3.2,1.2038,0.0184,-0.7432,0.0866,0.003,1.91,"measured (LK+RANSAC similarity, 270x480)"
+R02,9,774,969,25.8,32.3,6.53,1.3548,-0.0032,-0.5464,0.0547,0.0,2.17,"measured (LK+RANSAC similarity, 270x480)"
+R02,10,970,1205,32.33,40.17,7.87,1.6921,0.0142,-0.9075,0.0717,0.005,1.35,"measured (LK+RANSAC similarity, 270x480)"
+R02,11,1206,1343,40.2,44.77,4.6,0.9998,-0.0001,-0.0,-0.0,0.0,0.46,"measured (LK+RANSAC similarity, 270x480)"

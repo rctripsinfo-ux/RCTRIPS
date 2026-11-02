@@ -1,0 +1,21 @@
+{
+ "video": "R03",
+ "frames": 1452,
+ "cuts": 54,
+ "shots": 55,
+ "avg_shot_s": 0.88,
+ "camera_moving_frac": 0.198,
+ "zoom_in_frac": 0.125,
+ "zoom_out_frac": 0.009,
+ "changed_frac": 0.318,
+ "mean_diff": 4.05,
+ "bright_mean": 191.9,
+ "sat_mean": 55.9,
+ "contrast_mean": 56.6,
+ "edges_mean": 0.0658,
+ "lufs": -11.0,
+ "silence_total_s": 0,
+ "onsets": 39,
+ "wpm": 214.3,
+ "words": 180
+}

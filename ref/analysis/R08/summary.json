@@ -1,0 +1,21 @@
+{
+ "video": "R08",
+ "frames": 1212,
+ "cuts": 13,
+ "shots": 14,
+ "avg_shot_s": 2.89,
+ "camera_moving_frac": 0.088,
+ "zoom_in_frac": 0.04,
+ "zoom_out_frac": 0.046,
+ "changed_frac": 0.154,
+ "mean_diff": 1.61,
+ "bright_mean": 207.6,
+ "sat_mean": 50.3,
+ "contrast_mean": 52.8,
+ "edges_mean": 0.0471,
+ "lufs": -14.0,
+ "silence_total_s": 0,
+ "onsets": 34,
+ "wpm": 163.4,
+ "words": 116
+}
