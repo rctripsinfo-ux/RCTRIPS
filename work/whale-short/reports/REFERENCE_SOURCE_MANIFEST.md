@@ -11,11 +11,11 @@ and a fresh clone of the skill's source repo (`mromidev/claude-animated-shorts`,
 
 | ID | Set | Path | Source | Contents | Purpose | Verification | Status for the whale project |
 |---|---|---|---|---|---|---|---|
-| R1 | Skill stills | `.claude/skills/cartoon-3d-short/references/frames/` | skill author (GitHub repo) | 38 JPEG 540x960, frames 60/180 of 20 shorts; all carry burned-in captions | skill author's style study | inspected 38/38 | **NOT APPROVED** (skill author's material) |
-| R2 | Skill overview sheets | `.claude/skills/cartoon-3d-short/references/sheets/` | skill author | 20 sheets, 60 tiles each, one whole video per sheet | skill author's study | inspected; docs describe them wrongly as 2 s strips | **NOT APPROVED** |
-| R3 | Skill reports + style bible | `.claude/skills/cartoon-3d-short/references/reports/*.md`, `STYLE_BIBLE.md` | skill author's agents, measured on videos we don't have | numbers and recipes, partly about the bridge short | skill author's study | not re-verifiable; contradictions found | **NOT APPROVED**; usable as hypotheses only |
-| R4 | The 20 reference videos | named in the skill docs as `references/vids/*.mp4` | skill author | — | motion, cuts, timing, audio | **not found** (not in the upstream repo either) | MISSING |
-| R5 | User's 88 reference frames | — | user | — | the user's intended production reference | **not found** in any searched location | **APPROVED once supplied**; MISSING |
+| R1 | Skill stills | `.claude/skills/cartoon-3d-short/references/frames/` | skill author (GitHub repo) | 38 JPEG 540x960, frames 60/180 of 20 shorts; all carry burned-in captions | stills of the approved 20 reference videos | inspected 38/38 | **APPROVED** (user, 2026-11-02: the 20 reference videos are the skill author's 20 shorts) |
+| R2 | Skill overview sheets | `.claude/skills/cartoon-3d-short/references/sheets/` | skill author | 20 sheets, 60 tiles each, one whole video per sheet | overview of the approved 20 videos | inspected; docs describe them wrongly as 2 s strips | **APPROVED** (pacing / shot variety only; not frame-level motion) |
+| R3 | Skill reports + style bible | `.claude/skills/cartoon-3d-short/references/reports/*.md`, `STYLE_BIBLE.md` | skill author's agents, measured on videos we don't have | numbers and recipes, partly about the bridge short | measurements of the approved videos | not re-verifiable; contradictions found | **APPROVED SOURCE, UNVERIFIED numbers**: use as hypotheses until re-measured on the videos |
+| R4 | The 20 reference videos (= the approved reference) | named in the skill docs as `references/vids/*.mp4` | skill author | — | motion, cuts, timing, audio | **not found** (not in the upstream repo either) | MISSING |
+| R5 | "88 reference frames" mentioned by the user | — | user | — | — | **not found**; the user has since named R1/R2 (the 20 videos) as the reference | open question, not blocking |
 | R6 | Tutorial transcript | `/root/.claude/uploads/.../bd6e918e-download_6.txt` | user upload | transcript of the tutorial video about making the skill | method context | read | context only, not a visual reference |
 
 ## Non-reference media found (not references)
@@ -30,8 +30,8 @@ and a fresh clone of the skill's source repo (`mromidev/claude-animated-shorts`,
 | Finding | Class | Why |
 |---|---|---|
 | Our v4 measurements (brightness 0.63, saturation 0.39, edges 0.054, detail 0.011, sharpness 0.005, 8.6 s of speech pauses, 29 hard changes, new-picture rate 0.68) | **VERIFIED** (about our video) | measured on our file |
-| R1-based targets (brightness 0.37, saturation 0.47, edges 0.099, etc.) | **NOT APPLICABLE** until R5 confirms them | measured on the skill author's set, not on the approved reference |
-| Captions in the reference | **NOT APPLICABLE**: R1 has them; the user's set reportedly doesn't; the user wants none | — |
+| R1-based targets (brightness 0.37, saturation 0.47, edges 0.099, etc.) | **VERIFIED, APPLICABLE** | measured on stills of the approved videos (38 frames, caption band masked) |
+| Captions in the reference | **VERIFIED present** in 38/38 approved stills; **not a requirement**: the user decided no captions | user decision overrides |
 | R3 numbers (cut rate, holds, shot mix, camera height, DOF share, voice speed, loudness) | **UNVERIFIED** | prior reports, partly contradictory |
 | R3 bridge-specific "ours" values and recipes (soldiers, bridge, park swing) | **NOT APPLICABLE** | about another project |
 | Technical fixes for this machine (SwiftShader + headless shell; hand-built post-processing composer; real dpr) | **VERIFIED** | they work in our renders |
@@ -45,7 +45,5 @@ and a fresh clone of the skill's source repo (`mromidev/claude-animated-shorts`,
 - Scene code `src/videos/whale/*` (captions OFF by default, opt-in only).
 
 ## Missing source material
-1. **R5: the user's 88 reference frames.** Not in this environment, git history or the upstream repo.
-   Put them in `work/whale-short/references/frames_user/`.
-2. **R4: the original reference videos**, or their URLs. These are needed for any claim about camera motion,
+1. **R4: the 20 reference video files**, or their URLs. These are needed for any claim about camera motion,
    transitions, animation timing, pacing and audio. Stills cannot establish those.
