@@ -1,0 +1,1499 @@
+{
+ "title": "How Many Squats Should You Do Based on Your AGE?",
+ "canvas": {
+  "background": "#FFFFFF"
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 50,
+  "y": 0.6,
+  "maxWords": 1,
+  "keywords": []
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_white_floor",
+     "at": "start",
+     "enter": "cut",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "at": "start",
+     "enter": "cut",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 1.5,
+     "x": 0.5,
+     "y": 0.78,
+     "until": "based on your"
+    }
+   ],
+   "camera": [
+    {
+     "at": "start",
+     "zoom": 1
+    },
+    {
+     "at": "start+0.2",
+     "zoom": 1.05
+    }
+   ]
+  },
+  {
+   "id": "hook2",
+   "start": "based on your-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_white_floor",
+     "at": "based on your",
+     "enter": "cut",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_squat_top",
+       "at": "based on your"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "based on your+0.35"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "based on your+0.7"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "based on your+1.05"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "based on your+1.4"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "based on your+1.75"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "based on your+2.1"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "based on your+2.45"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "based on your+2.8"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "based on your+3.15"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "based on your+3.5"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "based on your+3.85"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "based on your+4.2"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "based on your+4.55"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "based on your+4.9"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "based on your+5.25"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "based on your+5.6"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "based on your+5.95"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "based on your+6.3"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "based on your+6.65"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "based on your+7.0"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "based on your+7.35"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "based on your+7.7"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "based on your+8.05"
+      }
+     ],
+     "at": "based on your",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.537
+    }
+   ]
+  },
+  {
+   "id": "find",
+   "start": "Let's find out-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_white_floor",
+     "at": "Let's find out",
+     "enter": "cut",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "type": "image",
+     "asset": "hero_count_1",
+     "at": "Let's find out",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.66
+    }
+   ]
+  },
+  {
+   "id": "a10",
+   "start": "At age ten-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_white_floor",
+     "at": "At age ten-0.05",
+     "enter": "cut",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "type": "image",
+     "asset": "tag_age_10",
+     "at": "At age ten-0.05",
+     "enter": "pop",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.34,
+     "x": 0.21,
+     "y": 0.075
+    },
+    {
+     "type": "image",
+     "asset": "hero_stand",
+     "at": "At age ten-0.05",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.4,
+     "x": 0.5,
+     "y": 0.644,
+     "until": "fifteen to twenty"
+    },
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_squat_top",
+       "at": "fifteen to twenty"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "fifteen to twenty+0.35"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "fifteen to twenty+0.7"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "fifteen to twenty+1.05"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "fifteen to twenty+1.4"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "fifteen to twenty+1.75"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "fifteen to twenty+2.1"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "fifteen to twenty+2.45"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "fifteen to twenty+2.8"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "fifteen to twenty+3.15"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "fifteen to twenty+3.5"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "fifteen to twenty+3.85"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "fifteen to twenty+4.2"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "fifteen to twenty+4.55"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "fifteen to twenty+4.9"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "fifteen to twenty+5.25"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "fifteen to twenty+5.6"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "fifteen to twenty+5.95"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "fifteen to twenty+6.3"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "fifteen to twenty+6.65"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "fifteen to twenty+7.0"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "fifteen to twenty+7.35"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "fifteen to twenty+7.7"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "fifteen to twenty+8.05"
+      }
+     ],
+     "at": "fifteen to twenty",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.537
+    },
+    {
+     "type": "image",
+     "asset": "head_15_20_squats",
+     "at": "fifteen to twenty",
+     "enter": "up",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.78,
+     "x": 0.5,
+     "y": 0.14
+    }
+   ],
+   "camera": [
+    {
+     "at": "fifteen to twenty",
+     "zoom": 1
+    },
+    {
+     "at": "fifteen to twenty+0.2",
+     "zoom": 1.04
+    }
+   ]
+  },
+  {
+   "id": "a20",
+   "start": "At twenty-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_white_floor",
+     "at": "At twenty-0.05",
+     "enter": "cut",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "type": "image",
+     "asset": "tag_age_20",
+     "at": "At twenty-0.05",
+     "enter": "pop",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.34,
+     "x": 0.21,
+     "y": 0.075
+    },
+    {
+     "type": "image",
+     "asset": "hero_stand",
+     "at": "At twenty-0.05",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.56,
+     "x": 0.5,
+     "y": 0.566,
+     "until": "forty to fifty"
+    },
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_squat_top",
+       "at": "forty to fifty"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "forty to fifty+0.35"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "forty to fifty+0.7"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "forty to fifty+1.05"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "forty to fifty+1.4"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "forty to fifty+1.75"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "forty to fifty+2.1"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "forty to fifty+2.45"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "forty to fifty+2.8"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "forty to fifty+3.15"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "forty to fifty+3.5"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "forty to fifty+3.85"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "forty to fifty+4.2"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "forty to fifty+4.55"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "forty to fifty+4.9"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "forty to fifty+5.25"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "forty to fifty+5.6"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "forty to fifty+5.95"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "forty to fifty+6.3"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "forty to fifty+6.65"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "forty to fifty+7.0"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "forty to fifty+7.35"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "forty to fifty+7.7"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "forty to fifty+8.05"
+      }
+     ],
+     "at": "forty to fifty",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.537
+    },
+    {
+     "type": "image",
+     "asset": "head_40_50_squats",
+     "at": "forty to fifty",
+     "enter": "up",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.78,
+     "x": 0.5,
+     "y": 0.14
+    }
+   ],
+   "camera": [
+    {
+     "at": "forty to fifty",
+     "zoom": 1
+    },
+    {
+     "at": "forty to fifty+0.2",
+     "zoom": 1.04
+    }
+   ]
+  },
+  {
+   "id": "peak",
+   "start": "Your legs are-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_sunburst",
+     "at": "Your legs are",
+     "enter": "cut",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "type": "image",
+     "asset": "gag_sunglasses_thumbs",
+     "at": "Your legs are",
+     "enter": "rise",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.9,
+     "x": 0.5,
+     "y": 0.6
+    }
+   ],
+   "camera": [
+    {
+     "at": "strongest",
+     "zoom": 1
+    },
+    {
+     "at": "strongest+0.2",
+     "zoom": 1.05
+    }
+   ]
+  },
+  {
+   "id": "a30",
+   "start": "In your thirties-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_white_floor",
+     "at": "In your thirties-0.05",
+     "enter": "cut",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "type": "image",
+     "asset": "tag_age_30",
+     "at": "In your thirties-0.05",
+     "enter": "pop",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.34,
+     "x": 0.21,
+     "y": 0.075
+    },
+    {
+     "type": "image",
+     "asset": "hero_stand",
+     "at": "In your thirties-0.05",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.56,
+     "x": 0.5,
+     "y": 0.566,
+     "until": "thirty to forty"
+    },
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_squat_top",
+       "at": "thirty to forty"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "thirty to forty+0.35"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "thirty to forty+0.7"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "thirty to forty+1.05"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "thirty to forty+1.4"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "thirty to forty+1.75"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "thirty to forty+2.1"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "thirty to forty+2.45"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "thirty to forty+2.8"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "thirty to forty+3.15"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "thirty to forty+3.5"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "thirty to forty+3.85"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "thirty to forty+4.2"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "thirty to forty+4.55"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "thirty to forty+4.9"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "thirty to forty+5.25"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "thirty to forty+5.6"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "thirty to forty+5.95"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "thirty to forty+6.3"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "thirty to forty+6.65"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "thirty to forty+7.0"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "thirty to forty+7.35"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "thirty to forty+7.7"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "thirty to forty+8.05"
+      }
+     ],
+     "at": "thirty to forty",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.537
+    },
+    {
+     "type": "image",
+     "asset": "head_30_40_squats",
+     "at": "thirty to forty",
+     "enter": "up",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.78,
+     "x": 0.5,
+     "y": 0.14
+    }
+   ],
+   "camera": [
+    {
+     "at": "thirty to forty",
+     "zoom": 1
+    },
+    {
+     "at": "thirty to forty+0.2",
+     "zoom": 1.04
+    }
+   ]
+  },
+  {
+   "id": "a40",
+   "start": "At forty-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_white_floor",
+     "at": "At forty-0.05",
+     "enter": "cut",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "type": "image",
+     "asset": "tag_age_40",
+     "at": "At forty-0.05",
+     "enter": "pop",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.34,
+     "x": 0.21,
+     "y": 0.075
+    },
+    {
+     "type": "image",
+     "asset": "hero_stand",
+     "at": "At forty-0.05",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.56,
+     "x": 0.5,
+     "y": 0.566,
+     "until": "twenty five to"
+    },
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty five to"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty five to+0.35"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty five to+0.7"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty five to+1.05"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty five to+1.4"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty five to+1.75"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty five to+2.1"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty five to+2.45"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty five to+2.8"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty five to+3.15"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty five to+3.5"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty five to+3.85"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty five to+4.2"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty five to+4.55"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty five to+4.9"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty five to+5.25"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty five to+5.6"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty five to+5.95"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty five to+6.3"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty five to+6.65"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty five to+7.0"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty five to+7.35"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty five to+7.7"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty five to+8.05"
+      }
+     ],
+     "at": "twenty five to",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.537
+    },
+    {
+     "type": "image",
+     "asset": "head_25_35_squats",
+     "at": "twenty five to",
+     "enter": "up",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.78,
+     "x": 0.5,
+     "y": 0.14
+    }
+   ],
+   "camera": [
+    {
+     "at": "twenty five to",
+     "zoom": 1
+    },
+    {
+     "at": "twenty five to+0.2",
+     "zoom": 1.04
+    }
+   ]
+  },
+  {
+   "id": "a50",
+   "start": "At fifty-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_white_floor",
+     "at": "At fifty-0.05",
+     "enter": "cut",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "type": "image",
+     "asset": "tag_age_50",
+     "at": "At fifty-0.05",
+     "enter": "pop",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.34,
+     "x": 0.21,
+     "y": 0.075
+    },
+    {
+     "type": "image",
+     "asset": "hero_stand",
+     "at": "At fifty-0.05",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.56,
+     "x": 0.5,
+     "y": 0.566,
+     "until": "twenty to thirty"
+    },
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty to thirty"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty to thirty+0.35"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty to thirty+0.7"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty to thirty+1.05"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty to thirty+1.4"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty to thirty+1.75"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty to thirty+2.1"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty to thirty+2.45"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty to thirty+2.8"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty to thirty+3.15"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty to thirty+3.5"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty to thirty+3.85"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty to thirty+4.2"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty to thirty+4.55"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty to thirty+4.9"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty to thirty+5.25"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty to thirty+5.6"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty to thirty+5.95"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty to thirty+6.3"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty to thirty+6.65"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty to thirty+7.0"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty to thirty+7.35"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "twenty to thirty+7.7"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "twenty to thirty+8.05"
+      }
+     ],
+     "at": "twenty to thirty",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.537
+    },
+    {
+     "type": "image",
+     "asset": "head_20_30_squats",
+     "at": "twenty to thirty",
+     "enter": "up",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.78,
+     "x": 0.5,
+     "y": 0.14
+    }
+   ],
+   "camera": [
+    {
+     "at": "twenty to thirty",
+     "zoom": 1
+    },
+    {
+     "at": "twenty to thirty+0.2",
+     "zoom": 1.04
+    }
+   ]
+  },
+  {
+   "id": "a60",
+   "start": "over sixty-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_white_floor",
+     "at": "over sixty-0.05",
+     "enter": "cut",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "type": "image",
+     "asset": "tag_age_60",
+     "at": "over sixty-0.05",
+     "enter": "pop",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.34,
+     "x": 0.21,
+     "y": 0.075
+    },
+    {
+     "type": "image",
+     "asset": "hero_stand",
+     "at": "over sixty-0.05",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.56,
+     "x": 0.5,
+     "y": 0.566,
+     "until": "ten to twenty"
+    },
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_squat_top",
+       "at": "ten to twenty"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "ten to twenty+0.35"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "ten to twenty+0.7"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "ten to twenty+1.05"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "ten to twenty+1.4"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "ten to twenty+1.75"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "ten to twenty+2.1"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "ten to twenty+2.45"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "ten to twenty+2.8"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "ten to twenty+3.15"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "ten to twenty+3.5"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "ten to twenty+3.85"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "ten to twenty+4.2"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "ten to twenty+4.55"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "ten to twenty+4.9"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "ten to twenty+5.25"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "ten to twenty+5.6"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "ten to twenty+5.95"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "ten to twenty+6.3"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "ten to twenty+6.65"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "ten to twenty+7.0"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "ten to twenty+7.35"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "ten to twenty+7.7"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "ten to twenty+8.05"
+      }
+     ],
+     "at": "ten to twenty",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.62,
+     "x": 0.5,
+     "y": 0.537
+    },
+    {
+     "type": "image",
+     "asset": "head_10_20_squats",
+     "at": "ten to twenty",
+     "enter": "up",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.78,
+     "x": 0.5,
+     "y": 0.14
+    }
+   ],
+   "camera": [
+    {
+     "at": "ten to twenty",
+     "zoom": 1
+    },
+    {
+     "at": "ten to twenty+0.2",
+     "zoom": 1.04
+    }
+   ]
+  },
+  {
+   "id": "beat",
+   "start": "you're beating-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_white_floor",
+     "at": "you're beating",
+     "enter": "cut",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "type": "image",
+     "asset": "hero_arms_crossed",
+     "at": "you're beating",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.95,
+     "x": 0.5,
+     "y": 0.66
+    }
+   ]
+  },
+  {
+   "id": "rule",
+   "start": "Remember-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_white_floor",
+     "at": "Remember",
+     "enter": "cut",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "type": "image",
+     "asset": "hero_count_1",
+     "at": "Remember",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.66
+    }
+   ],
+   "camera": [
+    {
+     "at": "one deep slow",
+     "zoom": 1
+    },
+    {
+     "at": "one deep slow+0.2",
+     "zoom": 1.04
+    }
+   ]
+  },
+  {
+   "id": "cta",
+   "start": "Now be honest-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "bg_white_floor",
+     "at": "Now be honest",
+     "enter": "cut",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 1.0,
+     "x": 0.5,
+     "y": 0.5
+    },
+    {
+     "type": "image",
+     "asset": "hero_confused_scratch",
+     "at": "Now be honest",
+     "enter": "rise",
+     "shadow": true,
+     "autoPlace": false,
+     "width": 0.66,
+     "x": 0.5,
+     "y": 0.517
+    },
+    {
+     "type": "image",
+     "asset": "tag_age_q",
+     "at": "How old",
+     "enter": "pop",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.3,
+     "x": 0.42,
+     "y": 0.07
+    },
+    {
+     "type": "image",
+     "asset": "tag_squats_q",
+     "at": "squats can you",
+     "enter": "pop",
+     "shadow": false,
+     "autoPlace": false,
+     "width": 0.36,
+     "x": 0.6,
+     "y": 0.13
+    }
+   ]
+  }
+ ],
+ "sfx": [
+  {
+   "at": "based on your-0.05",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Let's find out-0.05",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "At age ten-0.05",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "At twenty-0.05",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Your legs are-0.05",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "In your thirties-0.05",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "At forty-0.05",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "At fifty-0.05",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "over sixty-0.05",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "you're beating-0.05",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Remember-0.05",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "Now be honest-0.05",
+   "src": "sfx_whoosh_soft"
+  },
+  {
+   "at": "At age ten-0.05",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "At twenty-0.05",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "In your thirties-0.05",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "At forty-0.05",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "At fifty-0.05",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "over sixty-0.05",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "fifteen to twenty",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "forty to fifty",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "thirty to forty",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "twenty five to",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "twenty to thirty",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "ten to twenty",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "Your legs are",
+   "src": "sfx_ding"
+  },
+  {
+   "at": "How old",
+   "src": "sfx_pop_soft"
+  },
+  {
+   "at": "squats can you",
+   "src": "sfx_pop_soft"
+  }
+ ]
+}
