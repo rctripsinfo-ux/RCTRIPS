@@ -1,0 +1,1268 @@
+{
+ "title": "Knees Hurt When You Squat?",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "audio": {
+  "autoSfx": false
+ },
+ "captions": {
+  "mode": "word",
+  "look": "viral",
+  "size": 92,
+  "y": 0.5,
+  "keywords": [],
+  "hide": [
+   [
+    "Here are three-0.05",
+    "First, glute"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "hook",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_squat_top",
+       "at": "start"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "start+0.4"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "start+0.8"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "start+1.2"
+      },
+      {
+       "asset": "hero_squat_top",
+       "at": "start+1.6"
+      },
+      {
+       "asset": "hero_squat_mid",
+       "at": "start+2.0"
+      }
+     ],
+     "at": "start",
+     "enter": "cut",
+     "shadow": true,
+     "width": 0.8,
+     "y": 0.62,
+     "until": "but by the"
+    },
+    {
+     "type": "text",
+     "text": "SQUATS HURT?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 150,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "but by the"
+    },
+    {
+     "type": "image",
+     "asset": "hero_sore_knee",
+     "shadow": true,
+     "enter": {
+      "type": "flyDown",
+      "duration": 0.3
+     },
+     "at": "but by the",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "highlight",
+     "shape": "pain",
+     "w": 0.2,
+     "color": "#EF4444",
+     "at": "but by the+0.3",
+     "enter": "cut",
+     "anchor": "knees"
+    },
+    {
+     "type": "text",
+     "text": "KNEES ACHE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "but by the"
+    }
+   ],
+   "camera": [
+    {
+     "at": "ache",
+     "zoom": 1
+    },
+    {
+     "at": "ache+0.3",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.62
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "try",
+   "start": "You try going-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_shrug",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.3
+     },
+     "at": "You try going-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "and they still"
+    },
+    {
+     "type": "text",
+     "text": "SLOWER? LIGHTER?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "You try going-0.05",
+     "until": "and they still"
+    },
+    {
+     "type": "image",
+     "asset": "hero_sad_crying",
+     "shadow": true,
+     "enter": "cut",
+     "at": "and they still",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "STILL SORE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "and they still"
+    }
+   ],
+   "camera": [
+    {
+     "at": "You try going",
+     "zoom": 1
+    },
+    {
+     "at": "You try going+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "you",
+   "start": "If that sounds-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_point_viewer",
+     "shadow": true,
+     "enter": {
+      "type": "flyUp",
+      "duration": 0.35
+     },
+     "at": "If that sounds-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "the problem might"
+    },
+    {
+     "type": "text",
+     "text": "SOUND LIKE YOU?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 130,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "If that sounds-0.05",
+     "until": "the problem might"
+    },
+    {
+     "type": "image",
+     "asset": "hero_stop_palm",
+     "shadow": true,
+     "enter": "cut",
+     "at": "the problem might",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "NOT YOUR KNEES",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "the problem might"
+    }
+   ],
+   "camera": [
+    {
+     "at": "If that sounds",
+     "zoom": 1
+    },
+    {
+     "at": "If that sounds+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "why",
+   "start": "Your glutes are-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_hands_hips_look_back",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.3
+     },
+     "at": "Your glutes are-0.05",
+     "width": 0.7,
+     "y": 0.6,
+     "x": 0.36
+    },
+    {
+     "type": "text",
+     "text": "YOUR GLUTES",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Your glutes are-0.05"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_muscle_glutes",
+     "zoom": 1,
+     "x": 0.8,
+     "y": 0.66,
+     "size": 0.3,
+     "at": "Your glutes are+0.3",
+     "enter": "pop",
+     "borderColor": "#FFFFFF"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Your glutes are",
+     "zoom": 1
+    },
+    {
+     "at": "Your glutes are+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "job",
+   "start": "Part of their-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_squat_front",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.3
+     },
+     "at": "Part of their-0.05",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "KEEP KNEES STEADY",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Part of their-0.05"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Part of their",
+     "zoom": 1
+    },
+    {
+     "at": "Part of their+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "weak",
+   "start": "When they're weak-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_squat_wrong",
+     "shadow": true,
+     "enter": "cut",
+     "at": "When they're weak-0.05",
+     "width": 0.7,
+     "y": 0.6,
+     "x": 0.36
+    },
+    {
+     "type": "text",
+     "text": "WEAK = KNEES CAVE IN",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 115,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "When they're weak-0.05"
+    },
+    {
+     "type": "highlight",
+     "shape": "pain",
+     "w": 0.2,
+     "color": "#EF4444",
+     "at": "cave in+0.1",
+     "enter": "cut",
+     "anchor": "knees"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_pain_knee",
+     "zoom": 1,
+     "x": 0.8,
+     "y": 0.66,
+     "size": 0.28,
+     "at": "puts extra+0.1",
+     "enter": "pop",
+     "borderColor": "#FFFFFF"
+    }
+   ],
+   "camera": [
+    {
+     "at": "cave in",
+     "zoom": 1
+    },
+    {
+     "at": "cave in+0.3",
+     "zoom": 1.1,
+     "focus": [
+      0.45,
+      0.65
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "fix",
+   "start": "Here are three-0.05",
+   "backdrop": "none",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_count_3",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Here are three-0.05",
+     "width": 0.7,
+     "y": 0.72
+    },
+    {
+     "type": "text",
+     "text": "HERE'S",
+     "x": 0.5,
+     "y": 0.17,
+     "size": 120,
+     "align": "center",
+     "color": "#FFFFFF",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "letters",
+     "untype": false,
+     "enter": "punch",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here are three-0.05"
+    },
+    {
+     "type": "text",
+     "text": "THE FIX",
+     "x": 0.5,
+     "y": 0.27,
+     "size": 220,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "letters",
+     "untype": false,
+     "enter": "punch",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "fix"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Here are three",
+     "zoom": 1
+    },
+    {
+     "at": "Here are three+3",
+     "zoom": 1.07
+    }
+   ],
+   "background": "#1E2228"
+  },
+  {
+   "id": "m1",
+   "start": "First, glute-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_count_1",
+     "shadow": true,
+     "enter": "cut",
+     "at": "First, glute-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Lie on your back"
+    },
+    {
+     "type": "text",
+     "text": "#1 GLUTE BRIDGE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 130,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "First, glute-0.05"
+    },
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "hero_glute_bridge_down",
+       "at": "Lie on your back"
+      },
+      {
+       "asset": "hero_glute_bridge_up",
+       "at": "Lie on your back+0.6"
+      },
+      {
+       "asset": "hero_glute_bridge_down",
+       "at": "Lie on your back+1.2"
+      },
+      {
+       "asset": "hero_glute_bridge_up",
+       "at": "Lie on your back+1.8"
+      },
+      {
+       "asset": "hero_glute_bridge_down",
+       "at": "Lie on your back+2.4"
+      },
+      {
+       "asset": "hero_glute_bridge_up",
+       "at": "Lie on your back+3.0"
+      },
+      {
+       "asset": "hero_glute_bridge_down",
+       "at": "Lie on your back+3.6"
+      },
+      {
+       "asset": "hero_glute_bridge_up",
+       "at": "Lie on your back+4.2"
+      },
+      {
+       "asset": "hero_glute_bridge_down",
+       "at": "Lie on your back+4.8"
+      },
+      {
+       "asset": "hero_glute_bridge_up",
+       "at": "Lie on your back+5.4"
+      },
+      {
+       "asset": "hero_glute_bridge_down",
+       "at": "Lie on your back+6.0"
+      },
+      {
+       "asset": "hero_glute_bridge_up",
+       "at": "Lie on your back+6.6"
+      },
+      {
+       "asset": "hero_glute_bridge_down",
+       "at": "Lie on your back+7.2"
+      },
+      {
+       "asset": "hero_glute_bridge_up",
+       "at": "Lie on your back+7.8"
+      }
+     ],
+     "at": "Lie on your back",
+     "enter": "cut",
+     "shadow": true,
+     "width": 0.98,
+     "y": 0.62,
+     "autoAlign": false
+    },
+    {
+     "type": "text",
+     "text": "SQUEEZE + HIPS UP",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "squeeze your",
+     "until": "Do fifteen#1"
+    },
+    {
+     "type": "text",
+     "text": "x15",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Do fifteen#1"
+    }
+   ],
+   "camera": [
+    {
+     "at": "First, glute",
+     "zoom": 1
+    },
+    {
+     "at": "First, glute+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "m2",
+   "start": "Second, clamshells-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_count_2",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Second, clamshells-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Lie on your side"
+    },
+    {
+     "type": "text",
+     "text": "#2 CLAMSHELL",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Second, clamshells-0.05"
+    },
+    {
+     "type": "image",
+     "asset": "sc_d05_v08",
+     "shadow": false,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.3
+     },
+     "at": "Lie on your side",
+     "autoAlign": false,
+     "width": 0.98,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "OPEN LIKE A BOOK",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "open your top",
+     "until": "Do fifteen on"
+    },
+    {
+     "type": "text",
+     "text": "15 EACH SIDE",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Do fifteen on"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Second, clamshells",
+     "zoom": 1
+    },
+    {
+     "at": "Second, clamshells+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "m3",
+   "start": "Third, box squats-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_count_3",
+     "shadow": true,
+     "enter": "cut",
+     "at": "Third, box squats-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Sit back onto"
+    },
+    {
+     "type": "text",
+     "text": "#3 BOX SQUAT",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Third, box squats-0.05"
+    },
+    {
+     "type": "image",
+     "asset": "sc_d05_v14",
+     "shadow": false,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.3
+     },
+     "at": "Sit back onto",
+     "autoAlign": false,
+     "width": 0.95,
+     "y": 0.6,
+     "until": "push your knees"
+    },
+    {
+     "type": "text",
+     "text": "SIT BACK",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Sit back onto",
+     "until": "push your knees"
+    },
+    {
+     "type": "image",
+     "asset": "sc_d05_v07",
+     "shadow": false,
+     "enter": "cut",
+     "at": "push your knees",
+     "autoAlign": false,
+     "width": 0.95,
+     "y": 0.6,
+     "until": "and stand up"
+    },
+    {
+     "type": "text",
+     "text": "KNEES OVER TOES",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "push your knees",
+     "until": "and stand up"
+    },
+    {
+     "type": "image",
+     "asset": "sc_d05_v17",
+     "shadow": false,
+     "enter": {
+      "type": "up",
+      "duration": 0.25
+     },
+     "at": "and stand up",
+     "autoAlign": false,
+     "width": 0.95,
+     "y": 0.6
+    },
+    {
+     "type": "text",
+     "text": "x10",
+     "x": 0.5,
+     "y": 0.215,
+     "size": 62,
+     "align": "center",
+     "color": "#5A4A36",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "fade",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Do ten"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Third, box squats",
+     "zoom": 1
+    },
+    {
+     "at": "Third, box squats+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "plan",
+   "start": "Do these three-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_teacher_pointer",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.3
+     },
+     "at": "Do these three-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "and watch your"
+    },
+    {
+     "type": "text",
+     "text": "3x A WEEK",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Do these three-0.05",
+     "until": "and watch your"
+    },
+    {
+     "type": "image",
+     "asset": "hero_deep_squat_hold",
+     "shadow": true,
+     "enter": "cut",
+     "at": "and watch your",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "WATCH YOUR KNEES",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "and watch your"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Do these three",
+     "zoom": 1
+    },
+    {
+     "at": "Do these three+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "doc",
+   "start": "If the pain-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_stop_palm_v2",
+     "shadow": true,
+     "enter": "cut",
+     "at": "If the pain-0.05",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "SHARP PAIN?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "If the pain-0.05",
+     "until": "see a doctor"
+    },
+    {
+     "type": "text",
+     "text": "SEE A DOCTOR",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "see a doctor"
+    }
+   ],
+   "camera": [
+    {
+     "at": "If the pain",
+     "zoom": 1
+    },
+    {
+     "at": "see a doctor",
+     "zoom": 1.12,
+     "focus": "face"
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "but by the",
+   "src": "sfx_swoosh_up",
+   "volume": 0.3
+  },
+  {
+   "at": "ache",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "You try going",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "and they still",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "If that sounds",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "the problem might",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Your glutes are",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Your glutes are+0.3",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Part of their",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "When they're weak",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "cave in",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Here are three",
+   "src": "sfx_typing_loud",
+   "volume": 1.0
+  },
+  {
+   "at": "fix",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "First, glute",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Lie on your back",
+   "src": "sfx_click_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Do fifteen#1",
+   "src": "sfx_click_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Second, clamshells",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Lie on your side",
+   "src": "sfx_click_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Do fifteen on",
+   "src": "sfx_click_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Third, box squats",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Sit back onto",
+   "src": "sfx_click_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "and stand up",
+   "src": "sfx_swoosh_up",
+   "volume": 0.3
+  },
+  {
+   "at": "Do ten",
+   "src": "sfx_click_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Do these three",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "and watch your",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "If the pain",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "see a doctor",
+   "src": "sfx_ding",
+   "volume": 0.35
+  }
+ ]
+}

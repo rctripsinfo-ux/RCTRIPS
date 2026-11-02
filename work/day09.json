@@ -1,0 +1,791 @@
+{
+ "title": "Day 9",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "audio": {
+  "autoSfx": false
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 54,
+  "y": 0.82,
+  "maxWords": 3,
+  "hide": [
+   [
+    "Here's the fix",
+    "One Russian twists"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d09_s01",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Those are your",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "CARVED WAIST?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": {
+      "type": "slam",
+      "duration": 0.3
+     },
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "Those are your"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "start+0.12",
+     "duration": 0.15
+    },
+    {
+     "type": "speed",
+     "at": "start",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "start+0.7"
+    }
+   ],
+   "camera": [
+    {
+     "at": "start",
+     "zoom": 1.7,
+     "focus": [
+      0.5,
+      0.42
+     ]
+    },
+    {
+     "at": "start+0.3",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+0.9",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+1.2",
+     "zoom": 1.1,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s2",
+   "start": "Those are your-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d09_s02",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Those are your-0.05",
+     "width": 0.7,
+     "y": 0.6,
+     "x": 0.36,
+     "until": "Crunches barely touch",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "OBLIQUES",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Those are your-0.05",
+     "until": "Crunches barely touch"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_muscle_obliques",
+     "zoom": 1,
+     "x": 0.8,
+     "y": 0.66,
+     "size": 0.28,
+     "at": "Those are your+0.3",
+     "enter": "pop",
+     "borderColor": "#FFFFFF",
+     "until": "Crunches barely touch"
+    },
+    {
+     "type": "speed",
+     "at": "Those are your-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Those are your+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Those are your",
+     "zoom": 1.0
+    },
+    {
+     "at": "Those are your+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Those are your+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s3",
+   "start": "Crunches barely touch-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d09_s03",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Crunches barely touch-0.05",
+     "autoAlign": false,
+     "width": 0.923,
+     "x": 0.499,
+     "y": 0.332,
+     "until": "Here's the fix",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "CRUNCHES? NOPE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Crunches barely touch-0.05",
+     "until": "Here's the fix"
+    },
+    {
+     "type": "speed",
+     "at": "Crunches barely touch-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Crunches barely touch+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Crunches barely touch",
+     "zoom": 1.0
+    },
+    {
+     "at": "Crunches barely touch+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Crunches barely touch+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s4",
+   "start": "Here's the fix-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d09_s04",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Here's the fix-0.05",
+     "width": 0.7,
+     "y": 0.72,
+     "until": "One Russian twists",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "HERE'S",
+     "x": 0.5,
+     "y": 0.17,
+     "size": 120,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "letters",
+     "untype": false,
+     "enter": "punch",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's the fix-0.05"
+    },
+    {
+     "type": "text",
+     "text": "THE FIX",
+     "x": 0.5,
+     "y": 0.27,
+     "size": 220,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "letters",
+     "untype": false,
+     "enter": "punch",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "the fix"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Here's the fix",
+     "zoom": 1
+    },
+    {
+     "at": "Here's the fix+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s5",
+   "start": "One Russian twists-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "sc_d09_s05a",
+       "at": "One Russian twists-0.05"
+      },
+      {
+       "asset": "sc_d09_s05b",
+       "at": "One Russian twists+0.5"
+      },
+      {
+       "asset": "sc_d09_s05a",
+       "at": "One Russian twists+1.0"
+      },
+      {
+       "asset": "sc_d09_s05b",
+       "at": "One Russian twists+1.5"
+      },
+      {
+       "asset": "sc_d09_s05a",
+       "at": "One Russian twists+2.0"
+      },
+      {
+       "asset": "sc_d09_s05b",
+       "at": "One Russian twists+2.5"
+      },
+      {
+       "asset": "sc_d09_s05a",
+       "at": "One Russian twists+3.0"
+      },
+      {
+       "asset": "sc_d09_s05b",
+       "at": "One Russian twists+3.5"
+      },
+      {
+       "asset": "sc_d09_s05a",
+       "at": "One Russian twists+4.0"
+      },
+      {
+       "asset": "sc_d09_s05b",
+       "at": "One Russian twists+4.5"
+      },
+      {
+       "asset": "sc_d09_s05a",
+       "at": "One Russian twists+5.0"
+      },
+      {
+       "asset": "sc_d09_s05b",
+       "at": "One Russian twists+5.5"
+      }
+     ],
+     "at": "One Russian twists-0.05",
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "shadow": true,
+     "width": 0.938,
+     "y": 0.446,
+     "autoAlign": false,
+     "x": 0.499,
+     "until": "Two side plank",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#1 RUSSIAN TWIST",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "One Russian twists-0.05",
+     "until": "Two side plank"
+    }
+   ],
+   "camera": [
+    {
+     "at": "One Russian twists",
+     "zoom": 1
+    },
+    {
+     "at": "One Russian twists+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s6",
+   "start": "Two side plank-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d09_s06",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Two side plank-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Three bicycle crunches",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#2 SIDE PLANK",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two side plank-0.05",
+     "until": "Three bicycle crunches"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Two side plank",
+     "zoom": 1
+    },
+    {
+     "at": "Two side plank+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s7",
+   "start": "Three bicycle crunches-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "sc_d09_s07a",
+       "at": "Three bicycle crunches-0.05"
+      },
+      {
+       "asset": "sc_d09_s07b",
+       "at": "Three bicycle crunches+0.5"
+      },
+      {
+       "asset": "sc_d09_s07a",
+       "at": "Three bicycle crunches+1.0"
+      },
+      {
+       "asset": "sc_d09_s07b",
+       "at": "Three bicycle crunches+1.5"
+      },
+      {
+       "asset": "sc_d09_s07a",
+       "at": "Three bicycle crunches+2.0"
+      },
+      {
+       "asset": "sc_d09_s07b",
+       "at": "Three bicycle crunches+2.5"
+      },
+      {
+       "asset": "sc_d09_s07a",
+       "at": "Three bicycle crunches+3.0"
+      },
+      {
+       "asset": "sc_d09_s07b",
+       "at": "Three bicycle crunches+3.5"
+      },
+      {
+       "asset": "sc_d09_s07a",
+       "at": "Three bicycle crunches+4.0"
+      },
+      {
+       "asset": "sc_d09_s07b",
+       "at": "Three bicycle crunches+4.5"
+      },
+      {
+       "asset": "sc_d09_s07a",
+       "at": "Three bicycle crunches+5.0"
+      },
+      {
+       "asset": "sc_d09_s07b",
+       "at": "Three bicycle crunches+5.5"
+      }
+     ],
+     "at": "Three bicycle crunches-0.05",
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "shadow": true,
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Three rounds three",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#3 BICYCLE CRUNCH",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Three bicycle crunches-0.05",
+     "until": "Three rounds three"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Three bicycle crunches",
+     "zoom": 1
+    },
+    {
+     "at": "Three bicycle crunches+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s8",
+   "start": "Three rounds three-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d09_s08",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Three rounds three-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Comment WAIST if",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "3 ROUNDS x 3 DAYS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Three rounds three-0.05",
+     "until": "Comment WAIST if"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Three rounds three",
+     "zoom": 1
+    },
+    {
+     "at": "Three rounds three+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s9",
+   "start": "Comment WAIST if-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d09_s09",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Comment WAIST if-0.05",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "COMMENT \"WAIST\"",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Comment WAIST if-0.05"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Comment WAIST if",
+     "zoom": 1
+    },
+    {
+     "at": "Comment WAIST if+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "start+0.35",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Those are your",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Crunches barely touch",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Here's the fix",
+   "src": "sfx_typing_loud",
+   "volume": 1.0
+  },
+  {
+   "at": "fix.+0.15",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "One Russian twists",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Two side plank",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Three bicycle crunches",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Three rounds three",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Three rounds three",
+   "src": "sfx_ding",
+   "volume": 0.35
+  },
+  {
+   "at": "Comment WAIST if",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  }
+ ]
+}

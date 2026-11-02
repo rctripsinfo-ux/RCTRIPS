@@ -1,0 +1,669 @@
+{
+ "title": "Day 10",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "audio": {
+  "autoSfx": false
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 54,
+  "y": 0.82,
+  "maxWords": 3,
+  "hide": []
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d10_s01",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Let's test you",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "STRONGER THAN 92%?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": {
+      "type": "slam",
+      "duration": 0.3
+     },
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "Let's test you"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "start+0.12",
+     "duration": 0.15
+    },
+    {
+     "type": "speed",
+     "at": "start",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "start+0.7"
+    }
+   ],
+   "camera": [
+    {
+     "at": "start",
+     "zoom": 1.7,
+     "focus": [
+      0.5,
+      0.42
+     ]
+    },
+    {
+     "at": "start+0.3",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+0.9",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+1.2",
+     "zoom": 1.1,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s2",
+   "start": "Let's test you-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d10_s02",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Let's test you-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Drop and count",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "LET'S TEST YOU",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Let's test you-0.05",
+     "until": "Drop and count"
+    },
+    {
+     "type": "speed",
+     "at": "Let's test you-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Let's test you+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Let's test you",
+     "zoom": 1.0
+    },
+    {
+     "at": "Let's test you+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Let's test you+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s3",
+   "start": "Drop and count-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d10_s03",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Drop and count-0.05",
+     "autoAlign": false,
+     "width": 0.985,
+     "x": 0.495,
+     "y": 0.482,
+     "until": "Under ten Beginner",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "speed",
+     "at": "Drop and count-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Drop and count+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Drop and count",
+     "zoom": 1.0
+    },
+    {
+     "at": "Drop and count+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Drop and count+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s4",
+   "start": "Under ten Beginner-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d10_s04",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Under ten Beginner-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Twenty Average",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "BEGINNER",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Under ten Beginner-0.05",
+     "until": "Twenty Average"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Under ten Beginner",
+     "zoom": 1
+    },
+    {
+     "at": "Under ten Beginner+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s5",
+   "start": "Twenty Average-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d10_s05",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Twenty Average-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Thirty Strong",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "AVERAGE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Twenty Average-0.05",
+     "until": "Thirty Strong"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Twenty Average",
+     "zoom": 1
+    },
+    {
+     "at": "Twenty Average+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s6",
+   "start": "Thirty Strong-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d10_s06",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Thirty Strong-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Forty plus",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "STRONG",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Thirty Strong-0.05",
+     "until": "Forty plus"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Thirty Strong",
+     "zoom": 1
+    },
+    {
+     "at": "Thirty Strong+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s7",
+   "start": "Forty plus-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d10_s07",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Forty plus-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Top eight percent",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "TOP 8%",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Forty plus-0.05",
+     "until": "Top eight percent"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Forty plus",
+     "zoom": 1
+    },
+    {
+     "at": "Forty plus+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s8",
+   "start": "Top eight percent-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d10_s08",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Top eight percent-0.05",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Chest to the",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    }
+   ],
+   "camera": [
+    {
+     "at": "Top eight percent",
+     "zoom": 1
+    },
+    {
+     "at": "Top eight percent+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s9",
+   "start": "Chest to the-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d10_s09",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Chest to the-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Comment your number",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "FULL REPS ONLY",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Chest to the-0.05",
+     "until": "Comment your number"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Chest to the",
+     "zoom": 1
+    },
+    {
+     "at": "Chest to the+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s10",
+   "start": "Comment your number-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d10_s10",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Comment your number-0.05",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "COMMENT YOUR NUMBER",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Comment your number-0.05"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Comment your number",
+     "zoom": 1
+    },
+    {
+     "at": "Comment your number+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "start+0.35",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Let's test you",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Drop and count",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Under ten Beginner",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Twenty Average",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Thirty Strong",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Forty plus",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Top eight percent",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Chest to the",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Chest to the",
+   "src": "sfx_ding",
+   "volume": 0.35
+  },
+  {
+   "at": "Comment your number",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  }
+ ]
+}

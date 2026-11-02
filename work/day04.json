@@ -1,0 +1,1296 @@
+{
+ "title": "Day 4",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "audio": {
+  "autoSfx": false
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 54,
+  "y": 0.82,
+  "maxWords": 3,
+  "hide": [
+   [
+    "Here are three",
+    "First chin tucks"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s02",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Your shoulders are",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "STIFF NECK?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": {
+      "type": "slam",
+      "duration": 0.3
+     },
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "Your shoulders are"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "start+0.12",
+     "duration": 0.15
+    },
+    {
+     "type": "speed",
+     "at": "start",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "start+0.7"
+    }
+   ],
+   "camera": [
+    {
+     "at": "start",
+     "zoom": 1.7,
+     "focus": [
+      0.5,
+      0.42
+     ]
+    },
+    {
+     "at": "start+0.3",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+0.9",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+1.2",
+     "zoom": 1.1,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s2",
+   "start": "Your shoulders are-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_x02",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Your shoulders are-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "If that sounds",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "TIGHT SHOULDERS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Your shoulders are-0.05",
+     "until": "If that sounds"
+    },
+    {
+     "type": "speed",
+     "at": "Your shoulders are-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Your shoulders are+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Your shoulders are",
+     "zoom": 1.0
+    },
+    {
+     "at": "Your shoulders are+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Your shoulders are+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s3",
+   "start": "If that sounds-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s04",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "If that sounds-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Your head weighs",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "YOU'RE NOT ALONE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "If that sounds-0.05",
+     "until": "Your head weighs"
+    },
+    {
+     "type": "speed",
+     "at": "If that sounds-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "If that sounds+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "If that sounds",
+     "zoom": 1.0
+    },
+    {
+     "at": "If that sounds+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "If that sounds+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s4",
+   "start": "Your head weighs-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_x04",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Your head weighs-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "When you tilt",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "YOUR HEAD = 5 KG",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Your head weighs-0.05",
+     "until": "When you tilt"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Your head weighs",
+     "zoom": 1
+    },
+    {
+     "at": "Your head weighs+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s5",
+   "start": "When you tilt-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_x05",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "When you tilt-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Research suggests a",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "LOOK DOWN = HARD WORK",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "When you tilt-0.05",
+     "until": "Research suggests a"
+    }
+   ],
+   "camera": [
+    {
+     "at": "When you tilt",
+     "zoom": 1
+    },
+    {
+     "at": "When you tilt+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s6",
+   "start": "Research suggests a-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_x06",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Research suggests a-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Do that for",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "FEELS WAY HEAVIER",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Research suggests a-0.05",
+     "until": "Do that for"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Research suggests a",
+     "zoom": 1
+    },
+    {
+     "at": "Research suggests a+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s7",
+   "start": "Do that for-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s03",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Do that for-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Here are three",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "HOURS = SORE NECK",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Do that for-0.05",
+     "until": "Here are three"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Do that for",
+     "zoom": 1
+    },
+    {
+     "at": "Do that for+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s8",
+   "start": "Here are three-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_x08",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Here are three-0.05",
+     "width": 0.7,
+     "y": 0.72,
+     "until": "First chin tucks",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "HERE'S",
+     "x": 0.5,
+     "y": 0.17,
+     "size": 120,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "letters",
+     "untype": false,
+     "enter": "punch",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here are three-0.05"
+    },
+    {
+     "type": "text",
+     "text": "THE FIX",
+     "x": 0.5,
+     "y": 0.27,
+     "size": 220,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "letters",
+     "untype": false,
+     "enter": "punch",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "fix"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Here are three",
+     "zoom": 1
+    },
+    {
+     "at": "Here are three+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s9",
+   "start": "First chin tucks-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_x09",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "First chin tucks-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Sit tall and",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#1 CHIN TUCKS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "First chin tucks-0.05",
+     "until": "Sit tall and"
+    }
+   ],
+   "camera": [
+    {
+     "at": "First chin tucks",
+     "zoom": 1
+    },
+    {
+     "at": "First chin tucks+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s10",
+   "start": "Sit tall and-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_good_posture_desk",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Sit tall and-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Hold for three",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "SLIDE CHIN BACK",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Sit tall and-0.05",
+     "until": "Hold for three"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Sit tall and",
+     "zoom": 1
+    },
+    {
+     "at": "Sit tall and+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s11",
+   "start": "Hold for three-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_x11",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Hold for three-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Second the doorway",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "3 SEC x 10",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Hold for three-0.05",
+     "until": "Second the doorway"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Hold for three",
+     "zoom": 1
+    },
+    {
+     "at": "Hold for three+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s12",
+   "start": "Second the doorway-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_x12",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Second the doorway-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Put your forearms",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#2 DOORWAY STRETCH",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Second the doorway-0.05",
+     "until": "Put your forearms"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Second the doorway",
+     "zoom": 1
+    },
+    {
+     "at": "Second the doorway+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s13",
+   "start": "Put your forearms-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_x13",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Put your forearms-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Hold for twenty",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "STEP FORWARD",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Put your forearms-0.05",
+     "until": "Hold for twenty"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Put your forearms",
+     "zoom": 1
+    },
+    {
+     "at": "Put your forearms+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s14",
+   "start": "Hold for twenty-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_stopwatch",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Hold for twenty-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Third wall angels",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "HOLD 20 SEC",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Hold for twenty-0.05",
+     "until": "Third wall angels"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Hold for twenty",
+     "zoom": 1
+    },
+    {
+     "at": "Hold for twenty+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s15",
+   "start": "Third wall angels-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_x15",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Third wall angels-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Stand with your",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#3 WALL ANGELS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Third wall angels-0.05",
+     "until": "Stand with your"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Third wall angels",
+     "zoom": 1
+    },
+    {
+     "at": "Third wall angels+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s16",
+   "start": "Stand with your-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "hero_lean_wall",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Stand with your-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Do these every",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "UP AND DOWN x 10",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Stand with your-0.05",
+     "until": "Do these every"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Stand with your",
+     "zoom": 1
+    },
+    {
+     "at": "Stand with your+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s17",
+   "start": "Do these every-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s12",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Do these every-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Your neck will",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "PHONE AT EYE LEVEL",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Do these every-0.05",
+     "until": "Your neck will"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Do these every",
+     "zoom": 1
+    },
+    {
+     "at": "Do these every+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s18",
+   "start": "Your neck will-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_s11",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Your neck will-0.05",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "If the pain",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "NECK: FREE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Your neck will-0.05",
+     "until": "If the pain"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Your neck will",
+     "zoom": 1
+    },
+    {
+     "at": "Your neck will+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s19",
+   "start": "If the pain-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d04_x19",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "If the pain-0.05",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "SHARP PAIN? SEE A DOCTOR",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "If the pain-0.05"
+    }
+   ],
+   "camera": [
+    {
+     "at": "If the pain",
+     "zoom": 1
+    },
+    {
+     "at": "If the pain+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "start+0.35",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Your shoulders are",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "If that sounds",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Your head weighs",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "When you tilt",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Research suggests a",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Do that for",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Here are three",
+   "src": "sfx_typing_loud",
+   "volume": 1.0
+  },
+  {
+   "at": "Here are three+1.0",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "First chin tucks",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Sit tall and",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Hold for three",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Second the doorway",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Put your forearms",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Hold for twenty",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Third wall angels",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Stand with your",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Do these every",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Your neck will",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Your neck will",
+   "src": "sfx_ding",
+   "volume": 0.35
+  },
+  {
+   "at": "If the pain",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  }
+ ]
+}

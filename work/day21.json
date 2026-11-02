@@ -1,0 +1,598 @@
+{
+ "title": "Day 21",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "audio": {
+  "autoSfx": false
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 54,
+  "y": 0.82,
+  "maxWords": 3,
+  "hide": []
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d21_s01",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Day one I",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "50 SQUATS A DAY",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": {
+      "type": "slam",
+      "duration": 0.3
+     },
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "Day one I"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "start+0.12",
+     "duration": 0.15
+    },
+    {
+     "type": "speed",
+     "at": "start",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "start+0.7"
+    }
+   ],
+   "camera": [
+    {
+     "at": "start",
+     "zoom": 1.7,
+     "focus": [
+      0.5,
+      0.42
+     ]
+    },
+    {
+     "at": "start+0.3",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+0.9",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+1.2",
+     "zoom": 1.1,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s2",
+   "start": "Day one I-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d21_s02",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Day one I-0.05",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Day seven no",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "DAY 1",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Day one I-0.05",
+     "until": "Day seven no"
+    },
+    {
+     "type": "speed",
+     "at": "Day one I-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Day one I+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Day one I",
+     "zoom": 1.0
+    },
+    {
+     "at": "Day one I+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Day one I+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s3",
+   "start": "Day seven no-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d21_s03",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Day seven no-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Day fourteen I",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "DAY 7",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Day seven no-0.05",
+     "until": "Day fourteen I"
+    },
+    {
+     "type": "speed",
+     "at": "Day seven no-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Day seven no+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Day seven no",
+     "zoom": 1.0
+    },
+    {
+     "at": "Day seven no+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Day seven no+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s4",
+   "start": "Day fourteen I-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d21_s04",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Day fourteen I-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Day twenty-one jump",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "DAY 14",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Day fourteen I-0.05",
+     "until": "Day twenty-one jump"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Day fourteen I",
+     "zoom": 1
+    },
+    {
+     "at": "Day fourteen I+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s5",
+   "start": "Day twenty-one jump-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d21_s05",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Day twenty-one jump-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Day thirty stronger",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "DAY 21",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Day twenty-one jump-0.05",
+     "until": "Day thirty stronger"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Day twenty-one jump",
+     "zoom": 1
+    },
+    {
+     "at": "Day twenty-one jump+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s6",
+   "start": "Day thirty stronger-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d21_s06",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Day thirty stronger-0.05",
+     "width": 0.7,
+     "y": 0.6,
+     "x": 0.36,
+     "until": "Start with twenty",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "DAY 30",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Day thirty stronger-0.05",
+     "until": "Start with twenty"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_muscle_glutes",
+     "zoom": 1,
+     "x": 0.8,
+     "y": 0.66,
+     "size": 0.28,
+     "at": "Day thirty stronger+0.3",
+     "enter": "pop",
+     "borderColor": "#FFFFFF",
+     "until": "Start with twenty"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Day thirty stronger",
+     "zoom": 1
+    },
+    {
+     "at": "Day thirty stronger+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s7",
+   "start": "Start with twenty-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d21_s07",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Start with twenty-0.05",
+     "width": 0.8,
+     "y": 0.62,
+     "until": "Comment your squat",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "+5 A WEEK",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Start with twenty-0.05",
+     "until": "Comment your squat"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Start with twenty",
+     "zoom": 1
+    },
+    {
+     "at": "Start with twenty+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s8",
+   "start": "Comment your squat-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d21_s08",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Comment your squat-0.05",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "COMMENT YOUR NUMBER",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Comment your squat-0.05"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Comment your squat",
+     "zoom": 1
+    },
+    {
+     "at": "Comment your squat+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "start+0.35",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Day one I",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Day seven no",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Day fourteen I",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Day twenty-one jump",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Day thirty stronger",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Start with twenty",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Start with twenty",
+   "src": "sfx_ding",
+   "volume": 0.35
+  },
+  {
+   "at": "Comment your squat",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  }
+ ]
+}

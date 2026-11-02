@@ -8,6 +8,8 @@ from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
 W = os.path.dirname(os.path.abspath(__file__))
+import sys; sys.path.insert(0, W)
+from scripts_d4_30 import S as SCR, P2, COMMON_SCENE
 HAVE = {f.rsplit(".", 1)[0] for f in os.listdir(os.path.expanduser("~/reel-engine-tool/public/library/hero"))}
 HAVE |= {f.rsplit(".", 1)[0] for f in os.listdir(f"{W}/character/new")}
 
@@ -102,7 +104,7 @@ COMMON = ("Use the attached reference image: the SAME character H, exactly as in
 COMMON_BG = ("Vertical 9:16 background image (1080x1920), NO people, NO text, NO logos. Semi-realistic comic illustration style with bold "
              "outlines that matches a muscular cartoon fitness character. Soft depth of field, calm colours, the lower middle third kept "
              "clear and uncluttered so a character can be placed there. Natural perspective at standing eye level.")
-P = {
+P = {**P2, **{
  "hero_pushup_bottom": "Push-up BOTTOM position, SIDE view, head to the right: chest about 3 cm above the floor, elbows about 45 degrees from the body, body straight from head to heels.",
  "hero_pushup_hips_sag": "Push-up top position, SIDE view, head to the right, WRONG form: arms straight but hips sag toward the floor, lower back arched, strained face.",
  "hero_pushup_hips_pike": "Push-up top position, SIDE view, head to the right, WRONG form: arms straight but hips pushed high (pike), body like an upside-down V.",
@@ -170,7 +172,7 @@ P = {
  "bg_gym_interior": "Clean modern gym: dumbbell rack and a pull-up station in the background, rubber floor, warm lights.",
  "bg_home_living_room": "Bright living room: sofa on one side, yoga mat on the floor, plant, plain wall.",
  "bg_park_morning": "Park at morning: grass, trees in the distance, a path, soft sunlight.",
-}
+}}
 
 # ---- build per-day scene plan ----
 req = []  # (day, scene, beat, image id, type, status, usage)
@@ -178,31 +180,25 @@ def add(day, scene, beat, img, typ, usage):
     new = img.startswith("NEW:"); iid = img[4:] if new else img
     st = "NEW (generate)" if new and iid not in HAVE else ("EXISTS" if iid in HAVE else "MISSING (check)")
     if new and iid in HAVE: st = "EXISTS"
+    if typ == "video": st = "DONE" if os.path.exists(f"{W}/{iid}") else "VIDEO FILE MISSING"
     req.append((day, scene, beat, iid, typ, st, usage))
 
+SCENE_IDS = set()
 for d in range(1, 31):
-    t = T[d]; s = 1
     if d <= 3:
         add(d, 0, "Finished video", DONE[d]["video"], "video", "Done: " + DONE[d]["status"]); continue
-    add(d, s, "Hook (0-5 s)", STORY.get(d, [(None, "hero_stand", "")])[0][1] if d in STORY and STORY[d][0][0] == "Hook" else "hero_stand",
-        "character", f"Hook line: \"{t['hook']}\""); s += 1
-    if d in BG: add(d, s - 1, "Hook background (optional)", f"NEW:{BG[d]}", "background (optional)", "Full-frame scene behind H")
-    if t["anat"] != "—": add(d, s, "Why (anatomy circle)", f"anat_{t['anat']}", "anatomy bubble", "Bubble beside the legs, never near the face"); s += 1
-    add(d, s, "Why (gag)", f"gag_{t['gag']}", "gag", "Run clean_cutout.py first (white edges seen on gags)"); s += 1
-    for beat, img, use in STORY.get(d, []):
-        if beat != "Hook": add(d, s, beat, img, "character", use); s += 1
-    add(d, s, "Bumper HERE'S THE FIX", "hero_count_1", "character", "Kinetic bumper"); s += 1
-    for i, m in enumerate(t["moves"], 1):
-        for f in MOVE.get(m, [f"NEW:hero_{m}"]):
-            add(d, s, f"#{i} {m}", f, "exercise pose", "Loop frames of the same camera view")
-        s += 1
-    add(d, s, "Result", RESULT[d % len(RESULT)], "character", "Payoff pose"); s += 1
-    add(d, s, "CTA", CTA[d % len(CTA)], "character", "Different CTA pose per video")
+    for n, (narr, head, img) in enumerate(SCR[d], 1):
+        kind = "full scene (H + background)" if img.startswith("scene:") else ("anatomy bubble" if img.startswith("anat_") else
+               "gag" if img.startswith("gag_") else "character")
+        if img.startswith("scene:"): SCENE_IDS.add(img[6:]); img = "NEW:" + img[6:]
+        elif img.startswith("new:"): img = "NEW:" + img[4:]
+        add(d, n, head or "(2nd frame of the move above)", img, kind, (f'Says: "{narr}"' if narr else "Loop with the frame above (same view)")
+            + (" | clean_cutout.py first" if img.startswith("gag_") else ""))
 
 new_ids = sorted({r[3] for r in req if r[5].startswith("NEW")})
 uses = {i: sorted({r[0] for r in req if r[3] == i}) for i in new_ids}
-essential = [i for i in new_ids if not i.startswith("bg_")]
-optional = [i for i in new_ids if i.startswith("bg_")]
+essential = list(new_ids)
+optional = []
 order = sorted(essential, key=lambda i: (min(uses[i]), i)) + optional
 
 # ---- workbook ----
@@ -218,39 +214,40 @@ def sheet(name, head, data, widths):
 wb.remove(wb.active)
 start = dt.date(2026, 11, 2)
 sheet("1 Content Calendar", ["Day", "Topic", "Format", "Status", "Publish order", "Planned upload date"],
-      [(d, T[d]["title"], KIND.get(d, "Problem fix"), DONE[d]["status"] if d in DONE else "Not started: script missing", d,
+      [(d, T[d]["title"], KIND.get(d, "Problem fix"), DONE[d]["status"] if d in DONE else "Script drafted, awaiting approval", d,
         "not recorded" if d in DONE else str(start + dt.timedelta(days=d - 4))) for d in range(1, 31)], [6, 45, 26, 34, 12, 18])
 sheet("2 Titles & Topics", ["Day", "Topic (approved plan)", "Main YouTube title", "Alternative titles", "Hook line (plan)"],
       [(d, T[d]["title"], SEO3["title"] if d == 3 else (T[d]["title"] + " #shorts" if d > 3 else T[d]["title"] + " (final title not stored in repo)"),
         "TO WRITE (needs approval)", T[d]["hook"]) for d in range(1, 31)], [6, 40, 46, 30, 50])
 sheet("3 Scripts", ["Day", "Status", "Hook", "Full script (narration + CTA)", "Scene breakdown", "Related older script (not approved)"],
-      [(d, "FINAL" if d in DONE else "MISSING: write and approve", T[d]["hook"],
-        DONE[d]["script"] if d in DONE else "MISSING (not invented)",
-        "See build_day3d.py" if d == 3 else ("See " + ("build_forearms3.py" if d == 1 else "build_day2b.py") if d in DONE else "Planned beats in tab 5 (from the topic plan)"),
+      [(d, "FINAL" if d in DONE else "DRAFT: needs owner approval", SCR[d][0][0] if d > 3 else T[d]["hook"],
+        DONE[d]["script"] if d in DONE else " ".join(x[0] for x in SCR[d] if x[0]),
+        "See build_day3d.py" if d == 3 else ("See " + ("build_forearms3.py" if d == 1 else "build_day2b.py") if d in DONE else
+         "\n".join(f"S{n}: {h} | {x}" for n, (x, h, _) in enumerate(SCR[d], 1) if x)),
         CANDIDATE.get(d, "")) for d in range(1, 31)], [6, 22, 40, 70, 30, 40])
 sheet("4 SEO & Publishing", ["Day", "Description", "Hashtags", "SEO tags / keywords", "Pinned comment"],
       [(d, SEO3["desc"] if d == 3 else ("Given in chat, not stored in repo" if d < 3 else "TO WRITE after the script"),
         SEO3["tags"] if d == 3 else "", SEO3["keys"] if d == 3 else "",
         "What's your time? Be honest 👇" if d == 3 else "") for d in range(1, 31)], [6, 70, 34, 60, 30])
-sheet("5 Image Requirements", ["Day", "Scene", "Beat (planned, script pending for 4-30)", "Image id", "Type", "Status", "Usage"],
+sheet("5 Image Requirements", ["Day", "Scene", "Heading on screen (from the draft script)", "Image id", "Type", "Status", "Usage"],
       req, [6, 7, 30, 30, 18, 16, 50])
-sheet("6 Generation Prompts", ["#", "Image id (file name .png)", "Essential/Optional", "Used on days", "Copy-paste prompt (attach H-standing-front-white.png)"],
-      [(n, i, "Optional" if i.startswith("bg_") else "Essential", ", ".join(map(str, uses[i])),
-        (COMMON_BG if i.startswith("bg_") else COMMON) + " " + P.get(i, "PROMPT MISSING")) for n, i in enumerate(order, 1)], [5, 30, 12, 14, 110])
+sheet("6 Generation Prompts", ["#", "Image id (file name .png)", "Type", "Used on days", "Copy-paste prompt (attach H-standing-front-white.png)"],
+      [(n, i, "full scene" if i in SCENE_IDS else "white-bg cutout", ", ".join(map(str, uses[i])),
+        (COMMON_SCENE if i in SCENE_IDS else COMMON) + " " + P.get(i, "PROMPT MISSING")) for n, i in enumerate(order, 1)], [5, 30, 12, 14, 110])
 sheet("7 Production Tracker", ["Day", "Script", "Images", "Voiceover", "Video edit", "Thumbnail", "Published"],
       [(d, "Done", "Done", "Done", "Done", "Done" if os.path.exists(f"{W}/thumbnails/day2-lower-belly.jpg") and d == 2 or d == 1 else "Not recorded",
         "Yes" if d == 3 else "Not recorded") if d in DONE else
-       (d, "Missing", ("Ready" if all(r[5] == "EXISTS" for r in req if r[0] == d and not r[4].startswith("background")) else
+       (d, "Draft", ("Ready" if all(r[5] == "EXISTS" for r in req if r[0] == d and not r[4].startswith("background")) else
                        f"{sum(1 for r in req if r[0] == d and r[5].startswith('NEW') and not r[3].startswith('bg_'))} new needed"),
         "Not started", "Not started", "Not started", "Not started") for d in range(1, 31)], [6, 10, 18, 12, 12, 12, 12])
 wb.save(f"{W}/MASTER-30-DAYS.xlsx")
 
-with open(f"{W}/IMAGE-PROMPTS-DAY4-30.md", "w") as f:
+with open(os.devnull, "w") as f:  # superseded by SCENE-PROMPTS-DAY4-30.md (make_scene_prompts.py)
     f.write("# New images for Days 4-30 (production order)\n\nAttach `work/character/H-standing-front-white.png` to every character prompt. "
             "Save each image with the file name shown (PNG). Background prompts (bg_*) need no reference image.\n\n")
     for n, i in enumerate(order, 1):
-        f.write(f"## {n}. {i}.png ({'optional' if i.startswith('bg_') else 'essential'}; days {', '.join(map(str, uses[i]))})\n```\n"
-                f"{(COMMON_BG if i.startswith('bg_') else COMMON)} {P.get(i, 'PROMPT MISSING')}\n```\n\n")
+        f.write(f"## {n}. {i}.png ({'full scene' if i in SCENE_IDS else 'white-bg cutout'}; days {', '.join(map(str, uses[i]))})\n```\n"
+                f"{(COMMON_SCENE if i in SCENE_IDS else COMMON)} {P.get(i, 'PROMPT MISSING')}\n```\n\n")
 print("topics remaining:", 27, "| new images:", len(new_ids), "essential:", len(essential), "optional:", len(optional))
 print("days ready now (no new essential image):", [d for d in range(4, 31) if not any(r[0] == d and r[5].startswith("NEW") and not r[3].startswith("bg_") for r in req)])
 print("missing prompts:", [i for i in new_ids if i not in P])

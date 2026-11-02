@@ -2,6 +2,61 @@
 
 **Repo:** `rctripsinfo-ux/RCTRIPS` · **Branch:** `claude/intelligent-euler-6jm4o0` · everything lives in `work/`.
 
+
+## 0. LATEST STATE (1 Nov 2026), read this first
+**NEW MASTER WORKFLOW (owner, 1 Nov): read `PRODUCTION-WORKFLOW.md` before every video. It overrides the older format rules below where they clash.**
+
+**Day 1–13 are done** (`final/dayNN.mp4`). Day 1–3 used the old builds; Day 4–13 come from the scene-image pipeline below.
+
+**Pipeline for Days 4–30** (one new image per script sentence):
+
+- **Script and scenes:**
+  - `scripts_d4_30.py` holds the DRAFT scripts and headings.
+  - `scene_split.py` gives one scene per sentence.
+- **Images:**
+  - Images are in `character/scenes/dNN_sMM[a|b].webp`. They are the owner's Flow images, verified and renamed by `match_flow_images.py`.
+  - The map is `character/scenes/flow-map.json`.
+  - 25 images are still missing. The prompts for them are in `FLOW-REGENERATE.md`.
+  - Day 10 s09 and Day 11 s03 use existing push-up images as fallbacks.
+- **Build one day, step by step:**
+  1. `python3 import_scenes.py N`: cutout plus body points for white images, and full scenes as photo cards.
+  2. `python3 build_scene_video.py N`: hook pack (frame-1 close-up, smash zoom-out, impact at 0.12 s, red slam heading, speed lines, whip entries in the first 5 s), side-push transitions, kinetic HERE'S THE FIX, anatomy bubble, cues, `tidy()`, `validate()`.
+  3. `MUSIC_VOL=0.06 python3 fast_render.py dayNN dayNN.txt dayNN.json 1.2`. It masters to −13 LUFS by default (`LUFS` env).
+  4. `python3 add_end_thumb.py dayNN thumbnails/dayNN.jpg`. The owner's thumbnail is the LAST 0.1 s.
+- **QA after every render:**
+  - `h_kit.blank_frames()` and `h_kit.qa_sheet()`.
+  - Check overlaps, small floor poses, and the frame-1 look.
+- **Re-master without re-rendering:** `LUFS=-13 python3 relouden.py dayNN`. Never interrupt it, because it rewrites `final/` in place.
+
+**New container setup:**
+1. Run `./restore_tool.sh`. It also runs `make_assets.py` (sunburst, impact background, sad sting) and `clean_cutout.py`.
+2. Images imported in an earlier container are not in the new tool library. Re-run `python3 import_scenes.py N` for each day before rebuilding it.
+3. Image import needs: `pip install mediapipe`, `apt-get install -y libegl1 libgles2`, and the pose model at `~/.cache/mp/pose_heavy.task`. The download URL is in `tool-patches/body_points.py`.
+
+**Owner's voice (NEXT TASK):**
+- The voice is Google AI Studio "Superhero (The Titan)": Gemini TTS `Fenrir`, Heroic, Natural pitch, Standard texture, 1.2x, silence remover on.
+- `gemini_voice.py` makes the wav. `GEMINI_API_KEY` must be in the environment.
+- **TO DO:** wire `gemini_voice.py` into `fast_render.py` (use the uploaded voice instead of the tool TTS, keep word alignment, render speed 1.0 so the voice is not sped up twice). Then rebuild Day 4 with the owner's NEW script, which the owner will give in the new session.
+
+
+**DONE 1 Nov (session 2):**
+- `fast_render.py` now uses the owner's voice by default: Gemini (`gemini_voice.py`, cached in `voice/<name>.wav`; delete it to re-make) or `VOICE_FILE=<audio>` for a ready voiceover. It is uploaded + word-aligned (pocketsphinx), silence-cut, -13 LUFS. Pass speed `1.0`. `VOICE=tool` = old tool TTS. `MUSIC_VOL` default 0.06 (it was never saved before: bug fixed).
+- Music: `music/hyper_lillian_thorn.mp3` (already starts 10 s in, 20 s, loops) is the library default at 0.06; `restore_tool.sh` installs it.
+- Day 4 NEW script is in `scripts_d4_30.py`: each tuple names its image (`sc_d04_sNN`, library id, or `a|b` loop). 9 new images needed: `FLOW-DAY4-NEW.md` (`d04_n05` … `d04_n16b`). Put them in `character/scenes/`, run `python3 import_scenes.py 4`, then `python3 build_scene_video.py 4` and `MUSIC_VOL=0.06 python3 fast_render.py day04 day04.txt day04.json 1.0`.
+- apt for image import: run `apt-get update` first, else libegl1/libgles2 are "not found".
+
+- **Day 4 v2 (1 Nov, master workflow):** made with `director.py` (own compositor: full-frame 9:16 images, overlapping transitions, camera keys/pans, white intro cards, one-word black/red captions per scene, SFX on words, -13 LUFS) + `d04_plan.py` (the per-scene plan). Images: `scenes_d04v2/01..31.jpg` (Gemini sparkle inpainted; originals in `flow_raw/d04v2`). Voice: `voice/day04_cut.wav` + words. Render: `python3 d04_plan.py` (~2.5 min), then `add_end_thumb.py`. Preview a part: `python3 d04_plan.py 0 6`. New videos: copy `d04_plan.py`, give each video its own concept (PRODUCTION-WORKFLOW.md).
+
+**Owner rules added 1 Nov:**
+- Every scene gets a unique, dynamic pose.
+- Only one H on screen at a time.
+- Teeth-chatter sound only on the shiver scene.
+- No ringtone on the CTA.
+- Music: until now the library track `above_planets.mp3` at 0.06 (licence unknown).
+- **NEW (owner, 1 Nov):** the next videos use a NEW background music track that the owner will supply. It must start from **10 s into the track** (skip the first 10 s).
+  - **How:** `ffmpeg -ss 10 -i track.mp3 -c:a libmp3lame -q:a 2 ~/reel-engine-tool/public/library/music/<name>.mp3`, then set `"current"` in `public/library/music/music.json`.
+  - Keep a copy in `work/music/` so `restore_tool.sh` can restore it.
+
 ## 1. The job
 - **Channel:** YouTube Shorts channel **Effortless Exercise**.
 - **Character:** **H**, a bald, muscular, tan cartoon man with a white "H" on his forehead.

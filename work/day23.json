@@ -1,0 +1,651 @@
+{
+ "title": "Day 23",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "audio": {
+  "autoSfx": false
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 54,
+  "y": 0.82,
+  "maxWords": 3,
+  "hide": []
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d23_s01",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Your spine stays",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "STIFF EVERY MORNING?",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": {
+      "type": "slam",
+      "duration": 0.3
+     },
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "Your spine stays"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "start+0.12",
+     "duration": 0.15
+    },
+    {
+     "type": "speed",
+     "at": "start",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "start+0.7"
+    }
+   ],
+   "camera": [
+    {
+     "at": "start",
+     "zoom": 1.7,
+     "focus": [
+      0.5,
+      0.42
+     ]
+    },
+    {
+     "at": "start+0.3",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+0.9",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+1.2",
+     "zoom": 1.1,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s2",
+   "start": "Your spine stays-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d23_s02",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Your spine stays-0.05",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Hit snooze and",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "STILL ALL NIGHT",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Your spine stays-0.05",
+     "until": "Hit snooze and"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_bone_spine_good",
+     "zoom": 1,
+     "x": 0.8,
+     "y": 0.66,
+     "size": 0.28,
+     "at": "Your spine stays+0.3",
+     "enter": "pop",
+     "borderColor": "#FFFFFF",
+     "until": "Hit snooze and"
+    },
+    {
+     "type": "speed",
+     "at": "Your spine stays-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Your spine stays+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Your spine stays",
+     "zoom": 1.0
+    },
+    {
+     "at": "Your spine stays+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Your spine stays+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s3",
+   "start": "Hit snooze and-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d23_s03",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Hit snooze and-0.05",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "One cat cow",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "BEFORE YOU GET UP",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Hit snooze and-0.05",
+     "until": "One cat cow"
+    },
+    {
+     "type": "speed",
+     "at": "Hit snooze and-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Hit snooze and+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Hit snooze and",
+     "zoom": 1.0
+    },
+    {
+     "at": "Hit snooze and+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Hit snooze and+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s4",
+   "start": "One cat cow-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "sc_d23_s04a",
+       "at": "One cat cow-0.05"
+      },
+      {
+       "asset": "sc_d23_s04b",
+       "at": "One cat cow+0.5"
+      },
+      {
+       "asset": "sc_d23_s04a",
+       "at": "One cat cow+1.0"
+      },
+      {
+       "asset": "sc_d23_s04b",
+       "at": "One cat cow+1.5"
+      },
+      {
+       "asset": "sc_d23_s04a",
+       "at": "One cat cow+2.0"
+      },
+      {
+       "asset": "sc_d23_s04b",
+       "at": "One cat cow+2.5"
+      },
+      {
+       "asset": "sc_d23_s04a",
+       "at": "One cat cow+3.0"
+      },
+      {
+       "asset": "sc_d23_s04b",
+       "at": "One cat cow+3.5"
+      },
+      {
+       "asset": "sc_d23_s04a",
+       "at": "One cat cow+4.0"
+      },
+      {
+       "asset": "sc_d23_s04b",
+       "at": "One cat cow+4.5"
+      },
+      {
+       "asset": "sc_d23_s04a",
+       "at": "One cat cow+5.0"
+      },
+      {
+       "asset": "sc_d23_s04b",
+       "at": "One cat cow+5.5"
+      }
+     ],
+     "at": "One cat cow-0.05",
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "shadow": true,
+     "width": 0.98,
+     "y": 0.58,
+     "autoAlign": false,
+     "until": "Two child's pose",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#1 CAT COW",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "One cat cow-0.05",
+     "until": "Two child's pose"
+    }
+   ],
+   "camera": [
+    {
+     "at": "One cat cow",
+     "zoom": 1
+    },
+    {
+     "at": "One cat cow+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s5",
+   "start": "Two child's pose-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d23_s05",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Two child's pose-0.05",
+     "autoAlign": false,
+     "width": 0.98,
+     "y": 0.58,
+     "until": "Three cobra stretch",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#2 CHILD'S POSE",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two child's pose-0.05",
+     "until": "Three cobra stretch"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Two child's pose",
+     "zoom": 1
+    },
+    {
+     "at": "Two child's pose+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s6",
+   "start": "Three cobra stretch-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d23_s06",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Three cobra stretch-0.05",
+     "autoAlign": false,
+     "width": 0.98,
+     "y": 0.58,
+     "until": "Two minutes and",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#3 COBRA",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Three cobra stretch-0.05",
+     "until": "Two minutes and"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Three cobra stretch",
+     "zoom": 1
+    },
+    {
+     "at": "Three cobra stretch+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s7",
+   "start": "Two minutes and-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d23_s07",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Two minutes and-0.05",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Comment MORNING if",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "FEEL 20 AGAIN",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two minutes and-0.05",
+     "until": "Comment MORNING if"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Two minutes and",
+     "zoom": 1
+    },
+    {
+     "at": "Two minutes and+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s8",
+   "start": "Comment MORNING if-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d23_s08",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Comment MORNING if-0.05",
+     "width": 0.8,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "COMMENT \"MORNING\"",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Comment MORNING if-0.05"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Comment MORNING if",
+     "zoom": 1
+    },
+    {
+     "at": "Comment MORNING if+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "start+0.35",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Your spine stays",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Hit snooze and",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "One cat cow",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Two child's pose",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Three cobra stretch",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Two minutes and",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Two minutes and",
+   "src": "sfx_ding",
+   "volume": 0.35
+  },
+  {
+   "at": "Comment MORNING if",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  }
+ ]
+}

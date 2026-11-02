@@ -1,0 +1,677 @@
+{
+ "title": "Day 18",
+ "canvas": {
+  "background": "#E2D3B9"
+ },
+ "style": {
+  "accent": "#FACC15"
+ },
+ "audio": {
+  "autoSfx": false
+ },
+ "captions": {
+  "mode": "phrase",
+  "look": "clean",
+  "size": 54,
+  "y": 0.82,
+  "maxWords": 3,
+  "hide": [
+   [
+    "Here's the fix",
+    "One decline push-ups"
+   ]
+  ]
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "start": "start",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d18_s01",
+     "shadow": true,
+     "enter": "cut",
+     "at": "start",
+     "width": 0.95,
+     "y": 0.6,
+     "until": "Your chest has",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "SAME PUSH-UP = FLAT CHEST",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "none",
+     "untype": false,
+     "enter": {
+      "type": "slam",
+      "duration": 0.3
+     },
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "start",
+     "until": "Your chest has"
+    },
+    {
+     "type": "pulse",
+     "kind": "impact",
+     "at": "start+0.12",
+     "duration": 0.15
+    },
+    {
+     "type": "speed",
+     "at": "start",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "start+0.7"
+    }
+   ],
+   "camera": [
+    {
+     "at": "start",
+     "zoom": 1.7,
+     "focus": [
+      0.5,
+      0.42
+     ]
+    },
+    {
+     "at": "start+0.3",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+0.9",
+     "zoom": 1.0
+    },
+    {
+     "at": "start+1.2",
+     "zoom": 1.1,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s2",
+   "start": "Your chest has-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d18_s02",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Your chest has-0.05",
+     "width": 0.7,
+     "y": 0.6,
+     "x": 0.36,
+     "until": "Here's the fix",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "3 PARTS",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Your chest has-0.05",
+     "until": "Here's the fix"
+    },
+    {
+     "type": "zoomBubble",
+     "asset": "anat_muscle_upper_chest",
+     "zoom": 1,
+     "x": 0.8,
+     "y": 0.66,
+     "size": 0.28,
+     "at": "Your chest has+0.3",
+     "enter": "pop",
+     "borderColor": "#FFFFFF",
+     "until": "Here's the fix"
+    },
+    {
+     "type": "speed",
+     "at": "Your chest has-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Your chest has+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Your chest has",
+     "zoom": 1.0
+    },
+    {
+     "at": "Your chest has+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Your chest has+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s3",
+   "start": "Here's the fix-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d18_s03",
+     "shadow": true,
+     "enter": {
+      "type": "whip",
+      "duration": 0.3
+     },
+     "at": "Here's the fix-0.05",
+     "width": 0.7,
+     "y": 0.72,
+     "until": "One decline push-ups",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "HERE'S",
+     "x": 0.5,
+     "y": 0.17,
+     "size": 120,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "letters",
+     "untype": false,
+     "enter": "punch",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Here's the fix-0.05"
+    },
+    {
+     "type": "text",
+     "text": "THE FIX",
+     "x": 0.5,
+     "y": 0.27,
+     "size": 220,
+     "align": "center",
+     "color": "#EF4444",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "letters",
+     "untype": false,
+     "enter": "punch",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "the fix"
+    },
+    {
+     "type": "speed",
+     "at": "Here's the fix-0.05",
+     "color": "#FFFFFF",
+     "duration": 0.6,
+     "until": "Here's the fix+0.4"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Here's the fix",
+     "zoom": 1.0
+    },
+    {
+     "at": "Here's the fix+0.35",
+     "zoom": 1.12,
+     "focus": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "at": "Here's the fix+1.5",
+     "zoom": 1.05
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s4",
+   "start": "One decline push-ups-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d18_s04",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "One decline push-ups-0.05",
+     "width": 0.95,
+     "y": 0.6,
+     "until": "Two wide push-ups",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#1 DECLINE (UPPER)",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "One decline push-ups-0.05",
+     "until": "Two wide push-ups"
+    }
+   ],
+   "camera": [
+    {
+     "at": "One decline push-ups",
+     "zoom": 1
+    },
+    {
+     "at": "One decline push-ups+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s5",
+   "start": "Two wide push-ups-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "poses",
+     "frames": [
+      {
+       "asset": "sc_d18_s05a",
+       "at": "Two wide push-ups-0.05"
+      },
+      {
+       "asset": "sc_d18_s05b",
+       "at": "Two wide push-ups+0.5"
+      },
+      {
+       "asset": "sc_d18_s05a",
+       "at": "Two wide push-ups+1.0"
+      },
+      {
+       "asset": "sc_d18_s05b",
+       "at": "Two wide push-ups+1.5"
+      },
+      {
+       "asset": "sc_d18_s05a",
+       "at": "Two wide push-ups+2.0"
+      },
+      {
+       "asset": "sc_d18_s05b",
+       "at": "Two wide push-ups+2.5"
+      },
+      {
+       "asset": "sc_d18_s05a",
+       "at": "Two wide push-ups+3.0"
+      },
+      {
+       "asset": "sc_d18_s05b",
+       "at": "Two wide push-ups+3.5"
+      },
+      {
+       "asset": "sc_d18_s05a",
+       "at": "Two wide push-ups+4.0"
+      },
+      {
+       "asset": "sc_d18_s05b",
+       "at": "Two wide push-ups+4.5"
+      },
+      {
+       "asset": "sc_d18_s05a",
+       "at": "Two wide push-ups+5.0"
+      },
+      {
+       "asset": "sc_d18_s05b",
+       "at": "Two wide push-ups+5.5"
+      }
+     ],
+     "at": "Two wide push-ups-0.05",
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "shadow": true,
+     "width": 0.95,
+     "y": 0.6,
+     "until": "Three incline push-ups",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#2 WIDE (MIDDLE)",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Two wide push-ups-0.05",
+     "until": "Three incline push-ups"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Two wide push-ups",
+     "zoom": 1
+    },
+    {
+     "at": "Two wide push-ups+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s6",
+   "start": "Three incline push-ups-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d18_s06",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Three incline push-ups-0.05",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Three sets of",
+     "exit": {
+      "type": "flyRight",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "#3 INCLINE (LOWER)",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Three incline push-ups-0.05",
+     "until": "Three sets of"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Three incline push-ups",
+     "zoom": 1
+    },
+    {
+     "at": "Three incline push-ups+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s7",
+   "start": "Three sets of-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d18_s07",
+     "shadow": true,
+     "enter": {
+      "type": "flyRight",
+      "duration": 0.25
+     },
+     "at": "Three sets of-0.05",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62,
+     "until": "Comment CHEST if",
+     "exit": {
+      "type": "flyLeft",
+      "duration": 0.25
+     }
+    },
+    {
+     "type": "text",
+     "text": "CHEST: FULL",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 140,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Three sets of-0.05",
+     "until": "Comment CHEST if"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Three sets of",
+     "zoom": 1
+    },
+    {
+     "at": "Three sets of+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  },
+  {
+   "id": "s8",
+   "start": "Comment CHEST if-0.05",
+   "backdrop": "spotlight",
+   "layers": [
+    {
+     "type": "image",
+     "asset": "sc_d18_s08",
+     "shadow": true,
+     "enter": {
+      "type": "flyLeft",
+      "duration": 0.25
+     },
+     "at": "Comment CHEST if-0.05",
+     "autoAlign": false,
+     "width": 0.84,
+     "y": 0.62
+    },
+    {
+     "type": "text",
+     "text": "COMMENT \"CHEST\"",
+     "x": 0.5,
+     "y": 0.15,
+     "size": 125,
+     "align": "center",
+     "color": "#16191D",
+     "font": "pop",
+     "maxWidth": 0.9,
+     "animation": "typewriter",
+     "untype": false,
+     "enter": "pop",
+     "exit": "cut",
+     "stroke": {
+      "color": "#FFFFFF",
+      "width": 0
+     },
+     "at": "Comment CHEST if-0.05"
+    }
+   ],
+   "camera": [
+    {
+     "at": "Comment CHEST if",
+     "zoom": 1
+    },
+    {
+     "at": "Comment CHEST if+3",
+     "zoom": 1.07
+    }
+   ],
+   "backdropColor": "#FFF6E8",
+   "backdropOpacity": 1
+  }
+ ],
+ "sfx": [
+  {
+   "at": "start",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "start+0.35",
+   "src": "sfx_pop_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Your chest has",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Here's the fix",
+   "src": "sfx_typing_loud",
+   "volume": 1.0
+  },
+  {
+   "at": "fix.+0.15",
+   "src": "sfx_whoosh_big",
+   "volume": 0.35
+  },
+  {
+   "at": "One decline push-ups",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Two wide push-ups",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Three incline push-ups",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Three sets of",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  },
+  {
+   "at": "Three sets of",
+   "src": "sfx_ding",
+   "volume": 0.35
+  },
+  {
+   "at": "Comment CHEST if",
+   "src": "sfx_whoosh_soft",
+   "volume": 0.35
+  }
+ ]
+}
