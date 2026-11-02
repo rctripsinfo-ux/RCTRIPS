@@ -478,7 +478,7 @@ export class World {
     let v = this.sunCache.get(id);
     if (v) return v;
     let fx = 0, fz = 0;
-    for (let f = s.a; f < s.b; f += 3) {
+    for (let f = s.a; f < (id === 1 ? 66 : s.b); f += 3) {
       const c = camAt(id, f), x = c.look[0] - c.pos[0], z = c.look[2] - c.pos[2], n = Math.hypot(x, z) || 1;
       fx += x / n; fz += z / n;
     }

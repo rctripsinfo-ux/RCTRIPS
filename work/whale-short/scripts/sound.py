@@ -98,7 +98,7 @@ v, vsr = sf.read("voice/voice_proc.wav"); v = resample_poly(v, SR, vsr) if vsr !
 voice = np.zeros(N); voice[: min(N, len(v))] = v[:N]
 envv = np.abs(voice); envv = lp(envv, 4); envv /= envv.max() + 1e-9
 duck = 1 - 0.75 * np.clip(envv * 4, 0, 1)
-mix = voice * 1.0 + mus * duck * 0.4 + sfx * (1 - 0.35 * np.clip(envv * 4, 0, 1)) * 0.6
+mix = voice * 1.0 + mus * duck * 0.17 + sfx * (1 - 0.4 * np.clip(envv * 4, 0, 1)) * 0.45
 fade = int(0.6 * SR); mix[-fade:] *= np.linspace(1, 0, fade)
 peak = np.abs(mix).max(); mix = mix / peak * 0.93
 sf.write("public/whale/mix.wav", mix.astype(np.float32), SR)

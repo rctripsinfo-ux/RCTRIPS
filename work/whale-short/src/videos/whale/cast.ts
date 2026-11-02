@@ -358,9 +358,13 @@ export const stage = (id: number, f: number, t: number, tau: number, cam: CamInf
       one(cam, out, 55, UMENO, "umen", UMEN[0], UMEN[2], UMEN[1], "shock", t);
       boomCloud(out, tau - BOOM);
       rain(out, tau, 0, -25.5, 9, 35.4, 40.2, 30, 7);
-      if (f < 66) for (let k = 0; k < 5; k++) {
-        const ph = (tau * 0.55 + k * 0.23) % 1, x = UMEN[0] - 1.2 + k * 0.62, z = UMEN[2] - 0.6 - (k % 2) * 0.9;
-        chunkCard(out, x, UMEN[1] + 5.2 - 3.6 * ph, z, 0.55 + 0.15 * (k % 3), ph * 3 + k, k);
+      if (f < 66) {
+        out.places = out.places.filter((p) => p.key.includes("umen") || p.z > UMEN[2] + 0.4);
+        out.fx = out.fx.filter((p) => !p.flat || p.z > UMEN[2] - 0.5);
+        for (let k = 0; k < 9; k++) {
+          const ph = (tau * 0.45 + k * 0.17) % 1, x = UMEN[0] - 3.2 + k * 0.85, z = UMEN[2] + 2.5 + (k % 3) * 2.2;
+          chunkCard(out, x, UMEN[1] + 7.5 - 6.5 * ph, z, 0.7 + 0.2 * (k % 3), ph * 3 + k, k);
+        }
       }
       break;
     case "arrive":

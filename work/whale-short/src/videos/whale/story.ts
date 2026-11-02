@@ -119,7 +119,7 @@ const C = UMEN, L = LUCKY;
 const CAMS: Record<number, Key[]> = {
   // 1 hook: the crowd under the falling sky, low from the beach side; closer on "rain whale" (roll)
   1: [
-    { f: 0, s: (f) => dolly([C[0] + 0.3, C[1] + 1.35, C[2] + 1.85], [C[0] + 0.02, C[1] + 1.78, C[2]], pushK(f, 0, 0.0028), { fov: 42, roll: 0.03 }) },
+    { f: 0, s: (f) => dolly([C[0] + 0.1, C[1] + 1.45, C[2] - 2.15], [C[0] - 0.05, C[1] + 2.35, C[2] + 6], pushK(f, 0, 0.0018, 0.004, 20), { fov: 54, roll: -0.03 }) },
     { f: 66, cut: true, s: (f) => dolly(at(1.6, -19.2, 0.9), at(0, -25.5, 1.75), pushK(f, 66, 0.0025, 0.006, 30), { fov: 44, roll: -0.03 }) },
   ],
   // 2 arrive: high over the sea, then glide down to the whale on the sand ("washes up on the beach at Florence")
@@ -242,7 +242,7 @@ export const camAt = (id: number, f: number): Cam => {
 // ---------------- lens ----------------
 export type Dof = { f: number; dur?: number; cInf: number; focus?: (f: number) => V3 };
 export const DOF: Dof[] = [
-  { f: 0, cInf: 12, focus: () => [UMEN[0], UMEN[1] + 1.86, UMEN[2]] }, { f: 66, cInf: 14 },
+  { f: 0, cInf: 5, focus: () => [UMEN[0], UMEN[1] + 1.8, UMEN[2]] }, { f: 66, cInf: 14 },
   { f: 124, cInf: 0 },
   { f: 270, cInf: 10 }, { f: 292, cInf: 13 },
   { f: 317, cInf: 8 }, { f: 379, cInf: 0 },
