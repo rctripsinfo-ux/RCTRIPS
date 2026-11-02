@@ -246,9 +246,13 @@ const CROWD: [number, number][] = [
   [-5.5, -33.5], [2.5, -34.4], [8.5, -32.6], [-10.5, -31.4],
 ];
 type Mode = "watch" | "tense" | "boom" | "fall" | "run" | "scared";
+/** everyone already placed this frame (so the persistent population never doubles a character) */
+const STAGED = new Set<number>();
 const crowd = (cam: CamInfo, t: number, tau: number, out: Stage, mode: Mode, near?: [number, number, number]) => {
   CROWD.forEach(([x0, z0], i) => {
     if (near && Math.hypot(x0 - near[0], z0 - near[1]) > near[2]) return;
+    if (STAGED.has(i + 10)) return;
+    STAGED.add(i + 10);
     const kid = i % 6 === 4, o = kid ? KID : FOLK[i % 12], sc = kid ? 0.72 : 1;
     const who: Who = { i: i + 10, o, okey: kid ? "kid" : `f${i % 12}` };
     let x = x0, z = z0, dx = 0, dz = 1;
@@ -283,6 +287,8 @@ const one = (cam: CamInfo, out: Stage, i: number, o: Outfit, okey: string, x: nu
   const sway = opts.headTilt ?? Math.round(2.5 * Math.sin(t * 1.4 + i * 1.7));
   const fo: FrontOpts = { mode: opts.walk !== undefined ? "stroll" : "stand", phase: ph, expr, blink: lidAt(t, i), wave: opts.wave, prop: opts.prop ?? null, headTilt: sway };
   const so: SideOpts = { mode: opts.walk !== undefined ? "march" : "stand", phase: ph, expr, blink: lidAt(t, i), stomp: 0.55, stride: 0.875 * view.fs };
+  if (STAGED.has(i)) return;
+  STAGED.add(i);
   out.places.push(person(cam, { i, o, okey }, x, y, z, view, fo, so, opts.scale ?? 1));
   blob(out, x, y, z, opts.scale ?? 1);
 };
@@ -349,6 +355,7 @@ const arrow = (out: Stage, x: number, y: number, z: number, w: number, rot = 0, 
 /** everything with a face or a flying piece in shot `id` at frame f */
 export const stage = (id: number, f: number, t: number, tau: number, cam: CamInfo): Stage => {
   const out: Stage = { places: [], fx: [] };
+  STAGED.clear();
   const s = SHOTS[id - 1];
   LNAME = s.light;
   findSun(cam, SUN);
@@ -486,7 +493,7 @@ export const stage = (id: number, f: number, t: number, tau: number, cam: CamInf
       }
       break;
     case "car": {
-      const x0 = UCAR[0] + 4.2, x1 = UCAR[0] + 1.9, k = smooth((tau - 60.6) / 1.9), x = x0 + (x1 - x0) * k, z = UCAR[2] + 2.0;
+      const x0 = UCAR[0] + 4.2, x1 = UCAR[0] + 1.9, k = smooth((tau - 60.6) / 1.9), x = x0 + (x1 - x0) * k, z = UCAR[2] - 2.0;
       const walking = tau > 60.6 && tau < 62.5;
       const expr: Expr = tau >= CRUSH - LEAD ? (f >= 1935 ? "dazed" : "shock") : tau > 62.9 ? "nervous" : "whistle";
       one(cam, out, 55, UMENO, "umen", x, z, LOT_Y, expr, t, { dx: -1, dz: 0, walk: walking ? tau * 1.4 : undefined });
@@ -497,6 +504,16 @@ export const stage = (id: number, f: number, t: number, tau: number, cam: CamInf
       if (dt >= 0) for (let i = 0; i < 4; i++) splatCard(out, UCAR[0] + (hh(i, 71) - 0.5) * 3.2, LOT_Y + 0.03, UCAR[2] + (hh(i, 72) - 0.5) * 5.5, 0.8, 10 + i);
       break;
     }
+  }
+  // persistent population of the beach (the camera flies between subjects, so nobody may pop in or out at a shot
+  // change): the crowd on the dune foot, Umenhofer, the engineer at his plunger, the TV cameraman
+  const beach = s.light === "golden" && !["hook", "car", "after"].includes(s.scene) && !(s.scene === "fall" && f >= 1110);
+  if (beach) {
+    const pre = tau < BOOM;
+    crowd(cam, t, tau, out, pre ? "watch" : "scared");
+    one(cam, out, 55, UMENO, "umen", UMEN[0], UMEN[2], UMEN[1], pre ? "neutral" : "shock", t);
+    one(cam, out, 53, ENGINEER, "eng", ENG[0], ENG[2], H(ENG[0], ENG[2]), pre ? "grin" : "shock", t);
+    one(cam, out, 58, CAMMAN, "camman", TVCAM[0] - 0.75, TVCAM[2] - 0.4, H(TVCAM[0], TVCAM[2]), pre ? "grin" : "shock", t);
   }
   return out;
 };

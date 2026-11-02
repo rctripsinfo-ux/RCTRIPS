@@ -485,9 +485,10 @@ export class World {
 
   /** camera-relative sun, frozen per shot */
   private shotSun(id: number, s: ShotDef, L: LightPreset): THREE.Vector3 {
-    // shots joined by camera travel share one world sun (no light jump mid-move)
-    const link: Record<number, number> = { 3: 2, 4: 2 };
-    if (link[id]) return this.shotSun(link[id], SHOTS[link[id] - 1], L);
+    // one world sun per light, so flown transitions never jump: afternoon sun from the land side, camera-left of the
+    // usual view (+z), so the whale's flank and the faces facing the sea side are lit; night: the lot's moon for both
+    if (s.light === "golden") return (this.sunCache.get(-1) ?? this.sunCache.set(-1, new THREE.Vector3(-0.8, 0.42, -0.45).normalize()).get(-1))!;
+    if (id === 16) return this.shotSun(15, SHOTS[14], L);
     let v = this.sunCache.get(id);
     if (v) return v;
     let fx = 0, fz = 0;

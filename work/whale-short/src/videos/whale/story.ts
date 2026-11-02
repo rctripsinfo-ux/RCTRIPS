@@ -26,7 +26,7 @@ export const H = (x: number, z: number) => {
 export const WHALE: V3 = [0, 0, 2];
 export const WHALE_LEN = 14;
 export const ENG: V3 = [10, 0, -14];
-export const PLUNGER: V3 = [10.1, 0, -13.25];
+export const PLUNGER: V3 = [10.1, 0, -14.75]; // land side of the engineer: every camera now looks out to sea
 export const TVCAM: V3 = [-7, 0, -18];
 export const TRUCK_HITCH: V3 = [-11.5, 0, 2.6];
 export const UMEN: V3 = [-3, H(-3, -24.5), -24.5];
@@ -70,7 +70,11 @@ export const SHOTS: ShotDef[] = [
   { id: 18, a: 1822, b: TOTAL, light: "golden", scene: "car", tau: T0 },
 ];
 /** crossfades (frames) at place / time changes; a white 4-frame flash after the hook */
-export const XFADE: Record<number, number> = { 5: 6, 6: 6, 15: 8, 17: 8, 18: 6 };
+export const XFADE: Record<number, number> = { 15: 8, 17: 8 };
+/** shot changes that are flown, not cut: the camera travels from the old framing to the new one over 2 x H frames
+ *  centred on the change (reference: "the camera physically travels into the next moment"). Only time-of-day
+ *  changes (14 -> 15 day to night, 16 -> 17 night to day) dissolve, and the hook ends on its flash. */
+export const TRAVEL: Record<number, number> = { 3: 26, 4: 20, 5: 22, 6: 22, 7: 22, 8: 24, 9: 22, 10: 22, 11: 16, 12: 14, 13: 20, 14: 22, 16: 36, 18: 36 };
 export const FLASH_AT = 124;
 /** frames that start a 4-frame white flash (reference: most hard changes are 4-frame flashes, not plain cuts) */
 export const FLASHES = [66, 124];
@@ -94,12 +98,34 @@ const mixCam = (a: Cam, b: Cam, k: number): Cam => ({
   fov: a.fov + (b.fov - a.fov) * k, roll: a.roll + (b.roll - a.roll) * k,
 });
 const full = (c: Shot): Cam => ({ fov: 40, roll: 0, ...c });
+/** frames that stay true cuts (they sit under a white flash) */
+const HARD = new Set([66]);
+/** lift of the camera path at the middle of a move (m): arcs over whatever lies between two framings */
+const dirOf = (c: Cam) => { const d = c.look.map((v, i) => v - c.pos[i]) as V3, L = Math.hypot(...d) || 1; return { u: d.map((v) => v / L) as V3, L }; };
+/** angle (deg) between two framings' view axes */
+export const turnDeg = (a: Cam, b: Cam) => { const A = dirOf(a).u, B = dirOf(b).u; return (Math.acos(Math.max(-1, Math.min(1, A[0] * B[0] + A[1] * B[1] + A[2] * B[2]))) * 180) / Math.PI; };
+/** one continuous move: position on a lifted arc, view direction turned at an even rate (slerp), look distance and
+ *  lens eased; so a framing on the other side of a subject is reached by a smooth swing, never a flip */
+const arc = (a: Cam, b: Cam, u: number): Cam => {
+  const d = Math.hypot(b.pos[0] - a.pos[0], b.pos[1] - a.pos[1], b.pos[2] - a.pos[2]), lift = Math.min(9, Math.max(0, (d - 4) * 0.22));
+  const k = glide(u), m = mixCam(a, b, k), A = dirOf(a), B = dirOf(b);
+  const om = Math.acos(Math.max(-1, Math.min(1, A.u[0] * B.u[0] + A.u[1] * B.u[1] + A.u[2] * B.u[2])));
+  let dir: V3 = m.look.map((v, i) => v - m.pos[i]) as V3;
+  if (om > 1e-3) { const s0 = Math.sin((1 - k) * om) / Math.sin(om), s1 = Math.sin(k * om) / Math.sin(om); dir = [0, 1, 2].map((i) => A.u[i] * s0 + B.u[i] * s1) as V3; }
+  const len = A.L + (B.L - A.L) * k, n = Math.hypot(...dir) || 1;
+  const pos: V3 = [m.pos[0], m.pos[1] + lift * Math.sin(Math.PI * k), m.pos[2]];
+  return { ...m, pos, look: [pos[0] + (dir[0] / n) * len, pos[1] + (dir[1] / n) * len, pos[2] + (dir[2] / n) * len] };
+};
 const run = (keys: Key[], f: number) => {
   let cur = full(keys[0].s(f));
   for (let i = 1; i < keys.length; i++) {
     const k = keys[i];
-    if (f < k.f) break;
-    cur = k.cut ? full(k.s(f)) : mixCam(cur, full(k.s(f)), glide((f - k.f) / (k.dur ?? 24)));
+    if (k.cut && HARD.has(k.f)) { if (f < k.f) break; cur = full(k.s(f)); continue; }
+    // a former cut glides in, centred a little before its word: 10 f early, 14-32 f long (until the next key)
+    const nextF = keys[i + 1]?.f ?? Infinity;
+    const start = k.cut ? k.f - 10 : k.f, dur = k.cut ? Math.max(14, Math.min(32, nextF - k.f + 6)) : k.dur ?? 24;
+    if (f < start) break;
+    cur = arc(cur, full(k.s(f)), (f - start) / dur);
   }
   return cur;
 };
@@ -135,25 +161,24 @@ const CAMS: Record<number, Key[]> = {
   // (reference grammar: no hard cut inside a place; the camera travels from the aerial into the whale's head, then
   //  slides along the body to the man and on to the worker)
   3: [
-    { f: 230, s: S2b },
-    { f: 230, dur: 66, s: (f) => dolly([12.5, 1.7, -5.5], [5.5, 1.5, 2], pushK(f, 280, 0.0025, 0.004, 20), { fov: 40 }) },
+    { f: 230, s: (f) => dolly([12.5, 1.7, -5.5], [5.5, 1.5, 2], pushK(f, 262, 0.0025, 0.004, 20), { fov: 40 }) },
     { f: 282, dur: 34, s: S3b },
   ],
   // 4 bury: worker with a shovel, the tide behind him
-  4: [{ f: 300, s: S3b }, { f: 300, dur: 30, s: () => ({ pos: [1.4, 2.0, -10.5], look: [1.4, 1.3, 0], fov: 44 }) }, { f: 318, dur: 34, s: (f) => dolly([6.5, 1.4, -6.5], [4.2, 1.2, 1.5], pushK(f, 340, 0.0025), { fov: 44 }) }],
+  4: [{ f: 305, s: (f) => dolly([6.5, 1.4, -6.5], [4.2, 1.2, 1.5], pushK(f, 325, 0.0025), { fov: 44 }) }],
   // 5 tow: the truck straining at the tail
   5: [{ f: 379, s: (f) => dolly([-15.5, 2.2, -8.5], [-11, 1.0, 2.5], pushK(f, 379, 0.003), { fov: 44, roll: 0.03 }) }],
   // 6 engineer: MS, then closer on "blow it up" (punch + roll)
   6: [
-    { f: 420, s: (f) => dolly([ENG[0] - 1.2, 1.65, ENG[2] + 5.2], [ENG[0], 1.5, ENG[2]], pushK(f, 420, 0.0025), { fov: 40 }) },
-    { f: 476, dur: 20, s: (f) => dolly([ENG[0] - 0.6, 1.75, ENG[2] + 3.4], [ENG[0], 1.65, ENG[2]], pushK(f, 476, 0.002, 0.006, 30), { fov: 38, roll: 0.04 }) },
+    { f: 420, s: (f) => dolly([ENG[0] - 1.0, 1.65, ENG[2] - 5.4], [ENG[0], 1.5, ENG[2]], pushK(f, 420, 0.0025), { fov: 40 }) },
+    { f: 476, dur: 20, s: (f) => dolly([ENG[0] - 0.5, 1.75, ENG[2] - 3.6], [ENG[0], 1.65, ENG[2]], pushK(f, 476, 0.002, 0.006, 30), { fov: 38, roll: 0.04 }) },
   ],
   // 7 gulls on the whale's back, low and close
   7: [{ f: 508, s: (f) => dolly([-6.5, 2.4, -9.5], [-0.5, 3.4, 2], pushK(f, 508, 0.0025), { fov: 44, roll: -0.03 }) }],
   // 8 Umenhofer in the crowd: MS -> closer when he raises his hand ("twenty sticks")
   8: [
-    { f: 592, s: (f) => dolly([C[0] + 0.8, C[1] + 1.55, C[2] + 4.2], [C[0], C[1] + 1.35, C[2]], pushK(f, 592, 0.0025), { fov: 40 }) },
-    { f: 700, dur: 24, s: (f) => dolly([C[0] + 0.3, C[1] + 1.7, C[2] + 3.8], [C[0] + 0.35, C[1] + 1.75, C[2]], pushK(f, 712, 0.002), { fov: 38, roll: -0.04 }) },
+    { f: 592, s: (f) => dolly([C[0] + 0.8, C[1] + 1.55, C[2] - 4.2], [C[0], C[1] + 1.35, C[2]], pushK(f, 592, 0.0025), { fov: 40 }) },
+    { f: 700, dur: 24, s: (f) => dolly([C[0] + 0.3, C[1] + 1.7, C[2] - 3.8], [C[0] + 0.35, C[1] + 1.75, C[2]], pushK(f, 712, 0.002), { fov: 38, roll: -0.04 }) },
   ],
   // 9 cases: workers stacking -> punch into the stack on "Half a ton"
   9: [
@@ -163,14 +188,14 @@ const CAMS: Record<number, Key[]> = {
   // 10 gather: wide over the crowd toward the whale -> the TV camera ("Cameras roll")
   10: [
     { f: 831, s: (f) => dolly([-6, 7.5, -40], [0, 0.8, -6], pushK(f, 831, 0.002), { fov: 44 }) },
-    { f: 855, cut: true, s: (f) => dolly([TVCAM[0] - 3.2, 1.45, TVCAM[2] + 2.6], [TVCAM[0] - 0.2, 1.3, TVCAM[2]], pushK(f, 855, 0.003), { fov: 40, roll: 0.03 }) },
+    { f: 855, cut: true, s: (f) => dolly([TVCAM[0] - 3.0, 1.45, TVCAM[2] - 2.8], [TVCAM[0] - 0.2, 1.3, TVCAM[2]], pushK(f, 855, 0.003), { fov: 40, roll: 0.03 }) },
   ],
   // 11 count: engineer + plunger ("Three") -> whale and cases ("Two") -> tense faces ("One")
   11: [
-    { f: 881, s: (f) => dolly([ENG[0] - 0.9, 1.35, ENG[2] + 3.0], [ENG[0] + 0.05, 1.15, ENG[2] + 0.4], pushK(f, 881, 0.004)) },
+    { f: 881, s: (f) => dolly([ENG[0] - 0.9, 1.35, ENG[2] - 3.4], [ENG[0] + 0.05, 1.15, ENG[2] - 0.4], pushK(f, 881, 0.004)) },
     { f: 897, cut: true, s: (f) => dolly([4, 1.3, -11], [0, 1.2, 1.5], pushK(f, 897, 0.004), { fov: 42 }) },
-    { f: 913, cut: true, s: (f) => dolly(at(0.4, -21.8, 1.65), at(0, -25.5, 1.75), pushK(f, 913, 0.005), { fov: 40, roll: -0.03 }) },
-    { f: 924, cut: true, s: (f) => dolly([PLUNGER[0] - 0.55, 1.05, PLUNGER[2] + 1.25], [PLUNGER[0], 0.78, PLUNGER[2]], pushK(f, 924, 0.006), { fov: 40, roll: 0.04 }) }, // insert: the plunger goes down
+    { f: 913, cut: true, s: (f) => dolly(at(0.4, -29.6, 1.45), at(0, -25.5, 1.9), pushK(f, 913, 0.005), { fov: 40, roll: -0.03 }) },
+    { f: 924, cut: true, s: (f) => dolly([PLUNGER[0] - 0.55, 1.05, PLUNGER[2] - 1.25], [PLUNGER[0], 0.78, PLUNGER[2]], pushK(f, 924, 0.006), { fov: 40, roll: 0.04 }) }, // insert: the plunger goes down
   ],
   // 12 boom: wide from behind the crowd, slow tilt up with the cloud
   12: [
@@ -179,15 +204,15 @@ const CAMS: Record<number, Key[]> = {
   ],
   // 13 fall: faces look up -> crowd runs under the rain -> dunes -> parking lot
   13: [
-    { f: 1005, s: (f) => dolly(at(0.9, -21.0, 1.1), at(0, -25.5, 2.0), pushK(f, 1005, 0.0025), { fov: 42 }) },
-    { f: 1045, cut: true, s: (f) => dolly(at(9, -24, 3.2), at(0, -28, 1.4), pushK(f, 1045, 0.002), { fov: 46, roll: -0.03 }) },
-    { f: 1100, cut: true, s: (f) => dolly(at(14, -34, 2.5), at(4, -42, 1.2), pushK(f, 1100, 0.0025), { fov: 44 }) },
-    { f: 1132, cut: true, s: (f) => dolly([6, LOT_Y + 3.2, -57], [0, LOT_Y + 0.8, -69], pushK(f, 1132, 0.0025), { fov: 46 }) },
+    { f: 1005, s: (f) => dolly(at(0.9, -30.5, 1.1), at(0, -25.5, 2.3), pushK(f, 1005, 0.0025), { fov: 44 }) },
+    { f: 1045, cut: true, s: (f) => dolly(at(9, -32, 3.4), at(0, -27, 1.4), pushK(f, 1045, 0.002), { fov: 46, roll: -0.03 }) },
+    { f: 1100, cut: true, s: (f) => dolly(at(4, -50, 3.0), at(5, -38, 0.6), pushK(f, 1100, 0.0025), { fov: 46 }) },
+    { f: 1132, cut: true, s: (f) => dolly([2, LOT_Y + 3.0, -80], [1, LOT_Y + 0.8, -67], pushK(f, 1132, 0.0025), { fov: 46 }) },
   ],
   // 14 lucky man: relief MS -> "Unluckily" (kick)
   14: [
-    { f: 1176, s: (f) => dolly([L[0] + 0.9, L[1] + 1.65, L[2] + 4.2], [L[0], L[1] + 1.55, L[2]], pushK(f, 1176, 0.0025), { fov: 40 }) },
-    { f: 1212, dur: 18, s: (f) => dolly([L[0] + 0.3, L[1] + 1.6, L[2] + 3.3], [L[0] + 0.3, L[1] + 1.5, L[2]], pushK(f, 1220, 0.002), { fov: 40, roll: 0.04 }) },
+    { f: 1176, s: (f) => dolly([L[0] + 0.9, L[1] + 1.65, L[2] - 4.2], [L[0], L[1] + 1.55, L[2]], pushK(f, 1176, 0.0025), { fov: 40 }) },
+    { f: 1212, dur: 18, s: (f) => dolly([L[0] + 0.3, L[1] + 1.6, L[2] - 3.3], [L[0] + 0.3, L[1] + 1.5, L[2]], pushK(f, 1220, 0.002), { fov: 40, roll: 0.04 }) },
   ],
   // 15 ketchup (golden, parking lot): two friends -> the foot on the packet -> the squirt
   15: [
@@ -199,7 +224,7 @@ const CAMS: Record<number, Key[]> = {
   16: [
     { f: 1494, s: (f) => dolly([3, 2.6, -17], [0, 1.4, 1.5], pushK(f, 1494, 0.002), { fov: 44 }) },
     { f: 1590, dur: 22, s: (f) => dolly([3, 2.4, -19], [0, 8, 1.5], pushK(f, 1590, 0.0015), { fov: 50 }) },
-    { f: 1612, dur: 30, s: (f) => dolly([8, 3.2, -6], at(-1, -25, 1.4), pushK(f, 1626, 0.002), { fov: 46, roll: 0.03 }) },
+    { f: 1612, dur: 34, s: (f) => dolly([5, 12, -40], [0, 3, -8], pushK(f, 1626, 0.002), { fov: 48, roll: 0.03 }) },
   ],
   // 17 after: gulls fleeing over the sea -> the whale still lying there -> the crew burying it
   17: [
@@ -209,9 +234,9 @@ const CAMS: Record<number, Key[]> = {
   ],
   // 18 car: Umenhofer walks to his car -> looks up ("biggest chunk") -> crush on "car" (kick) -> dazed
   18: [
-    { f: 1819, s: (f) => dolly([UCAR[0] + 5.2, LOT_Y + 1.8, UCAR[2] + 7.0], [UCAR[0] - 0.5, LOT_Y + 1.2, UCAR[2]], pushK(f, 1819, 0.0022), { fov: 42 }) },
-    { f: 1887, cut: true, s: (f) => dolly([UCAR[0] + 3.4, LOT_Y + 0.9, UCAR[2] + 5.0], [UCAR[0], LOT_Y + 3.4, UCAR[2]], pushK(f, 1887, 0.0025), { fov: 46, roll: 0.04 }) },
-    { f: 1935, cut: true, s: (f) => dolly([UCAR[0] + 3.4, LOT_Y + 1.75, UCAR[2] + 5.6], [UCAR[0] + 1.2, LOT_Y + 1.45, UCAR[2] + 1.0], pushK(f, 1935, 0.0018), { fov: 42, roll: -0.03 }) },
+    { f: 1819, s: (f) => dolly([UCAR[0] + 5.2, LOT_Y + 1.8, UCAR[2] - 7.0], [UCAR[0] - 0.5, LOT_Y + 1.2, UCAR[2]], pushK(f, 1819, 0.0022), { fov: 42 }) },
+    { f: 1887, cut: true, s: (f) => dolly([UCAR[0] + 3.4, LOT_Y + 0.9, UCAR[2] - 5.0], [UCAR[0], LOT_Y + 3.4, UCAR[2]], pushK(f, 1887, 0.0025), { fov: 46, roll: 0.04 }) },
+    { f: 1935, cut: true, s: (f) => dolly([UCAR[0] + 3.4, LOT_Y + 1.75, UCAR[2] - 5.6], [UCAR[0] + 1.2, LOT_Y + 1.45, UCAR[2] - 1.0], pushK(f, 1935, 0.0018), { fov: 42, roll: -0.03 }) },
   ],
 };
 
@@ -237,8 +262,21 @@ export const kickAt = (t: number) => {
   }
   return a;
 };
+const base = (id: number, f: number) => run(CAMS[id], f);
+const join = (a: Cam, b: Cam, f: number, b0: number, H: number) => arc(a, b, (f - (b0 - H)) / (2 * H));
+/** half-length of the flown change into shot `id`: at least TRAVEL[id], longer for big turns (~0.28 f per degree), <= 45 */
+const HL = new Map<number, number>();
+const halfLen = (id: number) => {
+  let h = HL.get(id);
+  if (h === undefined) { const b0 = SHOTS[id - 1].a; h = Math.min(45, Math.max(TRAVEL[id], Math.round(turnDeg(base(id - 1, b0), base(id, b0)) * 0.28))); HL.set(id, h); }
+  return h;
+};
 export const camAt = (id: number, f: number): Cam => {
-  const c = run(CAMS[id], f), a = kickAt(T(f));
+  let c = base(id, f);
+  const s = SHOTS[id - 1], nx = SHOTS[id];
+  if (TRAVEL[id] && f < s.a + halfLen(id)) c = join(base(id - 1, f), c, f, s.a, halfLen(id));
+  if (nx && TRAVEL[nx.id] && f >= nx.a - halfLen(nx.id)) c = join(c, base(nx.id, f), f, nx.a, halfLen(nx.id));
+  const a = kickAt(T(f));
   if (!a) return c;
   const d: V3 = [c.look[0] - c.pos[0], c.look[1] - c.pos[1], c.look[2] - c.pos[2]];
   const Ln = Math.hypot(...d), h = Math.hypot(d[0], d[2]) || 1;
@@ -265,11 +303,11 @@ export const DOF: Dof[] = [
   { f: 1277, cInf: 8 }, { f: 1347, cInf: 14 }, { f: 1434, cInf: 7 },
   { f: 1500, cInf: 0 },
   { f: 1645, cInf: 0 }, { f: 1725, cInf: 6 }, { f: 1774, cInf: 0 },
-  { f: 1822, cInf: 7, focus: () => [UCAR[0] + 2.4, LOT_Y + 1.75, UCAR[2] + 2.0] }, { f: 1887, cInf: 5 }, { f: 1935, cInf: 10, focus: () => [UCAR[0] + 1.9, LOT_Y + 1.75, UCAR[2] + 2.0] },
+  { f: 1822, cInf: 7, focus: () => [UCAR[0] + 2.4, LOT_Y + 1.75, UCAR[2] - 2.0] }, { f: 1887, cInf: 5 }, { f: 1935, cInf: 10, focus: () => [UCAR[0] + 1.9, LOT_Y + 1.75, UCAR[2] - 2.0] },
 ];
 export const dofAt = (f: number) => {
   let i = 0; while (i + 1 < DOF.length && f >= DOF[i + 1].f) i++;
   const d = DOF[i], p = DOF[Math.max(0, i - 1)];
-  const k = d.dur ? Math.min(1, (f - d.f) / d.dur) : 1;
+  const k = Math.min(1, (f - d.f) / (d.dur ?? 20));
   return { cInf: p.cInf + (d.cInf - p.cInf) * k, focus: d.focus };
 };
