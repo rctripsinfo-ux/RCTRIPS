@@ -12,7 +12,7 @@ import { NOINK } from "./ink";
 import { Pool, Actor, Fx, stage } from "./cast";
 import { fxFoam } from "./fx70";
 import {
-  FPS, SHOTS, H, SEA_Y, LOT_Y, WHALE, WHALE_LEN, PLUNGER, TVCAM, TRUCK_HITCH, UCAR, BOOM, CRUSH, camAt, V3, smooth, clamp01, ShotDef,
+  FOREGROUND, FPS, SHOTS, H, SEA_Y, LOT_Y, WHALE, WHALE_LEN, PLUNGER, TVCAM, TRUCK_HITCH, UCAR, BOOM, CRUSH, camAt, V3, smooth, clamp01, ShotDef,
 } from "./story";
 
 export const loadKit = () => Promise.resolve({} as Kit);
@@ -215,6 +215,7 @@ export class World {
   private dozer = new THREE.Group(); private mound: THREE.Mesh;
   private ucabin: THREE.Group; private ucar: THREE.Group;
   private bigChunk: THREE.Mesh;
+  private fgs: { o: THREE.Group; a: number; b: number; dist: number; lat: number; id: number }[] = [];
   private bulbs: THREE.Mesh[] = []; private pool2!: THREE.Mesh; private stars!: THREE.Points;
   private frustum = new THREE.Frustum();
   private m4 = new THREE.Matrix4(); private v = new THREE.Vector3(); private sph = new THREE.Sphere();
@@ -455,6 +456,21 @@ export class World {
     }
     const uc = sedan("#3f8a5a"); uc.grp.position.set(...UCAR); this.ucar = uc.grp; this.ucabin = uc.cabin; R.add(uc.grp);
     this.bigChunk = new THREE.Mesh(chunkGeo(9, 1.15), raw); this.bigChunk.castShadow = true; R.add(this.bigChunk);
+    // near framing props
+    const fr = rng(501);
+    for (const fg of FOREGROUND) {
+      const o = new THREE.Group(), s = fg.s ?? 1, add = (g: THREE.BufferGeometry, m: THREE.Material) => { const me = new THREE.Mesh(g, m); me.castShadow = true; me.receiveShadow = true; o.add(me); };
+      if (fg.kind === "grass") for (let k = 0; k < 16; k++) {
+        const a = fr() * Math.PI * 2, lean = 0.12 + fr() * 0.4, g = new THREE.ConeGeometry(0.035, 1, 4); g.translate(0, 0.5, 0);
+        g.applyMatrix4(new THREE.Matrix4().compose(V(Math.cos(a) * 0.14, -0.05, Math.sin(a) * 0.14), new THREE.Quaternion().setFromEuler(new THREE.Euler(Math.sin(a) * lean, 0, -Math.cos(a) * lean)), V(1, (0.6 + fr() * 0.5) * s, 1)));
+        add(g, k % 3 ? M.grass : M.grass2);
+      } else if (fg.kind === "crate") { add(cg, crate); const g2 = cg.clone(); g2.translate(0.05, 0.34, 0.02); add(g2, crate); }
+      else if (fg.kind === "log") { const g = cyl(0.2, 2.6, 12); g.rotateZ(Math.PI / 2); g.rotateY(0.5); g.translate(0, 0.14, 0); add(g, M.drift); }
+      else { add(boxGeo(V(-0.05, -0.1, -0.05), V(0.05, 0.95, 0.05)), M.stake); }
+      o.visible = false; R.add(o);
+      const sh = SHOTS.find((x) => fg.a >= x.a && fg.a < x.b)!;
+      this.fgs.push({ o, a: fg.a, b: fg.b, dist: fg.dist, lat: fg.lat, id: sh.id });
+    }
   }
 
   /** camera-relative sun, frozen per shot */
@@ -531,6 +547,14 @@ export class World {
       const u = ((t * 0.12 + i / 4) % 1), z = 18 - 5.5 * u;
       fm.position.set(0, SEA_Y + 0.03 + 0.01 * i, z); (fm.material as THREE.MeshBasicMaterial).opacity = 0.8 * Math.sin(Math.PI * u);
     });
+    // ---- near framing props: on the ground ahead of the key's lens, only inside their own shot ----
+    for (const g of this.fgs) {
+      g.o.visible = g.id === id && f >= g.a && f < g.b;
+      if (!g.o.visible) continue;
+      const c0 = camAt(id, g.a), fx = c0.look[0] - c0.pos[0], fz = c0.look[2] - c0.pos[2], n = Math.hypot(fx, fz) || 1;
+      const x = c0.pos[0] + (fx / n) * g.dist - (fz / n) * g.lat, z = c0.pos[2] + (fz / n) * g.dist + (fx / n) * g.lat;
+      g.o.position.set(x, s.scene === "ketchup" || s.scene === "car" ? LOT_Y : H(x, z), z);
+    }
     // ---- whale state ----
     const blown = s.scene !== "physics" && tau >= BOOM;
     this.whale.visible = !blown;

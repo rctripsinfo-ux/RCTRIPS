@@ -145,7 +145,7 @@ const CAMS: Record<number, Key[]> = {
   7: [{ f: 508, s: (f) => dolly([-6.5, 2.4, -9.5], [-0.5, 3.4, 2], pushK(f, 508, 0.0025), { fov: 44, roll: -0.03 }) }],
   // 8 Umenhofer in the crowd: MS -> closer when he raises his hand ("twenty sticks")
   8: [
-    { f: 592, s: (f) => dolly([C[0] + 1.0, C[1] + 1.7, C[2] + 5.5], [C[0], C[1] + 1.55, C[2]], pushK(f, 592, 0.0025), { fov: 40 }) },
+    { f: 592, s: (f) => dolly([C[0] + 0.8, C[1] + 1.55, C[2] + 4.2], [C[0], C[1] + 1.35, C[2]], pushK(f, 592, 0.0025), { fov: 40 }) },
     { f: 700, dur: 24, s: (f) => dolly([C[0] + 0.3, C[1] + 1.7, C[2] + 3.8], [C[0] + 0.35, C[1] + 1.75, C[2]], pushK(f, 712, 0.002), { fov: 38, roll: -0.04 }) },
   ],
   // 9 cases: workers stacking -> punch into the stack on "Half a ton"
@@ -163,6 +163,7 @@ const CAMS: Record<number, Key[]> = {
     { f: 881, s: (f) => dolly([ENG[0] - 0.9, 1.35, ENG[2] + 3.0], [ENG[0] + 0.05, 1.15, ENG[2] + 0.4], pushK(f, 881, 0.004)) },
     { f: 897, cut: true, s: (f) => dolly([4, 1.3, -11], [0, 1.2, 1.5], pushK(f, 897, 0.004), { fov: 42 }) },
     { f: 913, cut: true, s: (f) => dolly(at(0.4, -21.8, 1.65), at(0, -25.5, 1.75), pushK(f, 913, 0.005), { fov: 40, roll: -0.03 }) },
+    { f: 924, cut: true, s: (f) => dolly([PLUNGER[0] - 0.55, 1.05, PLUNGER[2] + 1.25], [PLUNGER[0], 0.78, PLUNGER[2]], pushK(f, 924, 0.006), { fov: 40, roll: 0.04 }) }, // insert: the plunger goes down
   ],
   // 12 boom: wide from behind the crowd, slow tilt up with the cloud
   12: [
@@ -207,6 +208,18 @@ const CAMS: Record<number, Key[]> = {
   ],
 };
 
+/** near framing props (reference: ~38 % of MS/CU have one): placed on the ground `dist` m ahead of the lens at frame a,
+ *  `lat` m to the side (+ = screen right), visible a <= f < b */
+export type Fg = { a: number; b: number; kind: "grass" | "crate" | "log" | "stake"; dist: number; lat: number; s?: number };
+export const FOREGROUND: Fg[] = [
+  { a: 317, b: 379, kind: "log", dist: 3.6, lat: 0.45 },
+  { a: 420, b: 508, kind: "crate", dist: 3.2, lat: -0.62 },
+  { a: 592, b: 754, kind: "grass", dist: 3.0, lat: 0.78, s: 1.7 },
+  { a: 855, b: 881, kind: "grass", dist: 3.0, lat: -0.62, s: 1.6 },
+  { a: 1176, b: 1277, kind: "grass", dist: 2.8, lat: -0.62, s: 1.8 },
+  { a: 1774, b: 1822, kind: "grass", dist: 5.5, lat: -1.1, s: 2.0 },
+];
+
 // impact kicks: image offset flips sign every frame, decays to 0 in 7 f
 const KICKS: [number, number][] = [[BOOM, 1.8], [BOOM + 0.25, 0.8], [35.6, 0.35], [36.5, 0.35], [LUCKY_HIT, 1.0], [SQUIRT_HIT, 0.5], [UP, 0.8], [CRUSH, 1.6]];
 export const kickAt = (t: number) => {
@@ -238,7 +251,7 @@ export const DOF: Dof[] = [
   { f: 592, cInf: 12, focus: () => [UMEN[0], UMEN[1] + 1.75, UMEN[2]] }, { f: 700, dur: 24, cInf: 14, focus: () => [UMEN[0], UMEN[1] + 1.75, UMEN[2]] },
   { f: 754, cInf: 6 }, { f: 790, cInf: 14 },
   { f: 831, cInf: 0 }, { f: 855, cInf: 12 },
-  { f: 881, cInf: 14 }, { f: 897, cInf: 6 }, { f: 913, cInf: 14 },
+  { f: 881, cInf: 14 }, { f: 897, cInf: 6 }, { f: 913, cInf: 14 }, { f: 924, cInf: 14, focus: () => [PLUNGER[0], 0.85, PLUNGER[2]] },
   { f: 936, cInf: 0 },
   { f: 1005, cInf: 12 }, { f: 1045, cInf: 0 },
   { f: 1176, cInf: 12, focus: () => [LUCKY[0], LUCKY[1] + 1.75, LUCKY[2]] },
