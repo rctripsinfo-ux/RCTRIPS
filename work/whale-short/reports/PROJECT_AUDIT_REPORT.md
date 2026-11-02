@@ -57,13 +57,13 @@ supply the 20 videos (or their URLs) to close this.
 | Colour/edge/detail targets in reports | measured by the skill author on full videos; **re-checked here on 38 stills** (Section 2 of the gap report) |
 | "Camera holds ~80 % of frames" (STYLE_BIBLE) vs "camera moving 65 % of frames, slow push-ins" (motion.md) | **contradictory** prior reports; cannot be re-measured without the videos |
 | "Hard cuts almost never: 0-1 per video in 12/20" (STYLE_BIBLE) vs "big reframes are cuts" (motion.md recipe) | **contradictory**; the STYLE_BIBLE statement is a direct measurement, the motion.md line is a recipe for the bridge |
-| Captions: one word at a time, white bold, black outline, 60-74 % height | visible in all 38 reference stills (verified) |
+| Captions: one word at a time, white bold, black outline, 60-74 % height | visible in all 38 skill stills (verified per file). The user's 88-frame set reportedly has none and was not available; captions are not used. |
 | Voice 3.5-4.1 w/s, < 1 s of pauses per video; music 5-10 dB under speech | prior report, unverified |
 
 ## 3. Assumptions we made (and status)
 | Assumption | Status |
 |---|---|
-| Skill author's rule "no captions" applies to us | **wrong for our goal**: the reference always has captions. Captions added in the test segment |
+| Skill author's rule "no captions" applies to us | **kept.** The user didn't ask for captions; the test-segment captions were added without permission and are now disabled |
 | Bright midday beach is fine | **refuted** by measurement: our mean luminance 0.63 vs reference 0.37 |
 | Billboard 2D characters are acceptable | consistent with the reference (it also uses flat cards) |
 | Word timings for captions | **estimate**: syllable-weighted inside each measured speech span; no forced aligner available |

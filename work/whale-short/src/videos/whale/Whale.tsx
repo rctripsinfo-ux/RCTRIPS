@@ -110,12 +110,11 @@ const ShotView: React.FC<{ id: number; kit: Kit; alpha: number }> = ({ id, kit, 
   </AbsoluteFill>
 );
 
-/** Reference captions: one word at a time, white heavy sans with a thin black outline, centred at ~66 % of the height,
- *  hard swap on every word (no pop / fade). Shown from the word onset to the next word's onset (no empty frames inside
- *  a sentence); off between sentences longer than 0.35 s. Toggle with inputProps { captions: false }. */
+/** Word captions. DISABLED by default: the user did not ask for captions. They render only with inputProps
+ *  { captions: true }. */
 const Caption: React.FC = () => {
   const f = useCurrentFrame(), t = f / FPS;
-  if ((getInputProps() as { captions?: boolean }).captions === false) return null;
+  if ((getInputProps() as { captions?: boolean }).captions !== true) return null;
   let w: (typeof WORDS)[number] | null = null;
   for (let i = 0; i < WORDS.length; i++) {
     const nx = WORDS[i + 1];

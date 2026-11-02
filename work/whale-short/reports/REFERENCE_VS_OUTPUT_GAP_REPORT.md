@@ -1,5 +1,7 @@
 # Reference vs output: gap report (v4)
 
+**Scope note:** reference = the 38 stills + 20 sheets in the skill folder. The user's 88-frame set was not available; if it differs, every reference column must be re-measured on it.
+
 Method: `analysis/measure.py` runs the same metrics on the 38 reference stills (540x960) and on 38 frames sampled
 evenly from our v4 (scaled to 540x960). The caption band (58-78 % of the height) is masked in both. Pacing uses the 20
 reference overview sheets (60 tiles ~1 s apart per video) vs 60 tiles 1.1 s apart across our 66 s. Raw numbers:
@@ -18,9 +20,9 @@ reference overview sheets (60 tiles ~1 s apart per video) vs 60 tiles 1.1 s apar
 | lum_std | contrast | **0.204** | **0.187** | close |
 | colorful (Hasler) | colour spread | 0.27 | 0.30 | close (ours uses big flat hues) |
 | new_picture_frac | 1-s samples showing a NEW picture | **0.93** | **0.68** | ours holds the same picture 3x more often |
-| hard changes per video | cuts / flash cuts | 0-1 in 12/20 (prior report) | **29** (16 cut keys + 13 hard shot changes) | ours is cut-driven |
-| captions | burned-in words | **38/38 stills** | none | missing |
-| speech pauses | silence inside narration | < 1 s total (prior report) | **8.6 s** | ours has dead air |
+| hard changes per video | cuts / flash cuts | UNVERIFIED: 0-1 in 12/20 (prior report, contradicted by motion.md) | **29** (16 cut keys + 13 hard shot changes) | ours is cut-driven |
+| captions | burned-in words | 38/38 skill stills; user's 88 frames: none (not available here) | none | **not a gap: user decision, no captions** |
+| speech pauses | silence inside narration | UNVERIFIED: < 1 s total (prior report) | **8.6 s** | ours has dead air |
 
 ## 2. Gaps (category, problem, where, why it hurts, root cause, fix, priority, confidence)
 
@@ -29,7 +31,7 @@ reference overview sheets (60 tiles ~1 s apart per video) vs 60 tiles 1.1 s apar
 | G1 | Light/colour | Picture too bright and flat (lum 0.63 vs 0.37), no deep darks | every beach day shot | reads "cheap/pastel", no mood | midday sun on a pale sand plane filling 50-70 % of the frame; shade lifted to 0.42 | late-afternoon key from side-back, violet shade, richer sand albedo; night/interior beats | P1 | high |
 | G2 | Light/colour | Saturation 0.39 vs 0.47 | day shots | less "premium" | pale sand + white heads dominate | sat 1.12, warmer key, saturated props | P1 | high |
 | G3 | Detail | Edge density 0.55x, texture 0.65x | open beach, aerial, parking lot | empty, unfinished frames | few props near the lens; plain sand texture; procedural primitives | dense set dressing (grass, footprints, shells, kelp, props per shot), stronger sand texture | P1 | high |
-| G4 | Typography | No captions | whole video | the reference ALWAYS carries a word caption; viewers watch muted | skill author's "no captions" rule copied blindly | word captions, white heavy sans, black outline, 70 % height, hard swap | P1 | high |
+| G4 | Typography | ~~No captions~~ **WITHDRAWN.** The 38 skill stills show captions, but the user's 88 reference frames reportedly don't, and the user didn't ask for captions. | — | — | — | captions disabled by default (`inputProps.captions` must be `true` to show them) | — | — |
 | G5 | Editing | 29 hard changes vs ~0-1 | whole video | choppy; reference feels like one continuous camera | camera plan built from cuts (copied bridge recipe) | continuous travel between subjects, follow-the-object moves, 4-frame flashes, 6-8 f dissolves for place changes | P1 | medium (prior report) |
 | G6 | Pacing | 8.6 s of silence; picture changes less often (0.68 vs 0.93) | gaps between lines, long holds 3-5 s | low energy | voice v1 gaps kept by the slot fit; few events per shot | re-time voice to < 1 s total pauses; add an event every ~1 s (gesture, prop, effect, camera beat) | P1 | medium |
 | G7 | Sharpness | lap-var 0.55x | everywhere | soft look | DOF on many shots, lens blur with large cInf, h264 at 55 MB | DOF only on CU/MS beats (~1/3), lower cInf on wides, encode crf 15 | P2 | medium |
