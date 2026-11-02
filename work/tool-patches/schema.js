@@ -16,6 +16,7 @@ const color = z.string().regex(/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})
 export const ENTER_TYPES = [
   'cut', 'fade', 'up', 'down', 'left', 'right', 'pop', 'punch', 'slam', 'zoom', 'blur',
   'elastic', 'smear', 'flyLeft', 'flyRight', 'flyUp', 'flyDown', 'squash',
+  'rise', // Zenox rise-in from below (measured)
   'whip', // slides in fast with ghost copies behind it, lands with a squash (animation feel)
 ];
 export const MOTION_TYPES = ['none', 'zoomIn', 'zoomOut', 'float', 'pulse', 'driftLeft', 'driftRight', 'shake'];

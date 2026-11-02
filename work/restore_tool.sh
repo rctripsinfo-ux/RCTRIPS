@@ -9,7 +9,7 @@ T="$HOME/reel-engine-tool"
 MAKER=$(ls "$W"/../.claude/skills/reel-video-maker/scripts/make_video.py /root/.claude/skills/*/*/reel-video-maker/scripts/make_video.py "$W"/reel-video-maker/scripts/make_video.py 2>/dev/null | head -1)
 [ -d "$T/node_modules" ] || python3 "$MAKER" setup
 
-cp "$W"/tool-patches/{Captions.jsx,Video.jsx,fx.jsx,layers.jsx,schema.js,timeRefs.js} "$T/src/"
+cp "$W"/tool-patches/{Captions.jsx,Video.jsx,fx.jsx,layers.jsx,schema.js,timeRefs.js,motion.js} "$T/src/"
 L="$T/public/library"
 cp "$W"/anatomy/images/* "$W"/gags/images/* "$W"/cards/*.png "$W"/character/new/*.webp "$L/hero/"  # character/new = owner-made H images
 cp "$W/tool-patches/body_points.py" "$T/tools/"  # mediapipe tasks API (needs: pip install mediapipe; apt-get install libegl1 libgles2; model in ~/.cache/mp)
@@ -20,6 +20,7 @@ cp "$W/tool-patches/clips-library.json" "$L/clips/library.json"
 cp "$W/tool-patches/sfx-library.json" "$L/sfx/library.json"
 
 python3 "$W/make_assets.py"  # our generated backgrounds + sad sting
+python3 "$W/zenox_assets.py" "15-20 SQUATS" "40-50 SQUATS" "30-40 SQUATS" "25-35 SQUATS" "20-30 SQUATS" "10-20 SQUATS"  # Zenox-format tags/headings (ref/)
 python3 "$W/clean_cutout.py" hero_double_biceps hero_drop_from_bar hero_sad_crying_v2 hero_shrug hero_thumbs_up hero_teacher_pointer hero_point_viewer hero_count_1  # remove white fringe/holes (owner, 1 Nov)
 # owner's background music (1 Nov): work/music/*.mp3 (already cut to start 10 s in) -> library, default track, volume 0.06
 mkdir -p "$T/public/library/music" && cp "$W"/music/*.mp3 "$T/public/library/music/" 2>/dev/null
