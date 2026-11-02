@@ -104,7 +104,7 @@ const whaleGeo = () => {
   const back = new THREE.Color("#585e6d"), flank = new THREE.Color("#777e8d"), belly = new THREE.Color("#d9d9dd"), c = new THREE.Color();
   const prof = (s: number) => {
     let r = s < 0.12 ? 0.18 + (s / 0.12) * 0.42 : s < 0.5 ? 0.6 + ((s - 0.12) / 0.38) * 0.75 : 1.35 + ((s - 0.5) / 0.44) * 0.17;
-    if (s > 0.94) r = 1.52 * Math.sqrt(Math.max(0, 1 - ((s - 0.94) / 0.06) ** 2.2));
+    if (s > 0.94) r = 1.52 * (1 - 0.42 * ((s - 0.94) / 0.06) ** 2); // blunt, flat-fronted snout (a flat cap closes it)
     return Math.max(0.02, r);
   };
   for (let i = 0; i <= NS; i++) {
@@ -123,6 +123,10 @@ const whaleGeo = () => {
     }
   }
   for (let i = 0; i < NS; i++) for (let j = 0; j < NA; j++) { const a = i * (NA + 1) + j, b2 = a + NA + 1; idx.push(a, b2, a + 1, a + 1, b2, b2 + 1); }
+  // flat snout cap: a fan from the centre of the last ring (no pinched pole, no star-shaped shading)
+  { const last = NS * (NA + 1), cIdx = pos.length / 3; let cy = 0; for (let j = 0; j < NA; j++) cy += pos[(last + j) * 3 + 1] / NA;
+    pos.push(WHALE_LEN / 2 + 0.04, cy, 0); uv.push(0.5, 4); c.copy(flank); col.push(c.r, c.g, c.b);
+    for (let j = 0; j < NA; j++) idx.push(last + j, cIdx, last + j + 1); }
   const g = new THREE.BufferGeometry();
   g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute("color", new THREE.Float32BufferAttribute(col, 3));
   g.setAttribute("uv", new THREE.Float32BufferAttribute(uv, 2)); g.setIndex(idx); g.computeVertexNormals();
@@ -388,7 +392,7 @@ export class World {
 
     // ---- the whale ----
     const skinMap = whaleTex(); skinMap.repeat.set(1, 1);
-    const skin = twoTone(new THREE.MeshPhongMaterial({ map: skinMap, vertexColors: true, specular: "#9fb0d0", shininess: 38 }), 0.6); // wet sheen
+    const skin = twoTone(new THREE.MeshPhongMaterial({ map: skinMap, vertexColors: true, specular: "#5d6880", shininess: 26 }), 0.6); // wet sheen
     const body = new THREE.Mesh(whaleGeo(), skin); body.castShadow = true; body.receiveShadow = true; this.whale.add(body);
     const finM = twoTone(new THREE.MeshPhongMaterial({ color: "#5d6372", specular: "#9fb0d0", shininess: 30 }), 0.6);
     const fl = new THREE.Mesh(flukeGeo(), finM); fl.position.set(-WHALE_LEN / 2 + 0.25, -0.95, 0); fl.rotation.z = 0.06; fl.castShadow = true; this.whale.add(fl);
@@ -480,7 +484,10 @@ export class World {
   }
 
   /** camera-relative sun, frozen per shot */
-  private shotSun(id: number, s: ShotDef, L: LightPreset) {
+  private shotSun(id: number, s: ShotDef, L: LightPreset): THREE.Vector3 {
+    // shots joined by camera travel share one world sun (no light jump mid-move)
+    const link: Record<number, number> = { 3: 2, 4: 2 };
+    if (link[id]) return this.shotSun(link[id], SHOTS[link[id] - 1], L);
     let v = this.sunCache.get(id);
     if (v) return v;
     let fx = 0, fz = 0;

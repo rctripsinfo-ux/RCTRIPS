@@ -51,9 +51,9 @@ export type ShotDef = { id: number; a: number; b: number; light: Light; scene: S
 const T0 = (t: number) => t;
 export const SHOTS: ShotDef[] = [
   { id: 1, a: 0, b: 124, light: "golden", scene: "hook", tau: (t) => 35.6 + t },
-  { id: 2, a: 124, b: 270, light: "golden", scene: "arrive", tau: T0, sunAz: 150, sunEl: 12 },
-  { id: 3, a: 270, b: 317, light: "golden", scene: "whale", tau: T0 },
-  { id: 4, a: 317, b: 379, light: "golden", scene: "bury", tau: T0 },
+  { id: 2, a: 124, b: 230, light: "golden", scene: "arrive", tau: T0, sunAz: 150, sunEl: 12 },
+  { id: 3, a: 230, b: 305, light: "golden", scene: "whale", tau: T0 },
+  { id: 4, a: 305, b: 379, light: "golden", scene: "bury", tau: T0 },
   { id: 5, a: 379, b: 420, light: "golden", scene: "tow", tau: T0 },
   { id: 6, a: 420, b: 508, light: "golden", scene: "engineer", tau: T0 },
   { id: 7, a: 508, b: 592, light: "golden", scene: "gulls", tau: T0 },
@@ -118,7 +118,7 @@ const rolled = (s: (f: number) => Shot, roll: number) => (f: number): Shot => ({
 const at = (x: number, z: number, dy: number): V3 => [x, H(x, z) + dy, z];
 
 const C = UMEN, L = LUCKY;
-const S2b = (f: number) => dolly([12, 5.0, 17], [0, 1.2, 1], pushK(f, 225, 0.0022), { fov: 42 });
+const S2b = (f: number) => dolly([15, 5.5, -13], [0, 1.2, 1.5], pushK(f, 225, 0.0022), { fov: 42 }); // land side, so the travel into the head never crosses the snout
 const S3b = (f: number) => dolly([-2.6, 1.55, -7.2], [-1.6, 1.45, -2.4], pushK(f, 300, 0.003), { fov: 40, roll: -0.04 });
 const CAMS: Record<number, Key[]> = {
   // 1 hook: the crowd under the falling sky, low from the beach side; closer on "rain whale" (roll)
@@ -129,18 +129,18 @@ const CAMS: Record<number, Key[]> = {
   // 2 arrive: high over the sea, then glide down to the whale on the sand ("washes up on the beach at Florence")
   2: [
     { f: 120, s: (f) => zoom([22, 15, 34], [0, 0.5, -4], 44, pushK(f, 120, 0.0018)) },
-    { f: 205, dur: 40, s: S2b },
+    { f: 190, dur: 56, s: S2b },
   ],
   // 3 whale CU ("Eight tons", punch) -> the man beside it ("And it stinks", roll)
   // (reference grammar: no hard cut inside a place; the camera travels from the aerial into the whale's head, then
   //  slides along the body to the man and on to the worker)
   3: [
-    { f: 262, s: S2b },
-    { f: 262, dur: 30, s: (f) => dolly([12.5, 1.7, -5.5], [5.5, 1.5, 2], pushK(f, 280, 0.0025, 0.006, 20), { fov: 40 }) },
-    { f: 288, dur: 22, s: S3b },
+    { f: 230, s: S2b },
+    { f: 230, dur: 66, s: (f) => dolly([12.5, 1.7, -5.5], [5.5, 1.5, 2], pushK(f, 280, 0.0025, 0.004, 20), { fov: 40 }) },
+    { f: 282, dur: 34, s: S3b },
   ],
   // 4 bury: worker with a shovel, the tide behind him
-  4: [{ f: 310, s: S3b }, { f: 310, dur: 16, s: () => ({ pos: [1.4, 2.0, -10.5], look: [1.4, 1.3, 0], fov: 44 }) }, { f: 322, dur: 18, s: (f) => dolly([6.5, 1.4, -6.5], [4.2, 1.2, 1.5], pushK(f, 330, 0.0025), { fov: 44 }) }],
+  4: [{ f: 300, s: S3b }, { f: 300, dur: 30, s: () => ({ pos: [1.4, 2.0, -10.5], look: [1.4, 1.3, 0], fov: 44 }) }, { f: 318, dur: 34, s: (f) => dolly([6.5, 1.4, -6.5], [4.2, 1.2, 1.5], pushK(f, 340, 0.0025), { fov: 44 }) }],
   // 5 tow: the truck straining at the tail
   5: [{ f: 379, s: (f) => dolly([-15.5, 2.2, -8.5], [-11, 1.0, 2.5], pushK(f, 379, 0.003), { fov: 44, roll: 0.03 }) }],
   // 6 engineer: MS, then closer on "blow it up" (punch + roll)
@@ -251,8 +251,8 @@ export type Dof = { f: number; dur?: number; cInf: number; focus?: (f: number) =
 export const DOF: Dof[] = [
   { f: 0, cInf: 5, focus: () => [UMEN[0], UMEN[1] + 1.8, UMEN[2]] }, { f: 66, cInf: 14 },
   { f: 124, cInf: 0 },
-  { f: 262, dur: 30, cInf: 7 }, { f: 288, dur: 22, cInf: 8 },
-  { f: 312, dur: 26, cInf: 6 }, { f: 379, cInf: 0 },
+  { f: 230, dur: 66, cInf: 7 }, { f: 282, dur: 34, cInf: 8 },
+  { f: 300, dur: 30, cInf: 6 }, { f: 379, cInf: 0 },
   { f: 420, cInf: 7 }, { f: 476, dur: 20, cInf: 8 },
   { f: 508, cInf: 10 },
   { f: 592, cInf: 12, focus: () => [UMEN[0], UMEN[1] + 1.75, UMEN[2]] }, { f: 700, dur: 24, cInf: 14, focus: () => [UMEN[0], UMEN[1] + 1.75, UMEN[2]] },
