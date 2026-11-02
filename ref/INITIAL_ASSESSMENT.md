@@ -13,7 +13,16 @@
 - **No other assets:** there are no project files, fonts, music stems or assets from the channel. Everything visual must be measured from the video.
 - **Coverage:** two formats are covered: "Let me fix that" problem/fix (R02, R05–R10) and age tier lists (R03, R04). R01 is a mixed listicle.
   - No long-form video, no comparison/myth format, no story format. Fine for Shorts.
-  - The channel URL was not given, so it is unknown whether other styles exist. Ask the owner for the URL if needed.
+  - **Channel: Zenox, `youtube.com/@realzenoxX/shorts` (owner, 2 Nov).** `yt-dlp --flat-playlist` lists **10 Shorts, and they are exactly our 10**, so coverage of the channel is complete (`analysis/channel_shorts.json`).
+  - **Views:**
+    - R04 Push-ups by AGE: 3.1M
+    - R05 How many push-ups: 2.4M
+    - R07 Thicker forearms: 522K
+    - R09 Belly fat: 410K
+    - R10 Still skinny: 172K
+    - R03 Pull-ups by AGE: 83K
+    - R08, R01, R06, R02: 11–23K
+  - **Weighting:** the rules below should be weighted toward R04 and R05 (the winners).
 
 ## 2. What was measured (all local and deterministic, cached by sha1 + tool version)
 - **Tools:**
@@ -42,6 +51,19 @@
 | Text | Bold black sans headings at the top ("#1 Calorie Deficit", "FOREARMS ARE WEAK"), red emphasis word, words pop in one by one. Tiny white captions in the middle of the body. | Contact sheets R07/R09/R10 |
 | Audio | Voice + music with almost no silence (0–0.39 s total per video). Loud master: -11 to -14 LUFS integrated. 30–53 sharp onsets per video (sfx and hits, not yet classified). | audio.json |
 
+## 3b. What the two winners do (overview sheets R04, R05)
+- **R04 (age tier list, 3.1M):**
+  - A light blue room with a darker floor band at the bottom third.
+  - A white "AGE · 10" tag at the top left, with black text and a red number. The kid/adult H-equivalent stands on the floor.
+  - Cut to the push-up pose with "5–10 PUSH UPS" in black bold at the top.
+  - Repeats for ages 10/20/30/50/60. In between, a reveal beat (sunglasses on a yellow sunburst, flex on black).
+  - Ends with "AGE? / PUSHUPS?" tags as comment bait.
+- **R05 (3 form fixes, 2.4M):**
+  - "LET ME FIX THAT" with THAT in red, then "ONLY" + 3 fingers.
+  - Each fix starts as a **section card**: a small icon plus "HAND PLACEMENT" in the middle, which moves to the top.
+  - The exercise is shown small and side-on with guide marks: a green dashed line, a red dot on the problem joint, a white line along the back.
+  - The push-up itself is shown in several positions (frames 22–28), so it is either pose swaps or an animated sprite. **To measure.**
+
 ## 4. Proposed production architecture (decision doc comes in Phase 7)
 The reference is **2D image compositing**: still character drawings, flat backgrounds, layer entrances and punch zooms. 3D is not needed.
 | Option | Fit | Cost / complexity |
@@ -67,6 +89,6 @@ One independent "verifier" agent may be worth it in Phase 9, to compare referenc
 
 ## 7. Missing inputs / dependencies
 - The channel URL, to check for styles missing from the 10 samples. Optional.
-- An owner decision: keep **H** with our beige look, or switch to a flat pastel background like the reference? H stays either way.
+- **Decided (owner, 2 Nov): WHITE background**, not the reference pastel. H stays.
 - New H poses for the "rise-in" subjects the reference uses often: a hand showing 2/3 fingers, a fist, arms crossed with glasses, thumbs up, close-ups. Most already exist in the hero library. Check this per script.
 - No paid tools or APIs are needed. Licensed music is still open (an owner item since October).

@@ -12,6 +12,5 @@
    - a pastel theme
    Then rebuild ~8 s of R07's structure with H and our own words. Stills first, then the preview.
 5. **Phase 9.** Compare reference vs ours with the same `analyze.py` metrics (event durations, velocity curves, holds, cut rate).
-6. **Owner decisions needed:**
-   - Pastel background vs our beige.
-   - Channel URL (optional).
+6. ~~Owner decisions~~ Done 2 Nov: white background, channel = Zenox (complete coverage).
+7. **Measure in R05:** is the push-up a pose swap or a sprite animation? Count distinct drawings over 21–28 s using a frame-diff + perceptual-hash script.

@@ -28,6 +28,10 @@ python3 -I ref/tools/motion_events.py ref/analysis
 | 11 | Full original video | NOT STARTED | |
 | 12 | Persistent files | PARTIAL | This file, `NEXT_STEPS.md` |
 
+## Owner decisions
+- **2 Nov:** background is **white**. Keep H. The channel is Zenox (10 Shorts, all analysed). Weight the rules toward R04 and R05 (3.1M / 2.4M views).
+- **29 Oct (from the H project):** no exercise clip videos. Exercises use H pose images.
+
 ## Known issues
 - **R09/R10:** a burned-in grey bar from the capture. It adds static features, so camera motion is under-estimated there.
 - **Flat backgrounds:** "camera" motion = motion of the main content layer. A true camera move can't be separated from a layer move.
