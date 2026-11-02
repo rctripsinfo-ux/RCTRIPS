@@ -16,6 +16,7 @@ and a fresh clone of the skill's source repo (`mromidev/claude-animated-shorts`,
 | R3 | Skill reports + style bible | `.claude/skills/cartoon-3d-short/references/reports/*.md`, `STYLE_BIBLE.md` | skill author's agents, measured on videos we don't have | numbers and recipes, partly about the bridge short | measurements of the approved videos | not re-verifiable; contradictions found | **APPROVED SOURCE, UNVERIFIED numbers**: use as hypotheses until re-measured on the videos |
 | R4 | The 20 reference videos (= the approved reference) | named in the skill docs as `references/vids/*.mp4` | skill author | — | motion, cuts, timing, audio | **not found** (not in the upstream repo either) | MISSING |
 | R5 | "88 reference frames" mentioned by the user | — | user | — | — | **not found**; the user has since named R1/R2 (the 20 videos) as the reference | open question, not blocking |
+| R7 | Fitness-channel reference analysis (other session) | `ref/` (repo root): `analysis/R01-R10`, `CAMERA_MOTION_RULES.json`, `INITIAL_ASSESSMENT.md` | another Claude session (session_014a4cKc...), videos from the user's Drive folder "fitness video" (git-ignored `ref/raw/`) | measurements of 10 fitness Shorts ("Z"-mask character) | Effortless Exercise channel | measured by that session | **NOT FOR THE WHALE PROJECT** (different channel); do not mix |
 | R6 | Tutorial transcript | `/root/.claude/uploads/.../bd6e918e-download_6.txt` | user upload | transcript of the tutorial video about making the skill | method context | read | context only, not a visual reference |
 
 ## Non-reference media found (not references)
@@ -45,5 +46,5 @@ and a fresh clone of the skill's source repo (`mromidev/claude-animated-shorts`,
 - Scene code `src/videos/whale/*` (captions OFF by default, opt-in only).
 
 ## Missing source material
-1. **R4: the 20 reference video files**, or their URLs. These are needed for any claim about camera motion,
+1. **R4: the 20 reference video files** (the approved reference). Easiest route, the same as the fitness session used: put them in a Google Drive folder and share the link; they get downloaded with `gdown` into a git-ignored `work/whale-short/references/vids/`, or their URLs. These are needed for any claim about camera motion,
    transitions, animation timing, pacing and audio. Stills cannot establish those.
