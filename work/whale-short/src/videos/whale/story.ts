@@ -74,7 +74,7 @@ export const XFADE: Record<number, number> = { 15: 8, 17: 8 };
 /** shot changes that are flown, not cut: the camera travels from the old framing to the new one over 2 x H frames
  *  centred on the change (reference: "the camera physically travels into the next moment"). Only time-of-day
  *  changes (14 -> 15 day to night, 16 -> 17 night to day) dissolve, and the hook ends on its flash. */
-export const TRAVEL: Record<number, number> = { 3: 26, 4: 20, 5: 22, 6: 22, 7: 22, 8: 24, 9: 22, 10: 22, 11: 16, 12: 14, 13: 20, 14: 22, 16: 36, 18: 36 };
+export const TRAVEL: Record<number, number> = {}; // user (3 Nov): flown changes felt too fast; cut between shots instead
 export const FLASH_AT = 124;
 /** frames that start a 4-frame white flash (reference: most hard changes are 4-frame flashes, not plain cuts) */
 export const FLASHES = [66, 124];
@@ -120,7 +120,7 @@ const run = (keys: Key[], f: number) => {
   let cur = full(keys[0].s(f));
   for (let i = 1; i < keys.length; i++) {
     const k = keys[i];
-    if (k.cut && HARD.has(k.f)) { if (f < k.f) break; cur = full(k.s(f)); continue; }
+    if (k.cut) { if (f < k.f) break; cur = full(k.s(f)); continue; } // user: clean cuts between angles
     // a former cut glides in, centred a little before its word: 10 f early, 14-32 f long (until the next key)
     const nextF = keys[i + 1]?.f ?? Infinity;
     const start = k.cut ? k.f - 10 : k.f, dur = k.cut ? Math.max(14, Math.min(32, nextF - k.f + 6)) : k.dur ?? 24;
