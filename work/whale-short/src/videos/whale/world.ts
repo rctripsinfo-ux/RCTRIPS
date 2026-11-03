@@ -228,7 +228,7 @@ export class World {
   private fgs: { o: THREE.Group; a: number; b: number; dist: number; lat: number; id: number }[] = [];
   private bulbs: THREE.Mesh[] = []; private pool2!: THREE.Mesh; private stars!: THREE.Points;
   private frustum = new THREE.Frustum();
-  private m4 = new THREE.Matrix4(); private v = new THREE.Vector3(); private sph = new THREE.Sphere();
+  private m4 = new THREE.Matrix4(); private v = new THREE.Vector3(); private sph = new THREE.Sphere(); private fwd = new THREE.Vector3();
 
   constructor(_kit: Kit) {
     const R = this.root, M: Mats = {};
@@ -611,6 +611,13 @@ export class World {
     for (const p of st.places) {
       const sc2 = p.scale ?? 1;
       if (!this.frustum.intersectsSphere(this.sph.set(this.v.set(p.x, p.y + 1.1 * sc2, p.z), 3.5))) continue;
+      // nobody half-cut at the frame edge: a card closer than 4.5 m that sits off the view axis (> 9 deg) is left out
+      {
+        // sideways angle only (the shot's subject sits near the vertical centre line, e.g. the hook close-up looks up past him)
+        const hx = p.x - cam.position.x, hz = p.z - cam.position.z, hd = Math.hypot(hx, hz);
+        cam.getWorldDirection(this.fwd); const fl = Math.hypot(this.fwd.x, this.fwd.z) || 1;
+        if (hd < 4.5 && (hx * this.fwd.x + hz * this.fwd.z) / (hd * fl) < Math.cos((9 * Math.PI) / 180)) continue;
+      }
       const ac = this.actor(ai++);
       const [w, h, k] = p.size ?? [300, 500, 0.5];
       ac.r = this.pool.req(p.key, w, h, k, p.draw);

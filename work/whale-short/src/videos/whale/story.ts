@@ -248,7 +248,7 @@ export const FOREGROUND: Fg[] = [
   { a: 420, b: 508, kind: "crate", dist: 3.2, lat: -0.62 },
   { a: 592, b: 754, kind: "grass", dist: 3.0, lat: 0.78, s: 1.7 },
   { a: 855, b: 881, kind: "grass", dist: 3.0, lat: -0.62, s: 1.6 },
-  { a: 1176, b: 1277, kind: "grass", dist: 2.8, lat: -0.62, s: 1.8 },
+  { a: 1176, b: 1277, kind: "grass", dist: 2.8, lat: -1.05, s: 1.6 },
   { a: 1774, b: 1822, kind: "grass", dist: 5.5, lat: -1.1, s: 2.0 },
 ];
 
