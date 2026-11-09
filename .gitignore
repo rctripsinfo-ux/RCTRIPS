@@ -5,3 +5,8 @@ ref/analysis/overview/
 work/final/*-nothumb.mp4
 __pycache__/
 whale_short_*.mp4
+work/shorts/*/out/
+work/shorts/*/node_modules
+work/shorts/*/models
+work/shorts/*/public/*/*.wav
+work/shorts/*/voice/*.wav
