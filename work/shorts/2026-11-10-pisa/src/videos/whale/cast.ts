@@ -165,6 +165,7 @@ const LEAD = 2 / FPS;
 const LID = [0.5, 1, 1, 0.5];
 const lidAt = (t: number, i: number, swaps: number[] = []) => {
   const f = Math.round(t * FPS);
+  if (f < 45) return 0; // eyes open for the first 1.5 s: frame 0 is the thumbnail
   for (const ts of swaps) { const k = f - Math.round((ts - LEAD) * FPS) + 1; if (k >= 0 && k < 4) return LID[k]; }
   let s = Math.round(-60 * hh(i, 9));
   for (let n = 0; s <= f && n < 400; n++) {

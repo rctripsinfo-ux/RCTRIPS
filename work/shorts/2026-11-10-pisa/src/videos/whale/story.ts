@@ -123,7 +123,10 @@ const run = (keys: Key[], f: number) => {
   return cur;
 };
 const T = (f: number) => f / FPS;
-const pushK = (f: number, f0: number, rate: number, punch = 0, n = 35) => {
+/** push-in: the subject grows ~rate per frame. Capped at 15 % closer per key (lesson from short #2: an uncapped punch
+ *  pushed the opening close-up until only a cap filled the frame and the subject left it). */
+const pushK = (f: number, f0: number, rate: number, punch = 0, n = 35) => Math.max(0.85, pushRaw(f, f0, rate, punch, n));
+const pushRaw = (f: number, f0: number, rate: number, punch = 0, n = 35) => {
   const x = Math.max(0, f - f0);
   let s = rate * x;
   if (punch > rate) for (let i = 0; i < Math.min(x, n); i++) s += (punch - rate) * Math.max(0, Math.min(1, (i + 0.5) / 8, (n - i - 0.5) / 8));

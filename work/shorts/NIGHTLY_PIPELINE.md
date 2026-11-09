@@ -23,7 +23,7 @@ Hook = absurd fact in line 1. Setting, then 3-4 escalating beats, the break, "Lu
 plus an everyday analogy, the consequence, and a callback twist as the last line. 190-230 words, English, no emojis.
 
 ## 3. Project
-- Copy the engine: `cp -r work/whale-short work/shorts/<YYYY-MM-DD>-<slug>` WITHOUT node_modules/out/models
+- Copy the engine from the LATEST short in `work/shorts/` (it carries every fix so far): `cp -r work/shorts/<latest> work/shorts/<YYYY-MM-DD>-<slug>` WITHOUT node_modules/out/models
   (symlink `node_modules` and `models` to the whale ones).
 - Keep untouched: `ink.ts lensblur.ts grade.ts shade.ts cardshade.ts lights.ts paint.ts toon.ts build.ts Whale.tsx`
   (rename the composition), `timewarp.ts` mechanism, `scripts/*`.
@@ -38,11 +38,25 @@ plus an everyday analogy, the consequence, and a callback twist as the last line
 - Voice am_fenrir via `scripts/voice_tight.py` (back-to-back lines, 3.6-3.9 words/s, ~1 s held beat only on the big
   moment). Then `scripts/sound.py` (adapt the SFX event times to the new story).
 
-## 5. Check before rendering
+## 5. Framing rules (owner feedback, short #2)
+- Every second must be readable WITHOUT the voice: the frame shows the thing the voice is talking about at that
+  moment, big enough to recognise, for at least 1.5 s. Write a one-line caption per shot ("tower starts to lean",
+  "builders run off to war") and check the still for that shot actually shows it.
+- Opening (0-3 s): subject AND context together from frame 0: the character's face plus the whole object of the story
+  behind them (e.g. the full leaning tower). Eyes open, no blink in frame 0 (it is the thumbnail). No fast zoom: push-ins
+  are capped at 15 % per shot (engine guard in `pushK`).
+- Big moments are shown, not implied: when the voice says "it starts to lean", the camera is on the tower, the reaction
+  face comes after.
+- Wide before close: establish where we are, then go close. Never start a scene on a fragment of an object.
+- Focus (DOF) is on whoever or whatever the voice is about; faces in the frame are never blurred.
+- No stray objects: scan the full-size still for floating geometry.
+- Demonstrations (mattress, cross-sections) must be exaggerated enough to read on a phone.
+
+## 6. Check before rendering
 - Stills at dpr 0.5 of every shot (`scripts/stills.mjs`), contact sheet (`scripts/sheet.py`), look at them. Fix framing,
   blocked faces, unreadable subjects. Max 2 still rounds.
 
-## 6. Render + deliver
+## 7. Render + deliver
 - `scripts/render_all.sh` (edit paths/frame count), concat, mux the mix, loudnorm -14 LUFS, 1080x1920.
 - Quick QA: blackdetect, 12-frame contact sheet.
 - Deliver: SendUserFile the mp4 (status proactive) with a plain title (clear, to the point, no emojis) and a description
