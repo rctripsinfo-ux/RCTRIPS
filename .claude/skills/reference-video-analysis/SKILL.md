@@ -126,6 +126,13 @@ For every test render:
   as element animation (e.g. high `share_tilt_y` = slide-up entrances).
 - Look for **twin posts** (same day, same length, very different plays). These are variant or trial-reel tests.
 
+### 8c. Variety / anti-template check (motion graphics)
+- `python3 $S/transitions.py ref*.mp4 ours.mp4` classifies every transition (flip/rise/slide/scale/fade/cut) and reports
+  the mix, the dominant type, back-to-back repeats and rhythm. Compare the reference's *per-video* signatures with ours.
+- Lessons (green.faction): flips are rare (about 4%); each reel has a different dominant transition; characters never idle-wobble
+  (they enter, settle, hold); liveliness comes from fast bursts (about 18% of frames), not constant small motion.
+- Don't trust the roll metric alone: sliding panels register as rotation. Confirm with a 30 fps strip.
+
 ### 9. Realism references
 To look real rather than "too perfect", study several how-to tutorials and summarise what they
 **agree** on (lens softness, bloom, vignette, grain, motion blur, a non-clipping view transform).
