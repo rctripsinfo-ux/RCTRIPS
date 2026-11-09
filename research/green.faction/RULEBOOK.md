@@ -3,7 +3,7 @@
 Source: all **54 reels** on @green.faction (7 Jul – 8 Nov 2026), analysed with the
 `reference-video-analysis` skill: every frame at 30 fps, contact sheets, motion and colour
 metrics, loudness, and transcripts (Hindi, medium Whisper + Apify).
-Raw numbers: `REFERENCE_SET.json` and `reels_metadata.csv` in this folder.
+Raw numbers: `REFERENCE_SET.json`, `reels_metadata.csv` and all scripts in `TRANSCRIPTS.md` in this folder.
 
 ## 1. Performance snapshot
 | Metric | Value |
@@ -61,19 +61,20 @@ animate:
   pops/min). The winners are cleaner and less busy.
 
 ## 4. Script formula (what it says)
-Hindi/Hinglish voice-over, second person ("tum"), **3.5 words/sec** (p25 3.2, p75 3.6), no music.
-1. **Hook (0–3 s), relatable "if / when" situation**, used in 15/37 (6 of the top 10):
+Hindi/Hinglish voice-over, second person ("tum"), **3.5 words/sec** (p25 3.3, p75 3.6), no music.
+Counts below are out of 53 transcripts; full text is in `TRANSCRIPTS.md`.
+1. **Hook (0–3 s), relatable "if / when" situation**, used in 23/53 (7 of the top 10):
    "Jab bhi tum shirt ya t-shirt pehnoge… sirf tumhare forearms visible honge."
    "Agar roz crunches ke baad bhi six-pack missing hai…"
    or a **myth-bust**: "Tumhara pet utna bada nahi hai… asli wajah anterior pelvic tilt hai."
 2. **Stakes:** "Agar wo patle hain, toh poori physique bekaar lagegi."
 3. **Promise with low effort:** "Sirf do dumbbell se…", "bina gym, bina equipment"
-   (8/37). "3D" muscles (9/37). A stat/percentage ("90% log…", "60 pratishat") appears in 12/37.
+   (9/53). "3D" muscles (13/53). A stat/percentage ("90% log…", "60 pratishat") appears in 13/53; "mistake" framing in 10/53.
 4. **Challenge line:** "Ab faisla tumhara: scroll karoge ya 3D shoulder banaoge?"
 5. **Anatomy lesson:** the target muscles, each named and colour-highlighted on screen.
-6. **Numbered exercises (2–5):** name → which muscle → one form cue (14/37 use explicit numbering).
+6. **Numbered exercises (2–5):** name → which muscle → one form cue (20/53 use explicit numbering).
 7. **CTA, almost always:** "Next workout ke liye save kar lo" + "Gym Faction download karo,
-   link bio mein hai." The app CTA appears in **36/37** transcripts.
+   link bio mein hai." The app CTA appears in **52/53** transcripts (all of the top 10); "save" in 11/53.
 
 Captions are short and curiosity-driven ("30 Days Abs Challenge 💀", "Giga Biceps 💪"),
 with few hashtags (mostly #gymfaction).
@@ -97,6 +98,6 @@ with few hashtags (mostly #gymfaction).
 
 ## Notes and limits
 - Transcripts are machine-generated (Hindi ASR), so spellings are approximate. Pattern counts are
-  keyword matches over 37 of 54 transcripts (all of the top 10 except #7).
+  keyword matches over 53 of 54 transcripts. The missing one is the low-play twin of #4.
 - "Hard cut" counts from the analyzer over-trigger on motion graphics, because single-frame
   pop-ins count as cuts. Section 3 uses merged scenes (pops < 0.25 s folded into the scene).
