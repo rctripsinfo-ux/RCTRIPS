@@ -11,7 +11,7 @@ const composition = await selectComposition({ serveUrl, id: comp, chromiumOption
 const onBrowserLog = (l) => { if (l.type === "error" || l.type === "warning") console.log(`[${l.type}]`, l.text.slice(0, 300)); };
 for (const f of frames.split(",").map(Number)) {
   const t0 = Date.now();
-  await renderStill({ composition, serveUrl, frame: f, output: `${prefix}${f}.jpg`, imageFormat: "jpeg", jpegQuality: 88, scale: Number(scale),
+  await renderStill({ composition, serveUrl, frame: f, output: `${prefix}${f}.${process.env.PNG ? "png" : "jpg"}`, imageFormat: process.env.PNG ? "png" : "jpeg", ...(process.env.PNG ? {} : { jpegQuality: 88 }), scale: Number(scale),
     chromiumOptions, browserExecutable, inputProps, timeoutInMilliseconds: 300000, onBrowserLog });
   console.log("still", f, ((Date.now() - t0) / 1000).toFixed(1) + "s");
 }
