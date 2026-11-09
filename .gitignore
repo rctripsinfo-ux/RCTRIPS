@@ -10,3 +10,4 @@ work/shorts/*/node_modules
 work/shorts/*/models
 work/shorts/*/public/*/*.wav
 work/shorts/*/voice/*.wav
+blunderloop_*.mp4
