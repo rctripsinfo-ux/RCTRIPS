@@ -5,17 +5,27 @@ Needs faster-whisper or openai-whisper installed. Make sure the file has the ORI
 Usage: transcribe.py VIDEO --out DIR [--model small] [--language en]
 Writes transcript.txt, segments.json, speech.json.
 """
-import argparse, json, os
+import argparse, json, os, subprocess
+import numpy as np
+
+
+def load_audio(path):
+    """Decode with ffmpeg to 16 kHz mono float32 (avoids PyAV version issues)."""
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-vn", "-ac", "1", "-ar", "16000",
+                          "-f", "f32le", "-"], capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.float32).copy()
 
 
 def run(path, model, lang):
+    audio = load_audio(path)
     try:
         from faster_whisper import WhisperModel
-        segs, _ = WhisperModel(model).transcribe(path, language=lang)
+        segs, info = WhisperModel(model, device="cpu", compute_type="int8").transcribe(audio, language=lang)
+        print(f"language: {info.language} ({info.language_probability:.2f})")
         return [{"start": s.start, "end": s.end, "text": s.text.strip()} for s in segs]
     except ImportError:
         import whisper
-        r = whisper.load_model(model).transcribe(path, language=lang)
+        r = whisper.load_model(model).transcribe(audio, language=lang)
         return [{"start": s["start"], "end": s["end"], "text": s["text"].strip()} for s in r["segments"]]
 
 
