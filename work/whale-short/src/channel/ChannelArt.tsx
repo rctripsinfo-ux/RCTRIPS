@@ -78,16 +78,21 @@ export const Banner: React.FC = () => (
       at(g, 2050, 260, 0.9, (p) => fxBoom(p, 1));
       at(g, 120, 330, 1.1, (p) => fxGull(p, 0.2)); at(g, 350, 220, 0.8, (p) => fxGull(p, 0.6)); at(g, 1700, 110, 0.7, (p) => fxGull(p, 0.4));
       at(g, 300, 520, 0.6, (p) => fxChunk(p, 1)); at(g, 2300, 640, 0.55, (p) => fxChunk(p, 3));
-      // ---- safe area (1546 x 423, centred): hero + title + tagline ----
-      const sx = (W - 1546) / 2, sy = (H - 423) / 2;
-      at(g, sx + 10, sy - 18, 0.47, (p) => bodyFront(p, HERO, { mode: "stand", expr: "shock", light: -2.1, seed: 3, wave: 0.6 }));
-      loopArrow(g, sx + 300 + 640, sy + 165, 0, 0, 0, 0);
-      title(g, ["BLUNDER", "LOOP"], sx + 300 + 640, sy + 170, 168);
-      g.font = "900 50px Mont"; g.textAlign = "left";
-      const tag = "TRUE STORIES THAT WENT HILARIOUSLY WRONG", tw = g.measureText(tag).width, tx = sx + 300 + 640 - tw / 2, ty = sy + 330;
-      g.fillStyle = PAL.ink; g.beginPath(); g.roundRect(tx - 34, ty - 44, tw + 68, 88, 44); g.fill();
-      g.fillStyle = PAL.gold; g.textBaseline = "middle"; g.fillText(tag, tx, ty + 3);
-      // small loop arrow wrapped around the "O" of LOOP is implied by the title colour; a ring sits behind the hero
+      // ---- safe area (1546 x 423, centred): everything that matters stays at least 30 px inside it ----
+      const sx = (W - 1546) / 2, sy = (H - 423) / 2, pad = 30;
+      // hero: soles at the safe-area bottom, head well below its top
+      const hs = 0.4; at(g, sx + pad - 40, sy + 423 - pad - 975 * hs, hs, (p) => bodyFront(p, HERO, { mode: "stand", expr: "shock", light: -2.1, seed: 3, wave: 0.6 }));
+      // title + tagline auto-fitted into the space right of the hero
+      const x0 = sx + 250, x1 = sx + 1546 - pad, cx = (x0 + x1) / 2, avail = x1 - x0;
+      let size = 160; g.font = `900 ${size}px Mont`;
+      while (g.measureText("BLUNDERLOOP").width + size * 0.2 > avail && size > 60) { size -= 4; g.font = `900 ${size}px Mont`; }
+      title(g, ["BLUNDER", "LOOP"], cx, sy + 160, size);
+      const tag = "TRUE STORIES THAT WENT HILARIOUSLY WRONG";
+      let ts = 46; g.font = `900 ${ts}px Mont`;
+      while (g.measureText(tag).width + 80 > avail && ts > 20) { ts -= 2; g.font = `900 ${ts}px Mont`; }
+      const tw = g.measureText(tag).width, tx = cx - tw / 2, ty = sy + 315;
+      g.textAlign = "left"; g.fillStyle = PAL.ink; g.beginPath(); g.roundRect(tx - 32, ty - ts * 0.9, tw + 64, ts * 1.8, ts * 0.9); g.fill();
+      g.fillStyle = PAL.gold; g.textBaseline = "middle"; g.fillText(tag, tx, ty + 2);
     }} />
   </AbsoluteFill>
 );
