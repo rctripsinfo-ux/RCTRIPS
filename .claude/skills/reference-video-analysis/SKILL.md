@@ -114,6 +114,18 @@ For every test render:
 - Re-check early notes with later measurements. Earlier descriptions are often
   wrong (e.g. "egg-shaped heads" turned out to be the opposite once 38 were measured).
 
+### 8b. Lessons from real runs
+- **Instagram:** anonymous scraping redirects to login. Use Apify `apify/instagram-reel-scraper`
+  (needs an Apify token) for the reel list and video URLs. Some reels come back **video-only**:
+  download the separate `audioUrl` and transcribe that. CDN links expire within hours.
+- **Transcripts:** Apify `steadyfetch/instagram-reel-transcript-scraper` (about $0.015/reel, free
+  plan capped at 25/day), or local `transcribe.py --model medium --language hi` for Hindi
+  (`small` is too inaccurate).
+- **Motion-graphics / 2D animated reels:** single-frame pop-ins count as "hard cuts". Merge
+  shots shorter than 0.25 s into scenes before reporting cut rate, and read "camera" motion
+  as element animation (e.g. high `share_tilt_y` = slide-up entrances).
+- Look for **twin posts** (same day, same length, very different plays). These are variant or trial-reel tests.
+
 ### 9. Realism references
 To look real rather than "too perfect", study several how-to tutorials and summarise what they
 **agree** on (lens softness, bloom, vignette, grain, motion blur, a non-clipping view transform).
