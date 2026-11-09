@@ -1,2 +1,4 @@
 work/
 __pycache__/
+videos/*/out/stills/
+videos/*/out/mix.wav
