@@ -3,6 +3,8 @@
 
 Tracks the foreground (everything that differs from the background colour) frame by frame and classifies each
 change of scene by how the foreground's bounding box behaves:
+  drop   - enters from the top edge and falls into place
+  pop    - grows from a small blob around a fixed centre
   flip   - width collapses to a sliver while height stays (3D card turn)
   rise   - foreground enters from the bottom edge (top edge travels upward)
   slide  - centre travels horizontally
@@ -44,6 +46,15 @@ def classify(seq):
         if min(ws) < 0.35 * wn and min(hs) > 0.6 * hn:
             return "flip"
     tops = [s["top"] for s in seq if s["area"] > 0.004]
+    vis = [s for s in seq if s["area"] > 0.004]
+    if len(vis) >= 3:
+        # drop: enters from the top edge (centre travels downward into place)
+        if vis[0]["cy"] < post["cy"] - 0.12 and vis[0]["top"] < 0.05 and post["top"] > vis[0]["top"] + 0.05:
+            return "drop"
+        # pop: grows from a small blob around a fixed centre
+        if (min(s["w"] * s["h"] for s in vis) < 0.25 * post["w"] * post["h"]
+                and abs(vis[0]["cx"] - post["cx"]) < 0.1 and abs(vis[0]["cy"] - post["cy"]) < 0.12):
+            return "pop"
     if mid["area"] < 0.35 * max(pre["area"], post["area"]):
         if len(tops) >= 3 and tops[-1] < tops[len(tops) // 2] - 0.08 and seq[len(seq) // 2]["cy"] > post["cy"] + 0.05:
             return "rise"
