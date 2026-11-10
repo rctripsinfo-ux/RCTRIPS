@@ -133,6 +133,16 @@ For every test render:
   (they enter, settle, hold); liveliness comes from fast bursts (about 18% of frames), not constant small motion.
 - Don't trust the roll metric alone: sliding panels register as rotation. Confirm with a 30 fps strip.
 
+### 8d. Production rules learned (owner feedback, posture reel v1–v6)
+- **Contrast:** check every text colour against every background with WCAG (large text ≥ 3, aim ≥ 4.5).
+  Red text on green/brown fails. Use white/yellow text with a dark outline; red for graphics or as a box behind white text.
+- **Nothing cut by the frame:** register every drawn element's box per frame and fail on anything cut for ≥ 0.2 s
+  (entrances from off-screen are fine). Auto-fit text width, clamp badges/arrows inside a 30 px margin, fit characters to
+  the width, cap zooms so nothing leaves the frame. See `videos/posture06/audit.py`.
+- **Pacing:** motion must follow the script. Change scenes on sentence starts and key words, ≥ 0.6–0.8 s apart; entrances
+  0.5–0.7 s with gentle easing. The hook (first 5 s) gets the most moves, but each one lands on a word.
+- **Never:** idle wobble, the same pose twice in a row (zoom copy), looping pulses, arrows on the face.
+
 ### 9. Realism references
 To look real rather than "too perfect", study several how-to tutorials and summarise what they
 **agree** on (lens softness, bloom, vignette, grain, motion blur, a non-clipping view transform).
