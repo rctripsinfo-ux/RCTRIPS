@@ -53,7 +53,12 @@ The user mentioned about 30 videos and thumbnails made and uploaded earlier. The
 - no files in this repo;
 - vidIQ is connected as the RC Trips account but has no YouTube channel authorized.
 
-They are probably the Effortless Exercise Shorts (character "H", `reel-video-maker` and thumbnail-prompt skills), but that is a guess. **Next step:** ask the user where they are (channel link, Drive folder or title list) and what they want done with them.
+They are probably the Effortless Exercise Shorts (character "H", `reel-video-maker` and thumbnail-prompt skills), but that is a guess.
+
+Likely content sheet, found in Google Drive: **30_Myth_Shorts** (Google Sheet, created 2026-10-05; columns `#`, `Title`, `Script (speak this)`, `Description`; fitness myth Shorts, e.g. #1 "Bicep Curls Won't Give You Big Arms"):
+https://docs.google.com/spreadsheets/d/1rUMtVU3cpZnqmE1EoYToCupeKjVePPrfqphYHyvl4sk/edit
+
+**Next step:** ask the user where they are (channel link, Drive folder or title list) and what they want done with them.
 
 ## Pending
 1. The user records the booking-website script, then build that reel with the `freestack-video` skill.
