@@ -52,6 +52,27 @@ plus an everyday analogy, the consequence, and a callback twist as the last line
 - No stray objects: scan the full-size still for floating geometry.
 - Demonstrations (mattress, cross-sections) must be exaggerated enough to read on a phone.
 
+## 5b. Storytelling rules (owner feedback after short #3 + study of the reference overview sheets, shorts 04/07/14)
+What the reference does, seen second by second on the sheets (one tile ~ 1 s, the caption word visible):
+1. **Every phrase is illustrated literally.** A new picture every 1-2 s that shows exactly the words being said
+   ("ringing" = the bell ringing, "out of bed" = him getting out of bed). We showed moods; they show the sentence.
+2. **One main character with a name, a face and a want**, on screen most of the time, acting every beat (gesture, prop,
+   expression). Side characters are few and consistent (the wife, the friend).
+3. **The premise in ONE picture at frame 0**: the absurd fact itself (man buried with a bell on a string; two kings
+   at an anvil under a "YEARS AT WAR" board). Not just a shocked face: the face + the absurd situation.
+4. **In-world text carries the facts** (not captions): counters and signs ("YEARS AT WAR 099 -> 100", "DAYS OF PEACE
+   001"), labels on props, a blueprint stamped "PIERCED BY NOTHING". Numbers from the script appear as objects.
+5. **Cut-aways and diagrams explain** (underground cross-section of the coffin and rope; arrows painted on the field;
+   a plan on a table), always inside the world.
+6. **Many places, each tiny and specific** (8-12 sets: bedroom, porch, saloon, graveyard), interiors and night, warm
+   practical lights. Not one big open landscape.
+7. **Callback ending**: the opening prop returns changed (the board flips to "DAYS OF PEACE 001").
+
+Production consequences (mandatory from short #4):
+- Write a **shot list with one row per phrase**: words, time, exactly what is on screen, who acts, which prop/sign.
+- Make a **storyboard sheet** (1 still per row, dpr 0.5) and send it to the owner BEFORE the full render.
+- Ask: "Without sound, can you tell the story from the storyboard?" If not, fix the rows, not the render.
+
 ## 6. Check before rendering
 - Stills at dpr 0.5 of every shot (`scripts/stills.mjs`), contact sheet (`scripts/sheet.py`), look at them. Fix framing,
   blocked faces, unreadable subjects. Max 2 still rounds.
