@@ -33,3 +33,8 @@ Owner's master prompt, short form. Every new video follows it.
 - Audio: voice loudest, SFX clearly lower, music lowest (director.py measures every stem).
 - Never cut H's head/feet with zooms (zoom <= ~1.18, focus not above the middle). Day 4 exercise cards.
 - Template: d06_plan.py (director.py). Library landmark points are unreliable for marks: give x/y by hand and check a still.
+
+## Owner rule 14 Nov: highlight points must sit ON the named muscle
+Every tag / arrow / ring point is checked on a rendered still before the full render (crop at the mark's time):
+chest -> on the pec, back -> mid back, lats -> under the armpit on the side of the back, biceps -> front of the upper arm.
+Library landmark points are not trusted; positions are set by hand and verified on the still.

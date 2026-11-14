@@ -27,8 +27,8 @@ S = [
  dict(text="Here's the truth. Your chest doesn't make you look wide. Your back does. And if you want that V-shape, you need to train your lats and your upper back. Here are three moves that get it done.",
       poses=[], tr="cut",
       layers=[dict(at=0, w=0.86, x=0.5, y=0.6, poses=[("hero_double_biceps", 0), ("hero_back_double_biceps", "back"), ("hero_count_3", "three")], enter=("pop", 0.5))],
-      marks=[dict(at="chest", until="back", style="tag", text="CHEST", x=.5, y=.36), dict(at="back", until="V-shape", style="tag", text="BACK", x=.5, y=.36),
-             dict(at="lats", until="three", style="tag", text="LATS", x=.32, y=.42)],
+      marks=[dict(at="chest", until="back", style="tag", text="CHEST", x=.42, y=.395), dict(at="back", until="V-shape", style="tag", text="BACK", x=.5, y=.46),
+             dict(at="lats", until="three", style="tag", text="LATS", x=.37, y=.45)],
       keys=[(0, 1.0, .5, .5), ("wide.", 1.0, .5, .5), ("does.", 1.15, .5, .42), ("V-shape,", 1.45, .5, .4), ("three", 1.0, .5, .5)]),
  # 3 FIX 1: giant grey 1, then the row slides in front of it; reps from "Keep"
  dict(text="First, inverted rows. A table, a bar, a broomstick across two chairs, it doesn't matter. Keep your body straight, and pull your chest to the bar.",
