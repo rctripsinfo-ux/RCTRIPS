@@ -62,8 +62,9 @@ def exs(items, start=1):
     return "".join(f'<div class="ex"><span class="n">{start + i}</span>{E(x)}</div>' for i, x in enumerate(items))
 
 
+
 def ba(pairs):
-    return "".join(f'<div class="ba"><div class="b"><span class="lbl">❌ PEHLE</span>{E(b)}</div><div class="a"><span class="lbl">✅ BAAD MEIN</span>{E(a)}</div></div>' for b, a in pairs)
+    return "".join(f'<div class="ba"><div class="b"><span class="lbl">❌ BEFORE</span>{E(b)}</div><div class="a"><span class="lbl">✅ AFTER</span>{E(a)}</div></div>' for b, a in pairs)
 
 
 S = []
@@ -71,153 +72,153 @@ S = []
 # 1 cover
 S.append(slide('<div style="font:900 300px/0.9 Inter Display;letter-spacing:-12px;margin-top:30px">120<span class="red">+</span></div>'
                '<h1 style="margin-top:0">Viral Hinglish<br>Hooks <span class="red">PRO</span></h1>'
-               '<p class="lead">14 asli reels ka teardown · 12 hook types · 20 before/after · pehle 3 second ka system</p>'
-               '<div style="position:absolute;right:70px;bottom:120px;display:flex;align-items:center;gap:18px"><div style="text-align:right;font:800 26px Inter">by @freestack.ai<br><span style="font-weight:600;font-size:22px">17,000+ views ke data se bana</span></div><img class="avatar" src="img/pp.jpg"></div>', "y", "Faceless creators ke liye"))
+               '<p class="lead">14 real reel teardowns · 12 hook types · 20 before/after rewrites · the first-3-seconds system</p>'
+               '<div style="position:absolute;right:70px;bottom:120px;display:flex;align-items:center;gap:18px"><div style="text-align:right;font:800 26px Inter">by @freestack.ai<br><span style="font-weight:600;font-size:22px">Built from 17,000+ views of real data</span></div><img class="avatar" src="img/pp.jpg"></div>', "y", "For faceless creators"))
 
 # 2 contents
-S.append(slide('<h2>Is PDF mein kya hai</h2><table class="tbl">'
+S.append(slide('<h2>What\'s inside</h2><table class="tbl">'
                + "".join(f"<tr><td class='num'>{a}</td><td>{E(b)}</td></tr>" for a, b in [
-                   ("01", "Asli reels ka teardown: 8 winners vs 6 flops, screenshots ke saath"),
-                   ("02", "Instagram reel ko aage kaise bhejta hai (simple bhasha mein)"),
-                   ("03", "3-Layer Hook: text + aawaz + visual ek saath"),
-                   ("04", "Hook Score: post karne se pehle 10-point test"),
-                   ("05", "Hook fail hone ke 10 kaaran"),
-                   ("06", "Screen pe hook kaise likhein (typography rules)"),
+                   ("01", "Real reel teardowns: 8 winners vs 6 flops, with screenshots"),
+                   ("02", "How Instagram decides who sees your reel (in plain words)"),
+                   ("03", "The 3-Layer Hook: text + voice + visual together"),
+                   ("04", "Hook Score: a 10-point test before you post"),
+                   ("05", "10 reasons hooks fail"),
+                   ("06", "How to put a hook on screen (typography rules)"),
                    ("07", "12 hook types: psychology + template + examples"),
                    ("08", "20 before → after rewrites"),
-                   ("09", "7 niches × 10 ready hooks (bina blank)"),
-                   ("10", "Hook ke baad kya bolein: A.R.C.S. formula"),
-                   ("11", "Hook testing aur 'double down' system"),
-                   ("12", "7-din ka hook practice plan")]) + "</table>", tag="Andar"))
+                   ("09", "7 niches × 10 ready-to-use hooks (no blanks)"),
+                   ("10", "What to say after the hook: the A.R.C.S. formula"),
+                   ("11", "Hook testing and the 'double down' system"),
+                   ("12", "7-day hook practice plan")]) + "</table>", tag="Contents"))
 
 # 3 story + teardowns
-S.append(slide('<div style="display:flex;gap:30px;align-items:center;margin-top:24px"><img class="avatar" src="img/pp.jpg"><div><h2 style="margin:0">Ye PDF kaise bani</h2><p class="small">@freestack.ai · faceless AI-tools page</p></div></div>'
-    '<p class="lead" style="margin-top:30px">Maine 30 din tak roz ek reel daali. Same design, same voice, same length. <b>Farak sirf hook ka tha.</b></p>'
-    '<div class="card"><b>Result:</b> 17,000+ views. Sabse achhi reel <b>1,645</b>, sabse kharab <b>140</b>. Ek hi page pe <b>11× ka farak</b>, sirf pehli line se.</div>'
-    '<div class="card">Is PDF mein wahi hai jo maine data se seekha: kaunse hooks chale, kaunse flop hue, aur kyun. Aage ke pages mein asli reels ka teardown hai.</div>'
-    '<p class="small" style="margin-top:14px">Sach batau toh ye ek chhota page hai, koi celebrity nahi. Isliye ye seekh aapke kaam ki hai: aap bhi isi stage pe ho.</p>', tag="Meri kahani"))
-WIN=[("05","1,645","Google ne apna AI agent free mein de diya, aur bahut kam log jaante hain.",["Badi brand","Secret","Free"],"Google ka naam = bharosa. 'Kam log jaante hain' = andar ki baat. Viewer ko laga wo kuch miss kar raha hai."),
-("07","1,611","Ek hafte mein 5 mehenge AI tools ke free versions. Kitne yaad hain?",["Recap","Quiz","List"],"Sabse chhoti reel (28s). Quiz ne khel bana diya, aur list hone se save hui."),
-("04","1,593","Coding ke liye Cursor ka subscription? Ruk jao.",["Ruk jao","Paisa","Badi brand"],"Jis tool ke log paise dete hain, uska naam + seedha order. Sabse zyada likes (49) isi pe aaye."),
-("28","1,434","Teen hafton mein itne free versions. Kitne yaad hain?",["Recap","Quiz"],"Doosra recap, doosri baar top 5. Ye format luck nahi, pattern hai."),
-("11","1,182","Sirf likho, aur AI video bana dega.",["Result pehle","Wow"],"6 shabd, aur result dimaag mein turant dikh gaya. Samajhne ke liye sochna nahi pada."),
-("09","1,102","AI voiceover ke liye har mahine paise de rahe ho?",["Dard","Paisa","Sawaal"],"Creators ka asli kharcha pakda. Sawaal pe viewer ne mann mein 'haan' bola."),
-("27","1,093","Purani blurry video ko 4K mein badlo, free.",["Result pehle","Emotion"],"Purani family videos = emotion. Before/after dimaag mein bana."),
-("29","1,040","Ye 'free' AI tools sach mein free hain? Ek kadwa sach sun lo.",["Kadwa sach","Trust"],"Koi tool nahi, sirf ek imaandaar raay. Audience ko imaandaari pasand aayi.")]
-LOSE=[("24","140","AI ko apni files, GitHub aur apps se jodo, ek standard tareeke se.",["Confusing","Jargon"],"Na dard, na result. 'Standard tareeka' kisi ko nahi chahiye."),
-("19","144","Manus AI ka waitlist aur credits bhool jao.",["Unknown naam"],"Maan liya ki log Manus jaante hain. Nahi jaante the."),
-("22","144","Ek AI employee, jo kabhi chhutti nahi leta.",["Vague","Ghisa-pita"],"Sunne mein achha, par kya karta hai? Kuch saaf nahi."),
-("16","151","Koi bhi article, aur do AI hosts uspe podcast karenge.",["Lamba","Low stakes"],"Lambi line, aur jis tool ka alternative tha wo pehle se free hai."),
-("18","153","Google se smart search, jo seedha jawab de.",["Feature only"],"Feature bataya, dard nahi. Kyun rukun?"),
-("13","175","Midjourney level AI images, zero rupaye mein.",["Purani khabar"],"Free AI images ab har phone mein hain. 'Free' ab news nahi.")]
+S.append(slide('<div style="display:flex;gap:30px;align-items:center;margin-top:24px"><img class="avatar" src="img/pp.jpg"><div><h2 style="margin:0">How this PDF was made</h2><p class="small">@freestack.ai · faceless AI-tools page</p></div></div>'
+    '<p class="lead" style="margin-top:30px">I posted one reel every day for 30 days. Same design, same voice, same length. <b>The only thing that changed was the hook.</b></p>'
+    '<div class="card"><b>Result:</b> 17,000+ views. Best reel: <b>1,645</b> views. Worst: <b>140</b>. An <b>11× gap</b> on the same page, from the first line alone.</div>'
+    '<div class="card">This PDF is what that data taught me: which hooks worked, which flopped, and why. The next pages break down the actual reels.</div>'
+    '<p class="small" style="margin-top:14px">To be honest, this is a small page, not a celebrity. That is exactly why these lessons are useful to you: you are at the same stage.</p>', tag="My story"))
+WIN=[("05","1,645","Google ne apna AI agent free mein de diya, aur bahut kam log jaante hain.",["Big brand","Secret","Free"],"Google's name = instant trust. 'Few people know' = insider info. Viewers felt they were missing out."),
+("07","1,611","Ek hafte mein 5 mehenge AI tools ke free versions. Kitne yaad hain?",["Recap","Quiz","List"],"The shortest reel (28s). The quiz turned it into a game, and the list format made people save it."),
+("04","1,593","Coding ke liye Cursor ka subscription? Ruk jao.",["Stop command","Money","Big brand"],"Named a tool people actually pay for, plus a direct command. Got the most likes of the series (49)."),
+("28","1,434","Teen hafton mein itne free versions. Kitne yaad hain?",["Recap","Quiz"],"Second recap, second time in the top 5. This format is a pattern, not luck."),
+("11","1,182","Sirf likho, aur AI video bana dega.",["Result first","Wow"],"Six words, and the result appears in your head instantly. No thinking needed."),
+("09","1,102","AI voiceover ke liye har mahine paise de rahe ho?",["Pain","Money","Question"],"Hit a real monthly cost creators pay. The question made viewers silently answer 'yes'."),
+("27","1,093","Purani blurry video ko 4K mein badlo, free.",["Result first","Emotion"],"Old family videos = emotion. The before/after formed in the viewer's mind."),
+("29","1,040","Ye 'free' AI tools sach mein free hain? Ek kadwa sach sun lo.",["Hard truth","Trust"],"No tool at all, just an honest opinion. The audience rewarded honesty.")]
+LOSE=[("24","140","AI ko apni files, GitHub aur apps se jodo, ek standard tareeke se.",["Confusing","Jargon"],"No pain, no result. Nobody wants 'a standard way'."),
+("19","144","Manus AI ka waitlist aur credits bhool jao.",["Unknown name"],"Assumed people knew what Manus was. They didn't."),
+("22","144","Ek AI employee, jo kabhi chhutti nahi leta.",["Vague","Overused"],"Sounds nice, but what does it actually do? Not clear."),
+("16","151","Koi bhi article, aur do AI hosts uspe podcast karenge.",["Too long","Low stakes"],"Long line, and the 'paid' tool it replaced is already free."),
+("18","153","Google se smart search, jo seedha jawab de.",["Feature only"],"Described a feature, not a pain. Why would anyone stop?"),
+("13","175","Midjourney level AI images, zero rupaye mein.",["Old news"],"Free AI images are on every phone now. 'Free' is no longer news.")]
 def tdw(items, cls, sm=False):
     return "".join(f'<div class="td{" sm" if sm else ""}"><img src="img/{c}.jpg"><div><span class="views {cls}">{v} views</span><div class="hq">"{E(h)}"</div>'+"".join(f'<span class="chip">{E(t)}</span>' for t in tags)+f'<p class="why">{E(w)}</p></div></div>' for c,v,h,tags,w in items)
 for i in range(0,8,2):
-    S.append(slide(f'<h2 style="margin-bottom:6px">Teardown: <span class="good">kyun chali</span> ({i//2+1}/4)</h2>'+tdw(WIN[i:i+2],"g"), tag="01 · Asli reels"))
+    S.append(slide(f'<h2 style="margin-bottom:6px">Teardown: <span class="good">why it worked</span> ({i//2+1}/4)</h2>'+tdw(WIN[i:i+2],"g"), tag="01 · Real reels"))
 for i in range(0,6,3):
-    S.append(slide(f'<h2 style="margin-bottom:6px">Teardown: <span class="bad">kyun flop hui</span> ({i//3+1}/2)</h2>'+tdw(LOSE[i:i+3],"l",True), tag="01 · Asli reels"))
-S.append(slide('<h2>8 winners vs 6 flops: <span class="red">pattern</span></h2>'
-    '<div class="card"><b>Jeetne wale hooks ne kiya:</b><br>✅ aisi cheez ka naam liya jiske log paise dete hain<br>✅ viewer ko seedha challenge ya sawaal kiya<br>✅ quiz/recap ka khel banaya<br>✅ result ek line mein dikha diya</div>'
-    '<div class="card" style="border-color:#111"><b>Flop hooks ne kiya:</b><br>❌ sirf feature bataya<br>❌ anjaan naam liya<br>❌ jargon ("standard", "protocol")<br>❌ "free" bola jahan free ab normal hai</div>'
-    '<p class="lead" style="margin-top:20px">Agle pages mein ye pattern ek system mein badla gaya hai, jo kisi bhi niche mein chalega.</p>', "y", "01 · Pattern"))
+    S.append(slide(f'<h2 style="margin-bottom:6px">Teardown: <span class="bad">why it flopped</span> ({i//3+1}/2)</h2>'+tdw(LOSE[i:i+3],"l",True), tag="01 · Real reels"))
+S.append(slide('<h2>8 winners vs 6 flops: <span class="red">the pattern</span></h2>'
+    '<div class="card"><b>Winning hooks:</b><br>✅ named something people already pay for<br>✅ challenged or questioned the viewer directly<br>✅ turned the reel into a quiz or recap<br>✅ showed the result in one line</div>'
+    '<div class="card" style="border-color:#111"><b>Flop hooks:</b><br>❌ only described a feature<br>❌ used a name nobody knew<br>❌ used jargon ("standard", "protocol")<br>❌ said "free" where free is already normal</div>'
+    '<p class="lead" style="margin-top:20px">The next pages turn this pattern into a system that works in any niche.</p>', "y", "01 · Pattern"))
 
 # 4 algorithm
-S.append(slide('<h2>Instagram reel ko <span class="red">aage kaise bhejta hai</span></h2>'
-               '<div class="card"><b>Step 1:</b> Reel pehle thode logon ko dikhti hai (followers + kuch naye log).</div>'
-               '<div class="card"><b>Step 2:</b> Wo log ruke? Poori dekhi? Like kiya? Kisi ko bheji? Agar haan, toh reel naye logon tak jaati hai.</div>'
-               '<div class="card"><b>Step 3:</b> Naye log bhi wahi karein, toh aur aage. Yahi "viral" hai.</div>'
-               '<p style="margin-top:20px">Instagram ke head <b>Adam Mosseri</b> ne publicly bataya hai ki reels ke sabse bade signals hain: <span class="mark">watch time</span>, <span class="mark">likes per reach</span> aur <span class="mark">sends per reach</span> (DM mein share).</p>'
-               '<p><b>Matlab:</b> hook ka kaam sirf rokna nahi, <b>sahi insaan ko rokna</b> hai, jo poori dekhe aur bheje. Clickbait se log rukte hain, par jaldi bhaagte hain, aur reel wahin ruk jaati hai.</p>', tag="02 · Algorithm"))
+S.append(slide('<h2>How Instagram <span class="red">pushes a reel</span></h2>'
+               '<div class="card"><b>Step 1:</b> Your reel is first shown to a small group (some followers + some new people).</div>'
+               '<div class="card"><b>Step 2:</b> Did they stop? Watch to the end? Like it? Send it to someone? If yes, it goes to more new people.</div>'
+               '<div class="card"><b>Step 3:</b> If new people react the same way, it keeps going. That is "going viral".</div>'
+               '<p style="margin-top:20px">Instagram head <b>Adam Mosseri</b> has said publicly that the biggest signals for reels are <span class="mark">watch time</span>, <span class="mark">likes per reach</span> and <span class="mark">sends per reach</span> (shares by DM).</p>'
+               '<p><b>So:</b> a hook\'s job is not just to stop people. It must stop the <b>right</b> people, who watch to the end and share. Clickbait stops people, but they leave fast, and the reel dies there.</p>', tag="02 · Algorithm"))
 
 # 5 three layer
-S.append(slide('<h2>3-Layer Hook: <span class="red">teeno ek hi baat bolein</span></h2>'
-               '<div class="two"><div><h3>1. Text (screen)</h3><p class="small">3–7 bade shabd. Pehle frame pe, 0.0 second se.</p><h3>2. Aawaz (pehli line)</h3><p class="small">Wahi baat, bolne ke andaaz mein. "Hi guys" ya intro nahi.</p><h3>3. Visual</h3><p class="small">Result, chehre ka reaction, ya kuch hota hua (cup ka crush hona type). Khaali screen nahi.</p></div>'
-               '<div style="display:flex;gap:16px;justify-content:center"><div class="phone bad2"><p class="small" style="opacity:.5">pastel bg</p><p class="small"><b>khaali mockup</b></p><p class="small" style="opacity:.5">mascot 4 sec baad</p></div></div></div>'
-               '<div class="card"><b>Hamari galti (data se):</b> hamare covers bahut achhe the: laal-peela, mascot, "₹0". Par reel ka <b>pehla frame</b> halka pastel aur khaali mockup tha. Feed mein log cover nahi, <b>frame 0</b> dekhte hain. Lesson: cover design ko hi reel ka pehla frame banao.</div>'
-               '<div class="card"><b>Doosri galti:</b> har reel ke 2–5 second "Subscription band karo, Day N" bolne mein gaye. Naye viewer ke liye zero value. Series ka naam chhota sa screen pe likho, bolo mat.</div>', tag="03 · Pehle 3 second"))
+S.append(slide('<h2>The 3-Layer Hook: <span class="red">all three say the same thing</span></h2>'
+               '<div class="two"><div><h3>1. Text (on screen)</h3><p class="small">3–7 big words. On the very first frame, from 0.0 seconds.</p><h3>2. Voice (first line)</h3><p class="small">The same message, said naturally. No "Hi guys", no intro.</p><h3>3. Visual</h3><p class="small">A result, a face reacting, or something happening. Never an empty screen.</p></div>'
+               '<div style="display:flex;gap:16px;justify-content:center"><div class="phone bad2"><p class="small" style="opacity:.5">pastel background</p><p class="small"><b>empty mockup</b></p><p class="small" style="opacity:.5">mascot after 4 sec</p></div></div></div>'
+               '<div class="card"><b>Our mistake (from the data):</b> our covers were strong: red-yellow, mascot, "₹0". But the reel\'s <b>first frame</b> was a pale pastel screen with an empty mockup. In the feed, people see <b>frame 0</b>, not your cover. Lesson: make your cover design the first frame of the reel.</div>'
+               '<div class="card"><b>Second mistake:</b> every reel spent 2–5 seconds saying "Subscription band karo, Day N". Zero value for a new viewer. Put the series name small on screen, don\'t say it.</div>', tag="03 · First 3 seconds"))
 
 # 6 hook score
-crit = [("Kam shabd", "Magazine headline jaisa. 3 second mein padh lo."), ("Page se juda", "Topic aapke page ka ho, warna clickbait lagega."),
-        ("Ulti soch", "Jo sab maante hain, use hilaye."), ("Aasaan", "Sochna na pade ki matlab kya hai."), ("Bilkul flat nahi", "Thoda dimaag lagaye, warna ignore."),
-        ("Curiosity", "Jawab video ke andar ho, hook mein nahi."), ("Original", "Har jagah dikhne wala hook kaam nahi karta."),
-        ("Jaana-pehchana + naya", "Famous cheez + ek twist (Google + free)."), ("3-second test", "Dost ko 3 second dikhao, wo bata de topic kya hai."),
-        ("Dard ka hal", "Viewer ki asli takleef ka ishaara.")]
-S.append(slide('<h2>Hook Score: <span class="red">10 mein se 7</span> se kam? Post mat karo.</h2><table class="tbl"><tr><th>#</th><th>Check</th><th>Kaise parkhein</th></tr>'
+crit = [("Few words", "Like a magazine headline. Readable in 3 seconds."), ("On-brand", "Matches your page's topic, or it feels like clickbait."),
+        ("Flips a belief", "Challenges something people assume."), ("Easy", "No effort needed to understand it."), ("Not too flat", "Makes people think a little, or they ignore it."),
+        ("Curiosity", "The answer is inside the video, not in the hook."), ("Original", "A hook seen everywhere stops working."),
+        ("Familiar + new", "Something known + a twist (Google + free)."), ("3-second test", "Show a friend for 3 seconds. Can they tell the topic?"),
+        ("Solves a pain", "Points at the viewer's real problem.")]
+S.append(slide('<h2>Hook Score: below <span class="red">7 out of 10</span>? Don\'t post.</h2><table class="tbl"><tr><th>#</th><th>Check</th><th>How to judge</th></tr>'
                + "".join(f"<tr><td class='num'>{i + 1}</td><td><b>{E(a)}</b></td><td>{E(b)}</td></tr>" for i, (a, b) in enumerate(crit)) + "</table>"
-               '<p class="small" style="margin-top:16px">Framework Brendan Kane ki book <i>Hook Point</i> ke principles se adapt kiya, Hinglish reels ke liye.</p>', tag="04 · Test"))
+               '<p class="small" style="margin-top:16px">Adapted from the principles in Brendan Kane\'s book <i>Hook Point</i>, for Hinglish reels.</p>', tag="04 · Test"))
 
 # 7 fail reasons
-fails = [("Bahut lamba", "Ek reel jo 60 second ki thi aur hook 2 line ka: median se thoda hi upar."), ("Confusing", "\"MCP: Model Context Protocol\" → viewer ko pata hi nahi kya hai. 140 views."),
-         ("Vague", "\"Ye video aapki zindagi badal degi\" → kaise? kyun?"), ("Ghisa-pita", "\"Wait till the end\" sab ne 1,000 baar dekha hai."),
-         ("Kisi ke liye nahi", "\"Sabke liye tips\" = kisi ke liye nahi."), ("Purana", "Jo trend 2 saal pehle tha."),
-         ("Maan liya ki interest hai", "\"Manus ka waitlist bhool jao\" → Manus kaun? 144 views."), ("Jhootha", "Promise jo video poora na kare."),
-         ("Unique nahi", "Competitor jaisa hi."), ("Dikhne mein feeka", "Chhota text, kam contrast, khaali screen.")]
-S.append(slide('<h2>Hook <span class="red">fail</span> hone ke 10 kaaran</h2><table class="tbl">'
-               + "".join(f"<tr><td class='num bad'>{i + 1}</td><td><b>{E(a)}:</b> {E(b)}</td></tr>" for i, (a, b) in enumerate(fails)) + "</table>", tag="05 · Galtiyan"))
+fails = [("Too long", "A 60-second reel with a 2-line hook: barely above median."), ("Confusing", "\"MCP: Model Context Protocol\" → viewers had no idea what it was. 140 views."),
+         ("Vague", "\"Ye video aapki zindagi badal degi\" → how? why?"), ("Overused", "\"Wait till the end\" has been seen 1,000 times."),
+         ("For no one", "\"Tips for everyone\" = tips for no one."), ("Outdated", "A trend from two years ago."),
+         ("Assumes interest", "\"Manus ka waitlist bhool jao\" → who is Manus? 144 views."), ("Dishonest", "A promise the video doesn't keep."),
+         ("Not unique", "Same as every competitor."), ("Looks dull", "Small text, low contrast, empty screen.")]
+S.append(slide('<h2>10 reasons hooks <span class="red">fail</span></h2><table class="tbl">'
+               + "".join(f"<tr><td class='num bad'>{i + 1}</td><td><b>{E(a)}:</b> {E(b)}</td></tr>" for i, (a, b) in enumerate(fails)) + "</table>", tag="05 · Mistakes"))
 
 # 8 typography
-S.append(slide('<h2>Screen pe hook <span class="red">kaise likhein</span></h2>'
-               '<div class="card"><b>Rule 1, poora vichaar highlight karo:</b> "<span class="mark">Paisa bachao</span>, ameer nahi banoge" ✅. Sirf "Paisa" bold karna galat hai, kyunki akela shabd kuch nahi kehta.</div>'
-               '<div class="card"><b>Rule 2, line wahan todo jahan saans lete ho:</b><br>"Roz 3 ghante ek reel pe? / Saal ke 1,000 ghante gaye."</div>'
-               '<div class="card"><b>Rule 3, ek rang = ek matlab:</b> laal = dard/galti, peela = hal/result. Poori series mein same rakho.</div>'
-               '<div class="card"><b>Rule 4, phone safe zone:</b> text upar 15% aur neeche 25% mein mat rakho, wahan Instagram ke buttons aate hain.</div>'
-               '<div class="card"><b>Rule 5, 0.0 second:</b> hook text pehle hi frame pe ho. Fade-in, logo ya intro animation mat lagao.</div>', tag="06 · Typography"))
+S.append(slide('<h2>How to put a hook <span class="red">on screen</span></h2>'
+               '<div class="card"><b>Rule 1, highlight a complete thought:</b> "<span class="mark">Paisa bachao</span>, ameer nahi banoge" ✅. Highlighting only "Paisa" is wrong, because one word alone says nothing.</div>'
+               '<div class="card"><b>Rule 2, break lines where you would breathe:</b><br>"Roz 3 ghante ek reel pe? / Saal ke 1,000 ghante gaye."</div>'
+               '<div class="card"><b>Rule 3, one colour = one meaning:</b> red = pain/mistake, yellow = solution/result. Keep it the same across the series.</div>'
+               '<div class="card"><b>Rule 4, phone safe zone:</b> keep text out of the top 15% and bottom 25%, where Instagram\'s buttons sit.</div>'
+               '<div class="card"><b>Rule 5, 0.0 seconds:</b> the hook text must be on the first frame. No fade-in, logo or intro animation.</div>', tag="06 · Typography"))
 
 # 9-20 archetypes
 TYPES = [
-    ("Ruk Jao (Callout)", "Seedha order. Dimaag ko 'brake' lagta hai, aur jisko bola gaya wo khud ko pehchaan leta hai.",
-     "[Jo kaam log kar rahe hain] ke liye [paise/time] de rahe ho? Ruk jao.",
+    ("Stop Command (Callout)", "A direct order hits the brain's brakes, and the person being called out recognises themselves.",
+     "[Paying money/time] for [task]? Ruk jao.",
      ["Coding ke liye Cursor ka subscription? Ruk jao.", "Roz 3 ghante reel edit karte ho? Ruk jao.", "Salary aate hi EMI pe EMI? Ruk jao, pehle ye suno."],
-     "Order do, par turant wajah bhi do. Sirf 'Ruk jao' bolke chup mat ho jao."),
-    ("Kam Log Jaante Hain (Secret)", "Andar ki baat sunna sabko pasand hai. 'Mujhe pata hai, tumhe nahi' wali feeling.",
-     "[Badi company/insaan] ne [cheez] free de diya, aur bahut kam log jaante hain.",
+     "Give the order, then give the reason immediately. Don't just say 'Ruk jao' and stop."),
+    ("Insider Secret", "Everyone loves insider info: the 'I know something you don't' feeling.",
+     "[Big company/person] gave [thing] away free, and very few people know.",
      ["Google ne apna AI agent free mein de diya, aur bahut kam log jaante hain.", "Toppers revise ek alag tareeke se karte hain. Kam log jaante hain.", "Phone ki ek setting jo aapki battery chupke se kha rahi hai."],
-     "Secret sach mein useful ho. Jhoota secret = unfollow."),
-    ("Kitne Yaad Hain? (Recap/Quiz)", "Dimaag ko khel pasand hai. List + quiz = poori dekhi jaati hai aur save hoti hai.",
-     "[Time] mein [N] [cheezein]. Kitni yaad hain?",
+     "The secret must be genuinely useful. A fake secret = an unfollow."),
+    ("Recap / Quiz", "The brain loves games. List + quiz = watched to the end and saved.",
+     "[N] [things] in [time]. How many do you remember?",
      ["Ek hafte mein 5 mehenge AI tools ke free versions. Kitne yaad hain?", "Is mahine ke 7 money rules. Kitne follow kiye?", "10 English words jo is hafte seekhe. Kitne yaad hain?"],
-     "Hamare data mein dono recap reels top 5 mein thi. Har 7 din mein ek recap daalo."),
-    ("Kadwa Sach (Contrarian)", "Imaandari trust banati hai, aur ulti baat scroll rokti hai.",
-     "Kadwa sach: [jo sab maante hain] galat hai.",
+     "In our data both recap reels made the top 5. Post one recap every 7 days."),
+    ("Hard Truth (Contrarian)", "Honesty builds trust, and an unexpected opinion stops the scroll.",
+     "Hard truth: [what everyone believes] is wrong.",
      ["Ye 'free' AI tools sach mein free hain? Ek kadwa sach sun lo.", "Kadwa sach: aap busy nahi ho, distracted ho.", "Kadwa sach: jaldi uthne se koi ameer nahi banta."],
-     "Sach ka saboot do (example, number). Sirf shock ke liye mat bolo."),
-    ("Paisa/Time ka Nuksaan (Loss)", "Insaan paane se zyada khone se darta hai. Nuksaan dikhao, log rukte hain.",
-     "[Kaam] pe [time/paisa]? Saal ka [bada number] gaya.",
+     "Back it up with an example or a number. Don't say it just for shock."),
+    ("Loss (Money / Time)", "People fear losing more than they enjoy gaining. Show the loss and they stop.",
+     "[Time/money] on [task]? That's [big yearly number] gone.",
      ["Roz 3 ghante ek reel pe? Saal ke 1,000 ghante gaye.", "Har mahine ₹500 ke subscriptions? Saal ke ₹6,000.", "Roz 2 ghante phone pe scroll? Saal ke 30 din."],
-     "Number sach ho aur hisaab simple ho, taaki viewer khud check kar sake."),
-    ("Result Pehle (Proof first)", "Dekhna yakeen hai. Pehle result dikhao, phir tareeka.",
-     "[Result ka visual]. Ye [tareeka] se hua.",
+     "The number must be true and the maths simple enough for viewers to check."),
+    ("Result First (Proof)", "Seeing is believing. Show the result first, the method after.",
+     "[Visual of the result]. Here's how it happened.",
      ["Purani blurry video ko 4K mein badlo, free.", "Ye reel bina camera, bina mic bani hai. Guess karo kaise?", "Ek line likhi, poori website ready."],
-     "Visual result frame 0 pe ho. Hamari 4K wali reel (1,093 views) isi wajah se chali."),
-    ("Myth Todo", "Jo sab maante hain, use galat dikhana instant contrast deta hai.",
-     "Sabse bada jhooth: '[myth]'.",
+     "The visual result must be on frame 0. Our 4K reel (1,093 views) worked for exactly this reason."),
+    ("Myth Buster", "Proving a common belief wrong creates instant contrast.",
+     "The biggest lie: '[myth]'.",
      ["Sabse bada jhooth: 'pehle editing seekho, phir page shuru karo.'", "Myth: zyada padhoge toh zyada marks.", "Myth: paisa bachane se ameer bante hain."],
-     "Myth sach mein log maante hon. Banawati myth mat todo."),
-    ("Identity Callout", "Insaan apne baare mein sunna pasand karta hai. Ek group ko naam se bulao.",
-     "Agar aap [age/role] ho, toh [ye] abhi suno.",
+     "People must actually believe the myth. Don't bust a made-up one."),
+    ("Identity Callout", "People love hearing about themselves. Call one group by name.",
+     "If you are [age/role], listen to this now.",
      ["Agar aap 20s mein ho, toh ye 3 galtiyan abhi rok do.", "Naya page shuru kiya hai? Ye 5 cheezein pehle din karo.", "Hostel mein rehte ho? Ye 4 paise bachane ki tricks."],
-     "Group chhota aur saaf ho. 'Sab log' identity nahi hai."),
-    ("Comparison", "Do raaste dikhao. Viewer khud ko ek side mein dekhta hai aur aakhir tak rukta hai.",
-     "[A] vs [B]: [N] din baad farak dekho.",
+     "Keep the group small and specific. 'Everyone' is not an identity."),
+    ("Comparison", "Show two paths. Viewers place themselves on one side and watch to the end.",
+     "[A] vs [B]: see the difference after [N] days.",
      ["Do creators, same talent. Ek roz post karta hai, ek mood pe. 90 din baad kaun aage?", "₹15,000 ka editor vs ₹67 ki reel.", "Topper vs average student: farak padhai mein nahi."],
-     "Dono sides imaandari se dikhao. Ek ko bewakoof mat banao."),
-    ("Story Drop-in", "Kahani ke beech se shuru karo. Dimaag ko 'aage kya hua' jaanna hai.",
-     "[Insaan] ne [ajeeb kaam] kiya. Phir [twist].",
+     "Show both sides fairly. Don't make one side look stupid."),
+    ("Story Drop-in", "Start in the middle of the story. The brain needs to know what happens next.",
+     "[Person] did [unusual thing]. Then [twist].",
      ["Usne naukri chhodi, sab ne pagal kaha. 6 mahine baad koi nahi hasa.", "Ek chai wale ne mujhe business ka sabse bada lesson diya.", "Ek saal tak zero posts. Phir ek din ye notice kiya."],
-     "Kahani ka lesson viewer ke kaam ka ho, sirf entertainment nahi."),
-    ("Challenge / Test", "Viewer ko khel mein shamil karo. Jawab comment mein aata hai, aur comments reach badhate hain.",
-     "[Test/sawaal]. Sirf [x%] log sahi karte hain.",
+     "The lesson must be useful to the viewer, not just entertaining."),
+    ("Challenge / Test", "Pull the viewer into a game. Answers go in the comments, and comments boost reach.",
+     "[A test or question]. Most people get it wrong.",
      ["Ek aawaz asli hai, ek AI. Pehchaan ke dikhao.", "In 3 mein se aap kaun ho? Comment karo.", "Ye 30-second test karo: aapka focus kitna hai?"],
-     "% ya stat jhootha mat banao. 'Zyada log galat karte hain' bhi kaafi hai."),
-    ("Naya/Abhi (Newness)", "Naya cheez = 'mujhe pehle pata hona chahiye'.",
-     "[Kal/is hafte] [cheez] aaya hai, aur ye [fayda].",
+     "Never invent a % or a statistic. 'Most people get this wrong' is enough."),
+    ("Newness", "Something new = 'I should have known this first'.",
+     "[Thing] just launched [this week], and it [benefit].",
      ["Instagram ne ek naya feature diya hai, creators ke liye kaam ka.", "Is hafte ek naya free AI tool aaya jo [kaam] karta hai.", "UPI ka naya rule, ye aapko pata hona chahiye."],
-     "Sach mein naya ho, aur fact check karo. Galat 'news' se trust jaata hai."),
+     "It must really be new, and fact-checked. Fake 'news' destroys trust."),
 ]
 for i, (nm, why, tpl, ex, warn) in enumerate(TYPES):
     S.append(slide(f'<h2>{E(nm)}</h2><p class="lead" style="font-size:31px">{E(why)}</p>'
                    f'<div class="card"><b>Template:</b> {E(tpl)}</div>' + exs(ex) +
-                   f'<div class="card" style="border-color:#111;margin-top:22px"><b>⚠️ Dhyaan:</b> {E(warn)}</div>', tag=f"07 · Hook type {i + 1}/12"))
+                   f'<div class="card" style="border-color:#111;margin-top:22px"><b>⚠️ Watch out:</b> {E(warn)}</div>', tag=f"07 · Hook type {i + 1}/12"))
 
 # rewrites
 RW = [("Aaj main aapko ek AI tool ke baare mein bataunga.", "Ye free AI tool aapke 3 ghante bachata hai. Roz."),
@@ -257,37 +258,37 @@ for nm, hs in NB:
     n += 10
 
 # ARCS
-S.append(slide('<h2>Hook ke baad kya? <span class="red">A.R.C.S.</span></h2>'
-               '<div class="card"><b>A, Ask:</b> aisa sawaal jiska jawab "haan" ho. <i>"Roz post karna chahte ho, par time nahi?"</i></div>'
-               '<div class="card"><b>R, Reveal:</b> "main bhi wahin tha." <i>"Mujhe bhi ek reel mein 3 ghante lagte the."</i></div>'
-               '<div class="card"><b>C, Call out:</b> wo discovery jisne badla. <i>"Phir maine script se reel banane ka system banaya."</i></div>'
-               '<div class="card"><b>S, Send:</b> ek saaf action. <i>"Comment karo REEL, system bhej dunga."</i></div>'
-               '<p class="small" style="margin-top:18px">Ye copywriter Craig Clemens ka "Impact Arcs" formula hai (Hook Point book mein bataya gaya), yahan 30-second Hinglish reel ke liye. Ek sentence, ek reel, ya poori presentation, teeno mein chalta hai.</p>', tag="10 · Script"))
+S.append(slide('<h2>After the hook: <span class="red">A.R.C.S.</span></h2>'
+               '<div class="card"><b>A, Ask:</b> a question your viewer answers "yes" to. <i>"Roz post karna chahte ho, par time nahi?"</i></div>'
+               '<div class="card"><b>R, Reveal:</b> show you were in the same spot. <i>"Mujhe bhi ek reel mein 3 ghante lagte the."</i></div>'
+               '<div class="card"><b>C, Call out:</b> the discovery that changed things. <i>"Phir maine script se reel banane ka system banaya."</i></div>'
+               '<div class="card"><b>S, Send:</b> one clear action. <i>"Comment karo REEL, system bhej dunga."</i></div>'
+               '<p class="small" style="margin-top:18px">This is copywriter Craig Clemens\' "Impact Arcs" formula (described in the book Hook Point), adapted for 30-second Hinglish reels. It works for one sentence, one reel, or a full presentation.</p>', tag="10 · Script"))
 
 # testing
-S.append(slide('<h2>Testing aur <span class="red">Double Down</span></h2>'
-               '<div class="card"><b>1. Har idea ke 3 hooks likho.</b> Best wala post karo, baaki 2 "Trial Reels" mein test karo (Instagram ka feature jo pehle non-followers ko dikhata hai).</div>'
-               '<div class="card"><b>2. 48 ghante baad Insights dekho:</b> views, skip rate / 3-second hold, average watch time, shares. Kisi ek reel pe nahi, 5 reels ke average pe faisla lo.</div>'
-               '<div class="card"><b>3. Double down rule:</b> koi reel aapke median se <b>2× ya zyada</b> chale, toh agle 7 din mein usi idea ke <b>3 naye versions</b> banao: naya hook, nayi example, naya angle. Hamare data mein recap 2 baar chala, dono baar top 5 mein.</div>'
-               '<div class="card"><b>4. Flop ko bhi padho:</b> 3 sabse kam views wali reels ka hook Hook Score pe check karo. Jo point fail hua, wahi agli baar theek karo.</div>', tag="11 · System"))
+S.append(slide('<h2>Testing and the <span class="red">Double Down</span></h2>'
+               '<div class="card"><b>1. Write 3 hooks for every idea.</b> Post the best one, test the other two as "Trial Reels" (Instagram\'s feature that shows a reel to non-followers first).</div>'
+               '<div class="card"><b>2. Check Insights after 48 hours:</b> views, skip rate / 3-second hold, average watch time, shares. Decide on the average of 5 reels, never on one.</div>'
+               '<div class="card"><b>3. Double down rule:</b> if a reel gets <b>2× your median</b> or more, make <b>3 new versions</b> of the same idea within 7 days: new hook, new example, new angle. In our data the recap worked twice, both times in the top 5.</div>'
+               '<div class="card"><b>4. Study your flops too:</b> run the hooks of your 3 lowest reels through the Hook Score. Fix whichever point failed next time.</div>', tag="11 · System"))
 
 # practice
-plan = [("Din 1", "Ad Library aur top creators se 20 achhe hooks copy karke ek note mein rakho (sirf seekhne ke liye)."),
-        ("Din 2", "Har hook ka type pehchano (12 types mein se). Kaunsa type aapke niche mein sabse zyada hai?"),
-        ("Din 3", "5 flop reels dhoondho aur Hook Score se fail point likho."),
-        ("Din 4", "Apne niche ke 3 topics pe 3-3 hooks likho (9 total)."),
-        ("Din 5", "Har hook ko 3-second dost-test karo. Top 3 rakho."),
-        ("Din 6", "Top 3 ke saath reels banao. Frame 0 = hook text + visual."),
-        ("Din 7", "Insights dekho, winner chuno, double down shuru.")]
-S.append(slide('<h2>7 din ka <span class="red">hook practice</span></h2><table class="tbl">'
+plan = [("Day 1", "Collect 20 strong hooks from the Ad Library and top creators in one note (for learning only)."),
+        ("Day 2", "Label each hook with one of the 12 types. Which type dominates your niche?"),
+        ("Day 3", "Find 5 flop reels and note which Hook Score point they fail."),
+        ("Day 4", "Write 3 hooks each for 3 topics in your niche (9 total)."),
+        ("Day 5", "Run the 3-second friend test on each. Keep the top 3."),
+        ("Day 6", "Make reels with the top 3. Frame 0 = hook text + visual."),
+        ("Day 7", "Check Insights, pick the winner, start doubling down.")]
+S.append(slide('<h2>7-day <span class="red">hook practice</span></h2><table class="tbl">'
                + "".join(f"<tr><td class='num'>{a}</td><td>{E(b)}</td></tr>" for a, b in plan) + "</table>"
-               '<div class="card" style="margin-top:22px">Pehle copy karke seekho, phir apna banao. Kisi ka hook as-it-is apne naam pe mat chalao: wo kaam nahi karta aur trust bhi todta hai.</div>', "y", "12 · Practice"))
+               '<div class="card" style="margin-top:22px">Learn by studying others, then write your own. Never post someone else\'s hook as-is under your name: it rarely works and it breaks trust.</div>', "y", "12 · Practice"))
 
 # upsell
-S.append(slide('<h2>Hooks ready. <span class="red">Reels banane ka time nahi?</span></h2>'
-               '<p class="lead">Aap niche aur script do. Hum <span class="mark">ready-to-post typography reels</span> banate hain: frame 0 pe hook, bold text, animation aur voice ke saath.</p>'
-               '<div class="card"><b>5 reels: ₹199.</b> Trial, 72 ghante mein delivery.</div><div class="card"><b>30 reels: ₹1,999.</b> Poore mahine ka content + calendar.</div>'
-               '<div class="cta">Instagram pe @freestack.ai ke bio link se order karo.</div>', "k", "Shortcut"))
+S.append(slide('<h2>Hooks ready. <span class="red">No time to make the reels?</span></h2>'
+               '<p class="lead">Send us your niche and script. We make <span class="mark">ready-to-post typography reels</span>: hook on frame 0, bold text, animation and voice.</p>'
+               '<div class="card"><b>5 reels: ₹199.</b> Trial, delivered in 72 hours.</div><div class="card"><b>30 reels: ₹1,999.</b> A full month of content + calendar.</div>'
+               '<div class="cta">Order from the link in @freestack.ai\'s Instagram bio.</div>', "k", "Shortcut"))
 
 body = "".join(s.replace("{FOOT}", f'<div class="foot"><span>FreeStack AI · @freestack.ai</span><span>{TITLE} · {i + 1}/{len(S)}</span></div>') for i, s in enumerate(S))
 h = OUT / "hook-bank-pro.html"

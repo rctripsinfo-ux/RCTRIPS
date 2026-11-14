@@ -7,50 +7,50 @@ TITLE = "30-Day Content System PRO"
 
 S = []
 S.append(slide('<div style="font:900 300px/0.9 Inter Display;letter-spacing:-12px;margin-top:30px">30<span class="red">.</span></div>'
-               '<h1 style="margin-top:0">Din ka Content<br>System <span class="red">PRO</span></h1>'
-               '<p class="lead">30 poori likhi hui scripts · weekly format system · ek din mein 7 reels · caption formula · Insights review</p>'
-               '<div style="position:absolute;right:70px;bottom:120px;display:flex;align-items:center;gap:18px"><div style="text-align:right;font:800 26px Inter">by @freestack.ai<br><span style="font-weight:600;font-size:22px">30 din, 30 reels ke asli test se bana</span></div><img class="avatar" src="img/pp.jpg"></div>', "y", "Faceless creators ke liye"))
+               '<h1 style="margin-top:0">Day Content<br>System <span class="red">PRO</span></h1>'
+               '<p class="lead">30 fully written scripts · weekly format system · 7 reels in one day · caption formula · Insights review</p>'
+               '<div style="position:absolute;right:70px;bottom:120px;display:flex;align-items:center;gap:18px"><div style="text-align:right;font:800 26px Inter">by @freestack.ai<br><span style="font-weight:600;font-size:22px">Built from a real 30-day, 30-reel test</span></div><img class="avatar" src="img/pp.jpg"></div>', "y", "For faceless creators"))
 
-S.append(slide('<h2>Is PDF mein kya hai</h2><table class="tbl">' + "".join(f"<tr><td class='num'>{a}</td><td>{E(b)}</td></tr>" for a, b in [
-    ("01", "Hamara 30-din test: kya chala, kya toota (asli numbers)"),
-    ("02", "Weekly Format System: har din ka format fix"),
-    ("03", "Reel ka 4-part structure: seconds ke hisaab se"),
-    ("04", "30 poori scripts (Motivation niche), copy-ready"),
-    ("05", "Kisi bhi niche mein badalne ka 3-step tareeka"),
-    ("06", "Batch Day: ek din mein 7 reels"),
+S.append(slide('<h2>What\'s inside</h2><table class="tbl">' + "".join(f"<tr><td class='num'>{a}</td><td>{E(b)}</td></tr>" for a, b in [
+    ("01", "Our 30-day test: what worked, what broke (real numbers)"),
+    ("02", "Weekly Format System: a fixed format for every day"),
+    ("03", "The 4-part reel structure, second by second"),
+    ("04", "30 complete scripts (Motivation niche), ready to use"),
+    ("05", "How to convert them to any niche in 3 steps"),
+    ("06", "Batch Day: 7 reels in one day"),
     ("07", "Caption formula + search keywords"),
-    ("08", "Har Sunday ka Insights review + double down"),
-    ("09", "30-din tracker")]) + "</table>", tag="Andar"))
+    ("08", "Weekly Sunday Insights review + double down"),
+    ("09", "30-day tracker")]) + "</table>", tag="Contents"))
 
 # 01 data
-S.append(slide('<h2>Hamara 30-din test: <span class="red">asli seekh</span></h2>'
-               '<p class="small">@freestack.ai pe 30 din, roz 1 reel, same time (12 baje). 17,000+ views. Median 353 views per reel.</p>'
-               '<table class="tbl"><tr><th>Seekh</th><th>Data</th></tr>'
-               "<tr><td><b>Recap reels sabse aage</b></td><td>Din 7 recap: <span class='good'>1,611</span> (4.6× median). Din 28 recap: <span class='good'>1,434</span> (4.1×)</td></tr>"
-               "<tr><td><b>Ek jaisi reels roz = thakaan</b></td><td>Din 12–19 ki 8 mein se 7 reels 400 se neeche</td></tr>"
-               "<tr><td><b>Raay/sach wali reel chali</b></td><td>'Kadwa sach' reel: <span class='good'>1,040</span>, bina kisi tool ke</td></tr>"
-               "<tr><td><b>Chhoti reel thodi behtar</b></td><td>Duration vs views: halka ulta rishta (Spearman −0.25). Top 2 reels 28 second ki</td></tr>"
-               "<tr><td><b>Bolke series tag dena = waste</b></td><td>Har reel ke 2–5 sec 'Day N' bolne mein gaye. Naye viewer ke liye zero value</td></tr>"
-               "<tr><td><b>Keyword CTA kaam karta hai</b></td><td>Sabse zyada 'comment keyword' wali reel pe 8 log ne keyword likha</td></tr></table>"
-               '<div class="card">Isliye ye system: <b>har hafte formats badlo, har Sunday recap, raay wali reels zaroor, 25–35 second.</b></div>', tag="01 · Proof"))
+S.append(slide('<h2>Our 30-day test: <span class="red">real lessons</span></h2>'
+               '<p class="small">@freestack.ai: 30 days, 1 reel a day, same time (12 noon). 17,000+ views. Median: 353 views per reel.</p>'
+               '<table class="tbl"><tr><th>Lesson</th><th>Data</th></tr>'
+               "<tr><td><b>Recap reels win</b></td><td>Day 7 recap: <span class='good'>1,611</span> (4.6× median). Day 28 recap: <span class='good'>1,434</span> (4.1×)</td></tr>"
+               "<tr><td><b>Same format every day = fatigue</b></td><td>7 of the 8 reels on days 12–19 got under 400 views</td></tr>"
+               "<tr><td><b>Opinion reels work</b></td><td>The 'kadwa sach' (hard truth) reel: <span class='good'>1,040</span>, without featuring any tool</td></tr>"
+               "<tr><td><b>Shorter is slightly better</b></td><td>Duration vs views: weak negative link (Spearman −0.25). Top 2 reels were 28 seconds</td></tr>"
+               "<tr><td><b>Saying the series tag wastes time</b></td><td>Each reel spent 2–5 sec saying 'Day N'. Zero value for new viewers</td></tr>"
+               "<tr><td><b>Keyword CTAs work</b></td><td>The best keyword-CTA reel got 8 people commenting the keyword</td></tr></table>"
+               '<div class="card">That is why this system: <b>rotate formats every week, recap every Sunday, always include opinion reels, keep reels 25–35 seconds.</b></div>', tag="01 · Proof"))
 
 # 02 weekly system
-WK = [("Somvaar", "LIST", "'5 cheezein jo…' Save hoti hai."), ("Mangal", "MYTH", "'Sabse bada jhooth…' Comment aate hain."),
-      ("Budh", "STORY", "Kahani + lesson. Sabse lamba rokti hai."), ("Guru", "QUICK TIP", "Ek cheez, aaj hi try karo. Share hoti hai."),
-      ("Shukra", "DARD → HAL", "Viewer ki takleef + seedha hal."), ("Shani", "KADWA SACH", "Imaandaar raay. Trust banata hai."),
-      ("Ravi", "RECAP / QUIZ", "'Is hafte ki 6 baatein, kitni yaad?' Hamara best format.")]
-S.append(slide('<h2>Weekly Format <span class="red">System</span></h2><table class="tbl"><tr><th>Din</th><th>Format</th><th>Kyun</th></tr>'
+WK = [("Mon", "LIST", "'5 things that…' Gets saved."), ("Tue", "MYTH", "'The biggest lie…' Gets comments."),
+      ("Wed", "STORY", "Story + lesson. Holds attention longest."), ("Thu", "QUICK TIP", "One thing to try today. Gets shared."),
+      ("Fri", "PAIN → FIX", "The viewer's problem + a direct fix."), ("Sat", "HARD TRUTH", "An honest opinion. Builds trust."),
+      ("Sun", "RECAP / QUIZ", "'6 lessons this week, how many do you remember?' Our best format.")]
+S.append(slide('<h2>Weekly Format <span class="red">System</span></h2><table class="tbl"><tr><th>Day</th><th>Format</th><th>Why</th></tr>'
                + "".join(f"<tr><td class='num'>{a}</td><td><b>{b}</b></td><td>{E(c)}</td></tr>" for a, b, c in WK) + "</table>"
-               '<div class="card">Fayde: (1) roz "kya post karu" ka sawaal khatam, (2) audience ko variety milti hai, (3) 4 hafte baad pata chal jaata hai ki aapke niche mein kaunsa format jeetta hai.</div>', tag="02 · System"))
+               '<div class="card">Benefits: (1) no more "what should I post today?", (2) your audience gets variety, (3) after 4 weeks you know which format wins in your niche.</div>', tag="02 · System"))
 
 # 03 structure
-S.append(slide('<h2>Har reel ka <span class="red">4-part structure</span></h2><table class="tbl"><tr><th>Second</th><th>Part</th><th>Kya karna hai</th></tr>'
-               "<tr><td class='num'>0–3</td><td><b>HOOK</b></td><td>Frame 0 pe bada text + wahi line bolo. Intro/logo nahi.</td></tr>"
-               "<tr><td class='num'>3–8</td><td><b>TENSION</b></td><td>Problem ko thoda aur khol do: 'aur isi wajah se…'</td></tr>"
-               "<tr><td class='num'>8–25</td><td><b>VALUE</b></td><td>Points/kahani. Har 2–3 second mein screen pe kuch naya.</td></tr>"
-               "<tr><td class='num'>25–30</td><td><b>PAYOFF + CTA</b></td><td>Ek yaad rehne wali line + ek action (save/comment/follow).</td></tr></table>"
-               '<div class="card"><b>Shabd ginti:</b> Hinglish mein hum ~2.5 shabd/second bolte hain, par screen text aur pauses ke saath reel lambi ho jaati hai. <b>50–70 shabd = 25–35 second ki reel.</b> Isse lambi script = beech mein log chhodenge.</div>'
-               '<div class="card"><b>Ending trick:</b> "Bye" mat bolo. Aakhri line aisi ho jo pehli line se jud jaaye, taaki reel loop ho aur watch time badhe.</div>', tag="03 · Structure"))
+S.append(slide('<h2>The <span class="red">4-part structure</span> of every reel</h2><table class="tbl"><tr><th>Seconds</th><th>Part</th><th>What to do</th></tr>'
+               "<tr><td class='num'>0–3</td><td><b>HOOK</b></td><td>Big text on frame 0 + say the same line. No intro or logo.</td></tr>"
+               "<tr><td class='num'>3–8</td><td><b>TENSION</b></td><td>Open the problem a little more: 'and that is exactly why…'</td></tr>"
+               "<tr><td class='num'>8–25</td><td><b>VALUE</b></td><td>Points or story. Something new on screen every 2–3 seconds.</td></tr>"
+               "<tr><td class='num'>25–30</td><td><b>PAYOFF + CTA</b></td><td>One memorable line + one action (save/comment/follow).</td></tr></table>"
+               '<div class="card"><b>Word count:</b> we speak about 2.5 words per second in Hinglish, but on-screen text and pauses make reels longer. <b>50–70 words = a 25–35 second reel.</b> Longer scripts lose viewers in the middle.</div>'
+               '<div class="card"><b>Ending trick:</b> don\'t say "Bye". Make the last line connect back to the first, so the reel loops and watch time goes up.</div>', tag="03 · Structure"))
 
 # 04 scripts
 SC = [
@@ -89,58 +89,58 @@ for i in range(0, 30, 2):
     blocks = ""
     for d, (fmt, hook, body, cta) in enumerate(SC[i:i + 2], i + 1):
         words = len((hook + " " + body + " " + cta).split())
-        blocks += (f'<div class="card" style="margin:12px 0"><span class="chip">DIN {d}</span><span class="chip" style="background:#111;color:#FFD400">{fmt}</span><span class="chip" style="background:#eee">~{round(words / 2)}s · {words} shabd</span>'
+        blocks += (f'<div class="card" style="margin:12px 0"><span class="chip">DAY {d}</span><span class="chip" style="background:#111;color:#FFD400">{fmt}</span><span class="chip" style="background:#eee">~{round(words / 2)}s · {words} words</span>'
                    f'<p style="margin:8px 0 6px"><b class="red">HOOK:</b> <b>{E(hook)}</b></p><p class="small" style="margin-bottom:6px"><b>BODY:</b> {E(body)}</p><p class="small" style="margin:0"><b>CTA:</b> {E(cta)}</p></div>')
-    S.append(slide(f'<h2 style="margin-bottom:8px">Scripts: Din {i + 1}–{i + 2}</h2>' + blocks, tag="04 · 30 Scripts · Motivation"))
+    S.append(slide(f'<h2 style="margin-bottom:8px">Scripts: Day {i + 1}–{i + 2}</h2>' + blocks, tag="04 · 30 Scripts · Motivation"))
 
 # 05 convert
-S.append(slide('<h2>Kisi bhi niche mein <span class="red">badlo: 3 step</span></h2>'
-               '<div class="card"><b>Step 1, format rakho, topic badlo.</b> "5 cheezein jo strong log nahi karte" → Money: "5 cheezein jo ameer log nahi karte" → Study: "5 cheezein jo toppers nahi karte".</div>'
-               '<div class="card"><b>Step 2, apne niche ka dard daalo.</b> Motivation ka dard: aalas. Money ka: salary khatam. Study ka: bhoolna. Facts ka: "ye mujhe pata hona chahiye tha".</div>'
-               '<div class="card"><b>Step 3, CTA niche ke hisaab se.</b> Study → "save karo exam ke liye". Money → "is mahine ka hisaab comment karo". Facts → "kisi ko bhejo jo ye nahi jaanta".</div>'
+S.append(slide('<h2>Convert to any niche <span class="red">in 3 steps</span></h2>'
+               '<div class="card"><b>Step 1, keep the format, change the topic.</b> "5 cheezein jo strong log nahi karte" → Money: "5 cheezein jo ameer log nahi karte" → Study: "5 cheezein jo toppers nahi karte".</div>'
+               '<div class="card"><b>Step 2, swap in your niche\'s pain.</b> Motivation: laziness. Money: salary runs out. Study: forgetting. Facts: "I should have known this".</div>'
+               '<div class="card"><b>Step 3, match the CTA to the niche.</b> Study → "save karo exam ke liye". Money → "is mahine ka hisaab comment karo". Facts → "kisi ko bhejo jo ye nahi jaanta".</div>'
                '<table class="tbl" style="margin-top:14px"><tr><th>Format</th><th>Money</th><th>Study</th></tr>'
                "<tr><td><b>MYTH</b></td><td>Bachat se ameer bante hain</td><td>Zyada padhoge, zyada marks</td></tr>"
                "<tr><td><b>STORY</b></td><td>Same salary, alag result</td><td>3 baar fail, 4thi baar topper</td></tr>"
-               "<tr><td><b>KADWA SACH</b></td><td>EMI aapki azaadi kha rahi hai</td><td>Aap padh nahi, dekh rahe ho</td></tr></table>", tag="05 · Convert"))
+               "<tr><td><b>HARD TRUTH</b></td><td>EMI aapki azaadi kha rahi hai</td><td>Aap padh nahi, dekh rahe ho</td></tr></table>", tag="05 · Convert"))
 
 # 06 batch day
-S.append(slide('<h2>Batch Day: <span class="red">ek din, 7 reels</span></h2><table class="tbl"><tr><th>Time</th><th>Kaam</th></tr>'
-               "<tr><td class='num'>30 min</td><td>Hafte ke 7 topics chuno (Weekly Format System se)</td></tr>"
-               "<tr><td class='num'>60 min</td><td>7 scripts likho (is PDF ka structure, 50–70 shabd each)</td></tr>"
-               "<tr><td class='num'>30 min</td><td>Har script ke 3 hooks, best chuno (Hook Score)</td></tr>"
-               "<tr><td class='num'>45 min</td><td>Voice record karo, ek saath, ek hi jagah (same sound)</td></tr>"
-               "<tr><td class='num'>90 min</td><td>7 reels edit/generate karo (same template, sirf text badlo)</td></tr>"
-               "<tr><td class='num'>30 min</td><td>7 captions + cover + schedule</td></tr></table>"
-               '<div class="card"><b>Total ~5 ghante = poora hafta free.</b> Roz 1 ghanta dene se bachat: hafte ke 2 ghante, aur sabse badi baat, roz ki tension khatam.</div>', tag="06 · Batch"))
+S.append(slide('<h2>Batch Day: <span class="red">one day, 7 reels</span></h2><table class="tbl"><tr><th>Time</th><th>Task</th></tr>'
+               "<tr><td class='num'>30 min</td><td>Pick the week's 7 topics (from the Weekly Format System)</td></tr>"
+               "<tr><td class='num'>60 min</td><td>Write 7 scripts (this PDF's structure, 50–70 words each)</td></tr>"
+               "<tr><td class='num'>30 min</td><td>Write 3 hooks per script, pick the best (Hook Score)</td></tr>"
+               "<tr><td class='num'>45 min</td><td>Record all voiceovers together, in one place (same sound)</td></tr>"
+               "<tr><td class='num'>90 min</td><td>Edit/generate 7 reels (same template, only the text changes)</td></tr>"
+               "<tr><td class='num'>30 min</td><td>7 captions + covers + scheduling</td></tr></table>"
+               '<div class="card"><b>About 5 hours = the whole week done.</b> Compared to 1 hour every day you save about 2 hours a week, and more importantly, the daily stress is gone.</div>', tag="06 · Batch"))
 
 # 07 caption
 S.append(slide('<h2>Caption <span class="red">formula</span></h2>'
-               '<div class="card"><b>Line 1:</b> hook ka doosra version (feed mein ye dikhta hai).</div>'
-               '<div class="card"><b>Line 2–4:</b> reel ka saar, 3 short lines. Jo reel mein jaldi nikal gaya, wo yahan padh lein.</div>'
-               '<div class="card"><b>Line 5:</b> ek sawaal ya CTA ("Aap kaunse ho? 1 ya 2").</div>'
-               '<div class="card"><b>Keywords:</b> Instagram search caption padhta hai. 2–3 shabd daalo jo log search karte hain: "motivation hindi", "study tips", "paise kaise bachaye".</div>'
-               '<div class="card"><b>Hashtags:</b> 3–5, sirf niche wale. 30 hashtags spam lagte hain.</div>'
+               '<div class="card"><b>Line 1:</b> a second version of the hook (this is what shows in the feed).</div>'
+               '<div class="card"><b>Lines 2–4:</b> the reel\'s summary in 3 short lines, so people can read what went by fast.</div>'
+               '<div class="card"><b>Line 5:</b> a question or CTA ("Aap kaunse ho? 1 ya 2").</div>'
+               '<div class="card"><b>Keywords:</b> Instagram search reads captions. Add 2–3 phrases people search for: "motivation hindi", "study tips", "paise kaise bachaye".</div>'
+               '<div class="card"><b>Hashtags:</b> 3–5, niche-specific only. 30 hashtags look like spam.</div>'
                '<div class="card" style="border-color:#111"><b>Example:</b> Aap aalsi nahi ho, aapka plan galat hai. 👇<br>Motivation kaam se aati hai, pehle nahi. Aaj sirf 10 minute shuru karo. Baaki dimaag khud karega.<br>Aaj kya shuru kar rahe ho? Comment karo.<br>#motivationhindi #selfimprovement #discipline</div>', tag="07 · Caption"))
 
 # 08 review
-S.append(slide('<h2>Har Sunday: <span class="red">15-minute review</span></h2><table class="tbl"><tr><th>Dekho</th><th>Agar…</th><th>Toh…</th></tr>'
-               "<tr><td><b>Views</b></td><td>Koi reel median ka 2× ya zyada</td><td>Usi idea ke 3 naye versions agle hafte</td></tr>"
-               "<tr><td><b>Skip rate / 3-sec hold</b></td><td>Zyada log pehle 3 sec mein gaye</td><td>Hook + frame 0 badlo (Hook Bank PRO)</td></tr>"
-               "<tr><td><b>Avg watch time</b></td><td>Reel ke aadhe se kam</td><td>Script chhoti karo, 50 shabd ke aas-paas</td></tr>"
-               "<tr><td><b>Shares/sends</b></td><td>Kisi format pe zyada</td><td>Wo format hafte mein 2 baar</td></tr>"
-               "<tr><td><b>Follows</b></td><td>Views zyada, follows kam</td><td>Profile, bio aur pinned reels theek karo</td></tr></table>"
-               '<div class="card">Ek reel pe faisla mat lo. Hafte ke 7 reels ka average dekho. Hamare data mein bhi ek hi format ke views 150 se 1,600 tak gaye.</div>', tag="08 · Review"))
+S.append(slide('<h2>Every Sunday: <span class="red">15-minute review</span></h2><table class="tbl"><tr><th>Check</th><th>If…</th><th>Then…</th></tr>'
+               "<tr><td><b>Views</b></td><td>A reel gets 2× your median or more</td><td>Make 3 new versions of that idea next week</td></tr>"
+               "<tr><td><b>Skip rate / 3-sec hold</b></td><td>Many people leave in the first 3 sec</td><td>Change the hook + frame 0 (Hook Bank PRO)</td></tr>"
+               "<tr><td><b>Avg watch time</b></td><td>Less than half the reel</td><td>Cut the script to about 50 words</td></tr>"
+               "<tr><td><b>Shares/sends</b></td><td>One format gets more shares</td><td>Post that format twice a week</td></tr>"
+               "<tr><td><b>Follows</b></td><td>High views, low follows</td><td>Fix your profile, bio and pinned reels</td></tr></table>"
+               '<div class="card">Never decide based on one reel. Use the average of the week\'s 7 reels. In our data, the same format ranged from 150 to 1,600 views.</div>', tag="08 · Review"))
 
 # 09 tracker
 tr = "".join(f"<tr><td class='num'>{d:02d}</td><td>{WK[(d - 1) % 7][1]}</td><td></td><td></td><td></td><td></td></tr>" for d in range(1, 16))
-S.append(slide(f'<h2>Tracker: Din 1–15</h2><table class="tbl"><tr><th>Din</th><th>Format</th><th>Views</th><th>Watch</th><th>Shares</th><th>Follows</th></tr>{tr}</table>', tag="09 · Tracker"))
+S.append(slide(f'<h2>Tracker: Day 1–15</h2><table class="tbl"><tr><th>Day</th><th>Format</th><th>Views</th><th>Watch</th><th>Shares</th><th>Follows</th></tr>{tr}</table>', tag="09 · Tracker"))
 tr = "".join(f"<tr><td class='num'>{d:02d}</td><td>{WK[(d - 1) % 7][1]}</td><td></td><td></td><td></td><td></td></tr>" for d in range(16, 31))
-S.append(slide(f'<h2>Tracker: Din 16–30</h2><table class="tbl"><tr><th>Din</th><th>Format</th><th>Views</th><th>Watch</th><th>Shares</th><th>Follows</th></tr>{tr}</table>', tag="09 · Tracker"))
+S.append(slide(f'<h2>Tracker: Day 16–30</h2><table class="tbl"><tr><th>Day</th><th>Format</th><th>Views</th><th>Watch</th><th>Shares</th><th>Follows</th></tr>{tr}</table>', tag="09 · Tracker"))
 
-S.append(slide('<h2>Scripts ready. <span class="red">Reels banane ka time nahi?</span></h2>'
-               '<p class="lead">Ye 30 scripts bhejo, ya apni. Hum <span class="mark">ready-to-post typography reels</span> banate hain: bold text, animation aur voice ke saath.</p>'
-               '<div class="card"><b>5 reels: ₹199.</b> Trial, 72 ghante mein delivery.</div><div class="card"><b>30 reels: ₹1,999.</b> Poore mahine ka content.</div>'
-               '<div class="cta">Instagram pe @freestack.ai ke bio link se order karo.</div>', "k", "Shortcut"))
+S.append(slide('<h2>Scripts ready. <span class="red">No time to make the reels?</span></h2>'
+               '<p class="lead">Send us these 30 scripts, or your own. We make <span class="mark">ready-to-post typography reels</span>: bold text, animation and voice.</p>'
+               '<div class="card"><b>5 reels: ₹199.</b> Trial, delivered in 72 hours.</div><div class="card"><b>30 reels: ₹1,999.</b> A full month of content.</div>'
+               '<div class="cta">Order from the link in @freestack.ai\'s Instagram bio.</div>', "k", "Shortcut"))
 
 body = "".join(s.replace("{FOOT}", f'<div class="foot"><span>FreeStack AI · @freestack.ai</span><span>{TITLE} · {i + 1}/{len(S)}</span></div>') for i, s in enumerate(S))
 h = OUT / "content-system-pro.html"
