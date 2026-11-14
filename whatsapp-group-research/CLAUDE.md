@@ -4,12 +4,12 @@ Read this at the start of every session in this folder. These rules override any
 
 ## Workflow per run
 1. Ask: "Which niche or industry do you need WhatsApp groups for?" Then ask only unanswered, result-changing questions (quantity, B2B/B2C, region, language, sub-niches, exclusions, direct-link mandatory, request-to-join, LinkedIn). Check `config/research_config.json` and the `Configuration` worksheet first; never re-ask stored answers.
-2. Defaults: exactly 10 · India first then international · English · professional B2B · direct links preferred · all previous groups excluded · no filler.
-3. Build a candidate pool 3–5× the target (30–50 for 10) using varied queries (`"chat.whatsapp.com" "[NICHE]"`, `+ professionals/community/India/B2B/networking/association/business owners/suppliers/freelancers`, `site:facebook.com|instagram.com|reddit.com|youtube.com|[industry-site]`). Adapt to the niche (travel: travel agents, B2B travel, tour operators, DMC, travel trade, MICE, hotel suppliers, destination management company, travel agency owners, tourism professionals). Prefer recent sources.
+2. Defaults: exactly 20 per search · India first then international · English · professional B2B · direct links preferred · all previous groups excluded · no filler.
+3. Build a candidate pool 3–5× the target (60–100 for 20) using varied queries (`"chat.whatsapp.com" "[NICHE]"`, `+ professionals/community/India/B2B/networking/association/business owners/suppliers/freelancers`, `site:facebook.com|instagram.com|reddit.com|youtube.com|[industry-site]`). Adapt to the niche (travel: travel agents, B2B travel, tour operators, DMC, travel trade, MICE, hotel suppliers, destination management company, travel agency owners, tourism professionals). Prefer recent sources.
 4. Write candidates to `data/candidates_<date>.json` (fields documented in `scripts/run_research.py`), assigning component scores **only from public evidence**.
 5. Run `python scripts/run_research.py process data/candidates_<date>.json --niche "..." --meta '{"sub_niche":"","region":"","queries":"...","platforms":"..."}'`. It canonicalizes, dedupes (local DB + live Sheet), applies LinkedIn rule, validates WhatsApp metadata, scores, saves locally immediately, appends to Sheet with read-back verification, logs Search History.
 6. Resolve any `REVIEW` (≥85% name similarity) items manually. Report using the final format below.
-7. "find 10 more" = reuse `last_run` niche/filters, exclude everything previously approved/rejected.
+7. "find more" / "find 20 more" = reuse `last_run` niche/filters, exclude everything previously approved/rejected.
 
 ## Source priority
 Official org/community site > official social account > industry association/trade publication > founder/admin announcement > established professional community page > FB/IG post by identifiable org > Reddit with context > directories (discovery only — never sufficient alone). Reject link farms, SEO spam, affiliate redirects, fake counts, link resellers, earn-money schemes, piracy, suspicious downloads.
@@ -51,4 +51,6 @@ Then: niche · candidates researched · approved · rejected · duplicates remov
 `python scripts/google_sheets.py test|setup|import|flush` · `python scripts/run_research.py process <file> | revalidate | stats` · add `--no-sheet` for "find but don't save yet".
 
 ## Setup status
+Sheet: **WhatsApp Group Research** — ID `117t_FVH1uMFcuat5LwO1J8lwIfhoa1qz5MAWXKre_1w` (owner's Drive). Auth: **Google Sheets MCP connector** (`mcp__Google_Sheets__*`).
+MCP write flow: `run_research.py process` writes `data/sheet_outbox_<date>.json` → Claude calls `append_values` for each worksheet (`'Approved Groups'!A1`, etc.) → re-reads the appended range with `get_values` to verify → then clears the outbox file. Before dedupe each run, read all invite codes from the Sheet (`'Approved Groups'!H2:H`, `'Rejected Groups'!D2:D`) and merge into local DB.
 See `config/research_config.json` → `sheet`. Credentials live only in `credentials/` (git-ignored) and `.env`.

@@ -45,7 +45,7 @@ def process(cands, niche, quantity, use_sheet, meta):
     cfg = config(); d = cfg["defaults"]
     prev_p, rej_p = data_path("previous_groups.json"), data_path("rejected_groups.json")
     prev, rej = load_json(prev_p, []), load_json(rej_p, [])
-    if use_sheet:  # also compare against live sheet rows
+    if use_sheet and cfg["sheet"].get("auth_mode") != "mcp":  # also compare against live sheet rows
         try:
             gs.import_existing(); prev, rej = load_json(prev_p, []), load_json(rej_p, [])
         except Exception as e:
@@ -109,6 +109,10 @@ def process(cands, niche, quantity, use_sheet, meta):
         save_json(rej_p, rej + rejected)
     save_json(prev_p, prev + approved); save_json(rej_p, rej + rejected)
     sheet_rows = {"approved": 0, "rejected": 0, "error": None}
+    mcp = cfg["sheet"].get("auth_mode") == "mcp"
+    if mcp:  # Claude appends these via the Google Sheets connector, then verifies by re-reading
+        use_sheet = False
+        sheet_rows["outbox"] = data_path(f"sheet_outbox_{today()}.json")
     if use_sheet:
         sc = cfg["sheet"]
         try:
@@ -129,6 +133,12 @@ def process(cands, niche, quantity, use_sheet, meta):
             gs.append_verified(cfg["sheet"]["history_ws"], [list(hist.values())])
         except Exception as e:
             sheet_rows["error"] = f"history write failed: {e}"
+    if mcp:
+        ob = load_json(sheet_rows["outbox"], {"Approved Groups": [], "Rejected Groups": [], "Search History": []})
+        ob["Approved Groups"] += [[gs.safe(x) for x in appr_row(a)] for a in approved]
+        ob["Rejected Groups"] += [[gs.safe(x) for x in rej_row(r)] for r in rejected]
+        ob["Search History"] += [[gs.safe(x) for x in hist.values()]]
+        save_json(sheet_rows["outbox"], ob)
     cfg["last_run"] = {"niche": niche, "sub_niche": meta.get("sub_niche", ""), "region": meta.get("region", ""), "filters": meta}
     save_json(__import__("common").CONFIG_PATH, cfg)
     return {"approved": approved, "rejected": rejected, "review": review, "stats": stats, "sheet": sheet_rows, "history": hist}
