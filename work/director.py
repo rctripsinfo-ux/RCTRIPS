@@ -409,6 +409,16 @@ class Renderer:
         u = t - a; p = back(u / 0.25, 1.6); fade = min(1, (b - t) / 0.15)
         R *= 0.6 + 0.4 * p; o = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(o)
         st = m.get("style", "ring")
+        if st == "paint":  # reference style: colour painted ON the muscle (soft ellipse), small label beside it
+            k = min(1, u / 0.25) * fade; col = m.get("color", (225, 29, 46))
+            rx, ry = m.get("rx", 0.08) * size[0] / cw * W, m.get("ry", 0.05) * size[0] / cw * W
+            g = Image.new("RGBA", (W, H), (0, 0, 0, 0)); ImageDraw.Draw(g).ellipse([X - rx, Y - ry, X + rx, Y + ry], fill=(*col, int(150 * k)))
+            c.alpha_composite(g.filter(ImageFilter.GaussianBlur(max(4, ry * 0.35))))
+            if m.get("text") and k > 0.5:
+                lab = text_img(m["text"], F_BIG, 78, (255, 255, 255), stroke=6, stroke_fill=(20, 22, 26), shadow=False)
+                lx = X + (rx + 40 + lab.width / 2) * (1 if X < W * 0.55 else -1); lx = min(max(lx, lab.width / 2 + 20), W - lab.width / 2 - 20)
+                c.alpha_composite(lab, (int(lx - lab.width / 2), int(Y - lab.height / 2)))
+            self.mark_y = (self.mark_y or []) + [(Y, ry)]; return
         if st == "spot":  # spotlight: everything else dims
             k = min(1, u / 0.25) * fade; mk = Image.new("L", (W, H), int(150 * k)); ImageDraw.Draw(mk).ellipse([X - R, Y - R, X + R, Y + R], fill=0)
             c.alpha_composite(Image.merge("RGBA", (*[Image.new("L", (W, H), 0)] * 3, mk.filter(ImageFilter.GaussianBlur(18)))))
