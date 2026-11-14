@@ -1,0 +1,12 @@
+{
+  "sheet": {"sheet_id": "", "auth_mode": "", "approved_ws": "Approved Groups", "rejected_ws": "Rejected Groups", "history_ws": "Search History", "config_ws": "Configuration"},
+  "defaults": {
+    "quantity": 10, "market": "India first, then international", "language": "English",
+    "audience": "B2B", "direct_link_preferred": true, "include_request_to_join": false,
+    "use_linkedin": true, "linkedin_min_reactions": 500, "linkedin_min_comments": 500,
+    "linkedin_combine_allowed": false, "min_quality_score": 65, "fuzzy_review_threshold": 0.85,
+    "candidate_pool_multiplier": [3, 5]
+  },
+  "last_run": {"niche": "", "sub_niche": "", "region": "", "filters": {}},
+  "validation": {"timeout_s": 15, "min_delay_s": 3.0, "max_retries": 3, "backoff_base_s": 4}
+}
