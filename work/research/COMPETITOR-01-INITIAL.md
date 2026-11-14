@@ -80,3 +80,16 @@ YouTube website is reachable). So nothing below says which video performed best.
    gemini-2.5-flash model id now returns 404 for text; TTS needs a fresh test).
 5. Mix: -14 to -16 LUFS, music bed ~12 dB under the voice with ducking, SFX under the voice.
 6. One original demo Short, built on 2-3 stages with existing H poses, then review against c01/c03.
+
+## 7. Public channel inventory (14 Nov 2026, yt-dlp flat list; full list in channel-inventory-2026-11-14.csv)
+View counts are public totals on the collection date; publish dates were not in the flat list (order = newest first),
+so older videos have had more time. Views are NOT retention.
+- **Captain Workout** (610K subs): 43 Shorts, median 232K views (51K-4.2M); 54 long videos, median 145K (15K-4.6M).
+  The 6 Drive Shorts are its #1-#5 and #8 most viewed Shorts. Top Shorts are older uploads (#20-#41 by age).
+- Top Shorts are one concrete, visible body problem + "you're doing it wrong" hook (arms look small, abs workout hurts
+  your back, too many ab exercises) or a self-rating comment bait (physique level, body-fat %, back level).
+- Lowest Shorts are the newest and abstract/nutrition/hormone topics (creatine, testosterone x2, body recomp: 51-65K).
+- **Effortless Exercise** (44 subs): 28 Shorts, median ~1,050 views (65-1,800). Older posts sit at ~1.1-1.8K; the
+  newest Day-format posts are lower (squat 148, neck 318, biceps 386), but they are also the youngest.
+- Our titles copy theirs closely ("Why your abs workout hurts your back" is the same title). Same topics with weaker
+  execution compete head-on with a 610K channel; we need our own angle per topic.
