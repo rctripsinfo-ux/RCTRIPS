@@ -213,7 +213,7 @@ class Renderer:
         c.alpha_composite(im, (int(x - im.width / 2), int(y - im.height / 2)))
 
     def pose_canvas(self, s, t):
-        c = Image.new("RGBA", (W, H), (255, 255, 255, 255))
+        c = Image.new("RGBA", (W, H), (*self.P.get("set", (255, 255, 255)), 255))  # one flat set colour (reference: #BAC8D0)
         self.stage_words(s, t, c)
         for L in sorted(s.get("layers", []), key=lambda L: L.get("z", 0)): self.stage_layer(s, L, t, c)
         if s.get("poses"):
@@ -320,8 +320,28 @@ class Renderer:
         return self.scene(i, t), i
 
     # ---------- overlays ----------
+    def caption_build(self, t, j):
+        """reference style: bottom, lowercase, 2-3 words per phrase, built word by word, white with a dark stroke"""
+        ws = self.tl.words
+        if not hasattr(self, "_chunks"):
+            self._chunks, cur = [], []
+            for k, w in enumerate(ws):
+                cur.append(k)
+                if len(cur) >= self.P.get("cap_words", 3) or w["text"][-1:] in ".,?!:;": self._chunks.append(cur); cur = []
+            if cur: self._chunks.append(cur)
+        ch = next((c_ for c_ in self._chunks if ws[c_[0]]["start"] - 0.02 <= t < (ws[c_[-1]]["end"] + 0.35)), None)
+        if not ch: return None
+        shown = [ws[k]["text"] for k in ch if ws[k]["start"] - 0.02 <= t]
+        txt = " ".join(shown).lower().replace(".", "").replace(",", "").replace("?", "").replace("!", "")
+        if not txt: return None
+        key = ("B", txt)
+        if key not in self.cap_cache:
+            self.cap_cache[key] = text_img(txt, f"{HERE}/fonts/rubik-800.woff2", self.P.get("cap_size", 62), (255, 255, 255), stroke=7, stroke_fill=(25, 28, 32), shadow=False, maxw=W * 0.8)
+        return self.cap_cache[key], self.P.get("cap_y", 0.78), 1.0
+
     def caption(self, t, j):
         if any(a <= t < b for a, b in self.hide): return None
+        if self.P.get("cap_mode") == "build": return self.caption_build(t, j)
         ws = self.tl.words; idx = max((k for k, w in enumerate(ws) if w["start"] <= t), default=-1)
         if idx < 0: return None
         if idx < self.tl.sc[j]["w0"]: return None  # never show the last word of the previous scene on the new picture
