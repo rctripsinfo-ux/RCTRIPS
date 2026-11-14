@@ -142,6 +142,10 @@ class Renderer:
                 k = (1 - (t - ts) / 0.35) * amp; rnd = random.Random(int(t * FPS)); dx, dy = (rnd.random() - .5) * k, (rnd.random() - .5) * k
                 z = max(z, 1.06)
         self.cam[i] = (z, fx, fy, dx, dy)
+        z_prev = keyval(s["_keys"], u - 1 / FPS, dur)[0]
+        if abs(z - z_prev) > 0.04:  # fast camera zoom: motion blur like the reference hook
+            img = view(self.pose_canvas(s, t), z, fx, fy, dx, dy) if s.get("poses") is not None else view(load(f"{self.P['dir']}/{s['img']}", s.get("pad", False)), z, fx, fy, dx, dy)
+            return img.filter(ImageFilter.GaussianBlur(min(14, abs(z - z_prev) * 60)))
         if s.get("poses") is not None:  # white set + H library poses (swapped at word anchors = pose animation) + extras
             return view(self.pose_canvas(s, t), z, fx, fy, dx, dy)
         if s.get("clip"):  # owner's animated version of the scene image (muted): frame at the scene's local time, held at the end
@@ -149,8 +153,69 @@ class Renderer:
         else: src = load(f"{self.P['dir']}/{s['img']}", s.get("pad", False))
         return view(src, z, fx, fy, dx, dy)
 
+    def stage_words(self, s, t, c):
+        """big low-contrast words typed BEHIND the characters (set dressing, not captions)"""
+        for bw in s.get("bgwords", []):
+            a = self.tl.at(bw["at"], s)
+            if t < a or (bw.get("until") and t >= self.tl.at(bw["until"], s)): continue
+            n = min(len(bw["text"]), int((t - a) / bw.get("cps", 0.045)) + 1)
+            im = text_img(bw["text"][:n], F_BIG, bw.get("size", 230), bw.get("color", (205, 210, 216)), shadow=False)
+            c.alpha_composite(im, (int(W * bw.get("x", 0.5) - im.width / 2) if bw.get("center", True) else int(W * bw.get("x", 0.08)), int(H * bw["y"] - im.height / 2)))
+
+    def stage_layer(self, s, L, t, c):
+        """one character / prop layer on the stage: own enter / exit, pose swaps in place, shiver, ghost copy"""
+        a = self.tl.at(L.get("at", 0), s); b = self.tl.at(L["until"], s) if L.get("until") else s["E"] + 1
+        en, ex = L.get("enter", ("cut", 0)), L.get("exit", ("cut", 0))
+        if t < a or t >= b + ex[1]: return
+        cur = L.get("asset")
+        for asset, k in L.get("poses", []):
+            if self.tl.at(k, s) <= t: cur = asset
+        im = hero(cur)
+        if L.get("flip"): im = im.transpose(Image.FLIP_LEFT_RIGHT)
+        w = int(W * L.get("w", 0.8)); h = int(w * im.height / im.width); x, y, sc, al, rot = W * L.get("x", 0.5), H * L.get("y", 0.6), 1.0, 1.0, 0
+        def move(kind, p):  # p: 0 = off, 1 = in place
+            nonlocal x, y, sc, al, rot
+            q = 1 - p
+            if kind == "slide_l": x -= q * (W * 0.5 + w)
+            elif kind == "slide_r": x += q * (W * 0.5 + w)
+            elif kind == "rise": y += q * (H * 0.5 + h * 0.6)
+            elif kind == "drop": y -= q * (H * 0.5 + h * 0.6)
+            elif kind == "fade": al = p
+            elif kind == "pop": sc = 0.3 + 0.7 * p
+            elif kind.startswith("corner"):  # grows out of a corner (commentator cameo)
+                cx = W * (1.02 if kind.endswith("r") else -0.02); x = cx + (x - cx) * p; y = H * 1.02 + (y - H * 1.02) * p; sc = 0.15 + 0.85 * p
+            elif kind == "fall": y += q * H * 0.7; rot = -25 * q
+        entering = t < a + en[1]
+        if entering: move(en[0], back((t - a) / en[1], 1.2) if en[0] in ("pop", "slide_l", "slide_r", "rise", "drop") or en[0].startswith("corner") else ease((t - a) / en[1]))
+        elif t >= b: move(ex[0], 1 - ease((t - b) / ex[1]))
+        for sa, su in L.get("shiver", []):  # effort / panic: fast tiny shake + side marks
+            if self.tl.at(sa, s) <= t < self.tl.at(su, s):
+                r_ = random.Random(int(t * FPS) * 7 + int(x)); x += (r_.random() - .5) * 10; y += (r_.random() - .5) * 6
+                d = ImageDraw.Draw(c)
+                for side in (-1, 1):
+                    for k_ in range(3):
+                        sx = x + side * (w * 0.42 + 18 * k_); sy = y - h * 0.15 + 40 * k_ - 40
+                        d.arc([sx - 18, sy - 18, sx + 18, sy + 18], 100 if side < 0 else 280, 260 if side < 0 else 80, fill=(150, 150, 150, 255), width=5)
+        g = L.get("ghost")
+        if g and self.tl.at(g["at"], s) <= t < (self.tl.at(g["until"], s) if g.get("until") else b):  # onion-skin of the other end of the move
+            ga = g.get("alpha", 0.3) * min(1, (t - self.tl.at(g["at"], s)) / 0.4)
+            gi = hero(g["asset"]).resize((w, h), Image.LANCZOS); gi.putalpha(gi.getchannel("A").point(lambda v: int(v * ga)))
+            c.alpha_composite(gi, (int(x - w / 2), int(y - h / 2)))
+        im = im.resize((max(1, int(w * sc)), max(1, int(h * sc))), Image.LANCZOS)
+        if entering and en[0] in ("slide_l", "slide_r") and (t - a) / en[1] < 0.45:  # fast part of a slide: smear + streaks
+            k = max(2, int(im.width / 7)); im = im.resize((k, im.height), Image.BILINEAR).resize((im.width, im.height), Image.BILINEAR)
+            d = ImageDraw.Draw(c); side = 1 if en[0] == "slide_r" else -1
+            for k_ in range(4):
+                yy = y - h * 0.3 + k_ * h * 0.18; xx = x + side * (w * 0.45 + 30)
+                d.line([(xx, yy), (xx + side * (160 + 40 * k_), yy)], fill=(170, 176, 184, 255), width=6)
+        if rot: im = im.rotate(rot, expand=True, resample=Image.BICUBIC)
+        if al < 1: im.putalpha(im.getchannel("A").point(lambda v: int(v * al)))
+        c.alpha_composite(im, (int(x - im.width / 2), int(y - im.height / 2)))
+
     def pose_canvas(self, s, t):
         c = Image.new("RGBA", (W, H), (255, 255, 255, 255))
+        self.stage_words(s, t, c)
+        for L in sorted(s.get("layers", []), key=lambda L: L.get("z", 0)): self.stage_layer(s, L, t, c)
         if s.get("poses"):
             fr = [(a, self.tl.at(k, s)) for a, k in s["poses"]]; cur = fr[0][0]
             for a, k in fr:
@@ -382,8 +447,11 @@ class Renderer:
         music_gain = 10 ** ((v_lufs - P.get("music_db", 22) - m_lufs) / 20)
         self.sfx_ref = v_pk - P.get("sfx_db", 12)  # target peak of a full-volume sound effect
         print(f"audio: voice {v_lufs:.1f} LUFS / peak {v_pk:.1f} dB, music gain {music_gain:.3f} (-{P.get('music_db', 22)} dB), sfx peaks <= {self.sfx_ref:.1f} dB")
-        fl.append(f"[0:a]aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur={dur}[v]")
-        fl.append(f"[1:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{dur},volume={music_gain:.4f},afade=t=in:d=0.3,afade=t=out:st={dur - 1.2}:d=1.2[m]")
+        fl.append(f"[0:a]aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur={dur},asplit=2[v][vsc]")
+        fl.append(f"[1:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{dur},volume={music_gain:.4f},afade=t=in:d=0.3,afade=t=out:st={dur - 1.2}:d=1.2[mr]")
+        duck = P.get("duck", True)  # music dips ~4-6 dB while H speaks and swells back in the pauses (competitor-style bed)
+        fl.append("[mr][vsc]sidechaincompress=threshold=0.04:ratio=4:attack=30:release=350[m]" if duck else "[mr]anull[m]")
+        if not duck: fl.append("[vsc]anullsink")
         k = 2
         for s in self.tl.sc:
             for m in s.get("marks", []):

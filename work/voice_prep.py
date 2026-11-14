@@ -17,7 +17,10 @@ r = api(f"/api/projects/{name}/sync", json.dumps({"script": txt}).encode()); pri
 words = json.load(open(f"{pdir}/words.json"))["words"]
 w = wave.open(tmp); prm = w.getparams(); rate = w.getframerate(); audio = w.readframes(w.getnframes()); w.close(); bpf = prm.sampwidth * prm.nchannels
 def chunk(a, b): return audio[int(a * rate) * bpf:int(b * rate) * bpf]
-def want(t): return HOLD.get(t, 0.22 if t[-1:] in ".?!:" else 0.1 if t[-1:] in ",;" else 0.04)
+NAT = os.environ.get("NATURAL") == "1"  # owner 14 Nov (competitor study): keep breathing room, ~150-170 wpm
+def want(t):
+    if NAT: return HOLD.get(t, 0.38 if t[-1:] in ".?!:" else 0.2 if t[-1:] in ",;" else 0.08)
+    return HOLD.get(t, 0.22 if t[-1:] in ".?!:" else 0.1 if t[-1:] in ",;" else 0.04)
 out = bytearray(bytes(int(0.05 * rate) * bpf)); t = 0.05; new = []
 for i, x in enumerate(words):
     s0, e0 = x["start"], x["end"]; out += chunk(s0, e0); new.append((t, t + e0 - s0)); t += e0 - s0

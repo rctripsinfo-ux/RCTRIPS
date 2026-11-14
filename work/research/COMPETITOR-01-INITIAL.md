@@ -93,3 +93,93 @@ so older videos have had more time. Views are NOT retention.
   newest Day-format posts are lower (squat 148, neck 318, biceps 386), but they are also the youngest.
 - Our titles copy theirs closely ("Why your abs workout hurts your back" is the same title). Same topics with weaker
   execution compete head-on with a 610K channel; we need our own angle per topic.
+
+## 8. Visible-change timelines (top 3 Shorts; motion >= 4 at 0.1 s, with the word being spoken)
+Competitor: a visible change every 2.2 s (c01) to 3.5 s (c03, c06); between them only small motion. Ours: a whole-frame change every ~1.5 s.
+
+### c01: 28 visible changes in 62 s (one every 2.2 s on average)
+| t (s) | lasts (s) | size | on word |
+|---|---|---|---|
+| 0.1 | 0.5 | cut/jump (34.0) | You're |
+| 2.1 | 0.5 | cut/jump (19.1) | - |
+| 2.7 | 0.5 | cut/jump (17.2) | your |
+| 3.9 | 0.3 | move (10.2) | like |
+| 6.7 | 0.1 | cut/jump (22.5) | Let |
+| 8.1 | 0.5 | cut/jump (18.2) | - |
+| 9.2 | 0.4 | cut/jump (36.8) | truth. |
+| 13.2 | 4.0 | cut/jump (49.4) | do. |
+| 21.1 | 0.1 | move (12.0) | - |
+| 22.3 | 0.4 | cut/jump (34.2) | overhead |
+| 23.8 | 0.1 | cut/jump (14.5) | - |
+| 24.1 | 0.6 | move (5.8) | - |
+| 27.8 | 0.1 | cut/jump (20.3) | But |
+| 28.5 | 0.3 | move (5.2) | arms |
+| 32.4 | 0.1 | cut/jump (14.9) | - |
+| 33.2 | 0.5 | cut/jump (47.5) | - |
+| 34.7 | 0.4 | move (8.3) | Perfect |
+| 37.9 | 0.3 | move (8.1) | flailing |
+| 38.4 | 0.7 | cut/jump (17.4) | mess. |
+| 42.7 | 0.6 | cut/jump (41.6) | zone. |
+| 43.9 | 0.4 | cut/jump (52.6) | - |
+| 45.9 | 0.5 | cut/jump (23.0) | Old |
+| 48.2 | 0.1 | cut/jump (41.4) | - |
+| 49.2 | 0.4 | cut/jump (16.8) | dumbbell |
+| 52.2 | 0.6 | move (10.1) | nails |
+| 57.3 | 0.9 | move (8.1) | you |
+| 58.4 | 0.6 | cut/jump (12.9) | These |
+| 59.2 | 2.6 | cut/jump (12.2) | triceps |
+### c03: 11 visible changes in 37 s (one every 3.5 s on average)
+| t (s) | lasts (s) | size | on word |
+|---|---|---|---|
+| 0.1 | 0.4 | cut/jump (17.1) | Keep |
+| 2.9 | 0.2 | move (4.7) | back |
+| 5.3 | 0.7 | cut/jump (18.5) | Here's |
+| 7.0 | 0.5 | cut/jump (29.8) | - |
+| 9.3 | 0.6 | move (4.6) | start |
+| 11.2 | 0.3 | cut/jump (12.4) | bug, |
+| 12.6 | 2.1 | move (7.7) | are |
+| 15.0 | 0.2 | move (4.4) | abs. |
+| 23.1 | 0.1 | cut/jump (16.0) | spine. |
+| 24.4 | 0.1 | move (10.6) | - |
+| 35.3 | 0.6 | cut/jump (18.1) | then |
+### c06: 16 visible changes in 56 s (one every 3.5 s on average)
+| t (s) | lasts (s) | size | on word |
+|---|---|---|---|
+| 0.1 | 0.4 | cut/jump (37.1) | Your |
+| 0.9 | 1.4 | cut/jump (26.1) | buddy's |
+| 4.2 | 0.3 | cut/jump (12.9) | yours |
+| 5.6 | 0.4 | move (4.5) | breadsticks? |
+| 6.1 | 0.1 | cut/jump (47.4) | - |
+| 7.6 | 0.1 | cut/jump (29.6) | Let |
+| 9.0 | 0.4 | cut/jump (23.1) | To |
+| 15.2 | 0.9 | cut/jump (38.9) | done, |
+| 17.0 | 0.2 | move (4.3) | one |
+| 20.5 | 1.0 | cut/jump (25.5) | bigger. |
+| 23.6 | 0.4 | move (11.5) | Maximum |
+| 29.3 | 1.0 | cut/jump (21.0) | dumbbells. |
+| 32.8 | 0.4 | move (4.1) | Brutal |
+| 42.2 | 0.5 | cut/jump (15.6) | - |
+| 44.2 | 0.6 | cut/jump (15.6) | This |
+| 53.3 | 0.7 | cut/jump (13.4) | making |
+## 9. 30 fps frame-by-frame study (every frame of the 6 Shorts, 7,873 frames)
+Method: the set is one flat colour in all six (RGB 186,200,208), so every frame's foreground (characters, props,
+words) was separated from it and tracked (centre, box, area) plus the frame difference; change runs were classified.
+1-frame "small changes" are mostly caption-word swaps and micro pose changes.
+| Event | Count | Typical length | Notes |
+|---|---|---|---|
+| Slide / move | 56 | 15 frames (0.5 s), 12-22 | 18 of 32 measured curves are ease-out, 13 of them with a small overshoot (settles 2-4 frames late) |
+| Scale / zoom | 33 | punch 1-4 frames, slow 11-16 frames | sizes 0.5-0.87x (pull-out) and 1.17-1.43x (push-in) |
+| Grow / fade layer | 8 | 12 frames (0.4 s) | ghost limbs fade in to show the rep |
+| Idle shiver | 12 | 18 frames | shake + side marks while a layer holds |
+| Hard cut / swap | 8 | 1 frame | pose swaps in place |
+Holds: 42-74 % of all frames are completely still (c02 is one continuous 27 s pan). Big whole-frame jumps per minute:
+6-161 (median 31). Our Day 6: 367 per minute, 23 % still.
+Checked by eye at 30 fps: c01 0.0 s opens on a ~2x blurred close-up and zooms out to full body in ~8 frames;
+c06 29.9 s the giant "2" and the character slide in from the right with streak lines, arrive in ~6 frames and settle
+by frame 12; c01 45.8 s a commentator close-up rises from the bottom-left corner in ~10 frames over a picture that
+stays; c01 28.3 s ghost arms fade in over ~14 frames.
+
+## 10. Demo 01 (pull-up) measured the same way
+1 hard cut, 99 big jumps per minute, 40 % still frames, 175 wpm with a 1.1 s joke pause, -15.1 LUFS (LRA 3.0),
+music bed ~12 dB under the voice with ducking. Inside the competitor range on cuts and jumps; still busier on
+held frames (our middle one-word captions change every word).
