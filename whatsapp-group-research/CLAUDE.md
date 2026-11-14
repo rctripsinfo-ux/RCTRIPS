@@ -27,6 +27,14 @@ Accept only if the post visibly has ≥500 reactions **or** ≥500 comments (no 
 - If both stages are inconclusive if still inconclusive → Unknown, do not approve. Limited retries with backoff; ≥3 s between requests.
 - **Never join groups, message admins/members, harvest numbers, bypass logins/CAPTCHAs, or buy/resell links.**
 
+## Stage 3: WhatsApp Web preview (required before approval)
+After the public-page checks pass, open each new invite in the user's **already logged-in WhatsApp Web** (their own Chrome via Claude in Chrome / built-in browser; never log WhatsApp into a cloud browser). Read only the preview popup, then close it. **Never click Join / Request to join / Join community.** Record:
+- Exact name shown in the popup
+- Member count if shown (verified fact; store in Q "Public Member Evidence" as "WhatsApp Web preview: N members, <date>")
+- Button text: "Join group" = `Active – Direct Join`; "Request to join" = `Active – Request to Join`; "Join community" / "View community" = `Active – Community` (Group or Community column = Community)
+- Popup says invalid/reset/expired = Expired/Revoked
+Ban-safety rules: one invite at a time, ~30–60 s randomised gap, max ~25 previews per session, no scrolling chats, no messages, no clicks other than closing the popup, stop immediately on any warning/"try again later". If WhatsApp Web is unavailable, mark the group pending and do not approve it on public metadata alone.
+
 ## Names & dedupe
 Save the exact WhatsApp name verbatim (case, punctuation, emojis). Normalized name = lowercase, no emojis/punctuation, generic suffixes (official, group, WhatsApp group, community, network, updates) and numbered subgroup labels removed. If source name ≠ WA name, use WA name and explain in notes.
 Dedupe on: invite code, canonical URL, exact name, normalized name, parent community, source org, fuzzy similarity (≥85% → manual review, not auto-approve), same-community subgroups. Reject regenerated links of known groups, numbered sibling subgroups, multiple destination groups from the same DMC (unless requested). Don't reject distinct groups merely for sharing generic niche words.
