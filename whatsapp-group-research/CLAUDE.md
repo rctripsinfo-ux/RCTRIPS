@@ -23,7 +23,8 @@ Accept only if the post visibly has ≥500 reactions **or** ≥500 comments (no 
 - Name priority: `parent_group_subject` (communities) > specific `og:title` > structured metadata > browser-rendered name (`h3._9vd5`) > official source (only if WA metadata temporarily unavailable).
 - Generic titles (WhatsApp Group Invite, Join WhatsApp Group, WhatsApp, Group Invite, blank, unexplained "General") = inconclusive.
 - Statuses: `Active – Direct Join`, `Active – Request to Join`, `Active – Community` (approvable); `Probable Active – Metadata Partially Available` (only with strong official evidence, disclosed); `Expired`, `Revoked`, `Invalid`, `Unknown – Do Not Approve`.
-- If automated fetch is blocked, try a Playwright browser-rendered check (Chromium preinstalled); if still inconclusive → Unknown, do not approve. Limited retries with backoff; ≥3 s between requests.
+- Two-stage check: fast HTTP metadata, then (when title/photo is missing) a headless Playwright render adapted from the user's `direct_join_checker.py` verifier, with a full-page screenshot saved to `data/screenshots/<code>.png` as evidence. Only the verifier is used; group discovery is done by Claude via web search. Never click Join.
+- If both stages are inconclusive if still inconclusive → Unknown, do not approve. Limited retries with backoff; ≥3 s between requests.
 - **Never join groups, message admins/members, harvest numbers, bypass logins/CAPTCHAs, or buy/resell links.**
 
 ## Names & dedupe

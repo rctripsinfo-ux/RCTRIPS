@@ -68,7 +68,52 @@ def fetch(url, cfg):
             time.sleep(base * (2 ** i))
     return None, err
 
-def validate(link, cfg=None):
+
+# ---- Browser-rendered check (adapted from user's direct_join_checker.py CheckerPane) ----
+BROWSER_JS = r"""() => {
+  const m = s => (document.querySelector(s) || {}).content || '';
+  const h3 = document.querySelector('h3');
+  return {title: document.title || '', ogTitle: m('meta[property="og:title"]'),
+          ogImage: m('meta[property="og:image"]'), ogDesc: m('meta[property="og:description"]'),
+          rendered: h3 ? h3.innerText.trim() : '',
+          imgs: Array.from(document.querySelectorAll('img')).map(i => i.src).filter(Boolean),
+          body: document.body ? document.body.innerText.slice(0, 3000) : ''};
+}"""
+
+def browser_check(link, screenshot_dir=None):
+    """Headless Chromium render of the public invite page. Never clicks Join."""
+    canon, code = canonicalize(link)
+    out = {"ok": False, "name": "", "has_photo": False, "body": "", "screenshot": "", "error": ""}
+    if not code:
+        out["error"] = "bad format"; return out
+    try:
+        from playwright.sync_api import sync_playwright
+        import os
+        exe = os.environ.get("CHROMIUM_PATH") or next((x for x in ("/opt/pw-browsers/chromium",) if os.path.isfile(x)), None)
+        with sync_playwright() as p:
+            b = p.chromium.launch(executable_path=exe) if exe else p.chromium.launch()
+            pg = b.new_context(user_agent=UA, accept_downloads=False).new_page()
+            r = pg.goto(canon, timeout=60000, wait_until="domcontentloaded")
+            try:
+                pg.wait_for_load_state("networkidle", timeout=5000)
+            except Exception:
+                pass
+            info = pg.evaluate(BROWSER_JS)
+            if screenshot_dir:
+                import os
+                os.makedirs(screenshot_dir, exist_ok=True)
+                out["screenshot"] = os.path.join(screenshot_dir, f"{code}.png")
+                pg.screenshot(path=out["screenshot"], full_page=True)
+            b.close()
+        name = info["ogTitle"] or info["rendered"]
+        out.update(ok=bool(r and r.status < 400), body=info["body"].lower(),
+                   name="" if name.strip().lower() in GENERIC_TITLES else name.strip(),
+                   has_photo=any("pps.whatsapp.net" in u for u in [info["ogImage"]] + info["imgs"]))
+    except Exception as e:
+        out["error"] = f"{type(e).__name__}: {e}"[:200]
+    return out
+
+def validate(link, cfg=None, use_browser=True, screenshot_dir=None):
     cfg = cfg or config()
     canon, code = canonicalize(link)
     res = {"input_link": link, "canonical_url": canon, "invite_code": code, "checked_at": now(),
@@ -102,6 +147,19 @@ def validate(link, cfg=None):
     if any(mk in low for mk in EXPIRED_MARKERS):
         res["status"] = "Revoked" if "revoked" in low or "reset" in low else "Expired"
         return res
+    if use_browser and (not title or title.lower() in GENERIC_TITLES or not res["has_image"]):
+        bc = browser_check(canon, screenshot_dir)
+        res["browser"] = {k: bc[k] for k in ("ok", "name", "has_photo", "screenshot", "error")}
+        if bc["error"]:
+            res["notes"].append(f"Browser check failed: {bc['error']}")
+        else:
+            if any(mk in bc["body"] for mk in EXPIRED_MARKERS):
+                res["status"] = "Revoked" if ("revoked" in bc["body"] or "reset" in bc["body"]) else "Expired"
+                return res
+            if bc["name"] and (not title or title.lower() in GENERIC_TITLES):
+                title = bc["name"]; res["notes"].append("Name from browser-rendered page")
+            res["has_image"] = res["has_image"] or bc["has_photo"]
+            res["request_to_join"] = res["request_to_join"] or "request to join" in bc["body"]
     if r.status_code == 404:
         res["status"] = "Invalid"
         return res
@@ -129,4 +187,6 @@ APPROVABLE = {"Active – Direct Join", "Active – Request to Join", "Active �
 
 if __name__ == "__main__":
     cfg = config()
-    print(json.dumps([validate(l, cfg) for l in sys.argv[1:]], ensure_ascii=False, indent=2))
+    import os
+    shots = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "screenshots")
+    print(json.dumps([validate(l, cfg, screenshot_dir=shots) for l in sys.argv[1:]], ensure_ascii=False, indent=2))

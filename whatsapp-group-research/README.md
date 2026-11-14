@@ -4,7 +4,7 @@ Reusable pipeline to find, validate, dedupe, score and log WhatsApp groups into 
 
 ## Setup
 ```bash
-pip install requests gspread
+pip install requests gspread playwright   # Chromium: set CHROMIUM_PATH if not auto-found
 cp .env.example .env   # set GOOGLE_SHEET_ID
 # put service-account JSON at credentials/service_account.json (git-ignored)
 python scripts/google_sheets.py test    # read-only check
