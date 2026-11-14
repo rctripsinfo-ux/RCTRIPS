@@ -13,17 +13,19 @@ def punch(at, z0, z1, f=(.5, .5)):      # 3-frame punch zoom on a word
 
 S = [
  # 1 HOOK: aligned push-up pair (2 reps, ghost = top frame) -> back view rises -> the FRIDGE slides in beside him
- dict(text="You're doing push-ups every single day, but from behind you still look like a fridge? Here's the fix.", poses=[],
+ dict(text="You're doing push-ups every single day, but from behind you still look like a fridge?", poses=[],
       layers=[dict(at=0, until="but", w=0.9, x=0.47, y=0.6,
-                   poses=[("hero_pushup_pair_b", 0), ("hero_pushup_pair_a", 0.5), ("hero_pushup_pair_b", 1.0), ("hero_pushup_pair_a", 1.5)],
+                   poses=[("hero_pushup_pair_b", 0), ("hero_pushup_pair_a", 0.5), ("hero_pushup_pair_b", 1.0), ("hero_pushup_pair_a", 1.5), ("hero_pushup_pair_b", 2.0), ("hero_pushup_pair_a", 2.5)],
                    ghost=dict(asset="hero_pushup_pair_a", at=0, alpha=0.35), exit=("rise", 0.4)),
-              dict(at="behind", until="Here's", w=0.6, x=0.33, y=0.6, asset="hero_back_view", enter=("rise", 0.4), exit=("fade", 0.15)),
-              dict(at="fridge?", until="Here's", w=0.36, x=0.75, y=0.6, asset="prop_fridge", enter=("slide_r", 0.45), exit=("fade", 0.15))],
-      bgwords=[dict(text="HERE'S THE FIX", at="Here's", y=0.46, size=170, color=GREY_TXT, cps=0.02)],
-      keys=[(0, 1.9, .72, .5), (0.4, 1.0, .5, .5), ("fridge?+0.6", 1.0, .5, .5), ("fridge?+0.7", 1.22, .5, .55), ("Here's", 1.22, .5, .55), ("Here's+0.1", 1.0, .5, .5)],
+              dict(at="behind", w=0.6, x=0.33, y=0.6, asset="hero_back_view", enter=("rise", 0.4)),
+              dict(at="fridge?", w=0.36, x=0.75, y=0.6, asset="prop_fridge", enter=("slide_r", 0.45), shiver=[("fridge?+0.5", "fridge?+0.8")])],
+      keys=[(0, 1.9, .72, .5), (0.4, 1.0, .5, .5), ("fridge?+0.4", 1.0, .5, .5), ("fridge?+0.5", 1.22, .5, .55)],
       sfx=[(0.0, "whoosh_soft", .2), ("fridge?+0.1", "whoosh_short", .25)]),
+ # 1b BUMPER: empty set, grey "HERE'S THE FIX" typed on; bottom caption hidden so the line shows once
+ dict(text="Here's the fix.", poses=[], tr="cut", nocap=True,
+      bgwords=[dict(text="HERE'S THE FIX", at=0, y=0.46, size=170, color=GREY_TXT, cps=0.02)], keys=[(0, 1.0, .5, .5)]),
  # 2 MYTH FLIP: front flex -> CHEST painted; back flex -> BACK painted; LATS; then 3 fingers. Long still holds.
- dict(text="Here's the truth. Your chest doesn't make you look wide. Your back does. And if you want that V-shape, you need to train your lats and your upper back. Here are three moves that get it done.",
+ dict(text="Your chest doesn't make you look wide. Your back does. And if you want that V-shape, you need to train your lats and your upper back. Here are three moves that get it done.",
       poses=[], tr="cut",
       layers=[dict(at=0, **STAND, poses=[("hero_double_biceps", 0), ("hero_back_double_biceps", "back"), ("hero_count_3", "three")], enter=("pop", 0.5))],
       marks=[dict(at="chest", until="back", style="paint", text="CHEST", x=.5, y=.455, rx=.12, ry=.04),
