@@ -160,7 +160,10 @@ class Renderer:
             if t < a or (bw.get("until") and t >= self.tl.at(bw["until"], s)): continue
             n = min(len(bw["text"]), int((t - a) / bw.get("cps", 0.045)) + 1)
             im = text_img(bw["text"][:n], F_BIG, bw.get("size", 230), bw.get("color", (205, 210, 216)), shadow=False)
-            c.alpha_composite(im, (int(W * bw.get("x", 0.5) - im.width / 2) if bw.get("center", True) else int(W * bw.get("x", 0.08)), int(H * bw["y"] - im.height / 2)))
+            px = int(W * bw.get("x", 0.5) - im.width / 2) if bw.get("center", True) else int(W * bw.get("x", 0.08)); py = int(H * bw["y"] - im.height / 2)
+            c.alpha_composite(im, (px, py))
+            if bw.get("cursor") and (n < len(bw["text"]) or int((t - a) / 0.45) % 2 == 0):  # blinking bar cursor (reference typewriter bumper)
+                sz = bw.get("size", 230); ImageDraw.Draw(c).rectangle([px + im.width + 8, py + im.height * 0.12, px + im.width + 8 + max(6, sz // 22), py + im.height * 0.88], fill=(*bw.get("color", (205, 210, 216)), 255))
 
     def stage_layer(self, s, L, t, c):
         """one character / prop layer on the stage: own enter / exit, pose swaps in place, shiver, ghost copy"""
@@ -209,13 +212,18 @@ class Renderer:
                 yy = y - h * 0.3 + k_ * h * 0.18; xx = x + side * (w * 0.45 + 30)
                 d.line([(xx, yy), (xx + side * (160 + 40 * k_), yy)], fill=(170, 176, 184, 255), width=6)
         if rot: im = im.rotate(rot, expand=True, resample=Image.BICUBIC)
+        al *= L.get("alpha", 1.0)
         if al < 1: im.putalpha(im.getchannel("A").point(lambda v: int(v * al)))
         c.alpha_composite(im, (int(x - im.width / 2), int(y - im.height / 2)))
 
     def pose_canvas(self, s, t):
-        c = Image.new("RGBA", (W, H), (*self.P.get("set", (255, 255, 255)), 255))  # one flat set colour (reference: #BAC8D0)
+        c = Image.new("RGBA", (W, H), (*s.get("set", self.P.get("set", (255, 255, 255))), 255))  # one flat set colour (reference: #BAC8D0); section cards override
         self.stage_words(s, t, c)
-        for L in sorted(s.get("layers", []), key=lambda L: L.get("z", 0)): self.stage_layer(s, L, t, c)
+        for L in sorted(s.get("layers", []), key=lambda L: L.get("z", 0)):
+            if L.get("focus") and self.tl.at(L.get("at", 0), s) <= t < (self.tl.at(L["until"], s) if L.get("until") else 1e9):  # everything behind goes soft + a bit darker
+                k = min(1, (t - self.tl.at(L.get("at", 0), s)) / 0.3); c = c.filter(ImageFilter.GaussianBlur(12 * k))
+                c.alpha_composite(Image.new("RGBA", (W, H), (0, 0, 0, int(40 * k))))
+            self.stage_layer(s, L, t, c)
         if s.get("poses"):
             fr = [(a, self.tl.at(k, s)) for a, k in s["poses"]]; cur = fr[0][0]
             for a, k in fr:
@@ -233,7 +241,101 @@ class Renderer:
             if t < a or (tx.get("until") and t >= self.tl.at(tx["until"], s)): continue
             if "_im" not in tx: tx["_im"] = text_img(tx["text"], F_BIG, tx.get("size", 170), tx.get("color", INK), stroke=8, maxw=W * 0.9)
             p = (t - a) / 0.2; paste_center(c, tx["_im"], W / 2, H * tx.get("y", 0.15), 1.6 - 0.6 * back(p, 1.4) if p < 1 else 1.0, min(1, p * 2))
+        self.fx(s, t, c)
         return c.convert("RGB")
+
+    # ---------- effects library (research/EFFECTS-LIBRARY-36-VIDEOS.md) ----------
+    def _live(self, e, s, t, fade=0.15):
+        a = self.tl.at(e.get("at", 0), s); b = self.tl.at(e["until"], s) if e.get("until") else 1e9
+        if t < a or t >= b + fade: return None
+        return t - a, (1 - (t - b) / fade) if t >= b else 1.0
+
+    def fx(self, s, t, c):
+        ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(ov)
+        for e in s.get("arcs", []):  # dashed motion arc drawn on along the move, arrowhead at the end
+            lv = self._live(e, s, t)
+            if not lv: continue
+            u, f = lv; X, Y, R = W * e["x"], H * e["y"], W * e.get("r", 0.15); a0, a1 = e.get("a0", 200), e.get("a1", 340)
+            end = a0 + (a1 - a0) * ease(u / 0.35); col = (*e.get("color", (255, 255, 255)), int(235 * f)); st_ = 9 if a1 > a0 else -9
+            for k in range(int((end - a0) / st_)):
+                g0 = a0 + k * st_; g1 = g0 + st_ * 0.55
+                d.arc([X - R, Y - R, X + R, Y + R], min(g0, g1), max(g0, g1), fill=col, width=e.get("wd", 9))
+            if e.get("arrow", True) and u > 0.3:
+                ang = math.radians(a1); tx_, ty_ = X + R * math.cos(ang), Y + R * math.sin(ang); dv = 1 if a1 > a0 else -1
+                vx, vy = -math.sin(ang) * dv, math.cos(ang) * dv; px, py = -vy, vx
+                d.polygon([(tx_ + vx * 34, ty_ + vy * 34), (tx_ + px * 22, ty_ + py * 22), (tx_ - px * 22, ty_ - py * 22)], fill=col)
+        for e in s.get("particles", []):  # green plus signs floating up (growth)
+            lv = self._live(e, s, t)
+            if not lv: continue
+            u, f = lv; rnd = random.Random(e.get("seed", 3)); col = e.get("color", (60, 200, 90))
+            for k in range(e.get("n", 12)):
+                ox, oy, ph, sz = (rnd.random() - .5) * W * e.get("spread", 0.4), (rnd.random() - .5) * H * 0.15, rnd.random(), 18 + rnd.random() * 20
+                q = (u * 0.8 + ph) % 1; X, Y = W * e["x"] + ox, H * e["y"] + oy - q * 260; al = int(255 * f * min(1, q * 5) * (1 - q))
+                d.rectangle([X - sz, Y - sz * 0.28, X + sz, Y + sz * 0.28], fill=(*col, al)); d.rectangle([X - sz * 0.28, Y - sz, X + sz * 0.28, Y + sz], fill=(*col, al))
+        c.alpha_composite(ov)
+        for e in s.get("insets", []): self.inset(e, s, t, c)
+        for e in s.get("labels", []): self.label(e, s, t, c)
+        for e in s.get("dim", []):  # whole frame darkens (marks are drawn later, so they stay bright)
+            lv = self._live(e, s, t, 0.25)
+            if not lv: continue
+            u, f = lv; c.alpha_composite(Image.new("RGBA", (W, H), (10, 14, 20, int(255 * e.get("amount", 0.44) * ease(u / e.get("ramp", 0.6)) * f))))
+
+    def inset(self, e, s, t, c):
+        """circle badge with a zoomed crop of a pose (muscle close-up): pops from 125 % with blur, optional big-centre start, red X / green tick"""
+        lv = self._live(e, s, t)
+        if not lv: return
+        u, f = lv; R = int(W * e.get("r", 0.13))
+        if "_im" not in e:
+            src = hero(e["asset"]); cx, cy, fr = e.get("crop", (0.5, 0.4, 0.5)); cw = src.width * fr
+            cr = src.crop((int(cx * src.width - cw / 2), int(cy * src.height - cw / 2), int(cx * src.width + cw / 2), int(cy * src.height + cw / 2))).resize((2 * R, 2 * R), Image.LANCZOS)
+            im = Image.new("RGBA", (2 * R + 16, 2 * R + 16), (0, 0, 0, 0)); ImageDraw.Draw(im).ellipse([8, 8, 2 * R + 8, 2 * R + 8], fill=(*e.get("bg", (150, 164, 176)), 255))
+            if e.get("paint"):  # colour on the muscle inside the badge
+                px, py, rx, ry, col = e["paint"]; g = Image.new("RGBA", cr.size, (0, 0, 0, 0))
+                ImageDraw.Draw(g).ellipse([(px - rx) * 2 * R, (py - ry) * 2 * R, (px + rx) * 2 * R, (py + ry) * 2 * R], fill=(*col, 170)); g = g.filter(ImageFilter.GaussianBlur(R * 0.05))
+                cr = cr.copy(); cr.alpha_composite(Image.composite(g, Image.new("RGBA", cr.size, (0, 0, 0, 0)), cr.getchannel("A")))
+            m = Image.new("L", (2 * R, 2 * R), 0); ImageDraw.Draw(m).ellipse([0, 0, 2 * R, 2 * R], fill=255)
+            body = Image.new("RGBA", (2 * R, 2 * R), (0, 0, 0, 0)); body.paste(cr, (0, 0), Image.composite(cr.getchannel("A"), Image.new("L", cr.size, 0), m))
+            im.alpha_composite(body, (8, 8)); ImageDraw.Draw(im).ellipse([8, 8, 2 * R + 8, 2 * R + 8], outline=(40, 46, 54, 255), width=7)
+            e["_im"] = im
+        x, y = W * e["x"], H * e["y"]
+        if e.get("big_at") is not None:  # starts big in the centre, then shrinks to its corner spot
+            mv = ease((t - self.tl.at(e["big_at"], s)) / 0.4) if t >= self.tl.at(e["big_at"], s) else 0
+            x, y = W * 0.5 + (x - W * 0.5) * mv, H * 0.42 + (y - H * 0.42) * mv; scale = 2.1 - 1.1 * mv
+        else: scale = 1.0
+        if u < 0.14: scale *= 1.25 - 0.25 * ease(u / 0.14)
+        im = e["_im"].resize((int(e["_im"].width * scale), int(e["_im"].height * scale)), Image.LANCZOS)
+        if u < 0.07: im = im.filter(ImageFilter.GaussianBlur(6))
+        al = min(1, u / 0.07) * f
+        if al < 1: im.putalpha(im.getchannel("A").point(lambda v: int(v * al)))
+        c.alpha_composite(im, (int(x - im.width / 2), int(y - im.height / 2)))
+        mk = e.get("mark")
+        if mk and u > e.get("mark_delay", 0.3):  # red X or green tick at the badge's top-right, drawn on
+            k = ease((u - e.get("mark_delay", 0.3)) / 0.2); r = R * scale; mx, my = x + r * 0.72, y - r * 0.72; d = ImageDraw.Draw(c); a_ = int(255 * f)
+            if mk == "x":
+                s_ = r * 0.32
+                for (x0, y0, x1, y1) in ((-1, -1, 1, 1), (1, -1, -1, 1)):
+                    d.line([(mx + x0 * s_, my + y0 * s_), (mx + x0 * s_ + (x1 - x0) * s_ * k, my + y0 * s_ + (y1 - y0) * s_ * k)], fill=(225, 29, 46, a_), width=int(r * 0.13))
+            else:
+                pts = [(mx - r * 0.3, my), (mx - r * 0.08, my + r * 0.24), (mx + r * 0.36, my - r * 0.3)]
+                d.line(pts[:2] if k < 0.4 else pts, fill=(40, 190, 80, a_), width=int(r * 0.13), joint="curve")
+
+    def label(self, e, s, t, c):
+        """small white box with a dark border (reference labels): drops in from above with motion blur, optional leader line"""
+        lv = self._live(e, s, t)
+        if not lv: return
+        u, f = lv
+        if "_im" not in e:
+            tx = text_img(e["text"], f"{HERE}/fonts/rubik-800.woff2", e.get("size", 50), (25, 28, 32), shadow=False)
+            im = Image.new("RGBA", (tx.width + 56, tx.height + 26), (0, 0, 0, 0)); ImageDraw.Draw(im).rounded_rectangle([2, 2, im.width - 3, im.height - 3], 14, fill=(255, 255, 255, 255), outline=(30, 34, 40, 255), width=5)
+            im.alpha_composite(tx, (28, 13)); e["_im"] = im
+        x, y = W * e["x"], H * e["y"]; p = ease(u / 0.27); y -= (1 - p) * H * 0.1
+        im = e["_im"]
+        if u < 0.18: im = im.filter(ImageFilter.GaussianBlur(5 * (1 - u / 0.18)))
+        al = min(1, u / 0.08) * f
+        if al < 1: im = im.copy(); im.putalpha(im.getchannel("A").point(lambda v: int(v * al)))
+        if e.get("leader") and p > 0.8:
+            lx, ly = e["leader"]; ImageDraw.Draw(c).line([(x, y), (W * lx, H * ly)], fill=(30, 34, 40, int(255 * f)), width=5)
+        c.alpha_composite(im, (int(x - im.width / 2), int(y - im.height / 2)))
 
     def card(self, s, u):
         num, title = s["card"]; c = Image.new("RGBA", (W, H), (255, 255, 255, 255))
@@ -297,6 +399,26 @@ class Renderer:
             cx, cy = (float(v) for v in (kind.split(":")[1].split(",") if ":" in kind else (0.5, 0.5)))
             r = e * 1.25 * H; m = Image.new("L", (W, H), 0); ImageDraw.Draw(m).ellipse([cx * W - r, cy * H - r, cx * W + r, cy * H + r], fill=255)
             c.paste(old); c.paste(new, (0, 0), m); ImageDraw.Draw(c).ellipse([cx * W - r, cy * H - r, cx * W + r, cy * H + r], outline=RED, width=14 if p < 0.95 else 0); return c
+        if kind == "squash":  # old squeezes to a vertical line (ease-in), 1 empty frame, new expands from the line (ease-out)
+            bg = old.getpixel((4, 4)); c = Image.new("RGB", (W, H), bg)
+            if p < 0.45: sx = 1 - (p / 0.45) ** 2; im = old
+            elif p < 0.55: return c
+            else: sx = ease((p - 0.55) / 0.45); im = new; c = Image.new("RGB", (W, H), new.getpixel((4, 4)))
+            im = im.resize((max(2, int(W * sx)), H), Image.BILINEAR); c.paste(im, ((W - im.width) // 2, 0)); return c
+        if kind == "brush":  # rough paint strokes sweep across, band by band from the top, revealing the new scene
+            m = Image.new("L", (W, H), 0); dm = ImageDraw.Draw(m); rnd = random.Random(11); nb = 7; bh = H / nb
+            for k in range(nb):
+                pk = ease((p - k * 0.06) / 0.55); xe = pk * W * 1.35 - 0.2 * W; y0, y1 = k * bh - 25, (k + 1) * bh + 25
+                pts = [(-10, y0)] + [(xe + rnd.uniform(-90, 90), y0 + (y1 - y0) * j / 10) for j in range(11)] + [(-10, y1)]
+                if xe > -0.2 * W: dm.polygon(pts, fill=255)
+                for j in range(5):  # dry-brush streaks ahead of the stroke
+                    yy = y0 + rnd.uniform(0, y1 - y0); ln = rnd.uniform(40, 220)
+                    if 0 < pk < 1: dm.line([(xe, yy), (xe + ln * pk, yy)], fill=255, width=rnd.randint(3, 9))
+            c.paste(old); c.paste(new, (0, 0), m); return c
+        if kind.startswith("iris"):  # plain circle grows from a point (no outline)
+            cx, cy = (float(v) for v in (kind.split(":")[1].split(",") if ":" in kind else (0.5, 0.5)))
+            r = e * 1.25 * H; m = Image.new("L", (W, H), 0); ImageDraw.Draw(m).ellipse([cx * W - r, cy * H - r, cx * W + r, cy * H + r], fill=255)
+            c.paste(old); c.paste(new, (0, 0), m); return c
         return Image.blend(old, new, e)  # fade / flash
 
     def base(self, t):
@@ -411,6 +533,8 @@ class Renderer:
         st = m.get("style", "ring")
         if st == "paint":  # reference style: colour painted ON the muscle (soft ellipse), small label beside it
             k = min(1, u / 0.25) * fade; col = m.get("color", (225, 29, 46))
+            if m.get("blink") and u < m["blink"] * 0.2: k = fade if int(u / 0.1) % 2 == 0 else 0  # on 3 f / off 3 f, then stays
+            if m.get("pulse"): k *= 0.78 + 0.22 * math.sin(u * 7)
             rx, ry = m.get("rx", 0.08) * size[0] / cw * W, m.get("ry", 0.05) * size[0] / cw * W
             g = Image.new("RGBA", (W, H), (0, 0, 0, 0)); ImageDraw.Draw(g).ellipse([X - rx, Y - ry, X + rx, Y + ry], fill=(*col, int(150 * k)))
             c.alpha_composite(g.filter(ImageFilter.GaussianBlur(max(4, ry * 0.35))))
@@ -419,6 +543,13 @@ class Renderer:
                 lx = X + (rx + 40 + lab.width / 2) * (1 if X < W * 0.55 else -1); lx = min(max(lx, lab.width / 2 + 20), W - lab.width / 2 - 20)
                 c.alpha_composite(lab, (int(lx - lab.width / 2), int(Y - lab.height / 2)))
             self.mark_y = (self.mark_y or []) + [(Y, ry)]; return
+        if st == "disc":  # translucent disc with a lighter dashed rim that rolls (reference forearm circles)
+            col = m.get("color", (225, 29, 46)); Rd = R * (1 + 0.04 * math.sin(u * 6)); rot = u * 60
+            d.ellipse([X - Rd, Y - Rd, X + Rd, Y + Rd], fill=(*col, int(140 * fade)))
+            lc = tuple(min(255, v + 70) for v in col)
+            for k_ in range(18):
+                a0 = rot + k_ * 20; d.arc([X - Rd, Y - Rd, X + Rd, Y + Rd], a0, a0 + 11, fill=(*lc, int(230 * fade)), width=6)
+            c.alpha_composite(o); self.mark_y = (self.mark_y or []) + [(Y, R)]; return
         if st == "spot":  # spotlight: everything else dims
             k = min(1, u / 0.25) * fade; mk = Image.new("L", (W, H), int(150 * k)); ImageDraw.Draw(mk).ellipse([X - R, Y - R, X + R, Y + R], fill=0)
             c.alpha_composite(Image.merge("RGBA", (*[Image.new("L", (W, H), 0)] * 3, mk.filter(ImageFilter.GaussianBlur(18)))))
