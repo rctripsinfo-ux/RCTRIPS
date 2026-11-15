@@ -1,14 +1,20 @@
-# usage: python3 -I edgecheck.py video.mp4 -> runs of frames where content touches a frame edge, + empty/black/frozen frames
+# usage: python3 -I edgecheck.py video.mp4 [background.png] -> runs of frames where content touches a frame edge, + empty/black/frozen frames
 import subprocess, sys, numpy as np
 W, H = 360, 640; src = sys.argv[1]
 raw = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", src, "-vf", f"scale={W}:{H}", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True).stdout
 F = np.frombuffer(raw, np.uint8).reshape(-1, H, W, 3).astype(np.int16); n = len(F)
 sets = np.array([(186, 200, 208), (75, 85, 104)])
-def fg(px):  # pixel is not one of the flat set colours
+BG = None
+if len(sys.argv) > 2:  # textured set (paper): compare against the rendered empty set instead of flat colours
+    from PIL import Image; BG = np.asarray(Image.open(sys.argv[2]).convert("RGB").resize((W, H))).astype(np.int16)
+def fg(px, ref=None):  # pixel is not the set
+    if ref is not None: return np.abs(px - ref).sum(-1) > 60
     return np.min(np.abs(px[..., None, :] - sets).sum(-1), -1) > 45
 res = []
 for i, f in enumerate(F):
-    e = {"top": fg(f[:3]).mean(), "bottom": fg(f[-3:]).mean(), "left": fg(f[:, :3]).mean(), "right": fg(f[:, -3:]).mean()}
+    b = BG if BG is not None else None
+    e = {"top": fg(f[:3], None if b is None else b[:3]).mean(), "bottom": fg(f[-3:], None if b is None else b[-3:]).mean(),
+         "left": fg(f[:, :3], None if b is None else b[:, :3]).mean(), "right": fg(f[:, -3:], None if b is None else b[:, -3:]).mean()}
     res.append({k: v for k, v in e.items() if v > 0.02})
 runs = []; cur = None
 for i, r in enumerate(res + [{}]):

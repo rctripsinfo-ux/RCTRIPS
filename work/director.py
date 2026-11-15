@@ -11,6 +11,8 @@ W, H, FPS = 1080, 1920, 30
 HERE = os.path.dirname(os.path.abspath(__file__))
 SFX_DIR = os.path.expanduser("~/reel-engine-tool/public/library/sfx")
 F_CAP = f"{HERE}/fonts/rubik-800-italic.woff2"; F_BIG = f"{HERE}/fonts/anton.woff2"
+F_MARK = f"{HERE}/fonts/permanentmarker.ttf"; F_HAND = f"{HERE}/fonts/caveatbrush.ttf"
+ORANGE, NAVY, MINT, TOMATO, STICKY = (255, 107, 26), (31, 42, 68), (43, 196, 138), (229, 72, 77), (255, 216, 77)
 INK, RED = (17, 17, 17), (225, 29, 46)
 
 def ease(p): p = min(1, max(0, p)); return 1 - (1 - p) ** 3
@@ -111,6 +113,8 @@ def text_img(txt, path, size, fill, stroke=0, stroke_fill=(255, 255, 255), shado
     d.text((pad - l, pad - t), txt, font=f, fill=fill, stroke_width=stroke, stroke_fill=stroke_fill)
     return im
 
+def norm_cap(w): return w.lower().replace(".", "").replace(",", "").replace("?", "").replace("!", "")
+
 def paste_center(canvas, im, x, y, scale=1.0, alpha=1.0):
     if scale != 1.0: im = im.resize((max(1, int(im.width * scale)), max(1, int(im.height * scale))), Image.BILINEAR)
     if alpha < 1: a = im.getchannel("A").point(lambda v: int(v * alpha)); im = im.copy(); im.putalpha(a)
@@ -153,13 +157,24 @@ class Renderer:
         else: src = load(f"{self.P['dir']}/{s['img']}", s.get("pad", False))
         return view(src, z, fx, fy, dx, dy)
 
+    def paper(self):
+        """H's Playbook page: warm paper, faint grid, grain, soft vignette (generated once)"""
+        if not hasattr(self, "_paper"):
+            base = np.full((H, W, 3), (243, 235, 221), np.float32)
+            for k in range(0, W, 54): base[:, k:k + 2] *= 0.965
+            for k in range(0, H, 54): base[k:k + 2, :] *= 0.965
+            base *= (1 + np.random.default_rng(5).normal(0, 0.012, (H, W, 1)))
+            yy, xx = np.mgrid[0:H, 0:W]; v = ((xx - W / 2) / W) ** 2 + ((yy - H / 2) / H) ** 2; base *= (1 - 0.18 * v)[..., None]
+            self._paper = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8)).convert("RGBA")
+        return self._paper
+
     def stage_words(self, s, t, c):
         """big low-contrast words typed BEHIND the characters (set dressing, not captions)"""
         for bw in s.get("bgwords", []):
             a = self.tl.at(bw["at"], s)
             if t < a or (bw.get("until") and t >= self.tl.at(bw["until"], s)): continue
             n = min(len(bw["text"]), int((t - a) / bw.get("cps", 0.045)) + 1)
-            im = text_img(bw["text"][:n], F_BIG, bw.get("size", 230), bw.get("color", (205, 210, 216)), shadow=False)
+            im = text_img(bw["text"][:n], bw.get("font", F_BIG), bw.get("size", 230), bw.get("color", (205, 210, 216)), shadow=False)
             px = int(W * bw.get("x", 0.5) - im.width / 2) if bw.get("center", True) else int(W * bw.get("x", 0.08)); py = int(H * bw["y"] - im.height / 2)
             c.alpha_composite(im, (px, py))
             if bw.get("cursor") and (n < len(bw["text"]) or int((t - a) / 0.45) % 2 == 0):  # blinking bar cursor (reference typewriter bumper)
@@ -217,8 +232,9 @@ class Renderer:
         c.alpha_composite(im, (int(x - im.width / 2), int(y - im.height / 2)))
 
     def pose_canvas(self, s, t):
-        c = Image.new("RGBA", (W, H), (*s.get("set", self.P.get("set", (255, 255, 255))), 255))  # one flat set colour (reference: #BAC8D0); section cards override
+        c = self.paper().copy() if self.P.get("paper") and not s.get("set") else Image.new("RGBA", (W, H), (*s.get("set", self.P.get("set", (255, 255, 255))), 255))  # one flat set colour (reference: #BAC8D0); section cards override
         self.stage_words(s, t, c)
+        for e in s.get("mirrors", []): self.mirror(e, s, t, c)
         for L in sorted(s.get("layers", []), key=lambda L: L.get("z", 0)):
             if L.get("focus") and self.tl.at(L.get("at", 0), s) <= t < (self.tl.at(L["until"], s) if L.get("until") else 1e9):  # everything behind goes soft + a bit darker
                 k = min(1, (t - self.tl.at(L.get("at", 0), s)) / 0.3); c = c.filter(ImageFilter.GaussianBlur(12 * k))
@@ -274,11 +290,87 @@ class Renderer:
                 d.rectangle([X - sz, Y - sz * 0.28, X + sz, Y + sz * 0.28], fill=(*col, al)); d.rectangle([X - sz * 0.28, Y - sz, X + sz * 0.28, Y + sz], fill=(*col, al))
         c.alpha_composite(ov)
         for e in s.get("insets", []): self.inset(e, s, t, c)
+        for e in s.get("meters", []): self.meter(e, s, t, c)
+        for e in s.get("scribbles", []): self.scribble(e, s, t, c)
         for e in s.get("labels", []): self.label(e, s, t, c)
         for e in s.get("dim", []):  # whole frame darkens (marks are drawn later, so they stay bright)
             lv = self._live(e, s, t, 0.25)
             if not lv: continue
             u, f = lv; c.alpha_composite(Image.new("RGBA", (W, H), (10, 14, 20, int(255 * e.get("amount", 0.44) * ease(u / e.get("ramp", 0.6)) * f))))
+
+    def scribble(self, e, s, t, c):
+        """orange marker drawn live (write-on 0.35 s), lines 'boil' (re-jittered 8x/s): circle, arrow, underline, v, check, x, curve"""
+        lv = self._live(e, s, t)
+        if not lv: return
+        u, f = lv; k = e.get("kind", "circle"); pr = ease(u / e.get("dur", 0.35)); jr = random.Random(int(t * 8) * 13 + int(e["x"] * 100))
+        X, Y = W * e["x"], H * e["y"]; pts = []
+        if k == "circle":
+            rx, ry = W * e.get("rx", 0.12), W * e.get("ry", e.get("rx", 0.12))
+            pts = [(X + rx * (1 + 0.06 * math.sin(a * 3)) * math.cos(a), Y + ry * (1 + 0.05 * math.cos(a * 2)) * math.sin(a)) for a in [-2.2 + j * 0.08 for j in range(int(7.4 / 0.08))]]
+        elif k in ("arrow", "underline", "curve"):
+            x1, y1 = W * e["x1"], H * e["y1"]; bend = e.get("bend", 0.0 if k != "curve" else 0.25); n = 30
+            mx, my = (X + x1) / 2 - (y1 - Y) * bend, (Y + y1) / 2 + (x1 - X) * bend
+            pts = [((1 - q) ** 2 * X + 2 * (1 - q) * q * mx + q * q * x1, (1 - q) ** 2 * Y + 2 * (1 - q) * q * my + q * q * y1) for q in [j / n for j in range(n + 1)]]
+        elif k == "v":
+            sz = W * e.get("size", 0.15); pts = [(X - sz, Y - sz * 1.1), (X, Y + sz * 0.9), (X + sz, Y - sz * 1.1)]
+            pts = [(a[0] + (b[0] - a[0]) * q / 12, a[1] + (b[1] - a[1]) * q / 12) for a, b in zip(pts, pts[1:]) for q in range(13)]
+        elif k == "check":
+            sz = W * e.get("size", 0.06); pts = [(X - sz, Y), (X - sz * 0.3, Y + sz * 0.7), (X + sz, Y - sz * 0.9)]
+            pts = [(a[0] + (b[0] - a[0]) * q / 8, a[1] + (b[1] - a[1]) * q / 8) for a, b in zip(pts, pts[1:]) for q in range(9)]
+        m = max(2, int(len(pts) * pr)); pts = [(x + jr.uniform(-2.5, 2.5), y + jr.uniform(-2.5, 2.5)) for x, y in pts[:m]]
+        ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(ov); col = (*e.get("color", ORANGE), int(245 * f)); wd = e.get("wd", 13)
+        d.line(pts, fill=col, width=wd, joint="curve")
+        for x, y in (pts[0], pts[-1]): d.ellipse([x - wd / 2, y - wd / 2, x + wd / 2, y + wd / 2], fill=col)
+        if k == "arrow" and pr > 0.95:
+            (ax, ay), (bx, by) = pts[-4], pts[-1]; ang = math.atan2(by - ay, bx - ax)
+            for da in (2.5, -2.5): d.line([(bx, by), (bx + 46 * math.cos(ang + da), by + 46 * math.sin(ang + da))], fill=col, width=wd)
+        c.alpha_composite(ov)
+
+    def meter(self, e, s, t, c):
+        """Effort-o-meter: half dial mint -> sticky yellow -> tomato, needle swings to the value with overshoot, handwritten title + verdict"""
+        lv = self._live(e, s, t)
+        if not lv: return
+        u, f = lv; X, Y, R = W * e["x"], H * e["y"], W * e.get("r", 0.16)
+        ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(ov); a_ = int(255 * f)
+        sc = 0.6 + 0.4 * back(u / 0.25, 1.5); R *= sc
+        d.pieslice([X - R - 14, Y - R - 14, X + R + 14, Y + R + 14], 180, 360, fill=(255, 255, 255, a_), outline=(*NAVY, a_), width=8)
+        for k_, col in enumerate((MINT, STICKY, ORANGE, TOMATO)):
+            d.arc([X - R + 10, Y - R + 10, X + R - 10, Y + R - 10], 180 + k_ * 45 + 1, 180 + (k_ + 1) * 45 - 1, fill=(*col, a_), width=int(R * 0.22))
+        v = e.get("value", 0.15) * back(min(1, max(0, (u - 0.2) / 0.45)), 2.2); ang = math.radians(180 + 180 * v)
+        d.line([(X, Y), (X + R * 0.82 * math.cos(ang), Y + R * 0.82 * math.sin(ang))], fill=(*NAVY, a_), width=12); d.ellipse([X - 20, Y - 20, X + 20, Y + 20], fill=(*NAVY, a_))
+        c.alpha_composite(ov)
+        for txt, yy, sz, col in ((e.get("title", "EFFORT"), Y + 50, int(64 * sc), NAVY), (e.get("verdict", ""), Y + 120, int(78 * sc), e.get("vcolor", ORANGE))):
+            if txt and (yy == Y + 50 or u > 0.6):
+                im = text_img(txt, F_MARK, sz, col, shadow=False); c.alpha_composite(im, (int(X - im.width / 2), int(yy - im.height / 2)))
+
+    def mirror(self, e, s, t, c):
+        """oval wall mirror: navy frame, pale glass with glare; shows a reflection asset that swaps (crossfade) on word anchors"""
+        lv = self._live(e, s, t)
+        if not lv: return
+        u, f = lv; X, Y, w, h = W * e["x"], H * e["y"], W * e.get("w", 0.5), H * e.get("h", 0.42)
+        drop = (1 - back(u / 0.45, 1.3)) * H * 0.6; Y -= drop
+        glass = Image.new("RGBA", (int(w), int(h)), (226, 236, 240, 255)); gd = ImageDraw.Draw(glass)
+        for k_ in range(int(h)): gd.line([(0, k_), (w, k_)], fill=(int(214 + 22 * k_ / h), int(228 + 14 * k_ / h), int(234 + 10 * k_ / h), 255))
+        items = [(a_, self.tl.at(k, s), sc_) for a_, k, sc_ in e["show"]]; cur = [it for it in items if it[1] <= t]
+        def put(asset, sc_, al):
+            im = hero(asset); hh = int(h * sc_); ww = int(hh * im.width / im.height)
+            if ww > w * 0.9: ww = int(w * 0.9); hh = int(ww * im.height / im.width)
+            im = im.resize((ww, hh), Image.LANCZOS)
+            if al < 1: im.putalpha(im.getchannel("A").point(lambda v: int(v * al)))
+            glass.alpha_composite(im, (int((w - ww) / 2), int(h * 0.97 - hh)))
+        if cur:
+            last = cur[-1]; pf = min(1, (t - last[1]) / 0.3)
+            if len(cur) > 1 and pf < 1: put(cur[-2][0], cur[-2][2], 1 - pf)
+            put(last[0], last[2], pf if len(cur) > 1 or t - last[1] < 0.3 else 1)
+        for k_ in (0.18, 0.3):  # glare streaks
+            gl = Image.new("RGBA", glass.size, (0, 0, 0, 0)); ImageDraw.Draw(gl).line([(w * k_, h * 0.05), (w * (k_ + 0.3), h * 0.5)], fill=(255, 255, 255, 90), width=int(w * 0.04)); glass.alpha_composite(gl)
+        m = Image.new("L", glass.size, 0); ImageDraw.Draw(m).ellipse([0, 0, w - 1, h - 1], fill=255)
+        out = Image.new("RGBA", (int(w) + 40, int(h) + 40), (0, 0, 0, 0)); sh = Image.new("RGBA", out.size, (0, 0, 0, 0))
+        ImageDraw.Draw(sh).ellipse([24, 30, w + 24, h + 30], fill=(0, 0, 0, 60)); out.alpha_composite(sh.filter(ImageFilter.GaussianBlur(10)))
+        out.paste(glass, (20, 20), m); ImageDraw.Draw(out).ellipse([14, 14, w + 26, h + 26], outline=(*NAVY, 255), width=16)
+        ImageDraw.Draw(out).ellipse([30, 30, w + 10, h + 10], outline=(*ORANGE, 255), width=4)
+        if f < 1: out.putalpha(out.getchannel("A").point(lambda v: int(v * f)))
+        c.alpha_composite(out, (int(X - out.width / 2), int(Y - out.height / 2)))
 
     def inset(self, e, s, t, c):
         """circle badge with a zoomed crop of a pose (muscle close-up): pops from 125 % with blur, optional big-centre start, red X / green tick"""
@@ -295,9 +387,17 @@ class Renderer:
                 cr = cr.copy(); cr.alpha_composite(Image.composite(g, Image.new("RGBA", cr.size, (0, 0, 0, 0)), cr.getchannel("A")))
             m = Image.new("L", (2 * R, 2 * R), 0); ImageDraw.Draw(m).ellipse([0, 0, 2 * R, 2 * R], fill=255)
             body = Image.new("RGBA", (2 * R, 2 * R), (0, 0, 0, 0)); body.paste(cr, (0, 0), Image.composite(cr.getchannel("A"), Image.new("L", cr.size, 0), m))
-            im.alpha_composite(body, (8, 8)); ImageDraw.Draw(im).ellipse([8, 8, 2 * R + 8, 2 * R + 8], outline=(40, 46, 54, 255), width=7)
+            im.alpha_composite(body, (8, 8)); ImageDraw.Draw(im).ellipse([8, 8, 2 * R + 8, 2 * R + 8], outline=(*NAVY, 255) if e.get("lens") else (40, 46, 54, 255), width=14 if e.get("lens") else 7)
+            if e.get("lens"):
+                gl = Image.new("RGBA", im.size, (0, 0, 0, 0)); ImageDraw.Draw(gl).arc([R * 0.35, R * 0.35, R * 1.2, R * 1.2], 190, 250, fill=(255, 255, 255, 170), width=int(R * 0.08)); im.alpha_composite(gl)
             e["_im"] = im
         x, y = W * e["x"], H * e["y"]
+        if e.get("from"):  # lens glides in from its start point
+            q = ease(u / 0.45); x, y = W * e["from"][0] + (x - W * e["from"][0]) * q, H * e["from"][1] + (y - H * e["from"][1]) * q
+        if e.get("lens"):  # X-Ray lens: navy handle behind the glass
+            d_ = ImageDraw.Draw(c); r_ = R * 1.0; hx, hy = x + r_ * 0.75, y + r_ * 0.75
+            d_.line([(hx, hy), (hx + r_ * 0.75, hy + r_ * 0.75)], fill=(*NAVY, int(255 * f)), width=int(r_ * 0.26))
+            d_.line([(hx, hy), (hx + r_ * 0.25, hy + r_ * 0.25)], fill=(*ORANGE, int(255 * f)), width=int(r_ * 0.3))
         if e.get("big_at") is not None:  # starts big in the centre, then shrinks to its corner spot
             mv = ease((t - self.tl.at(e["big_at"], s)) / 0.4) if t >= self.tl.at(e["big_at"], s) else 0
             x, y = W * 0.5 + (x - W * 0.5) * mv, H * 0.42 + (y - H * 0.42) * mv; scale = 2.1 - 1.1 * mv
@@ -324,6 +424,17 @@ class Renderer:
         lv = self._live(e, s, t)
         if not lv: return
         u, f = lv
+        if e.get("style") == "sticky":  # sticky note slapped on: rotated, shadow, overshoot scale in 4 frames
+            if "_im" not in e:
+                tx = text_img(e["text"], F_MARK, e.get("size", 54), NAVY, shadow=False, maxw=W * 0.4); pad = 34
+                im = Image.new("RGBA", (tx.width + 2 * pad + 20, tx.height + 2 * pad + 20), (0, 0, 0, 0)); sh = Image.new("RGBA", im.size, (0, 0, 0, 0))
+                ImageDraw.Draw(sh).rectangle([14, 18, im.width - 4, im.height - 2], fill=(0, 0, 0, 70)); im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(7)))
+                ImageDraw.Draw(im).rectangle([6, 6, im.width - 14, im.height - 14], fill=(*e.get("color", STICKY), 255))
+                ImageDraw.Draw(im).rectangle([6, 6, im.width - 14, 22], fill=tuple(int(v * 0.92) for v in e.get("color", STICKY)) + (255,))
+                im.alpha_composite(tx, (6 + pad, 6 + pad)); e["_im"] = im.rotate(e.get("rot", random.Random(len(e["text"])).uniform(-5, 5)), expand=True, resample=Image.BICUBIC)
+            sc = 1.18 - 0.18 * ease(u / 0.13) if u < 0.13 else 1.0; im = e["_im"].resize((int(e["_im"].width * sc), int(e["_im"].height * sc)), Image.LANCZOS)
+            if f < 1: im.putalpha(im.getchannel("A").point(lambda v: int(v * f)))
+            c.alpha_composite(im, (int(W * e["x"] - im.width / 2), int(H * e["y"] - im.height / 2))); return
         if "_im" not in e:
             tx = text_img(e["text"], f"{HERE}/fonts/rubik-800.woff2", e.get("size", 50), (25, 28, 32), shadow=False)
             im = Image.new("RGBA", (tx.width + 56, tx.height + 26), (0, 0, 0, 0)); ImageDraw.Draw(im).rounded_rectangle([2, 2, im.width - 3, im.height - 3], 14, fill=(255, 255, 255, 255), outline=(30, 34, 40, 255), width=5)
@@ -415,6 +526,16 @@ class Renderer:
                     yy = y0 + rnd.uniform(0, y1 - y0); ln = rnd.uniform(40, 220)
                     if 0 < pk < 1: dm.line([(xe, yy), (xe + ln * pk, yy)], fill=255, width=rnd.randint(3, 9))
             c.paste(old); c.paste(new, (0, 0), m); return c
+        if kind == "page":  # notebook page turn: old page folds to the left edge, curl highlight + shadow on the new page
+            c.paste(new); xe = int(W * (1 - e)); sh = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dsh = ImageDraw.Draw(sh)
+            for k in range(60): dsh.line([(xe + k, 0), (xe + k, H)], fill=(0, 0, 0, int(90 * (1 - k / 60))))
+            c = Image.alpha_composite(c.convert("RGBA"), sh).convert("RGB")
+            if xe > 2:
+                o = old.resize((xe, H), Image.BILINEAR); c.paste(o, (0, 0))
+                cw = max(2, int(80 * math.sin(math.pi * e))); g = Image.new("RGBA", (cw, H), (255, 255, 255, 0)); dg = ImageDraw.Draw(g)
+                for k in range(cw): dg.line([(k, 0), (k, H)], fill=(250, 245, 236, int(255 * (k / cw))))
+                c.paste(g, (max(0, xe - cw), 0), g)
+            return c
         if kind.startswith("iris"):  # plain circle grows from a point (no outline)
             cx, cy = (float(v) for v in (kind.split(":")[1].split(",") if ":" in kind else (0.5, 0.5)))
             r = e * 1.25 * H; m = Image.new("L", (W, H), 0); ImageDraw.Draw(m).ellipse([cx * W - r, cy * H - r, cx * W + r, cy * H + r], fill=255)
@@ -454,6 +575,18 @@ class Renderer:
         ch = next((c_ for c_ in self._chunks if ws[c_[0]]["start"] - 0.02 <= t < (ws[c_[-1]]["end"] + 0.35)), None)
         if not ch: return None
         shown = [ws[k]["text"] for k in ch if ws[k]["start"] - 0.02 <= t]
+        if self.P.get("cap_swipe"):  # house style: key word gets an orange marker swipe; Mini-H lines in sticky yellow
+            ks = [k for k in ch if ws[k]["start"] - 0.02 <= t]
+            if not ks: return None
+            col = STICKY if ws[ks[0]].get("spk") == "M" else (255, 255, 255); fnt = f"{HERE}/fonts/rubik-800.woff2"; sz = self.P.get("cap_size", 62)
+            ims = [text_img(norm_cap(ws[k]["text"]), fnt, sz, col, stroke=7, stroke_fill=(25, 28, 32), shadow=False) for k in ks]
+            gap = 14; tw = sum(i.width for i in ims) + gap * (len(ims) - 1); th = max(i.height for i in ims)
+            out = Image.new("RGBA", (tw + 30, th + 20), (0, 0, 0, 0)); x = 15
+            for k, im in zip(ks, ims):
+                if norm(ws[k]["text"]) in self.kw:
+                    q = ease((t - ws[k]["start"]) / 0.13); ImageDraw.Draw(out).rounded_rectangle([x - 8, 18, x - 8 + (im.width + 16) * q, th + 4], 10, fill=(*ORANGE, 255))
+                out.alpha_composite(im, (x, 10)); x += im.width + gap
+            return out, self.P.get("cap_y", 0.78), 1.0
         txt = " ".join(shown).lower().replace(".", "").replace(",", "").replace("?", "").replace("!", "")
         if not txt: return None
         key = ("B", txt)
