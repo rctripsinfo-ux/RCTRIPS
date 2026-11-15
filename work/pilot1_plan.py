@@ -3,9 +3,9 @@
 # live orange marker scribbles, sticky notes, Effort-o-meter, X-Ray lens, page-turn transitions, marker-swipe captions.
 # usage: LUFS=-20 python3 pilot1_plan.py [t0 t1]
 import sys
-from director import render, HERE, ORANGE, NAVY, MINT, TOMATO, F_MARK
+from director import render, HERE, F_MARK
 
-HDR = dict(font=F_MARK, color=NAVY, cps=0.03)   # handwritten page header
+HDR = dict(font=F_MARK, color="text", cps=0.03)   # handwritten page header
 def mini(at, pose="hero_shrug", x=0.82, y=0.8, w=0.3, until=None):  # Mini-H pops up from the bottom-right corner
     return dict(at=at, until=until, w=w, x=x, y=y, asset=pose, enter=("corner_r", 0.4), exit=("fade", 0.15), z=3)
 def punch(at, z0, z1, f=(.5, .53)): return [(at, z0, *f), (f"{at}+0.1", z1, *f)]
@@ -44,14 +44,14 @@ S = [
       labels=[dict(at="straight,", text="BODY STRAIGHT", style="sticky", x=0.31, y=0.24, rot=-4)],
       scribbles=[dict(at="pull", kind="curve", x=0.66, y=0.62, x1=0.6, y1=0.42, bend=0.3)],
       insets=[dict(at="chest", asset="hero_back_double_biceps", crop=(0.5, 0.4, 0.42), x=0.74, y=0.25, r=0.13, lens=True, **{"from": (1.1, 0.5)},
-                   paint=(0.3, 0.6, 0.12, 0.2, ORANGE), bg=(226, 236, 240))],
+                   paint=(0.3, 0.6, 0.12, 0.2, "accent"), bg=(226, 236, 240))],
       sfx=[(0, "pageflip", .5), ("straight,", "slap", .5), ("pull", "marker", .5), ("chest", "swish", .4)],
       keys=[(0, 1.0, .5, .5), ("E", 1.04, .5, .55)]),
  # E: Mini-H doubts it; Effort-o-meter: effort LOW, result HIGH
  dict(text="That's it? That's it. Effort, low. Result, high.", poses=[], tr="cut",
       layers=[dict(at=0, w=0.5, x=0.5, y=0.72, asset="hero_row_end"), mini("That's", "hero_shrug", until="Effort,")],
-      meters=[dict(at="Effort,", x=0.28, y=0.3, title="EFFORT", verdict="LOW", value=0.12, vcolor=MINT),
-              dict(at="Result,", x=0.72, y=0.3, title="RESULT", verdict="HIGH", value=0.92, vcolor=ORANGE)],
+      meters=[dict(at="Effort,", x=0.28, y=0.3, title="EFFORT", verdict="LOW", value=0.12, vcolor="good"),
+              dict(at="Result,", x=0.72, y=0.3, title="RESULT", verdict="HIGH", value=0.92, vcolor="accent")],
       sfx=[("That's", "pop", .4), ("Effort,", "chime", .5), ("Result,", "level_start", .5)], keys=[(0, 1.0, .5, .5)]),
  # F: page 2 pull-ups; marker arrows pull the elbows down
  dict(text="Two. Pull-ups. Hands wide, and pull your elbows down to your ribs.", poses=[], tr="page", d=0.45,
@@ -77,7 +77,7 @@ S = [
  # I: Mini-H "hanging counts?" -> H thumbs up "Effortlessly." + meter flash
  dict(text="Hanging counts as exercise? Effortlessly.", poses=[], tr="cut",
       layers=[dict(at=0, w=0.58, x=0.36, y=0.62, asset="hero_thumbs_up", enter=("pop", 0.35)), mini(0, "hero_thinking", x=0.8, y=0.8, w=0.3, until="Effortlessly.")],
-      meters=[dict(at="Effortlessly.", x=0.74, y=0.32, title="EFFORT", verdict="ZERO", value=0.02, vcolor=MINT)],
+      meters=[dict(at="Effortlessly.", x=0.74, y=0.32, title="EFFORT", verdict="ZERO", value=0.02, vcolor="good")],
       sfx=[(0, "pop", .4), ("Effortlessly.", "chime", .5)], keys=[(0, 1.0, .5, .5)]),
  # J: payoff Mirror Check: fridge -> V-shaped back, marker draws the V
  dict(text="Do these three times a week, and the fridge turns into a V.", poses=[], tr="page", d=0.45,
@@ -94,7 +94,7 @@ S = [
       sfx=[(0, "pop", .4), ("below.", "marker", .5)], keys=[(0, 1.0, .5, .5)]),
 ]
 PLAN = dict(dir=f"{HERE}/scenes_d05v", words=f"{HERE}/voice/pilot1_cut.words.json", voice=f"{HERE}/voice/pilot1_cut.wav",
-            music=f"{HERE}/music/hyper_lillian_thorn.mp3", music_db=11, sfx_db=16, duck=False, paper=True,
+            music=f"{HERE}/music/hyper_lillian_thorn.mp3", music_db=11, sfx_db=16, duck=False, paper=True, theme="board",
             scenes=S, cap_mode="build", cap_swipe=True, cap_words=3, cap_size=78, cap_y=0.85, lead=0.06, tail=0.8,
             keywords=["chest", "mirror", "fridge", "back", "lazy", "thirty", "rows", "straight", "low", "high", "wide", "elbows", "slowly", "lats", "effortlessly", "v", "skipping"])
 if __name__ == "__main__":

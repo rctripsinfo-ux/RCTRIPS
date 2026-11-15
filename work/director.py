@@ -13,6 +13,19 @@ SFX_DIR = os.path.expanduser("~/reel-engine-tool/public/library/sfx")
 F_CAP = f"{HERE}/fonts/rubik-800-italic.woff2"; F_BIG = f"{HERE}/fonts/anton.woff2"
 F_MARK = f"{HERE}/fonts/permanentmarker.ttf"; F_HAND = f"{HERE}/fonts/caveatbrush.ttf"
 ORANGE, NAVY, MINT, TOMATO, STICKY = (255, 107, 26), (31, 42, 68), (43, 196, 138), (229, 72, 77), (255, 216, 77)
+# brand themes (owner 15 Nov: no cream, no orange). Keys: bg grid set, text = writing on the set, accent = live marker / caption swipe,
+# accent2 = second highlight, sticky + sticky_text, mini = Mini-H caption colour, good / warn / bad = meter + right / wrong,
+# frame = mirror + lens rim, plate = meter face, kw_text = caption word on the accent swipe
+THEMES = {
+    "board": dict(bg=(23, 63, 63), text=(238, 243, 234), accent=(200, 242, 60), accent2=(52, 209, 224), sticky=(92, 225, 230), sticky_text=(14, 38, 38),
+                  mini=(92, 225, 230), good=(200, 242, 60), warn=(246, 224, 94), bad=(255, 79, 139), frame=(11, 33, 33), plate=(238, 243, 234), kw_text=(14, 38, 38)),
+    "midnight": dict(bg=(16, 27, 51), text=(243, 246, 255), accent=(25, 211, 255), accent2=(242, 245, 66), sticky=(242, 245, 66), sticky_text=(10, 18, 34),
+                     mini=(242, 245, 66), good=(61, 245, 160), warn=(242, 245, 66), bad=(255, 79, 139), frame=(8, 14, 28), plate=(243, 246, 255), kw_text=(10, 18, 34)),
+    "ice": dict(bg=(230, 242, 243), text=(15, 59, 68), accent=(123, 92, 255), accent2=(29, 185, 122), sticky=(212, 245, 91), sticky_text=(15, 59, 68),
+                mini=(123, 92, 255), good=(29, 185, 122), warn=(245, 200, 60), bad=(240, 62, 110), frame=(15, 59, 68), plate=(255, 255, 255), kw_text=(255, 255, 255)),
+}
+TH = dict(THEMES["board"])
+def C(x): return TH[x] if isinstance(x, str) else x
 INK, RED = (17, 17, 17), (225, 29, 46)
 
 def ease(p): p = min(1, max(0, p)); return 1 - (1 - p) ** 3
@@ -126,6 +139,7 @@ def rounded(im, r=36):
 
 class Renderer:
     def __init__(self, plan):
+        TH.clear(); TH.update(THEMES[plan.get("theme", "board")]); TH.update(plan.get("theme_over", {}))
         self.P = plan; self.tl = Timeline(plan); self.cap_cache = {}; self.cam = {}; self.mark_y = None
         self.kw = {norm(k) for k in plan.get("keywords", [])}
         self.shakes = [(self.tl.at(a, s), amp) for s in self.tl.sc for a, amp in s.get("shake", [])]
@@ -160,9 +174,9 @@ class Renderer:
     def paper(self):
         """H's Playbook page: warm paper, faint grid, grain, soft vignette (generated once)"""
         if not hasattr(self, "_paper"):
-            base = np.full((H, W, 3), (243, 235, 221), np.float32)
-            for k in range(0, W, 54): base[:, k:k + 2] *= 0.965
-            for k in range(0, H, 54): base[k:k + 2, :] *= 0.965
+            base = np.full((H, W, 3), TH["bg"], np.float32); gk = 1.1 if sum(TH["bg"]) < 300 else 0.965
+            for k in range(0, W, 54): base[:, k:k + 2] *= gk
+            for k in range(0, H, 54): base[k:k + 2, :] *= gk
             base *= (1 + np.random.default_rng(5).normal(0, 0.012, (H, W, 1)))
             yy, xx = np.mgrid[0:H, 0:W]; v = ((xx - W / 2) / W) ** 2 + ((yy - H / 2) / H) ** 2; base *= (1 - 0.18 * v)[..., None]
             self._paper = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8)).convert("RGBA")
@@ -174,7 +188,7 @@ class Renderer:
             a = self.tl.at(bw["at"], s)
             if t < a or (bw.get("until") and t >= self.tl.at(bw["until"], s)): continue
             n = min(len(bw["text"]), int((t - a) / bw.get("cps", 0.045)) + 1)
-            im = text_img(bw["text"][:n], bw.get("font", F_BIG), bw.get("size", 230), bw.get("color", (205, 210, 216)), shadow=False)
+            im = text_img(bw["text"][:n], bw.get("font", F_BIG), bw.get("size", 230), C(bw.get("color", (205, 210, 216))), shadow=False)
             px = int(W * bw.get("x", 0.5) - im.width / 2) if bw.get("center", True) else int(W * bw.get("x", 0.08)); py = int(H * bw["y"] - im.height / 2)
             c.alpha_composite(im, (px, py))
             if bw.get("cursor") and (n < len(bw["text"]) or int((t - a) / 0.45) % 2 == 0):  # blinking bar cursor (reference typewriter bumper)
@@ -318,7 +332,7 @@ class Renderer:
             sz = W * e.get("size", 0.06); pts = [(X - sz, Y), (X - sz * 0.3, Y + sz * 0.7), (X + sz, Y - sz * 0.9)]
             pts = [(a[0] + (b[0] - a[0]) * q / 8, a[1] + (b[1] - a[1]) * q / 8) for a, b in zip(pts, pts[1:]) for q in range(9)]
         m = max(2, int(len(pts) * pr)); pts = [(x + jr.uniform(-2.5, 2.5), y + jr.uniform(-2.5, 2.5)) for x, y in pts[:m]]
-        ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(ov); col = (*e.get("color", ORANGE), int(245 * f)); wd = e.get("wd", 13)
+        ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(ov); col = (*C(e.get("color", "accent")), int(245 * f)); wd = e.get("wd", 13)
         d.line(pts, fill=col, width=wd, joint="curve")
         for x, y in (pts[0], pts[-1]): d.ellipse([x - wd / 2, y - wd / 2, x + wd / 2, y + wd / 2], fill=col)
         if k == "arrow" and pr > 0.95:
@@ -333,13 +347,13 @@ class Renderer:
         u, f = lv; X, Y, R = W * e["x"], H * e["y"], W * e.get("r", 0.16)
         ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(ov); a_ = int(255 * f)
         sc = 0.6 + 0.4 * back(u / 0.25, 1.5); R *= sc
-        d.pieslice([X - R - 14, Y - R - 14, X + R + 14, Y + R + 14], 180, 360, fill=(255, 255, 255, a_), outline=(*NAVY, a_), width=8)
-        for k_, col in enumerate((MINT, STICKY, ORANGE, TOMATO)):
+        d.pieslice([X - R - 14, Y - R - 14, X + R + 14, Y + R + 14], 180, 360, fill=(*TH["plate"], a_), outline=(*TH["frame"], a_), width=8)
+        for k_, col in enumerate((TH["good"], TH["warn"], TH["accent2"], TH["bad"])):
             d.arc([X - R + 10, Y - R + 10, X + R - 10, Y + R - 10], 180 + k_ * 45 + 1, 180 + (k_ + 1) * 45 - 1, fill=(*col, a_), width=int(R * 0.22))
         v = e.get("value", 0.15) * back(min(1, max(0, (u - 0.2) / 0.45)), 2.2); ang = math.radians(180 + 180 * v)
-        d.line([(X, Y), (X + R * 0.82 * math.cos(ang), Y + R * 0.82 * math.sin(ang))], fill=(*NAVY, a_), width=12); d.ellipse([X - 20, Y - 20, X + 20, Y + 20], fill=(*NAVY, a_))
+        d.line([(X, Y), (X + R * 0.82 * math.cos(ang), Y + R * 0.82 * math.sin(ang))], fill=(*TH["frame"], a_), width=12); d.ellipse([X - 20, Y - 20, X + 20, Y + 20], fill=(*TH["frame"], a_))
         c.alpha_composite(ov)
-        for txt, yy, sz, col in ((e.get("title", "EFFORT"), Y + 50, int(64 * sc), NAVY), (e.get("verdict", ""), Y + 120, int(78 * sc), e.get("vcolor", ORANGE))):
+        for txt, yy, sz, col in ((e.get("title", "EFFORT"), Y + 50, int(64 * sc), TH["text"]), (e.get("verdict", ""), Y + 120, int(78 * sc), C(e.get("vcolor", "accent")))):
             if txt and (yy == Y + 50 or u > 0.6):
                 im = text_img(txt, F_MARK, sz, col, shadow=False); c.alpha_composite(im, (int(X - im.width / 2), int(yy - im.height / 2)))
 
@@ -367,8 +381,8 @@ class Renderer:
         m = Image.new("L", glass.size, 0); ImageDraw.Draw(m).ellipse([0, 0, w - 1, h - 1], fill=255)
         out = Image.new("RGBA", (int(w) + 40, int(h) + 40), (0, 0, 0, 0)); sh = Image.new("RGBA", out.size, (0, 0, 0, 0))
         ImageDraw.Draw(sh).ellipse([24, 30, w + 24, h + 30], fill=(0, 0, 0, 60)); out.alpha_composite(sh.filter(ImageFilter.GaussianBlur(10)))
-        out.paste(glass, (20, 20), m); ImageDraw.Draw(out).ellipse([14, 14, w + 26, h + 26], outline=(*NAVY, 255), width=16)
-        ImageDraw.Draw(out).ellipse([30, 30, w + 10, h + 10], outline=(*ORANGE, 255), width=4)
+        out.paste(glass, (20, 20), m); ImageDraw.Draw(out).ellipse([14, 14, w + 26, h + 26], outline=(*TH["frame"], 255), width=16)
+        ImageDraw.Draw(out).ellipse([30, 30, w + 10, h + 10], outline=(*TH["accent"], 255), width=4)
         if f < 1: out.putalpha(out.getchannel("A").point(lambda v: int(v * f)))
         c.alpha_composite(out, (int(X - out.width / 2), int(Y - out.height / 2)))
 
@@ -382,12 +396,12 @@ class Renderer:
             cr = src.crop((int(cx * src.width - cw / 2), int(cy * src.height - cw / 2), int(cx * src.width + cw / 2), int(cy * src.height + cw / 2))).resize((2 * R, 2 * R), Image.LANCZOS)
             im = Image.new("RGBA", (2 * R + 16, 2 * R + 16), (0, 0, 0, 0)); ImageDraw.Draw(im).ellipse([8, 8, 2 * R + 8, 2 * R + 8], fill=(*e.get("bg", (150, 164, 176)), 255))
             if e.get("paint"):  # colour on the muscle inside the badge
-                px, py, rx, ry, col = e["paint"]; g = Image.new("RGBA", cr.size, (0, 0, 0, 0))
+                px, py, rx, ry, col = e["paint"]; col = C(col); g = Image.new("RGBA", cr.size, (0, 0, 0, 0))
                 ImageDraw.Draw(g).ellipse([(px - rx) * 2 * R, (py - ry) * 2 * R, (px + rx) * 2 * R, (py + ry) * 2 * R], fill=(*col, 170)); g = g.filter(ImageFilter.GaussianBlur(R * 0.05))
                 cr = cr.copy(); cr.alpha_composite(Image.composite(g, Image.new("RGBA", cr.size, (0, 0, 0, 0)), cr.getchannel("A")))
             m = Image.new("L", (2 * R, 2 * R), 0); ImageDraw.Draw(m).ellipse([0, 0, 2 * R, 2 * R], fill=255)
             body = Image.new("RGBA", (2 * R, 2 * R), (0, 0, 0, 0)); body.paste(cr, (0, 0), Image.composite(cr.getchannel("A"), Image.new("L", cr.size, 0), m))
-            im.alpha_composite(body, (8, 8)); ImageDraw.Draw(im).ellipse([8, 8, 2 * R + 8, 2 * R + 8], outline=(*NAVY, 255) if e.get("lens") else (40, 46, 54, 255), width=14 if e.get("lens") else 7)
+            im.alpha_composite(body, (8, 8)); ImageDraw.Draw(im).ellipse([8, 8, 2 * R + 8, 2 * R + 8], outline=(*TH["frame"], 255) if e.get("lens") else (40, 46, 54, 255), width=14 if e.get("lens") else 7)
             if e.get("lens"):
                 gl = Image.new("RGBA", im.size, (0, 0, 0, 0)); ImageDraw.Draw(gl).arc([R * 0.35, R * 0.35, R * 1.2, R * 1.2], 190, 250, fill=(255, 255, 255, 170), width=int(R * 0.08)); im.alpha_composite(gl)
             e["_im"] = im
@@ -396,8 +410,8 @@ class Renderer:
             q = ease(u / 0.45); x, y = W * e["from"][0] + (x - W * e["from"][0]) * q, H * e["from"][1] + (y - H * e["from"][1]) * q
         if e.get("lens"):  # X-Ray lens: navy handle behind the glass
             d_ = ImageDraw.Draw(c); r_ = R * 1.0; hx, hy = x + r_ * 0.75, y + r_ * 0.75
-            d_.line([(hx, hy), (hx + r_ * 0.75, hy + r_ * 0.75)], fill=(*NAVY, int(255 * f)), width=int(r_ * 0.26))
-            d_.line([(hx, hy), (hx + r_ * 0.25, hy + r_ * 0.25)], fill=(*ORANGE, int(255 * f)), width=int(r_ * 0.3))
+            d_.line([(hx, hy), (hx + r_ * 0.75, hy + r_ * 0.75)], fill=(*TH["frame"], int(255 * f)), width=int(r_ * 0.26))
+            d_.line([(hx, hy), (hx + r_ * 0.25, hy + r_ * 0.25)], fill=(*TH["accent"], int(255 * f)), width=int(r_ * 0.3))
         if e.get("big_at") is not None:  # starts big in the centre, then shrinks to its corner spot
             mv = ease((t - self.tl.at(e["big_at"], s)) / 0.4) if t >= self.tl.at(e["big_at"], s) else 0
             x, y = W * 0.5 + (x - W * 0.5) * mv, H * 0.42 + (y - H * 0.42) * mv; scale = 2.1 - 1.1 * mv
@@ -426,11 +440,11 @@ class Renderer:
         u, f = lv
         if e.get("style") == "sticky":  # sticky note slapped on: rotated, shadow, overshoot scale in 4 frames
             if "_im" not in e:
-                tx = text_img(e["text"], F_MARK, e.get("size", 54), NAVY, shadow=False, maxw=W * 0.4); pad = 34
+                tx = text_img(e["text"], F_MARK, e.get("size", 54), TH["sticky_text"], shadow=False, maxw=W * 0.4); pad = 34
                 im = Image.new("RGBA", (tx.width + 2 * pad + 20, tx.height + 2 * pad + 20), (0, 0, 0, 0)); sh = Image.new("RGBA", im.size, (0, 0, 0, 0))
                 ImageDraw.Draw(sh).rectangle([14, 18, im.width - 4, im.height - 2], fill=(0, 0, 0, 70)); im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(7)))
-                ImageDraw.Draw(im).rectangle([6, 6, im.width - 14, im.height - 14], fill=(*e.get("color", STICKY), 255))
-                ImageDraw.Draw(im).rectangle([6, 6, im.width - 14, 22], fill=tuple(int(v * 0.92) for v in e.get("color", STICKY)) + (255,))
+                ImageDraw.Draw(im).rectangle([6, 6, im.width - 14, im.height - 14], fill=(*C(e.get("color", "sticky")), 255))
+                ImageDraw.Draw(im).rectangle([6, 6, im.width - 14, 22], fill=tuple(int(v * 0.92) for v in C(e.get("color", "sticky"))) + (255,))
                 im.alpha_composite(tx, (6 + pad, 6 + pad)); e["_im"] = im.rotate(e.get("rot", random.Random(len(e["text"])).uniform(-5, 5)), expand=True, resample=Image.BICUBIC)
             sc = 1.18 - 0.18 * ease(u / 0.13) if u < 0.13 else 1.0; im = e["_im"].resize((int(e["_im"].width * sc), int(e["_im"].height * sc)), Image.LANCZOS)
             if f < 1: im.putalpha(im.getchannel("A").point(lambda v: int(v * f)))
@@ -533,7 +547,7 @@ class Renderer:
             if xe > 2:
                 o = old.resize((xe, H), Image.BILINEAR); c.paste(o, (0, 0))
                 cw = max(2, int(80 * math.sin(math.pi * e))); g = Image.new("RGBA", (cw, H), (255, 255, 255, 0)); dg = ImageDraw.Draw(g)
-                for k in range(cw): dg.line([(k, 0), (k, H)], fill=(250, 245, 236, int(255 * (k / cw))))
+                for k in range(cw): dg.line([(k, 0), (k, H)], fill=(*tuple(min(255, v + 25) for v in TH["bg"]), int(255 * (k / cw))))
                 c.paste(g, (max(0, xe - cw), 0), g)
             return c
         if kind.startswith("iris"):  # plain circle grows from a point (no outline)
@@ -578,13 +592,14 @@ class Renderer:
         if self.P.get("cap_swipe"):  # house style: key word gets an orange marker swipe; Mini-H lines in sticky yellow
             ks = [k for k in ch if ws[k]["start"] - 0.02 <= t]
             if not ks: return None
-            col = STICKY if ws[ks[0]].get("spk") == "M" else (255, 255, 255); fnt = f"{HERE}/fonts/rubik-800.woff2"; sz = self.P.get("cap_size", 62)
+            col = TH["mini"] if ws[ks[0]].get("spk") == "M" else (255, 255, 255); fnt = f"{HERE}/fonts/rubik-800.woff2"; sz = self.P.get("cap_size", 62)
             ims = [text_img(norm_cap(ws[k]["text"]), fnt, sz, col, stroke=7, stroke_fill=(25, 28, 32), shadow=False) for k in ks]
             gap = 14; tw = sum(i.width for i in ims) + gap * (len(ims) - 1); th = max(i.height for i in ims)
             out = Image.new("RGBA", (tw + 30, th + 20), (0, 0, 0, 0)); x = 15
             for k, im in zip(ks, ims):
                 if norm(ws[k]["text"]) in self.kw:
-                    q = ease((t - ws[k]["start"]) / 0.13); ImageDraw.Draw(out).rounded_rectangle([x - 8, 18, x - 8 + (im.width + 16) * q, th + 4], 10, fill=(*ORANGE, 255))
+                    q = ease((t - ws[k]["start"]) / 0.13); ImageDraw.Draw(out).rounded_rectangle([x - 8, 18, x - 8 + (im.width + 16) * q, th + 4], 10, fill=(*TH["accent"], 255))
+                    if q > 0.5: im = text_img(norm_cap(ws[k]["text"]), fnt, sz, TH["kw_text"], stroke=0, shadow=False)
                 out.alpha_composite(im, (x, 10)); x += im.width + gap
             return out, self.P.get("cap_y", 0.78), 1.0
         txt = " ".join(shown).lower().replace(".", "").replace(",", "").replace("?", "").replace("!", "")
