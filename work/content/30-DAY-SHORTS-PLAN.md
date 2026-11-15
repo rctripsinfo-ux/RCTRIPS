@@ -100,7 +100,7 @@ Also excluded: our pilot (back/fridge).
 4. **A pattern change every 3–4 s**: marker, sticky note, meter, lens, page turn.
 5. **The payoff answers the hook exactly**, and Mini-H's last line is a comment question.
 
-## 4. Scripts (≈ 45–55 s each, ~110–125 words)
+## 4. Scripts (70–100 words each: ~32–44 s of speech, ~40–52 s with the pauses and joke beats)
 
 ### Day 1: The Laziest Way to Build Muscle
 H: You don't need two hours in the gym. You need forty minutes, three times a week.
