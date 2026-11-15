@@ -12,37 +12,56 @@ We drop **everything that looks like the competitor**.
 | Dark slate "#1" cards, brush / iris wipes | Page turn + a handwritten circled number (S6) |
 | White label boxes | Sticky notes slapped on (S4) |
 | Floating circle inset badges | The **X-Ray Lens** that H holds in his hand (S7) |
-| Red / green paint blobs | Orange marker scribbles drawn live (S3) |
+| Red / green paint blobs | Electric-purple marker scribbles drawn live (S3) |
 | One narrator | **Dialogue**: H + Mini-H, two voices (S2) |
-| Bottom captions, plain white | Keyword gets an orange marker swipe behind it (S8) |
+| Bottom captions, plain white | Keyword gets a purple marker swipe behind it (S8) |
 
 The engine keeps all the effects already built (blink, dim, focus blur, arcs…). They are re-skinned in our style, not deleted.
 
 ## 2. The world: "H's Playbook"
-Every video happens on a page of H's training notebook. It's a living, hand-made world: the marker draws while he talks.
+Every video happens on a page of H's training notebook (ice-blue page, purple marker; see the brand kit below). It's a living, hand-made world: the marker draws while he talks.
 That fits the channel promise, *effortless*: a smart, lazy-genius coach who hacks the body like a game, with the least effort for the most result.
 
-| Item | Spec |
+## Brand kit (LOCKED by the owner, 15 Nov 2026, theme "ice")
+Owner rule: no cream and no orange anywhere, because they read as "AI-generated". The engine default is `theme="ice"` (director.py THEMES).
+
+| Role | Colour | HEX |
+|---|---|---|
+| Background (page, faint grid) | Ice | #E6F2F3 |
+| Ink: headers, writing, mirror and lens frames | Deep Teal | #0F3B44 |
+| Main accent: live marker, caption key-word swipe | Electric Purple | #7B5CFF |
+| Second accent | Fresh Green | #1DB97A |
+| Sticky notes | Lime | #D4F55B |
+| Mini-H captions | Electric Purple | #7B5CFF |
+| Good / right | Fresh Green | #1DB97A |
+| Warning (meter mid) | Sun Yellow | #F5C83C |
+| Bad / wrong | Hot Pink | #F03E6E |
+| Meter face | White | #FFFFFF |
+| Captions | White with a dark outline; the key word is white on the purple swipe | #FFFFFF / #191C20 |
+
+| Font | Use |
 |---|---|
-| Background | Warm paper #F3EBDD, faint grid (2% darker), soft paper grain, slight vignette. Generated in code (no image needed). |
-| Ink | Navy #1F2A44 (lines, handwriting, outlines) |
-| Accent | **Effortless Orange #FF6B1A**: marker, highlights, meter needle, brand colour on every frame |
-| Good / bad | Mint #2BC48A = correct, works. Tomato #E5484D = wrong, mistake. |
-| Fonts | Handwritten marker font for notes and headers; heavy rounded sans for captions |
-| Line life | Every drawn line "boils" (redrawn with a 1–2 px jitter at 8 fps), so the page feels alive even in long holds |
-| Camera | Slow drift over the page; short punches on key words; page turns between sections |
+| Permanent Marker | Page headers, sticky notes, meter text |
+| Rubik ExtraBold 800 | Captions |
+| Caveat Brush | Small handwritten notes (planned) |
+
+Retired: Anton, Bebas, Rubik Italic, cream paper, orange accent.
+
+Other style rules (unchanged):
+- **Line life:** every drawn line "boils" (1–2 px jitter at 8 fps).
+- **Camera:** slow drift, short punches on key words, page turns between sections.
 
 ## 3. Signature devices (all ours, one per job)
 | # | Device | What it does | Why it is ours |
 |---|---|---|---|
 | S1 | **Mirror Check** | Hook + payoff bookend. H stands at a mirror; the **reflection shows the truth** (a fridge from behind, a slumped neck, a belly). The payoff shows the mirror again with the result. | A visual story in one shot, and a recurring series name |
 | S2 | **Mini-H** | Tiny H (25% size) on H's shoulder or in a corner. The viewer's **excuse voice**: "Can't do one yet?", "Too tired". Second TTS voice, higher and faster. | Dialogue and a comic duo. The competitor has one narrator. |
-| S3 | **Live marker** | Every highlight is **drawn** by an orange marker in real time: a scribbled circle round the muscle, a hand-drawn arrow, an underline. Marker squeak SFX. Blink = the marker taps twice. | A hand-made feel vs their clean vector |
+| S3 | **Live marker** | Every highlight is **drawn** by an electric-purple marker in real time: a scribbled circle round the muscle, a hand-drawn arrow, an underline. Marker squeak SFX. Blink = the marker taps twice. | A hand-made feel vs their clean vector |
 | S4 | **Sticky notes** | Cues ("HANDS WIDE") land as rotated (±4°) sticky notes with a shadow and a *slap* sound. Peeled off when done. | Tactile, playful |
 | S5 | **Effort-o-meter** | Dial: needle swings to **Effort: LOW / Result: HIGH** for each move, with a score. Ending: total "effortless score". | IS the channel name. A shareable stat, and a comment trigger ("my score?") |
 | S6 | **Page turn** | Sections change with a page curl. New page: handwritten header, marker-circled big number, underline swipe. | Replaces their wipes |
-| S7 | **X-Ray Lens** | H holds a magnifying lens over his body; **through the lens** we see the muscle drawing (ink + orange). It moves with his hand. | The close-up is part of the story, not a floating badge |
-| S8 | **Marker captions** | Bottom captions, 2–3 words; the key word gets an orange highlighter swipe (4 frames). | Recognisable in a muted feed scroll |
+| S7 | **X-Ray Lens** | H holds a magnifying lens over his body; **through the lens** we see the muscle drawing (teal ink + purple). It moves with his hand. | The close-up is part of the story, not a floating badge |
+| S8 | **Marker captions** | Bottom captions, 2–3 words; the key word gets a purple highlighter swipe (4 frames). | Recognisable in a muted feed scroll |
 | S9 | **Sound kit** | 3-note "H sting" (payoff), marker squeak, sticky slap, page flip, level-up chime for the meter, lo-fi bouncy music bed | Audio logo: people know it's us with eyes closed |
 | S10 | **Seamless loop** | The last frame matches the first (Mirror Check), so a rewatch starts by itself | Retention and rewatch |
 
@@ -69,7 +88,7 @@ Pacing kept from the research: ~135 wpm with real pauses, −20 LUFS, music 11 d
 **From the owner (Flow images, prompts to be supplied):**
 - a mirror prop (frame only, empty glass)
 - a magnifying lens prop
-- 6–8 anatomy drawings in our ink + orange style (chest, lats, upper back, biceps, forearms, abs, glutes, neck)
+- 6–8 anatomy drawings in our teal ink + purple style (chest, lats, upper back, biceps, forearms, abs, glutes, neck)
 - H poses: looking in a mirror (back to camera), pointing at a reflection, holding a lens, shrugging
 
 Mini-H uses the existing H poses at small scale, so no new art.
@@ -103,6 +122,6 @@ Mini-H uses the existing H poses at small scale, so no new art.
 
 ## 8. Decisions needed from the owner
 1. World: **H's Playbook (paper notebook)**, as recommended. Alternative: a "game HUD" world (XP bars, quests).
-2. Accent colour: **Effortless Orange #FF6B1A**, as recommended, or another brand colour.
+2. Colours: DECIDED, theme "ice" (see the brand kit).
 3. Mini-H as a second voice (dialogue): yes or no.
 4. Flagship series to start with: **Mirror Check**, as recommended.

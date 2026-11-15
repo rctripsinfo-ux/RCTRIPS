@@ -18,7 +18,7 @@ Rules for every image:
 
 ## B. Mini-H, the sidekick (vertical 9:16, 3 poses)
 5. **Mini-H: shrug, thinking, pointing**
-   > Full-body front view of a small, cute, chibi-proportioned version of the bald comic hero H (big head, short body, light muscles), a white "H" mark on the forehead, wearing a bright orange t-shirt and black shorts, shrugging with both palms up and a cheeky grin, semi-realistic comic illustration, clean ink outlines, cel shading, plain pure white background, full body, vertical 9:16, no text.
+   > Full-body front view of a small, cute, chibi-proportioned version of the bald comic hero H (big head, short body, light muscles), a white "H" mark on the forehead, wearing an electric purple (#7B5CFF) t-shirt and black shorts, shrugging with both palms up and a cheeky grin, semi-realistic comic illustration, clean ink outlines, cel shading, plain pure white background, full body, vertical 9:16, no text.
 
    Make two more with the same prompt, changing only the pose:
    - "tapping his chin, thinking, one eyebrow up"
@@ -26,13 +26,13 @@ Rules for every image:
 
 ## C. Props (square 1:1)
 6. **Oval wall mirror**
-   > A tall oval wall mirror with a thick dark navy frame and a thin orange inner rim, empty light-blue glass with two soft diagonal white glare streaks, front view, flat comic illustration with clean ink outlines, plain pure white background, centered, nothing cut off, square 1:1, no text, no reflection of people.
+   > A tall oval wall mirror with a thick deep teal (#0F3B44) frame and a thin electric purple inner rim, empty light-blue glass with two soft diagonal white glare streaks, front view, flat comic illustration with clean ink outlines, plain pure white background, centered, nothing cut off, square 1:1, no text, no reflection of people.
 7. **Magnifying lens**
-   > A large round magnifying glass with a thick dark navy rim and an orange grip handle pointing to the lower right, empty clear glass with one white glare arc, flat comic illustration, clean ink outlines, plain pure white background, centered, square 1:1, no text.
+   > A large round magnifying glass with a thick deep teal (#0F3B44) rim and an electric purple grip handle pointing to the lower right, empty clear glass with one white glare arc, flat comic illustration, clean ink outlines, plain pure white background, centered, square 1:1, no text.
 
 ## D. Anatomy drawings for the lens (square 1:1, one per muscle)
 8. **Lats** (repeat for the other muscles)
-   > Anatomy illustration of a man's back in close-up showing the latissimus dorsi muscles highlighted in bright orange, other muscles in light warm grey, hand-drawn ink outlines like a notebook sketch, simple and clean, plain pure white background, centered, square 1:1, no text, no labels.
+   > Anatomy illustration of a man's back in close-up showing the latissimus dorsi muscles highlighted in electric purple (#7B5CFF), other muscles in light warm grey, hand-drawn ink outlines like a notebook sketch, simple and clean, plain pure white background, centered, square 1:1, no text, no labels.
 
    Same prompt with only the muscle and view changed:
    - upper back / traps (back view)

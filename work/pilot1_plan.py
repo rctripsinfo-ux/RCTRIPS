@@ -94,7 +94,7 @@ S = [
       sfx=[(0, "pop", .4), ("below.", "marker", .5)], keys=[(0, 1.0, .5, .5)]),
 ]
 PLAN = dict(dir=f"{HERE}/scenes_d05v", words=f"{HERE}/voice/pilot1_cut.words.json", voice=f"{HERE}/voice/pilot1_cut.wav",
-            music=f"{HERE}/music/hyper_lillian_thorn.mp3", music_db=11, sfx_db=16, duck=False, paper=True, theme="board",
+            music=f"{HERE}/music/hyper_lillian_thorn.mp3", music_db=11, sfx_db=16, duck=False, paper=True, theme="ice",
             scenes=S, cap_mode="build", cap_swipe=True, cap_words=3, cap_size=78, cap_y=0.85, lead=0.06, tail=0.8,
             keywords=["chest", "mirror", "fridge", "back", "lazy", "thirty", "rows", "straight", "low", "high", "wide", "elbows", "slowly", "lats", "effortlessly", "v", "skipping"])
 if __name__ == "__main__":

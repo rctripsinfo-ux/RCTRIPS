@@ -24,7 +24,7 @@ THEMES = {
     "ice": dict(bg=(230, 242, 243), text=(15, 59, 68), accent=(123, 92, 255), accent2=(29, 185, 122), sticky=(212, 245, 91), sticky_text=(15, 59, 68),
                 mini=(123, 92, 255), good=(29, 185, 122), warn=(245, 200, 60), bad=(240, 62, 110), frame=(15, 59, 68), plate=(255, 255, 255), kw_text=(255, 255, 255)),
 }
-TH = dict(THEMES["board"])
+TH = dict(THEMES["ice"])  # brand theme locked by the owner (15 Nov): ice
 def C(x): return TH[x] if isinstance(x, str) else x
 INK, RED = (17, 17, 17), (225, 29, 46)
 
@@ -139,7 +139,7 @@ def rounded(im, r=36):
 
 class Renderer:
     def __init__(self, plan):
-        TH.clear(); TH.update(THEMES[plan.get("theme", "board")]); TH.update(plan.get("theme_over", {}))
+        TH.clear(); TH.update(THEMES[plan.get("theme", "ice")]); TH.update(plan.get("theme_over", {}))
         self.P = plan; self.tl = Timeline(plan); self.cap_cache = {}; self.cam = {}; self.mark_y = None
         self.kw = {norm(k) for k in plan.get("keywords", [])}
         self.shakes = [(self.tl.at(a, s), amp) for s in self.tl.sc for a, amp in s.get("shake", [])]
