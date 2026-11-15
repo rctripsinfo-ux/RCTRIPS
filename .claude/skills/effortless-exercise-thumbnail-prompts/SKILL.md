@@ -9,6 +9,23 @@ Use this whenever the user sends a video title, topic or script (one or many) fo
 
 Always reply in English, even if the user writes in Hindi or Hinglish.
 
+## OWNER UPDATE (15 Nov 2026): new thumbnail style, overrides "Brand style" and "Text" below
+
+The owner rejected the white-background + black/red label-box thumbnails ("bahut bekaar"). Study of 35 top outlier thumbnails (Yellow Dude, Captain Workout, Bro Pump, 5-Minute Fitness, Calisthenic Crafted, The Core Man, BlueGym, Built For Aesthetic):
+
+- NO label box, NO rectangle behind the text, NO black-and-red title box.
+- 0 to 3 words, integrated into the image: either big white heavy italic with a thin dark outline and a soft shadow, or short handwritten black words with a hand-drawn arrow.
+- Flat saturated background: sky blue, teal, purple, lavender, or a vertical split of two colours for contrasts. A soft lighter circle or radial glow behind the character is allowed.
+- One strong visual idea:
+  - exposed red anatomical muscle (anatomy-chart fibres) on the target muscle
+  - a magnifier circle inset of the muscle
+  - a split before/after or wrong/right (e.g. "2 HOURS" vs "40 MIN")
+  - Mini-H (chibi H, purple shirt) reacting in shock
+  - levels 1-2-3
+  - a funny emotion
+- Generate with Codex (CLAUDE.md). Approved examples, Day 1: `work/thumbs/day01v2/PROMPTS.md`.
+- Keep words and subject inside the central ~70% of the height. Same character rules as below.
+
 ## Format decision
 
 - Short script or the user says Shorts or 9:16: 1080x1920, 9:16 vertical.
