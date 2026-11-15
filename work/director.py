@@ -7,7 +7,7 @@ import json, math, os, glob, subprocess, random
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
-W, H, FPS = 1080, 1920, 30
+W, H, FPS = (1920, 1080, 30) if os.environ.get("LANDSCAPE") else (1080, 1920, 30)  # LANDSCAPE=1: 16:9 long videos
 HERE = os.path.dirname(os.path.abspath(__file__))
 SFX_DIR = os.path.expanduser("~/reel-engine-tool/public/library/sfx")
 F_CAP = f"{HERE}/fonts/rubik-800-italic.woff2"; F_BIG = f"{HERE}/fonts/anton.woff2"

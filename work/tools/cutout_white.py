@@ -6,4 +6,4 @@ im = Image.open(sys.argv[1]).convert("RGB"); a = np.asarray(im).astype(int)
 white = (a.min(-1) > 238); lab, _ = ndimage.label(white); edge = set(np.unique(np.concatenate([lab[0], lab[-1], lab[:, 0], lab[:, -1]]))) - {0}
 bg = np.isin(lab, list(edge)); alpha = np.where(bg, 0, 255).astype(np.uint8)
 alpha = np.asarray(Image.fromarray(alpha).filter(__import__("PIL.ImageFilter", fromlist=["x"]).GaussianBlur(1.2)))
-out = im.convert("RGBA"); out.putalpha(Image.fromarray(alpha)); bb = out.getbbox(); out.crop(bb).save(sys.argv[2]); print(sys.argv[2], out.crop(bb).size)
+out = im.convert("RGBA"); out.putalpha(Image.fromarray(alpha)); import os; bb = (0, 0, *out.size) if os.environ.get("NOCROP") else out.getbbox(); out.crop(bb).save(sys.argv[2]); print(sys.argv[2], out.crop(bb).size)  # NOCROP=1 keeps the canvas (aligned pose pairs)

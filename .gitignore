@@ -27,3 +27,5 @@ work/voice/*_m.wav
 work/voice/*_h_cut.*
 work/voice/*_m_cut.*
 work/**/run.log
+work/final/*.mix.wav
+work/thumbs/**/ref_h.png
