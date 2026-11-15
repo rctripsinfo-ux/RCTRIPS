@@ -12,13 +12,13 @@ work/shorts/*/public/*/*.wav
 work/shorts/*/voice/*.wav
 blunderloop_*.mp4
 blunderloop_*.jpg
-work/pilot2/img/
-work/pilot3/img/
-work/thumbs/**/*.png
 work/thumbs/**/*.jpg
 work/thumbs/**/job_*/
 work/thumbs/**/jobs.log
-work/week1/img/
 work/thumbs/**/sheet.jpg
-work/week1/img2/
 work/final/*.labels.json
+# Codex assets ARE committed (owner 15 Nov: other clouds must rebuild); skip the job scratch, logs and duplicates
+work/**/img*/job_*/
+work/**/img*/jobs*.log
+work/week1/img2/ref_*.png
+work/thumbs/day01/t*.png

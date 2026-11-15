@@ -10,35 +10,40 @@ Research behind it: `work/research/EFFECTS-LIBRARY-36-VIDEOS.md` (36 competitor 
 `work/research/REFERENCE-c01-BREAKDOWN.md`. The house style (not the competitor's look) is in
 `work/research/CREATIVE-SYSTEM-PLAN.md`; follow it once the owner approves it.
 
-## APPROVED STYLE (owner, 15 Nov 2026): "Pilot 3" = Demo 03 effects + new Codex poses
-Reference plan: `work/pilot3_plan.py`. Do NOT use the Pilot 1 notebook style (rejected) or the Pilot 2 big-picture-only style.
+## THE METHOD (owner, 15 Nov 2026: "all videos totally amazing, always make them this way")
+Reference: `work/week1/day02_plan.py` … `day07_plan.py`, with the shared helpers in `work/week1/w1.py`. Day 1 = `work/pilot3_plan.py`.
+Owner feedback that shaped it:
+- poses must ANIMATE in every scene (2–4 poses per scene, from frame 1)
+- labels never on a face, never over another label, never left over a new picture
+- 3+ labels at once: blur the picture behind them
+- white set, Mini-H commentator, small captions, punchy hook in the first second
 
-**Look:**
-- white set
-- character ~55–60% height
-- Mini-H (chibi H in a purple shirt, second voice, light-purple captions) as the commentator cameo with focus blur
-- small captions: `cap_size` 62, stroke 6, y 0.8
-
-**Effects (Demo 03 library):**
-- blurred 2x hook zoom-out
-- squash transition
-- drop-in labels
-- dark-slate "#N" cards via brush / iris
-- ghost reps, dashed arcs, anatomy inset badges with a tick
-- punch zooms
-- plus particles
-- full-frame Codex close-ups as cut-ins
-
-**Images via Codex** (see CLAUDE.md): `work/pilot3/img/run.sh <name> <ref.png> "<description>"`, run 3 jobs in parallel with `launch.py jobs.tsv`.
-- **Pose pairs:** generate A, then B with A as the reference ("exact same image ... only <limbs> move"). Align them:
-  - `tools/align_pair.py A.png B.png A_al.png B_al.png 0.18` matches the feet.
-  - Use `-1` (shoulder span) when the stance changes, e.g. a squat.
-  - Swaps then stay in place, and the ghost works.
-- **Muscle highlight:** Codex redraws the same pose with the muscle as red anatomy. Then `tools/highlight_merge.py base.png red.png out.png [mask.png] [grow]` keeps only the red muscle on the untouched base. Use `grow` 14 if Codex moved the outline. Align the result like the pair.
-  - Layer option: `highlight=dict(base=B_al, asset=B_red_al, at="word")`. It blinks on 3 frames / off 3 frames, then holds.
-- **Cutouts:** `tools/cutout_white.py`.
-- Two voices: `tools/dialogue_voice.py <name> <script.txt>` (lines start with "H:" / "M:").
-- Codex images are not committed (CLAUDE.md); ask the owner if they want them in git.
+Steps for a new day N (one video ≈ 25–40 min):
+1. **Script.** Take Day N from `work/content/30-DAY-SHORTS-PLAN.md` and write it to `work/weekX/dayNN.txt`, one line per speaker (`H: …` / `M: …`).
+2. **Voices.** `python3 tools/dialogue_voice.py dayNN weekX/dayNN.txt '{"line": gap}'`. H = Fenrir deep/calm, Mini-H = Puck high/fast. Output: `voice/dayNN_cut.wav` + words.json. It starts the Reel Engine server itself.
+3. **Images (Codex, see CLAUDE.md):** `weekX/img/run.sh` + `launch.py jobs.tsv` (3 jobs in parallel, ~1 min each).
+   - **Gesture library, reuse it:** `week1/img2/g_*_al.png` has 12 talking poses on ONE canvas (point, cross, shrug, think, thumbs, one, two, palm, facepalm, shock, hips, flex). They swap in place.
+   - **Topic poses:** make the base with H as reference, then variants with "The exact same image as the reference … The ONLY change: …".
+   - Align with `tools/align_to.py base.png outdir var1.png var2.png` (`--height` for walking).
+   - Cut-outs: `tools/cutout_white.py`. Mini-H stickers: `tools/sticker_ring.py`.
+   - Red-muscle blink: `tools/highlight_merge.py` + layer `highlight=dict(base, asset, at)`.
+4. **Plan.** Copy a `week1/dayNN_plan.py`.
+   - `act([(pose, word), …])` = one H layer that changes pose on words.
+   - `full()` = a single picture (82% size, the top stays free for labels).
+   - `body()` = line-ups. `mini()` = cameo with focus blur.
+   - `lab()` / `stack()` = labels. `card()` = dark-slate "#N" card.
+   - `hook_keys()` = 2x blurred zoom-out on frame 1 + `shake` + whoosh_big.
+   - Split a scene whenever the picture changes, so labels never stay over a new picture.
+   - Use `until=` on labels that should replace each other.
+   - The engine places labels automatically (`place()`: off faces, figures, captions and other labels). 3+ live labels → the picture behind is blurred. `fixed=True` keeps a hand-set spot.
+5. **Render.** `LUFS=-20 python3 weekX/dayNN_plan.py` → `final/dayNN.mp4`.
+6. **QA.** `python3 tools/label_qa.py weekX/dayNN_plan.py sheet.jpg`.
+   - Fix real FACE / LABEL / OUTSIDE flags (look at the sheet; small FACE values near raised fists are usually false alarms).
+   - Then look at 10 frames.
+7. **Thumbnail.** Brand colours dark red #7A1A1A + teal #0F8B85 + white italic words; the layout varies (thumbnail skill). Codex 1080x1920.
+   - `tools/append_thumb.sh final/dayNN.mp4 thumb.png final/dayNN_upload.mp4` puts it in the last frame.
+8. **Upload text.** Title, description and tags in the style of `work/content/week1_upload.md`.
+9. **Commit EVERYTHING**, Codex images included (the owner asked on 15 Nov, so other clouds can rebuild). Push to the session branch.
 
 ## Owner rules (always)
 - Reply to the owner in Hinglish. Scripts, titles and prompts are in English.
