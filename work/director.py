@@ -80,7 +80,7 @@ def view(img, z, fx, fy, dx=0.0, dy=0.0):
 _hero_cache = {}
 HERO_DIR = os.path.expanduser("~/reel-engine-tool/public/library/hero")
 def hero(asset):
-    if asset not in _hero_cache: _hero_cache[asset] = Image.open(glob.glob(f"{HERO_DIR}/{asset}.*")[0]).convert("RGBA")
+    if asset not in _hero_cache: _hero_cache[asset] = Image.open(asset if "/" in asset else glob.glob(f"{HERO_DIR}/{asset}.*")[0]).convert("RGBA")
     return _hero_cache[asset]
 _hero_lib = None
 def part_xy(asset, part, place):
@@ -233,6 +233,7 @@ class Renderer:
             ga = g.get("alpha", 0.3) * min(1, (t - self.tl.at(g["at"], s)) / 0.4)
             gi = hero(g["asset"]).resize((w, h), Image.LANCZOS); gi.putalpha(gi.getchannel("A").point(lambda v: int(v * ga)))
             c.alpha_composite(gi, (int(x - w / 2), int(y - h / 2)))
+        if L.get("breathe", self.P.get("breathe")): sc *= 1 + 0.008 * math.sin(2 * math.pi * t / 3.6)  # style v2: never a frozen still
         im = im.resize((max(1, int(w * sc)), max(1, int(h * sc))), Image.LANCZOS)
         if entering and en[0] in ("slide_l", "slide_r") and (t - a) / en[1] < 0.45:  # fast part of a slide: smear + streaks
             k = max(2, int(im.width / 7)); im = im.resize((k, im.height), Image.BILINEAR).resize((im.width, im.height), Image.BILINEAR)
@@ -604,9 +605,10 @@ class Renderer:
             return out, self.P.get("cap_y", 0.78), 1.0
         txt = " ".join(shown).lower().replace(".", "").replace(",", "").replace("?", "").replace("!", "")
         if not txt: return None
-        key = ("B", txt)
+        key = ("B", txt, ws[ch[0]].get("spk"))
         if key not in self.cap_cache:
-            self.cap_cache[key] = text_img(txt, f"{HERE}/fonts/rubik-800.woff2", self.P.get("cap_size", 62), (255, 255, 255), stroke=7, stroke_fill=(25, 28, 32), shadow=False, maxw=W * 0.8)
+            col = tuple(self.P["cap_mini"]) if self.P.get("cap_mini") and ws[ch[0]].get("spk") == "M" else (255, 255, 255)
+            self.cap_cache[key] = text_img(txt, f"{HERE}/fonts/rubik-800.woff2", self.P.get("cap_size", 62), col, stroke=self.P.get("cap_stroke", 7), stroke_fill=(25, 28, 32), shadow=False, maxw=W * 0.8)
         return self.cap_cache[key], self.P.get("cap_y", 0.78), 1.0
 
     def caption(self, t, j):
