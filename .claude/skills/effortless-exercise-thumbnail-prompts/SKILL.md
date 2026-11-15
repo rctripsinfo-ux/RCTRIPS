@@ -26,6 +26,14 @@ The owner rejected the white-background + black/red label-box thumbnails ("bahut
 - Generate with Codex (CLAUDE.md). Approved examples, Day 1: `work/thumbs/day01v2/PROMPTS.md`.
 - Keep words and subject inside the central ~70% of the height. Same character rules as below.
 
+**BRAND TEMPLATE, LOCKED (owner, 15 Nov 2026: "all thumbnails like Day 5").** Every Short uses the SPLIT layout:
+- **Left half:** flat dark muted red `#7A1A1A`, showing the problem / wrong way.
+- **Right half:** flat fresh teal `#0F8B85`, showing the fix / right way.
+- H appears on both sides at the same size, full body, on the same floor line.
+- One or two big white heavy italic words at the top of each half ("SIT" / "WALK", "REST" / "LOAD"), with a thin dark outline and a soft shadow, no box.
+- The right side may show the target muscle glowing green or as red anatomy.
+- Prompt builder and examples: `work/thumbs/split/PROMPTS.md`. Use the other idea types only inside this split frame.
+
 ## Format decision
 
 - Short script or the user says Shorts or 9:16: 1080x1920, 9:16 vertical.
