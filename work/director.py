@@ -203,6 +203,10 @@ class Renderer:
         for asset, k in L.get("poses", []):
             if self.tl.at(k, s) <= t: cur = asset
         im = hero(cur)
+        hl = L.get("highlight")  # same picture with the muscle drawn red: blink on 3 f / off 3 f, then stays (owner 15 Nov)
+        if hl and cur == hl["base"] and self.tl.at(hl["at"], s) <= t < (self.tl.at(hl["until"], s) if hl.get("until") else 1e9):
+            u_ = t - self.tl.at(hl["at"], s)
+            if u_ >= hl.get("blink", 2) * 0.2 or int(u_ / 0.1) % 2 == 0: im = hero(hl["asset"])
         if L.get("flip"): im = im.transpose(Image.FLIP_LEFT_RIGHT)
         w = int(W * L.get("w", 0.8)); h = int(w * im.height / im.width); x, y, sc, al, rot = W * L.get("x", 0.5), H * L.get("y", 0.6), 1.0, 1.0, 0
         def move(kind, p):  # p: 0 = off, 1 = in place
