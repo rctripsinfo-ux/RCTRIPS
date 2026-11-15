@@ -17,3 +17,4 @@ work/pilot3/img/
 work/thumbs/**/*.png
 work/thumbs/**/*.jpg
 work/thumbs/**/job_*/
+work/thumbs/**/jobs.log
