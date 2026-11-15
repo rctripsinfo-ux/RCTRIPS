@@ -311,6 +311,13 @@ class Renderer:
         for e in s.get("insets", []): self.inset(e, s, t, c)
         for e in s.get("meters", []): self.meter(e, s, t, c)
         for e in s.get("scribbles", []): self.scribble(e, s, t, c)
+        live = [e for e in s.get("labels", []) if self._live(e, s, t)]
+        self._pre = c.copy()  # label placement looks at the picture BEFORE any text-mode blur (faces stay detectable)
+        if len(live) >= 3 and not s.get("no_textmode"):  # a lot of text: soften the picture behind it (owner 15 Nov)
+            k = min(1, (t - min(self.tl.at(e.get("at", 0), s) for e in live[2:3])) / 0.25)
+            soft = c.filter(ImageFilter.GaussianBlur(10)); soft.alpha_composite(Image.new("RGBA", (W, H), (255, 255, 255, 90)))
+            c.paste(Image.blend(c, soft, k)); s["_textmode"] = True
+        self._lab_boxes = []
         for e in s.get("labels", []): self.label(e, s, t, c)
         for e in s.get("dim", []):  # whole frame darkens (marks are drawn later, so they stay bright)
             lv = self._live(e, s, t, 0.25)
@@ -438,6 +445,38 @@ class Renderer:
                 pts = [(mx - r * 0.3, my), (mx - r * 0.08, my + r * 0.24), (mx + r * 0.36, my - r * 0.3)]
                 d.line(pts[:2] if k < 0.4 else pts, fill=(40, 190, 80, a_), width=int(r * 0.13), joint="curve")
 
+    def occupancy(self, c, s):
+        """where things are drawn (not the plain set), at 1/8 size, plus the figure's face zone (top 30 % of the biggest blob)"""
+        a = np.asarray(c.convert("RGB").resize((W // 8, H // 8))).astype(int); bg = np.array(s.get("set", self.P.get("set", (255, 255, 255))))
+        occ = np.abs(a - bg).sum(-1) > 45
+        from scipy import ndimage  # (face zone grown by a few px below so labels keep a gap)
+        lab_, n = ndimage.label(ndimage.binary_closing(occ, iterations=2)); face = np.zeros_like(occ)
+        for i in range(1, n + 1):
+            ys, xs = np.nonzero(lab_ == i)
+            if len(ys) < occ.size * 0.02: continue
+            y0, y1 = ys.min(), ys.max(); m = (lab_ == i); m[int(y0 + (y1 - y0) * 0.3):] = False; face |= m
+        return occ, face
+
+    def place(self, e, s, c):
+        """best spot for a label: inside the frame, off the caption band, off other labels, off the picture (faces cost the most)"""
+        if e.get("fixed"): return W * e["x"], H * e["y"]
+        tm = bool(s.get("_textmode"))  # text mode: the picture is blurred, labels may cross the body but never a face
+        occ, face = self.occupancy(getattr(self, "_pre", c), s); bw, bh = e["_im"].width / 8, e["_im"].height / 8; best = None
+        cy = self.P.get("cap_y", 0.8)
+        for yy in np.arange(0.06, 0.93, 0.02):
+            for xx in (e["x"], 0.5, 0.3, 0.7, 0.22, 0.78):
+                x0, y0 = xx * W / 8 - bw / 2, yy * H / 8 - bh / 2
+                if x0 < W / 8 * 0.03 or x0 + bw > W / 8 * 0.97 or y0 < 0 or y0 + bh > H / 8 * 0.95: continue
+                if abs(yy - cy) < 0.06: continue
+                sl = (slice(int(y0), int(y0 + bh) + 1), slice(int(x0), int(x0 + bw) + 1))
+                o, fo = occ[sl].mean(), face[sl].mean()
+                lo = sum(max(0, min(x0 + bw, bx1) - max(x0, bx0)) * max(0, min(y0 + bh, by1) - max(y0, by0)) for bx0, by0, bx1, by1 in self._lab_boxes) / (bw * bh)
+                cost = (0 if tm else o * 100) + fo * 2000 + lo * 500 + abs(yy - e["y"]) * 25 + abs(xx - e["x"]) * 10
+                if best is None or cost < best[0]: best = (cost, xx, yy, x0, y0, o, fo)
+        _, xx, yy, x0, y0, o, fo = best; self._lab_boxes.append((x0, y0, x0 + bw, y0 + bh))
+        self.qa = getattr(self, "qa", []); self.qa.append(dict(text=e["text"], scene=s["text"][:40], over=round(float(o), 3), face=round(float(fo), 3)))
+        return W * xx, H * yy
+
     def label(self, e, s, t, c):
         """small white box with a dark border (reference labels): drops in from above with motion blur, optional leader line"""
         lv = self._live(e, s, t)
@@ -453,12 +492,15 @@ class Renderer:
                 im.alpha_composite(tx, (6 + pad, 6 + pad)); e["_im"] = im.rotate(e.get("rot", random.Random(len(e["text"])).uniform(-5, 5)), expand=True, resample=Image.BICUBIC)
             sc = 1.18 - 0.18 * ease(u / 0.13) if u < 0.13 else 1.0; im = e["_im"].resize((int(e["_im"].width * sc), int(e["_im"].height * sc)), Image.LANCZOS)
             if f < 1: im.putalpha(im.getchannel("A").point(lambda v: int(v * f)))
-            c.alpha_composite(im, (int(W * e["x"] - im.width / 2), int(H * e["y"] - im.height / 2))); return
+            c.alpha_composite(im, (int(W * e["x"] - im.width / 2), int(H * e["y"] - im.height / 2))); return  # sticky notes keep their hand-set spot
         if "_im" not in e:
             tx = text_img(e["text"], f"{HERE}/fonts/rubik-800.woff2", e.get("size", 50), (25, 28, 32), shadow=False)
             im = Image.new("RGBA", (tx.width + 56, tx.height + 26), (0, 0, 0, 0)); ImageDraw.Draw(im).rounded_rectangle([2, 2, im.width - 3, im.height - 3], 14, fill=(255, 255, 255, 255), outline=(30, 34, 40, 255), width=5)
             im.alpha_composite(tx, (28, 13)); e["_im"] = im
-        x, y = W * e["x"], H * e["y"]; p = ease(u / 0.27); y -= (1 - p) * H * 0.1
+        if "_xy" not in e: e["_xy"] = self.place(e, s, c)  # free spot, decided once when the label appears
+        else:
+            bw, bh = e["_im"].width / 8, e["_im"].height / 8; self._lab_boxes.append((e["_xy"][0] / 8 - bw / 2, e["_xy"][1] / 8 - bh / 2, e["_xy"][0] / 8 + bw / 2, e["_xy"][1] / 8 + bh / 2))
+        x, y = e["_xy"]; p = ease(u / 0.27); y -= (1 - p) * H * 0.1
         im = e["_im"]
         if u < 0.18: im = im.filter(ImageFilter.GaussianBlur(5 * (1 - u / 0.18)))
         al = min(1, u / 0.08) * f
@@ -794,6 +836,7 @@ class Renderer:
             ff.stdin.write(self.frame(t0 + f / FPS).tobytes())
         ff.stdin.close(); ff.wait(); os.remove(tmp_a)
         print("DONE", out, f"{t1 - t0:.2f} s, {n} frames")
+        if getattr(self, "qa", None): json.dump(self.qa, open(out + ".labels.json", "w"), indent=0)  # where every label went (QA)
 
 def remix(plan, video, out):
     """new audio mix onto an already rendered video (no frame render)"""
