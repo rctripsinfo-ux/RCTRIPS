@@ -8,3 +8,13 @@ When the user asks to generate an image, use the Codex CLI signed in with their 
    `codex exec --sandbox workspace-write --skip-git-repo-check "Use your built-in image generation tool to create: <prompt>. Save it as <name>.png in the current directory."`
    (Generated files also land in `~/.codex/generated_images/`.)
 4. Send the image to the user, and save it into the repo only if asked.
+
+## Workflow (agent-skills)
+
+Skills from addyosmani/agent-skills (commit 39b723c, MIT) are vendored in `.claude/` and load automatically in every session.
+
+- For any engineering task, check `.claude/skills/using-agent-skills/SKILL.md` and apply the matching skill.
+- Lifecycle: `/spec` → `/plan` → `/build` (or `/build auto`) → `/test` → `/review` → `/ship`.
+- Other commands: `/constraints`, `/code-simplify`, `/webperf`.
+- Subagents: `code-reviewer`, `security-auditor`, `test-engineer`, `web-performance-auditor`.
+- Shared checklists: `.claude/references/`.
