@@ -20,7 +20,10 @@ ax0, ax1, ay = feet(ma); bx0, bx1, by = feet(mb); s = (ax1 - ax0) / max(1, bx1 -
 def head(m):  # head width just under the top of the figure (stable between stances)
     ys, xs = np.nonzero(m); y0, y1 = ys.min(), ys.max()
     return max((lambda x: x.max() - x.min() if len(x) else 0)(np.nonzero(m[r])[0]) for r in range(y0, y0 + int((y1 - y0) * 0.35), 4))  # shoulder span
-if fr < 0:  # mode "head": scale by head width (stance changes, head does not), floor + centre still matched
+if fr == -2:  # mode "height": same overall figure height (walk cycles), floor + centre matched
+    ha = np.nonzero(ma.any(1))[0]; hb = np.nonzero(mb.any(1))[0]; s = (ha.max() - ha.min()) / max(1, hb.max() - hb.min())
+    ax0, ax1 = (lambda x: (x.min(), x.max()))(np.nonzero(ma.any(0))[0]); bx0, bx1 = (lambda x: (x.min(), x.max()))(np.nonzero(mb.any(0))[0])
+elif fr < 0:  # mode "head": scale by head width (stance changes, head does not), floor + centre still matched
     s = head(ma) / max(1, head(mb)); ax0, ax1 = (lambda x: (x.min(), x.max()))(np.nonzero(ma.any(0))[0]); bx0, bx1 = (lambda x: (x.min(), x.max()))(np.nonzero(mb.any(0))[0])
 Bs = B.resize((int(B.width * s), int(B.height * s)), Image.LANCZOS)
 dx = (ax0 + ax1) / 2 - (bx0 + bx1) / 2 * s; dy = ay - by * s

@@ -18,3 +18,5 @@ work/thumbs/**/*.png
 work/thumbs/**/*.jpg
 work/thumbs/**/job_*/
 work/thumbs/**/jobs.log
+work/week1/img/
+work/thumbs/**/sheet.jpg

@@ -4,6 +4,10 @@
 import json, os, subprocess, sys, wave, numpy as np
 name, script = sys.argv[1:3]; GAP = json.loads(sys.argv[3]) if len(sys.argv) > 3 else {}
 W = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); os.chdir(W)
+import urllib.request, time
+try: urllib.request.urlopen("http://127.0.0.1:3011/", timeout=3)
+except Exception:  # Reel Engine server (word alignment) dies with container resets: start it
+    subprocess.Popen("cd ~/reel-engine-tool && PORT=3011 setsid nohup node tools/server.mjs > /tmp/reel-server.log 2>&1 < /dev/null &", shell=True); time.sleep(5)
 lines = [l.split(": ", 1) for l in open(script).read().strip().split("\n")]
 cfg = {"H": (["--voice", "Fenrir", "--pitch", "deep", "--speed", "1.0", "--emotion", "calm, low and steady, confident coach with a dry sense of humour"]),
        "M": (["--voice", "Puck", "--pitch", "high", "--speed", "1.15", "--emotion", "playful, cheeky, a little whiny, like a tiny sidekick"])}
