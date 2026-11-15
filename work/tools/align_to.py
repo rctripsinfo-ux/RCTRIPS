@@ -18,6 +18,7 @@ for v in [base] + vars_:
     V, mv = cut(v); vx0, vx1, vy, vh = anchor(mv)
     s = bh / vh if mode_h else (bx1 - bx0) / max(1, vx1 - vx0)
     s = min(max(s, 0.85), 1.15)  # Codex keeps scale close; never wildly rescale
+    if "--noscale" in sys.argv: s = 1.0  # e.g. jumping jacks: the feet spread, the size does not change
     Vs = V.resize((int(V.width * s), int(V.height * s)), Image.LANCZOS); dx = (bx0 + bx1) / 2 - (vx0 + vx1) / 2 * s; dy = by - vy * s
     out = Image.new("RGBA", B.size, (0, 0, 0, 0)); out.alpha_composite(Vs, (int(dx), int(dy))) if dx >= 0 and dy >= 0 else out.paste(Vs, (int(dx), int(dy)), Vs)
     name = os.path.splitext(os.path.basename(v))[0]; out.save(f"{outd}/{name}_al.png"); print(name, f"scale {s:.3f} shift {dx:.0f},{dy:.0f}")

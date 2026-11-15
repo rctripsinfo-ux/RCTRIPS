@@ -22,3 +22,8 @@ work/**/img*/job_*/
 work/**/img*/jobs*.log
 work/week1/img2/ref_*.png
 work/thumbs/day01/t*.png
+work/voice/*_h.wav
+work/voice/*_m.wav
+work/voice/*_h_cut.*
+work/voice/*_m_cut.*
+work/**/run.log
