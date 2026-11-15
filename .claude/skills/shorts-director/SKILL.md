@@ -10,6 +10,36 @@ Research behind it: `work/research/EFFECTS-LIBRARY-36-VIDEOS.md` (36 competitor 
 `work/research/REFERENCE-c01-BREAKDOWN.md`. The house style (not the competitor's look) is in
 `work/research/CREATIVE-SYSTEM-PLAN.md`; follow it once the owner approves it.
 
+## APPROVED STYLE (owner, 15 Nov 2026): "Pilot 3" = Demo 03 effects + new Codex poses
+Reference plan: `work/pilot3_plan.py`. Do NOT use the Pilot 1 notebook style (rejected) or the Pilot 2 big-picture-only style.
+
+**Look:**
+- white set
+- character ~55–60% height
+- Mini-H (chibi H in a purple shirt, second voice, light-purple captions) as the commentator cameo with focus blur
+- small captions: `cap_size` 62, stroke 6, y 0.8
+
+**Effects (Demo 03 library):**
+- blurred 2x hook zoom-out
+- squash transition
+- drop-in labels
+- dark-slate "#N" cards via brush / iris
+- ghost reps, dashed arcs, anatomy inset badges with a tick
+- punch zooms
+- plus particles
+- full-frame Codex close-ups as cut-ins
+
+**Images via Codex** (see CLAUDE.md): `work/pilot3/img/run.sh <name> <ref.png> "<description>"`, run 3 jobs in parallel with `launch.py jobs.tsv`.
+- **Pose pairs:** generate A, then B with A as the reference ("exact same image ... only <limbs> move"). Align them:
+  - `tools/align_pair.py A.png B.png A_al.png B_al.png 0.18` matches the feet.
+  - Use `-1` (shoulder span) when the stance changes, e.g. a squat.
+  - Swaps then stay in place, and the ghost works.
+- **Muscle highlight:** Codex redraws the same pose with the muscle as red anatomy. Then `tools/highlight_merge.py base.png red.png out.png [mask.png] [grow]` keeps only the red muscle on the untouched base. Use `grow` 14 if Codex moved the outline. Align the result like the pair.
+  - Layer option: `highlight=dict(base=B_al, asset=B_red_al, at="word")`. It blinks on 3 frames / off 3 frames, then holds.
+- **Cutouts:** `tools/cutout_white.py`.
+- Two voices: `tools/dialogue_voice.py <name> <script.txt>` (lines start with "H:" / "M:").
+- Codex images are not committed (CLAUDE.md); ask the owner if they want them in git.
+
 ## Owner rules (always)
 - Reply to the owner in Hinglish. Scripts, titles and prompts are in English.
 - Keep usage low: no subagents, no renders that aren't needed.
