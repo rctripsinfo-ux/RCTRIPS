@@ -235,3 +235,99 @@ After the library exists, each new video needs only ~30–50 topic images (about
 3. Build the asset library (§4.2) and finish the engine upgrades (§4.3).
 4. Remake long video #1 at full length (8 min) with the new script.
 5. Then one long video per week, using THE METHOD (long), saved as a skill.
+
+---
+
+# DEEP PASS: following `LONGFORM-ANALYSIS-PROMPT.md`
+
+**What was run on all 24 videos (plus our `long01` for comparison):**
+
+| Pass | Detail |
+|---|---|
+| `fx16x9.py` | 30 fps forensics. 315,000 frames, 4,433 transition and motion events. |
+| `audio_fx.py` | Loudness, music bed, onsets. |
+| Script statistics | Computed from every word. |
+| Sync | Every visual event checked against word timings. |
+
+**What was verified by eye:**
+- 16 event examples were checked as 30 fps strips: 2 per class, from different videos.
+- Plus the 5 second-by-second sheets and the 24 overview sheets.
+
+## D1. Transitions and motion: measured (median of 24 videos, per minute; durations at 30 fps)
+
+| Event (verified by eye) | Theirs per min (range) | Duration | Ours per min |
+|---|---|---|---|
+| **Hard cut**, mostly on a new sentence or a section card | 2.1 (0–26) | 1 frame | **22.9** |
+| **Camera move**: continuous pan, tilt, push-in or pull-out on a held picture (L13, L09, L10 strips) | **5.1** (0–12) | 20 frames (8–33), ease in and out | 3.2 |
+| **Dip-to-background**: the old scene fades to the bg colour, then the new elements fade or pop in (L04, L20 strips) | 3.4 (0–13) | 11 frames out (8–19) + ~6–8 in | 8.6 (our hard swaps) |
+| **Blur or grey-dim out** before the next scene (L22 strip: grey overlay over ~12 frames) | 3.2 (2–19) | 5 frames (4–16) | 7.8 |
+| **Slide/move** of an element (enters from the side, eases out) | 2.2 (0–6) | 5 frames (4–11). Half the distance is covered in the first third (ease-out). Overshoot in only 18%. | 4.3 |
+| **Scale pop**: insets and badges grow from a point near the body to 100% (L17, L03 strips) | 1.6 (0.4–9) | 4–5 frames, ease-out, no bounce | 0.9 |
+| **Zoom + move** (zoom-through) | 0.6 (0–1.4) | 19 frames | 0 |
+| **Section card**: a cut to a dark panel ("DAY 3" navy `#3c4870`, "WALK DAILY" dark blue, white bold text) for ~1–1.5 s, then a hard cut to a close-up | 0.3 per min (cut + colour change) | 4 frames | 0 |
+| Small swaps (rep loops, puppet motion, UI micro-animation) | 52 (16–166) | 1–3 frames | 88 |
+
+**Read the table like this:**
+- They use **few hard cuts and many soft moves:** camera moves, fades and pops.
+- We use **10x more hard cuts**, plus "flash" jumps (10 per min vs 0.9). That is exactly the flicker the owner felt.
+- **Characters are never frozen.** The L23 strip shows a slow head and body tilt ("puppet" motion) on a held drawing. Fire auras flicker frame by frame (L17). Phone UIs scroll (L18, L21). Stars fill one by one (L12).
+
+## D2. Colour, dim and glow: measured
+- **Background:**
+  - one tint for 70–100% of each video: blue `#CCD8F0` (13 videos), lilac `#D8CCF0`/`#CCCCE4` (7), cream `#F0E4CC` (4), charcoal `#303030` (1)
+  - **darker panels of the same hue** for 2–20% of the time: lilac `#9078B4`/`#605484`, blue `#84A8D8`/`#243C78`, dark `#303030`
+  - our long01 is 74% white `#FCFCFC` and 19% grey `#CCCCCC` (the Mini-H focus blur)
+- **Dims:**
+  - 1.7 per min, lasting 47–189 frames
+  - they darken the background for a "serious" stretch or a card. They are not a blur behind every cameo.
+  - ours: 6.9 per min
+- **Red highlight:**
+  - on screen 1.9 times per min, median 67 frames
+  - it is a steady red muscle overlay or a glowing red joint, usually inside a circle inset (L03, L15 strips)
+  - ours: 0.2 per min
+- **Green:** rare (0.1 per min), only for healing or "correct".
+- **Glow:** soft halos around hot joints and white spotlights or rays (L15 strip, L13 overview).
+  - The automatic glow count is not reliable: our white background inflates it.
+
+## D3. Audio: measured
+- **Loudness** is not standardised:
+  - −10 to −27 LUFS (median −19)
+  - true peak around 0 dBFS
+  - YouTube normalises long videos to about −14 anyway
+- **Music bed:** present in all videos, sitting **7–23 dB under the voice** (median ~11 dB).
+- **SFX:** I could not separate them reliably from music and speech. Onsets near visual events: 13%, the same as the random control (13%). So "SFX on every cut" is **not proven**, and SFX density is **not measured**.
+
+## D4. Sync with the words: measured
+- Visual events land on word starts: the median offset is **−0.03 s**.
+  - 42% are within ±0.1 s of a word start.
+  - 35% come **before** the word.
+  - 23% come after it.
+- **Rule for us:** start the move 0–3 frames before the keyword.
+
+## D5. Script numbers (every word, all 24)
+
+| Measure | Value |
+|---|---|
+| Numbers spoken | 0.7–9.3 per min. Challenge videos are the highest: L18 9.3, L14 8.4, L02 7.7. |
+| Open-loop phrases ("the surprising…", "here's the thing", "turns out") | 0–7 per video |
+| Science words (study, research, percent) | up to 10 per video. Explainers are the highest: L21 10, L13 7, L20 6. |
+| Sponsor read | 14 of 24, placed at 16–89% of the runtime (median ~55%) |
+| Ending | comment/like/subscribe in about half. "Now go train!" in 2. |
+| Stage cues ("day X", "week X", "first", "next", "exercise N") | 3–29 per video. Challenge format: 17–29. |
+
+## D6. Effects spec for `director.py` (build these 1:1)
+
+| Effect | Spec |
+|---|---|
+| Camera move | every held picture drifts: push-in 3–6% over the scene, or a pan/tilt over 20–33 frames, ease in and out |
+| Dip-to-background transition | old scene α→0 over 8–12 frames into the bg tint, then new elements fade or pop in over 6–8 frames, staggered 3–4 frames |
+| Blur/grey-out transition | 4–12 frames, grey overlay up to ~35% |
+| Slide-in | 5 frames (up to 11), cubic ease-out, overshoot rare (≤ 5%) |
+| Scale pop | inset or badge from 0→100% in 4–5 frames, ease-out, anchored near the body part it explains |
+| Section card | dark panel of the video hue (for us dark red `#7A1A1A`), white bold sans, 1–1.5 s, hard cut in and out |
+| Puppet motion | ±1–2° rotation and ±1% scale, slow (2–4 s), on every held figure |
+| Frame-by-frame FX loops | fire, sweat, stars filling, UI scroll |
+| Highlight | steady red overlay inside a circle inset, held ~2 s (not a fast blink everywhere) |
+| Rates per minute | hard cuts ≤ 3, soft transitions ~10, camera moves ~5, insets/pops ~2, section cards when the stage changes |
+| Timing | moves start 0–3 frames before the keyword |
+| Audio | music 10–12 dB under the voice. Normalise the final mix to −14 LUFS for long-form (YouTube target), not −20. |
