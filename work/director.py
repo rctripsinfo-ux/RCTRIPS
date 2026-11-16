@@ -199,10 +199,15 @@ class Renderer:
         a = self.tl.at(L.get("at", 0), s); b = self.tl.at(L["until"], s) if L.get("until") else s["E"] + 1
         en, ex = L.get("enter", ("cut", 0)), L.get("exit", ("cut", 0))
         if t < a or t >= b + ex[1]: return
-        cur = L.get("asset")
+        cur = L.get("asset"); prev = None; ts = -1.0
         for asset, k in L.get("poses", []):
-            if self.tl.at(k, s) <= t: cur = asset
+            tk = self.tl.at(k, s)
+            if tk <= t:
+                if cur is not None and asset != cur: prev, ts = cur, tk
+                cur = asset
         im = hero(cur)
+        xf = L.get("xf", self.P.get("pose_xf", 0))  # long-form: 2-3 frame in-between dissolve instead of a hard swap
+        if xf and prev and 0 <= t - ts < xf and hero(prev).size == im.size: im = Image.blend(hero(prev), im, ease((t - ts) / xf))
         hl = L.get("highlight")  # same picture with the muscle drawn red: blink on 3 f / off 3 f, then stays (owner 15 Nov)
         if hl and cur == hl["base"] and self.tl.at(hl["at"], s) <= t < (self.tl.at(hl["until"], s) if hl.get("until") else 1e9):
             u_ = t - self.tl.at(hl["at"], s)
@@ -238,6 +243,8 @@ class Renderer:
             gi = hero(g["asset"]).resize((w, h), Image.LANCZOS); gi.putalpha(gi.getchannel("A").point(lambda v: int(v * ga)))
             c.alpha_composite(gi, (int(x - w / 2), int(y - h / 2)))
         if L.get("breathe", self.P.get("breathe")): sc *= 1 + 0.008 * math.sin(2 * math.pi * t / 3.6)  # style v2: never a frozen still
+        if L.get("puppet", self.P.get("puppet")) and not L.get("poses"):  # long-form: slow +-1.2 deg sway on held drawings (measured "puppet" motion)
+            rot += 1.2 * math.sin(2 * math.pi * t / 3.3 + (hash(str(L.get("asset"))) % 7))
         im = im.resize((max(1, int(w * sc)), max(1, int(h * sc))), Image.LANCZOS)
         if entering and en[0] in ("slide_l", "slide_r") and (t - a) / en[1] < 0.45:  # fast part of a slide: smear + streaks
             k = max(2, int(im.width / 7)); im = im.resize((k, im.height), Image.BILINEAR).resize((im.width, im.height), Image.BILINEAR)
@@ -276,8 +283,70 @@ class Renderer:
             if t < a or (tx.get("until") and t >= self.tl.at(tx["until"], s)): continue
             if "_im" not in tx: tx["_im"] = text_img(tx["text"], F_BIG, tx.get("size", 170), tx.get("color", INK), stroke=8, maxw=W * 0.9)
             p = (t - a) / 0.2; paste_center(c, tx["_im"], W / 2, H * tx.get("y", 0.15), 1.6 - 0.6 * back(p, 1.4) if p < 1 else 1.0, min(1, p * 2))
+        self.widgets(s, t, c)
         self.fx(s, t, c)
         return c.convert("RGB")
+
+    # ---------- long-form widgets (research/LONGFORM-24-ANALYSIS-AND-PLAN.md, D6) ----------
+    def widgets(self, s, t, c):
+        d = ImageDraw.Draw(c); FI = f"{HERE}/fonts/rubik-800-italic.woff2"
+        for e in s.get("kinetic", []):  # big italic words, no box: slide 90 px + fade in over 5 frames (ease-out), fade out 6 frames
+            lv = self._live(e, s, t, 0.2)
+            if not lv: continue
+            u, f = lv; key = "_k"
+            if key not in e: e[key] = text_img(e["text"], FI, e.get("size", 110), tuple(e.get("color", (34, 40, 48))), stroke=e.get("stroke", 0), stroke_fill=tuple(e.get("stroke_fill", (255, 255, 255))), shadow=False, maxw=W * e.get("maxw", 0.6))
+            q = ease(u / 0.17); off = {"l": (-90, 0), "r": (90, 0), "b": (0, 60), "t": (0, -60)}[e.get("from", "l")]
+            paste_center(c, e[key], W * e["x"] + off[0] * (1 - q), H * e["y"] + off[1] * (1 - q), 1.0, min(1, u / 0.17) * f)
+        for e in s.get("counters", []):  # number counts up (ease-out) then a small 1.08 punch
+            lv = self._live(e, s, t, 0.2)
+            if not lv: continue
+            u, f = lv; dur = e.get("dur", 1.5); q = ease(min(1, u / dur)); val = round(e.get("a", 0) + (e["b"] - e.get("a", 0)) * q)
+            im = text_img(f"{val}{e.get('suffix', '')}", FI, e.get("size", 220), tuple(e.get("color", (34, 40, 48))), stroke=e.get("stroke", 0), shadow=False)
+            pk = 1 + 0.08 * math.sin(min(1, max(0, (u - dur) / 0.2)) * math.pi)
+            paste_center(c, im, W * e["x"], H * e["y"], pk, f)
+            if e.get("label"):
+                if "_l" not in e: e["_l"] = text_img(e["label"], FI, e.get("lsize", 54), tuple(e.get("color", (34, 40, 48))), stroke=e.get("stroke", 0), shadow=False)
+                paste_center(c, e["_l"], W * e["x"], H * e["y"] + im.height * 0.55, 1.0, f)
+        for e in s.get("rings", []):  # stopwatch ring: arc grows over dur, seconds inside
+            lv = self._live(e, s, t, 0.2)
+            if not lv: continue
+            u, f = lv; R = int(H * e.get("r", 0.16)); x, y = W * e["x"], H * e["y"]; q = min(1, u / e.get("dur", 3)); a_ = int(255 * f)
+            sc_ = ease(min(1, u / 0.17)); R = max(4, int(R * sc_))
+            d.ellipse([x - R, y - R, x + R, y + R], fill=(255, 255, 255, a_), outline=(34, 40, 48, a_), width=max(2, R // 14))
+            d.arc([x - R * 0.82, y - R * 0.82, x + R * 0.82, y + R * 0.82], -90, -90 + 360 * q, fill=(*e.get("color", (15, 139, 133)), a_), width=max(3, R // 7))
+            num = text_img(f"{int(e.get('max', 60) * q)}", FI, max(10, int(R * 0.7)), (34, 40, 48), shadow=False); paste_center(c, num, x, y - R * 0.08, 1.0, f)
+            if e.get("unit"): paste_center(c, text_img(e["unit"], FI, max(8, int(R * 0.25)), (34, 40, 48), shadow=False), x, y + R * 0.42, 1.0, f)
+        for e in s.get("calendars", []):  # month grid, cells tick one by one (4 f each, 2 f stagger) at the given anchors
+            lv = self._live(e, s, t, 0.2)
+            if not lv: continue
+            u, f = lv; cols, n = e.get("cols", 10), e.get("n", 30); rows = (n + cols - 1) // cols
+            cw = W * e.get("w", 0.42) / cols; x0, y0 = W * e["x"] - cw * cols / 2, H * e["y"] - cw * rows / 2; a_ = int(255 * f)
+            filled = 0.0; base_ = 0
+            for an, cnt in e.get("ticks", []):  # [(anchor, total ticked after it)], in order
+                ta = self.tl.at(an, s)
+                if t >= ta: filled = min(cnt, base_ + (t - ta) / 0.067)
+                base_ = cnt
+            for k in range(n):
+                cx, cy = x0 + (k % cols) * cw, y0 + (k // cols) * cw; p_ = min(1, max(0, filled - k))
+                d.rounded_rectangle([cx + 4, cy + 4, cx + cw - 4, cy + cw - 4], int(cw * 0.15), fill=(255, 255, 255, a_), outline=(34, 40, 48, a_), width=3)
+                if p_ > 0:
+                    r_ = (cw - 16) / 2 * ease(p_); mx, my = cx + cw / 2, cy + cw / 2
+                    d.rounded_rectangle([mx - r_, my - r_, mx + r_, my + r_], int(r_ * 0.3), fill=(*e.get("color", (15, 139, 133)), a_))
+                    if p_ >= 1: d.line([(mx - r_ * 0.45, my), (mx - r_ * 0.1, my + r_ * 0.35), (mx + r_ * 0.5, my - r_ * 0.35)], fill=(255, 255, 255, a_), width=max(3, int(cw * 0.08)))
+                if e.get("numbers", True):
+                    tn = text_img(str(k + 1), FI, int(cw * 0.26), (120, 128, 138), shadow=False); c.alpha_composite(tn, (int(cx + 8), int(cy + 4))) if p_ == 0 else None
+        for e in s.get("bars", []):  # bar chart, bars grow one after another (stagger, 6 f each), value on top
+            lv = self._live(e, s, t, 0.2)
+            if not lv: continue
+            u, f = lv; vals = e["values"]; n = len(vals); bw = W * e.get("w", 0.4) / n; x0 = W * e["x"] - bw * n / 2; yb = H * e["y"]; hm = H * e.get("h", 0.4); a_ = int(255 * f)
+            d.line([(x0 - 10, yb), (x0 + bw * n + 10, yb)], fill=(34, 40, 48, a_), width=4)
+            for k, v in enumerate(vals):
+                q = ease(min(1, max(0, (u - k * e.get("stagger", 0.12)) / 0.2)))
+                if q <= 0: continue
+                hh = hm * v / max(vals) * q; col = e.get("hi_color", (122, 26, 26)) if k == n - 1 and e.get("hi_last") else e.get("color", (15, 139, 133))
+                d.rounded_rectangle([x0 + k * bw + bw * 0.15, yb - hh, x0 + (k + 1) * bw - bw * 0.15, yb], 8, fill=(*col, a_))
+                if q >= 1 and e.get("show_values", True): paste_center(c, text_img(str(v), FI, int(bw * 0.38), (34, 40, 48), shadow=False), x0 + k * bw + bw / 2, yb - hh - bw * 0.3, 1.0, f)
+                if e.get("labels"): paste_center(c, text_img(e["labels"][k], FI, int(bw * 0.26), (90, 98, 108), shadow=False), x0 + k * bw + bw / 2, yb + bw * 0.28, 1.0, f)
 
     # ---------- effects library (research/EFFECTS-LIBRARY-36-VIDEOS.md) ----------
     def _live(self, e, s, t, fade=0.15):
@@ -428,10 +497,12 @@ class Renderer:
             mv = ease((t - self.tl.at(e["big_at"], s)) / 0.4) if t >= self.tl.at(e["big_at"], s) else 0
             x, y = W * 0.5 + (x - W * 0.5) * mv, H * 0.42 + (y - H * 0.42) * mv; scale = 2.1 - 1.1 * mv
         else: scale = 1.0
-        if u < 0.14: scale *= 1.25 - 0.25 * ease(u / 0.14)
+        if e.get("grow"):  # long-form: grows from the body part it explains, 0 -> 100 % in 5 frames, ease-out, no bounce
+            q = ease(u / 0.17); gx, gy = W * e["grow"][0], H * e["grow"][1]; x, y = gx + (x - gx) * q, gy + (y - gy) * q; scale *= max(0.05, q)
+        elif u < 0.14: scale *= 1.25 - 0.25 * ease(u / 0.14)
         im = e["_im"].resize((int(e["_im"].width * scale), int(e["_im"].height * scale)), Image.LANCZOS)
-        if u < 0.07: im = im.filter(ImageFilter.GaussianBlur(6))
-        al = min(1, u / 0.07) * f
+        if u < 0.07 and not e.get("grow"): im = im.filter(ImageFilter.GaussianBlur(6))
+        al = (1.0 if e.get("grow") else min(1, u / 0.07)) * f
         if al < 1: im.putalpha(im.getchannel("A").point(lambda v: int(v * al)))
         c.alpha_composite(im, (int(x - im.width / 2), int(y - im.height / 2)))
         mk = e.get("mark")
@@ -601,6 +672,13 @@ class Renderer:
             cx, cy = (float(v) for v in (kind.split(":")[1].split(",") if ":" in kind else (0.5, 0.5)))
             r = e * 1.25 * H; m = Image.new("L", (W, H), 0); ImageDraw.Draw(m).ellipse([cx * W - r, cy * H - r, cx * W + r, cy * H + r], fill=255)
             c.paste(old); c.paste(new, (0, 0), m); return c
+        if kind == "dip":  # long-form: old fades into the set tint, then the new scene fades up (measured 8-12 f out, 6-8 f in)
+            bg = Image.new("RGB", (W, H), tuple(self.P.get("set", (255, 255, 255))))
+            return Image.blend(old, bg, ease(p / 0.6)) if p < 0.6 else Image.blend(bg, new, ease((p - 0.6) / 0.4))
+        if kind == "greyout":  # old greys out (~35 %) and softens, then the new scene comes up
+            if p < 0.6:
+                k = ease(p / 0.6); return Image.blend(old.filter(ImageFilter.GaussianBlur(6 * k)), Image.new("RGB", (W, H), (70, 74, 80)), 0.35 * k)
+            return Image.blend(Image.blend(old, Image.new("RGB", (W, H), (70, 74, 80)), 0.35), new, ease((p - 0.6) / 0.4))
         return Image.blend(old, new, e)  # fade / flash
 
     def base(self, t):
@@ -658,6 +736,7 @@ class Renderer:
         return self.cap_cache[key], self.P.get("cap_y", 0.78), 1.0
 
     def caption(self, t, j):
+        if self.P.get("cap_mode") == "none": return None  # long-form: no burned captions (upload SRT instead)
         if any(a <= t < b for a, b in self.hide): return None
         if self.P.get("cap_mode") == "build": return self.caption_build(t, j)
         ws = self.tl.words; idx = max((k for k, w in enumerate(ws) if w["start"] <= t), default=-1)
