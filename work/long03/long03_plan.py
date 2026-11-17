@@ -19,17 +19,19 @@ def wfor(n, h): im = Image.open(path(n)); return h * H * im.width / im.height / 
 def fig(n, at=0, until=None, x=0.27, y=0.52, h=0.9, **k): return dict(at=at, until=until, w=wfor(n, h), x=x, y=y, asset=path(n), **k)
 def act(seq, at=0, until=None, x=0.24, y=0.52, h=0.92, **k): return dict(at=at, until=until, w=wfor(seq[0][0], h), x=x, y=y, poses=[(path(p), a) for p, a in seq], **k)
 def reps(a, b, n, step, t0=0.0): return [(a if i % 2 == 0 else b, round(t0 + i * step, 2)) for i in range(n)]
-def pu(n=10, step=0.4, x=0.36, y=0.6, h=1.45, **k): return act(reps("hero_pushup_pair_a", "hero_pushup_pair_b", n, step), x=x, y=y, h=h, pop=0.02, **k)
+def pu(n=10, step=0.4, x=0.38, y=0.68, h=0.7, **k): return act(reps("pu_top", "pu_bot", n, step), x=x, y=y, h=h, pop=0.02, puppet=False, **k)
 def pair(a, b, n=10, step=0.5, x=0.42, y=0.62, h=0.75, **k): return act(reps(a, b, n, step), x=x, y=y, h=h, pop=0.02, **k)
 def world(n, **k): return dict(at=0, w=1.0, x=0.5, y=0.5, asset=path(n), z=-1, puppet=False, breathe=False, **k)
+def wposes(seq, **k): return dict(at=0, w=1.0, x=0.5, y=0.5, poses=[(path(p), a) for p, a in seq], z=-1, puppet=False, breathe=False, pop=0.01, **k)  # full-scene pose animation (same room, H changes)
+def wloop(a, b, n=6, step=0.25, **k): return wposes(reps(a, b, n, step), **k)
 def mini(n, side="r"): return dict(at=0, w=wfor(n, 0.6), x=0.88 if side == "r" else 0.12, y=0.68, asset=path(n), enter=(f"corner_{side}", 0.25), z=3)
 def kin(at, text, x=0.7, y=0.3, size=110, color=INK, until=None, frm="l", **k): return dict(at=at, text=text, x=x, y=y, size=size, color=color, until=until, **{"from": frm}, **k)
 def card(text, big, small, tr="cut"):
     return dict(text=text, poses=[], set=RED, tr=tr, nocap=True, kinetic=[kin(0, big, 0.5, 0.42, 190, WHITE), kin(0.12, small, 0.5, 0.63, 84, WHITE, frm="b")],
                 keys=[(0, 1.0, .5, .5), ("E", 1.05, .5, .5)], sfx=[(0, "whoosh_short", .3)])
 def M(text, base, m, side="r", **k): return dict(text=text, poses=[], tr="cut", layers=base + [mini(m, side)], keys=[(0, 1.02, .5, .5), ("E", 1.05, .5, .5)], sfx=[(0, "pop_soft", .3)], **k)
-def ctx(text, img, word, tr="cut", x=None):  # one quick context scene (full-frame world, camera push, one big word)
-    return dict(text=text, poses=[], tr=tr, layers=[world(img)], kinetic=[kin(0.05, word, x or max(0.2, 0.04 + 0.024 * len(word)), 0.2, 120, WHITE, stroke=10, stroke_fill=INK)],
+def ctx(text, bk, pu, word, tr="cut", x=None, step=0.22):  # one quick context scene (full-frame world, camera push, one big word)
+    return dict(text=text, poses=[], tr=tr, layers=[world(bk), pair(f"pu_top{pu}", f"pu_bot{pu}", 8, step, x=0.5, y=0.7, h=0.62)], kinetic=[kin(0.05, word, x or max(0.2, 0.04 + 0.024 * len(word)), 0.2, 120, WHITE, stroke=10, stroke_fill=INK)],
                 keys=[(0, 1.0, .5, .5), ("E", 1.05, .5, .5)], sfx=[(0, "whoosh_short", .25)])
 DRIFT = [(0, 1.0, .5, .5), ("E", 1.05, .5, .5)]
 CAL = dict(x=0.52, y=0.55, w=0.44, cols=10, n=30)
@@ -39,8 +41,8 @@ BARS7 = dict(x=0.62, y=0.82, w=0.3, h=0.55, values=[22, 27], labels=["DAY 1", "D
 S = [
  # ---- HOOK ----
  dict(text="One hundred push-ups. Every day. For thirty days.", poses=[], layers=[world("W_living"), pu(10, 0.36)],
-      counters=[dict(at="hundred", a=0, b=100, dur=0.9, x=0.74, y=0.72, size=190, color=INK, label="PUSH-UPS", stroke=8)],
-      kinetic=[kin("thirty", "x 30 DAYS", 0.74, 0.93, 90, RED, stroke=8)],
+      counters=[dict(at="hundred", a=0, b=100, dur=0.9, x=0.83, y=0.62, size=170, color=INK, label="PUSH-UPS", stroke=8)],
+      kinetic=[kin("thirty", "x 30 DAYS", 0.83, 0.86, 80, RED, stroke=8)],
       keys=[(0, 1.25, .4, .62), (0.4, 1.0, .5, .5), ("E", 1.05, .5, .5)], sfx=[(0, "whoosh_big", .2), ("hundred", "pop", .3), ("thirty", "pop", .3)]),
  dict(text="That's three thousand push-ups.", poses=[], tr="dip", d=0.5, layers=[act([("p_count", 0), ("g_shock", "thousand")], x=0.18)],
       calendars=[dict(at=0, ticks=[("three", 30)], **CAL)], kinetic=[kin("thousand", "3,000", 0.52, 0.17, 120, RED)], keys=DRIFT, sfx=[("thousand", "pop", .3)]),
@@ -48,7 +50,7 @@ S = [
  dict(text="Exactly. So on day one, I tested my max.", poses=[], tr="cut", layers=[act([("g_thumbs", 0), ("p_knuckles", "So"), ("g_one", "day"), ("g_point", "tested")])],
       kinetic=[kin(0.05, "EXACTLY.", 0.68, 0.3, 110, INK, until="day"), kin("day", "DAY 1", 0.68, 0.3, 120, TEAL), kin("tested", "MAX TEST", 0.68, 0.55, 130)], keys=DRIFT, sfx=[("day", "pop", .3), ("tested", "pop", .3)]),
  dict(text="Twenty-two. Then my arms quit.", poses=[], tr="cut",
-      layers=[world("W_living"), pu(3, 0.3, until="Then"), fig("hero_pushup_pair_b", at="Then", until="quit.", x=0.36, y=0.6, h=1.45, shiver=[("Then", "quit.")], puppet=False),
+      layers=[world("W_living"), pu(3, 0.3, until="Then"), fig("pu_bot", at="Then", until="quit.", x=0.38, y=0.68, h=0.7, shiver=[("Then", "quit.")], puppet=False),
               fig("H_collapse", at="quit.", x=0.4, y=0.72, h=0.3, enter=("drop", 0.2), puppet=False)],
       counters=[dict(at=0, a=0, b=22, dur=0.6, x=0.17, y=0.24, size=190, color=RED, label="MAX", stroke=8)], shake=[("quit.", .05)],
       keys=DRIFT, sfx=[(0.6, "pop", .3), ("quit.", "whoosh_short", .3)]),
@@ -56,19 +58,20 @@ S = [
       kinetic=[kin("hard", "THE HARD PART?", 0.68, 0.3, 100), kin("day#2", "DAY 2", 0.68, 0.55, 180, RED)], keys=DRIFT + [("day#2", 1.05, .5, .5), ("day#2+0.1", 1.1, .45, .48)],
       sfx=[("hard", "pop", .3), ("day#2", "pop", .3)]),
  # ---- DAY 1 ----
- card("Day one. I split the hundred", "DAY 1", "THE PLAN"),
- dict(text="into five sets of twenty.", poses=[], tr="cut", layers=[act([("p_count", 0), ("g_two", "sets")])], kinetic=[kin("five", "5 x 20", 0.68, 0.42, 180, TEAL)],
+ card("Day one.", "DAY 1", "THE PLAN"),
+ dict(text="I split the hundred into five sets of twenty.", poses=[], tr="cut", layers=[act([("p_knuckles", 0), ("p_count", "five"), ("g_two", "sets")])], kinetic=[kin("hundred", "100", 0.68, 0.42, 180, INK, until="five"), kin("five", "5 x 20", 0.68, 0.42, 180, TEAL)],
       keys=DRIFT, sfx=[("five", "pop", .3)]),
- ctx("Morning,", "s_morning", "MORNING", x=0.72), ctx("lunch,", "s_lunch", "LUNCH", x=0.72), ctx("afternoon,", "s_afternoon", "AFTERNOON", x=0.5), ctx("evening,", "s_evening", "EVENING", x=0.72),
- ctx("and one angry set before bed.", "s_angry", "ANGRY SET") | dict(shake=[("angry", .03)]),
- M("The angry set is my favourite.", [world("s_angry")], "mini_laugh_cut", "l"),
+ ctx("Morning,", "bk_kitchen", "_sleepy", "MORNING", x=0.5), ctx("lunch,", "bk_office", "_sandwich", "LUNCH", x=0.5), ctx("afternoon,", "W_living", "", "AFTERNOON", x=0.5), ctx("evening,", "bk_evening", "_tired", "EVENING", x=0.5),
+ ctx("and one angry set before bed.", "bk_night", "_angry", "ANGRY SET", x=0.5, step=0.3) | dict(shake=[("angry", .03)]),
+ M("The angry set is my favourite.", [world("bk_night"), pair("pu_top_angry", "pu_bot_angry", 8, 0.35, x=0.5, y=0.7, h=0.62)], "mini_laugh_cut"),
  dict(text="Total time? Eleven minutes.", poses=[], tr="dip", d=0.5, layers=[act([("g_think", 0), ("p_watch", "Eleven")])],
       rings=[dict(at="Eleven", x=0.66, y=0.45, r=0.24, dur=0.7, max=11, unit="MIN")], kinetic=[kin("Total", "TOTAL TIME?", 0.66, 0.12, 80)], keys=DRIFT, sfx=[("Eleven", "pop", .3)]),
  dict(text="It felt easy. Too easy.", poses=[], tr="cut", layers=[act([("g_thumbs", 0), ("p_yawn", "Too")])],
       kinetic=[kin("easy.", "EASY", 0.66, 0.35, 140, TEAL), kin("Too", "TOO EASY", 0.66, 0.6, 140, RED)], keys=DRIFT, sfx=[("Too", "pop", .3)]),
  # ---- DAY 2 ----
- card("Day two. I woke up,", "DAY 2", "THE PAIN"),
- dict(text="reached for my phone, and my chest said no.", poses=[], tr="cut", layers=[world("H_bed_phone")],
+ card("Day two.", "DAY 2", "THE PAIN"),
+ dict(text="I woke up, reached for my phone, and my chest said no.", poses=[], tr="cut",
+      layers=[act([("bed_base", 0), ("bed_wake", "woke"), ("bed_reach", "reached"), ("bed_clutch", "chest"), ("bed_no", "no.")], x=0.45, y=0.55, h=0.9, puppet=False)],
       kinetic=[kin("no.", "NO.", 0.86, 0.22, 170, RED, stroke=8)], keys=[(0, 1.0, .5, .5), ("chest", 1.03, .5, .5), ("E", 1.06, .5, .52)], shake=[("no.", .04)],
       sfx=[("no.", "pop", .3)]),
  dict(text="That's normal muscle soreness.", poses=[], tr="dip", d=0.5, layers=[act([("p_rubchest", 0)])], kinetic=[kin("muscle", "MUSCLE SORENESS", 0.66, 0.42, 100, RED)],
@@ -85,13 +88,13 @@ S = [
  dict(text="Seven hundred push-ups a week, all on bent wrists.", poses=[], tr="cut", layers=[act([("p_wrist", 0)])],
       counters=[dict(at=0, a=0, b=700, dur=0.9, x=0.66, y=0.28, size=170, color=INK, label="PUSH-UPS / WEEK")],
       insets="WRIST", keys=DRIFT, sfx=[("bent", "pop", .3)]),
- dict(text="The fix took ten seconds.", poses=[], tr="cut", layers=[act([("g_think", 0), ("p_snap", "fix")])], kinetic=[kin("ten", "10 SECONDS", 0.66, 0.42, 120, TEAL)],
+ dict(text="The fix took ten seconds.", poses=[], tr="cut", layers=[act([("g_think", 0), ("p_snap", "fix")])], kinetic=[kin(0.05, "THE FIX?", 0.66, 0.42, 120, INK, until="ten"), kin("ten", "10 SECONDS", 0.66, 0.42, 120, TEAL)],
       keys=DRIFT, sfx=[("fix", "pop", .3)]),
  dict(text="Push-ups on my fists. Wrist straight, pain gone.", poses=[], tr="dip", d=0.4, layers=[world("W_living"), pair("L_fist_a", "L_fist_b", 10, 0.5)],
       kinetic=[kin("fists.", "ON YOUR FISTS", 0.42, 0.92, 100, INK, stroke=8)], insets="FIST", keys=DRIFT, sfx=[("fists.", "pop", .3), ("Wrist", "pop", .3)]),
  M("Fist push-ups. Very action movie.", [act([("p_action", 0)], x=0.3)], "mini_laugh_cut"),
  dict(text="And by day seven, my max went from twenty-two to twenty-seven.", poses=[], tr="cut", layers=[act([("g_point", 0), ("g_one", "max"), ("g_flex", "twenty-seven.")], x=0.2)],
-      kinetic=[kin("day", "DAY 7", 0.86, 0.25, 90, TEAL), kin("twenty-seven.", "+5", 0.86, 0.45, 130, TEAL)],
+      kinetic=[kin("day", "DAY 7", 0.62, 0.3, 120, TEAL, until="from"), kin("twenty-seven.", "+5", 0.86, 0.45, 130, TEAL)],
       bars=[dict(at="from", stagger=0.9, **BARS7)], particles=[dict(at="twenty-seven.", x=0.68, y=0.3, spread=0.25)],
       keys=DRIFT, sfx=[("day", "pop", .3), ("twenty-seven.", "chime", .4)]),
  M("Muscle already?", [act([("g_flex", 0)], x=0.2)], "s6_mini_squint_cut", bars=[dict(at=-5, stagger=0, **(BARS7 | dict(x=0.58)))]),
@@ -112,7 +115,7 @@ def inset_specs():  # zoom badges grow from the exact body point (measured from 
         if s.get("insets") == "WRIST": s["insets"] = wrist
         if s.get("insets") == "FIST": s["insets"] = fist
 inset_specs()
-PLAN = dict(dir=f"{HERE}/scenes_long03", words=f"{HERE}/voice/long02_cut.words.json", voice=f"{HERE}/voice/long02_cut.wav",
+PLAN = dict(dir=f"{HERE}/scenes_long03", words=f"{HERE}/voice/long03_cut.words.json", voice=f"{HERE}/voice/long03_cut.wav",
             music=f"{HERE}/music/hyper_lillian_thorn.mp3", music_db=11, sfx_db=16, duck=False, set=TINT,
             scenes=S, cap_mode="none", lead=0.06, tail=0.8, keywords=[], breathe=True, puppet=True, pose_pop=0.05)
 if __name__ == "__main__":
