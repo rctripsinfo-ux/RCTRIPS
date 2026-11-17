@@ -69,7 +69,7 @@ Reference: `work/long03/long03_plan.py` (demo). Research and specs: `work/resear
   - Mini-H stays in front (z=3). Charts stay visible in Mini's scenes (`at=-5`).
   - Section cards are dark red `#7A1A1A`, at least 1.4 s. Add a voice pause after "Day N." when needed.
 - **Pacing:** a pose change every ~0.6–1 s; context montages are quick cuts of 0.5–0.7 s with rep loops.
-- **Audio:** `LANDSCAPE=1`, `LUFS=-14`, music 11 dB under the voice.
+- **Audio:** `LANDSCAPE=1`, `LUFS=-14`, `music_db=20` (owner 19 Nov: at 11 the music sounded as loud as the voice; 20 measures ~15 dB under the voice).
 
 **Steps**
 1. Script plus beat sheet: one visual beat per 3–4 s, and an acting pose for every line.

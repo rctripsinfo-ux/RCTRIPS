@@ -225,7 +225,7 @@ def stage_variety(S):
                 t["x"], t["y"], t["size"] = 0.5, 0.08 + 0.1 * i, int(t.get("size", 110) * 0.85); t["stroke"] = 8
 stage_variety(S)
 PLAN = dict(dir=f"{HERE}/scenes_long05", words=f"{HERE}/voice/long05_cut.words.json", voice=f"{HERE}/voice/long05_cut.wav",
-            music=f"{HERE}/music/hyper_lillian_thorn.mp3", music_db=11, sfx_db=16, duck=False, set=TINT,
+            music=f"{HERE}/music/hyper_lillian_thorn.mp3", music_db=20, sfx_db=16, duck=False, set=TINT,
             scenes=S, cap_mode="none", lead=0.06, tail=0.8, keywords=[], breathe=True, puppet=True, pose_pop=0.05)
 if __name__ == "__main__":
     a = sys.argv[1:]
