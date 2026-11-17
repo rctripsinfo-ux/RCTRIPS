@@ -243,7 +243,10 @@ class Renderer:
             gi = hero(g["asset"]).resize((w, h), Image.LANCZOS); gi.putalpha(gi.getchannel("A").point(lambda v: int(v * ga)))
             c.alpha_composite(gi, (int(x - w / 2), int(y - h / 2)))
         if L.get("breathe", self.P.get("breathe")): sc *= 1 + 0.008 * math.sin(2 * math.pi * t / 3.6)  # style v2: never a frozen still
-        if L.get("puppet", self.P.get("puppet")) and not L.get("poses"):  # long-form: slow +-1.2 deg sway on held drawings (measured "puppet" motion)
+        pp = L.get("pop", self.P.get("pose_pop", 0))
+        if pp and prev and 0 <= t - ts < 0.14:  # long-form v2: pose change = small squash-pop + hop (4 frames), never two poses on screen
+            k_ = 1 - ease((t - ts) / 0.14); sc *= 1 + pp * k_; y -= 12 * k_
+        if L.get("puppet", self.P.get("puppet")):  # long-form: slow +-1.2 deg sway on held drawings (measured "puppet" motion)
             rot += 1.2 * math.sin(2 * math.pi * t / 3.3 + (hash(str(L.get("asset"))) % 7))
         im = im.resize((max(1, int(w * sc)), max(1, int(h * sc))), Image.LANCZOS)
         if entering and en[0] in ("slide_l", "slide_r") and (t - a) / en[1] < 0.45:  # fast part of a slide: smear + streaks
@@ -261,7 +264,9 @@ class Renderer:
         c = self.paper().copy() if self.P.get("paper") and not s.get("set") else Image.new("RGBA", (W, H), (*s.get("set", self.P.get("set", (255, 255, 255))), 255))  # one flat set colour (reference: #BAC8D0); section cards override
         self.stage_words(s, t, c)
         for e in s.get("mirrors", []): self.mirror(e, s, t, c)
-        for L in sorted(s.get("layers", []), key=lambda L: L.get("z", 0)):
+        top = [L for L in s.get("layers", []) if L.get("z", 0) >= 3]
+        for L in sorted([L for L in s.get("layers", []) if L.get("z", 0) < 3], key=lambda L: L.get("z", 0)) + ["W"] + top:
+            if L == "W": self.widgets(s, t, c); continue
             if L.get("focus") and self.tl.at(L.get("at", 0), s) <= t < (self.tl.at(L["until"], s) if L.get("until") else 1e9):  # everything behind goes soft + a bit darker
                 k = min(1, (t - self.tl.at(L.get("at", 0), s)) / 0.3); c = c.filter(ImageFilter.GaussianBlur(12 * k))
                 c.alpha_composite(Image.new("RGBA", (W, H), (0, 0, 0, int(40 * k))))
@@ -283,7 +288,6 @@ class Renderer:
             if t < a or (tx.get("until") and t >= self.tl.at(tx["until"], s)): continue
             if "_im" not in tx: tx["_im"] = text_img(tx["text"], F_BIG, tx.get("size", 170), tx.get("color", INK), stroke=8, maxw=W * 0.9)
             p = (t - a) / 0.2; paste_center(c, tx["_im"], W / 2, H * tx.get("y", 0.15), 1.6 - 0.6 * back(p, 1.4) if p < 1 else 1.0, min(1, p * 2))
-        self.widgets(s, t, c)
         self.fx(s, t, c)
         return c.convert("RGB")
 
@@ -291,7 +295,7 @@ class Renderer:
     def widgets(self, s, t, c):
         d = ImageDraw.Draw(c); FI = f"{HERE}/fonts/rubik-800-italic.woff2"
         for e in s.get("kinetic", []):  # big italic words, no box: slide 90 px + fade in over 5 frames (ease-out), fade out 6 frames
-            lv = self._live(e, s, t, 0.2)
+            lv = self._live(e, s, t, 0.0 if e.get("until") else 0.2)  # replaced words vanish at once: never two words on one spot
             if not lv: continue
             u, f = lv; key = "_k"
             if key not in e: e[key] = text_img(e["text"], FI, e.get("size", 110), tuple(e.get("color", (34, 40, 48))), stroke=e.get("stroke", 0), stroke_fill=tuple(e.get("stroke_fill", (255, 255, 255))), shadow=False, maxw=W * e.get("maxw", 0.6))
