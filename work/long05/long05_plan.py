@@ -185,6 +185,45 @@ S = [
     [kin("builds", "REAL STRENGTH", 0.66, 0.35, 110, TEAL), kin("Comment", "COMMENT YOUR NUMBER", 0.7, 0.58, 80, RED)]),
  M("And no banana push-ups. We will know.", LIV(fig("pu_sag", x=0.42, y=0.68, h=0.7, puppet=False)), "s6_mini_squint_cut", kinetic=[top("banana", "NO BANANAS", RED, size=120)]),
 ]
+
+# ---------- owner 18 Nov: H must move around (not always standing left), new backdrops every video ----------
+SECTION_BK = {"HOOK": "bk_garage", "THE T": "bk_park", "THE BANANA": "bk_rooftop", "HALF REPS": "bk_studio", "THE HANDS": "bk_balcony",
+              "THE NOD": "bk_park", "THE SAME 20": "bk_garage", "PUSH-UP": "bk_studio"}
+def stage_variety(S):
+    bk = SECTION_BK["HOOK"]; k = 0; room_k = 0
+    for s in S:
+        if s.get("set") == RED:  # section card: pick the next backdrop
+            sub = s["kinetic"][1]["text"]; bk = SECTION_BK.get(sub, bk); continue
+        if s["text"].startswith("Here's a test"): bk = "bk_rooftop"
+        L = s.get("layers", [])
+        for l in L:
+            if l.get("asset") == path("W_living"): l["asset"] = path(bk)
+        has_world = any(l.get("z") == -1 for l in L)
+        if has_world:
+            if any(l.get("asset") == path("prop_wall") for l in L): continue
+            room_k += 1
+            if room_k % 2 == 0 and not any(l.get("z") == 3 for l in L):
+                for l in L:
+                    if l.get("z") != -1 and l.get("z", 0) < 3 and abs(l.get("x", 0) - 0.42) < 0.05: l["x"] = 0.58; l["flip"] = True
+            continue
+        busy = any(s.get(key) for key in ("bars", "counters", "rings", "calendars", "insets"))
+        mini_ = any(l.get("z") == 3 for l in L)
+        talk = [l for l in L if l.get("z", 0) < 3 and abs(l.get("x", 0) - 0.24) < 0.01 and l.get("poses")]
+        if busy or not talk: continue
+        mode = ("L", "R") [k % 2] if mini_ else ("L", "R", "C")[k % 3]; k += 1
+        if mode == "C" and len(s.get("kinetic", [])) > 3: mode = "R"
+        l = talk[0]
+        if mode == "L": l["enter"] = ("slide_l", 0.3)
+        elif mode == "R":
+            if mini_: continue
+            l["x"] = 0.76; l["flip"] = True; l["enter"] = ("slide_r", 0.3)
+            for t in s.get("kinetic", []):
+                if 0.5 < t["x"] < 0.85: t["x"] = round(1 - t["x"], 2)
+        else:
+            l["x"], l["y"], l["w"] = 0.5, 0.86, l["w"] * 1.45 / 0.92; l["enter"] = ("rise", 0.3)
+            for i, t in enumerate(s.get("kinetic", [])):
+                t["x"], t["y"], t["size"] = 0.5, 0.08 + 0.1 * i, int(t.get("size", 110) * 0.85); t["stroke"] = 8
+stage_variety(S)
 PLAN = dict(dir=f"{HERE}/scenes_long05", words=f"{HERE}/voice/long05_cut.words.json", voice=f"{HERE}/voice/long05_cut.wav",
             music=f"{HERE}/music/hyper_lillian_thorn.mp3", music_db=11, sfx_db=16, duck=False, set=TINT,
             scenes=S, cap_mode="none", lead=0.06, tail=0.8, keywords=[], breathe=True, puppet=True, pose_pop=0.05)

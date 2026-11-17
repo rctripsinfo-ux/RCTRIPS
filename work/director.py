@@ -79,8 +79,19 @@ def view(img, z, fx, fy, dx=0.0, dy=0.0):
 
 _hero_cache = {}
 HERO_DIR = os.path.expanduser("~/reel-engine-tool/public/library/hero")
+def defringe(im):
+    """cut-outs from white backgrounds keep a light halo: shrink the alpha 2 px and pull edge pixels away from white (owner 18 Nov)"""
+    a = im.getchannel("A")
+    if a.getextrema()[0] == 255: return im  # opaque backdrop: nothing to do
+    a2 = a.filter(ImageFilter.MinFilter(5)).filter(ImageFilter.GaussianBlur(0.7))
+    arr = np.asarray(im).astype(np.float32); edge = (np.asarray(a2) < 250) & (np.asarray(a2) > 0)
+    rgb = arr[..., :3]; light = rgb.min(-1) > 200
+    rgb[edge & light] *= 0.82  # white fringe -> soft shade of the outline
+    out = Image.fromarray(np.dstack([rgb, np.asarray(a2)]).clip(0, 255).astype(np.uint8), "RGBA"); return out
 def hero(asset):
-    if asset not in _hero_cache: _hero_cache[asset] = Image.open(asset if "/" in asset else glob.glob(f"{HERO_DIR}/{asset}.*")[0]).convert("RGBA")
+    if asset not in _hero_cache:
+        im = Image.open(asset if "/" in asset else glob.glob(f"{HERO_DIR}/{asset}.*")[0]).convert("RGBA")
+        _hero_cache[asset] = defringe(im) if os.environ.get("DEFRINGE", "1") == "1" else im
     return _hero_cache[asset]
 _hero_lib = None
 def part_xy(asset, part, place):
