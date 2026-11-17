@@ -83,7 +83,7 @@ S = [
  card5("Mistake one.", 1, "THE T"),
  S_("Elbows flared out like a T.", [loopf("L_elbow_bad", "L_elbow_bad_b", 6, 0.5, **ELB)], [top(0, "LIKE A T", RED)], sfx=[(0, "pop", .3)]),
  S_("It feels easier, because your chest gets a shorter range.", [loopf("L_elbow_bad", "L_elbow_bad_b", 8, 0.5, **ELB)], [top("easier,", "FEELS EASIER", INK, until="shorter"), top("shorter", "SHORTER RANGE", RED)]),
- S_("But your shoulders take the load, and that's where push-up pain starts.", [loopf("L_elbow_bad", "L_elbow_bad_b", 8, 0.55, shiver=[("pain", "E+5")], **ELB)],
+ S_("But your shoulders take the load, and that's where push-up pain starts.", [loopf("L_elbow_bad", "L_elbow_bad_b", 8, 0.55, shiver=[("pain", 30)], **ELB)],
     [top("shoulders", "SHOULDERS TAKE IT", RED, until="pain"), top("pain", "PAIN STARTS HERE", RED)], shake=[("pain", .03)], sfx=[("pain", "pop", .3)]),
  M("So that clicking in my shoulder is... a feature?", [act([("p_wrist", 0)])], "s6_mini_squint_cut", kinetic=[kin("feature?", "A FEATURE?", 0.6, 0.2, 110, RED)]),
  S_("It's a warning. Tuck your elbows to about forty-five degrees.", [loopf("L_elbow_good", "L_elbow_good_b", 8, 0.5, **ELB)],
@@ -95,7 +95,7 @@ S = [
  M("Arrow. Got it. I'm a weapon now.", [act([("p_action", 0)], x=0.3)], "mini_laugh_cut"),
  # ===== 2 =====
  card5("Mistake two.", 2, "THE BANANA"),
- S_("Sagging hips.", LIV(fig("pu_sag", x=0.42, y=0.68, h=0.7, puppet=False, shiver=[(0, "E+5")])), [top(0, "SAGGING HIPS", RED)], sfx=[(0, "pop", .3)]),
+ S_("Sagging hips.", LIV(fig("pu_sag", x=0.42, y=0.68, h=0.7, puppet=False, shiver=[(0, 30)])), [top(0, "SAGGING HIPS", RED)], sfx=[(0, "pop", .3)]),
  S_("When your hips drop, your lower back takes the bend and your core switches off.", LIV(loopf("pu_top", "pu_sag", 8, 0.55)),
     [top("lower", "LOWER BACK", RED, until="core"), top("core", "CORE: OFF", RED)]),
  S_("You're doing half a push-up and half a back bend.", LIV(loopf("pu_bot", "pu_sag", 6, 0.5)), [top("half", "HALF PUSH-UP", INK, until="back"), top("back", "HALF BACK BEND", RED)]),
@@ -124,7 +124,7 @@ S = [
  S_("It feels brutal, and that's exactly why it works.", [act([("p_rubchest", 0), ("g_thumbs", "works.")])], [kin("brutal,", "BRUTAL", 0.66, 0.35, 130, RED), kin("works.", "IT WORKS", 0.66, 0.58, 120, TEAL)]),
  # ===== 4 =====
  card5("Mistake four.", 4, "THE HANDS"),
- S_("Hands too far forward, or too wide.", LIV(fig("pu_fwd", x=0.42, y=0.68, h=0.7, puppet=False, shiver=[(0, "E+5")])), [top(0, "TOO FAR FORWARD", RED)]),
+ S_("Hands too far forward, or too wide.", LIV(fig("pu_fwd", x=0.42, y=0.68, h=0.7, puppet=False, shiver=[(0, 30)])), [top(0, "TOO FAR FORWARD", RED)]),
  S_("Hands up by your face put your wrists and shoulders in a bad spot.", LIV(loopf("pu_fwd", "pu_fwd", 2, 1)), [top("wrists", "WRISTS + SHOULDERS", RED)], shake=[("bad", .03)]),
  S_("Too wide, and the range gets tiny.", [loopf("L_elbow_bad", "L_elbow_bad_b", 6, 0.3, **ELB)], [top(0, "TOO WIDE", RED, until="tiny."), top("tiny.", "TINY RANGE", RED)]),
  S_("Hands just outside your shoulders, under your chest.", LIV(loopf("pu_top", "pu_bot", 6, 0.55)), [top(0, "UNDER YOUR SHOULDERS", TEAL)], tr="dip", d=0.4),
