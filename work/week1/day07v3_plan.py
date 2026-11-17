@@ -3,7 +3,7 @@ from w3 import *
 def pr(a, n=8, step=0.4, **k): return act(reps(a, a + "_b", n, step), h=k.pop("h", 0.7), **k)
 def hab(n, title, color=RED): return [kin(0, f"#{n}", 0.5, 0.06, 130, color), kin(0.1, title, 0.5, 0.14, 100, INK)]
 S = [
- S_("Your testosterone isn't low because of bad luck.", [pr("d7_battery", 8, 0.35)], [kin("testosterone", "LOW T?", 0.5, 0.1, 150, RED)], keys=HOOK, sfx=[(0, "whoosh_big", .2)]),
+ S_("Your testosterone isn't low because of bad luck.", [pr("d7_battery", 8, 0.35)], [kin("testosterone", "LOW", 0.5, 0.07, 130, RED), kin("testosterone", "TESTOSTERONE?", 0.5, 0.14, 120, RED)], keys=HOOK, sfx=[(0, "whoosh_big", .2)]),
  S_("It's these five boring habits.", [act([("p_count", 0), ("g_point", "habits.")])], [kin("five", "5 BORING HABITS", 0.5, 0.1, 120, INK)], sfx=[("five", "pop", .3)]),
  M("Boring? I'm boring. Am I doomed?", [act([("p_yawn", 0)], x=0.4)], "mini_scared_cut", kinetic=[kin("doomed?", "DOOMED?", 0.5, 0.1, 140, RED)]),
  S_("One. Sleeping five hours.", [act([("bed_base", 0), ("bed_wake", "five")], h=0.36, y=0.5, puppet=False)], hab(1, "5 HOURS SLEEP"), tr="dip", d=0.4, sfx=[(0, "pop", .3)]),
