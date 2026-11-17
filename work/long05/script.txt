@@ -1,0 +1,102 @@
+# LONG 05: "You're Doing Push-Ups Wrong (That's Why You're Not Getting Stronger)"  16:9, target ~6 min
+# H = Fenrir (coach), M = Mini-H (viewer's voice, jokes). ">" lines = beat sheet (poses / what is on screen), not spoken.
+
+## HOOK
+> H push-up loop, counter keeps going 20, 20, 20 ... calendar months flipping
+H: You've done push-ups for months. Same twenty reps. Same chest. Same arms.
+M: Hey. That's personal.
+> H points at the viewer
+H: It's not your genetics. It's your push-up. Most people make the same six mistakes, and each one quietly steals your strength.
+> six red X icons pop in a row
+H: Fix them, and the same push-up starts building real muscle again.
+M: Six? I was hoping for one.
+H: Stay till the end, because mistake six is the one almost everyone makes, and it's the reason most people never get past twenty.
+> H ominous lean, "#6" glows red
+
+## MISTAKE 1: THE T-ELBOWS
+> card MISTAKE 1 / THE T
+H: Mistake one. Elbows flared out like a T.
+> top/front view: elbows out, shoulders glow red, red X
+H: It feels easier, because your chest gets a shorter range. But your shoulders take the load, and that's where push-up pain starts.
+M: So that clicking in my shoulder is... a feature?
+H: It's a warning. Tuck your elbows to about forty-five degrees. Think arrow, not T.
+H: Seen from above, your arms and your head make an arrow. Your elbows brush past your ribs on the way down, not out to the side.
+> top view: arrow shape drawn over the body
+M: Arrow. Got it. I'm a weapon now.
+> elbows 45, chest glows green, tick | "ARROW, NOT T"
+
+## MISTAKE 2: THE BANANA BACK
+> card MISTAKE 2 / THE BANANA
+H: Mistake two. Sagging hips.
+> push-up with sagging hips, lower back red
+H: When your hips drop, your lower back takes the bend and your core switches off. You're doing half a push-up and half a back bend.
+M: Banana push-ups.
+H: Exactly. Squeeze your glutes and brace your stomach like someone's about to poke it. Head to heels, one straight line.
+H: Here's a quick check. Put a broomstick along your back. It should touch your head, your upper back and your hips at the same time.
+> broomstick on the back touching head, upper back, hips: three green dots
+M: I don't own a broomstick.
+H: Then film yourself from the side. The camera doesn't lie.
+> straight push-up, dashed straight line head to heels, core glows green
+
+## MISTAKE 3: HALF REPS
+> card MISTAKE 3 / HALF REPS
+H: Mistake three. Half reps.
+> fast tiny reps at the top, counter racing 1-2-3-4
+H: Most people stop halfway down, because the bottom is the hardest part. But the bottom is exactly where the chest is stretched, and stretched muscle under load is what grows.
+M: So the hard part is the good part. Rude.
+H: Chest to a fist's height from the floor. Every rep. Ten full reps beat thirty half ones.
+H: And don't bounce off the bottom. Pause for one second down there. It feels brutal, and that's exactly why it works.
+> pause at the bottom, 1-sec ring
+> slow full rep, "FULL REP" | bars 30 half vs 10 full
+
+## MISTAKE 4: HANDS IN THE WRONG PLACE
+> card MISTAKE 4 / THE HANDS
+H: Mistake four. Hands too far forward, or too wide.
+> push-up with hands far in front of the head, wrists red
+H: Hands up by your face put your wrists and shoulders in a bad spot. Too wide, and the range gets tiny.
+H: Hands just outside your shoulders, under your chest. Fingers spread wide, gripping the floor.
+H: If your wrists still hurt, turn your hands out a little, or do them on your fists. Wrist straight, pain gone.
+> fist push-up loop + straight wrist inset with tick
+M: Fist push-ups again? Very action movie.
+> hands under shoulders, fingers spread | "UNDER YOUR SHOULDERS"
+
+## MISTAKE 5: THE HEAD DROP
+> card MISTAKE 5 / THE NOD
+H: Mistake five. The head drop.
+> H nods his head down to touch the floor while the chest stays up
+M: I call that the chicken.
+H: Your nose touches the floor, so it feels like a full rep. Your chest never got there.
+H: Look at the floor a little ahead of your hands, and keep your head in line with your body.
+H: Pretend you're holding an egg between your chin and your chest. Don't crush it, don't drop it.
+> small egg under the chin, tick
+> neutral neck, dashed line head-spine
+
+## MISTAKE 6: THE SAME 20 FOREVER
+> card MISTAKE 6 / THE SAME 20
+H: And the big one. Mistake six. Doing the same twenty push-ups forever.
+> H yawns, same push-up loop, calendar flipping
+H: Your body adapts to what you ask. If the ask never changes, the body never changes.
+M: So my push-ups got bored of me.
+H: Add one rep a week. Or slow down: three seconds down. Or raise your feet. Small upgrades, every week.
+H: Here's the ladder. Wall push-ups. Knee push-ups. Normal push-ups. Slow push-ups. Feet up on a chair. Each step is harder, and each step builds more.
+> staircase: wall, knee, normal, slow, decline, H climbs it step by step
+M: So when twenty gets easy, I climb.
+H: Exactly. Easy means it's time to climb.
+> slow rep with 3-sec ring | decline push-up on a chair | "+1 REP / WEEK"
+
+## THE PERFECT PUSH-UP
+> card THE PERFECT REP
+H: So here's the perfect push-up, start to finish.
+> slow perfect rep, labels appear one by one at each body part
+H: Hands under your shoulders. Elbows at forty-five. Body in one straight line. Head neutral.
+H: Lower slowly until your chest is a fist from the floor. Then push the floor away.
+M: And breathe?
+H: Breathe in on the way down, out on the way up.
+> breath arrows in/out
+
+## TEST + CTA
+H: Here's a test. Do one set of perfect push-ups right now. Most people lose a third of their reps.
+> counter 30 -> 20
+M: So my thirty is really twenty?
+H: Probably. But that twenty builds real strength. Comment your perfect-rep number.
+M: And no banana push-ups. We will know.
