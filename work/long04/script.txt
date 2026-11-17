@@ -1,0 +1,152 @@
+# LONG 04 (full): "I Did 100 Push-Ups Every Day for 30 Days. Here's What Happened"  (16:9, target ~8 min, ~1,200 words)
+# H = Fenrir (calm coach, first person "I"), M = Mini-H (Puck, the viewer's voice + jokes).
+# Lines starting with ">" are the BEAT SHEET (poses / scene / text on screen). They are not spoken.
+
+## HOOK
+> living room, H push-up loop fast | counter 0 -> 100 | "x 30 DAYS"
+H: One hundred push-ups. Every day. For thirty days. That's three thousand push-ups.
+> calendar fills 30 ticks; H counts on fingers -> shock
+M: You can't even do twenty.
+> H offended pose; Mini laughing
+H: Exactly. So I tested it. Twenty-two on day one. Thirty-eight on day thirty.
+> H thumbs -> point | "22 -> 38" kinetic
+H: But the push-ups weren't the surprising part. What happened to my wrists, my brain and my belly was.
+> H ominous lean | three icons pop: wrist, brain, belly
+M: Your belly? Now I'm listening.
+
+## DAY 1: THE TEST
+> card DAY 1 / THE TEST
+H: Day one. First, a test. One set, as many clean push-ups as I can.
+> H knuckles -> kneel ready
+H: Clean means chest close to the floor, body straight like a plank, no sagging hips.
+> push-up loop + dashed straight line along the body; inset: sagging hips with X
+H: Twenty-two. Then my arms quit.
+> counter 22; H shakes in the bottom; collapses face down
+M: Twenty-two out of a hundred. So... only seventy-eight to go.
+> Mini thumbs up; H face down on the floor lifts one finger
+H: You don't do a hundred in one go. You split it. Five sets of twenty, spread across the day.
+> H count fingers | "5 x 20"
+> montage 0.6 s each: kitchen (sleepy), office (sandwich), living room, evening (sweaty), bedroom (angry)
+H: Morning, lunch, afternoon, evening, and one angry set before bed.
+M: The angry set is my favourite.
+H: Total time? Eleven minutes. It felt easy. Too easy.
+> stopwatch 11 MIN; H watch -> yawn
+
+## DAY 2-3: THE PAIN
+> card DAY 2 / THE PAIN
+H: Day two. I woke up, reached for my phone, and my chest said no.
+> bed: sleep -> wake -> reach -> clutch -> NO
+H: That's delayed muscle soreness. It peaks one to two days after something new, then it fades.
+> H rubs chest | small curve with PEAK
+M: So pain means growth, right?
+H: No. Soreness means new. Not growth. You can grow without it, and you can be sore and grow nothing.
+> H wag finger | "SORE = NEW" / "NOT GROWTH"
+H: Day three, I still did the hundred. But ten sets of ten. Slow. Form first.
+> push-up loop slow; 10 small H's in a row each doing one set
+M: Ten sets of ten. That's just push-ups with extra steps.
+H: That's the point. Small sets, perfect reps, no grinding.
+
+## WEEK 1: THE WRISTS
+> card WEEK 1 / THE WRISTS
+H: By day five, the soreness was gone. But my wrists started complaining.
+> H thumbs -> wrist pain
+H: Seven hundred push-ups a week, every rep with the wrist bent back almost ninety degrees.
+> counter 700; inset bent wrist + angle arc 90 deg + X
+H: The fix took ten seconds. Push-ups on my fists, or on two dumbbells. Wrist straight, pain gone.
+> H snap fingers -> fist push-up loop; inset straight wrist + tick
+M: Fist push-ups. Very action movie.
+> H action-movie stance
+H: Second fix: elbows. If they flare out like a T, your shoulders take the hit. Keep them about forty-five degrees from your body.
+> top view: elbows T with red shoulders + X -> elbows 45 with green + tick
+H: Day seven, I tested again. Twenty-seven. Five more in one week.
+> bars 22 -> 27 | "+5"
+M: Muscle already?
+H: Not yet. That's my brain learning the move. The muscle part comes later.
+> H temple tap -> glowing brain
+
+## WEEK 2: THE BRAIN
+> card WEEK 2 / THE BRAIN
+H: Week two felt like cheating. Same body, but the sets got easier every day.
+> H push-up loop faster each rep | "EASIER?"
+H: In the first weeks, most strength gains come from your nervous system, not new muscle.
+> brain + nerves glow; lightning along the arm
+H: Your brain learns to switch on more muscle fibres, at the same time, and stops the muscles fighting each other.
+> muscle fibres light up one by one (side H, arm), "MORE FIBRES" "SAME TIME"
+M: So your muscles didn't grow. They just got... organised.
+H: Exactly. Same team, better teamwork.
+> 5 small H's push a big box out of sync -> in sync
+H: Day fourteen: thirty-one.
+> bars 22, 27, 31
+H: And then the real enemy showed up. Boredom.
+> H yawn -> slumps on the sofa
+M: The push-ups were winning.
+H: So I stopped making it a workout. I made it a habit. Ten push-ups every time I made coffee. Ten every time I came back from the bathroom.
+> quick cuts: H at coffee machine drops to push-ups; H opens bathroom door drops to push-ups
+H: By evening, the hundred was done and I never "worked out".
+> calendar tick, "HABIT, NOT WORKOUT"
+
+## WEEK 3: THE MIRROR
+> card WEEK 3 / THE MIRROR
+M: Okay, week three. Abs? Huge chest? Movie star?
+> Mini excited
+H: Chest and the back of my arms looked a little fuller. Mostly a pump, and a little real growth.
+> H flex in mirror; red glow on chest + triceps insets
+H: And my posture changed. A push-up is basically a moving plank. Your core works the whole time.
+> push-up loop with core glow; standing H slouched -> straight
+M: And the belly?
+H: Same belly. One hundred push-ups burn maybe thirty to fifty calories.
+> H holds one biscuit, unimpressed | "100 PUSH-UPS = 30-50 KCAL"
+H: That's one biscuit.
+M: One biscuit? Three weeks of pain for one biscuit?
+H: Push-ups build strength. Fat loss comes from what you eat and how much you walk. Different jobs.
+> H points left (push-up) / right (plate + walking shoe) | "DIFFERENT JOBS"
+H: Day twenty-one: thirty-five.
+> bars 22, 27, 31, 35
+
+## WEEK 4: THE PLATEAU
+> card WEEK 4 / THE PLATEAU
+H: Week four, the hundred was easy. Four sets of twenty-five, done in ten minutes.
+> push-up loop bored face | "4 x 25" "10 MIN"
+H: And that's the problem. When something gets easy, the body stops changing. It has no reason to.
+> H shrug | line graph flattens
+M: So the challenge stops being a challenge.
+H: Right. Muscles grow when you keep asking for a little more.
+H: So I made them harder. Three seconds down, one second up. Then feet on a chair.
+> slow push-up (3 s down) with timer ring | decline push-up loop on a chair
+H: A study in 2017 found push-ups built chest muscle about as well as the bench press, as long as they kept getting harder.
+> H next to bench press icon "=" push-up icon | citation "Kikuchi & Nakazato, 2017"
+M: So the floor is a gym. Who knew?
+
+## DAY 30: THE RESULT
+> card DAY 30 / THE RESULT
+H: Day thirty. Same test as day one. One set, clean form.
+> push-up loop with counter
+M: Drumroll please.
+> Mini drums on a tiny drum
+H: Thirty-eight. From twenty-two to thirty-eight in thirty days.
+> counter stops 38; H flex; bars 22, 27, 31, 35, 38
+H: Here's the honest summary. Strength: way up. Endurance: way up. Chest and arms: a little bigger. Posture: better.
+> checklist ticks one by one, H thumbs each
+H: Belly fat: no change. And my wrists only survived because of the fix.
+> X on belly item; H points at fist
+M: So, would you do it again?
+H: Yes. But the smarter version.
+
+## THE SMARTER VERSION
+> card 3 RULES
+H: Rule one. Split the reps across the day. Never grind one ugly set.
+> clock with 5 small push-ups around it
+H: Rule two. Take one easy day a week. Fifty instead of a hundred. Joints recover slower than muscles.
+> H on sofa with half bar "50"
+H: Rule three. After two weeks, make it harder. Slower reps, or feet up.
+> slow push-up + decline loop
+M: And if you can't do one push-up?
+H: Start on your knees, or with your hands on a wall or a table. Same muscles, less weight. A hundred wall push-ups still counts.
+> knee push-up loop -> wall push-up loop | "SAME MUSCLES"
+
+## CTA
+H: Do the day one test right now. One set, clean form. Write your number in the comments.
+> H point at viewer | "COMMENT YOUR NUMBER"
+H: Then come back in thirty days and write the new one.
+M: No lying. We will know.
+> Mini squint at the camera; H laughs
