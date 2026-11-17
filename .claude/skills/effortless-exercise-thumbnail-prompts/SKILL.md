@@ -151,3 +151,15 @@ Measured from 12 of their outlier thumbnails. The first attempts were rejected b
 - **Challenge videos:** add a dark red `#7A1A1A` circle badge "30 DAYS". The brand red/teal appear only as accents (badge, tag), not as full backgrounds.
 - **Prompt runner:** `thumbs/brand/run2.sh` (no forced white background).
 - **Reference set:** `work/thumbs/long01/yf_a`, `yf_b`, `yf_c`.
+
+
+## SHORTS COVERS (owner, 18 Nov 2026): Captain Workout formula + brand colours, H always EXACT
+- **H must stay EXACTLY the reference character:** semi-realistic detailed comic. Never the flat or 2D version (owner rejected it).
+  - Prompt: "Keep him EXACTLY the same … Do NOT make him flat or 2D or simplified."
+- **Look:**
+  - Background: one flat teal `#0F8B85`.
+  - One big H in a unique gag pose.
+  - Bright red only on the body part (muscle or joint).
+  - Tiny handwritten labels or stickers (1–3), no headline.
+- **Approved set:** `work/thumbs/cw/cw4_r` … `cw8_r`.
+- **Long thumbnails:** use the same exact-H rule (`work/thumbs/long01/yr_a`, `yr_b`).
