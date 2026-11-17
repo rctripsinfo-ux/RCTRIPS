@@ -23,7 +23,7 @@ S = [
  mon("November, a two-minute walk on your toes.", "November", "NOV", "2-MIN TOE WALK", "d8_toewalk", "d8_toewalk_b", 0.3),
  S_("December, all of the above.", [act([(p, round(i * 0.14, 2)) for i, p in enumerate(ALL)] + [("H_collapse", "above.")], h=0.62, pop=0.02, puppet=False)],
     [kin(0, "DEC", 0.5, 0.07, 140, RED), kin(0.1, "ALL OF THE ABOVE", 0.5, 0.15, 100, RED)], shake=[("above.", .05)], sfx=[(0, "pop", .3), ("above.", "whoosh_short", .3)]),
- M("December people, I'm so sorry.", [fig("H_collapse", h=0.3, y=0.62, puppet=False)], "mini_scared_cut", "l", kinetic=[kin("sorry.", "SO SORRY", 0.5, 0.1, 130, RED)]),
+ M("December people, I'm so sorry.", [fig("H_collapse", h=0.3, y=0.42, puppet=False)], "mini_scared_cut", "l", kinetic=[kin("sorry.", "SO SORRY", 0.5, 0.1, 130, RED)]),
  S_("Do it now, then comment your month and done.", [act([("g_point", 0), ("g_palm", "comment"), ("g_thumbs", "done.")])],
     [kin(0, "DO IT NOW", 0.5, 0.08, 110, TEAL), kin("comment", "COMMENT: MONTH + DONE", 0.5, 0.15, 90, RED)], tr="dip", d=0.4),
 ]
