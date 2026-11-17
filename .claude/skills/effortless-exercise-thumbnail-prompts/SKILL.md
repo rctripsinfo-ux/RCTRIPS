@@ -128,3 +128,26 @@ If the character drifts across a batch, advise generating 2 to 3 at a time and a
 ## Builder script (for batches)
 
 `scripts/thumb_prompts.py` assembles the standalone prompts and the single batch box from a list of entries, so the fixed blocks (character, crop-safe, font, style, avoid) stay word-for-word identical across a batch. Read its docstring for the entry format, then call `build(V, out_path, heading, thumbs_path=...)`. `thumbs_path` receives only the thumbnail box. For failed images, call it again with only the missing entries. For one or two thumbnails, writing the prompts by hand following the structure above is fine.
+
+
+## LONG-VIDEO THUMBNAILS: the Yellow Dude formula (owner, 18 Nov 2026: "exactly use the Yellow Dude formula")
+Measured from 12 of their outlier thumbnails. The first attempts were rejected because they used saturated full red/teal backgrounds, shouty all-caps text and clutter.
+
+**Formula**
+- **One character, one idea, lots of empty space.**
+  - Draw H in a clean FLAT comic style: bold outlines, 2-tone cel shading, less texture.
+  - Say this in the prompt.
+- **Background:** one plain muted colour (pale blue `#CCD8F0`, cream `#F5F0E6`, dark navy `#22304F`, or white), never busy.
+- **The image tells the story**, through ONE exaggerated visual:
+  - sweat puddle + shaking lines
+  - glowing red anatomy muscles on the skin
+  - a circle inset zooming into a joint
+  - red glowing hands
+  - before/after split
+  - fist smashing
+- **Text:** 1–4 words, or a small handwritten label with a dashed arrow ("30 days later", "real strength").
+  - Dark navy rounded bold ("Just A PLANK?") on light backgrounds; white italic on dark ones.
+  - The text never repeats the title.
+- **Challenge videos:** add a dark red `#7A1A1A` circle badge "30 DAYS". The brand red/teal appear only as accents (badge, tag), not as full backgrounds.
+- **Prompt runner:** `thumbs/brand/run2.sh` (no forced white background).
+- **Reference set:** `work/thumbs/long01/yf_a`, `yf_b`, `yf_c`.
