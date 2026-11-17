@@ -45,6 +45,44 @@ Steps for a new day N (one video ≈ 25–40 min):
 8. **Upload text.** Title, description and tags in the style of `work/content/week1_upload.md`.
 9. **Commit EVERYTHING**, Codex images included (the owner asked on 15 Nov, so other clouds can rebuild). Push to the session branch.
 
+## THE LONG METHOD (16:9 long videos; owner approved demo v2.1 on 17 Nov 2026: "good now its better")
+Reference: `work/long03/long03_plan.py` (demo). Research and specs: `work/research/LONGFORM-24-ANALYSIS-AND-PLAN.md` (D6 spec) and `LONGFORM-ANALYSIS-PROMPT.md` (QA protocol).
+
+**Owner rules**
+- **The CHARACTER explains everything through POSES.**
+  - Never a still image that only moves with the camera.
+  - Charts are only small support.
+- **Rooms are EMPTY backdrops, and H is a set of cut-out poses on top.**
+  - Codex cannot redraw "the same room, only H changes".
+- **One base per set.** Every pose set comes from one base image ("The exact same image as the reference … ONLY change: …").
+  - Standing poses use `week1/img2/g_base.png`.
+  - Push-ups use `long03/img/pu_top.png`.
+  - The bed uses `long03/img/bed_base.png`.
+- **Alignment:**
+  - Align with `tools/align_to.py base outdir vars --noscale`.
+  - Big props (bed) need edge phase-correlation instead, plus `NOCROP=1 tools/cutout_white.py`.
+- **Text:**
+  - No burned-in captions (`cap_mode="none"`, upload an SRT instead).
+  - Kinetic italic words with no boxes. A word that gets replaced uses `until=` and vanishes at once.
+- **Never on screen:** a label on a face, text over text, Mini-H covering anyone, cut heads or feet, two poses at once (no dissolve; use `pose_pop`), frozen H (`puppet=True`), or more than ~1 s of an empty half-frame.
+- **Layout and timing:**
+  - Mini-H stays in front (z=3). Charts stay visible in Mini's scenes (`at=-5`).
+  - Section cards are dark red `#7A1A1A`, at least 1.4 s. Add a voice pause after "Day N." when needed.
+- **Pacing:** a pose change every ~0.6–1 s; context montages are quick cuts of 0.5–0.7 s with rep loops.
+- **Audio:** `LANDSCAPE=1`, `LUFS=-14`, music 11 dB under the voice.
+
+**Steps**
+1. Script plus beat sheet: one visual beat per 3–4 s, and an acting pose for every line.
+2. Voice: `tools/long_voice.py` or `dialogue_voice.py` with `TTS_MODEL=gemini-3.8-flash-tts` (the old model's free tier is 10 requests a day).
+3. Codex pose sets, then align and cut out.
+4. Plan, then stills.
+5. Render.
+6. QA every frame:
+   - flicker and jump scan
+   - a 0.25–0.3 s contact sheet
+   - exact-frame checks on every fix
+7. Thumbnail 1280x720 in brand colours, upload text with chapters, SRT. Commit everything.
+
 ## Owner rules (always)
 - Reply to the owner in Hinglish. Scripts, titles and prompts are in English.
 - Keep usage low: no subagents, no renders that aren't needed.
