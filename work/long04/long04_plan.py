@@ -46,8 +46,8 @@ def prog(vals, **k):
     lab = ["DAY 1", "DAY 7", "DAY 14", "DAY 21", "DAY 30"][:len(vals)]
     return dict(x=0.64, y=0.82, w=0.13 * len(vals) + 0.04, h=0.55, values=vals, labels=lab, hi_last=True, hi_color=TEAL, color=(150, 160, 170), **k)
 SCORE = lambda vals, at: [dict(at=at, stagger=0.25, **prog(vals))]
-MIR = [fig("prop_mirror", x=0.66, y=0.52, h=0.9, puppet=False, breathe=False)]
-def refl(pose, at=0): return fig(pose, at=at, x=0.66, y=0.52, h=0.62, flip=True, alpha=0.45, puppet=False)
+MIR = [fig("prop_mirror", x=0.56, y=0.52, h=0.9, puppet=False, breathe=False)]
+def refl(pose, at=0): return fig(pose, at=at, x=0.56, y=0.52, h=0.62, flip=True, alpha=0.45, puppet=False)
 
 S = [
  # ===== HOOK =====
@@ -148,8 +148,8 @@ S = [
  card("Okay, week three.", "WEEK 3", "THE MIRROR"),
  M("Abs? Huge chest? Movie star?", MIR + [refl("g_flex")], "s9_mini_point_cut",
    kinetic=[kin(0, "ABS?", 0.26, 0.28, 110, INK), kin("Huge", "HUGE CHEST?", 0.26, 0.45, 100, INK), kin("Movie", "MOVIE STAR?", 0.26, 0.62, 100, RED)]),
- S_("Chest and the back of my arms looked a little fuller. Mostly a pump, and a little real growth.", MIR + [refl("p_flexglow"), act([("g_base", 0), ("p_flexglow", "Chest")], x=0.3)],
-    [kin("fuller.", "A LITTLE FULLER", 0.5, 0.1, 90, TEAL), kin("Mostly", "MOSTLY PUMP", 0.5, 0.92, 90, RED)]),
+ S_("Chest and the back of my arms looked a little fuller. Mostly a pump, and a little real growth.", MIR + [refl("p_flexglow"), act([("g_base", 0), ("p_flexglow", "Chest")], x=0.24)],
+    [kin("fuller.", "A LITTLE", 0.84, 0.32, 80, TEAL), kin("fuller.", "FULLER", 0.84, 0.44, 80, TEAL), kin("Mostly", "MOSTLY", 0.84, 0.6, 80, RED), kin("Mostly", "PUMP", 0.84, 0.72, 80, RED)]),
  S_("And my posture changed.", [act([("p_slouch", 0), ("g_base", "changed.")])], [kin("posture", "POSTURE", 0.66, 0.42, 150, TEAL)], tr="dip", d=0.4),
  S_("A push-up is basically a moving plank. Your core works the whole time.", room("W_living", pu(12, 0.45, x=0.42, y=0.68, h=0.7)),
     [kin("moving", "A MOVING PLANK", 0.5, 0.13, 100, INK, stroke=8, until="core"), kin("core", "CORE: ON", 0.5, 0.13, 110, TEAL, stroke=8)]),
@@ -204,13 +204,13 @@ S = [
     [kin(0, "RULE 3", 0.5, 0.13, 110, RED, stroke=8, until="make"), kin("make", "MAKE IT HARDER", 0.5, 0.13, 110, TEAL, stroke=8)], tr="dip", d=0.4),
  M("And if you can't do one push-up?", [act([("g_think", 0)])], "mini_shy_cut"),
  S_("Start on your knees, or with your hands on a wall or a table.", room("W_living", pair("pu_knee_top", "pu_knee_bot", 8, 0.5, x=0.42, y=0.68, h=0.7, until="wall")) +
-    [pair("L_wall_a", "L_wall_b", 6, 0.55, x=0.38, y=0.6, h=0.85, at="wall")],
-    [kin("knees,", "KNEES", 0.5, 0.13, 110, INK, stroke=8, until="wall"), kin("wall", "WALL OR TABLE", 0.5, 0.13, 110, TEAL, stroke=8)]),
- S_("Same muscles, less weight. A hundred wall push-ups still counts.", room("W_living", pair("L_wall_a", "L_wall_b", 12, 0.55, x=0.38, y=0.6, h=0.85)),
-    [kin("Same", "SAME MUSCLES", 0.72, 0.13, 100, TEAL, stroke=8, until="hundred"), kin("hundred", "100 WALL = COUNTS", 0.72, 0.13, 100, INK, stroke=8)]),
+    [dict(at="wall", w=130/1920, x=0.604, y=0.44, asset=path("prop_wall"), puppet=False, breathe=False), pair("L_wall_a", "L_wall_b", 6, 0.55, x=0.38, y=0.6, h=0.85, at="wall")],
+    [kin("knees,", "KNEES", 0.5, 0.13, 110, INK, stroke=8, until="wall"), kin("wall", "WALL OR TABLE", 0.6, 0.13, 100, TEAL, stroke=8)]),
+ S_("Same muscles, less weight. A hundred wall push-ups still counts.", [world("W_living"), dict(at=0, w=130/1920, x=0.604, y=0.44, asset=path("prop_wall"), puppet=False, breathe=False), pair("L_wall_a", "L_wall_b", 12, 0.55, x=0.38, y=0.6, h=0.85)],
+    [kin("Same", "SAME MUSCLES", 0.62, 0.13, 100, TEAL, stroke=8, until="hundred"), kin("hundred", "100 WALL = COUNTS", 0.58, 0.13, 100, INK, stroke=8)]),
  # ===== CTA =====
  S_("Do the day one test right now. One set, clean form. Write your number in the comments.", [act([("g_point", 0), ("g_one", "One"), ("g_point", "Write")])],
-    [kin("test", "DAY 1 TEST: NOW", 0.66, 0.35, 100, TEAL, until="Write"), kin("Write", "COMMENT YOUR NUMBER", 0.66, 0.35, 90, RED)], tr="dip", d=0.4),
+    [kin("test", "DAY 1 TEST: NOW", 0.66, 0.35, 100, TEAL, until="Write"), kin("Write", "COMMENT YOUR NUMBER", 0.7, 0.35, 76, RED)], tr="dip", d=0.4),
  S_("Then come back in thirty days and write the new one.", [act([("g_thumbs", 0), ("g_flex", "new")])], [kin("thirty", "DAY 30: NEW NUMBER", 0.66, 0.42, 90, TEAL)]),
  M("No lying. We will know.", [act([("g_flex", 0)])], "s6_mini_squint_cut"),
 ]
