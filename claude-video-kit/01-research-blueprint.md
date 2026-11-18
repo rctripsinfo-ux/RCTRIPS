@@ -86,12 +86,13 @@ Hardware: Windows/Mac laptop, ~8 GB RAM, ~10 GB free. Not phone.
 
 ---
 
-## 5. Real numbers quoted (use for honest marketing)
-- Setup install: 10–15 min. Style training: 10–15 min (6 refs).
-- Reel: ~40 min Claude time; premium style edit: ~1.5–2 hrs total incl. 15 min human planning.
-- Long-form 5 min: 40–45 min per version.
-- Usage: Pro plan — 1 reel + 1 intro ≈ one full 5-hr session; long-form v1 used ~30% session / 3% weekly.
-- Cost claim: ~₹65–75 per session on Pro.
+## 5. Speed (use for marketing)
+**Our tested benchmark (with a mature, trained Claude skill):**
+- 5-min animation-style video (multiple character poses): **~5–7 min**.
+- Talking-head reel/video: **under 5–10 min**.
+- One-time setup + style training: ~20–30 min.
+
+The YouTube transcripts quote 40 min–2 hrs per edit, but that was first-time/manual workflows without a refined skill (planning docs, multiple revision rounds, full re-renders). That slowness is the pain point our ready-made skills remove — marketing angle: "Their workflow: 2 hours. Ours: 5 minutes."
 
 ---
 
