@@ -14,6 +14,7 @@ Source: 9 YouTube transcripts (5 English, 4 Hindi) on editing videos with Claude
 | Saurabh (Hindi, AI + design) | Free prompts + "watch" skill in description | Free | Audience building |
 | Hindi "5 levels" creator | Prompts PDF via comment → DM | Free (lead magnet) | Comment-to-DM funnel |
 | Yonko "Creator OS" | Handbook + 11 prompts + design system | $47 | Product |
+| Edita Club (@edita.visuals) | "EDITA BRAIN" Claude context + references/raw clips/prompts + 21 courses/~54 lessons on Skool, ~15 named styles (Plush Mascot, Three-Panel, Monitor Room, Map Reels, 3D Laptop Room, Blender, SaaS ads, podcast→10 shorts), client-getting module, weekly new lessons | $29 one-time (PayPal/card), no refunds | Skool community + IG reels from own page as proof |
 
 **Gap for us:** Nobody sells a clean, India-priced, Hindi+English, *tested* kit that focuses on "copy any reference reel". Free creators give scattered prompts; paid ones are $47–$299.
 
