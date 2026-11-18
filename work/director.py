@@ -216,6 +216,7 @@ class Renderer:
             if tk <= t:
                 if cur is not None and asset != cur: prev, ts = cur, tk
                 cur = asset
+        if cur is None and L.get("poses"): cur = L["poses"][0][0]  # first pose anchored later than the layer start: show it from the start
         im = hero(cur)
         xf = L.get("xf", self.P.get("pose_xf", 0))  # long-form: 2-3 frame in-between dissolve instead of a hard swap
         if xf and prev and 0 <= t - ts < xf and hero(prev).size == im.size: im = Image.blend(hero(prev), im, ease((t - ts) / xf))
