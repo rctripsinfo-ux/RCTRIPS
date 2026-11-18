@@ -15,6 +15,8 @@ npm start
 ```
 Then open http://127.0.0.1:3000.
 
+On Windows you can instead double-click `start.bat`. It finds or installs yt-dlp and opens your browser.
+
 ## Configuration (environment variables)
 | Variable | Default | Purpose |
 |---|---|---|
