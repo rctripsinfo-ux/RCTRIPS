@@ -1,0 +1,13 @@
+{
+  "name": "subgrab",
+  "version": "1.0.0",
+  "description": "Local subtitle downloader: paste a video link, download subtitles as SRT, VTT or TXT.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}

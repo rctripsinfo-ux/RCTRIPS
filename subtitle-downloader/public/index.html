@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SubGrab — Subtitle Downloader</title>
+  <meta name="description" content="Download subtitles from YouTube and 1000+ video sites as SRT, VTT or TXT.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><img src="favicon.svg" alt="" width="28" height="28"> SubGrab</a>
+    <nav><a href="#how">How it works</a><a href="#faq">FAQ</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Download subtitles from any video</h1>
+      <p class="lead">Paste a link from YouTube, Vimeo, TED, Dailymotion and 1000+ other sites. Get captions in SRT, VTT or plain text — including auto-generated and auto-translated languages.</p>
+
+      <form id="form" class="search" autocomplete="off">
+        <label for="url" class="sr-only">Video link</label>
+        <input id="url" name="url" type="url" required placeholder="https://www.youtube.com/watch?v=…" inputmode="url">
+        <button type="button" id="paste" class="ghost" title="Paste from clipboard">Paste</button>
+        <button type="submit" id="submit" class="primary">Get subtitles</button>
+      </form>
+      <p id="error" class="error" role="alert" hidden></p>
+      <div id="recent" class="recent" hidden></div>
+    </section>
+
+    <section id="loading" class="card loading" hidden aria-live="polite">
+      <div class="spinner"></div><span>Fetching video details…</span>
+    </section>
+
+    <section id="result" hidden>
+      <article class="card video">
+        <img id="thumb" alt="" loading="lazy">
+        <div>
+          <h2 id="title"></h2>
+          <p id="meta" class="muted"></p>
+          <a id="source" target="_blank" rel="noopener noreferrer">Open original ↗</a>
+        </div>
+      </article>
+
+      <div class="card">
+        <div class="toolbar">
+          <div class="tabs" role="tablist" id="tabs"></div>
+          <input id="filter" type="search" placeholder="Filter languages…" aria-label="Filter languages">
+        </div>
+        <p id="empty" class="muted center" hidden>No subtitles found for this video.</p>
+        <ul id="tracks" class="tracks"></ul>
+      </div>
+    </section>
+
+    <section id="how" class="steps">
+      <h2>How it works</h2>
+      <ol>
+        <li><strong>Copy</strong> the link of the video page.</li>
+        <li><strong>Paste</strong> it above and press <em>Get subtitles</em>.</li>
+        <li><strong>Pick</strong> a language and download as SRT, VTT or TXT.</li>
+      </ol>
+    </section>
+
+    <section id="faq" class="faq">
+      <h2>FAQ</h2>
+      <details><summary>Which formats are available?</summary><p><b>SRT</b> works with almost every video player and editor. <b>VTT</b> is the web standard used by HTML5 players. <b>TXT</b> is a clean transcript without timestamps.</p></details>
+      <details><summary>What do Original, Auto-generated and Translated mean?</summary><p><b>Original</b> subtitles were uploaded by the creator. <b>Auto-generated</b> are speech-recognition captions. <b>Translated</b> are machine translations of the captions provided by the platform.</p></details>
+      <details><summary>Why does a video show no subtitles?</summary><p>The video may have none, may be private or age-restricted, or the site may require you to be signed in. See the README for using browser cookies.</p></details>
+      <details><summary>Is anything uploaded to a server?</summary><p>No. Everything runs on your own computer.</p></details>
+    </section>
+  </main>
+
+  <footer class="muted">Runs locally · Powered by yt-dlp · Only download content you have the right to use.</footer>
+
+  <dialog id="preview">
+    <header><h3 id="pv-title">Preview</h3><button class="ghost" id="pv-close" aria-label="Close">✕</button></header>
+    <pre id="pv-body"></pre>
+    <footer><button class="ghost" id="pv-copy">Copy text</button></footer>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
