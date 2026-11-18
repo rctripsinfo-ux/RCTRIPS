@@ -371,7 +371,9 @@ class Renderer:
                 hh = hm * v / max(vals) * q; col = e.get("hi_color", (122, 26, 26)) if k == n - 1 and e.get("hi_last") else e.get("color", (15, 139, 133))
                 d.rounded_rectangle([x0 + k * bw + bw * 0.15, yb - hh, x0 + (k + 1) * bw - bw * 0.15, yb], 8, fill=(*col, a_))
                 if q >= 1 and e.get("show_values", True): paste_center(c, text_img(str(v), FI, int(bw * 0.38), (34, 40, 48), shadow=False), x0 + k * bw + bw / 2, yb - hh - bw * 0.3, 1.0, f)
-                if e.get("labels"): paste_center(c, text_img(e["labels"][k], FI, int(bw * 0.26), (90, 98, 108), shadow=False), x0 + k * bw + bw / 2, yb + bw * 0.28, 1.0, f)
+                if e.get("labels"):
+                    lt = text_img(e["labels"][k], FI, int(min(bw * 0.26, H * 0.06)), tuple(e.get("label_color", (90, 98, 108))), stroke=e.get("label_stroke", 0), stroke_fill=(20, 24, 30), shadow=False, maxw=bw * 0.92)
+                    paste_center(c, lt, x0 + k * bw + bw / 2, yb + lt.height * 0.55, 1.0, f)
 
     # ---------- effects library (research/EFFECTS-LIBRARY-36-VIDEOS.md) ----------
     def _live(self, e, s, t, fade=0.15):
@@ -698,7 +700,7 @@ class Renderer:
             r = e * 1.25 * H; m = Image.new("L", (W, H), 0); ImageDraw.Draw(m).ellipse([cx * W - r, cy * H - r, cx * W + r, cy * H + r], fill=255)
             c.paste(old); c.paste(new, (0, 0), m); return c
         if kind == "dip":  # long-form: old fades into the set tint, then the new scene fades up (measured 8-12 f out, 6-8 f in)
-            bg = Image.new("RGB", (W, H), tuple(self.P.get("set", (255, 255, 255))))
+            bg = Image.new("RGB", (W, H), tuple(self.P.get("dip_color", self.P.get("set", (255, 255, 255)))))  # dark dip on world scenes: no pale flash
             return Image.blend(old, bg, ease(p / 0.6)) if p < 0.6 else Image.blend(bg, new, ease((p - 0.6) / 0.4))
         if kind == "greyout":  # old greys out (~35 %) and softens, then the new scene comes up
             if p < 0.6:

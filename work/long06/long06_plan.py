@@ -92,8 +92,8 @@ S = [
  # ===== CLUE 1 =====
  clue("Here's the first thing I learned.", "CLUE #1", "THE WIRES"),
  S_("A muscle doesn't move by itself.", BK("bk_garage", H_([("g_one", 0), ("g_cross", "itself.")], x=0.72, flip=True)), [T("itself.", "NOT BY ITSELF", WHITE, 0.3, 0.42, 100)]),
- S_("Your brain sends a signal down your nerves, and that signal decides how much of the muscle actually fires.", [act([("p_temple", 0), ("p_brain", "brain"), ("p_flexglow", "fires.")], x=0.24, h=0.92)],
-    [kin("brain", "BRAIN", 0.68, 0.25, 110, TEAL), kin("nerves,", "NERVES", 0.68, 0.45, 110, TEAL), kin("fires.", "HOW MUCH FIRES", 0.68, 0.65, 100, RED)]),
+ S_("Your brain sends a signal down your nerves, and that signal decides how much of the muscle actually fires.", BK("bk_garage", act([("p_temple", 0), ("p_brain", "brain"), ("p_flexglow", "fires.")], x=0.28, y=0.56, h=0.82)),
+    [T("brain", "BRAIN", WHITE, 0.68, 0.25, 110), T("nerves,", "NERVES", (120, 200, 196), 0.68, 0.45, 110), T("fires.", "HOW MUCH FIRES", (240, 170, 60), 0.68, 0.65, 100)]),
  S_("Every muscle is made of thousands of little units.", [XR([("xr_half", 0)])], [T("thousands", "1000s OF UNITS", WHITE, 0.5, 0.1, 100)], tr="dip", d=0.4, keys=[(0, 1.0, .5, .5), ("E", 1.1, .45, .5)]),
  S_("A beginner can only switch on part of them at the same time. The rest just sit there.", [XR([("xr_half", 0)])],
     [T("part", "ONLY PART FIRES", (240, 170, 60), 0.5, 0.1, 100, until="rest"), T("rest", "THE REST: ASLEEP", WHITE, 0.5, 0.1, 100)], keys=[(0, 1.1, .45, .5), ("E", 1.2, .45, .5)]),
@@ -105,7 +105,7 @@ S = [
  S_("Mine had more muscle and a worse connection.", BK("bk_garage", H_([("g_flex", 0), ("g_facepalm", "worse")], x=0.32)),
     [T("more", "MORE MUSCLE", WHITE, 0.72, 0.3, 100), T("worse", "WORSE CONNECTION", (230, 90, 90), 0.72, 0.5, 90)]),
  M("So you bought a sports car and never learned to drive.", BK("bk_garage", H_([("g_facepalm", 0)], x=0.32)), "mini_laugh_cut"),
- S_("Exactly.", BK("bk_garage", H_([("g_thumbs", 0)], x=0.5, y=0.86, h=1.4)), [T(0, "EXACTLY.", WHITE, 0.5, 0.1, 130)]),
+ S_("Exactly.", BK("bk_garage", H_([("g_thumbs", 0)], x=0.5, y=0.93, h=1.4)), [T(0, "EXACTLY.", WHITE, 0.5, 0.1, 130)]),
  # ===== CLUE 2 =====
  clue("So I asked Kabir how he trains.", "CLUE #2", "THE TRAINING"),
  S_("His answer made me feel stupid.", BK("bk_garage", K_([("k_calm", 0)], x=0.66), H_([("g_facepalm", "stupid.")], x=0.3)), [T("stupid.", "STUPID.", WHITE, 0.5, 0.1, 120)]),
@@ -114,12 +114,12 @@ S = [
  S_("Kabir does the opposite. Heavy weight. Three to five reps. Long rest. He never chases the burn.", BK("bk_garage", act([("k_lift_a", 0), ("k_lift_b", "Heavy"), ("k_lift_a", "Three+0.4"), ("k_lift_b", "five+0.2"), ("k_lift_a", "Long"), ("k_calm", "rest.")], x=0.66, h=0.85, puppet=False)),
     [T("Heavy", "HEAVY", WHITE, 0.28, 0.25, 110), T("Three", "3-5 REPS", (120, 200, 196), 0.28, 0.45, 110), T("Long", "LONG REST", WHITE, 0.28, 0.65, 100)],
     rings=[dict(at="Long", x=0.28, y=0.85, r=0.08, dur=1.2, max=3, unit="MIN")]),
- S_("High reps mostly build size. Heavy low reps mostly build strength.", [act([("curl_b", 0), ("k_lift_b", "Heavy")], x=0.24, h=0.85, puppet=False)],
-    bars=[dict(at=0, x=0.66, y=0.82, w=0.34, h=0.5, values=[10, 4], labels=["SIZE", "STRENGTH"], stagger=1.6, show_values=False, hi_last=True, hi_color=TEAL, color=RED)],
-    kinetic=[kin(0, "HIGH REPS = SIZE", 0.66, 0.12, 80, RED, until="Heavy"), kin("Heavy", "LOW REPS = STRENGTH", 0.66, 0.12, 80, TEAL)], tr="dip", d=0.4),
+ S_("High reps mostly build size. Heavy low reps mostly build strength.", BK("bk_garage", act([("curl_b", 0), ("k_lift_b", "Heavy")], x=0.22, y=0.56, h=0.82, puppet=False)),
+    bars=[dict(at=0, x=0.64, y=0.8, w=0.5, h=0.5, values=[10, 4], labels=["SIZE", "STRENGTH"], label_color=WHITE, label_stroke=6, stagger=1.6, show_values=False, hi_last=True, hi_color=TEAL, color=RED)],
+    kinetic=[T(0, "HIGH REPS = SIZE", (240, 120, 120), 0.64, 0.12, 90, until="Heavy"), T("Heavy", "LOW REPS = STRENGTH", (120, 200, 196), 0.64, 0.12, 90)], tr="dip", d=0.4),
  S_("Both build muscle, but only one teaches your body to lift something really heavy.", BK("bk_garage", act([("k_lift_a", 0), ("k_lift_b", "lift")], x=0.5, h=0.85, puppet=False)),
     [T("one", "ONLY ONE TEACHES HEAVY", WHITE, 0.5, 0.1, 90)]),
- S_("Strength is a skill. You get good at what you practice.", BK("bk_garage", H_([("p_snap", 0), ("p_temple", "practice.")], x=0.5, y=0.86, h=1.4)),
+ S_("Strength is a skill. You get good at what you practice.", BK("bk_garage", H_([("p_snap", 0), ("p_temple", "practice.")], x=0.5, y=0.93, h=1.4)),
     [T("skill.", "STRENGTH = SKILL", WHITE, 0.5, 0.1, 110)]),
  S_("I practiced getting a pump. He practiced being strong.", BK("bk_garage", loopk("curl_a", "curl_b", 6, 0.3, x=0.28, h=0.8, until="He"), act([("k_lift_b", 0)], x=0.7, h=0.85, at="He", puppet=False, enter=("slide_r", 0.3))),
     [T("pump.", "ME: PUMP", (240, 170, 60), 0.5, 0.1, 100, until="He"), T("He", "HIM: STRONG", (120, 200, 196), 0.5, 0.1, 100)]),
@@ -135,11 +135,11 @@ S = [
     keys=[(0, 1.0, .5, .5), ("E", 1.12, .6, .5)]),
  S_("Muscle grows in weeks. Tendons take months and years.", BK("bk_studio", H_([("g_one", 0), ("p_count", "Tendons")], x=0.3)),
     [T("weeks.", "MUSCLE: WEEKS", WHITE, 0.72, 0.3, 100), T("months", "TENDONS: YEARS", (240, 170, 60), 0.72, 0.5, 100)]),
- S_("That's why the strongest grip in the gym often belongs to the guy who looks the least impressive.", BK("bk_studio", K_([("k_base", 0), ("k_calm", "least")], x=0.5, y=0.86, h=1.4)),
+ S_("That's why the strongest grip in the gym often belongs to the guy who looks the least impressive.", BK("bk_studio", K_([("k_base", 0), ("k_calm", "least")], x=0.5, y=0.93, h=1.4)),
     [T("strongest", "STRONGEST GRIP", WHITE, 0.5, 0.1, 100, until="least"), T("least", "LEAST IMPRESSIVE", (120, 200, 196), 0.5, 0.1, 100)]),
  # ===== GENETICS =====
  S_("And there's one thing neither of us can change.", BK("bk_studio", H_([("g_think", 0)], x=0.3), K_([("k_calm", 0)], x=0.7)), [T("neither", "CAN'T CHANGE", WHITE, 0.5, 0.1, 110)], tr="dip", d=0.4),
- S_("Leverage.", BK("bk_studio", H_([("p_ominous", 0)], x=0.5, y=0.86, h=1.4)), [T(0, "LEVERAGE", (240, 170, 60), 0.5, 0.1, 150)], keys=DRIFT + [(0.1, 1.04, .5, .5), (0.2, 1.1, .5, .45)]),
+ S_("Leverage.", BK("bk_studio", H_([("p_ominous", 0)], x=0.5, y=0.93, h=1.4)), [T(0, "LEVERAGE", (240, 170, 60), 0.5, 0.1, 150)], keys=DRIFT + [(0.1, 1.04, .5, .5), (0.2, 1.1, .5, .45)]),
  S_("Shorter forearms and tendons that attach a little further from the joint give some people a natural advantage, like a longer handle on a wrench.",
     BK("bk_studio", K_([("k_point", 0), ("k_calm", "natural")], x=0.3)),
     [T("Shorter", "SHORT FOREARM", WHITE, 0.7, 0.25, 100), T("further", "TENDON FURTHER OUT", WHITE, 0.7, 0.45, 90), T("wrench.", "= LONGER WRENCH", (240, 170, 60), 0.7, 0.65, 100)]),
@@ -156,7 +156,7 @@ S = [
  S_("Three. Practice the actual skill. Twice a week, I arm-wrestled anyone who would say yes.", BK("bk_armgym", AW([("aw_base", 0), ("aw_shake", "actual"), ("aw_kwin", "Twice"), ("aw_shake", "anyone"), ("aw_hwin", "yes.")], h=0.6)),
     [T(0, "3. PRACTICE THE SKILL", WHITE, 0.5, 0.1, 100)]),
  M("You lost to the gym's receptionist.", BK("bk_armgym", AW([("aw_kwin", 0)], h=0.55)), "mini_laugh_cut"),
- S_("Twice. We don't talk about it.", BK("bk_armgym", H_([("g_facepalm", 0)], x=0.5, y=0.86, h=1.4)), [T(0, "TWICE.", (230, 90, 90), 0.5, 0.1, 130)]),
+ S_("Twice. We don't talk about it.", BK("bk_armgym", H_([("g_facepalm", 0)], x=0.5, y=0.93, h=1.4)), [T(0, "TWICE.", (230, 90, 90), 0.5, 0.1, 130)]),
  # ===== REMATCH =====
  clue("Eight weeks later.", "THE REMATCH", "8 WEEKS LATER"),
  S_("Same table. Same guy.", BK("bk_armgym", H_([("g_cross", 0)], x=0.28), K_([("k_calm", 0)], x=0.72)), [T(0, "SAME TABLE", WHITE, 0.5, 0.1, 100, until="Same#2"), T("Same#2", "SAME GUY", WHITE, 0.5, 0.1, 100)],
@@ -184,7 +184,7 @@ S = [
 ]
 PLAN = dict(dir=f"{HERE}/scenes_long06", words=f"{HERE}/voice/long06_cut.words.json", voice=f"{HERE}/voice/long06_cut.wav",
             music=f"{HERE}/music/hyper_lillian_thorn.mp3", music_db=20, sfx_db=16, duck=False, set=TINT,
-            scenes=S, cap_mode="none", lead=0.06, tail=0.8, keywords=[], breathe=True, puppet=True, pose_pop=0.05, text_overlay=True)
+            scenes=S, cap_mode="none", lead=0.06, tail=0.8, keywords=[], breathe=True, puppet=True, pose_pop=0.05, text_overlay=True, dip_color=(10, 12, 18))
 if __name__ == "__main__":
     a = sys.argv[1:]
     render(PLAN, f"{HERE}/final/long06{'-preview' if a else ''}.mp4", **({"t0": float(a[0]), "t1": float(a[1])} if a else {}))
