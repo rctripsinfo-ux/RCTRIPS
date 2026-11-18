@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { convert, parseCues } from '../lib/subtitles.js';
+import { convert, parseCues, wordCues } from '../lib/subtitles.js';
 
 const AUTO_VTT = `WEBVTT
 Kind: captions
@@ -38,4 +38,19 @@ test('short MM:SS.mmm timestamps parse', () => {
 
 test('empty input throws', () => {
   assert.throws(() => convert('WEBVTT\n', 'srt'), /No subtitle cues/);
+});
+
+test('word-level SRT uses inline word timestamps', () => {
+  const { cues, exact } = wordCues(AUTO_VTT);
+  assert.equal(exact, true);
+  assert.deepEqual(cues.map((c) => c.lines[0]), ['hello', 'everyone', 'and', 'welcome', 'to', 'the', 'show']);
+  assert.deepEqual(cues.slice(0, 3).map((c) => [c.start, c.end]), [[160, 560], [560, 880], [880, 2390]]);
+  assert.deepEqual(cues.at(-1), { start: 3300, end: 4950, lines: ['show'] });
+  assert.ok(convert(AUTO_VTT, 'words').startsWith('1\n00:00:00,160 --> 00:00:00,560\nhello\n'));
+});
+
+test('word-level SRT estimates timing when source has none', () => {
+  const { cues, exact } = wordCues('WEBVTT\n\n00:00:00.000 --> 00:00:01.000\nab cd');
+  assert.equal(exact, false);
+  assert.deepEqual(cues.map((c) => [c.start, c.end, c.lines[0]]), [[0, 500, 'ab'], [500, 1000, 'cd']]);
 });

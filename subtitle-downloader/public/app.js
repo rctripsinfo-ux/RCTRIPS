@@ -84,8 +84,8 @@ function renderTracks() {
   els.empty.hidden = list.length > 0;
   els.empty.textContent = state.info.tracks.length ? 'No languages match your filter.' : 'No subtitles found for this video.';
   els.tracks.replaceChildren(...list.map((t) => {
-    const actions = ['srt', 'txt', 'vtt'].map((f) =>
-      el('a', { className: f, href: subtitleUrl(t, f), textContent: f.toUpperCase(), download: '' }));
+    const actions = ['srt', 'words', 'txt', 'vtt'].map((f) =>
+      el('a', { className: f, href: subtitleUrl(t, f), textContent: f === 'words' ? 'WORDS' : f.toUpperCase(), download: '', title: f === 'words' ? 'SRT with one word per subtitle' : '' }));
     const view = el('button', { type: 'button', textContent: 'Preview' });
     view.onclick = () => openPreview(t);
     return el('li', {}, [

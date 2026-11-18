@@ -19,6 +19,11 @@
       <h1>Download subtitles from any video</h1>
       <p class="lead">Paste a link from YouTube, Vimeo, TED, Dailymotion and 1000+ other sites. Get captions in SRT, VTT or plain text — including auto-generated and auto-translated languages.</p>
 
+      <div class="modes" role="tablist">
+        <button type="button" class="mode" data-mode="single" aria-selected="true">Single link</button>
+        <button type="button" class="mode" data-mode="bulk" aria-selected="false">Bulk links</button>
+      </div>
+
       <form id="form" class="search" autocomplete="off">
         <label for="url" class="sr-only">Video link</label>
         <input id="url" name="url" type="url" required placeholder="https://www.youtube.com/watch?v=…" inputmode="url">
@@ -27,6 +32,44 @@
       </form>
       <p id="error" class="error" role="alert" hidden></p>
       <div id="recent" class="recent" hidden></div>
+
+      <form id="bulk-form" class="card bulk" hidden>
+        <label for="bulk-urls"><b>Video links</b> <span class="muted">— one per line (or upload a .txt / .csv file)</span></label>
+        <textarea id="bulk-urls" rows="7" placeholder="https://www.youtube.com/watch?v=...&#10;https://www.youtube.com/watch?v=...&#10;https://youtu.be/..."></textarea>
+        <div class="bulk-row">
+          <label class="file ghost">Upload file<input id="bulk-file" type="file" accept=".txt,.csv,text/plain,text/csv"></label>
+          <span id="bulk-count" class="muted">0 links</span>
+        </div>
+        <div class="bulk-opts">
+          <label>Language
+            <input id="bulk-lang" value="en" placeholder="en" maxlength="20" title="Language code, e.g. en, hi, es. Leave empty for the video's own language.">
+          </label>
+          <label>Format
+            <select id="bulk-format">
+              <option value="srt">SRT</option>
+              <option value="words">Word-by-word SRT</option>
+              <option value="txt">TXT (transcript)</option>
+              <option value="vtt">VTT</option>
+            </select>
+          </label>
+          <label class="check"><input type="checkbox" id="bulk-auto" checked> Use auto-generated if no original</label>
+          <label class="check"><input type="checkbox" id="bulk-trans"> Use auto-translated if needed</label>
+        </div>
+        <button type="submit" id="bulk-start" class="primary">Start bulk download</button>
+      </form>
+    </section>
+
+    <section id="bulk-result" class="card" hidden>
+      <div class="toolbar">
+        <b id="bulk-progress">0 / 0 done</b>
+        <div class="actions">
+          <button type="button" id="bulk-retry" hidden>Retry failed</button>
+          <button type="button" id="bulk-stop">Stop</button>
+          <button type="button" id="bulk-zip" class="primary" disabled>Download ZIP</button>
+        </div>
+      </div>
+      <div class="bar"><div id="bulk-bar"></div></div>
+      <ol id="bulk-list" class="bulk-list"></ol>
     </section>
 
     <section id="loading" class="card loading" hidden aria-live="polite">
@@ -58,14 +101,15 @@
       <ol>
         <li><strong>Copy</strong> the link of the video page.</li>
         <li><strong>Paste</strong> it above and press <em>Get subtitles</em>.</li>
-        <li><strong>Pick</strong> a language and download as SRT, VTT or TXT.</li>
+        <li><strong>Pick</strong> a language and download as SRT, word-by-word SRT, VTT or TXT.</li>
       </ol>
     </section>
 
     <section id="faq" class="faq">
       <h2>FAQ</h2>
-      <details><summary>Which formats are available?</summary><p><b>SRT</b> works with almost every video player and editor. <b>VTT</b> is the web standard used by HTML5 players. <b>TXT</b> is a clean transcript without timestamps.</p></details>
+      <details><summary>Which formats are available?</summary><p><b>SRT</b> works with almost every video player and editor. <b>Words</b> is an SRT with one word per subtitle — great for animated captions and editing (exact timings for auto-generated captions, estimated for others). <b>VTT</b> is the web standard used by HTML5 players. <b>TXT</b> is a clean transcript without timestamps.</p></details>
       <details><summary>What do Original, Auto-generated and Translated mean?</summary><p><b>Original</b> subtitles were uploaded by the creator. <b>Auto-generated</b> are speech-recognition captions. <b>Translated</b> are machine translations of the captions provided by the platform.</p></details>
+      <details><summary>How does bulk download work?</summary><p>Switch to <em>Bulk links</em>, paste many links (one per line) or upload a .txt/.csv file, choose language and format, and press start. Each video is processed in turn and you get one ZIP with all subtitle files.</p></details>
       <details><summary>Why does a video show no subtitles?</summary><p>The video may have none, may be private or age-restricted, or the site may require you to be signed in. See the README for using browser cookies.</p></details>
       <details><summary>Is anything uploaded to a server?</summary><p>No. Everything runs on your own computer.</p></details>
     </section>
@@ -81,5 +125,6 @@
 
   <div id="toast" class="toast" role="status" hidden></div>
   <script src="app.js" type="module"></script>
+  <script src="bulk.js" type="module"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@ import { convert } from './lib/subtitles.js';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), 'public');
 const HOST = process.env.HOST || '127.0.0.1';
 const PORT = Number(process.env.PORT || 3000);
-const FORMATS = new Set(['srt', 'vtt', 'txt']);
+const FORMATS = new Set(['srt', 'vtt', 'txt', 'words']);
 const MIME = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
@@ -76,7 +76,8 @@ const server = createServer(async (req, res) => {
       const { info, track: t, text } = await getSubtitleSource(url, track);
       const out = convert(text, format);
       const inline = searchParams.get('inline') === '1';
-      const name = `${safeName(info.title)}.${t.lang}${t.kind === 'manual' ? '' : `.${t.kind}`}.${format}`;
+      const ext = format === 'words' ? 'words.srt' : format;
+      const name = `${safeName(info.title)}.${t.lang}${t.kind === 'manual' ? '' : `.${t.kind}`}.${ext}`;
       res.writeHead(200, {
         'Content-Type': `${format === 'vtt' ? 'text/vtt' : 'text/plain'}; charset=utf-8`,
         'Content-Disposition': `${inline ? 'inline' : 'attachment'}; filename="${name.replace(/[^\x20-\x7e]/g, '_')}"; filename*=UTF-8''${encodeURIComponent(name)}`,

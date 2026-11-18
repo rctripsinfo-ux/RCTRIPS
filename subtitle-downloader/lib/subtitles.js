@@ -88,8 +88,77 @@ export function toTxt(cues) {
   return cues.map((c) => c.lines.join(' ')).join('\n') + '\n';
 }
 
+const INLINE_TS = /<(\d{1,2}:\d{2}(?::\d{2})?[.,]\d{1,3})>/;
+
+function splitWords(text) {
+  return text.split(' ').filter(Boolean);
+}
+
+/** Spread words across [start, end], weighted by word length. */
+function spread(words, start, end) {
+  const weights = words.map((w) => w.length + 1);
+  const total = weights.reduce((a, b) => a + b, 0);
+  let t = start;
+  return words.map((w, i) => {
+    const s = t;
+    t = i === words.length - 1 ? end : Math.round(t + ((end - start) * weights[i]) / total);
+    return { start: s, end: t, lines: [w] };
+  });
+}
+
+/**
+ * One cue per word. Uses the exact per-word timestamps embedded in
+ * auto-generated captions when present; otherwise estimates each word's
+ * timing from its share of the line's duration.
+ * Returns { cues, exact }.
+ */
+export function wordCues(raw) {
+  const blocks = raw.replace(/^\uFEFF/, '').replace(/\r\n?/g, '\n').split(/\n{2,}/);
+  const segs = [];
+  for (const block of blocks) {
+    const rows = block.split('\n');
+    const i = rows.findIndex((r) => r.includes('-->'));
+    if (i === -1) continue;
+    const [a, b] = rows[i].split('-->');
+    const sa = a.match(TS);
+    const sb = b.match(TS);
+    if (!sa || !sb) continue;
+    const cueStart = toMs(sa[0]);
+    const cueEnd = toMs(sb[0]);
+    for (const line of rows.slice(i + 1)) {
+      if (!INLINE_TS.test(line)) continue;
+      const parts = line.split(INLINE_TS); // text, ts, text, ts, text...
+      let start = cueStart;
+      for (let k = 0; k < parts.length; k += 2) {
+        if (k > 0) start = toMs(parts[k - 1]);
+        const text = cleanLine(parts[k]);
+        if (text) segs.push({ start, cueEnd, text });
+      }
+    }
+  }
+
+  if (!segs.length) {
+    const cues = dedupeCues(parseCues(raw)).flatMap((c) => spread(splitWords(c.lines.join(' ')), c.start, c.end));
+    return { cues, exact: false };
+  }
+
+  segs.sort((x, y) => x.start - y.start);
+  const cues = [];
+  segs.forEach((seg, i) => {
+    const next = segs[i + 1];
+    const end = next ? Math.min(seg.cueEnd, next.start) : seg.cueEnd;
+    cues.push(...spread(splitWords(seg.text), seg.start, Math.max(end, seg.start + 1)));
+  });
+  return { cues, exact: true };
+}
+
 /** Convert raw subtitle text into the requested format. */
 export function convert(raw, format) {
+  if (format === 'words') {
+    const { cues } = wordCues(raw);
+    if (!cues.length) throw new Error('No subtitle cues found in source file');
+    return toSrt(cues);
+  }
   const cues = dedupeCues(parseCues(raw));
   if (!cues.length) throw new Error('No subtitle cues found in source file');
   if (format === 'srt') return toSrt(cues);
