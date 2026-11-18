@@ -98,7 +98,7 @@ S = [
  S_("A beginner can only switch on part of them at the same time. The rest just sit there.", [XR([("xr_half", 0)])],
     [T("part", "ONLY PART FIRES", (240, 170, 60), 0.5, 0.1, 100, until="rest"), T("rest", "THE REST: ASLEEP", WHITE, 0.5, 0.1, 100)], keys=[(0, 1.1, .45, .5), ("E", 1.2, .45, .5)]),
  S_("Years of heavy lifting teach your nervous system to switch on more of them, faster, all at once.", [XR([("xr_half", 0), ("xr_full", "more")])],
-    [T("more", "MORE", WHITE, 0.2, 0.1, 110), T("faster,", "FASTER", WHITE, 0.5, 0.1, 110), T("all", "ALL AT ONCE", (240, 170, 60), 0.8, 0.1, 100)],
+    [T("more", "MORE", WHITE, 0.5, 0.1, 120, until="faster,"), T("faster,", "FASTER", WHITE, 0.5, 0.1, 120, until="all"), T("all", "ALL AT ONCE", (240, 170, 60), 0.5, 0.1, 120)],
     particles=[dict(at="all", x=0.5, y=0.45, spread=0.4)], sfx=[("more", "pop", .3), ("faster,", "pop", .3), ("all", "chime", .4)]),
  S_("Kabir's muscles are smaller. But when he pulls, almost all of it fires.", BK("bk_garage", loopk("k_pull_a", "k_pull_b", 10, 0.5, x=0.66, h=0.95)),
     [T("smaller.", "SMALLER", WHITE, 0.28, 0.3, 110), T("all", "ALL OF IT FIRES", (240, 170, 60), 0.28, 0.5, 90)]),
@@ -184,7 +184,7 @@ S = [
 ]
 PLAN = dict(dir=f"{HERE}/scenes_long06", words=f"{HERE}/voice/long06_cut.words.json", voice=f"{HERE}/voice/long06_cut.wav",
             music=f"{HERE}/music/hyper_lillian_thorn.mp3", music_db=20, sfx_db=16, duck=False, set=TINT,
-            scenes=S, cap_mode="none", lead=0.06, tail=0.8, keywords=[], breathe=True, puppet=True, pose_pop=0.05)
+            scenes=S, cap_mode="none", lead=0.06, tail=0.8, keywords=[], breathe=True, puppet=True, pose_pop=0.05, text_overlay=True)
 if __name__ == "__main__":
     a = sys.argv[1:]
     render(PLAN, f"{HERE}/final/long06{'-preview' if a else ''}.mp4", **({"t0": float(a[0]), "t1": float(a[1])} if a else {}))

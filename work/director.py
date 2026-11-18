@@ -174,9 +174,9 @@ class Renderer:
         z_prev = keyval(s["_keys"], u - 1 / FPS, dur)[0]
         if abs(z - z_prev) > 0.04:  # fast camera zoom: motion blur like the reference hook
             img = view(self.pose_canvas(s, t), z, fx, fy, dx, dy) if s.get("poses") is not None else view(load(f"{self.P['dir']}/{s['img']}", s.get("pad", False)), z, fx, fy, dx, dy)
-            return img.filter(ImageFilter.GaussianBlur(min(14, abs(z - z_prev) * 60)))
+            return self.overlay(s, t, img.filter(ImageFilter.GaussianBlur(min(14, abs(z - z_prev) * 60))))
         if s.get("poses") is not None:  # white set + H library poses (swapped at word anchors = pose animation) + extras
-            return view(self.pose_canvas(s, t), z, fx, fy, dx, dy)
+            return self.overlay(s, t, view(self.pose_canvas(s, t), z, fx, fy, dx, dy))
         if s.get("clip"):  # owner's animated version of the scene image (muted): frame at the scene's local time, held at the end
             fr = clip_frames(f"{self.P['dir']}/{s['clip']}"); src = fr[min(len(fr) - 1, int(u * FPS))]
         else: src = load(f"{self.P['dir']}/{s['img']}", s.get("pad", False))
@@ -304,26 +304,35 @@ class Renderer:
         return c.convert("RGB")
 
     # ---------- long-form widgets (research/LONGFORM-24-ANALYSIS-AND-PLAN.md, D6) ----------
-    def widgets(self, s, t, c):
+    def overlay(self, s, t, img):
+        """text widgets drawn AFTER the camera: never zoomed out of the frame (owner 19 Nov: cut text)"""
+        if not self.P.get("text_overlay") or not any(s.get(k) for k in ("kinetic", "counters", "rings")): return img
+        c = img.convert("RGBA"); self.widgets(s, t, c, only=("kinetic", "counters", "rings")); return c.convert("RGB")
+
+    def widgets(self, s, t, c, only=None):
         d = ImageDraw.Draw(c); FI = f"{HERE}/fonts/rubik-800-italic.woff2"
-        for e in s.get("kinetic", []):  # big italic words, no box: slide 90 px + fade in over 5 frames (ease-out), fade out 6 frames
+        ov = self.P.get("text_overlay")
+        def on(k): return (k in only) if only else not (ov and k in ("kinetic", "counters", "rings"))
+        for e in (s.get("kinetic", []) if on("kinetic") else []):  # big italic words, no box: slide 90 px + fade in over 5 frames (ease-out), fade out 6 frames
             lv = self._live(e, s, t, 0.0 if e.get("until") else 0.2)  # replaced words vanish at once: never two words on one spot
             if not lv: continue
             u, f = lv; key = "_k"
             if key not in e: e[key] = text_img(e["text"], FI, e.get("size", 110), tuple(e.get("color", (34, 40, 48))), stroke=e.get("stroke", 0), stroke_fill=tuple(e.get("stroke_fill", (255, 255, 255))), shadow=False, maxw=W * e.get("maxw", 0.6))
             q = ease(u / 0.17); off = {"l": (-90, 0), "r": (90, 0), "b": (0, 60), "t": (0, -60)}[e.get("from", "l")]
-            paste_center(c, e[key], W * e["x"] + off[0] * (1 - q), H * e["y"] + off[1] * (1 - q), 1.0, min(1, u / 0.17) * f)
-        for e in s.get("counters", []):  # number counts up (ease-out) then a small 1.08 punch
+            iw, ih = e[key].size; mx, my = 0.025 * W, 0.02 * H  # safe area: the whole word stays inside the frame
+            cx = min(max(W * e["x"], mx + iw / 2), W - mx - iw / 2); cy = min(max(H * e["y"], my + ih / 2), H - my - ih / 2)
+            paste_center(c, e[key], cx + off[0] * (1 - q), cy + off[1] * (1 - q), 1.0, min(1, u / 0.17) * f)
+        for e in (s.get("counters", []) if on("counters") else []):  # number counts up (ease-out) then a small 1.08 punch
             lv = self._live(e, s, t, 0.2)
             if not lv: continue
             u, f = lv; dur = e.get("dur", 1.5); q = ease(min(1, u / dur)); val = round(e.get("a", 0) + (e["b"] - e.get("a", 0)) * q)
-            im = text_img(f"{val}{e.get('suffix', '')}", FI, e.get("size", 220), tuple(e.get("color", (34, 40, 48))), stroke=e.get("stroke", 0), shadow=False)
+            im = text_img(f"{val}{e.get('suffix', '')}", FI, e.get("size", 220), tuple(e.get("color", (34, 40, 48))), stroke=e.get("stroke", 0), stroke_fill=tuple(e.get("stroke_fill", (34, 40, 48))), shadow=False)
             pk = 1 + 0.08 * math.sin(min(1, max(0, (u - dur) / 0.2)) * math.pi)
             paste_center(c, im, W * e["x"], H * e["y"], pk, f)
             if e.get("label"):
-                if "_l" not in e: e["_l"] = text_img(e["label"], FI, e.get("lsize", 54), tuple(e.get("color", (34, 40, 48))), stroke=e.get("stroke", 0), shadow=False)
+                if "_l" not in e: e["_l"] = text_img(e["label"], FI, e.get("lsize", 54), tuple(e.get("color", (34, 40, 48))), stroke=e.get("stroke", 0), stroke_fill=tuple(e.get("stroke_fill", (34, 40, 48))), shadow=False)
                 paste_center(c, e["_l"], W * e["x"], H * e["y"] + im.height * 0.55, 1.0, f)
-        for e in s.get("rings", []):  # stopwatch ring: arc grows over dur, seconds inside
+        for e in (s.get("rings", []) if on("rings") else []):  # stopwatch ring: arc grows over dur, seconds inside
             lv = self._live(e, s, t, 0.2)
             if not lv: continue
             u, f = lv; R = int(H * e.get("r", 0.16)); x, y = W * e["x"], H * e["y"]; q = min(1, u / e.get("dur", 3)); a_ = int(255 * f)
@@ -332,7 +341,7 @@ class Renderer:
             d.arc([x - R * 0.82, y - R * 0.82, x + R * 0.82, y + R * 0.82], -90, -90 + 360 * q, fill=(*e.get("color", (15, 139, 133)), a_), width=max(3, R // 7))
             num = text_img(f"{int(e.get('max', 60) * q)}", FI, max(10, int(R * 0.7)), (34, 40, 48), shadow=False); paste_center(c, num, x, y - R * 0.08, 1.0, f)
             if e.get("unit"): paste_center(c, text_img(e["unit"], FI, max(8, int(R * 0.25)), (34, 40, 48), shadow=False), x, y + R * 0.42, 1.0, f)
-        for e in s.get("calendars", []):  # month grid, cells tick one by one (4 f each, 2 f stagger) at the given anchors
+        for e in (s.get("calendars", []) if on("calendars") else []):  # month grid, cells tick one by one (4 f each, 2 f stagger) at the given anchors
             lv = self._live(e, s, t, 0.2)
             if not lv: continue
             u, f = lv; cols, n = e.get("cols", 10), e.get("n", 30); rows = (n + cols - 1) // cols
@@ -351,7 +360,7 @@ class Renderer:
                     if p_ >= 1: d.line([(mx - r_ * 0.45, my), (mx - r_ * 0.1, my + r_ * 0.35), (mx + r_ * 0.5, my - r_ * 0.35)], fill=(255, 255, 255, a_), width=max(3, int(cw * 0.08)))
                 if e.get("numbers", True):
                     tn = text_img(str(k + 1), FI, int(cw * 0.26), (120, 128, 138), shadow=False); c.alpha_composite(tn, (int(cx + 8), int(cy + 4))) if p_ == 0 else None
-        for e in s.get("bars", []):  # bar chart, bars grow one after another (stagger, 6 f each), value on top
+        for e in (s.get("bars", []) if on("bars") else []):  # bar chart, bars grow one after another (stagger, 6 f each), value on top
             lv = self._live(e, s, t, 0.2)
             if not lv: continue
             u, f = lv; vals = e["values"]; n = len(vals); bw = W * e.get("w", 0.4) / n; x0 = W * e["x"] - bw * n / 2; yb = H * e["y"]; hm = H * e.get("h", 0.4); a_ = int(255 * f)
