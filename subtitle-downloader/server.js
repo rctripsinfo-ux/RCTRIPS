@@ -2,7 +2,7 @@ import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { extname, join, normalize, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { checkExtractor, getInfo, getSubtitleSource, listVideos, publicInfo } from './lib/extractor.js';
+import { AI_MODELS, checkExtractor, getInfo, getSubtitleSource, listVideos, publicInfo } from './lib/extractor.js';
 import { convert } from './lib/subtitles.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), 'public');
@@ -80,10 +80,11 @@ const server = createServer(async (req, res) => {
       const url = validUrl(searchParams.get('url'));
       const track = searchParams.get('track') || '';
       const format = searchParams.get('format') || 'srt';
-      if (!url || !/^(manual|auto|translated):[\w.@-]{1,40}$/.test(track) || !FORMATS.has(format)) {
+      const model = searchParams.get('model') || AI_MODELS[0];
+      if (!url || !/^(manual|auto|translated|ai):[\w.@-]{1,40}$/.test(track) || !FORMATS.has(format) || !AI_MODELS.includes(model)) {
         return sendJson(res, 400, { error: 'Invalid request parameters.' });
       }
-      const { info, track: t, text } = await getSubtitleSource(url, track);
+      const { info, track: t, text } = await getSubtitleSource(url, track, { model });
       const out = convert(text, format);
       const inline = searchParams.get('inline') === '1';
       const ext = format === 'words' ? 'words.srt' : format;

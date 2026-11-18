@@ -17,7 +17,7 @@
   <main>
     <section class="hero">
       <h1>Download subtitles from any video</h1>
-      <p class="lead">Paste a link from YouTube, Vimeo, TED, Dailymotion and 1000+ other sites. Get captions in SRT, VTT or plain text — including auto-generated and auto-translated languages.</p>
+      <p class="lead">Paste a link from YouTube, Instagram, Vimeo, TED and 1000+ other sites. Get captions in SRT, VTT or plain text — including auto-generated and auto-translated languages.</p>
 
       <div class="modes" role="tablist">
         <button type="button" class="mode" data-mode="single" aria-selected="true">Single link</button>
@@ -35,9 +35,9 @@
 
       <form id="bulk-form" class="card bulk" hidden>
         <div class="channel">
-          <label for="ch-url"><b>Fetch a whole channel or playlist</b> <span class="muted">— optional</span></label>
+          <label for="ch-url"><b>Fetch a whole channel, playlist or Instagram profile</b> <span class="muted">— optional</span></label>
           <div class="ch-row">
-            <input id="ch-url" type="url" placeholder="https://www.youtube.com/@channelname  or  a playlist link">
+            <input id="ch-url" type="url" placeholder="YouTube channel / playlist, or Instagram profile (instagram.com/username)">
             <button type="button" id="ch-load" class="ghost">Load videos</button>
           </div>
           <div class="ch-opts muted">
@@ -78,6 +78,15 @@
           </label>
           <label class="check"><input type="checkbox" id="bulk-auto" checked> Use auto-generated if no original</label>
           <label class="check"><input type="checkbox" id="bulk-trans"> Use auto-translated if needed</label>
+          <label class="check"><input type="checkbox" id="bulk-ai" checked> Use AI transcription if no subtitles (Instagram)</label>
+          <label class="check"><input type="checkbox" id="bulk-ai-only"> Always use AI transcription</label>
+          <label>AI quality
+            <select id="bulk-model">
+              <option value="large-v3-turbo">Accurate (recommended)</option>
+              <option value="large-v3">Most accurate — best for Hindi/Hinglish (slower)</option>
+              <option value="small">Fast (less accurate)</option>
+            </select>
+          </label>
         </div>
         <button type="submit" id="bulk-start" class="primary">Start bulk download</button>
       </form>
@@ -114,6 +123,13 @@
         <div class="toolbar">
           <div class="tabs" role="tablist" id="tabs"></div>
           <input id="filter" type="search" placeholder="Filter languages…" aria-label="Filter languages">
+          <label class="model">AI quality
+            <select id="model">
+              <option value="large-v3-turbo">Accurate (recommended)</option>
+              <option value="large-v3">Most accurate — best for Hindi/Hinglish (slower)</option>
+              <option value="small">Fast (less accurate)</option>
+            </select>
+          </label>
         </div>
         <p id="empty" class="muted center" hidden>No subtitles found for this video.</p>
         <ul id="tracks" class="tracks"></ul>
@@ -133,6 +149,7 @@
       <h2>FAQ</h2>
       <details><summary>Which formats are available?</summary><p><b>SRT</b> works with almost every video player and editor. <b>Words</b> is an SRT with one word per subtitle — great for animated captions and editing (exact timings for auto-generated captions, estimated for others). <b>VTT</b> is the web standard used by HTML5 players. <b>TXT</b> is a clean transcript without timestamps.</p></details>
       <details><summary>What do Original, Auto-generated and Translated mean?</summary><p><b>Original</b> subtitles were uploaded by the creator. <b>Auto-generated</b> are speech-recognition captions. <b>Translated</b> are machine translations of the captions provided by the platform.</p></details>
+      <details><summary>How do Instagram reels work?</summary><p>Instagram doesn't publish subtitles, so SubGrab listens to the audio and writes the transcript with a free AI speech-recognition model (Whisper) that runs on your computer. Paste a reel link in <em>Single link</em>, or an Instagram profile link in <em>Bulk links → Fetch a whole channel</em> to get all its reels. You must be logged in to instagram.com in Firefox. The first transcription downloads the AI model (about 1.5–3 GB) once.</p></details>
       <details><summary>Can I get a whole YouTube channel?</summary><p>Yes. In <em>Bulk links</em>, paste the channel link (e.g. youtube.com/@name) or a playlist link and press <em>Load videos</em>. Tick the videos you want, press <em>Add selected to list</em>, then <em>Start bulk download</em> to get all transcripts in one ZIP.</p></details>
       <details><summary>How does bulk download work?</summary><p>Switch to <em>Bulk links</em>, paste many links (one per line) or upload a .txt/.csv file, choose language and format, and press start. Each video is processed in turn and you get one ZIP with all subtitle files.</p></details>
       <details><summary>Why does a video show no subtitles?</summary><p>The video may have none, may be private or age-restricted, or the site may require you to be signed in. See the README for using browser cookies.</p></details>

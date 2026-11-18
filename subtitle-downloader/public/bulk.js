@@ -4,6 +4,7 @@ const $ = (id) => document.getElementById(id);
 const els = {
   form: $('bulk-form'), urls: $('bulk-urls'), file: $('bulk-file'), count: $('bulk-count'),
   lang: $('bulk-lang'), format: $('bulk-format'), auto: $('bulk-auto'), trans: $('bulk-trans'),
+  ai: $('bulk-ai'), aiOnly: $('bulk-ai-only'), model: $('bulk-model'),
   start: $('bulk-start'), result: $('bulk-result'), progress: $('bulk-progress'), bar: $('bulk-bar'),
   list: $('bulk-list'), zip: $('bulk-zip'), stop: $('bulk-stop'), retry: $('bulk-retry'),
 };
@@ -26,7 +27,14 @@ function safeName(s) {
 }
 
 /** Pick the best track for the wanted language and allowed kinds. */
-function pickTrack(tracks, lang, allowAuto, allowTrans) {
+function pickTrack(tracks, { lang, auto: allowAuto, trans: allowTrans, ai, aiOnly }) {
+  const aiTrack = tracks.find((t) => t.kind === 'ai');
+  if (aiOnly) return aiTrack || null;
+  const t = pickSubtitle(tracks, lang, allowAuto, allowTrans);
+  return t || (ai ? aiTrack || null : null);
+}
+
+function pickSubtitle(tracks, lang, allowAuto, allowTrans) {
   const kinds = ['manual', ...(allowAuto ? ['auto'] : []), ...(allowTrans ? ['translated'] : [])];
   const base = (code) => code.replace(/-orig$/, '').toLowerCase();
   const want = lang.trim().toLowerCase();
@@ -72,19 +80,23 @@ async function runJob(job, opts) {
     const info = await res.json();
     if (!res.ok) throw new Error(info.error || 'Failed to read video');
     job.nameEl.textContent = info.title;
-    const track = pickTrack(info.tracks, opts.lang, opts.auto, opts.trans);
+    const track = pickTrack(info.tracks, opts);
     if (!track) {
-      const langs = [...new Set(info.tracks.filter((t) => t.kind !== 'translated').map((t) => t.lang))];
+      const langs = [...new Set(info.tracks.filter((t) => t.kind === 'manual' || t.kind === 'auto').map((t) => t.lang))];
       throw new Error(info.tracks.length ? `No "${opts.lang || 'original'}" subtitles (available: ${langs.slice(0, 8).join(', ') || 'translations only'})` : 'No subtitles on this video');
     }
     const q = new URLSearchParams({ url: info.url, track: track.id, format: opts.format });
+    if (track.kind === 'ai') {
+      q.set('model', opts.model);
+      setStatus(job, 'run', 'Transcribing audio…');
+    }
     const sub = await fetch(`/api/subtitle?${q}`);
     const text = await sub.text();
     if (!sub.ok) throw new Error(JSON.parse(text).error || 'Download failed');
-    const ext = opts.format === 'words' ? 'words.srt' : opts.format;
-    const kind = track.kind === 'manual' ? '' : `.${track.kind}`;
-    job.file = { name: `${safeName(info.title)}.${track.lang}${kind}.${ext}`, text: text.replace(/^﻿/, '') };
-    setStatus(job, 'ok', `${track.lang}${track.kind === 'manual' ? '' : ` (${track.kind})`}`);
+    const cd = sub.headers.get('Content-Disposition') || '';
+    const name = decodeURIComponent((cd.match(/filename\*=UTF-8''([^;]+)/) || [])[1] || '') || `${safeName(info.title)}.${opts.format}`;
+    job.file = { name, text: text.replace(/^\uFEFF/, '') };
+    setStatus(job, 'ok', track.kind === 'ai' ? 'AI transcript' : `${track.lang}${track.kind === 'manual' ? '' : ` (${track.kind})`}`);
     job.msg.textContent = job.file.name;
   } catch (e) {
     setStatus(job, 'err', 'Failed');
@@ -97,7 +109,11 @@ async function runAll(list) {
   stopped = false;
   els.start.disabled = true;
   els.stop.hidden = false;
-  const opts = { lang: els.lang.value, format: els.format.value, auto: els.auto.checked, trans: els.trans.checked };
+  const opts = {
+    lang: els.lang.value, format: els.format.value, auto: els.auto.checked, trans: els.trans.checked,
+    ai: els.ai.checked, aiOnly: els.aiOnly.checked, model: els.model.value,
+  };
+  localStorage.setItem('subgrab:model', opts.model);
   const queue = [...list];
   list.forEach((j) => { setStatus(j, 'wait', 'Waiting'); j.msg.textContent = ''; });
   renderProgress();
@@ -157,6 +173,8 @@ els.file.addEventListener('change', async () => {
   els.file.value = '';
   updateCount();
 });
+
+els.model.value = localStorage.getItem('subgrab:model') || els.model.value;
 
 // Single / bulk mode switch
 const modeButtons = document.querySelectorAll('.mode');

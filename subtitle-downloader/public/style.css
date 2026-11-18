@@ -138,3 +138,7 @@ dialog pre { margin: 0; padding: 16px; max-height: 60vh; overflow: auto; white-s
 .ch-list label:hover { background: var(--soft); }
 .ch-list .t { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ch-list small { color: var(--muted); white-space: nowrap; }
+.model { display: flex; gap: 6px; align-items: center; font-size: .85rem; color: var(--muted); }
+.model select { border: 1px solid var(--line); background: var(--card); color: var(--fg); border-radius: 8px; padding: 6px 8px; font: inherit; max-width: 230px; }
+.tracks li.ai-row { background: var(--soft); border-radius: 10px; padding-left: 10px; padding-right: 10px; }
+.tracks li.ai-row .lang small { white-space: normal; }

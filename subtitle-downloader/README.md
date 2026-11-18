@@ -4,9 +4,20 @@ Paste a video link and download its subtitles as **SRT**, **word-by-word SRT**, 
 
 ## Requirements
 - Node.js 18 or newer
-- yt-dlp on your PATH (`pip install -U yt-dlp`, `brew install yt-dlp`, or `winget install yt-dlp`)
+- Python 3.9+ with the tools in `requirements.txt`:
+  `python -m pip install --user -U -r requirements.txt`
+  - **yt-dlp** reads videos and subtitles
+  - **gallery-dl** lists the reels on an Instagram profile
+  - **faster-whisper** is the free, local AI speech-to-text (Whisper) used for videos without subtitles, like Instagram reels
 
-No npm packages are needed.
+No npm packages are needed. On Windows, `start.bat` installs everything automatically.
+
+## Instagram
+Instagram doesn't publish subtitles, so SubGrab downloads the reel's audio and transcribes it on your computer with Whisper (word-level timings included).
+- **Single reel:** paste the reel link and choose *Transcribe the audio*.
+- **Whole profile:** go to *Bulk links*, paste `https://www.instagram.com/username/` into *Fetch a whole channel…*, and load the reels.
+- Instagram requires a login: stay logged in to instagram.com in **Firefox** (on Windows, `start.bat` uses Firefox's cookies automatically). You can also set `COOKIES_FROM_BROWSER=firefox|chrome|edge`.
+- **AI quality:** *Accurate* (`large-v3-turbo`, the default) or *Most accurate* (`large-v3`, which is better for Hindi/Hinglish but slower). The model downloads once (about 1.5–3 GB). An NVIDIA GPU is used automatically when available.
 
 ## Run
 ```bash
@@ -25,6 +36,9 @@ On Windows you can instead double-click `start.bat`. It finds or installs yt-dlp
 | `YTDLP_PATH` | `yt-dlp` | Path to the yt-dlp executable |
 | `YTDLP_EXTRA_ARGS` | — | Extra yt-dlp flags, e.g. `--cookies-from-browser chrome` |
 | `YTDLP_TIMEOUT_MS` | `90000` | Timeout for each extractor call |
+| `COOKIES_FROM_BROWSER` | — | Browser to read login cookies from (`firefox`, `chrome`, `edge`) |
+| `PYTHON` | `python3` / `python` | Python used for the AI transcription and tool fallback |
+| `WHISPER_DEVICE` | `auto` | `cpu` or `cuda` |
 
 If YouTube answers "Sign in to confirm you're not a bot", or a video is age-restricted or private, start the app with your browser's cookies:
 ```bash

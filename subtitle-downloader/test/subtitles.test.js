@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { convert, parseCues, wordCues } from '../lib/subtitles.js';
+import { whisperToVtt } from '../lib/extractor.js';
 
 const AUTO_VTT = `WEBVTT
 Kind: captions
@@ -53,4 +54,16 @@ test('word-level SRT estimates timing when source has none', () => {
   const { cues, exact } = wordCues('WEBVTT\n\n00:00:00.000 --> 00:00:01.000\nab cd');
   assert.equal(exact, false);
   assert.deepEqual(cues.map((c) => [c.start, c.end, c.lines[0]]), [[0, 500, 'ab'], [500, 1000, 'cd']]);
+});
+
+test('AI transcript is split into readable captions with exact word timings', () => {
+  const w = (start, end, word) => ({ start, end, word });
+  const vtt = whisperToVtt({ segments: [{ start: 0, end: 6, text: 'x', words: [
+    w(0, 0.4, 'Hello'), w(0.4, 0.9, 'world.'), w(1.0, 1.3, 'This'), w(1.3, 1.6, 'is'), w(1.6, 2.0, 'a'),
+    w(2.0, 2.5, 'test'), w(3.5, 4.0, 'after'), w(4.0, 4.5, 'pause'),
+  ] }] });
+  assert.equal(convert(vtt, 'srt'), '1\n00:00:00,000 --> 00:00:00,900\nHello world.\n\n2\n00:00:01,000 --> 00:00:02,500\nThis is a test\n\n3\n00:00:03,500 --> 00:00:04,500\nafter pause\n');
+  const words = wordCues(vtt).cues;
+  assert.equal(words.length, 8);
+  assert.deepEqual([words[1].start, words[6].start, words[7].end], [400, 3500, 4500]);
 });

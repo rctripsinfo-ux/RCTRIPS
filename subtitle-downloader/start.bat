@@ -1,5 +1,6 @@
 @echo off
 title SubGrab
+rem To force a tools update, delete the file .deps-installed in this folder.
 cd /d "%~dp0"
 
 where node >nul 2>nul || (
@@ -9,28 +10,35 @@ where node >nul 2>nul || (
   exit /b
 )
 
-where yt-dlp >nul 2>nul && goto run
-call :find
-if defined YTDLP_PATH goto run
+set "PYTHON="
+where python >nul 2>nul && python -c "import sys" >nul 2>nul && set "PYTHON=python"
+if not defined PYTHON where py >nul 2>nul && set "PYTHON=py"
+if not defined PYTHON (
+  echo Python is not installed. Opening the download page - install it and tick "Add python.exe to PATH", then run this again.
+  start "" https://www.python.org/downloads/
+  pause
+  exit /b
+)
 
-echo Installing yt-dlp...
-python -m pip install --user -U yt-dlp || py -m pip install --user -U yt-dlp
-where yt-dlp >nul 2>nul && goto run
-call :find
-if defined YTDLP_PATH goto run
-echo Could not find or install yt-dlp. Install Python from https://www.python.org and run this again.
-pause
-exit /b
+if not exist ".deps-installed" (
+  echo Installing / updating tools: yt-dlp, gallery-dl, faster-whisper.
+  echo This happens once and may take a few minutes...
+  %PYTHON% -m pip install --user -U -r requirements.txt
+  if errorlevel 1 (
+    echo Installation failed. Check your internet connection and run this again.
+    pause
+    exit /b
+  )
+  echo done> ".deps-installed"
+)
 
-:find
-for /d %%D in ("%APPDATA%\Python\Python3*") do if exist "%%D\Scripts\yt-dlp.exe" set "YTDLP_PATH=%%D\Scripts\yt-dlp.exe"
-for /d %%D in ("%LOCALAPPDATA%\Programs\Python\Python3*") do if exist "%%D\Scripts\yt-dlp.exe" set "YTDLP_PATH=%%D\Scripts\yt-dlp.exe"
-exit /b
+if not defined COOKIES_FROM_BROWSER if exist "%APPDATA%\Mozilla\Firefox\Profiles" set "COOKIES_FROM_BROWSER=firefox"
 
-:run
 echo.
 echo SubGrab is starting. Your browser will open in a moment.
 echo Keep this window open while you use it. Close it to stop SubGrab.
+echo For Instagram: stay logged in to instagram.com in Firefox.
+echo The first AI transcription downloads the speech model (1.5-3 GB) once.
 echo.
 start "" cmd /c "timeout /t 2 >nul & start http://127.0.0.1:3000"
 node server.js
