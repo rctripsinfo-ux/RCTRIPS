@@ -1,0 +1,5 @@
+{"fps":30,"duration":3,
+ "hook":{"text":"Hook text here","s":0,"e":2.5},
+ "zooms":[{"s":1.0,"e":2.0,"scale":1.18}],
+ "captions":[{"s":0.2,"e":1.4,"words":["EXAMPLE","CAPTION"],"hi":[1]},{"s":1.4,"e":3,"words":["SECOND","LINE"],"hi":[0]}],
+ "sfx":[{"at":1.0,"src":"whoosh.wav","volume":0.35}]}

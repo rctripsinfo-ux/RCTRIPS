@@ -36,6 +36,7 @@ Otherwise ask exactly:
 
 - Link → `python3 SKILL_DIR/scripts/fetch_reference.py "<url>"`. If download fails (Instagram often needs login), ask the user to download the reel (any "Instagram reel downloader" site) and drop it in `references/`.
 - More than one reference video = better accuracy. Accept up to 5.
+- No reference? Offer the built-in **Clean Talking Head** style (the template default: bold 2–3 word captions with yellow highlights, hook title, punch-in zooms, whoosh SFX, progress bar) and skip to Step 3.
 
 ### Step 2 — Analyze the style
 1. For each reference: `python3 SKILL_DIR/scripts/analyze_video.py references/<file> --out work/analysis/<name>` (add `--transcribe`).
@@ -50,9 +51,10 @@ Ask:
 Wait for the file. Confirm what you received (name, length, orientation).
 
 ### Step 4 — Rough cut
-1. `python3 SKILL_DIR/scripts/transcribe.py raw/<file> --out work/<project>/words.json` (language auto; pass `--language hi` if Hindi).
-2. `python3 SKILL_DIR/scripts/rough_cut.py raw/<file> work/<project>/words.json --out work/<project>/cut.mp4` — removes silences, fillers and repeated takes. It also writes `cut_words.json` with re-timed words for captions.
-3. Check the cut list it prints. If a take was repeated, keep the LAST clean take (edit `--drop` ranges if needed).
+1. Transcribe: `python3 SKILL_DIR/scripts/transcribe.py raw/<file> --out work/<project>/words.json --language <hi|en> --prompt "<brand names, people, product words>"`. Default model `large-v3-turbo` (good Hindi/Hinglish; first run downloads ~1.6 GB). Use `--model small` only for clean English on slow laptops.
+2. Read the transcript as timed phrases. Find **retakes** yourself: a phrase repeated or restarted → keep the LAST complete take, drop earlier ones. Drop an unfinished take at the end. Note the ranges (seconds).
+3. `python3 SKILL_DIR/scripts/rough_cut.py raw/<file> work/<project>/words.json --out work/<project>/cut.mp4 --drop A-B --drop C-D` — removes silences + fillers + your drop ranges, writes `cut_words.json` (re-timed words for captions).
+4. Tell the user in one line: "Cut 140 s → 86 s (removed pauses + 4 retakes)."
 
 ### Step 5 — Build the edit
 Follow `SKILL_DIR/reference/remotion-playbook.md` → "Build". Use STYLE.md as the law for the look. Use the transcript to decide WHERE each element goes (hook text, emphasis words, zooms on key lines, pop-ups when a number/app/list is mentioned).

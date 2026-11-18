@@ -1,0 +1,1 @@
+{"name":"edit","private":true,"type":"module","dependencies":{"remotion":"4.0.380","@remotion/cli":"4.0.380","react":"19.0.0","react-dom":"19.0.0"},"devDependencies":{"typescript":"5.6.3","@types/react":"19.0.0"}}

@@ -3,16 +3,46 @@
 import argparse, json, os, sys
 
 
-def transcribe(path, model="small", language=None):
+def load_audio(path, sr=16000):
+    """Decode with ffmpeg (avoids PyAV version issues) -> float32 mono numpy array."""
+    import subprocess, numpy as np
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-ac", "1", "-ar", str(sr), "-f", "s16le", "-"],
+                         capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.int16).astype(np.float32) / 32768.0
+
+
+def split_points(audio, sr=16000, every=25.0, search=4.0):
+    """Cut points near every `every` sec, placed at the quietest 20 ms frame within +-search sec."""
+    import numpy as np
+    hop = int(sr * 0.02)
+    n = len(audio) // hop
+    rms = np.sqrt((audio[: n * hop].reshape(n, hop) ** 2).mean(1) + 1e-12)
+    pts, t = [0], every
+    while t < len(audio) / sr - 5:
+        a, b = int((t - search) / 0.02), int((t + search) / 0.02)
+        pts.append((a + int(rms[a:b].argmin())) * hop)
+        t = pts[-1] / sr + every
+    return pts + [len(audio)]
+
+
+def transcribe(path, model="large-v3-turbo", language=None, prompt=None):
+    """Chunked at pauses (~25 s) so Whisper doesn't skip or hallucinate on long clips."""
     from faster_whisper import WhisperModel
     m = WhisperModel(model, device="auto", compute_type="auto")
-    segs, info = m.transcribe(path, language=language, word_timestamps=True, vad_filter=False)
-    words = []
-    for s in segs:
-        for w in s.words or []:
-            words.append({"w": w.word.strip(), "s": round(w.start, 3), "e": round(w.end, 3),
-                          "p": round(w.probability, 3)})
-    return {"language": info.language, "duration": round(info.duration, 3), "words": words}
+    sr = 16000
+    audio = load_audio(path, sr)
+    pts = split_points(audio, sr)
+    words, lang = [], language
+    for a, b in zip(pts, pts[1:]):
+        segs, info = m.transcribe(audio[a:b], language=lang, word_timestamps=True, vad_filter=False,
+                                  condition_on_previous_text=False, initial_prompt=prompt)
+        lang = lang or info.language
+        off = a / sr
+        for s in segs:
+            for w in s.words or []:
+                words.append({"w": w.word.strip(), "s": round(w.start + off, 3), "e": round(w.end + off, 3),
+                              "p": round(w.probability, 3)})
+    return {"language": lang, "duration": round(len(audio) / sr, 3), "words": words}
 
 
 def srt(words, per=4):
@@ -30,11 +60,12 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("video")
     p.add_argument("--out", required=True)
-    p.add_argument("--model", default="small", help="tiny/base/small/medium/large-v3 (bigger = slower, better)")
+    p.add_argument("--model", default="large-v3-turbo", help="large-v3-turbo (best for Hindi) | small (fast, weak on Hindi) | medium")
     p.add_argument("--language", default=None, help="e.g. en, hi (auto if omitted)")
+    p.add_argument("--prompt", default=None, help="names/brands/words to spell right, e.g. \"boAt, Sony, JBL\"")
     a = p.parse_args()
     try:
-        r = transcribe(a.video, a.model, a.language)
+        r = transcribe(a.video, a.model, a.language, a.prompt)
     except ImportError:
         sys.exit("faster-whisper not installed. Run: pip install -U faster-whisper")
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
