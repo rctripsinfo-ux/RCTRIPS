@@ -2,7 +2,7 @@ import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { extname, join, normalize, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { checkExtractor, getInfo, getSubtitleSource, publicInfo } from './lib/extractor.js';
+import { checkExtractor, getInfo, getSubtitleSource, listVideos, publicInfo } from './lib/extractor.js';
 import { convert } from './lib/subtitles.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), 'public');
@@ -64,6 +64,16 @@ const server = createServer(async (req, res) => {
       const url = validUrl((await readBody(req)).url);
       if (!url) return sendJson(res, 400, { error: 'Please enter a valid http(s) video link.' });
       return sendJson(res, 200, publicInfo(await getInfo(url)));
+    }
+
+    if (pathname === '/api/list' && req.method === 'POST') {
+      const body = await readBody(req);
+      const url = validUrl(body.url);
+      if (!url) return sendJson(res, 400, { error: 'Please enter a valid channel or playlist link.' });
+      const limit = Math.max(0, Math.min(5000, Number(body.limit) || 0));
+      const allowed = ['videos', 'shorts', 'streams'];
+      const sections = (Array.isArray(body.sections) ? body.sections : ['videos']).filter((x) => allowed.includes(x));
+      return sendJson(res, 200, await listVideos(url, { limit, sections: sections.length ? sections : ['videos'] }));
     }
 
     if (pathname === '/api/subtitle' && req.method === 'GET') {

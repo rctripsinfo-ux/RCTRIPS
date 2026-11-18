@@ -1,6 +1,6 @@
 # SubGrab — local subtitle downloader
 
-Paste a video link and download its subtitles as **SRT**, **word-by-word SRT**, **VTT** or **TXT**. **Bulk mode** takes many links at once (pasted, or uploaded as a .txt/.csv file) and gives you one ZIP. It handles creator-uploaded, auto-generated and auto-translated captions from YouTube and the 1000+ sites [yt-dlp](https://github.com/yt-dlp/yt-dlp) supports. Everything runs on your own computer.
+Paste a video link and download its subtitles as **SRT**, **word-by-word SRT**, **VTT** or **TXT**. **Bulk mode** takes many links at once (pasted, or uploaded as a .txt/.csv file) and gives you one ZIP. You can also paste a **YouTube channel or playlist link**, load all its videos, tick the ones you want, and download all their transcripts in one ZIP. It handles creator-uploaded, auto-generated and auto-translated captions from YouTube and the 1000+ sites [yt-dlp](https://github.com/yt-dlp/yt-dlp) supports. Everything runs on your own computer.
 
 ## Requirements
 - Node.js 18 or newer
@@ -35,6 +35,7 @@ Keep yt-dlp up to date (`yt-dlp -U` or `pip install -U yt-dlp`), because sites c
 ## API
 - `POST /api/info` with `{"url": "..."}` returns the video's details and its subtitle tracks
 - `GET /api/subtitle?url=...&track=manual:en&format=srt|words|vtt|txt` returns the file (`&inline=1` previews it instead)
+- `POST /api/list` with `{"url": "<channel or playlist>", "limit": 0, "sections": ["videos","shorts","streams"]}` lists a channel's or playlist's videos
 - `GET /api/health` reports the yt-dlp version
 
 ## Tests

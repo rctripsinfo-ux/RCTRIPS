@@ -34,6 +34,30 @@
       <div id="recent" class="recent" hidden></div>
 
       <form id="bulk-form" class="card bulk" hidden>
+        <div class="channel">
+          <label for="ch-url"><b>Fetch a whole channel or playlist</b> <span class="muted">— optional</span></label>
+          <div class="ch-row">
+            <input id="ch-url" type="url" placeholder="https://www.youtube.com/@channelname  or  a playlist link">
+            <button type="button" id="ch-load" class="ghost">Load videos</button>
+          </div>
+          <div class="ch-opts muted">
+            <label class="check"><input type="checkbox" id="ch-videos" checked> Videos</label>
+            <label class="check"><input type="checkbox" id="ch-shorts"> Shorts</label>
+            <label class="check"><input type="checkbox" id="ch-streams"> Live streams</label>
+            <label>Max <input id="ch-limit" type="number" min="0" max="5000" value="0" title="0 = all videos"> <span>(0 = all)</span></label>
+          </div>
+          <p id="ch-status" class="muted" hidden></p>
+          <div id="ch-picker" hidden>
+            <div class="ch-tools">
+              <input id="ch-filter" type="search" placeholder="Filter by title…">
+              <button type="button" id="ch-all" class="ghost">Select all</button>
+              <button type="button" id="ch-none" class="ghost">Select none</button>
+              <b id="ch-count"></b>
+              <button type="button" id="ch-add" class="primary">Add selected to list</button>
+            </div>
+            <ul id="ch-list" class="ch-list"></ul>
+          </div>
+        </div>
         <label for="bulk-urls"><b>Video links</b> <span class="muted">— one per line (or upload a .txt / .csv file)</span></label>
         <textarea id="bulk-urls" rows="7" placeholder="https://www.youtube.com/watch?v=...&#10;https://www.youtube.com/watch?v=...&#10;https://youtu.be/..."></textarea>
         <div class="bulk-row">
@@ -109,6 +133,7 @@
       <h2>FAQ</h2>
       <details><summary>Which formats are available?</summary><p><b>SRT</b> works with almost every video player and editor. <b>Words</b> is an SRT with one word per subtitle — great for animated captions and editing (exact timings for auto-generated captions, estimated for others). <b>VTT</b> is the web standard used by HTML5 players. <b>TXT</b> is a clean transcript without timestamps.</p></details>
       <details><summary>What do Original, Auto-generated and Translated mean?</summary><p><b>Original</b> subtitles were uploaded by the creator. <b>Auto-generated</b> are speech-recognition captions. <b>Translated</b> are machine translations of the captions provided by the platform.</p></details>
+      <details><summary>Can I get a whole YouTube channel?</summary><p>Yes. In <em>Bulk links</em>, paste the channel link (e.g. youtube.com/@name) or a playlist link and press <em>Load videos</em>. Tick the videos you want, press <em>Add selected to list</em>, then <em>Start bulk download</em> to get all transcripts in one ZIP.</p></details>
       <details><summary>How does bulk download work?</summary><p>Switch to <em>Bulk links</em>, paste many links (one per line) or upload a .txt/.csv file, choose language and format, and press start. Each video is processed in turn and you get one ZIP with all subtitle files.</p></details>
       <details><summary>Why does a video show no subtitles?</summary><p>The video may have none, may be private or age-restricted, or the site may require you to be signed in. See the README for using browser cookies.</p></details>
       <details><summary>Is anything uploaded to a server?</summary><p>No. Everything runs on your own computer.</p></details>
@@ -126,5 +151,6 @@
   <div id="toast" class="toast" role="status" hidden></div>
   <script src="app.js" type="module"></script>
   <script src="bulk.js" type="module"></script>
+  <script src="channel.js" type="module"></script>
 </body>
 </html>

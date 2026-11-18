@@ -13,12 +13,12 @@ const PREFERRED = ['vtt', 'srt'];
 let baseArgs = null;
 const cache = new Map();
 
-function run(args) {
+function run(args, timeoutMs = TIMEOUT_MS) {
   return new Promise((resolve, reject) => {
     const child = spawn(YTDLP, args, { stdio: ['ignore', 'pipe', 'pipe'] });
     let out = '';
     let err = '';
-    const timer = setTimeout(() => child.kill('SIGKILL'), TIMEOUT_MS);
+    const timer = setTimeout(() => child.kill('SIGKILL'), timeoutMs);
     child.stdout.on('data', (d) => (out += d));
     child.stderr.on('data', (d) => (err += d));
     child.on('error', (e) => {
@@ -39,14 +39,18 @@ function run(args) {
   });
 }
 
-async function getBaseArgs() {
-  if (baseArgs) return baseArgs;
+async function getBaseArgs({ playlist = false } = {}) {
+  if (!baseArgs) baseArgs = await buildBaseArgs();
+  return playlist ? baseArgs.filter((a) => a !== '--no-playlist') : baseArgs;
+}
+
+async function buildBaseArgs() {
   const args = ['--no-warnings', '--no-playlist'];
   try {
     const help = await run(['--help']);
     if (help.includes('--js-runtimes')) args.push('--js-runtimes', 'node');
   } catch { /* surfaced on the real call */ }
-  return (baseArgs = [...args, ...EXTRA]);
+  return [...args, ...EXTRA];
 }
 
 export async function checkExtractor() {
@@ -153,4 +157,52 @@ async function downloadWithYtdlp(url, track) {
 
 export function publicInfo(info) {
   return { ...info, tracks: info.tracks.map(({ _format, ...t }) => t) };
+}
+
+const LIST_TIMEOUT_MS = Number(process.env.YTDLP_LIST_TIMEOUT_MS || 15 * 60 * 1000);
+const TAB_RE = /\/(videos|shorts|streams|live|podcasts|releases)\/?$/;
+
+function videoUrl(e) {
+  if (e.url && /^https?:/.test(e.url)) return e.url;
+  if (e.id && /youtube/i.test(e.ie_key || e.extractor_key || '')) return `https://www.youtube.com/watch?v=${e.id}`;
+  return e.webpage_url || e.url || null;
+}
+
+async function listOnce(url, limit) {
+  const args = [...(await getBaseArgs({ playlist: true })), '-J', '--flat-playlist'];
+  if (limit > 0) args.push('--playlist-end', String(limit));
+  return JSON.parse(await run([...args, '--', url], LIST_TIMEOUT_MS));
+}
+
+/**
+ * List the videos of a channel or playlist (fast, metadata only).
+ * sections: which channel tabs to include when given a channel's main page.
+ */
+export async function listVideos(url, { limit = 0, sections = ['videos'] } = {}) {
+  const top = await listOnce(url, limit);
+  if (top._type !== 'playlist') {
+    return { title: top.title || url, uploader: top.uploader || top.channel || '', videos: [{ url: top.webpage_url || url, title: top.title, duration: top.duration, section: 'video' }] };
+  }
+  const entries = top.entries || [];
+  const tabs = entries.filter((e) => e.url && TAB_RE.test(e.url) && (e._type === 'url' || e._type === 'playlist'));
+  const videos = [];
+  const push = (list, section) => {
+    for (const e of list || []) {
+      const u = videoUrl(e);
+      if (u && !videos.some((v) => v.url === u)) videos.push({ url: u, title: e.title || u, duration: e.duration || null, section });
+    }
+  };
+  if (tabs.length && tabs.length === entries.length) {
+    // A channel's main page: entries are its tabs (Videos, Shorts, Live...).
+    for (const tab of tabs) {
+      const section = tab.url.match(TAB_RE)[1];
+      if (!sections.includes(section)) continue;
+      try {
+        push((await listOnce(tab.url, limit)).entries, section);
+      } catch { /* tab may be empty or unavailable */ }
+    }
+  } else {
+    push(entries, (url.match(TAB_RE) || [])[1] || 'playlist');
+  }
+  return { title: top.title || url, uploader: top.uploader || top.channel || '', videos: limit > 0 ? videos.slice(0, limit) : videos };
 }
