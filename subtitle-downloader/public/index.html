@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SubGrab — Subtitle Downloader</title>
+  <meta name="description" content="Download subtitles from YouTube and 1000+ video sites as SRT, VTT or TXT.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><img src="favicon.svg" alt="" width="28" height="28"> SubGrab</a>
+    <nav><a href="#how">How it works</a><a href="#faq">FAQ</a></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Download subtitles from any video</h1>
+      <p class="lead">Paste a link from YouTube, Vimeo, TED, Dailymotion and 1000+ other sites. Get captions in SRT, VTT or plain text — including auto-generated and auto-translated languages.</p>
+
+      <div class="modes" role="tablist">
+        <button type="button" class="mode" data-mode="single" aria-selected="true">Single link</button>
+        <button type="button" class="mode" data-mode="bulk" aria-selected="false">Bulk links</button>
+      </div>
+
+      <form id="form" class="search" autocomplete="off">
+        <label for="url" class="sr-only">Video link</label>
+        <input id="url" name="url" type="url" required placeholder="https://www.youtube.com/watch?v=…" inputmode="url">
+        <button type="button" id="paste" class="ghost" title="Paste from clipboard">Paste</button>
+        <button type="submit" id="submit" class="primary">Get subtitles</button>
+      </form>
+      <p id="error" class="error" role="alert" hidden></p>
+      <div id="recent" class="recent" hidden></div>
+
+      <form id="bulk-form" class="card bulk" hidden>
+        <div class="channel">
+          <label for="ch-url"><b>Fetch a whole channel or playlist</b> <span class="muted">— optional</span></label>
+          <div class="ch-row">
+            <input id="ch-url" type="url" placeholder="https://www.youtube.com/@channelname  or  a playlist link">
+            <button type="button" id="ch-load" class="ghost">Load videos</button>
+          </div>
+          <div class="ch-opts muted">
+            <label class="check"><input type="checkbox" id="ch-videos" checked> Videos</label>
+            <label class="check"><input type="checkbox" id="ch-shorts"> Shorts</label>
+            <label class="check"><input type="checkbox" id="ch-streams"> Live streams</label>
+            <label>Max <input id="ch-limit" type="number" min="0" max="5000" value="0" title="0 = all videos"> <span>(0 = all)</span></label>
+          </div>
+          <p id="ch-status" class="muted" hidden></p>
+          <div id="ch-picker" hidden>
+            <div class="ch-tools">
+              <input id="ch-filter" type="search" placeholder="Filter by title…">
+              <button type="button" id="ch-all" class="ghost">Select all</button>
+              <button type="button" id="ch-none" class="ghost">Select none</button>
+              <b id="ch-count"></b>
+              <button type="button" id="ch-add" class="primary">Add selected to list</button>
+            </div>
+            <ul id="ch-list" class="ch-list"></ul>
+          </div>
+        </div>
+        <label for="bulk-urls"><b>Video links</b> <span class="muted">— one per line (or upload a .txt / .csv file)</span></label>
+        <textarea id="bulk-urls" rows="7" placeholder="https://www.youtube.com/watch?v=...&#10;https://www.youtube.com/watch?v=...&#10;https://youtu.be/..."></textarea>
+        <div class="bulk-row">
+          <label class="file ghost">Upload file<input id="bulk-file" type="file" accept=".txt,.csv,text/plain,text/csv"></label>
+          <span id="bulk-count" class="muted">0 links</span>
+        </div>
+        <div class="bulk-opts">
+          <label>Language
+            <input id="bulk-lang" value="en" placeholder="en" maxlength="20" title="Language code, e.g. en, hi, es. Leave empty for the video's own language.">
+          </label>
+          <label>Format
+            <select id="bulk-format">
+              <option value="srt">SRT</option>
+              <option value="words">Word-by-word SRT</option>
+              <option value="txt">TXT (transcript)</option>
+              <option value="vtt">VTT</option>
+            </select>
+          </label>
+          <label class="check"><input type="checkbox" id="bulk-auto" checked> Use auto-generated if no original</label>
+          <label class="check"><input type="checkbox" id="bulk-trans"> Use auto-translated if needed</label>
+        </div>
+        <button type="submit" id="bulk-start" class="primary">Start bulk download</button>
+      </form>
+    </section>
+
+    <section id="bulk-result" class="card" hidden>
+      <div class="toolbar">
+        <b id="bulk-progress">0 / 0 done</b>
+        <div class="actions">
+          <button type="button" id="bulk-retry" hidden>Retry failed</button>
+          <button type="button" id="bulk-stop">Stop</button>
+          <button type="button" id="bulk-zip" class="primary" disabled>Download ZIP</button>
+        </div>
+      </div>
+      <div class="bar"><div id="bulk-bar"></div></div>
+      <ol id="bulk-list" class="bulk-list"></ol>
+    </section>
+
+    <section id="loading" class="card loading" hidden aria-live="polite">
+      <div class="spinner"></div><span>Fetching video details…</span>
+    </section>
+
+    <section id="result" hidden>
+      <article class="card video">
+        <img id="thumb" alt="" loading="lazy">
+        <div>
+          <h2 id="title"></h2>
+          <p id="meta" class="muted"></p>
+          <a id="source" target="_blank" rel="noopener noreferrer">Open original ↗</a>
+        </div>
+      </article>
+
+      <div class="card">
+        <div class="toolbar">
+          <div class="tabs" role="tablist" id="tabs"></div>
+          <input id="filter" type="search" placeholder="Filter languages…" aria-label="Filter languages">
+        </div>
+        <p id="empty" class="muted center" hidden>No subtitles found for this video.</p>
+        <ul id="tracks" class="tracks"></ul>
+      </div>
+    </section>
+
+    <section id="how" class="steps">
+      <h2>How it works</h2>
+      <ol>
+        <li><strong>Copy</strong> the link of the video page.</li>
+        <li><strong>Paste</strong> it above and press <em>Get subtitles</em>.</li>
+        <li><strong>Pick</strong> a language and download as SRT, word-by-word SRT, VTT or TXT.</li>
+      </ol>
+    </section>
+
+    <section id="faq" class="faq">
+      <h2>FAQ</h2>
+      <details><summary>Which formats are available?</summary><p><b>SRT</b> works with almost every video player and editor. <b>Words</b> is an SRT with one word per subtitle — great for animated captions and editing (exact timings for auto-generated captions, estimated for others). <b>VTT</b> is the web standard used by HTML5 players. <b>TXT</b> is a clean transcript without timestamps.</p></details>
+      <details><summary>What do Original, Auto-generated and Translated mean?</summary><p><b>Original</b> subtitles were uploaded by the creator. <b>Auto-generated</b> are speech-recognition captions. <b>Translated</b> are machine translations of the captions provided by the platform.</p></details>
+      <details><summary>Can I get a whole YouTube channel?</summary><p>Yes. In <em>Bulk links</em>, paste the channel link (e.g. youtube.com/@name) or a playlist link and press <em>Load videos</em>. Tick the videos you want, press <em>Add selected to list</em>, then <em>Start bulk download</em> to get all transcripts in one ZIP.</p></details>
+      <details><summary>How does bulk download work?</summary><p>Switch to <em>Bulk links</em>, paste many links (one per line) or upload a .txt/.csv file, choose language and format, and press start. Each video is processed in turn and you get one ZIP with all subtitle files.</p></details>
+      <details><summary>Why does a video show no subtitles?</summary><p>The video may have none, may be private or age-restricted, or the site may require you to be signed in. See the README for using browser cookies.</p></details>
+      <details><summary>Is anything uploaded to a server?</summary><p>No. Everything runs on your own computer.</p></details>
+    </section>
+  </main>
+
+  <footer class="muted">Runs locally · Powered by yt-dlp · Only download content you have the right to use.</footer>
+
+  <dialog id="preview">
+    <header><h3 id="pv-title">Preview</h3><button class="ghost" id="pv-close" aria-label="Close">✕</button></header>
+    <pre id="pv-body"></pre>
+    <footer><button class="ghost" id="pv-copy">Copy text</button></footer>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script src="app.js" type="module"></script>
+  <script src="bulk.js" type="module"></script>
+  <script src="channel.js" type="module"></script>
+</body>
+</html>
