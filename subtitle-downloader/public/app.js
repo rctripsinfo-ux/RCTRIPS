@@ -12,8 +12,10 @@ const KINDS = [
   ['manual', 'Original'],
   ['auto', 'Auto-generated'],
   ['translated', 'Translated'],
+  ['ai', 'AI transcription'],
 ];
-const KIND_LABEL = { manual: 'Original', auto: 'Auto-generated', translated: 'Auto-translated' };
+const KIND_LABEL = { manual: 'Original', auto: 'Auto-generated', translated: 'Auto-translated', ai: 'AI · from audio' };
+export const MODEL_KEY = 'subgrab:model';
 const RECENT_KEY = 'subgrab:recent';
 const state = { info: null, kind: 'all' };
 
@@ -21,6 +23,7 @@ let displayNames;
 try { displayNames = new Intl.DisplayNames([navigator.language || 'en'], { type: 'language' }); } catch { /* old browsers */ }
 
 function langName(track) {
+  if (track.kind === 'ai') return 'Transcribe the audio (any language)';
   const code = track.lang.replace(/-orig$/, '');
   let name = track.name && track.name !== track.lang ? track.name : '';
   if (!name && displayNames) {
@@ -50,6 +53,7 @@ function toast(msg) {
 
 function subtitleUrl(track, format, inline = false) {
   const q = new URLSearchParams({ url: state.info.url, track: track.id, format });
+  if (track.kind === 'ai') q.set('model', $('model').value);
   if (inline) q.set('inline', '1');
   return `/api/subtitle?${q}`;
 }
@@ -64,7 +68,7 @@ function renderTabs() {
   const tracks = state.info.tracks;
   els.tabs.replaceChildren(...KINDS.map(([kind, label]) => {
     const count = kind === 'all' ? tracks.length : tracks.filter((t) => t.kind === kind).length;
-    const b = el('button', { type: 'button', role: 'tab', disabled: !count && kind !== 'all' },
+    const b = el('button', { type: 'button', role: 'tab', disabled: !count && kind !== 'all', hidden: !count && kind !== 'all' },
       [label, el('span', { className: 'count', textContent: `(${count})` })]);
     b.setAttribute('aria-selected', String(state.kind === kind));
     b.onclick = () => { state.kind = kind; renderTabs(); renderTracks(); };
@@ -74,7 +78,7 @@ function renderTabs() {
 
 function renderTracks() {
   const q = els.filter.value.trim().toLowerCase();
-  const order = { manual: 0, auto: 1, translated: 2 };
+  const order = { manual: 0, ai: 1, auto: 2, translated: 3 };
   const list = state.info.tracks
     .filter((t) => state.kind === 'all' || t.kind === state.kind)
     .map((t) => ({ ...t, label: langName(t) }))
@@ -82,14 +86,15 @@ function renderTracks() {
     .sort((a, b) => order[a.kind] - order[b.kind] || a.label.localeCompare(b.label));
 
   els.empty.hidden = list.length > 0;
-  els.empty.textContent = state.info.tracks.length ? 'No languages match your filter.' : 'No subtitles found for this video.';
+  els.empty.textContent = state.info.tracks.some((t) => t.kind !== 'ai') ? 'No languages match your filter.' : 'No subtitles found for this video.';
   els.tracks.replaceChildren(...list.map((t) => {
     const actions = ['srt', 'words', 'txt', 'vtt'].map((f) =>
       el('a', { className: f, href: subtitleUrl(t, f), textContent: f === 'words' ? 'WORDS' : f.toUpperCase(), download: '', title: f === 'words' ? 'SRT with one word per subtitle' : '' }));
+    actions.forEach((a) => t.kind === 'ai' && a.addEventListener('click', () => toast('Transcribing… the download starts when it is ready')));
     const view = el('button', { type: 'button', textContent: 'Preview' });
     view.onclick = () => openPreview(t);
-    return el('li', {}, [
-      el('div', { className: 'lang' }, [el('b', { textContent: t.label }), el('small', { textContent: t.lang })]),
+    return el('li', { className: t.kind === 'ai' ? 'ai-row' : '' }, [
+      el('div', { className: 'lang' }, [el('b', { textContent: t.label }), el('small', { textContent: t.kind === 'ai' ? 'Accurate speech-to-text with word timings. Takes ~10–60 s per minute of video.' : t.lang })]),
       el('span', { className: 'badge', textContent: KIND_LABEL[t.kind] }),
       el('div', { className: 'actions' }, [view, ...actions]),
     ]);
@@ -98,7 +103,7 @@ function renderTracks() {
 
 function render(info) {
   state.info = info;
-  state.kind = info.tracks.some((t) => t.kind === 'manual') ? 'manual' : 'all';
+  state.kind = 'all';
   els.filter.value = '';
   els.thumb.src = info.thumbnail || 'favicon.svg';
   els.title.textContent = info.title;
@@ -111,7 +116,7 @@ function render(info) {
 
 async function openPreview(track) {
   els.pvTitle.textContent = `${langName(track)} — ${KIND_LABEL[track.kind]}`;
-  els.pvBody.textContent = 'Loading…';
+  els.pvBody.textContent = track.kind === 'ai' ? 'Transcribing the audio… this can take a minute (the first time also downloads the AI model).' : 'Loading…';
   els.preview.showModal();
   try {
     const res = await fetch(subtitleUrl(track, 'txt', true));
@@ -185,6 +190,10 @@ $('pv-copy').onclick = async () => {
   await navigator.clipboard.writeText(els.pvBody.textContent);
   toast('Copied to clipboard');
 };
+
+const modelSel = $('model');
+modelSel.value = localStorage.getItem(MODEL_KEY) || modelSel.value;
+modelSel.addEventListener('change', () => localStorage.setItem(MODEL_KEY, modelSel.value));
 
 renderRecent();
 const initial = new URLSearchParams(location.search).get('url');
