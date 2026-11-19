@@ -159,8 +159,16 @@ Measured from 12 of their outlier thumbnails. The first attempts were rejected b
 
 
 ## BACKGROUND RULE (owner, 19 Nov 2026, latest, overrides older background rules)
-- **Every thumbnail, long or short, uses the plain flat CREAM background `#F5F0E6`.** Nothing else goes in the background.
+- **LONG-video thumbnails use the plain flat CREAM background `#F5F0E6`.** Nothing else goes in the background.
+- **SHORTS covers keep the brand red/teal colour code** (owner, 19 Nov): dark red `#7A1A1A` + teal `#0F8B85` backgrounds with white extra-bold italic words. Add the safe zone below and an out-of-the-box visual idea.
 - Brand dark red `#7A1A1A` and teal `#0F8B85` stay as accents only: badges, words, glows.
 - Text is dark navy `#1E2A4A` extra-bold italic.
 - Formula that worked (the push-up mistakes video): one surprising visual gag, a 2–3 word question, the exact H big and clear.
 - Reference: `work/long06/thumb/sk_e.png` (BALLOON vs CABLE).
+
+
+## SHORTS COVER SAFE ZONE (owner, 19 Nov 2026)
+- **The feed crops the top and bottom of a 9:16 Shorts cover.** Never place text or faces in the top 20% or the bottom 20%.
+- **Text sits in the middle band (about 25–45% of the height). The full character fits between 20% and 80%.**
+  - Prompt: "Leave the top 20% and bottom 20% as plain empty cream background; all text and the character's head stay inside the middle 60%."
+- **Ideas must be out-of-the-box.** Each cover needs one absurd but clear visual metaphor (not a plain pose), plus 1–3 words.
