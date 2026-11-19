@@ -6,3 +6,5 @@ visa-ad-v2/out/frames/
 visa-ad-v2/out/*.mp4
 visa-ad-v2/out/*.wav
 __pycache__/
+visa-ad-v2/out/*.jpg
+!visa-ad-v2/out/storyboard.jpg
