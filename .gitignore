@@ -9,3 +9,5 @@ __pycache__/
 visa-ad-v2/out/*.jpg
 !visa-ad-v2/out/storyboard.jpg
 visa-ad-v2/out/vo/
+visa-ad-v2/eleven/*.mp4
+visa-ad-v2/eleven/*.wav

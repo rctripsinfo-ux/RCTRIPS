@@ -224,9 +224,9 @@ const draw = (p, k) => p.style.strokeDashoffset = +p.dataset.len * (1 - k);
 const vis = (id, t) => { const on = t >= T[id][0] && t < T[id][1]; $(id).style.display = on ? 'block' : 'none'; return on; };
 const set = (id, css) => Object.assign($(id).style, css);
 
-function seek(f) {
-  const t = f / FPS;
-  const gc = $('grain').getContext('2d'); gc.drawImage(grains[f % 6], 0, 0); $('grain').style.transform = `translate(${(f * 37) % 20 - 10}px,${(f * 53) % 20 - 10}px)`;
+function seek(f, gf) {
+  const t = f / FPS; const G = gf ?? Math.floor(f);
+  const gc = $('grain').getContext('2d'); gc.drawImage(grains[G % 6], 0, 0); $('grain').style.transform = `translate(${(G * 37) % 20 - 10}px,${(G * 53) % 20 - 10}px)`;
   const drift = (s) => `translate(${Math.sin(t * 1.2 + s) * 4}px,${Math.cos(t * 1.0 + s) * 4}px)`;
   for (const k in T) $(k).style.zIndex = 1;
 
