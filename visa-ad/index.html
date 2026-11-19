@@ -1,0 +1,348 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Red Carpet Tours: Visa Ad</title>
+<style>
+@font-face{font-family:DMS;src:url(fonts/DMSerif.ttf)}
+@font-face{font-family:DMS;font-style:italic;src:url(fonts/DMSerif-Italic.ttf)}
+@font-face{font-family:Pop;font-weight:400;src:url(fonts/Poppins-Regular.ttf)}
+@font-face{font-family:Pop;font-weight:500;src:url(fonts/Poppins-Medium.ttf)}
+@font-face{font-family:Pop;font-weight:600;src:url(fonts/Poppins-SemiBold.ttf)}
+@font-face{font-family:Cav;src:url(fonts/Caveat.ttf)}
+:root{--red:#A6192E;--red2:#c8243c;--deep:#6e0e1c;--paper:#F2EFEA;--ink:#151515;--navy:#1c2a4d;--gold:#cfa75a}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000;width:1080px;height:1920px;overflow:hidden}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--paper)}
+.layer{position:absolute;inset:0;display:none;overflow:hidden}
+.paper{background-color:var(--paper)}
+canvas.full{position:absolute;inset:0;width:1080px;height:1920px}
+.abs{position:absolute}
+.ser{font-family:DMS;font-weight:400}
+.pop{font-family:Pop}
+#grain{position:absolute;inset:-20px;pointer-events:none;opacity:.10;mix-blend-mode:overlay;z-index:50}
+#vig{position:absolute;inset:0;pointer-events:none;z-index:49;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 55%,rgba(0,0,0,.18) 100%)}
+.badge{display:inline-block;width:1em;height:1em;vertical-align:-.12em;margin-left:.25em}
+/* typing bar */
+.tbar{position:absolute;left:0;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.tbar .txt{position:absolute;left:70px;top:50%;transform:translateY(-52%);font-family:Pop;font-weight:400;color:var(--ink);white-space:nowrap}
+.tbar .under{position:absolute;left:0;bottom:-26px;height:16px;background:var(--ink)}
+.ibeam{display:inline-block;width:.04em;height:.82em;background:var(--ink);position:relative;vertical-align:-.06em;margin-left:.04em}
+.ibeam:before,.ibeam:after{content:"";position:absolute;left:-.09em;width:.22em;height:.04em;background:var(--ink)}
+.ibeam:before{top:0}.ibeam:after{bottom:0}
+/* echo */
+.echo{position:absolute;left:0;right:0;text-align:center;color:#fff}
+.echo .big{font-family:DMS;font-size:300px;line-height:.9;display:block}
+.echo .sub{font-family:Pop;font-weight:400;font-size:84px;display:block;line-height:1.1}
+.ghost{position:absolute;left:0;right:0;text-align:center;font-family:DMS;font-size:300px;line-height:.9;color:transparent;-webkit-text-stroke:3px rgba(255,255,255,.9)}
+/* grid */
+.row{position:absolute;left:0;right:0;text-align:center;font-family:DMS;white-space:nowrap;line-height:1}
+.flagbox{position:absolute;left:50%;top:50%;width:440px;height:330px;margin:-165px 0 0 -220px;box-shadow:0 30px 60px rgba(0,0,0,.35),0 4px 10px rgba(0,0,0,.2);overflow:hidden}
+.flagbox img{width:100%;height:100%;display:block}
+.flagbox .wave{position:absolute;inset:0;mix-blend-mode:soft-light}
+/* collage */
+.shadow{filter:drop-shadow(0 18px 22px rgba(0,0,0,.35)) drop-shadow(0 3px 4px rgba(0,0,0,.25))}
+.vstamp{position:absolute;width:560px;height:170px;border:7px solid #fff;border-radius:10px;color:#fff;font-family:Pop}
+.vstamp .k{position:absolute;left:34px;top:18px;font-weight:600;font-size:64px;letter-spacing:3px}
+.vstamp .s{position:absolute;left:36px;bottom:18px;font-size:22px;letter-spacing:4px;opacity:.85}
+.vstamp .arr{position:absolute;right:26px;top:24px;width:70px;height:56px;border:5px solid #fff;border-radius:6px}
+.rc{position:absolute;width:96px;height:96px;background:linear-gradient(160deg,#c42a3e,#9a1628);border-radius:4px;z-index:40;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.rc span{position:absolute;left:4px;top:-14px;font-family:Cav;font-weight:700;font-size:92px;color:#fff;text-shadow:0 0 6px rgba(255,255,255,.7);letter-spacing:-4px}
+.logo{position:absolute;width:400px;height:400px;background:var(--red);box-shadow:0 30px 60px rgba(110,14,28,.35)}
+.logo .r{position:absolute;left:0;right:0;top:84px;text-align:center;font-family:Inter;font-weight:300;font-size:150px;color:#fff;letter-spacing:6px;line-height:1}
+.logo .c{position:absolute;left:0;right:0;top:248px;text-align:center;font-family:Inter;font-weight:300;font-size:46px;color:#fff;letter-spacing:22px;padding-left:22px}
+.logo .b{position:absolute;left:0;right:0;bottom:0;height:62px;background:#fff;text-align:center;font-family:Inter;font-weight:400;font-size:36px;letter-spacing:8px;line-height:62px;color:#111}
+.btn{position:absolute;left:50%;width:660px;height:150px;margin-left:-330px;border-radius:80px;background:var(--red);color:#fff;font-family:Pop;font-weight:600;font-size:60px;text-align:center;line-height:150px;box-shadow:0 20px 40px rgba(166,25,46,.35)}
+.fl{position:absolute;width:96px;height:96px;border-radius:50%;overflow:hidden;box-shadow:0 6px 14px rgba(0,0,0,.25);border:4px solid #fff}
+.fl img{width:100%;height:100%;object-fit:cover}
+</style>
+<script src="node_modules/d3-array/dist/d3-array.min.js"></script>
+<script src="node_modules/d3-geo/dist/d3-geo.min.js"></script>
+<script src="node_modules/topojson-client/dist/topojson-client.min.js"></script>
+<script src="world.js"></script>
+<script src="timeline.js"></script>
+</head><body>
+<div id="stage">
+  <!-- 1a globe -->
+  <div class="layer" id="L_globe"><canvas class="full" id="globe" width="1080" height="1920"></canvas>
+    <svg class="abs" id="plane1" width="300" height="140" viewBox="0 0 300 140" style="left:0;top:0">
+      <g fill="#fff"><rect x="0" y="66" width="38" height="8" rx="4" opacity=".9"/><rect x="52" y="66" width="38" height="8" rx="4" opacity=".9"/></g>
+      <g transform="translate(110,10) rotate(90 60 60) scale(5)" fill="#fff"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></g>
+    </svg>
+    <div class="abs pop" id="g_txt" style="left:0;right:0;top:1180px;text-align:center;color:#fff;font-size:70px;font-weight:500;text-shadow:0 4px 20px rgba(0,0,0,.5)">passport ready<svg class="badge" viewBox="0 0 24 24"><path d="M12 1.5l9 5.2v10.6l-9 5.2-9-5.2V6.7z" fill="none" stroke="#fff" stroke-width="2"/><path d="M7.5 12.2l3 3 6-6.2" fill="none" stroke="#fff" stroke-width="2.4"/></svg></div>
+  </div>
+  <!-- 1b typing -->
+  <div class="layer paper" id="L_type">
+    <div class="abs" style="inset:26px;border:3px solid var(--red)"></div>
+    <div class="pop abs" id="ty_top" style="left:70px;top:700px;font-size:56px;color:#777">but is your</div>
+    <div class="tbar" id="ty_bar" style="top:820px;height:200px;width:900px"><div class="txt" id="ty_txt" style="font-size:150px"></div><div class="under" id="ty_under"></div></div>
+    <svg class="abs" id="ty_badge" width="190" height="190" viewBox="0 0 24 24" style="left:820px;top:1080px"><path d="M12 1.5l9 5.2v10.6l-9 5.2-9-5.2V6.7z" fill="var(--red)"/><text x="12" y="16.6" text-anchor="middle" font-family="DMS" font-size="13" fill="#fff">?</text></svg>
+  </div>
+  <!-- 2 sky -->
+  <div class="layer" id="L_sky"><canvas class="full" id="sky" width="1080" height="1920"></canvas>
+    <svg class="abs" id="plane2" width="760" height="760" viewBox="0 0 24 24" style="left:160px;top:1300px"><path fill="#1d4757" d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+    <div id="echoes"></div>
+  </div>
+  <!-- 3 grid -->
+  <div class="layer" id="L_grid"><div id="rows"></div>
+    <div class="flagbox" id="flagbox"><img id="flagimg"><div class="wave" id="wave"></div></div>
+    <div class="tbar" id="sch_bar" style="top:1500px;height:150px;width:960px;display:none"><div class="txt" id="sch_txt" style="font-size:78px"></div><div class="under" id="sch_under"></div></div>
+  </div>
+  <!-- 4 blueprint + collage -->
+  <div class="layer" id="L_blue">
+    <div class="abs" id="bp" style="inset:-60px"></div>
+    <div class="abs" id="collage" style="left:0;top:0;width:1080px;height:640px"></div>
+    <div class="abs ser" id="tp1" style="left:70px;top:700px;font-size:120px;color:#fff;line-height:1">whatever</div>
+    <div class="abs ser" id="tp2" style="left:70px;top:820px;font-size:120px;color:#fff;line-height:1">the trip,</div>
+    <div id="vst"></div>
+  </div>
+  <!-- 5 torn paper process -->
+  <div class="layer" id="L_proc">
+    <div class="abs" id="bp2" style="inset:-60px"></div>
+    <svg class="abs" id="tear" width="1080" height="1920" viewBox="0 0 1080 1920" style="left:0;top:0;filter:drop-shadow(0 14px 18px rgba(0,0,0,.35))"></svg>
+    <div id="plines"></div>
+    <svg class="abs" id="pen" width="520" height="140" viewBox="0 0 520 140" style="left:0;top:0;transform-origin:0 70px">
+      <defs><linearGradient id="pb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b3473a"/><stop offset=".45" stop-color="#7a1e18"/><stop offset="1" stop-color="#3e0c09"/></linearGradient>
+      <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e2a4"/><stop offset=".5" stop-color="#c79a3c"/><stop offset="1" stop-color="#7d5a17"/></linearGradient></defs>
+      <path d="M0 70 L60 58 L60 82 Z" fill="#222"/><path d="M0 70 L60 66 L60 74Z" fill="#888"/>
+      <rect x="58" y="52" width="70" height="36" rx="6" fill="url(#pg)"/>
+      <rect x="126" y="48" width="360" height="44" rx="20" fill="url(#pb)"/>
+      <rect x="300" y="46" width="22" height="48" fill="url(#pg)"/>
+      <rect x="330" y="38" width="150" height="10" rx="5" fill="url(#pg)"/>
+    </svg>
+  </div>
+  <!-- 6 end card -->
+  <div class="layer paper" id="L_end">
+    <div class="logo" id="logo" style="left:340px;top:200px"><div class="r">RED</div><div class="c">CARPET</div><div class="b">TOURS PVT LTD</div></div>
+    <div class="abs ser" id="e1" style="left:0;right:0;top:700px;text-align:center;font-size:130px;color:var(--ink);line-height:1">Your visa,</div>
+    <div class="abs ser" id="e2" style="left:0;right:0;top:840px;text-align:center;font-size:150px;font-style:italic;color:var(--red);line-height:1">sorted.</div>
+    <svg class="abs" id="e2u" width="520" height="40" viewBox="0 0 520 40" style="left:280px;top:1000px"><path id="e2p" d="M8 26 C120 10 300 8 512 18" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/></svg>
+    <div class="abs pop" id="e3" style="left:0;right:0;top:1100px;text-align:center;font-size:36px;color:#555;letter-spacing:1px">Tourist · Business · Family · e-Visa · m-Visa</div>
+    <div id="eflags"></div>
+    <div class="btn" id="btn" style="top:1560px">Apply today →</div>
+  </div>
+  <!-- red carpet roll transition -->
+  <div class="abs" id="carpet" style="left:0;width:1080px;height:2000px;display:none;z-index:45;background:linear-gradient(90deg,#7d1020,#a6192e 18%,#b8233a 50%,#a6192e 82%,#7d1020)">
+    <div class="abs" style="left:0;right:0;top:-70px;height:140px;border-radius:70px;background:linear-gradient(180deg,#5c0b17,#c8334a 40%,#e46a7c 52%,#8e1424 80%,#4a0811);box-shadow:0 -10px 30px rgba(0,0,0,.4)"></div>
+    <div class="abs" style="left:40px;right:40px;top:0;bottom:0;border-left:6px solid #d9b45a;border-right:6px solid #d9b45a;opacity:.8"></div>
+  </div>
+  <div class="rc" id="rcb" style="left:56px;top:70px;display:none"><span>RC</span></div>
+  <div id="vig"></div>
+  <canvas id="grain" width="560" height="1000" style="width:1120px;height:2000px"></canvas>
+</div>
+<script>
+const W = 1080, H = 1920, FPS = 30;
+const C = TL.cues, S = TL.scenes;
+const $ = id => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const eo = x => 1 - Math.pow(1 - x, 3), eio = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const eb = x => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+const tw = (t, t0, d, e = eo) => e(clamp((t - t0) / d));
+const lerp = (a, b, k) => a + (b - a) * k;
+function rng(seed) { let s = seed >>> 0; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+const cs = k => C[k][0], ce = k => C[k][0] + C[k][1];
+
+/* ---------- textures ---------- */
+function noiseCanvas(w, h, seed, fn) { const c = document.createElement('canvas'); c.width = w; c.height = h; const x = c.getContext('2d'); const d = x.createImageData(w, h); const r = rng(seed);
+  for (let i = 0; i < w * h; i++) { const v = fn(r, i % w, (i / w) | 0); d.data.set(v, i * 4); } x.putImageData(d, 0, 0); return c; }
+const grains = [...Array(6)].map((_, k) => noiseCanvas(560, 1000, 11 + k, r => { const v = 128 + (r() - .5) * 255; return [v, v, v, 255]; }));
+const paperTex = noiseCanvas(540, 960, 3, (r) => { const v = r() < .004 ? 150 + r() * 40 : 238 + r() * 10; return [v, v - 2, v - 6, 255]; });
+const paperURL = paperTex.toDataURL();
+document.querySelectorAll('.paper').forEach(e => { e.style.backgroundImage = `url(${paperURL})`; e.style.backgroundSize = '1080px 1920px'; });
+
+// value-noise fbm
+function fbmField(w, h, seed, oct = 5, base = 24) { const r = rng(seed); const f = new Float32Array(w * h);
+  for (let o = 0; o < oct; o++) { const g = base * 2 ** o, cell = W / g * (w / W), gw = Math.ceil(w / cell) + 2, gh = Math.ceil(h / cell) + 2; const grid = Float32Array.from({ length: gw * gh }, r); const amp = .5 ** o;
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const gx = x / cell, gy = y / cell, x0 = gx | 0, y0 = gy | 0, fx = gx - x0, fy = gy - y0, sx = fx * fx * (3 - 2 * fx), sy = fy * fy * (3 - 2 * fy);
+      const a = grid[y0 * gw + x0], b = grid[y0 * gw + x0 + 1], c = grid[(y0 + 1) * gw + x0], d = grid[(y0 + 1) * gw + x0 + 1];
+      f[y * w + x] += amp * lerp(lerp(a, b, sx), lerp(c, d, sx), sy); } }
+  return f; }
+// clouds texture (tall, for scrolling)
+const CW = 270, CH = 960; const cf = fbmField(CW, CH, 5, 5, 3);
+const clouds = noiseCanvas(CW, CH, 1, (r, x, y) => { const v = cf[y * CW + x] / 1.94; const k = clamp((v - .42) / .3); const kk = k * k * (3 - 2 * k);
+  const sky = [lerp(46, 120, y / CH), lerp(110, 170, y / CH), lerp(196, 230, y / CH)]; const shade = lerp(.78, 1, clamp((v - .5) / .3));
+  return [lerp(sky[0], 255 * shade, kk), lerp(sky[1], 255 * shade, kk), lerp(sky[2], 255 * shade * 1.02, kk), 255]; });
+// land texture
+const lf = fbmField(540, 960, 9, 5, 6);
+const landTex = noiseCanvas(540, 960, 2, (r, x, y) => { const v = lf[y * 540 + x] / 1.94 + (r() - .5) * .08; const g = [lerp(70, 168, v), lerp(110, 150, v), lerp(40, 80, v)]; return [g[0], g[1], g[2], 255]; });
+const oceanTex = noiseCanvas(540, 960, 4, (r, x, y) => { const v = lf[(959 - y) * 540 + (539 - x)] / 1.94; return [lerp(18, 40, v), lerp(60, 98, v), lerp(110, 150, v), 255]; });
+
+/* ---------- globe ---------- */
+const land = topojson.feature(WORLD, WORLD.objects.countries);
+const borders = topojson.mesh(WORLD, WORLD.objects.countries, (a, b) => a !== b);
+const gctx = $('globe').getContext('2d');
+const landPat = gctx.createPattern(landTex, 'repeat'), oceanPat = gctx.createPattern(oceanTex, 'repeat'); landPat.setTransform(new DOMMatrix().scale(2)); oceanPat.setTransform(new DOMMatrix().scale(2));
+function drawGlobe(t) { const k = tw(t, 0, 1.7, x => x); const proj = d3.geoOrthographic().scale(lerp(1500, 2700, eio(k))).translate([W / 2, H / 2 + 120]).rotate([-lerp(60, 80, k), -lerp(14, 22, k)]);
+  const path = d3.geoPath(proj, gctx); gctx.fillStyle = '#0d2747'; gctx.fillRect(0, 0, W, H);
+  gctx.beginPath(); path({ type: 'Sphere' }); gctx.fillStyle = oceanPat; gctx.fill();
+  gctx.beginPath(); path(land); gctx.fillStyle = landPat; gctx.fill();
+  gctx.beginPath(); path(borders); gctx.strokeStyle = 'rgba(255,240,210,.35)'; gctx.lineWidth = 1.6; gctx.stroke();
+  gctx.beginPath(); path(d3.geoGraticule10()); gctx.strokeStyle = 'rgba(255,255,255,.07)'; gctx.lineWidth = 1; gctx.stroke();
+  const g = gctx.createRadialGradient(W / 2, H / 2, 300, W / 2, H / 2, 1200); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.45)'); gctx.fillStyle = g; gctx.fillRect(0, 0, W, H); }
+
+/* ---------- sky ---------- */
+const sctx = $('sky').getContext('2d'); sctx.imageSmoothingQuality = 'high';
+function drawSky(t, grey) { const k = (t - S.nums[0]); const sc = 4 + k * .05; const off = (k * 22) % (CH - 480);
+  sctx.filter = grey ? 'grayscale(1) brightness(.75) contrast(1.1)' : 'none';
+  sctx.drawImage(clouds, 0, CH - 480 - off - 480 * (sc / 4 - 1) / 2, CW, 480 * 4 / sc, 0, 0, W, H); sctx.filter = 'none'; }
+
+/* ---------- echo texts ---------- */
+const ECHO = [['n1', '11', 'destinations'], ['n2', '5', 'visa types'], ['n3', '1', 'expert team']];
+const badgeSVG = c => `<svg class="badge" viewBox="0 0 24 24"><path d="M12 1.5l9 5.2v10.6l-9 5.2-9-5.2V6.7z" fill="none" stroke="${c}" stroke-width="2"/><path d="M7.5 12.2l3 3 6-6.2" fill="none" stroke="${c}" stroke-width="2.4"/></svg>`;
+$('echoes').innerHTML = ECHO.map(([k, a, b], i) => `<div id="ec_${k}">${[3, 2, 1].map(g => `<div class="ghost" data-g="${g}">${a}</div>`).join('')}<div class="echo" style="top:820px"><span class="big">${a}</span><span class="sub">${b}${badgeSVG('#fff')}</span></div></div>`).join('');
+
+/* ---------- country grid ---------- */
+const CTRY = [['us', 'USA', 'us'], ['uk', 'UK', 'gb'], ['ca', 'CANADA', 'ca'], ['sch', 'SCHENGEN', 'eu'], ['jp', 'JAPAN', 'jp'], ['cn', 'CHINA', 'cn'], ['tr', 'TURKEY', 'tr'], ['tw', 'TAIWAN', 'tw'], ['sg', 'SINGAPORE', 'sg'], ['au', 'AUSTRALIA', 'au'], ['nz', 'NEW ZEALAND', 'nz']];
+const meas = document.createElement('canvas').getContext('2d');
+function gridFor(i) { const [k, name] = CTRY[i]; const rep = name.length <= 3 ? 3 : name.length <= 6 ? 2 : 1; const line = Array(rep).fill(name).join(' ');
+  meas.font = '100px DMS'; const fs = Math.min(230, 100 * 960 / meas.measureText(line).width); const rows = Math.min(9, Math.floor(1500 / (fs * .98)));
+  return { line, fs, rows }; }
+let gridCache = [];
+const ctryEnd = i => i < CTRY.length - 1 ? cs(CTRY[i + 1][0]) : S.stamps[1];
+
+/* ---------- blueprint ---------- */
+function bpHTML() { return `<div class="abs" style="inset:0;background-color:#a6192e;background-image:linear-gradient(rgba(255,255,255,.13) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.13) 2px,transparent 2px),linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:300px 300px,300px 300px,60px 60px,60px 60px"></div>
+ <svg class="abs" width="1200" height="2040" style="left:0;top:0;opacity:.22" fill="none" stroke="#fff" stroke-width="4">
+  <circle cx="200" cy="1500" r="120"/><circle cx="200" cy="1500" r="92"/><text x="200" y="1512" text-anchor="middle" fill="#fff" stroke="none" font-family="Pop" font-size="34">ARRIVAL</text>
+  <rect x="760" y="1760" width="300" height="160" rx="16"/><text x="910" y="1855" text-anchor="middle" fill="#fff" stroke="none" font-family="Pop" font-size="40">DEPARTED</text>
+  <ellipse cx="150" cy="1080" rx="110" ry="70"/><path d="M60 1080h180M150 1010v140"/>
+  <rect x="860" y="1150" width="200" height="280" rx="18"/><circle cx="960" cy="1270" r="54"/><path d="M906 1270h108M960 1216c-30 30-30 78 0 108M960 1216c30 30 30 78 0 108"/></svg>`; }
+$('bp').innerHTML = bpHTML(); $('bp2').innerHTML = bpHTML();
+
+/* ---------- collage (flat-lay) ---------- */
+function mapPiece() { const c = document.createElement('canvas'); c.width = 460; c.height = 460; const x = c.getContext('2d'); const r = rng(42);
+  x.fillStyle = '#f3e7d3'; x.fillRect(0, 0, 460, 460);
+  x.fillStyle = '#cfe3c2'; for (let i = 0; i < 9; i++) { x.beginPath(); x.ellipse(r() * 460, r() * 460, 20 + r() * 50, 15 + r() * 40, r() * 3, 0, 7); x.fill(); }
+  x.strokeStyle = '#a9d0e8'; x.lineWidth = 26; x.beginPath(); x.moveTo(-20, 300); x.bezierCurveTo(150, 220, 260, 420, 480, 330); x.stroke();
+  for (let i = 0; i < 40; i++) { x.strokeStyle = r() < .2 ? '#f2c66d' : '#fff'; x.lineWidth = r() < .2 ? 7 : 3 + r() * 3; x.beginPath(); const a = r() * 460, b = r() * 460, ang = r() * Math.PI; x.moveTo(a - Math.cos(ang) * 400, b - Math.sin(ang) * 400); x.lineTo(a + Math.cos(ang) * 400, b + Math.sin(ang) * 400); x.stroke(); }
+  x.fillStyle = '#e46b5a'; for (let i = 0; i < 14; i++) { x.fillRect(r() * 440, r() * 440, 8, 8); }
+  x.strokeStyle = 'rgba(0,0,0,.08)'; x.lineWidth = 2; x.strokeRect(152, 0, 1, 460); x.strokeRect(306, 0, 1, 460); x.strokeRect(0, 230, 460, 1); return c.toDataURL(); }
+function boarding(from, to, rot) { let bars = ''; const r = rng(from.charCodeAt(0)); for (let i = 0, x = 330; x < 430; i++) { const w = 2 + (r() * 5 | 0); bars += `<rect x="${x}" y="40" width="${w}" height="110" fill="#222"/>`; x += w + 2 + (r() * 4 | 0); }
+  return `<svg width="460" height="190" viewBox="0 0 460 190" style="transform:rotate(${rot}deg)"><rect width="460" height="190" rx="10" fill="#fbf7ee"/><rect width="460" height="36" rx="10" fill="#a6192e"/><rect y="26" width="460" height="10" fill="#a6192e"/>
+  <text x="18" y="25" fill="#fff" font-family="Pop" font-weight="600" font-size="17" letter-spacing="3">BOARDING PASS</text><text x="300" y="25" fill="#fff" font-family="Pop" font-size="15" letter-spacing="2">ECONOMY</text>
+  <text x="18" y="72" font-family="Pop" font-size="13" fill="#888">FROM</text><text x="18" y="112" font-family="Pop" font-weight="600" font-size="40" fill="#222">${from}</text>
+  <text x="150" y="72" font-family="Pop" font-size="13" fill="#888">TO</text><text x="150" y="112" font-family="Pop" font-weight="600" font-size="40" fill="#222">${to}</text>
+  <text x="18" y="150" font-family="Pop" font-size="13" fill="#888">GATE 21 · SEAT 14A · 06:40</text><line x1="310" y1="40" x2="310" y2="178" stroke="#bbb" stroke-dasharray="5 5"/>${bars}</svg>`; }
+function passport(rot) { return `<svg width="300" height="410" viewBox="0 0 300 410" style="transform:rotate(${rot}deg)"><defs><linearGradient id="pp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#263a66"/><stop offset="1" stop-color="#141f3b"/></linearGradient></defs>
+  <rect width="300" height="410" rx="16" fill="url(#pp)"/><rect x="6" width="10" height="410" fill="rgba(0,0,0,.25)"/>
+  <text x="150" y="92" text-anchor="middle" font-family="DMS" font-size="34" fill="#d9b45a" letter-spacing="4">PASSPORT</text>
+  <g transform="translate(150 230)" fill="none" stroke="#d9b45a" stroke-width="4"><circle r="62"/><ellipse rx="26" ry="62"/><path d="M-62 0h124M-54-30h108M-54 30h108"/></g>
+  <rect x="122" y="340" width="56" height="34" rx="4" fill="none" stroke="#d9b45a" stroke-width="3"/><circle cx="150" cy="357" r="8" fill="none" stroke="#d9b45a" stroke-width="3"/></svg>`; }
+const mapURL = mapPiece();
+$('collage').innerHTML = `
+ <div class="abs shadow cl" style="left:-70px;top:-60px"><img src="${mapURL}" style="width:500px;transform:rotate(-12deg)"></div>
+ <div class="abs shadow cl" style="left:700px;top:-40px"><svg width="400" height="300" viewBox="0 0 400 300" style="transform:rotate(14deg)"><rect width="400" height="300" rx="8" fill="#d8b47a"/><path d="M0 0 L200 150 L400 0" fill="#c9a266"/><path d="M0 300 L170 150M400 300 L230 150" stroke="#b78f55" stroke-width="3"/></svg></div>
+ <div class="abs shadow cl" style="left:240px;top:160px">${boarding('DEL', 'NRT', -18)}</div>
+ <div class="abs shadow cl" style="left:430px;top:40px">${boarding('BOM', 'LHR', 22)}</div>
+ <div class="abs shadow cl" style="left:470px;top:150px">${passport(-14)}</div>`;
+const VTYPES = [['t1', 'TOURIST'], ['t2', 'BUSINESS'], ['t3', 'FAMILY'], ['t4', 'e-VISA'], ['t5', 'm-VISA']];
+$('vst').innerHTML = VTYPES.map(([k, n], i) => `<div class="vstamp" id="vs_${k}" style="left:${430 - (i % 2) * 40}px;top:${980 + i * 180}px"><div class="k">${n}</div><div class="s">${n.includes('VISA') ? 'APPLY WITH US' : 'VISA'} · RED CARPET</div><svg class="arr" viewBox="0 0 70 56" style="border:none"><rect x="3" y="3" width="64" height="50" rx="6" fill="none" stroke="#fff" stroke-width="5"/><path d="M18 28h32M38 16l12 12-12 12" fill="none" stroke="#fff" stroke-width="5"/></svg></div>`).join('');
+
+/* ---------- process lines ---------- */
+const PL = [['p1', 'we check your', 'documents', 470], ['p2', 'we fill every', 'form', 760], ['p3', 'we book your', 'appointment', 1050]];
+$('plines').innerHTML = PL.map(([k, a, b, y]) => `<div id="pl_${k}"><div class="abs pop" style="left:90px;top:${y}px;font-size:44px;color:#6b6b6b">${a}</div>
+ <div class="abs ser" style="left:86px;top:${y + 52}px;font-size:132px;color:var(--ink);line-height:1">${b}</div>
+ <svg class="abs" width="900" height="50" viewBox="0 0 900 50" style="left:86px;top:${y + 196}px"><path class="ul" d="M4 30 C200 14 500 12 ${b.length * 64 + 20} 22" fill="none" stroke="#a6192e" stroke-width="10" stroke-linecap="round"/></svg>
+ <svg class="abs ck" width="120" height="120" viewBox="0 0 120 120" style="left:${b.length * 64 + 130}px;top:${y + 70}px"><path d="M14 64 L46 94 L108 18" fill="none" stroke="#a6192e" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/></svg></div>`).join('');
+document.querySelectorAll('#plines path').forEach(p => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.dataset.len = L; });
+const e2p = $('e2p'); const e2L = e2p.getTotalLength(); e2p.style.strokeDasharray = e2L;
+
+// torn edge
+const tr = rng(77); let tear = []; for (let x = -40; x <= 1120; x += 18 + tr() * 18) tear.push([x, (tr() - .5) * 26]);
+function tearPath(y0, y1, off = 0) { let d = `M-40 -40 L1120 -40 `; for (let i = tear.length - 1; i >= 0; i--) { const [x, j] = tear[i]; d += `L${x} ${lerp(y0, y1, (x + 40) / 1160) + j + off} `; } return d + 'Z'; }
+
+/* ---------- end flags ---------- */
+$('eflags').innerHTML = CTRY.map(([k, n, f], i) => { const row = i < 6 ? 0 : 1, col = row ? i - 6 : i, cnt = row ? 5 : 6; return `<div class="fl" id="ef_${k}" style="left:${540 - cnt * 62 + col * 124 + 12}px;top:${1190 + row * 124}px"><img src="flags/${f}.svg"></div>`; }).join('');
+
+/* ---------- seek ---------- */
+const show = (id, on) => { $(id).style.display = on ? 'block' : 'none'; };
+function setT(el, s) { el.style.transform = s; }
+function seek(f) {
+  const t = f / FPS;
+  // grain
+  const gc = $('grain').getContext('2d'); gc.drawImage(grains[f % 6], 0, 0); $('grain').style.transform = `translate(${(f * 37) % 20 - 10}px,${(f * 53) % 20 - 10}px)`;
+  const tCut = cs('h2') - .2;
+  show('L_globe', t < tCut); show('L_type', t >= tCut && t < S.nums[0]); show('L_sky', t >= S.nums[0] && t < S.stamps[0]);
+  show('L_grid', t >= S.stamps[0] && t < S.types[0]); show('L_blue', t >= S.types[0] && t < S.proc[0]);
+  const carpetA = S.cta[0] - .4; show('L_proc', t >= S.proc[0] && t < carpetA + .35); show('L_end', t >= carpetA + .35);
+  $('rcb').style.display = (t >= S.nums[0] && t < carpetA + .35) ? 'block' : 'none';
+  $('stage').style.transform = '';
+
+  if (t < tCut) { // globe
+    drawGlobe(t); const p = tw(t, .05, tCut - .05, x => x);
+    setT($('plane1'), `translate(${lerp(170, 560, eo(p))}px, 880px)`);
+    const k = tw(t, cs('h1') + .25, .35, eb); $('g_txt').style.opacity = k; setT($('g_txt'), `translateY(${(1 - k) * 40}px)`);
+  } else if (t < S.nums[0]) { // typing
+    const word = 'visa?', a = cs('h2') + .1, n = Math.round(clamp((t - a) / .45) * word.length);
+    $('ty_txt').innerHTML = word.slice(0, n) + `<span class="ibeam" style="opacity:${(Math.floor(t * 3) % 2 || n < word.length) ? 1 : 0}"></span>`;
+    const bw = tw(t, tCut, .3); $('ty_bar').style.width = lerp(0, 760, bw) + 'px'; $('ty_under').style.width = lerp(0, 120 + n * 105, tw(t, a, .5)) + 'px';
+    const kt = tw(t, tCut + .05, .3); $('ty_top').style.opacity = kt; setT($('ty_top'), `translateX(${(1 - kt) * -40}px)`);
+    const kb = tw(t, ce('h2') - .15, .35, eb); setT($('ty_badge'), `scale(${kb}) rotate(${(1 - kb) * -40}deg)`);
+  }
+  if (t >= S.nums[0] && t < S.stamps[0]) { // sky + echoes
+    let cur = 0; ECHO.forEach(([k], i) => { if (t >= cs(k) - .05) cur = i; });
+    const grey = cur === 1; drawSky(t, grey);
+    const kp = (t - S.nums[0]) / (S.stamps[0] - S.nums[0]); setT($('plane2'), `translateY(${lerp(120, -260, kp)}px) scale(${lerp(.85, 1.1, kp)})`); $('plane2').querySelector('path').setAttribute('fill', grey ? '#2a2a2a' : '#1d4757');
+    ECHO.forEach(([k, a, b], i) => { const el = $('ec_' + k); el.style.display = i === cur ? 'block' : 'none'; if (i !== cur) return; const t0 = cs(k) - .05;
+      const col = grey ? '#ff4d63' : '#fff';
+      const main = el.querySelector('.echo'); main.style.color = col; main.querySelector('.badge').innerHTML = badgeSVG(col).replace(/<\/?svg[^>]*>/g, '');
+      const km = tw(t, t0, .35, eb); setT(main, `translateY(${(1 - km) * 60}px)`); main.style.opacity = clamp((t - t0) / .12);
+      main.querySelector('.sub').style.letterSpacing = lerp(26, 0, tw(t, t0, .7)) + 'px';
+      el.querySelectorAll('.ghost').forEach(g => { const n = +g.dataset.g; const kg = tw(t, t0 + .06 * n, .45); g.style.top = (820 - n * 240 * kg) + 'px'; g.style.opacity = (1 - n * .27) * kg * (grey ? 1 : 1); g.style.webkitTextStroke = `3px ${grey ? 'rgba(255,77,99,.9)' : 'rgba(255,255,255,.9)'}`; });
+    });
+  }
+  if (t >= S.stamps[0] && t < S.types[0]) { // country grid
+    let i = 0; CTRY.forEach(([k], j) => { if (t >= cs(k) - .04) i = j; });
+    const [k, name, flag] = CTRY[i], t0 = cs(k) - .04, dur = ctryEnd(i) - t0;
+    const g = gridCache[i] || (gridCache[i] = gridFor(i)); const inv = i % 2 === 1;
+    $('L_grid').style.background = inv ? `var(--red)` : `var(--paper) url(${paperURL}) 0 0/1080px 1920px`;
+    const rowsEl = $('rows'); if (rowsEl.dataset.i != i) { rowsEl.dataset.i = i; rowsEl.innerHTML = [...Array(g.rows)].map((_, r) => `<div class="row" style="font-size:${g.fs}px;top:${(H - g.rows * g.fs * .98) / 2 + r * g.fs * .98}px;color:${inv ? '#fff' : 'var(--red)'}">${g.line}</div>`).join(''); }
+    rowsEl.querySelectorAll('.row').forEach((r, j) => { const kr = tw(t, t0 + j * .025, .2); r.style.opacity = kr * (j % 2 ? .38 : 1); r.style.transform = `translateY(${(1 - kr) * 30}px)`; });
+    setT(rowsEl, `scale(${lerp(1.06, 1, tw(t, t0, dur))})`); rowsEl.style.transformOrigin = '540px 960px';
+    if ($('flagimg').dataset.f !== flag) { $('flagimg').src = `flags/${flag}.svg`; $('flagimg').dataset.f = flag; }
+    const kf = tw(t, t0 + .06, .3, eb); setT($('flagbox'), `scale(${lerp(.4, 1, kf)}) rotate(${(i % 2 ? 3 : -3) * kf + (1 - kf) * 12}deg)`); $('flagbox').style.opacity = clamp((t - t0 - .06) / .08);
+    const wp = t * 3; $('wave').style.background = `repeating-linear-gradient(100deg, rgba(255,255,255,.0) ${0 + (wp * 60) % 220}px, rgba(255,255,255,.45) ${55 + (wp * 60) % 220}px, rgba(0,0,0,.25) ${130 + (wp * 60) % 220}px, rgba(255,255,255,0) ${220 + (wp * 60) % 220}px)`;
+    const sOn = t >= cs('sch2') - .05 && t < cs('jp') - .04; $('sch_bar').style.display = sOn ? 'block' : 'none';
+    if (sOn) { const txt = '30 countries · 1 visa', a = cs('sch2'), n = Math.round(clamp((t - a) / .9) * txt.length);
+      $('sch_bar').style.width = lerp(0, 980, tw(t, a - .05, .25)) + 'px'; $('sch_txt').innerHTML = txt.slice(0, n) + '<span class="ibeam"></span>'; $('sch_under').style.width = (n * 40) + 'px'; }
+  }
+  if (t >= S.types[0] && t < S.proc[0]) { // blueprint + stamps
+    const t0 = S.types[0]; setT($('bp'), `translateY(${-(t - t0) * 12}px)`);
+    document.querySelectorAll('#collage .cl').forEach((c, j) => { const k = tw(t, t0 + j * .07, .45); c.style.transform = `translateY(${(1 - k) * -520}px) rotate(${(1 - k) * (j % 2 ? 10 : -10)}deg)`; });
+    [['tp1', 0], ['tp2', .12]].forEach(([id, d]) => { const k = tw(t, cs('t0') + d, .35); $(id).style.opacity = k; setT($(id), `translateY(${(1 - k) * 50}px)`); });
+    let last = -1; VTYPES.forEach(([k], i) => { if (t >= cs(k) - .03) last = i; });
+    VTYPES.forEach(([k], i) => { const el = $('vs_' + k); const kk = tw(t, cs(k) - .03, .22, eb); el.style.opacity = t >= cs(k) - .03 ? (i === last ? 1 : .42) : 0;
+      setT(el, `scale(${lerp(1.5, 1, kk)}) rotate(${(i % 2 ? 3 : -2)}deg)`); });
+    const sh = t >= S.types[0] + .05 ? 0 : 0; $('stage').style.transform = '';
+  }
+  if (t >= S.proc[0] && t < carpetA + .35) { // torn paper
+    const t0 = S.proc[0]; setT($('bp2'), `translateY(${-(t - S.types[0]) * 12}px)`);
+    const k = tw(t, t0 - .02, .45, eio); const y0 = lerp(-120, 1720, k), y1 = lerp(-160, 1240, k);
+    $('tear').innerHTML = `<path d="${tearPath(y0 + 10, y1 + 10, 6)}" fill="#e6e1d8"/><path d="${tearPath(y0, y1)}" fill="#f7f5f1"/>`;
+    let penAt = null;
+    PL.forEach(([kk, a, b], i) => { const el = $('pl_' + kk); const s = cs(kk); const ka = tw(t, s - .05, .3); el.style.opacity = ka; el.style.transform = `translateY(${(1 - ka) * 40}px)`;
+      const ul = el.querySelector('.ul'); const L = +ul.dataset.len; const ku = tw(t, s + .15, .5, eio); ul.style.strokeDashoffset = L * (1 - ku);
+      const ck = el.querySelector('.ck path'); const cL = +ck.dataset.len; ck.style.strokeDashoffset = cL * (1 - tw(t, s + .55, .25));
+      if (t > s + .05 && t < s + .9) { const pt = ul.getPointAtLength(L * ku); const box = ul.ownerSVGElement; penAt = [parseFloat(box.style.left) + pt.x, parseFloat(box.style.top) + pt.y, (t - s - .05) / .85]; } });
+    $('pen').style.display = penAt ? 'block' : 'none';
+    if (penAt) { const [x, y, q] = penAt; const fade = Math.min(1, q * 6, (1 - q) * 6); $('pen').style.opacity = fade; setT($('pen'), `translate(${x}px, ${y - 70}px) rotate(-38deg)`); }
+  }
+  // carpet roll
+  const kc = clamp((t - carpetA) / .75); $('carpet').style.display = kc > 0 && kc < 1 ? 'block' : 'none';
+  if (kc > 0 && kc < 1) $('carpet').style.top = lerp(1990, -2100, eio(kc)) + 'px';
+  if (t >= carpetA + .35) { // end card
+    const kl = tw(t, cs('c1') - .1, .5, eb); setT($('logo'), `translateY(${(1 - kl) * 80}px) scale(${lerp(.7, 1, kl)})`); $('logo').style.opacity = clamp((t - cs('c1') + .1) / .15);
+    [['e1', cs('c2') - .05], ['e2', cs('c2') + .3]].forEach(([id, s]) => { const k = tw(t, s, .35); $(id).style.opacity = k; setT($(id), `translateY(${(1 - k) * 50}px)`); });
+    e2p.style.strokeDashoffset = e2L * (1 - tw(t, cs('c2') + .6, .45, eio));
+    const k3 = tw(t, cs('c2') + .7, .4); $('e3').style.opacity = k3;
+    CTRY.forEach(([k], i) => { const kf = tw(t, cs('c2') + .8 + i * .05, .3, eb); setT($('ef_' + k), `scale(${kf})`); });
+    const kb = tw(t, cs('c3') - .05, .4, eb); const pulse = t > cs('c3') + .5 ? 1 + .03 * Math.sin((t - cs('c3')) * 7) : 1; setT($('btn'), `scale(${kb * pulse})`);
+  }
+  // gentle handheld drift on everything
+  const dx = Math.sin(t * 1.3) * 4 + Math.sin(t * 2.9) * 2, dy = Math.cos(t * 1.1) * 4;
+  document.querySelectorAll('.layer').forEach(l => { if (l.style.display === 'block') l.style.transform = `translate(${dx}px,${dy}px) scale(1.012)`; });
+}
+document.querySelectorAll('.ck path').forEach(p => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.dataset.len = L; });
+window.seek = seek;
+window.READY = Promise.all(['100px DMS', 'italic 100px DMS', '400 50px Pop', '500 50px Pop', '600 50px Pop', '700 50px Cav', '300 50px Inter'].map(f => document.fonts.load(f)))
+  .then(() => Promise.all([...document.images].map(i => i.complete ? 1 : new Promise(r => i.onload = i.onerror = r)))).then(() => { gridCache = []; seek(0); });
+</script>
+</body></html>
