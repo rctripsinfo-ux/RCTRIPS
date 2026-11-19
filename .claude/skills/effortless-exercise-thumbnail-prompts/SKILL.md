@@ -156,3 +156,11 @@ Measured from 12 of their outlier thumbnails. The first attempts were rejected b
 ## SHORTS COVERS (owner, 18 Nov 2026, final)
 - Keep the brand red/teal thumbnails as before (`thumbs/brand`, `thumbs/week1`), appended to the last frame. The Captain Workout cover formula was tried and DROPPED.
 - **H is always EXACTLY the reference character:** semi-realistic detailed comic, never flat or 2D. Prompt line: "Do NOT make him flat or 2D or simplified."
+
+
+## BACKGROUND RULE (owner, 19 Nov 2026, latest, overrides older background rules)
+- **Every thumbnail, long or short, uses the plain flat CREAM background `#F5F0E6`.** Nothing else goes in the background.
+- Brand dark red `#7A1A1A` and teal `#0F8B85` stay as accents only: badges, words, glows.
+- Text is dark navy `#1E2A4A` extra-bold italic.
+- Formula that worked (the push-up mistakes video): one surprising visual gag, a 2–3 word question, the exact H big and clear.
+- Reference: `work/long06/thumb/sk_e.png` (BALLOON vs CABLE).
