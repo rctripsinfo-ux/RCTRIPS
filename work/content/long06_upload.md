@@ -1,10 +1,11 @@
 # Long video: `final/long06.mp4` (16:9) + `final/long06.srt` + thumbnails `long06/thumb/sk_a.png`, `sk_b.png` (Test & Compare)
 
-**Title:** How Skinny Guys Beat Big Guys (It's Not Muscle)
-
-Backup titles (Test & Compare):
-- I Lost to a 60 kg Guy. Here's Why.
-- Why Some Skinny Guys Are Stronger Than Big Guys
+## 3 thumbnail + title pairs for Test & Compare
+| # | Thumbnail | Title |
+|---|---|---|
+| A | `long06/thumb/sk_c.png` (IT'S NOT MUSCLE, X-ray arms) | Why Skinny Guys Are Stronger Than Big Guys (It's Not Muscle) |
+| B | `long06/thumb/sk_a.png` (HOW?! arm-wrestling) | I Lost to a 60 kg Guy in 4 Seconds. Here's Why. |
+| C | `long06/thumb/sk_b.png` (90 KG vs 60 KG, crown) | 90 kg vs 60 kg: Why the Skinny Guy Won |
 
 **Description**
 ```
