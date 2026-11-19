@@ -26,8 +26,9 @@ const zoomAt = (t: number, fps: number, frame: number) => {
 };
 
 const Captions: React.FC<{t: number; frame: number; fps: number}> = ({t, frame, fps}) => {
+  const hidden = ((data as any).hideCaptions || []).some(([a, b]: number[]) => t >= a && t < b);
   const cap = (data.captions as Cap[]).find((c) => t >= c.s && t < c.e);
-  if (!cap) return null;
+  if (!cap || hidden) return null;
   const pop = spring({frame: frame - cap.s * fps, fps, config: {damping: 12, stiffness: 260}});
   return (
     <AbsoluteFill style={{justifyContent: 'flex-start', alignItems: 'center', top: 1330}}>

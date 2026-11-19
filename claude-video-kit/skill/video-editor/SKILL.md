@@ -27,6 +27,7 @@ exports/      final videos
 2. Run `python3 SKILL_DIR/scripts/setup_check.py`. It prints JSON with `missing` tools and install commands for this OS.
 3. If anything is missing, tell the user in one line what you will install and why, then install it (ask permission once for all). Re-run the check until `ok: true`.
 4. Remotion project: if `work/remotion/` doesn't exist, follow `SKILL_DIR/reference/remotion-playbook.md` → "Scaffold".
+5. Effects engine: `bash SKILL_DIR/effects/scripts/setup.sh` until it prints `READY` (see `reference/effects.md`).
 
 ### Step 1 — Get the reference
 If `styles/` already has saved styles, first ask: "Use your saved style <names>, or copy a new one?"
@@ -57,7 +58,8 @@ Wait for the file. Confirm what you received (name, length, orientation).
 4. Tell the user in one line: "Cut 140 s → 86 s (removed pauses + 4 retakes)."
 
 ### Step 5 — Build the edit
-Follow `SKILL_DIR/reference/remotion-playbook.md` → "Build". Use STYLE.md as the law for the look. Use the transcript to decide WHERE each element goes (hook text, emphasis words, zooms on key lines, pop-ups when a number/app/list is mentioned).
+1. **Effects pass:** pick effects from `SKILL_DIR/reference/effects.md` that match the reference style and the script (6–12 per minute). Check stills, then render `fx.mp4`. Skip if the style is minimal.
+2. **Overlay pass:** follow `SKILL_DIR/reference/remotion-playbook.md` → "Build", using `fx.mp4` (or `cut.mp4`) as the main video. Use STYLE.md as the law for the look. Use the transcript to decide WHERE each element goes (hook text, emphasis words, zooms on key lines, pop-ups when a number/app/list is mentioned).
 - First render a **preview** (stills of key moments or the first ~8 s) and show it. Fix issues before the full render — this saves time and usage.
 - Then render the full video to `exports/<project>_v1.mp4` at the reference's aspect ratio (default 1080×1920, 30 fps).
 
