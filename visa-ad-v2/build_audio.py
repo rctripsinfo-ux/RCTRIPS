@@ -28,9 +28,13 @@ E(6.95, L.sfx_tick, .35)
 for t in (7.2, 7.45, 7.8): E(t, L.sfx_tick, .2)
 E(9.0, lambda: L.sfx_whoosh(.5), .5); E(9.35, lambda: L.sfx_whoosh(.6), .6)
 # S4 stamps on the beat
-for j in range(10): E(9.95 + j * .11, L.sfx_tick, .18)
+E(9.9, L.sfx_tick, .3); E(10.05, L.sfx_tick, .25)
 s0 = 10.514
-for i in range(11): E(s0 + i * B * 1.5 + .2, L.sfx_stamp, .85)
+durs = [2.5 if i == 3 else 1.5 for i in range(11)]
+for i in range(11):
+    st = s0 + sum(durs[:i]) * B; E(st - .02, L.sfx_stamp, .8); E(st - .02, L.sfx_impact, .18)
+    if i == 3:
+        for j in range(10): E(st + .25 + j * .055, L.sfx_type, .3)
 E(19.95, L.sfx_paper, .7); E(19.95, lambda: L.sfx_whoosh(.5), .4)   # page turn
 # S5 cards
 for i in range(5): E(20.9 + i * .55, lambda: L.sfx_whoosh(.3), .3); E(21.25 + i * .55, L.sfx_ding, .1)

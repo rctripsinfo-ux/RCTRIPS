@@ -42,6 +42,10 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
 .logo .r{position:absolute;left:0;right:0;top:80px;text-align:center;font-family:Inter;font-weight:300;font-size:142px;color:#fff;letter-spacing:6px;line-height:1}
 .logo .c{position:absolute;left:0;right:0;top:236px;text-align:center;font-family:Inter;font-weight:300;font-size:44px;color:#fff;letter-spacing:21px;padding-left:21px}
 .logo .b{position:absolute;left:0;right:0;bottom:0;height:60px;background:#fff;text-align:center;font-family:Inter;font-size:34px;letter-spacing:8px;line-height:60px;color:#111}
+.row{position:absolute;left:0;right:0;text-align:center;font-family:DMS;white-space:nowrap;line-height:1}
+.flagbox{position:absolute;left:50%;top:50%;width:460px;height:345px;margin:-172px 0 0 -230px;box-shadow:0 30px 60px rgba(0,0,0,.35),0 4px 10px rgba(0,0,0,.2);overflow:hidden}
+.flagbox img{width:100%;height:100%;display:block}
+.flagbox .wave{position:absolute;inset:0;mix-blend-mode:soft-light}
 .cf{position:absolute;width:92px;height:92px;border-radius:50%;overflow:hidden;border:4px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.25)}
 .cf img{width:100%;height:100%;object-fit:cover}
 </style>
@@ -102,12 +106,17 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
 <div class="sc" id="s4">
   <div class="abs" id="page4" style="inset:0;background:#EDEBE0"><svg class="abs guil" width="1080" height="1920" style="left:0;top:0"></svg></div>
   <div id="cam4" class="abs" style="inset:0;transform-origin:540px 960px">
-    <div class="abs pop" style="left:0;right:0;top:150px;text-align:center;font-size:44px;color:var(--grey);letter-spacing:2px" id="d0">VISAS FOR</div>
-    <div class="abs ser" style="left:0;right:0;top:220px;text-align:center;font-size:128px;color:var(--ink)" id="d1"><span id="dnum">11</span> <i style="color:var(--red)">destinations</i></div>
-    <div id="stamps"></div>
+    <div class="abs pop" style="left:0;right:0;top:700px;text-align:center;font-size:52px;color:var(--grey);letter-spacing:3px" id="d0">WE PROCESS VISAS FOR</div>
+    <div class="abs ser" style="left:0;right:0;top:810px;text-align:center;font-size:190px;color:var(--red)" id="d1">your dream</div>
+    <div class="abs ser" style="left:0;right:0;top:1020px;text-align:center;font-size:150px;color:var(--ink);font-style:italic" id="d2">destinations</div>
   </div>
-  <div class="abs pop" style="right:50px;bottom:40px;font-size:30px;color:#9b978c;letter-spacing:4px">— 07 —</div>
-</div>
+  <div class="abs" id="grid4" style="inset:0;display:none">
+    <div id="rows"></div>
+    <div class="flagbox" id="flagbox"><img id="flagimg"><div class="wave" id="wave"></div></div>
+    <div class="abs pop" id="gchip" style="left:50%;top:110px;transform:translateX(-50%);padding:16px 40px;border-radius:50px;font-size:42px;font-weight:600;letter-spacing:3px;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.15)"></div>
+    <div class="abs pop" id="schbar" style="left:0;top:1560px;height:150px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.12);overflow:hidden;display:none"><div id="schtxt" style="position:absolute;left:60px;top:28px;font-size:76px;color:#161616;white-space:nowrap"></div></div>
+  </div>
+  </div>
 
 <!-- S5 VISA TYPES -->
 <div class="sc" id="s5">
@@ -182,12 +191,12 @@ const CTRY = [['USA', 'us'], ['UK', 'gb'], ['CANADA', 'ca'], ['SCHENGEN', 'eu', 
 const INK = ['#A6192E', '#1f3a6e', '#1e6b4f', '#5a2d82', '#8a3b12', '#0f5f6b'];
 const SHAPE = ['rect', 'circle', 'oct', 'rect2'];
 const pos = i => { const r = Math.floor(i / 3), c = i % 3; const cnt = r === 3 ? 2 : 3; return [cnt === 3 ? 45 + c * 335 : 212 + c * 335, 470 + r * 345]; };
-$('stamps').innerHTML = CTRY.map(([n, f, sub], i) => { const [x, y] = pos(i), ink = INK[i % INK.length], sh = SHAPE[i % 4];
-  const border = sh === 'circle' ? `border:9px double ${ink};border-radius:50%` : sh === 'oct' ? `border:7px solid ${ink};border-radius:60px` : sh === 'rect2' ? `border:9px double ${ink};border-radius:14px` : `border:7px solid ${ink};border-radius:8px`;
-  const rot = ((i * 37) % 17) - 8;
-  return `<div class="stamp" id="st${i}" style="left:${x}px;top:${y}px;color:${ink};${border};--r:${rot}deg;-webkit-mask-image:url(${inkURL});-webkit-mask-size:300px 300px">
-   <div class="sub" style="margin:0 0 10px">VISA</div><div class="fl"><img src="flags/${f}.svg"></div><div class="nm" style="font-size:${n.length > 8 ? 31 : 38}px">${n}</div><div class="sub">${sub || 'ENTRY'}</div></div>`; }).join('');
-
+const DUR = CTRY.map(([n]) => n === 'SCHENGEN' ? 2.5 : 1.5); const S0 = 10.514;
+const START = CTRY.map((_, i) => S0 + DUR.slice(0, i).reduce((x, y) => x + y, 0) * B);
+const meas = document.createElement('canvas').getContext('2d'); const gcache = {};
+function gridFor(i) { const name = CTRY[i][0]; const rep = name.length <= 3 ? 3 : name.length <= 6 ? 2 : 1; const line = Array(rep).fill(name).join(' ');
+  meas.font = '100px DMS'; const fs = Math.min(230, 100 * 960 / meas.measureText(line).width); return { line, fs, rows: Math.min(9, Math.floor(1560 / (fs * .98))) }; }
+window.TL.countryStarts = START;
 /* ===== S5 cards ===== */
 const ICON = {
   tour: '<g fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M60 92V52"/><path d="M60 52c-8-12-24-14-34-6 12 0 22 2 34 6zM60 52c8-12 24-14 34-6-12 0-22 2-34 6zM60 52c-4-14 2-24 12-28-4 10-8 18-12 28zM60 52c-10-8-12-20-6-28 2 10 4 18 6 28z"/><path d="M34 92h52"/></g>',
@@ -258,20 +267,27 @@ function seek(f) {
   if (vis('s4', t)) {
     const a = 9.6, kin = tw(t, a, .3, eo); set('s4', { opacity: kin, zIndex: 4, transformOrigin: '0 50%' });
     set('d0', { opacity: tw(t, a + .2, .3) }); set('d1', { opacity: tw(t, a + .3, .3), transform: `translateY(${(1 - tw(t, a + .3, .5, eexp)) * 40}px)` });
-    $('dnum').textContent = Math.round(lerp(1, 11, tw(t, a + .3, 1.2, eo)));
-    const s0 = 10.514, step = B * 1.5; let cx = 540, cy = 960;
-    CTRY.forEach((_, i) => { const t0 = s0 + i * step, k = tw(t, t0, .2, x => x * x); const el = $('st' + i);
-      el.style.opacity = t >= t0 ? 1 : 0; el.style.transform = `scale(${lerp(1.9, 1, k)}) rotate(var(--r))`;
-      if (t >= t0 - .35) { const [x, y] = pos(i); cx = x + 150; cy = y + 150; } });
-    // camera: follow active stamp gently, zoom out at the end
-    const zoomOut = tw(t, s0 + 10 * step + .5, .8, eio); const z = lerp(1.05, 1, zoomOut);
-    const camx = lerp(540, cx, .35 * (1 - zoomOut)), camy = lerp(960, cy, .35 * (1 - zoomOut));
-    if (!$('cam4').dataset.x) { $('cam4').dataset.x = camx; $('cam4').dataset.y = camy; }
-    // smooth camera with deterministic easing: recompute from time
-    const sm = (tt) => { let x = 540, y = 960; CTRY.forEach((_, i) => { const t0 = s0 + i * step - .35; if (tt >= t0) { const [px, py] = pos(i); const kk = tw(tt, t0, .5, eio); x = lerp(x, px + 150, kk); y = lerp(y, py + 150, kk); } }); return [x, y]; };
-    const [sx, sy] = sm(t); const fx = lerp(540, sx, .12 * (1 - zoomOut)), fy = lerp(960, sy, .12 * (1 - zoomOut));
-    const shake = CTRY.reduce((m, _, i) => { const d = t - (s0 + i * step + .2); return d > 0 && d < .15 ? (1 - d / .15) * 5 : m; }, 0);
-    set('cam4', { transform: `translate(${540 - fx + Math.sin(t * 80) * shake}px,${960 - fy}px) scale(${z})`, transformOrigin: `${fx}px ${fy}px` });
+    const g4 = t >= S0 - .02; $('grid4').style.display = g4 ? 'block' : 'none'; $('cam4').style.display = g4 ? 'none' : 'block';
+    set('d2', { opacity: tw(t, a + .45, .3), transform: `translateY(${(1 - tw(t, a + .45, .5, eexp)) * 40}px)` });
+    $('cam4').style.transform = `scale(${lerp(1.08, 1, tw(t, a, 1))})`; $('cam4').style.transformOrigin = '540px 960px';
+    if (g4) {
+      let i = 0; START.forEach((st, j) => { if (t >= st - .02) i = j; });
+      const t0 = START[i] - .02, dur = (i < 10 ? START[i + 1] : 19.95) - t0, inv = i % 2 === 1;
+      const g = gcache[i] || (gcache[i] = gridFor(i));
+      $('grid4').style.background = inv ? '#A6192E' : `#F2EFEA url(${paperURL}) 0 0/1080px 1920px`;
+      const rowsEl = $('rows'); if (rowsEl.dataset.i != i) { rowsEl.dataset.i = i; rowsEl.innerHTML = [...Array(g.rows)].map((_, r) => `<div class="row" style="font-size:${g.fs}px;top:${(H - g.rows * g.fs * .98) / 2 + 60 + r * g.fs * .98}px;color:${inv ? '#fff' : '#A6192E'}">${g.line}</div>`).join(''); }
+      rowsEl.querySelectorAll('.row').forEach((r, j) => { const kr = tw(t, t0 + j * .025, .2); r.style.opacity = kr * (j % 2 ? .35 : 1); r.style.transform = `translateY(${(1 - kr) * 30}px)`; });
+      rowsEl.style.transformOrigin = '540px 960px'; rowsEl.style.transform = `scale(${lerp(1.06, 1, tw(t, t0, dur))})`;
+      const flag = CTRY[i][1]; if ($('flagimg').dataset.f !== flag) { $('flagimg').src = `flags/${flag}.svg`; $('flagimg').dataset.f = flag; }
+      const kf = tw(t, t0 + .05, .3, eb); $('flagbox').style.opacity = clamp((t - t0 - .05) / .08);
+      $('flagbox').style.transform = `translateY(60px) scale(${lerp(.4, 1, kf)}) rotate(${(i % 2 ? 3 : -3) * kf + (1 - kf) * 12}deg)`;
+      const wp = (t * 180) % 220; $('wave').style.background = `repeating-linear-gradient(100deg, rgba(255,255,255,0) ${wp}px, rgba(255,255,255,.45) ${55 + wp}px, rgba(0,0,0,.25) ${130 + wp}px, rgba(255,255,255,0) ${220 + wp}px)`;
+      set('gchip', { background: inv ? '#fff' : '#A6192E', color: inv ? '#A6192E' : '#fff', opacity: 1 });
+      $('gchip').textContent = 'VISA ✓';
+      const sOn = CTRY[i][0] === 'SCHENGEN'; $('schbar').style.display = sOn ? 'block' : 'none';
+      if (sOn) { const txt = '30 countries · 1 visa', n = Math.round(clamp((t - t0 - .25) / .55) * txt.length);
+        $('schbar').style.width = lerp(0, 940, tw(t, t0 + .1, .3)) + 'px'; $('schtxt').innerHTML = txt.slice(0, n) + '<span style="display:inline-block;width:5px;height:70px;background:#161616;vertical-align:-8px;margin-left:4px"></span>'; }
+    }
     // page turn out
     const kt = tw(t, 19.95, .45, ei); $('s4').style.transform = `perspective(2600px) rotateY(${-kt * 100}deg)`; $('s4').style.zIndex = 6; $('s4').style.boxShadow = kt ? `0 0 ${80 * kt}px rgba(0,0,0,${.4 * kt})` : '';
   }
