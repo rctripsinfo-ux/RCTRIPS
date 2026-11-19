@@ -1,5 +1,5 @@
 """Voice (Kokoro), music and SFX for the visa ad. Writes out/voice.wav, out/audio.wav and timeline.js."""
-import json, subprocess
+import json, subprocess, sys
 from pathlib import Path
 import numpy as np
 import soundfile as sf
@@ -124,7 +124,7 @@ def sfx_riser(d=1.2):
 
 
 # ---------------- music: warm travel pulse, 112 bpm ----------------
-def music(total, bpm=112):
+def music(total, bpm=112, intro_end=3.6, outro=None):
     n = int((total + 1) * SR); out = np.zeros((n, 2))
     beat = 60 / bpm; bar = beat * 4
     # Bb major-ish progression: I - V - vi - IV  (in A: A E F#m D)
@@ -143,7 +143,7 @@ def music(total, bpm=112):
     nb = int(total / bar) + 2
     for b in range(nb):
         t0 = b * bar; root, ch = prog[b % 4]
-        intro = t0 < 3.6
+        intro = t0 < intro_end or (outro is not None and t0 >= outro)
         # pad
         dn = int(bar * SR) + 2400; tt = np.arange(dn) / SR
         pad = sum(np.sin(2 * np.pi * hz(m) * tt + .4 * np.sin(2 * np.pi * .3 * tt)) +
@@ -173,15 +173,38 @@ def music(total, bpm=112):
     return out
 
 
+BPM = 112
+# music-only cut: cue start positions in beats (cuts land on the beat), duration in beats
+BEATS = {'h1': (.5, 2), 'h2': (3, 2.4), 'n1': (6, 2.6), 'n2': (9, 2.6), 'n3': (12, 2.6),
+         'us': (16, 1.6), 'uk': (18, 1.6), 'ca': (20, 1.6), 'sch': (22, 1), 'sch2': (23, 2.6), 'jp': (26, 1.6), 'cn': (28, 1.6),
+         'tr': (30, 1.6), 'tw': (32, 1.6), 'sg': (34, 1.6), 'au': (36, 1.6), 'nz': (38, 1.6),
+         't0': (40, 2), 't1': (42.5, 1.2), 't2': (44, 1.2), 't3': (45.5, 1.2), 't4': (47, 1.2), 't5': (48.5, 1.6),
+         'p1': (52, 2), 'p2': (54.5, 2), 'p3': (57, 2), 'c1': (60, 2), 'c2': (62.5, 2.4), 'c3': (65.5, 2)}
+BSCENES = {'hook': (0, 6), 'nums': (6, 16), 'stamps': (16, 40), 'types': (40, 52), 'proc': (52, 60), 'cta': (60, 72)}
+
+
+def beat_timeline():
+    b = 60 / BPM
+    return {'cues': {k: [round(s * b, 3), round(d * b, 3)] for k, (s, d) in BEATS.items()},
+            'scenes': {k: [round(s * b, 3), round(e * b, 3)] for k, (s, e) in BSCENES.items()},
+            'total': round(72 * b, 3)}
+
+
 def main():
-    clips = tts()
-    tl, placed = layout(clips)
+    global OUT
+    music_only = '--music' in sys.argv
+    if music_only:
+        OUT = HERE / 'out' / 'music'; OUT.mkdir(parents=True, exist_ok=True)
+        tl, placed = beat_timeline(), []
+    else:
+        clips = tts()
+        tl, placed = layout(clips)
     total = tl['total']; n = int(total * SR) + SR
     voice = np.zeros(n)
     for t0, a in placed:
         i = int(t0 * SR); voice[i:i + len(a)] += a
     voice = hp(voice, 80)
-    voice /= np.abs(voice).max() + 1e-9
+    voice /= np.abs(voice).max() + 1e-9 if placed else 1
     sf.write(OUT / 'voice.wav', voice, SR)
 
     C = tl['cues']; S = tl['scenes']; ev = []
@@ -214,6 +237,21 @@ def main():
         s = f(); i = int(max(0, t0) * SR); s = s[:n - i]
         sfx[i:i + len(s)] += s / (np.abs(s).max() + 1e-9) * g
 
+    if music_only:
+        b = 60 / BPM
+        mus = music(total, BPM, intro_end=6 * b - .01, outro=68 * b)[:n]
+        # breakdown during the paperwork scene: low-pass sweep, then full drop on the end card
+        lo = np.stack([lp(mus[:, 0], 700), lp(mus[:, 1], 700)], 1)
+        tt = np.arange(n) / SR; a, z = S['proc'][0], S['cta'][0]
+        w = np.clip((tt - a) / .4, 0, 1) * np.clip((z - .1 - tt) / .3, 0, 1)
+        mus = mus * (1 - w)[:, None] + lo * 1.3 * w[:, None]
+        end = int(total * SR); fo = int(2.2 * SR); fade = np.ones(n); fade[end - fo:end] = np.linspace(1, 0, fo) ** 1.5; fade[end:] = 0
+        mix = (mus * fade[:, None] * 1.0 + (sfx * .3)[:, None])[:end]
+        sf.write(OUT / 'mix_raw.wav', mix, SR)
+        subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', str(OUT / 'mix_raw.wav'),
+                        '-af', 'loudnorm=I=-14:TP=-1.2:LRA=9', '-ar', '48000', str(OUT / 'audio.wav')], check=True)
+        (HERE / 'timeline-music.js').write_text('window.TL = ' + json.dumps(tl) + ';\n')
+        print(json.dumps(tl['scenes']), 'total', total); return
     mus = music(total)[:n]
     # sidechain duck under voice
     envv = np.convolve(np.abs(voice), np.ones(2400) / 2400, 'same')

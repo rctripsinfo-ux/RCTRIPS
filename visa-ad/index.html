@@ -58,7 +58,7 @@ canvas.full{position:absolute;inset:0;width:1080px;height:1920px}
 <script src="node_modules/d3-geo/dist/d3-geo.min.js"></script>
 <script src="node_modules/topojson-client/dist/topojson-client.min.js"></script>
 <script src="world.js"></script>
-<script src="timeline.js"></script>
+<script>document.write('<script src="' + (location.search.includes("music") ? "timeline-music.js" : "timeline.js") + '"><\/script>')</script>
 </head><body>
 <div id="stage">
   <!-- 1a globe -->
