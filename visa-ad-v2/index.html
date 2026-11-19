@@ -29,12 +29,12 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
 .stamp .fl img{width:100%;height:100%;display:block}
 .stamp .nm{font-size:36px;letter-spacing:1px;line-height:1}
 .stamp .sub{font-size:17px;letter-spacing:5px;margin-top:8px;font-weight:500}
-.card{position:absolute;left:70px;width:940px;height:200px;background:#fff;border-radius:26px;box-shadow:0 18px 40px rgba(60,20,20,.12),0 2px 6px rgba(0,0,0,.06)}
-.card .ic{position:absolute;left:34px;top:40px;width:120px;height:120px;border-radius:50%;background:var(--red)}
-.card .ic svg{width:120px;height:120px}
-.card .t{position:absolute;left:190px;top:40px;font-family:DMS;font-size:66px;color:var(--ink)}
-.card .s{position:absolute;left:192px;top:118px;font-family:Pop;font-size:32px;color:var(--grey)}
-.card .ok{position:absolute;right:40px;top:66px;width:68px;height:68px}
+.card{position:absolute;left:70px;width:940px;height:140px;background:#fff;border-radius:22px;box-shadow:0 18px 40px rgba(60,20,20,.12),0 2px 6px rgba(0,0,0,.06)}
+.card .ic{position:absolute;left:24px;top:22px;width:96px;height:96px;border-radius:50%;background:var(--red)}
+.card .ic svg{width:96px;height:96px}
+.card .t{position:absolute;left:146px;top:20px;font-family:DMS;font-size:56px;color:var(--ink)}
+.card .s{position:absolute;left:148px;top:86px;font-family:Pop;font-size:27px;color:var(--grey)}
+.card .ok{position:absolute;right:30px;top:38px;width:64px;height:64px}
 .step .n{position:absolute;left:110px;width:140px;height:140px;border-radius:50%;background:var(--red);color:#fff;font-family:DMS;font-size:84px;text-align:center;line-height:146px;box-shadow:0 12px 26px rgba(166,25,46,.3)}
 .step .t{position:absolute;left:300px;font-family:DMS;font-size:72px;color:var(--ink)}
 .step .s{position:absolute;left:302px;font-family:Pop;font-size:34px;color:var(--grey)}
@@ -46,44 +46,40 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
 .flagbox{position:absolute;left:50%;top:50%;width:460px;height:345px;margin:-172px 0 0 -230px;box-shadow:0 30px 60px rgba(0,0,0,.35),0 4px 10px rgba(0,0,0,.2);overflow:hidden}
 .flagbox img{width:100%;height:100%;display:block}
 .flagbox .wave{position:absolute;inset:0;mix-blend-mode:soft-light}
-.cf{position:absolute;width:92px;height:92px;border-radius:50%;overflow:hidden;border:4px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.25)}
+.cf{position:absolute;width:80px;height:80px;border-radius:50%;overflow:hidden;border:4px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.25)}
 .cf img{width:100%;height:100%;object-fit:cover}
 </style>
 </head><body>
 <div id="stage">
 
 <!-- S1 HOOK -->
-<div class="sc paper" id="s1">
-  <svg class="abs" width="1080" height="1920" style="left:0;top:0">
-    <path id="route" d="M150 1640 C 300 1400, 640 1560, 660 1340 S 860 1080, 930 940" fill="none" stroke="#A6192E" stroke-width="7" stroke-linecap="round" stroke-dasharray="2 22"/>
-  </svg>
-  <svg class="abs" id="pinA" width="90" height="120" viewBox="0 0 24 32" style="left:105px;top:1530px"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20C24 5.4 18.6 0 12 0z" fill="#161616"/><circle cx="12" cy="12" r="4.5" fill="#fff"/></svg>
-  <div class="abs pop" id="pinAt" style="left:200px;top:1560px;font-size:40px;font-weight:600;color:#161616">INDIA</div>
-  <svg class="abs" id="pinB" width="110" height="146" viewBox="0 0 24 32" style="left:875px;top:792px"><path d="M12 0C5.4 0 0 5.4 0 12c0 9 12 20 12 20s12-11 12-20C24 5.4 18.6 0 12 0z" fill="#A6192E"/><text x="12" y="16.5" text-anchor="middle" font-family="DMS" font-size="13" fill="#fff">?</text></svg>
-  <svg class="abs" id="plane" width="110" height="110" viewBox="0 0 24 24" style="left:0;top:0"><path fill="#161616" d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
-  <div class="abs" style="left:90px;top:300px">
-    <div class="mask pop" style="font-size:52px;color:var(--grey);margin-bottom:18px"><span id="h0">Dream holiday? Big meeting?</span></div>
-    <div class="mask ser" style="font-size:130px;color:var(--ink);padding-bottom:8px"><span id="h1">Planning a</span></div>
-    <div class="mask ser" style="font-size:150px;color:var(--red);font-style:italic;padding-bottom:20px"><span id="h2">trip abroad?</span></div>
+<div class="sc" id="s1" style="background:#111">
+  <div class="abs" id="hflag" style="inset:-40px"></div>
+  <div class="abs" style="inset:0;background:linear-gradient(180deg,rgba(10,10,10,.30),rgba(10,10,10,.62))"></div>
+  <div class="abs" id="htxt" style="left:0;right:0;top:500px;text-align:center;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.55)">
+    <div class="pop" style="font-size:54px;font-weight:500">Dream holiday? Big meeting?</div>
+    <div class="ser" style="font-size:132px;margin-top:26px">Planning a</div>
+    <div class="ser" style="font-size:150px;font-style:italic">trip abroad?</div>
   </div>
+  <div class="abs" id="hstamp" style="left:250px;top:1010px;width:580px;height:200px;border:12px solid #fff;border-radius:24px;background:#A6192E;color:#fff;text-align:center;font-family:Pop;font-weight:600;font-size:124px;line-height:176px;box-shadow:0 20px 50px rgba(0,0,0,.45)">VISA?</div>
 </div>
 
 <!-- S2 PROBLEM -->
 <div class="sc paper" id="s2" style="background-color:#ECE8E1">
-  <div class="abs" style="left:90px;top:230px">
+  <div class="abs" style="left:90px;top:300px">
     <div class="mask pop" style="font-size:52px;color:var(--grey);margin-bottom:14px"><span id="p0">But first comes the…</span></div>
     <div class="mask ser" style="font-size:150px;color:var(--ink);padding-bottom:12px"><span id="p1">visa stress.</span></div>
   </div>
-  <svg class="abs" width="760" height="60" style="left:86px;top:470px"><path id="pul" d="M6 40 C 160 18, 420 44, 740 22" fill="none" stroke="#A6192E" stroke-width="12" stroke-linecap="round"/></svg>
-  <div class="form" id="pform" style="left:170px;top:700px;width:740px;height:980px">
+  <svg class="abs" width="760" height="60" style="left:86px;top:540px"><path id="pul" d="M6 40 C 160 18, 420 44, 740 22" fill="none" stroke="#A6192E" stroke-width="12" stroke-linecap="round"/></svg>
+  <div class="form" id="pform" style="left:170px;top:650px;width:740px;height:980px">
     <div class="abs pop" style="left:50px;top:46px;font-size:34px;font-weight:600;letter-spacing:4px;color:#333">VISA APPLICATION FORM</div>
     <div id="formlines"></div>
   </div>
-  <div class="note" id="n1" style="left:50px;top:640px">Which documents??</div>
-  <div class="note" id="n2" style="left:600px;top:860px;background:#f4b7b7">Appointment slots full!</div>
-  <div class="note" id="n3" style="left:80px;top:1180px;background:#bfe0f2">Form errors?</div>
-  <div class="note" id="n4" style="left:580px;top:1400px">What if it gets rejected?</div>
-  <div class="abs" id="bigstamp" style="left:90px;top:1080px;width:900px;height:300px;border:16px solid #A6192E;border-radius:26px;color:#A6192E;text-align:center;font-family:Pop;font-weight:600">
+  <div class="note" id="n1" style="left:50px;top:630px">Which documents??</div>
+  <div class="note" id="n2" style="left:600px;top:760px;background:#f4b7b7">Appointment slots full!</div>
+  <div class="note" id="n3" style="left:70px;top:920px;background:#bfe0f2">Form errors?</div>
+  <div class="note" id="n4" style="left:590px;top:1040px">What if it gets rejected?</div>
+  <div class="abs" id="bigstamp" style="left:90px;top:760px;width:900px;height:300px;border:16px solid #A6192E;border-radius:26px;color:#A6192E;text-align:center;font-family:Pop;font-weight:600">
     <div style="font-size:42px;letter-spacing:10px;margin-top:40px">RELAX,</div><div style="font-size:112px;line-height:1.1;white-space:nowrap">WE'VE GOT IT</div></div>
 </div>
 
@@ -113,15 +109,15 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
   <div class="abs" id="grid4" style="inset:0;display:none">
     <div id="rows"></div>
     <div class="flagbox" id="flagbox"><img id="flagimg"><div class="wave" id="wave"></div></div>
-    <div class="abs pop" id="gchip" style="left:50%;top:110px;transform:translateX(-50%);padding:16px 40px;border-radius:50px;font-size:42px;font-weight:600;letter-spacing:3px;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.15)"></div>
-    <div class="abs pop" id="schbar" style="left:0;top:1560px;height:150px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.12);overflow:hidden;display:none"><div id="schtxt" style="position:absolute;left:60px;top:28px;font-size:76px;color:#161616;white-space:nowrap"></div></div>
+    <div class="abs pop" id="gchip" style="left:50%;top:290px;transform:translateX(-50%);padding:16px 40px;border-radius:50px;font-size:42px;font-weight:600;letter-spacing:3px;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.15)"></div>
+    <div class="abs pop" id="schbar" style="left:0;top:660px;height:150px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.12);overflow:hidden;display:none"><div id="schtxt" style="position:absolute;left:60px;top:28px;font-size:76px;color:#161616;white-space:nowrap"></div></div>
   </div>
   </div>
 
 <!-- S5 VISA TYPES -->
 <div class="sc" id="s5">
   <div class="abs" style="inset:0;background:#EDEBE0"><svg class="abs guil" width="1080" height="1920" style="left:0;top:0"></svg></div>
-  <div class="abs" style="left:0;right:0;top:190px;text-align:center">
+  <div class="abs" style="left:0;right:0;top:290px;text-align:center">
     <div class="mask pop" style="font-size:50px;color:var(--grey)"><span id="v0">Every kind of visa,</span></div>
     <div class="mask ser" style="font-size:128px;color:var(--ink);padding-bottom:16px"><span id="v1">one <i style="color:var(--red)">expert</i> team.</span></div>
   </div>
@@ -131,26 +127,26 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
 
 <!-- S6 STEPS -->
 <div class="sc paper" id="s6">
-  <div class="abs" style="left:0;right:0;top:200px;text-align:center">
+  <div class="abs" style="left:0;right:0;top:290px;text-align:center">
     <div class="mask pop" style="font-size:50px;color:var(--grey)"><span id="w0">How it works</span></div>
     <div class="mask ser" style="font-size:150px;color:var(--ink);padding-bottom:16px"><span id="w1">3 simple <i style="color:var(--red)">steps.</i></span></div>
   </div>
-  <div class="abs" style="left:176px;top:700px;width:8px;height:760px;background:#ddd6cc;border-radius:4px"></div>
-  <div class="abs" id="prog" style="left:176px;top:700px;width:8px;height:0;background:#A6192E;border-radius:4px"></div>
+  <div class="abs" style="left:176px;top:610px;width:8px;height:500px;background:#ddd6cc;border-radius:4px"></div>
+  <div class="abs" id="prog" style="left:176px;top:610px;width:8px;height:0;background:#A6192E;border-radius:4px"></div>
   <div id="steps"></div>
 </div>
 
 <!-- S7 CTA -->
 <div class="sc" id="s7" style="background:#A6192E">
   <div class="abs" style="inset:-60px;background-image:linear-gradient(rgba(255,255,255,.07) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.07) 2px,transparent 2px);background-size:120px 120px"></div>
-  <div class="logo" id="elogo" style="left:350px;top:200px;outline:8px solid #fff"><div class="r">RED</div><div class="c">CARPET</div><div class="b">TOURS PVT LTD</div></div>
-  <div class="abs ser" id="e1" style="left:0;right:0;top:680px;text-align:center;font-size:130px;color:#fff">Your visa,</div>
-  <div class="abs ser" id="e2" style="left:0;right:0;top:820px;text-align:center;font-size:160px;color:#fff;font-style:italic">sorted.</div>
-  <svg class="abs" width="520" height="40" viewBox="0 0 520 40" style="left:280px;top:990px"><path id="eul" d="M8 26 C120 10 300 8 512 18" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/></svg>
+  <div class="logo" id="elogo" style="left:350px;top:280px;outline:8px solid #fff"><div class="r">RED</div><div class="c">CARPET</div><div class="b">TOURS PVT LTD</div></div>
+  <div class="abs ser" id="e1" style="left:0;right:0;top:560px;text-align:center;font-size:110px;color:#fff">Your visa,</div>
+  <div class="abs ser" id="e2" style="left:0;right:0;top:670px;text-align:center;font-size:132px;color:#fff;font-style:italic">sorted.</div>
+  <svg class="abs" width="520" height="40" viewBox="0 0 520 40" style="left:280px;top:815px"><path id="eul" d="M8 26 C120 10 300 8 512 18" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/></svg>
   <div id="eflags"></div>
-  <div class="abs pop" id="e3" style="left:0;right:0;top:1340px;text-align:center;font-size:34px;color:rgba(255,255,255,.88);letter-spacing:1px">Business · e-Visa · m-Visa · Family · Tourist</div>
-  <div class="abs pop" id="btn" style="left:200px;top:1450px;width:680px;height:150px;border-radius:80px;background:#fff;color:#A6192E;font-weight:600;font-size:62px;text-align:center;line-height:150px;box-shadow:0 20px 40px rgba(0,0,0,.25)">Apply today →</div>
-  <div class="abs pop" id="e4" style="left:0;right:0;top:1680px;text-align:center;font-size:40px;color:#fff">Call / WhatsApp: +91 72900 12474</div>
+  <div class="abs pop" id="e3" style="display:none;left:0;right:0;top:1340px;text-align:center;font-size:34px;color:rgba(255,255,255,.88);letter-spacing:1px">Business · e-Visa · m-Visa · Family · Tourist</div>
+  <div class="abs pop" id="btn" style="left:230px;top:1065px;width:620px;height:120px;border-radius:70px;background:#fff;color:#A6192E;font-weight:600;font-size:54px;text-align:center;line-height:120px;box-shadow:0 20px 40px rgba(0,0,0,.25)">Apply today →</div>
+  <div class="abs pop" id="e4" style="left:0;right:0;top:1200px;text-align:center;font-size:40px;font-weight:500;color:#fff">Call / WhatsApp: +91 72900 12474</div>
 </div>
 
 <div id="vig"></div>
@@ -205,18 +201,18 @@ const ICON = {
   ev: '<g fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><rect x="30" y="36" width="60" height="40" rx="4"/><path d="M22 86h76"/><circle cx="60" cy="56" r="11"/><path d="M49 56h22M60 45c-6 6-6 16 0 22M60 45c6 6 6 16 0 22"/></g>',
   mv: '<g fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"><rect x="42" y="26" width="36" height="68" rx="7"/><path d="M54 84h12"/><path d="M50 52l7 7 13-14" stroke-linecap="round"/></g>' };
 const TYPES = [['tour', 'Tourist Visa', 'holidays & sightseeing'], ['biz', 'Business Visa', 'meetings & trade fairs'], ['fam', 'Family Visa', 'visit your loved ones'], ['ev', 'e-Visa', 'apply online, where available'], ['mv', 'm-Visa', 'where available']];
-$('cards').innerHTML = TYPES.map(([ic, t, s], i) => `<div class="card" id="cd${i}" style="top:${560 + i * 245}px"><div class="ic"><svg viewBox="0 0 120 120">${ICON[ic]}</svg></div><div class="t">${t}</div><div class="s">${s}</div>
+$('cards').innerHTML = TYPES.map(([ic, t, s], i) => `<div class="card" id="cd${i}" style="top:${510 + i * 150}px"><div class="ic"><svg viewBox="0 0 120 120">${ICON[ic]}</svg></div><div class="t">${t}</div><div class="s">${s}</div>
  <svg class="ok" viewBox="0 0 68 68"><circle cx="34" cy="34" r="32" fill="#e9f5ee"/><path class="okp" d="M20 35l10 10 18-20" fill="none" stroke="#1e8a4f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>`).join('');
 
 /* ===== S6 steps ===== */
 const STEPS = [['Share your documents', 'we tell you exactly what’s needed'], ['We file & book', 'forms, fees and your appointment'], ['Get your visa', 'we track every step with you']];
-$('steps').innerHTML = STEPS.map(([t, s], i) => `<div class="step" id="sp${i}"><div class="n" style="top:${640 + i * 380}px">${i + 1}</div><div class="t" style="top:${650 + i * 380}px">${t}</div><div class="s" style="top:${738 + i * 380}px">${s}</div></div>`).join('');
+$('steps').innerHTML = STEPS.map(([t, s], i) => `<div class="step" id="sp${i}"><div class="n" style="top:${540 + i * 250}px">${i + 1}</div><div class="t" style="top:${552 + i * 250}px">${t}</div><div class="s" style="top:${640 + i * 250}px">${s}</div></div>`).join('');
 
+$('hflag').innerHTML = CTRY.map(([n, f]) => `<img src="flags/${f}.svg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none">`).join('');
 /* ===== S7 flags ===== */
-$('eflags').innerHTML = CTRY.map(([n, f], i) => { const row = i < 6 ? 0 : 1, col = row ? i - 6 : i, cnt = row ? 5 : 6; return `<div class="cf" id="ef${i}" style="left:${540 - cnt * 58 + col * 116 + 12}px;top:${1100 + row * 112}px"><img src="flags/${f}.svg"></div>`; }).join('');
+$('eflags').innerHTML = CTRY.map(([n, f], i) => { const row = i < 6 ? 0 : 1, col = row ? i - 6 : i, cnt = row ? 5 : 6; return `<div class="cf" id="ef${i}" style="left:${540 - cnt * 50 + col * 100 + 10}px;top:${865 + row * 94}px"><img src="flags/${f}.svg"></div>`; }).join('');
 
 document.querySelectorAll('#pul,#eul,.okp').forEach(p => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.dataset.len = L; });
-const route = $('route'), RL = route.getTotalLength();
 
 /* ===== helpers ===== */
 const rise = (el, t, t0, d = .55) => { const k = tw(t, t0, d, eexp); el.style.transform = `translateY(${(1 - k) * 110}%)`; };
@@ -232,15 +228,13 @@ function seek(f, gf) {
 
   /* S1 hook */
   if (vis('s1', t)) {
-    const kp = tw(t, .1, 2.6, eio); const pt = route.getPointAtLength(RL * kp), pt2 = route.getPointAtLength(Math.min(RL, RL * kp + 2));
-    const ang = Math.atan2(pt2.y - pt.y, pt2.x - pt.x) * 180 / Math.PI + 90;
-    set('plane', { transform: `translate(${pt.x - 55}px,${pt.y - 55}px) rotate(${ang}deg)` });
-    route.parentNode.style.clipPath = `polygon(0 ${pt.y}px, 1080px ${pt.y}px, 1080px 1920px, 0 1920px)`;
-    set('pinA', { transform: `scale(${tw(t, 0, .35, eb)})`, transformOrigin: '50% 100%' }); set('pinAt', { opacity: tw(t, .15, .3) });
-    set('pinB', { transform: `scale(${tw(t, 2.45, .35, eb)})`, transformOrigin: '50% 100%' });
-    rise($('h0'), t, .25); rise($('h1'), t, .55); rise($('h2'), t, .8);
-    // zoom-through out
-    const k = tw(t, 3.0, .4, ei); set('s1', { transform: `${drift(0)} scale(${1 + k * 1.6})`, transformOrigin: '930px 940px', opacity: 1 - k, filter: `blur(${k * 10}px)` });
+    const fi = Math.floor(Math.min(t, 2.6) / .13) % 11, fr = (Math.min(t, 2.6) % .13) / .13;
+    $('hflag').querySelectorAll('img').forEach((im, j) => im.style.display = j === fi ? 'block' : 'none');
+    $('hflag').style.transform = `scale(${1.14 - fr * .08 - (t > 2.6 ? 0 : 0)})`;
+    set('htxt', { transform: `scale(${lerp(1.05, 1, tw(t, 0, .6))})` });
+    const ks = tw(t, 1.3, .22, x => x * x); set('hstamp', { opacity: t >= 1.3 ? 1 : 0, transform: `scale(${lerp(2.4, 1, ks)}) rotate(-6deg)` });
+    const sh = t > 1.52 && t < 1.75 ? (1 - (t - 1.52) / .23) * 14 : 0;
+    const k = tw(t, 3.0, .4, ei); set('s1', { transform: `translate(${Math.sin(t * 90) * sh}px,${Math.cos(t * 77) * sh}px) scale(${1 + k * 1.6})`, transformOrigin: '540px 1100px', opacity: 1 - k, filter: `blur(${k * 10}px)` });
   }
   /* S2 problem */
   if (vis('s2', t)) {
@@ -255,7 +249,7 @@ function seek(f, gf) {
   }
   /* S3 solution (circle reveal from stamp) */
   if (vis('s3', t)) {
-    const a = 6.6, kr = tw(t, a, .45, eio); set('s3', { clipPath: `circle(${kr * 2300}px at 540px 1230px)`, zIndex: 3, transform: drift(2) });
+    const a = 6.6, kr = tw(t, a, .45, eio); set('s3', { clipPath: `circle(${kr * 2300}px at 540px 910px)`, zIndex: 3, transform: drift(2) });
     set('s3logo', { transform: `translateY(${(1 - tw(t, a + .35, .5, eexp)) * 60}px) scale(${lerp(.8, 1, tw(t, a + .35, .5, eb))})`, opacity: tw(t, a + .35, .2) });
     rise($('q1'), t, a + .6); rise($('q2'), t, a + .85); rise($('q3'), t, a + 1.2);
     $('s3grid').style.transform = `translateY(${-(t - a) * 20}px)`;
@@ -305,12 +299,12 @@ function seek(f, gf) {
     rise($('w0'), t, a + .45); rise($('w1'), t, a + .65);
     STEPS.forEach((_, i) => { const t0 = a + 1.3 + i * 1.25, k = tw(t, t0, .5, eexp); const el = $('sp' + i);
       el.querySelector('.n').style.transform = `scale(${tw(t, t0, .4, eb)})`; [el.querySelector('.t'), el.querySelector('.s')].forEach((e, j) => { e.style.opacity = tw(t, t0 + .1 + j * .1, .3); e.style.transform = `translateX(${(1 - tw(t, t0 + .1 + j * .1, .5, eexp)) * 60}px)`; }); });
-    $('prog').style.height = lerp(0, 760, tw(t, a + 1.3, 2.6, eio)) + 'px';
+    $('prog').style.height = lerp(0, 500, tw(t, a + 1.3, 2.6, eio)) + 'px';
   }
   /* S7 CTA (circle from step 3) */
   if (vis('s7', t)) {
-    const a = 30.6, kr = tw(t, a, .5, eio); set('s7', { clipPath: `circle(${kr * 2300}px at 180px 1470px)`, zIndex: 7, transform: drift(3) });
-    set('elogo', { transform: `translateY(${(1 - tw(t, a + .35, .55, eexp)) * 70}px) scale(${lerp(.75, 1, tw(t, a + .35, .55, eb))})`, opacity: tw(t, a + .35, .2) });
+    const a = 30.6, kr = tw(t, a, .5, eio); set('s7', { clipPath: `circle(${kr * 2300}px at 180px 1110px)`, zIndex: 7, transform: drift(3) });
+    set('elogo', { transformOrigin: '50% 0', transform: `translateY(${(1 - tw(t, a + .35, .55, eexp)) * 70}px) scale(${.64 * lerp(.75, 1, tw(t, a + .35, .55, eb))})`, opacity: tw(t, a + .35, .2) });
     [['e1', a + .75], ['e2', a + 1.0]].forEach(([id, s]) => set(id, { opacity: tw(t, s, .3), transform: `translateY(${(1 - tw(t, s, .5, eexp)) * 50}px)` }));
     draw($('eul'), tw(t, a + 1.35, .45, eio));
     CTRY.forEach((_, i) => set('ef' + i, { transform: `scale(${tw(t, a + 1.6 + i * .06, .35, eb)})` }));

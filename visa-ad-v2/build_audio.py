@@ -11,10 +11,9 @@ B = 60 / BPM
 OUT = HERE / 'out'; OUT.mkdir(exist_ok=True)
 ev = []
 E = lambda t, f, g: ev.append((t, f, g))
-# S1 hook
-E(0.0, L.sfx_tick, .3); E(.05, lambda: L.sfx_whoosh(1.4), .35)
-for t in (.25, .55, .8): E(t, L.sfx_tick, .22)
-E(2.45, L.sfx_tick, .4); E(2.47, L.sfx_ding, .12)
+# S1 hook: flag flashes + VISA? stamp
+for j in range(20): E(j * .13, L.sfx_tick, .22 if j % 2 else .3)
+E(1.3, L.sfx_whoosh, .3); E(1.52, L.sfx_stamp, 1.0); E(1.52, L.sfx_impact, .55)
 E(2.85, lambda: L.sfx_whoosh(.6), .6)                       # zoom-through
 # S2 problem
 for t in (3.35, 3.6): E(t, L.sfx_tick, .22)

@@ -15,7 +15,8 @@ const url = pathToFileURL(path.join(here, 'index.html')).href;
 const open = async () => { const p = await browser.newPage({ viewport: { width: 1080, height: 1920 } }); p.on('pageerror', e => console.error('PAGE', e.message)); await p.goto(url); await p.evaluate(() => window.READY); return p; };
 const warpArg = process.argv.find(a => a.startsWith('--warp='));
 const WARP = warpArg ? JSON.parse((await import('node:fs')).readFileSync(warpArg.slice(7), 'utf8')) : null;
-const toOrig = t => { if (!WARP) return t; const [o, v] = [WARP.orig, WARP.out]; if (t <= v[0]) return o[0]; for (let i = 1; i < v.length; i++) if (t <= v[i]) return o[i - 1] + (o[i] - o[i - 1]) * (t - v[i - 1]) / (v[i] - v[i - 1]); return o[o.length - 1]; };
+const segOrig = (o, v, t) => { if (t <= v[0]) return o[0]; for (let i = 1; i < v.length; i++) if (t <= v[i]) return o[i - 1] + (o[i] - o[i - 1]) * (t - v[i - 1]) / (v[i] - v[i - 1]); return o[o.length - 1]; };
+const toOrig = t => { if (!WARP) return t; if (WARP.segs) { const sg = WARP.segs.find((g, i) => t < g.out[g.out.length - 1] || i === WARP.segs.length - 1); return segOrig(sg.orig, sg.out, t); } const [o, v] = [WARP.orig, WARP.out]; if (t <= v[0]) return o[0]; for (let i = 1; i < v.length; i++) if (t <= v[i]) return o[i - 1] + (o[i] - o[i - 1]) * (t - v[i - 1]) / (v[i] - v[i - 1]); return o[o.length - 1]; };
 const p0 = await open(); const total = WARP ? Math.round(WARP.total * 30) : await p0.evaluate(() => Math.round(TL.total * 30));
 const list = stills ? stills.slice(9).split(',').map(Number) : [...Array(total).keys()];
 const pages = [p0, ...await Promise.all([...Array(Math.min(5, list.length - 1))].map(open))];
@@ -24,9 +25,10 @@ await Promise.all(pages.map(async pg => { while (next < list.length) { const f =
   await pg.screenshot({ path: path.join(dir, String(f).padStart(5, '0') + '.jpg'), type: 'jpeg', quality: 93 }); if (++done % 150 === 0) console.log('frames', done, '/', list.length); } }));
 await browser.close();
 if (!stills) {
-  const od = WARP ? path.join(here, 'eleven') : path.join(here, 'out'); const out = path.join(od, WARP ? 'visa-ad-eleven-final.mp4' : 'visa-ad-v2-final.mp4');
+  const od = WARP ? path.join(here, 'eleven') : path.join(here, 'out'); const out = path.join(od, WARP ? (WARP.name || 'visa-ad-eleven-final') + '.mp4' : 'visa-ad-v2-final.mp4');
+  const aud = WARP && WARP.audio ? path.join(od, WARP.audio) : path.join(od, 'audio.wav');
   const args = ['-y', '-v', 'error', '-framerate', '30', '-i', path.join(dir, '%05d.jpg')];
-  if (existsSync(path.join(od, 'audio.wav'))) args.push('-i', path.join(od, 'audio.wav'), '-c:a', 'aac', '-b:a', '192k', '-shortest');
+  if (existsSync(aud)) args.push('-i', aud, '-c:a', 'aac', '-b:a', '192k', '-shortest');
   args.push('-c:v', 'libx264', '-preset', 'medium', '-crf', '19', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out);
   execFileSync('ffmpeg', args, { stdio: 'inherit' }); console.log('done', out);
 }
