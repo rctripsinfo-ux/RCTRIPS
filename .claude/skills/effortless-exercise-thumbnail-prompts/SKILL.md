@@ -172,3 +172,8 @@ Measured from 12 of their outlier thumbnails. The first attempts were rejected b
 - **Text sits in the middle band (about 25–45% of the height). The full character fits between 20% and 80%.**
   - Prompt: "Leave the top 20% and bottom 20% as plain empty cream background; all text and the character's head stay inside the middle 60%."
 - **Ideas must be out-of-the-box.** Each cover needs one absurd but clear visual metaphor (not a plain pose), plus 1–3 words.
+
+## A/B results so far (YouTube Test & Compare, 20 Nov 2026, tests still running)
+- Long 05 push-ups (160 views): "STUCK AT 20?" big 3D number on teal 37% > "NOT A PUSH-UP" close-up 33% > "BANANA PUSH-UP" cream 28%. One giant number + 2-3 word question wins.
+- Long 06 skinny vs big (521 views): "BALLOON vs CABLE" cream side-by-side comparison + first-person story title "I Lost to a 60 kg Guy in 4 Seconds" 43% > "4 SECONDS?!" 30% > "ONE FINGER?!" 26%.
+- So: (1) a simple visual comparison on plain cream, or one giant number with a short question; (2) first-person story titles ("I ...") beat explainer titles.
