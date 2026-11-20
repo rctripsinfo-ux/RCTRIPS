@@ -1,0 +1,91 @@
+# LONG 07: "I Took Creatine for 365 Days. Here's What Happened"  16:9, ~4-5 min, STORY format
+# Reference: Captain Workout "I Took Creatine For 365 Days" (2.7M). H = narrator (first person), Kabir = friend (2 short lines), Mini-H = 1 line.
+# New look: a 12-month calendar wall as the chapter device (MONTH 1 / MONTH 3 / MONTH 6 / MONTH 12 pages tearing off),
+# creatine tub + scoop props, a bathroom scale, a hairline mirror gag (H is already bald), a muscle-cell "water balloon" X-ray,
+# an ATP "battery" X-ray, a kidney check-up, a kitchen and the garage gym. Open loop: "the hair question" is answered last.
+# ">" lines = beat sheet (what is on screen), not spoken.
+
+## HOOK
+> kitchen, H scoops white powder into a shaker; calendar on the wall flips 12 pages fast
+H: For one year, I took five grams of creatine every single day. Three hundred sixty-five scoops.
+> counter 0 -> 365
+H: Everyone warned me. You'll get fat. You'll bloat. You'll wreck your kidneys. And you'll lose your hair.
+> four red warning stickers slap onto the tub one by one: FAT, BLOAT, KIDNEYS, HAIR
+H: So I tracked everything. My weight, my strength, my blood tests. And yes, my hair.
+> H points at his bald shiny head, deadpan
+M: You don't have any hair.
+H: That's why I was the perfect test subject. Stay till the end for that one.
+
+## WHAT IT ACTUALLY IS
+> card WHAT IS IT?
+H: First, what is creatine? It's not a steroid. It's a compound your body already makes, and it's in red meat and fish.
+> steak and fish icons flow into H's body
+H: Your muscles use it to recharge their energy for short, hard efforts. Think of it as a tiny battery for every heavy rep.
+> X-ray muscle: small batteries refill from red to green after each rep
+H: Most people only have their batteries about two-thirds full. Five grams a day tops them up. That's it.
+> battery 2/3 -> full
+
+## MONTH 1: THE SCALE
+> calendar page MONTH 1
+H: Month one. I stepped on the scale and I was one and a half kilos heavier.
+> bathroom scale needle jumps, H shocked
+H: My first thought: it's making me fat. It wasn't.
+H: Creatine pulls water into your muscle cells, not under your skin. So the muscle looks fuller, not puffy.
+> X-ray muscle cell like a water balloon filling up | "WATER IN THE MUSCLE, NOT FAT"
+H: And no bloated belly. That only happens with huge loading doses. I just took five grams with breakfast.
+> H with coffee and shaker, flat belly, tick
+
+## MONTH 3: THE REPS
+> calendar page MONTH 3
+H: Month three, the gym changed. Not a lot. But every set, I got one or two extra reps.
+> H bench / push-ups, rep counter 8 -> 10
+H: Those extra reps add up. More reps every week means more work, and more work means more muscle over time.
+> stacked bars week by week growing a little each time
+M: So creatine doesn't build muscle by itself?
+H: No. It lets you train a little harder. You still have to show up and do the work.
+> H lifting, sweat
+
+## MONTH 6: THE BLOOD TEST
+> calendar page MONTH 6
+H: Month six. Time to check the scary one. My kidneys.
+> H at a clinic, blood test, nervous face
+H: My creatinine came back a bit high, and for one second I panicked.
+> lab report with one value in red
+H: Then my doctor explained it. Creatinine is just the waste product of creatine. Take more creatine, you make more of it. It doesn't mean your kidneys are damaged.
+> the red value turns green | "NORMAL WITH CREATINE"
+H: In healthy people, studies over years show no kidney damage at normal doses. If you already have kidney problems, talk to your doctor first.
+
+## MONTH 12: THE RESULTS
+> calendar page MONTH 12
+H: One full year. Here's everything that changed.
+> H stands in front of the calendar, all pages torn
+H: My weight went up two kilos and most of it stayed as muscle and water in the muscle.
+> scale 2 kg, arm looks fuller
+H: My bench press went up more than my friend's, and we trained together, same plan.
+> Kabir and H at the bench, H's bar slightly heavier
+H: My energy in long sets was better. And on low-sleep days, my head felt a bit sharper. There's early research on that, too.
+> brain glow, sleepy-eyes then alert
+H: What didn't change? No fat gain. No bloat. No stomach problems. And I never needed a loading phase.
+
+## THE HAIR QUESTION
+> card THE HAIR QUESTION
+H: Now, the hair. This myth comes from one small study in rugby players, where one hormone went up.
+> one small paper, magnifying glass, "1 STUDY"
+H: Nobody actually measured hair loss in that study, and newer studies haven't found the same effect.
+> paper gets a question mark; newer papers stack up with ticks
+H: So creatine is very unlikely to make you lose your hair.
+> H rubs his bald head, deadpan
+H: As for me, I'll let you be the judge.
+> H's shiny head reflects a light sparkle; Kabir laughing
+
+## HOW TO TAKE IT
+> card HOW TO TAKE IT
+H: If you want to try it, it's simple. Plain creatine monohydrate. Three to five grams a day, every day, any time.
+> tub "MONOHYDRATE", scoop, 3-5 g
+H: Mix it in water, juice or your coffee. No fancy versions, no loading, no cycling.
+> shaker, coffee, X on fancy bottles
+H: And drink enough water.
+
+## CTA
+H: Have you tried creatine? Tell me what happened in the comments.
+> H holds the shaker, Kabir thumbs up
