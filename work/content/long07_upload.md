@@ -1,11 +1,11 @@
-# Long video: `final/long07.mp4` (16:9) + `final/long07.srt` + thumbnails `long07/thumb/th_a.png`, `th_b.png`, `th_c.png` (Test & Compare)
+# Long video: `final/long07.mp4` (16:9) + `final/long07.srt` + thumbnails `long07/thumb/th_d.png`, `th_e.png`, `th_f.png` (Test & Compare)
 
 ## 3 thumbnail + title pairs for Test & Compare
 | # | Thumbnail | Title |
 |---|---|---|
-| A | `long07/thumb/th_a.png` (bald H + mirror, HAIR LOSS?) | I Took Creatine for 365 Days. Here's What Happened |
-| B | `long07/thumb/th_b.png` (tub covered in warning stickers, 365 DAYS?) | I Took Creatine Every Day for a Year (Everyone Warned Me) |
-| C | `long07/thumb/th_c.png` (red lab value, KIDNEYS OK?) | 1 Year of Creatine: My Blood Test Surprised Me |
+| A | `long07/thumb/th_d.png` (cream, split body DAY 1 / DAY 365) | I Took Creatine for 365 Days. Here's What Happened |
+| B | `long07/thumb/th_e.png` (red, H on a pyramid of tubs, 365 SCOOPS LATER) | I Took Creatine Every Day for a Year (Everyone Warned Me) |
+| C | `long07/thumb/th_f.png` (teal, X-ray arm with full batteries) | 1 Year of Creatine: Is It Really Worth It? |
 
 **Description**
 ```
@@ -35,4 +35,4 @@ Have you tried creatine? Tell me what happened 👇
 ```
 **Tags:** creatine, i took creatine for 365 days, creatine 1 year, creatine side effects, creatine hair loss, creatine kidneys, creatine water weight, creatine monohydrate, does creatine work, how to take creatine, effortless exercise
 
-**Upload:** custom thumbnails in Test & Compare (`th_a`, `th_b`, `th_c`); add `long07.srt` under Subtitles → English.
+**Upload:** custom thumbnails in Test & Compare (`th_d`, `th_e`, `th_f`); add `long07.srt` under Subtitles → English.
