@@ -171,9 +171,17 @@ Measured from 12 of their outlier thumbnails. The first attempts were rejected b
 - **The feed crops the top and bottom of a 9:16 Shorts cover.** Never place text or faces in the top 20% or the bottom 20%.
 - **Text sits in the middle band (about 25–45% of the height). The full character fits between 20% and 80%.**
   - Prompt: "Leave the top 20% and bottom 20% as plain empty cream background; all text and the character's head stay inside the middle 60%."
-- **Ideas must be out-of-the-box.** Each cover needs one absurd but clear visual metaphor (not a plain pose), plus 1–3 words.
+- (Out-of-the-box gag covers were tried on 20 Nov and REJECTED by the owner. Use the brand style below.)
 
 ## A/B results so far (YouTube Test & Compare, 20 Nov 2026, tests still running)
 - Long 05 push-ups (160 views): "STUCK AT 20?" big 3D number on teal 37% > "NOT A PUSH-UP" close-up 33% > "BANANA PUSH-UP" cream 28%. One giant number + 2-3 word question wins.
 - Long 06 skinny vs big (521 views): "BALLOON vs CABLE" cream side-by-side comparison + first-person story title "I Lost to a 60 kg Guy in 4 Seconds" 43% > "4 SECONDS?!" 30% > "ONE FINGER?!" 26%.
 - So: (1) a simple visual comparison on plain cream, or one giant number with a short question; (2) first-person story titles ("I ...") beat explainer titles.
+
+## SHORTS COVERS: ALWAYS THE ORIGINAL BRAND STYLE (owner, 20 Nov 2026, final)
+Reference covers: `work/thumbs/brand/day0X.png` (e.g. day04 arm levels, day06 WHY IT HURTS, day07_t LOW TESTOSTERONE?).
+- ONE flat background: brand dark red `#7A1A1A` OR teal `#0F8B85` (optionally a soft glow of the other colour behind H). No split diagonal, no scenes.
+- H big in the frame (chest-up or full body), exact semi-realistic H, one simple pose that shows the topic.
+- At most ONE simple supporting graphic: a circle inset zoom (e.g. tendon), a battery, a row of icons/numbers. No absurd gags.
+- 1-3 huge white extra-bold italic words with a dark outline at the top (keep them below the top 10% so nothing is cut).
+- If a brand cover already exists for that day, use it as is.
