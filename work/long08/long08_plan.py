@@ -59,7 +59,7 @@ def BK(n, *layers): return [world(n)] + list(layers)
 def H_(seq, x=0.3, y=0.56, h=0.82, **k): return act(seq, x=x, y=y, h=h, **k)
 def T(at, text, color=WHITE, x=0.5, y=0.1, size=100, until=None): return kin(at, text, x, y, size, color, until=until, stroke=10, stroke_fill=INK)
 def P_(n, at=0, until=None, x=0.7, y=0.55, h=0.5, **k): return dict(at=at, until=until, w=wfor(n, h), x=x, y=y, asset=path(n), puppet=False, enter=k.pop("enter", ("pop", 0.25)), **k)
-XR = lambda seq, **k: dict(at=0, w=1.0, x=0.5, y=0.5, poses=[(path(p), a) for p, a in seq], z=-1, puppet=False, breathe=False, **k)
+XR = lambda seq, w=1.0, **k: dict(at=0, w=w, x=0.5, y=0.5, poses=[(path(p), a) for p, a in seq], z=-1, puppet=False, breathe=False, **k)
 ORANGE, LTEAL, LRED = (240, 170, 60), (120, 200, 196), (240, 120, 120)
 
 S = [
@@ -103,10 +103,10 @@ S = [
  S_("When you train, your muscle fibres grow, and they collect extra control centres called nuclei. Think of them as tiny builders.", [XR([("xr_fiber_big", 0)])],
     [T("grow,", "FIBRES GROW", WHITE, 0.5, 0.1, 110, until="nuclei."), T("nuclei.", "+ NUCLEI", ORANGE, 0.5, 0.1, 120, until="tiny"), T("tiny", "TINY BUILDERS", ORANGE, 0.5, 0.1, 120)],
     tr="dip", d=0.4, keys=[(0, 1.0, .5, .5), ("E", 1.1, .5, .5)], sfx=[("tiny", "pop", .3)]),
- S_("When you stop, the fibres shrink. But research suggests many of those builders stay behind, maybe for years.", [XR([("xr_fiber_big", 0), ("xr_fiber_small", "shrink.")])],
+ S_("When you stop, the fibres shrink. But research suggests many of those builders stay behind, maybe for years.", [XR([("xr_fiber_big", 0)], until="shrink."), XR([("xr_fiber_small", "shrink.")], w=1.8)],
     [T("shrink.", "FIBRES SHRINK", LRED, 0.5, 0.1, 110, until="builders"), T("builders", "BUILDERS STAY", LTEAL, 0.5, 0.1, 120, until="maybe"), T("maybe", "MAYBE FOR YEARS", LTEAL, 0.5, 0.1, 110)],
     keys=[(0, 1.0, .5, .5), ("E", 1.08, .5, .5)], sfx=[("shrink.", "whoosh_short", .3), ("builders", "chime", .4)]),
- M("So the builders just sit there, waiting?", [XR([("xr_fiber_small", 0)])], "s9_mini_point_cut"),
+ M("So the builders just sit there, waiting?", [XR([("xr_fiber_small", 0)], w=1.8)], "s9_mini_point_cut"),
  S_("Waiting for the next order. That's why a comeback is much faster than the first time.", BK("bk_studio", H_([("g_point", 0), ("g_thumbs", "comeback")], x=0.3)), [T("comeback", "COMEBACK = FASTER", LTEAL, 0.7, 0.4, 100)]),
  # ===== THE COMEBACK =====
  chap("The comeback.", "THE COMEBACK", "WEEK BY WEEK"),
