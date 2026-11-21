@@ -217,7 +217,20 @@ class Renderer:
                 if cur is not None and asset != cur: prev, ts = cur, tk
                 cur = asset
         if cur is None and L.get("poses"): cur = L["poses"][0][0]  # first pose anchored later than the layer start: show it from the start
+        tx_, ty_, moving, dirx = None, None, False, 0  # "track": keyframed walk / run across the set [(anchor, x, y), ...]
+        if L.get("track"):
+            kf = [(self.tl.at(k, s), kx, ky) for k, kx, ky in L["track"]]
+            tx_, ty_ = kf[0][1], kf[0][2]
+            for (ta, xa, ya), (tb, xb, yb) in zip(kf, kf[1:]):
+                if ta <= t < tb:
+                    q = ease((t - ta) / max(1e-3, tb - ta)) if L.get("track_ease", True) else (t - ta) / max(1e-3, tb - ta)
+                    tx_, ty_ = xa + (xb - xa) * q, ya + (yb - ya) * q; moving = abs(xb - xa) + abs(yb - ya) > 1e-3; dirx = (xb > xa) - (xb < xa)
+                elif t >= tb: tx_, ty_ = xb, yb
+            wk = L.get("walk")
+            if moving and wk:  # alternate the two stride drawings, flip to face the direction of travel (art faces right)
+                cur = wk["a"] if int(t / wk.get("step", 0.28)) % 2 == 0 else wk["b"]; prev = None
         im = hero(cur)
+        if moving and L.get("walk") and dirx < 0: im = im.transpose(Image.FLIP_LEFT_RIGHT)
         xf = L.get("xf", self.P.get("pose_xf", 0))  # long-form: 2-3 frame in-between dissolve instead of a hard swap
         if xf and prev and 0 <= t - ts < xf and hero(prev).size == im.size: im = Image.blend(hero(prev), im, ease((t - ts) / xf))
         hl = L.get("highlight")  # same picture with the muscle drawn red: blink on 3 f / off 3 f, then stays (owner 15 Nov)
@@ -226,6 +239,11 @@ class Renderer:
             if u_ >= hl.get("blink", 2) * 0.2 or int(u_ / 0.1) % 2 == 0: im = hero(hl["asset"])
         if L.get("flip"): im = im.transpose(Image.FLIP_LEFT_RIGHT)
         w = int(W * L.get("w", 0.8)); h = int(w * im.height / im.width); x, y, sc, al, rot = W * L.get("x", 0.5), H * L.get("y", 0.6), 1.0, 1.0, 0
+        if L.get("walk") and moving: w = int(W * L["walk"].get("w", L.get("w", 0.8))); h = int(w * im.height / im.width)
+        if tx_ is not None:
+            x, y = W * tx_, H * ty_
+            if moving and L.get("walk"): y += H * L["walk"].get("dy", 0)
+            if moving: y -= abs(math.sin(math.pi * t / L.get("walk", {}).get("step", 0.28))) * H * L.get("bob", 0.012)  # step bounce
         def move(kind, p):  # p: 0 = off, 1 = in place
             nonlocal x, y, sc, al, rot
             q = 1 - p

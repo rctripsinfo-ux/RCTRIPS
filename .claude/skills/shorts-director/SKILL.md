@@ -131,3 +131,11 @@ Reference: `work/long03/long03_plan.py` (demo). Research and specs: `work/resear
 - `track30.py` / `events30.py`: motion events from a video.
 - `fx_detect.py` + `fx_events.py`: dim, blur, highlights, wipes, cuts.
 - `overview.py` / `strips.py`: contact sheets. These two read `comp2/<id>_*.mp4` relative to the current folder, so run them from the scratchpad.
+
+## MOVEMENT RULE (owner, 21 Nov 2026): never a standing-still video
+- The owner rejected videos where H only stands in one spot and swaps hand poses while only the background changes.
+- Every scene needs real movement: H walks / runs / drags a suitcase INTO the set (engine `track` + `walk` stride pair, auto-flip by direction, step bounce),
+  crosses the frame, or the camera pushes in / pans (keys). Action loops (reps) for exercise beats.
+- Stride pairs: `d5_walk_a/b` (walk), `long08/img/w_thin_a/b` (thin walk), `w_case_a/b` (suitcase + phone), `w_run_a/b` (run; use h*0.8, dy=0.06). Helper `WK(...)` in `work/long08/long08_plan.py`.
+- Hook must start in the middle of action (walking past a dusty barbell, running in), with a camera move in the first second.
+- Text appears after the walker has arrived, or on the side the walker never crosses.
