@@ -762,14 +762,15 @@ class Renderer:
         if self.P.get("cap_swipe"):  # house style: key word gets an orange marker swipe; Mini-H lines in sticky yellow
             ks = [k for k in ch if ws[k]["start"] - 0.02 <= t]
             if not ks: return None
-            col = TH["mini"] if ws[ks[0]].get("spk") == "M" else (255, 255, 255); fnt = f"{HERE}/fonts/rubik-800.woff2"; sz = self.P.get("cap_size", 62)
-            ims = [text_img(norm_cap(ws[k]["text"]), fnt, sz, col, stroke=7, stroke_fill=(25, 28, 32), shadow=False) for k in ks]
+            col = tuple(self.P.get("cap_mini", TH["mini"])) if ws[ks[0]].get("spk") == "M" else tuple(self.P.get("cap_color", (255, 255, 255))); fnt = f"{HERE}/fonts/rubik-800.woff2"; sz = self.P.get("cap_size", 62)
+            st, sf = self.P.get("cap_stroke", 7), tuple(self.P.get("cap_stroke_fill", (25, 28, 32)))
+            ims = [text_img(norm_cap(ws[k]["text"]), fnt, sz, col, stroke=st, stroke_fill=sf, shadow=False) for k in ks]
             gap = 14; tw = sum(i.width for i in ims) + gap * (len(ims) - 1); th = max(i.height for i in ims)
             out = Image.new("RGBA", (tw + 30, th + 20), (0, 0, 0, 0)); x = 15
             for k, im in zip(ks, ims):
                 if norm(ws[k]["text"]) in self.kw:
-                    q = ease((t - ws[k]["start"]) / 0.13); ImageDraw.Draw(out).rounded_rectangle([x - 8, 18, x - 8 + (im.width + 16) * q, th + 4], 10, fill=(*TH["accent"], 255))
-                    if q > 0.5: im = text_img(norm_cap(ws[k]["text"]), fnt, sz, TH["kw_text"], stroke=0, shadow=False)
+                    q = ease((t - ws[k]["start"]) / 0.13); ImageDraw.Draw(out).rounded_rectangle([x - 8, 18, x - 8 + (im.width + 16) * q, th + 4], 10, fill=(*tuple(self.P.get("cap_accent", TH["accent"])), 255))
+                    if q > 0.5: im = text_img(norm_cap(ws[k]["text"]), fnt, sz, tuple(self.P.get("cap_kw_text", TH["kw_text"])), stroke=0, shadow=False)
                 out.alpha_composite(im, (x, 10)); x += im.width + gap
             return out, self.P.get("cap_y", 0.78), 1.0
         txt = " ".join(shown).lower().replace(".", "").replace(",", "").replace("?", "").replace("!", "")
