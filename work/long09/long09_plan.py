@@ -140,7 +140,7 @@ S = [
  # ===== RESULT =====
  P("Week one, the hang gets easy.", [PU([("h_hang", 0)], x=0.32)], [N(0, "WEEK 1", 0.72, 0.4, 140, NAVY)], sfx=POP(0)),
  P("Week two, the negatives get slower.", [PU([("p_mid", 0), ("h_hang", 1.2)], x=0.32)], [N(0, "WEEK 2", 0.72, 0.4, 140, NAVY)], sfx=POP(0)),
- P("Week three, you can stop halfway.", [PU([("p_mid", 0)], x=0.32, shiver=[(0.8, "E")])], [N(0, "WEEK 3", 0.72, 0.4, 140, NAVY)], sfx=POP(0)),
+ P("Week three, you can stop halfway.", [PU([("p_mid", 0)], x=0.32, shiver=[(0.8, 9.0)])], [N(0, "WEEK 3", 0.72, 0.4, 140, NAVY)], sfx=POP(0)),
  P("And around week four,", [PU([("h_hang", 0)], x=0.5), IC("i_drum", 0, 0.85, 0.7, 0.28)], keys=[(0, 1.0, .5, .5), ("E", 1.25, .5, .3)], sfx=POP(0)),
  P("you pull, and your chin goes over the bar.", [PU([("h_hang", 0), ("p_mid", "pull,"), ("p_top", "chin")], x=0.5)],
    particles=[dict(at="chin", x=0.5, y=0.2, spread=0.4)], shake=[("chin", .03)], sfx=[("chin", "chime", .5), ("chin", "pop", .4)], keys=[(0, 1.2, .5, .3), ("chin", 1.0, .5, .5)]),
