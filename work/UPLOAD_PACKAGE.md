@@ -1,4 +1,5 @@
-# After every finished video: Google Drive upload package (owner rule, 22 Nov 2026)
+# After every finished LONG video: Google Drive upload package (owner rule, 22 Nov 2026)
+SHORTS ARE NOT PUT IN DRIVE: the owner uploads Shorts by hand. For a Short, send the video (cover on the last frame) + title, description, tags in chat.
 The owner's Chrome extension uploads every finished folder in `My Drive/YT Uploads/` to YouTube Studio (3 titles + 3 thumbnails A/B test).
 - One folder per video: `YYYY-MM-DD_NN_short-slug` (new, unique, never renamed). Folders starting with `_` are ignored.
 - Files: `video.mp4` (H.264+AAC, 16:9, 1080p+), `thumb_1/2/3.jpg` (3 different concepts, 1280x720, < 2 MB, <= 4 words), optional `transcript.txt`, `captions.srt`, and `metadata.json` WRITTEN LAST.
