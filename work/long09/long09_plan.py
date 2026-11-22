@@ -67,7 +67,7 @@ def WK(stand, walk, track, h=0.82, y=0.56, step=0.28, **k):  # character that wa
                 track=[(a, x, y) for a, x in track], walk=dict(a=path(walk + "_a"), b=path(walk + "_b"), w=wfor(walk + "_a", h * (0.8 if walk == "w_run" else 1)), dy=0.06 if walk == "w_run" else 0, step=step), **k)
 WALK = "d5_walk"
 CREAM = (245, 240, 230)
-def PU(seq, x=0.5, h=1.0, bar=0.12, **k):  # pull-up bar poses share one canvas (bar at 25 % of its height): bar_y fixed on screen
+def PU(seq, x=0.5, h=1.25, bar=0.08, **k):  # pull-up bar poses share one canvas (bar at 25 % of its height): bar_y fixed on screen
     return act(seq, x=x, y=bar + 0.25 * h, h=h, puppet=False, **k)
 def IC(n, at=0, x=0.75, y=0.45, h=0.3, until=None, **k):  # icon pop (Yellow Dude: one picture per phrase)
     return dict(at=at, until=until, w=wfor(n, h), x=x, y=y, asset=path(n), puppet=False, breathe=False, enter=k.pop("enter", ("pop", 0.22)), **k)
