@@ -1,0 +1,4 @@
+# LONG 09: "Why You Can't Do a Single Pull-Up (It's Not Your Arms)"  16:9, ~3.5 min. YELLOW DUDE STYLE (see long09/STYLE.md):
+# one plain background colour, an icon / prop / gag for every line, a new visual every 1-2 s, shot sizes change (close / medium / wide),
+# characters enter with motion blur, exercise demos as loops, very little on-screen text, a pop / ding on every new element.
+# Open loop: the first pull-up is only shown at the end.
