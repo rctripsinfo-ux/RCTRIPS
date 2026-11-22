@@ -67,7 +67,9 @@ def WK(stand, walk, track, h=0.82, y=0.56, step=0.28, **k):  # character that wa
                 track=[(a, x, y) for a, x in track], walk=dict(a=path(walk + "_a"), b=path(walk + "_b"), w=wfor(walk + "_a", h * (0.8 if walk == "w_run" else 1)), dy=0.06 if walk == "w_run" else 0, step=step), **k)
 WALK = "d5_walk"
 CREAM = (245, 240, 230)
-def PU(seq, x=0.5, h=1.25, bar=0.08, **k):  # pull-up bar poses share one canvas (bar at 25 % of its height): bar_y fixed on screen
+def H_(seq, x=0.3, y=0.7, h=1.15, **k): return act(seq, x=x, y=y, h=h, **k)  # bigger, cropped at the knees (Yellow Dude framing)
+def INS(n, at, crop, x=0.8, y=0.32, r=0.11, mark=None, until=None): return dict(at=at, until=until, asset=path(n), crop=crop, x=x, y=y, r=r, mark=mark, bg=(226, 234, 244))
+def PU(seq, x=0.5, h=1.5, bar=0.08, **k):  # pull-up bar poses share one canvas (bar at 25 % of its height): bar_y fixed on screen
     return act(seq, x=x, y=bar + 0.25 * h, h=h, puppet=False, **k)
 def IC(n, at=0, x=0.75, y=0.45, h=0.3, until=None, **k):  # icon pop (Yellow Dude: one picture per phrase)
     return dict(at=at, until=until, w=wfor(n, h), x=x, y=y, asset=path(n), puppet=False, breathe=False, enter=k.pop("enter", ("pop", 0.22)), **k)
@@ -95,24 +97,24 @@ S = [
  # ===== REASON 1 =====
  card("Reason one.", "#1", "THE GRIP"),
  P("Your grip gives up before your back does.", [IC("i_slip", 0, 0.5, 0.5, 0.8)], shake=[("gives", .03)], sfx=POP(0), keys=[(0, 1.0, .5, .5), ("E", 1.12, .5, .5)]),
- P("If you can't hold your own body weight for thirty seconds, your hands quit first.", [PU([("p_kick_a", 0)] + reps("p_kick_b", "p_kick_a", 10, 0.3, 0.3), x=0.3, until="quit"),
+ P("If you can't hold your own body weight for thirty seconds, your hands quit first.", [PU([("p_kick_a", 0)] + reps("p_kick_b", "p_kick_a", 10, 0.3, 0.3), x=0.3, h=1.3, until="quit"),
    IC("i_watch", "thirty", 0.75, 0.4, 0.38), dict(at="quit", w=wfor("p_fall_c", 0.4), x=0.4, y=0.78, asset=path("p_fall_c"), puppet=False, enter=("drop", 0.2))],
-   shake=[("quit", .05)], sfx=POP("thirty") + [("quit", "whoosh_big", .3)]),
+   shake=[("quit", .05)], sfx=POP("thirty") + [("quit", "whoosh_big", .3)], insets=[INS("p_kick_a", "hands", (0.5, 0.24, 0.3), 0.78, 0.75, mark="x")]),
  P("So start with the dead hang. Grab the bar, arms straight, and just hang.", [PU([("h_hang", 0)], x=0.5, enter=("rise", 0.25), until="Grab"),
-   PU([("h_hang", 0)], x=0.5, h=1.6, bar=0.08, at="Grab")], keys=[(0, 1.0, .5, .5), ("Grab", 1.0, .5, .5), ("E", 1.05, .5, .4)], sfx=[(0, "whoosh_short", .3), ("Grab", "pop", .3)]),
+   PU([("h_hang", 0)], x=0.35, h=1.6, bar=0.08, at="Grab")], insets=[INS("h_hang", "arms", (0.37, 0.28, 0.22), 0.75, 0.4, r=0.14, mark="tick")], keys=[(0, 1.0, .5, .5), ("Grab", 1.0, .5, .5), ("E", 1.05, .5, .4)], sfx=[(0, "whoosh_short", .3), ("Grab", "pop", .3)]),
  P("Thirty seconds. Three times. Every day.", [PU([("h_hang", 0)], x=0.28)],
-   counters=[dict(at=0, a=0, b=30, dur=1.0, x=0.72, y=0.3, size=200, color=NAVY, label="SEC", stroke=10)], kinetic=[N("Three", "x3", 0.72, 0.58, 160, TEAL), N("Every", "EVERY DAY", 0.72, 0.78, 100, NAVY)], sfx=POP("Three", "Every")),
+   counters=[dict(at=0, a=0, b=30, dur=1.0, x=0.72, y=0.3, size=200, color=NAVY, label="SEC", stroke=10)], kinetic=[N("Three", "x3", 0.72, 0.58, 160, TEAL), N("Every", "EVERY DAY", 0.72, 0.7, 100, NAVY)], sfx=POP("Three", "Every")),
  M("That's it? Just hanging?", [PU([("h_hang", 0)], x=0.38)], "s6_mini_squint_cut"),
  P("Just hanging. It's harder than it looks.", [PU([("h_hang", 0), ("p_kick_a", "harder"), ("p_kick_b", "harder+0.3"), ("p_kick_a", "harder+0.6"), ("p_towel", "looks.")], x=0.5)],
    keys=[(0, 1.0, .5, .5), ("harder", 1.4, .5, .3), ("E", 1.5, .5, .3)]),
  # ===== REASON 2 =====
  card("Reason two.", "#2", "THE WRONG MUSCLES"),
- P("You pull with your arms.", [PU([("p_kick_a", 0)] + reps("p_kick_b", "p_kick_a", 6, 0.25, 0.25), x=0.5)]),
+ P("You pull with your arms.", [PU([("p_kick_a", 0)] + reps("p_kick_b", "p_kick_a", 6, 0.25, 0.25), x=0.35, h=1.3)], insets=[INS("p_kick_a", "arms.", (0.35, 0.3, 0.3), 0.75, 0.4, r=0.14, mark="x")]),
  P("But a pull-up is a back exercise.", [H_([("g_point", 0)], x=0.3)], [N("back", "BACK", 0.7, 0.42, 200, TEAL)], sfx=POP("back")),
  P("Your lats, the big wings on your back, are supposed to start the move.", [IC("i_wings", "wings", 0.5, 0.42, 0.75, z=-1), H_([("g_flex", 0)], x=0.5, y=0.6, h=0.75)],
    sfx=POP("wings") + [("wings", "chime", .3)], keys=[(0, 1.0, .5, .5), ("E", 1.08, .5, .45)]),
  P("Here's how you wake them up.", [H_([("g_think", 0)], **CLOSE)]),
- P("Hang, then pull your shoulders down, away from your ears, without bending your arms.", [PU([("h_hang", 0)] + reps("p_scap", "h_hang", 8, 0.8, 0.6), x=0.5, h=1.3, bar=0.1)],
+ P("Hang, then pull your shoulders down, away from your ears, without bending your arms.", [PU([("h_hang", 0)] + reps("p_scap", "h_hang", 8, 0.8, 0.6), x=0.35, h=1.5, bar=0.1)], insets=[INS("p_scap", "shoulders", (0.5, 0.42, 0.3), 0.7, 0.42, r=0.13, mark="tick")],
    keys=[(0, 1.0, .5, .5), ("shoulders", 1.5, .5, .3), ("without", 1.0, .5, .5)]),
  P("It's a tiny move. Ten of those, three sets.", [PU([("h_hang", 0)] + reps("p_scap", "h_hang", 8, 0.45, 0.2), x=0.3)],
    counters=[dict(at="Ten", a=1, b=10, dur=1.0, x=0.72, y=0.35, size=200, color=NAVY, stroke=10)], kinetic=[N("three", "x3", 0.72, 0.62, 160, TEAL)], sfx=POP("three")),
@@ -129,7 +131,7 @@ S = [
  P("You skip the part you can't do, and train the part you can.", [H_([("p_wag", 0), ("g_thumbs", "train")], **CLOSE)]),
  # ===== PLAN =====
  card("So here's the plan.", "THE PLAN", "30 DAYS"),
- P("Three days a week.", [IC("i_cal30", 0, 0.5, 0.45, 0.6)], [N(0.3, "3 DAYS / WEEK", 0.5, 0.88, 110, NAVY)], sfx=POP(0)),
+ P("Three days a week.", [IC("i_cal30", 0, 0.5, 0.45, 0.6)], [N(0.3, "3 DAYS / WEEK", 0.5, 0.1, 110, NAVY)], sfx=POP(0)),
  P("Dead hangs, three times thirty seconds.", [PU([("h_hang", 0)], x=0.3)], [N("three", "3 x 30 SEC", 0.72, 0.45, 130, NAVY)], sfx=POP("three")),
  P("Shoulder pulls, three sets of ten.", [PU([("h_hang", 0)] + reps("p_scap", "h_hang", 6, 0.4, 0.1), x=0.3)], [N("three", "3 x 10", 0.72, 0.45, 160, NAVY)], sfx=POP("three")),
  P("Negatives, three sets of three, five seconds each.", [PU([("p_top", 0), ("p_mid", 0.8), ("h_hang", 1.6), ("p_top", 2.2), ("p_mid", 3.0), ("h_hang", 3.8)], x=0.3)],
@@ -151,7 +153,7 @@ S = [
 ]
 PLAN = dict(dir=f"{HERE}/scenes_long09", words=f"{HERE}/voice/long09_cut.words.json", voice=f"{HERE}/voice/long09_cut.wav",
             music=f"{HERE}/music/hyper_lillian_thorn.mp3", music_db=20, sfx_db=14, duck=False, set=CREAM,
-            scenes=S, cap_mode="build", cap_swipe=True, cap_words=3, cap_size=104, cap_y=0.9, cap_color=(255, 255, 255), cap_mini=(255, 255, 255), cap_stroke=9, cap_stroke_fill=(20, 22, 28), lead=0.06, tail=0.8, keywords=[], breathe=True, puppet=True, pose_pop=0.05, text_overlay=True, dip_color=(10, 12, 18))
+            scenes=S, cap_mode="build", cap_swipe=True, cap_words=3, cap_size=110, cap_y=0.88, cap_color=(255, 255, 255), cap_mini=(255, 255, 255), cap_stroke=8, cap_stroke_fill=(20, 22, 28), cap_font=f"{HERE}/fonts/anton.woff2", cap_upper=True, cap_gap=10, lead=0.06, tail=0.8, keywords=[], breathe=True, puppet=True, pose_pop=0.05, text_overlay=True, dip_color=(10, 12, 18))
 if __name__ == "__main__":
     a = sys.argv[1:]
     render(PLAN, f"{HERE}/final/long09{'-preview' if a else ''}.mp4", **({"t0": float(a[0]), "t1": float(a[1])} if a else {}))
