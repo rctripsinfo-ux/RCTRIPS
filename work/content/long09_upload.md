@@ -1,4 +1,4 @@
-# Long video: `final/long09.mp4` (16:9, ~2:28, Yellow Dude style) + `final/long09.srt` + thumbnails `long09/thumb/pt_a.png`, `pt_b.png`, `pt_c.png` (Test & Compare)
+# Long video: `final/long09.mp4` (16:9, ~2:28, Yellow Dude style) + `final/long09.srt` + thumbnails `long09/thumb/pt_a.png`, `pt_d.png`, `pt_f.png` (Test & Compare)
 
 ## 3 thumbnail + title pairs for Test & Compare
 | # | Thumbnail | Title |
