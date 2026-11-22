@@ -5,7 +5,7 @@
 |---|---|---|
 | A | `long09/thumb/pt_a.png` (0 PULL-UPS?, wet towel vs Day 30) | Why You Can't Do a Single Pull-Up (It's Not Your Arms) |
 | B | `long09/thumb/pt_d.png` (WRONG MUSCLE?, arms X vs back wings tick) | Can't Do a Pull-Up? You're Using the Wrong Muscle |
-| C | `long09/thumb/pt_e.png` (TRAIN THE WAY DOWN, up X vs down tick) | From 0 to Your First Pull-Up in 30 Days |
+| C | `long09/thumb/pt_f.png` (PULL FROM HERE?, puppet strings on the lats) | The Pull-Up Secret Nobody Tells Beginners |
 
 **Description**
 ```
@@ -32,4 +32,4 @@ How many pull-ups can you do right now? Zero counts 👇
 ```
 **Tags:** how to do a pull up, first pull up, can't do a pull up, pull up progression, negative pull ups, dead hang, scapular pulls, pull ups for beginners, calisthenics beginner, effortless exercise
 
-**Upload:** custom thumbnails in Test & Compare (`pt_a`, `pt_d`, `pt_e`); add `long09.srt` under Subtitles → English.
+**Upload:** custom thumbnails in Test & Compare (`pt_a`, `pt_d`, `pt_f`); add `long09.srt` under Subtitles → English.
