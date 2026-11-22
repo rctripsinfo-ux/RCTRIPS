@@ -137,6 +137,8 @@ def text_img(txt, path, size, fill, stroke=0, stroke_fill=(255, 255, 255), shado
     d.text((pad - l, pad - t), txt, font=f, fill=fill, stroke_width=stroke, stroke_fill=stroke_fill)
     return im
 
+def contrast(col): return (255, 255, 255) if sum(col[:3]) < 384 else (20, 22, 28)  # outline that stands out from the fill (owner: no dark-on-dark blobs)
+
 def norm_cap(w): return w.lower().replace(".", "").replace(",", "").replace("?", "").replace("!", "")
 
 def paste_center(canvas, im, x, y, scale=1.0, alpha=1.0):
@@ -344,11 +346,11 @@ class Renderer:
             lv = self._live(e, s, t, 0.2)
             if not lv: continue
             u, f = lv; dur = e.get("dur", 1.5); q = ease(min(1, u / dur)); val = round(e.get("a", 0) + (e["b"] - e.get("a", 0)) * q)
-            im = text_img(f"{val}{e.get('suffix', '')}", FI, e.get("size", 220), tuple(e.get("color", (34, 40, 48))), stroke=e.get("stroke", 0), stroke_fill=tuple(e.get("stroke_fill", (34, 40, 48))), shadow=False)
+            im = text_img(f"{val}{e.get('suffix', '')}", FI, e.get("size", 220), tuple(e.get("color", (34, 40, 48))), stroke=e.get("stroke", 0), stroke_fill=tuple(e.get("stroke_fill", contrast(e.get("color", (34, 40, 48))))), shadow=False)
             pk = 1 + 0.08 * math.sin(min(1, max(0, (u - dur) / 0.2)) * math.pi)
             paste_center(c, im, W * e["x"], H * e["y"], pk, f)
             if e.get("label"):
-                if "_l" not in e: e["_l"] = text_img(e["label"], FI, e.get("lsize", 54), tuple(e.get("color", (34, 40, 48))), stroke=e.get("stroke", 0), stroke_fill=tuple(e.get("stroke_fill", (34, 40, 48))), shadow=False)
+                if "_l" not in e: e["_l"] = text_img(e["label"], FI, e.get("lsize", 54), tuple(e.get("color", (34, 40, 48))), stroke=min(e.get("stroke", 0), 6), stroke_fill=tuple(e.get("stroke_fill", contrast(e.get("color", (34, 40, 48))))), shadow=False)
                 paste_center(c, e["_l"], W * e["x"], H * e["y"] + im.height * 0.55, 1.0, f)
         for e in (s.get("rings", []) if on("rings") else []):  # stopwatch ring: arc grows over dur, seconds inside
             lv = self._live(e, s, t, 0.2)
