@@ -941,7 +941,7 @@ class Renderer:
             for m in s.get("marks", []):
                 if m.get("sound", False): s.setdefault("sfx", []).append((m["at"], m.get("sfx", "counter"), 0.3))
             for a, name, vol in s.get("sfx", []):
-                f = glob.glob(f"{SFX_DIR}/{name}.*"); assert f, name
+                f = glob.glob(f"{SFX_DIR}/{name}.*") or glob.glob(f"{HERE}/sfx/es/{name}.*") or glob.glob(f"{HERE}/sfx/{name}.*"); assert f, name  # es_* = earshot pack (work/sfx/es)
                 ms = int(max(0, self.tl.at(a, s)) * 1000); ins += ["-i", f[0]]
                 _, pk = self.measure(f[0]); g = 10 ** ((self.sfx_ref - pk) / 20) * min(1.0, vol / 0.5)  # vol 0.5 = full level
                 fl.append(f"[{k}:a]aresample=48000,aformat=channel_layouts=stereo,volume={g:.4f},adelay={ms}|{ms}[s{k}]"); mixes.append(f"[s{k}]"); k += 1
@@ -954,7 +954,7 @@ class Renderer:
         J = subprocess.run(["ffmpeg", "-nostdin", "-hide_banner", "-i", tmp_a, "-af", f"loudnorm=I={L}:TP=-1.0:LRA=11:print_format=json", "-f", "null", "-"], capture_output=True, text=True).stderr
         j = json.loads(J[J.rindex("{"):J.rindex("}") + 1])
         af = (f"loudnorm=I={L}:TP=-1.0:LRA=11:measured_I={j['input_i']}:measured_TP={j['input_tp']}:measured_LRA={j['input_lra']}"
-              f":measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true")
+              f":measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true,alimiter=limit=0.84:level=disabled:attack=1:release=50")  # true-peak safety (video-director QA: TP <= -1 dBTP)
         t1 = t1 or self.tl.end; n = int(round((t1 - t0) * FPS))
         ff = subprocess.Popen(["ffmpeg", "-nostdin", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
                                "-ss", str(t0), "-t", str(t1 - t0), "-i", tmp_a, "-af", af, "-c:v", "libx264", "-crf", "19", "-preset", "medium", "-pix_fmt", "yuv420p",
@@ -971,7 +971,7 @@ def remix(plan, video, out):
     J = subprocess.run(["ffmpeg", "-nostdin", "-hide_banner", "-i", a, "-af", f"loudnorm=I={L}:TP=-1.0:LRA=11:print_format=json", "-f", "null", "-"], capture_output=True, text=True).stderr
     j = json.loads(J[J.rindex("{"):J.rindex("}") + 1])
     af = (f"loudnorm=I={L}:TP=-1.0:LRA=11:measured_I={j['input_i']}:measured_TP={j['input_tp']}:measured_LRA={j['input_lra']}"
-          f":measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true")
+          f":measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true,alimiter=limit=0.84:level=disabled:attack=1:release=50")  # true-peak safety (video-director QA: TP <= -1 dBTP)
     subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-i", video, "-i", a, "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-af", af,
                     "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest", "-movflags", "+faststart", out], check=True); os.remove(a)
 

@@ -15,3 +15,4 @@ cp -n "$W"/sfx/*.wav ~/reel-engine-tool/public/library/sfx/ 2>/dev/null || true
 # Codex CLI for images (log in once: codex login --device-auth, the owner enters the code)
 command -v codex >/dev/null || npm install -g @openai/codex
 echo "Setup done. Next: GEMINI_API_KEY must be set (voice). Codex: run 'codex login status' (login with --device-auth if needed)."
+pip install -q "earshot @ git+https://github.com/Leonxlnx/earshot"  # SFX maker (MIT); pack in work/sfx/es
