@@ -151,7 +151,7 @@ S = [
 ]
 PLAN = dict(dir=f"{HERE}/scenes_long09", words=f"{HERE}/voice/long09_cut.words.json", voice=f"{HERE}/voice/long09_cut.wav",
             music=f"{HERE}/music/hyper_lillian_thorn.mp3", music_db=20, sfx_db=14, duck=False, set=CREAM,
-            scenes=S, cap_mode="none", lead=0.06, tail=0.8, keywords=[], breathe=True, puppet=True, pose_pop=0.05, text_overlay=True, dip_color=(10, 12, 18))
+            scenes=S, cap_mode="build", cap_swipe=True, cap_words=3, cap_size=104, cap_y=0.9, cap_color=(255, 255, 255), cap_mini=(255, 255, 255), cap_stroke=9, cap_stroke_fill=(20, 22, 28), lead=0.06, tail=0.8, keywords=[], breathe=True, puppet=True, pose_pop=0.05, text_overlay=True, dip_color=(10, 12, 18))
 if __name__ == "__main__":
     a = sys.argv[1:]
     render(PLAN, f"{HERE}/final/long09{'-preview' if a else ''}.mp4", **({"t0": float(a[0]), "t1": float(a[1])} if a else {}))
