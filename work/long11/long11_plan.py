@@ -87,7 +87,7 @@ TIMER = lambda at, a, b, dur, x=0.78, y=0.4, col=NAVY: dict(at=at, a=a, b=b, dur
 S = [
  # ===== HOOK =====
  P("For thirty days, I did one thing every morning. I hung from a bar. That's it.", [PU([("h_hang", 0)], x=0.32, enter=("rise", 0.25)), IC("i_cal30", 0.4, 0.75, 0.42, 0.4)],
-   [N("bar.", "JUST HANG", 0.75, 0.82, 110, NAVY)], sfx=[(0, "es_whoosh", .3), (0.4, "es_pop", .3), ("bar.", "es_pop", .3)], keys=[(0, 1.25, .35, .3), (1.2, 1.0, .5, .5), ("E", 1.05, .5, .5)]),
+   [N("bar.", "JUST HANG", 0.75, 0.68, 110, NAVY)], sfx=[(0, "es_whoosh", .3), (0.4, "es_pop", .3), ("bar.", "es_pop", .3)], keys=[(0, 1.25, .35, .3), (1.2, 1.0, .5, .5), ("E", 1.05, .5, .5)]),
  P("No pull-ups. No weights. Just hanging.", [PU([("h_relax", 0)], x=0.5)], [N("pull-ups.", "NO PULL-UPS", 0.18, 0.4, 80, RED), N("weights.", "NO WEIGHTS", 0.82, 0.4, 80, RED)],
    sfx=[("pull-ups.", "es_error", .25), ("weights.", "es_error", .25)]),
  M("You trained for a month by doing nothing?", [PU([("h_relax", 0)], x=0.38)], "s6_mini_squint_cut"),
@@ -136,7 +136,7 @@ S = [
  # ===== HOW TO =====
  card("If you want to try it,", "HOW TO", "START TODAY"),
  P("grab a bar with your hands shoulder width apart. Arms straight, shoulders relaxed, and just hang.", [PU([("h_hang", 0)], x=0.32, h=1.7, bar=0.08)],
-   insets=[INS("h_hang", "shoulder", (0.5, 0.29, 0.45), 0.76, 0.4, r=0.14, mark="tick")], kinetic=[N("hang.", "JUST HANG", 0.76, 0.75, 100, NAVY)]),
+   kinetic=[N("shoulder", "SHOULDER WIDTH", 0.76, 0.35, 90, NAVY), N("hang.", "JUST HANG", 0.76, 0.55, 100, TEAL)]),
  P("Do three hangs, as long as you can. Add five seconds every few days.", [PU([("h_hang", 0)], x=0.32)],
    [N("three", "3 HANGS", 0.76, 0.3, 140, NAVY), N("five", "+5 SEC", 0.76, 0.55, 140, TEAL)], sfx=[("three", "es_pop", .3), ("five", "es_ding", .3)]),
  P("If your hands slip, use a towel or chalk.", [PU([("h_burn", 0)], x=0.32), IC("i_chalk_c", "chalk.", 0.75, 0.45, 0.35), IC("i_towel_c", "towel", 0.75, 0.15, 0.2)], sfx=[("towel", "es_pop", .3), ("chalk.", "es_pop", .3)]),
