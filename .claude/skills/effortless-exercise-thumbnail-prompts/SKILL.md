@@ -193,3 +193,9 @@ Approved: `work/short10/thumb/cw_a.png` (push-up 10 vs 40). Captain-Workout spli
 - Only white label boxes with a thick black outline and a big black number/1-2 words ("10", "40"). No title.
 - Must be understood in one second without reading. Everything inside the middle 60% of the height (Shorts safe zone).
 - Rejected for Shorts: cream backgrounds, heart/metaphor gags the owner could not read at a glance, handwritten-notes covers.
+
+## LONG THUMBNAILS: TEAL + NO TEXT (owner, 23 Nov 2026, latest, overrides the cream rule)
+- Background: plain flat brand TEAL `#0F8B85` (the two teal thumbnails, STUCK AT 20 and ONE FINGER, performed best).
+- NO TEXT (or at most one number). The poses must tell the whole story: very detailed, exaggerated, readable poses and props,
+  usually a side-by-side before/after or wrong/right, so a viewer understands the video without reading anything.
+- H exactly the reference character, big and close. Dark red `#7A1A1A` / green glow only as accents (glowing muscles, X / tick shapes, arrows).
