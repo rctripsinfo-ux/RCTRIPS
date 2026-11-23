@@ -185,3 +185,11 @@ Reference covers: `work/thumbs/brand/day0X.png` (e.g. day04 arm levels, day06 WH
 - At most ONE simple supporting graphic: a circle inset zoom (e.g. tendon), a battery, a row of icons/numbers. No absurd gags.
 - 1-3 huge white extra-bold italic words with a dark outline at the top (keep them below the top 10% so nothing is cut).
 - If a brand cover already exists for that day, use it as is.
+
+## SHORTS COVER: APPROVED FORMULA (owner, 23 Nov 2026, latest, overrides older Shorts rules)
+Approved: `work/short10/thumb/cw_a.png` (push-up 10 vs 40). Captain-Workout split style in brand colours:
+- Top half dark red `#7A1A1A`, bottom half teal `#0F8B85`, split by a TORN diagonal paper edge.
+- Top = the bad/low version of H (collapsed, struggling), bottom = the good/high version (strong, confident). H big, cropped close.
+- Only white label boxes with a thick black outline and a big black number/1-2 words ("10", "40"). No title.
+- Must be understood in one second without reading. Everything inside the middle 60% of the height (Shorts safe zone).
+- Rejected for Shorts: cream backgrounds, heart/metaphor gags the owner could not read at a glance, handwritten-notes covers.
