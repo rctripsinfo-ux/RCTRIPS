@@ -139,3 +139,9 @@ Reference: `work/long03/long03_plan.py` (demo). Research and specs: `work/resear
 - Stride pairs: `d5_walk_a/b` (walk), `long08/img/w_thin_a/b` (thin walk), `w_case_a/b` (suitcase + phone), `w_run_a/b` (run; use h*0.8, dy=0.06). Helper `WK(...)` in `work/long08/long08_plan.py`.
 - Hook must start in the middle of action (walking past a dusty barbell, running in), with a camera move in the first second.
 - Text appears after the walker has arrived, or on the side the walker never crosses.
+
+## SOUND EFFECTS TOOLS (added 23 Nov 2026)
+- `work/sfx/es/es_*.wav`: 20 SFX made with **earshot** (`pip install "earshot @ git+https://github.com/Leonxlnx/earshot"`, MIT). Use by name in plans, e.g. `sfx=[("word", "es_pop", .3)]`. More: `earshot make "a soft success sound" -o work/sfx/es/es_name.wav`.
+- `work/sfx/library/`: 74 real CC0 recordings from **Openverse** (api.openverse.org, sources + creators in `SOURCES.json`), 20 categories (whoosh, pop, hit, riser, chime, ding, click, cheer, drumroll, tick, footstep, camera, applause, heartbeat...). Fetch more with curl (plain Python urllib gets 403).
+- `.claude/skills/real-sfx` (owner's skill): places real library sounds on the exact frame after a render; config points at both folders, index built (`scripts/build_index.py`).
+- `.claude/skills/video-director/scripts/qa_video.py film.mp4 --out qa/ --lufs -14`: post-render QA (flashes, freezes, true peak, silence). Masters now go through a true-peak limiter.
