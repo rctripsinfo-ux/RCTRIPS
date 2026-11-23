@@ -82,17 +82,17 @@ def card(text, num, name): return dict(text=text, poses=[], set=NAVY, tr="cut", 
 POP = lambda *ats: [(a, "pop", .3) for a in ats]
 SOFT = (222, 236, 240)  # plain light-teal set (fuller look than cream, per the Yellow Dude comparison)
 LX = [0.11, 0.305, 0.5, 0.695, 0.89]
-def LINE(hi=None, at=0, h=0.55, y=0.66, stagger=0.0, dim=0.3):  # the 5 body levels side by side; hi = highlighted level (1-5)
+def LINE(hi=None, at=0, h=0.7, y=0.7, stagger=0.0, dim=0.3):  # the 5 body levels side by side; hi = highlighted level (1-5)
     return [dict(at=(at + i * stagger) if stagger else at, w=wfor(f"v{i+1}", h * (1.12 if hi == i + 1 else 1)), x=LX[i], y=y, asset=path(f"v{i+1}"),
                  alpha=1.0 if hi in (None, i + 1) else dim, puppet=hi == i + 1, enter=("rise", 0.25) if stagger else ("cut", 0)) for i in range(5)]
 def LV(text, n, ratio, name, icon=None, ic_at=0):
     L = LINE(hi=n) + ([IC(icon, ic_at, LX[n - 1] + (0.12 if n < 5 else -0.12), 0.3, 0.14)] if icon else [])
     return P(text, L, [N(0, f"LEVEL {n}", 0.5, 0.1, 130, NAVY), N(0.5, ratio, 0.5, 0.21, 100, TEAL), N(1.2, name, 0.5, 0.3, 90, RED)],
              sfx=[(0, "es_pop", .3), (1.2, "es_ding", .25)], keys=[(0, 1.0, .5, .5), ("E", 1.12, LX[n - 1], .5)])
-PSH = lambda n=10, step=0.3, **k: act([("pu_top", 0)] + reps("pu_bot", "pu_top", n, step, 0.3), **{"h": 0.5, "y": 0.62, "x": 0.5, "puppet": False, **k})
+PSH = lambda n=10, step=0.3, **k: act([("pu_top", 0)] + reps("pu_bot", "pu_top", n, step, 0.3), **{"h": 0.75, "y": 0.62, "x": 0.5, "puppet": False, **k})
 S = [
  # ===== HOOK =====
- P("Grab a tape measure.", [WK([("m_shoulder", 0)], WALK, [(0, -0.2), (1.0, 0.32)], h=1.0, y=0.6), IC("i_tape_c", 0.3, 0.74, 0.45, 0.32)], sfx=[(0, "es_whoosh", .3), (0.3, "es_pop", .3)]),
+ P("Grab a tape measure.", [WK([("m_shoulder", 0)], WALK, [(0, 0.08), (1.0, 0.32)], h=1.0, y=0.6), IC("i_tape_c", 0.3, 0.74, 0.45, 0.32)], sfx=[(0, "es_whoosh", .3), (0.3, "es_pop", .3)]),
  P("In the next three minutes, you'll know exactly what your body level is.", LINE(stagger=0.35), [N("level", "YOUR LEVEL?", 0.5, 0.12, 150, NAVY)],
    sfx=[(0, "es_pop2", .3), (0.35, "es_pop2", .3), (0.7, "es_pop2", .3), (1.05, "es_pop2", .3), (1.4, "es_pop2", .3), ("level", "es_ding", .3)]),
  P("Most guys train chest and abs all year, and still look like a rectangle in a t-shirt.", [H_([("v1", 0)], x=0.3, y=0.66, h=1.1), IC("i_shirt_c", "t-shirt.", 0.72, 0.45, 0.4)],
