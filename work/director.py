@@ -30,6 +30,8 @@ INK, RED = (17, 17, 17), (225, 29, 46)
 
 def ease(p): p = min(1, max(0, p)); return 1 - (1 - p) ** 3
 def smooth(p): p = min(1, max(0, p)); return p * p * (3 - 2 * p)
+def eio(p): p = min(1, max(0, p)); return 4 * p ** 3 if p < 0.5 else 1 - (-2 * p + 2) ** 3 / 2  # cubic ease-in-out (owner 26 Nov: smooth moves)
+
 def back(p, s=1.6): p = min(1, max(0, p)) - 1; return 1 + p * p * ((s + 1) * p + s)
 def norm(t): return "".join(c for c in t.lower() if c.isalnum() or c == "'")
 
@@ -119,7 +121,7 @@ def keyval(keys, u, dur):
     if u <= ks[0][0]: return ks[0][1:]
     for a, b in zip(ks, ks[1:]):
         if u < b[0]:
-            p = smooth((u - a[0]) / max(1e-6, b[0] - a[0])); return tuple(x + (y - x) * p for x, y in zip(a[1:], b[1:]))
+            p = eio((u - a[0]) / max(1e-6, b[0] - a[0])); return tuple(x + (y - x) * p for x, y in zip(a[1:], b[1:]))
     return ks[-1][1:]
 
 def font(path, size, _c={}):
@@ -225,7 +227,7 @@ class Renderer:
             tx_, ty_ = kf[0][1], kf[0][2]
             for (ta, xa, ya), (tb, xb, yb) in zip(kf, kf[1:]):
                 if ta <= t < tb:
-                    q = ease((t - ta) / max(1e-3, tb - ta)) if L.get("track_ease", True) else (t - ta) / max(1e-3, tb - ta)
+                    q = eio((t - ta) / max(1e-3, tb - ta)) if L.get("track_ease", True) else (t - ta) / max(1e-3, tb - ta)
                     tx_, ty_ = xa + (xb - xa) * q, ya + (yb - ya) * q; moving = abs(xb - xa) + abs(yb - ya) > 1e-3; dirx = (xb > xa) - (xb < xa)
                 elif t >= tb: tx_, ty_ = xb, yb
             wk = L.get("walk")
@@ -259,8 +261,8 @@ class Renderer:
                 cx = W * (1.02 if kind.endswith("r") else -0.02); x = cx + (x - cx) * p; y = H * 1.02 + (y - H * 1.02) * p; sc = 0.15 + 0.85 * p
             elif kind == "fall": y += q * H * 0.7; rot = -25 * q
         entering = t < a + en[1]
-        if entering: move(en[0], back((t - a) / en[1], 1.2) if en[0] in ("pop", "slide_l", "slide_r", "rise", "drop") or en[0].startswith("corner") else ease((t - a) / en[1]))
-        elif t >= b: move(ex[0], 1 - ease((t - b) / ex[1]))
+        if entering: move(en[0], eio((t - a) / en[1]) if L.get("smooth", self.P.get("smooth_moves")) and en[0] != "pop" else back((t - a) / en[1], 1.2) if en[0] in ("pop", "slide_l", "slide_r", "rise", "drop") or en[0].startswith("corner") else ease((t - a) / en[1]))
+        elif t >= b: move(ex[0], 1 - (eio if L.get("smooth", self.P.get("smooth_moves")) else ease)((t - b) / ex[1]))
         for sa, su in L.get("shiver", []):  # effort / panic: fast tiny shake + side marks
             if self.tl.at(sa, s) <= t < self.tl.at(su, s):
                 r_ = random.Random(int(t * FPS) * 7 + int(x)); x += (r_.random() - .5) * 10; y += (r_.random() - .5) * 6
@@ -297,8 +299,10 @@ class Renderer:
         self.stage_words(s, t, c)
         for e in s.get("mirrors", []): self.mirror(e, s, t, c)
         top = [L for L in s.get("layers", []) if L.get("z", 0) >= 3]
-        for L in sorted([L for L in s.get("layers", []) if L.get("z", 0) < 3], key=lambda L: L.get("z", 0)) + ["W"] + top:
+        low = sorted([L for L in s.get("layers", []) if L.get("z", 0) < 3], key=lambda L: L.get("z", 0)); nb = sum(1 for L in low if L.get("z", 0) < 0)
+        for L in low[:nb] + ["B"] + low[nb:] + ["W"] + top:
             if L == "W": self.widgets(s, t, c); continue
+            if L == "B": self.widgets(s, t, c, only=("behind",)); continue
             if L.get("focus") and self.tl.at(L.get("at", 0), s) <= t < (self.tl.at(L["until"], s) if L.get("until") else 1e9):  # everything behind goes soft + a bit darker
                 k = min(1, (t - self.tl.at(L.get("at", 0), s)) / 0.3); c = c.filter(ImageFilter.GaussianBlur(12 * k))
                 c.alpha_composite(Image.new("RGBA", (W, H), (0, 0, 0, int(40 * k))))
@@ -333,7 +337,9 @@ class Renderer:
         d = ImageDraw.Draw(c); FI = f"{HERE}/fonts/rubik-800-italic.woff2"
         ov = self.P.get("text_overlay")
         def on(k): return (k in only) if only else not (ov and k in ("kinetic", "counters", "rings"))
-        for e in (s.get("kinetic", []) if on("kinetic") else []):  # big italic words, no box: slide 90 px + fade in over 5 frames (ease-out), fade out 6 frames
+        kin_all = s.get("kinetic", [])
+        kin_list = [e for e in kin_all if e.get("behind")] if only == ("behind",) else ([e for e in kin_all if not e.get("behind")] if on("kinetic") else [])
+        for e in kin_list:  # big italic words, no box: slide 90 px + fade in over 5 frames (ease-out), fade out 6 frames
             lv = self._live(e, s, t, 0.0 if e.get("until") else 0.2)  # replaced words vanish at once: never two words on one spot
             if not lv: continue
             u, f = lv; key = "_k"
