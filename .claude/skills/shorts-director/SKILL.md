@@ -145,3 +145,12 @@ Reference: `work/long03/long03_plan.py` (demo). Research and specs: `work/resear
 - `work/sfx/library/`: 74 real CC0 recordings from **Openverse** (api.openverse.org, sources + creators in `SOURCES.json`), 20 categories (whoosh, pop, hit, riser, chime, ding, click, cheer, drumroll, tick, footstep, camera, applause, heartbeat...). Fetch more with curl (plain Python urllib gets 403).
 - `.claude/skills/real-sfx` (owner's skill): places real library sounds on the exact frame after a render; config points at both folders, index built (`scripts/build_index.py`).
 - `.claude/skills/video-director/scripts/qa_video.py film.mp4 --out qa/ --lufs -14`: post-render QA (flashes, freezes, true peak, silence). Masters now go through a true-peak limiter.
+
+## WHAT MADE THE 4 VIRAL SHORTS (analysis 26 Nov 2026) — follow this
+Viral (1,330-1,550 views each, 55-69% stayed): Build Muscle the Lazy Way (40 min, 3x/week) · How Many Push-Ups Is Normal for Your Age? · Sweat Doesn't Build Muscle. This Does. · Which Arm Level Are You?
+Flops (50-965): Walk After You Eat · Tendon Pain · Testosterone Habits · 40 Push-Ups (heart) · Sit-Down Stand-Up Test.
+- TOPIC decides it, not the style (Arm Level used the same teal style as the flops). Winners = how to BUILD MUSCLE / LOOK BIGGER for young men; flops = health, injury, hormones, longevity, heart. Stay on muscle/size/strength.
+- Hook = "you" + a belief flipped in 1 line ("2 hours? you need 40 min", "sweat doesn't build muscle") or an identity check ("which level are you?", "is your number weak?").
+- Payoff = one simple rule with a number (40 min 3x/week, 1.6 g protein/kg, 20 push-ups = solid, 5 levels).
+- Visual: H BIG (close-ups, face/arm/dumbbell fill the frame), a new shot every 1-2 s (day 1 had ~38 cuts/min; flops 3-12). No small H in empty space.
+- Length 38-40 s. No medical claims, no study scare stats.
