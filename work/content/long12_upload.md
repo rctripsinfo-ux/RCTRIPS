@@ -33,4 +33,6 @@ Disclaimer: This content is for general fitness education only. Start at your ow
 
 #squats #legday #homeworkout #calisthenics #30daychallenge
 ```
+**Schedule:** Thu 26 Nov 2026, 16:00 IST (weekday slot)
+
 **Tags:** 100 squats a day, 100 squats a day for 30 days, squats every day, squat challenge, 30 day squat challenge, bodyweight squats, leg workout at home, do squats build legs, squats for knees, no equipment leg workout, effortless exercise
