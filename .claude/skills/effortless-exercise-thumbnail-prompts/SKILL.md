@@ -199,3 +199,11 @@ Approved: `work/short10/thumb/cw_a.png` (push-up 10 vs 40). Captain-Workout spli
 - NO TEXT (or at most one number). The poses must tell the whole story: very detailed, exaggerated, readable poses and props,
   usually a side-by-side before/after or wrong/right, so a viewer understands the video without reading anything.
 - H exactly the reference character, big and close. Dark red `#7A1A1A` / green glow only as accents (glowing muscles, X / tick shapes, arrows).
+
+## SHORTS COVERS: UPDATE (owner, 26 Nov 2026)
+- The plain torn-split covers stopped working. Fantasy covers were rejected too: glow, aura, lightning, ropes and speed lines.
+- The cover is the SECOND TITLE. One glance must show what the video is about, e.g. the actual move: sit on the floor -> stand up, hands off the floor.
+- Use realistic, natural proportions. Never a squashed or distorted head.
+- Flat red #7A1A1A or teal #0F8B85 background.
+- Big white outlined text that states the question or challenge.
+- Examples: `work/short11/thumb/st_f`..`st_i` (`jobs3.tsv`).
