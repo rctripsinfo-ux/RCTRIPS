@@ -154,3 +154,8 @@ Flops (50-965): Walk After You Eat · Tendon Pain · Testosterone Habits · 40 P
 - Payoff = one simple rule with a number (40 min 3x/week, 1.6 g protein/kg, 20 push-ups = solid, 5 levels).
 - Visual: H BIG (close-ups, face/arm/dumbbell fill the frame), a new shot every 1-2 s (day 1 had ~38 cuts/min; flops 3-12). No small H in empty space.
 - Length 38-40 s. No medical claims, no study scare stats.
+
+## TOPIC RULE (owner, 27 Nov 2026)
+- Views dropped. From now on, every Short and every long video uses a "Workouts Made Simple" topic.
+- Each topic is one common workout problem plus a simple, visual fix: a form correction, a mistake, or a beginner question.
+- Pick the next unused topic from `work/content/topics_workouts_made_simple.md` and mark it as done.

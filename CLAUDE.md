@@ -21,6 +21,7 @@ Skills from addyosmani/agent-skills (commit 39b723c, MIT) are vendored in `.clau
 
 ## Effortless Exercise Shorts (main project in this repo)
 - How every video is made: `.claude/skills/shorts-director/SKILL.md`, section "THE METHOD". Thumbnails: `.claude/skills/effortless-exercise-thumbnail-prompts/SKILL.md`.
+- Topics (27 Nov 2026): "Workouts Made Simple" problem + fix, backlog in `work/content/topics_workouts_made_simple.md`.
 - New machine: `bash work/setup_env.sh`, then follow `work/HANDOFF-PROMPT.md`.
 - After every finished LONG video: build the Google Drive upload package (Shorts: owner uploads by hand), see `work/UPLOAD_PACKAGE.md`.
 - The owner reads replies in Hinglish. Scripts, titles and prompts are in English. Keep usage low.
