@@ -11,7 +11,7 @@ No push-up topics. Prefer muscle/size angles first (arms, calves, glutes), they 
 7. Glute Bridges Not Working Your Glutes? Move Your Feet Here
 8. Pull-Ups Too Hard? The Easy Ladder to Your First Rep
 9. Why Your Shoulders Click During Workouts (And How to Stop It)
-10. Doing Calf Raises Wrong? Why Your Calves Won't Grow
+10. [done 2026-11-27, short12] Doing Calf Raises Wrong? Why Your Calves Won't Grow
 11. Rest Too Short or Too Long? The Simple Rule for Rest Time
 12. How Many Reps Should You Do? (Strength vs Size, Simply Explained)
 13. Training Hard but No Results? You're Missing This One Rule
