@@ -207,3 +207,25 @@ Approved: `work/short10/thumb/cw_a.png` (push-up 10 vs 40). Captain-Workout spli
 - Flat red #7A1A1A or teal #0F8B85 background.
 - Big white outlined text that states the question or challenge.
 - Examples: `work/short11/thumb/st_f`..`st_i` (`jobs3.tsv`).
+
+## CHANNEL THUMBNAIL REVIEW (owner screenshots, 27 Nov 2026)
+- SHORTS: the old style did best (most 1K-1.9K).
+  - White/cream background.
+  - Big 3-4 word problem headline in colourful 3D text (red/blue/green), e.g. "Small Arms? It's Your Forearms", "STOP These 5 Push Up Mistakes!".
+  - H shows the actual exercise.
+  - Red X vs green check.
+- SHORTS: the flat red/teal covers were mixed (28-1.3K).
+  - The winners among them were level/number tests: "10 vs 40", "1 2 3 4 5 arms".
+  - Topic decides more than style.
+- LONG: all thumbnails are teal.
+  - Best was "ONE FINGER?! 60 KG" (709): a human contrast (H vs lean Kabir), a curiosity gap, and text that does NOT repeat the title.
+  - Weakest were the ones that repeat the title ("100 SQUATS A DAY" 18) or are cluttered with props ("FOREARMS?" 80).
+- LONG: views also follow length.
+  - 3:51-5:19 = 329-709 views; 2:13-2:56 = 18-211.
+  - Make long videos 5-8 min.
+- Rule from now on:
+  - The thumbnail text adds curiosity and never copies the title.
+  - One clear contrast or one clear problem.
+  - The real exercise is visible.
+  - Shorts go back to the white-background problem/fix style, the brand colours stay as accents.
+  - Test it next to the old 1K+ covers.
