@@ -9,7 +9,7 @@ def B(n): return f"{I}/{n}_al.png"
 def BR(seq, **k): return act([(B(p), a) for p, a in seq], **{"w": 1.0, "y": 0.56, **k})          # bridge poses (side view, one canvas)
 def REPS(a, b, n, step, t0=0.0): return [(a if i % 2 == 0 else b, round(t0 + i * step, 2)) for i in range(n)]
 def INS(at, n, crop, mark, until=None): return dict(at=at, until=until, asset=B(n), crop=crop, x=0.8, y=0.16, r=0.12, bg=(236, 230, 214), mark=mark, mark_delay=0.15)
-HAM, QUAD, GLU, BACK = (0.6, 0.68, 0.25), (0.61, 0.29, 0.25), (0.64, 0.47, 0.25), (0.39, 0.4, 0.25)
+HAM, QUAD, GLU, BACK = (0.6, 0.68, 0.25), (0.72, 0.29, 0.25), (0.63, 0.49, 0.25), (0.48, 0.5, 0.25)
 S = [
  dict(text="Doing glute bridges and only feeling your thighs?", poses=[], layers=[BR([("gb_down", 0), ("gb_close", "bridges")])], labels=[lab("thighs?", "THIGHS?", y=0.3)],
       insets=[INS("thighs?", "gb_close", QUAD, "x")], keys=hook_keys((.6, .55)), sfx=[(0, "whoosh_big", .2), ("thighs?", "pop", .3)]),
