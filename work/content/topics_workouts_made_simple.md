@@ -8,7 +8,7 @@ No push-up topics. Prefer muscle/size angles first (arms, calves, glutes), they 
 4. Lunges Wobbly? Do This to Stay Balanced
 5. [new angle needed: arms/forearms/thick-arm shorts already out] Why Your Arms Aren't Growing (3 Simple Fixes)
 6. You're Doing Crunches Wrong: Here's Why Your Neck Hurts
-7. Glute Bridges Not Working Your Glutes? Move Your Feet Here
+7. [done 2026-11-28, short13] Glute Bridges Not Working Your Glutes? Move Your Feet Here
 8. Pull-Ups Too Hard? The Easy Ladder to Your First Rep
 9. Why Your Shoulders Click During Workouts (And How to Stop It)
 10. [done 2026-11-27, short12] Doing Calf Raises Wrong? Why Your Calves Won't Grow
